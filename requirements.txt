@@ -1,0 +1,20 @@
+
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+# 1. 深度学习与大模型基石
+torch
+transformers
+accelerate
+datasets
+
+# 2. 微调与对齐核心库 (SFT & DPO 必备)
+peft
+trl
+bitsandbytes
+
+# 3. 数据清洗与自动化 Pipeline 工具
+pandas
+pyarrow
+tqdm
+datasketch
+jieba
