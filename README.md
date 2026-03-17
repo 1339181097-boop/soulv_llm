@@ -17,7 +17,7 @@
 ### Phase 1: 数据管道建设 (Data Pipeline) —— 【当前进行中】
 构建约 3000 条高质量、无噪音的黄金 SFT 数据集，统一转换为 **ChatML** 格式。
 - **[已完成]** `handler_itinerary.py`：生成攻略长文数据（739 条）。
-- **[待执行]** `handler_intent.py`：解析真实日志或合成意图 JSON 产出数据（约 800 条）。
+- **[已完成]** `handler_intent.py`：解析真实日志或合成意图 JSON 产出数据（约 800 条）。
 - **[待执行]** `handler_roleplay.py`：合成自我认知（“我是小奇”）与安全拒答数据（约 400 条）。
 - **[待执行]** `handler_multiturn.py`：处理多轮客服对话数据（约 1000 条）。
 - **[待执行]** `data_mixer.py`：终极融合器，按配比随机抽取、Shuffle，输出最终的 `soulv_mixed_sft.json`。
@@ -56,23 +56,3 @@
 ## 💬 四、 给 AI 助手的初始指令
 阅读完以上上下文后，请回复：
 **“✅ 搜旅 7B MVP 全链路架构（Phase 1 到 Phase 5）已载入核心记忆！请主人下达具体的编码指令，我们立刻开工！”**
-
-
-soulv_tourism_llm/
-├── pyproject.toml                 # uv 生成的项目配置文件
-├── requirements.txt               # 指定了 CUDA 12.4 源的 PyTorch/大模型依赖表
-│
-├── data/                          # 🗄️ 数据集专属目录 (切记在git中忽略此目录，防止大文件塞满仓库)
-│   ├── raw/                       # ➡️ [原料区] 存放数据清洗员给你的原始爬虫数据 (JSONL/CSV)
-│   ├── processed/                 # ➡️ [半成品] 存放各个 handler 单独跑出来的 ChatML 格式文件
-│   └── final/                     # ➡️ [成品区] 存放按比例混合好、直接喂给 LLaMA-Factory 的终态数据
-│
-└── pipeline/                      # 🛠️ 🌟 核心数据处理代码流水线 (按意图解耦)
-    ├── __init__.py                # 声明为空包，方便互相引用包内函数
-    ├── handler_itinerary.py       # 🎯 [模块1] 旅游攻略规划 (40%)：处理长篇游记逻辑拆解
-    ├── handler_multiturn.py       # 🎯 [模块2] 多轮对话与意图澄清 (25%)：拼接上下文对话
-    ├── handler_rag.py             # 🎯 [模块3] RAG/工具调用 (15%)：结构化字典(如机场/酒店)转模板
-    ├── handler_roleplay_safety.py # 🎯 [模块4] 角色扮演与安全对齐 (10%)：思想注入与拒答逻辑
-    ├── handler_basic_qa.py        # 🎯 [模块5] 基础景点百科 QA (10%)：处理静态常识数据
-    ├── global_cleaner.py          # 🛡️ [统一质检] 全局 PII 隐私脱敏、超长文本截断、乱码过滤
-    └── data_mixer.py              # ⚖️ [配方核心] 读取 processed 中的五类数据，按比例抽样混合打乱
