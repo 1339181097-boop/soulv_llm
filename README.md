@@ -18,7 +18,7 @@
 构建约 3000 条高质量、无噪音的黄金 SFT 数据集，统一转换为 **ChatML** 格式。
 - **[已完成]** `handler_itinerary.py`：生成攻略长文数据（739 条）。
 - **[已完成]** `handler_intent.py`：解析真实日志或合成意图 JSON 产出数据（约 800 条）。
-- **[待执行]** `handler_roleplay.py`：合成自我认知（“我是小奇”）与安全拒答数据（约 400 条）。
+- **[已完成]** `handler_roleplay.py`：合成自我认知（“我是小奇”）与安全拒答数据（约 400 条）。
 - **[待执行]** `handler_multiturn.py`：处理多轮客服对话数据（约 1000 条）。
 - **[待执行]** `data_mixer.py`：终极融合器，按配比随机抽取、Shuffle，输出最终的 `soulv_mixed_sft.json`。
 
