@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import random
@@ -7,9 +7,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from pipeline.data_utils import (
+from src.data_pipeline.data_utils import (
     configure_console_output,
     read_json,
     resolve_path,
@@ -22,12 +22,12 @@ from pipeline.data_utils import (
 
 DEFAULT_OUTPUT_PATH = "data/final/soulv_mixed_sft.json"
 DEFAULT_SEED = 42
+# ه½“ه‰چé»کè®¤é‡‡ç”¨â€œه·²ه®Œوˆگçڑ„ن¸‰ç±»و•°وچ®â€‌é…چو–¹م€‚
+# ç­‰ multiturn/basic_qa è،¥é½گهگژï¼Œه†چهˆ‡وچ¢هˆ° README ن¸­è®°ه½•çڑ„ن¸‹ن¸€ç‰ˆç›®و ‡é…چو¯”م€‚
 DEFAULT_SPECS = {
-    "sft_itinerary.json": 0.4,
-    "sft_multiturn.json": 0.25,
-    "sft_intent.json": 0.15,
-    "sft_roleplay_safety.json": 0.1,
-    "sft_basic_qa.json": 0.1,
+    "sft_itinerary.json": 0.55,
+    "sft_intent.json": 0.30,
+    "sft_roleplay_safety.json": 0.15,
 }
 
 
@@ -42,11 +42,11 @@ def _parse_specs(raw_specs: list[str]) -> dict[str, float]:
     specs: dict[str, float] = {}
     for raw_spec in raw_specs:
         if "=" not in raw_spec:
-            raise ValueError(f"无效规格: {raw_spec}，应为 filename=weight")
+            raise ValueError(f"و— و•ˆè§„و ¼: {raw_spec}ï¼Œه؛”ن¸؛ filename=weight")
         filename, raw_weight = raw_spec.split("=", 1)
         weight = float(raw_weight)
         if weight <= 0:
-            raise ValueError(f"权重必须大于 0: {raw_spec}")
+            raise ValueError(f"و‌ƒé‡چه؟…é،»ه¤§ن؛ژ 0: {raw_spec}")
         specs[filename.strip()] = weight
     return specs
 
@@ -54,13 +54,13 @@ def _parse_specs(raw_specs: list[str]) -> dict[str, float]:
 def _load_bucket(filename: str, weight: float) -> DatasetBucket | None:
     path = resolve_path(f"data/processed/{filename}")
     if not path.exists():
-        log_warn(f"缺少数据集，跳过混合: {path}")
+        log_warn(f"ç¼؛ه°‘و•°وچ®é›†ï¼Œè·³è؟‡و··هگˆ: {path}")
         return None
 
     dataset = read_json(path)
     errors = validate_chatml_dataset(dataset)
     if errors:
-        log_warn(f"数据集格式不合法，跳过混合: {path}")
+        log_warn(f"و•°وچ®é›†و ¼ه¼ڈن¸چهگˆو³•ï¼Œè·³è؟‡و··هگˆ: {path}")
         for error in errors[:5]:
             log_warn(error)
         return None
@@ -102,7 +102,7 @@ def mix_datasets(
             buckets.append(bucket)
 
     if not buckets:
-        log_warn("没有找到可混合的 processed 数据集。")
+        log_warn("و²،وœ‰و‰¾هˆ°هڈ¯و··هگˆçڑ„ processed و•°وچ®é›†م€‚")
         return []
 
     mixed: list[dict] = []
@@ -115,27 +115,27 @@ def mix_datasets(
             target = min(counts[bucket.filename], len(bucket.records))
             if target < counts[bucket.filename]:
                 log_warn(
-                    f"{bucket.filename} 可用样本不足，目标 {counts[bucket.filename]} 条，实际仅抽取 {target} 条。"
+                    f"{bucket.filename} هڈ¯ç”¨و ·وœ¬ن¸چè¶³ï¼Œç›®و ‡ {counts[bucket.filename]} و‌،ï¼Œه®‍é™…ن»…وٹ½هڈ– {target} و‌،م€‚"
                 )
             mixed.extend(rng.sample(bucket.records, target))
 
     rng.shuffle(mixed)
     output_path = write_json(output_json_path, mixed)
-    log_success(f"数据混合完成，输出 {len(mixed)} 条样本。")
-    log_info(f"输出文件: {output_path}")
+    log_success(f"و•°وچ®و··هگˆه®Œوˆگï¼Œè¾“ه‡؛ {len(mixed)} و‌،و ·وœ¬م€‚")
+    log_info(f"è¾“ه‡؛و–‡ن»¶: {output_path}")
     return mixed
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="按比例混合 processed 目录下的 ChatML 数据。")
-    parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="混合输出 JSON 路径。")
-    parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="随机种子。")
-    parser.add_argument("--total-samples", type=int, default=None, help="目标混合样本数，默认取全部。")
+    parser = argparse.ArgumentParser(description="وŒ‰و¯”ن¾‹و··هگˆ processed ç›®ه½•ن¸‹çڑ„ ChatML و•°وچ®م€‚")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="و··هگˆè¾“ه‡؛ JSON è·¯ه¾„م€‚")
+    parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="éڑڈوœ؛ç§چه­گم€‚")
+    parser.add_argument("--total-samples", type=int, default=None, help="ç›®و ‡و··هگˆو ·وœ¬و•°ï¼Œé»کè®¤هڈ–ه…¨éƒ¨م€‚")
     parser.add_argument(
         "--spec",
         action="append",
         default=[],
-        help="数据集配比，格式 filename=weight，可重复指定。",
+        help="و•°وچ®é›†é…چو¯”ï¼Œو ¼ه¼ڈ filename=weightï¼Œهڈ¯é‡چه¤چوŒ‡ه®ڑم€‚",
     )
     return parser
 
@@ -148,3 +148,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

@@ -1,0 +1,16 @@
+﻿model_name_or_path: models/base_models/Qwen2.5-7B-Instruct
+dataset_path: data/final/soulv_mixed_sft.json
+output_dir: models/checkpoints/qwen8b-sft-qlora
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+learning_rate: 2.0e-4
+num_train_epochs: 3
+max_seq_length: 4096
+lora_r: 64
+lora_alpha: 128
+lora_dropout: 0.05
+bf16: true
+gradient_checkpointing: true
+logging_steps: 10
+save_steps: 200
+eval_strategy: "no"

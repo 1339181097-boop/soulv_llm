@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -7,9 +7,9 @@ from pathlib import Path
 from typing import Any
 
 if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 
-from pipeline.data_utils import (
+from src.data_pipeline.data_utils import (
     configure_console_output,
     load_records,
     log_error,
@@ -19,16 +19,16 @@ from pipeline.data_utils import (
     resolve_path,
     write_json,
 )
-from pipeline.global_cleaner import clean_text, normalize_text
+from src.data_pipeline.global_cleaner import clean_text, normalize_text
 
 DEFAULT_INPUT_PATH = "data/raw/intent.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_intent.json"
 DEFAULT_SYSTEM_PROMPT = (
-    "你是一个多功能智能旅行助手，能够精准识别用户意图，只能出现一种用户意图，"
-    'json格式输出：{"intentionName":"FUNCTION_FLIGHTS_SEARCH_STRATEGY"}'
+    "ن½ وک¯ن¸€ن¸ھه¤ڑهٹںèƒ½و™؛èƒ½و—…è،Œهٹ©و‰‹ï¼Œèƒ½ه¤ںç²¾ه‡†è¯†هˆ«ç”¨وˆ·و„ڈه›¾ï¼Œهڈھèƒ½ه‡؛çژ°ن¸€ç§چç”¨وˆ·و„ڈه›¾ï¼Œ"
+    'jsonو ¼ه¼ڈè¾“ه‡؛ï¼ڑ{"intentionName":"FUNCTION_FLIGHTS_SEARCH_STRATEGY"}'
 )
 
-# 公司当前正在使用的意图规范。后续所有清洗和训练都以这份枚举为准。
+# ه…¬هڈ¸ه½“ه‰چو­£هœ¨ن½؟ç”¨çڑ„و„ڈه›¾è§„èŒƒم€‚هگژç»­و‰€وœ‰و¸…و´—ه’Œè®­ç»ƒéƒ½ن»¥è؟™ن»½و‍ڑن¸¾ن¸؛ه‡†م€‚
 CANONICAL_INTENT_NAMES = {
     "FUNCTION_FLIGHTS_SEARCH_STRATEGY",
     "FUNCTION_FLIGHTS_CONFIGHTING_STRATEGY",
@@ -83,12 +83,12 @@ def process_intent_data(
     output_json_path: str = DEFAULT_OUTPUT_PATH,
 ) -> list[dict[str, list[dict[str, str]]]]:
     configure_console_output()
-    log_info(f"开始处理意图数据: {resolve_path(input_file_path)}")
+    log_info(f"ه¼€ه§‹ه¤„çگ†و„ڈه›¾و•°وچ®: {resolve_path(input_file_path)}")
 
     try:
         raw_records = load_records(input_file_path)
     except FileNotFoundError:
-        log_warn(f"未找到意图原始数据，先跳过: {resolve_path(input_file_path)}")
+        log_warn(f"وœھو‰¾هˆ°و„ڈه›¾هژںه§‹و•°وچ®ï¼Œه…ˆè·³è؟‡: {resolve_path(input_file_path)}")
         return []
     except ValueError as exc:
         log_error(str(exc))
@@ -102,7 +102,7 @@ def process_intent_data(
         intention_name = normalize_text(record.get("intentionName"))
         if intention_name and intention_name not in CANONICAL_INTENT_NAMES:
             non_canonical += 1
-            log_warn(f"发现未收录的意图名: {intention_name}")
+            log_warn(f"هڈ‘çژ°وœھو”¶ه½•çڑ„و„ڈه›¾هگچ: {intention_name}")
 
         sample = build_intent_sample(record)
         if sample is None:
@@ -112,17 +112,17 @@ def process_intent_data(
 
     output_path = write_json(output_json_path, processed)
     log_success(
-        f"意图数据处理完成，输出 {len(processed)} 条，跳过 {skipped} 条。"
-        f"未收录意图名 {non_canonical} 条。"
+        f"و„ڈه›¾و•°وچ®ه¤„çگ†ه®Œوˆگï¼Œè¾“ه‡؛ {len(processed)} و‌،ï¼Œè·³è؟‡ {skipped} و‌،م€‚"
+        f"وœھو”¶ه½•و„ڈه›¾هگچ {non_canonical} و‌،م€‚"
     )
-    log_info(f"输出文件: {output_path}")
+    log_info(f"è¾“ه‡؛و–‡ن»¶: {output_path}")
     return processed
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="将意图识别数据转换为 ChatML。")
-    parser.add_argument("--input", default=DEFAULT_INPUT_PATH, help="原始意图数据路径，支持 JSON/JSONL。")
-    parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="输出 ChatML JSON 路径。")
+    parser = argparse.ArgumentParser(description="ه°†و„ڈه›¾è¯†هˆ«و•°وچ®è½¬وچ¢ن¸؛ ChatMLم€‚")
+    parser.add_argument("--input", default=DEFAULT_INPUT_PATH, help="هژںه§‹و„ڈه›¾و•°وچ®è·¯ه¾„ï¼Œو”¯وŒپ JSON/JSONLم€‚")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="è¾“ه‡؛ ChatML JSON è·¯ه¾„م€‚")
     return parser
 
 
@@ -133,3 +133,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

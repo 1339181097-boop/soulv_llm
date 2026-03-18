@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from pipeline.data_utils import (
+from src.data_pipeline.data_utils import (
     configure_console_output,
     log_error,
     log_info,
@@ -18,7 +18,7 @@ from pipeline.data_utils import (
     validate_chatml_dataset,
 )
 
-DEFAULT_TARGET_FILE = "data/processed/sft_intent.json"
+DEFAULT_TARGET_FILE = "data/processed/sft_roleplay_safety.json"
 
 
 def preview_sample(dataset: list[dict], seed: int) -> None:
@@ -32,39 +32,39 @@ def preview_sample(dataset: list[dict], seed: int) -> None:
 def test_chatml_format(file_path: str = DEFAULT_TARGET_FILE, *, preview: bool = True, seed: int = 42) -> bool:
     configure_console_output()
     resolved = resolve_path(file_path)
-    log_info(f"开始校验 SFT 数据文件: {resolved}")
+    log_info(f"ه¼€ه§‹و ،éھŒ SFT و•°وچ®و–‡ن»¶: {resolved}")
 
     if not resolved.exists():
-        log_error(f"未找到目标文件: {resolved}")
+        log_error(f"وœھو‰¾هˆ°ç›®و ‡و–‡ن»¶: {resolved}")
         return False
 
     try:
         dataset = read_json(resolved)
     except json.JSONDecodeError as exc:
-        log_error(f"JSON 解析失败: {exc}")
+        log_error(f"JSON è§£و‍گه¤±è´¥: {exc}")
         return False
 
     errors = validate_chatml_dataset(dataset)
     if errors:
-        log_error(f"校验失败，共发现 {len(errors)} 个问题。")
+        log_error(f"و ،éھŒه¤±è´¥ï¼Œه…±هڈ‘çژ° {len(errors)} ن¸ھé—®é¢کم€‚")
         for error in errors[:10]:
             log_error(error)
         return False
 
     sample_count = len(dataset)
-    log_success(f"ChatML 结构校验通过，共 {sample_count} 条样本。")
+    log_success(f"ChatML ç»“و‍„و ،éھŒé€ڑè؟‡ï¼Œه…± {sample_count} و‌،و ·وœ¬م€‚")
     if preview and dataset:
-        log_info("随机抽样一条数据用于人工检查。")
+        log_info("éڑڈوœ؛وٹ½و ·ن¸€و‌،و•°وچ®ç”¨ن؛ژن؛؛ه·¥و£€وں¥م€‚")
         preview_sample(dataset, seed)
 
     return True
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="校验搜旅 SFT 数据是否符合 ChatML 格式。")
-    parser.add_argument("--file", default=DEFAULT_TARGET_FILE, help="待校验的 JSON 数据路径。")
-    parser.add_argument("--no-preview", action="store_true", help="关闭随机样本预览。")
-    parser.add_argument("--seed", type=int, default=42, help="随机抽样种子。")
+    parser = argparse.ArgumentParser(description="و ،éھŒوگœو—… SFT و•°وچ®وک¯هگ¦ç¬¦هگˆ ChatML و ¼ه¼ڈم€‚")
+    parser.add_argument("--file", default=DEFAULT_TARGET_FILE, help="ه¾…و ،éھŒçڑ„ JSON و•°وچ®è·¯ه¾„م€‚")
+    parser.add_argument("--no-preview", action="store_true", help="ه…³é—­éڑڈوœ؛و ·وœ¬é¢„è§ˆم€‚")
+    parser.add_argument("--seed", type=int, default=42, help="éڑڈوœ؛وٹ½و ·ç§چه­گم€‚")
     return parser
 
 
@@ -76,3 +76,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+

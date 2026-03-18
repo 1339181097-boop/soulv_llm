@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import sys
@@ -6,9 +6,9 @@ from pathlib import Path
 from typing import Any
 
 if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 
-from pipeline.data_utils import (
+from src.data_pipeline.data_utils import (
     configure_console_output,
     load_records,
     log_error,
@@ -18,11 +18,11 @@ from pipeline.data_utils import (
     resolve_path,
     write_json,
 )
-from pipeline.global_cleaner import clean_text
+from src.data_pipeline.global_cleaner import clean_text
 
 DEFAULT_INPUT_PATH = "data/raw/basic_qa.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_basic_qa.json"
-DEFAULT_SYSTEM_PROMPT = "你是搜旅景点百科助手，请基于事实回答用户的旅行问答。"
+DEFAULT_SYSTEM_PROMPT = "ن½ وک¯وگœو—…و™¯ç‚¹ç™¾ç§‘هٹ©و‰‹ï¼Œè¯·هں؛ن؛ژن؛‹ه®‍ه›‍ç­”ç”¨وˆ·çڑ„و—…è،Œé—®ç­”م€‚"
 
 
 def build_basic_qa_sample(record: dict[str, Any]) -> dict[str, list[dict[str, str]]] | None:
@@ -33,7 +33,7 @@ def build_basic_qa_sample(record: dict[str, Any]) -> dict[str, list[dict[str, st
 
     context = clean_text(record.get("context"), max_length=2000)
     if context:
-        question = f"参考信息：{context}\n\n用户问题：{question}"
+        question = f"هڈ‚è€ƒن؟،وپ¯ï¼ڑ{context}\n\nç”¨وˆ·é—®é¢کï¼ڑ{question}"
 
     system_prompt = clean_text(
         record.get("system_prompt") or DEFAULT_SYSTEM_PROMPT,
@@ -54,12 +54,12 @@ def process_basic_qa_data(
     output_json_path: str = DEFAULT_OUTPUT_PATH,
 ) -> list[dict[str, list[dict[str, str]]]]:
     configure_console_output()
-    log_info(f"开始处理基础 QA 数据: {resolve_path(input_file_path)}")
+    log_info(f"ه¼€ه§‹ه¤„çگ†هں؛ç،€ QA و•°وچ®: {resolve_path(input_file_path)}")
 
     try:
         raw_records = load_records(input_file_path)
     except FileNotFoundError:
-        log_warn(f"未找到基础 QA 原始数据，先跳过: {resolve_path(input_file_path)}")
+        log_warn(f"وœھو‰¾هˆ°هں؛ç،€ QA هژںه§‹و•°وچ®ï¼Œه…ˆè·³è؟‡: {resolve_path(input_file_path)}")
         return []
     except ValueError as exc:
         log_error(str(exc))
@@ -75,15 +75,15 @@ def process_basic_qa_data(
         processed.append(sample)
 
     output_path = write_json(output_json_path, processed)
-    log_success(f"基础 QA 数据处理完成，输出 {len(processed)} 条，跳过 {skipped} 条。")
-    log_info(f"输出文件: {output_path}")
+    log_success(f"هں؛ç،€ QA و•°وچ®ه¤„çگ†ه®Œوˆگï¼Œè¾“ه‡؛ {len(processed)} و‌،ï¼Œè·³è؟‡ {skipped} و‌،م€‚")
+    log_info(f"è¾“ه‡؛و–‡ن»¶: {output_path}")
     return processed
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="将基础 QA 数据转换为 ChatML。")
-    parser.add_argument("--input", default=DEFAULT_INPUT_PATH, help="原始 QA 数据路径，支持 JSON/JSONL。")
-    parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="输出 ChatML JSON 路径。")
+    parser = argparse.ArgumentParser(description="ه°†هں؛ç،€ QA و•°وچ®è½¬وچ¢ن¸؛ ChatMLم€‚")
+    parser.add_argument("--input", default=DEFAULT_INPUT_PATH, help="هژںه§‹ QA و•°وچ®è·¯ه¾„ï¼Œو”¯وŒپ JSON/JSONLم€‚")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="è¾“ه‡؛ ChatML JSON è·¯ه¾„م€‚")
     return parser
 
 
@@ -94,3 +94,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

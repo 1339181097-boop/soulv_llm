@@ -1,4 +1,4 @@
-"""SouLV LLM data pipeline package."""
+﻿"""SouLV data pipeline package."""
 
 from .data_utils import configure_console_output, project_path, resolve_path
 

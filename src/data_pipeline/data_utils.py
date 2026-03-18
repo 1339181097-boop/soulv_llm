@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 import sys
@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Iterator
 
 DEFAULT_ENCODING = "utf-8"
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
 
 def configure_console_output() -> None:
@@ -75,11 +75,11 @@ def iter_jsonl(path: str | Path) -> Iterator[tuple[int, dict[str, Any]]]:
             try:
                 payload = json.loads(line)
             except json.JSONDecodeError as exc:
-                log_warn(f"跳过坏 JSON 行: {resolved} 第 {line_number} 行 ({exc})")
+                log_warn(f"è·³è؟‡ه‌ڈ JSON è،Œ: {resolved} ç¬¬ {line_number} è،Œ ({exc})")
                 continue
 
             if not isinstance(payload, dict):
-                log_warn(f"跳过非对象 JSON 行: {resolved} 第 {line_number} 行")
+                log_warn(f"è·³è؟‡é‌‍ه¯¹è±، JSON è،Œ: {resolved} ç¬¬ {line_number} è،Œ")
                 continue
 
             yield line_number, payload
@@ -97,14 +97,14 @@ def load_records(path: str | Path) -> list[dict[str, Any]]:
         payload = json.load(file)
 
     if not isinstance(payload, list):
-        raise ValueError(f"{resolved} 必须是 JSON 数组或 JSONL 文件。")
+        raise ValueError(f"{resolved} ه؟…é،»وک¯ JSON و•°ç»„وˆ– JSONL و–‡ن»¶م€‚")
 
     records: list[dict[str, Any]] = []
     for index, item in enumerate(payload):
         if isinstance(item, dict):
             records.append(item)
         else:
-            log_warn(f"跳过第 {index} 条非对象记录: {resolved}")
+            log_warn(f"è·³è؟‡ç¬¬ {index} و‌،é‌‍ه¯¹è±،è®°ه½•: {resolved}")
     return records
 
 
@@ -125,42 +125,43 @@ def validate_chatml_item(item: Any, item_index: int) -> list[str]:
     errors: list[str] = []
 
     if not isinstance(item, dict):
-        return [f"第 {item_index} 条样本不是 JSON 对象。"]
+        return [f"ç¬¬ {item_index} و‌،و ·وœ¬ن¸چوک¯ JSON ه¯¹è±،م€‚"]
 
     messages = item.get("messages")
     if not isinstance(messages, list) or not messages:
-        return [f"第 {item_index} 条样本缺少非空 messages 数组。"]
+        return [f"ç¬¬ {item_index} و‌،و ·وœ¬ç¼؛ه°‘é‌‍ç©؛ messages و•°ç»„م€‚"]
 
     roles: list[str] = []
     for message_index, message in enumerate(messages):
         if not isinstance(message, dict):
-            errors.append(f"第 {item_index} 条样本第 {message_index} 条消息不是对象。")
+            errors.append(f"ç¬¬ {item_index} و‌،و ·وœ¬ç¬¬ {message_index} و‌،و¶ˆوپ¯ن¸چوک¯ه¯¹è±،م€‚")
             continue
 
         role = message.get("role")
         content = message.get("content")
 
         if not isinstance(role, str) or not role.strip():
-            errors.append(f"第 {item_index} 条样本第 {message_index} 条消息缺少有效 role。")
+            errors.append(f"ç¬¬ {item_index} و‌،و ·وœ¬ç¬¬ {message_index} و‌،و¶ˆوپ¯ç¼؛ه°‘وœ‰و•ˆ roleم€‚")
         else:
             roles.append(role)
 
         if not isinstance(content, str) or not content.strip():
-            errors.append(f"第 {item_index} 条样本第 {message_index} 条消息缺少有效 content。")
+            errors.append(f"ç¬¬ {item_index} و‌،و ·وœ¬ç¬¬ {message_index} و‌،و¶ˆوپ¯ç¼؛ه°‘وœ‰و•ˆ contentم€‚")
 
     if "user" not in roles:
-        errors.append(f"第 {item_index} 条样本缺少 user 消息。")
+        errors.append(f"ç¬¬ {item_index} و‌،و ·وœ¬ç¼؛ه°‘ user و¶ˆوپ¯م€‚")
     if "assistant" not in roles:
-        errors.append(f"第 {item_index} 条样本缺少 assistant 消息。")
+        errors.append(f"ç¬¬ {item_index} و‌،و ·وœ¬ç¼؛ه°‘ assistant و¶ˆوپ¯م€‚")
 
     return errors
 
 
 def validate_chatml_dataset(dataset: Any) -> list[str]:
     if not isinstance(dataset, list):
-        return ["数据集外层必须是 JSON 数组。"]
+        return ["و•°وچ®é›†ه¤–ه±‚ه؟…é،»وک¯ JSON و•°ç»„م€‚"]
 
     errors: list[str] = []
     for index, item in enumerate(dataset):
         errors.extend(validate_chatml_item(item, index))
     return errors
+

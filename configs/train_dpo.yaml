@@ -1,0 +1,11 @@
+﻿model_name_or_path: models/base_models/Qwen2.5-7B-Instruct
+reference_model_path: models/checkpoints/qwen8b-sft-qlora
+dataset_path: data/final/dpo_placeholder.json
+output_dir: models/checkpoints/qwen8b-dpo
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-6
+num_train_epochs: 1
+max_seq_length: 4096
+bf16: true
+logging_steps: 10
