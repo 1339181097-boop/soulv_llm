@@ -2,7 +2,7 @@
 
 ## 🎯 一、 项目全局定位与核心目标
 本项目旨在打造搜旅智慧科技的专属 AI 旅行管家“小奇”。当前处于 **MVP（最小可行性产品）验证阶段**，核心目标是跑通大模型后训练（Post-Training）的全自动化 Pipeline。
-- **基座模型**：Qwen3-8B-Instruct (或同级别 Qwen2.5 系列)
+- **基座模型**：Qwen3-8B-Instruct
 - **算力环境**：单卡 NVIDIA A10 (24GB 显存)
 - **业务验证双核心**：
   1. **复杂格式生成**：根据知识库排版旅游攻略（严格分8大模块、大量使用Emoji、维持“小奇”人设）。
@@ -19,7 +19,7 @@
 - **[已完成]** `src/data_pipeline/handlers/handler_itinerary.py`：生成攻略长文数据（739 条）。
 - **[已完成]** `src/data_pipeline/handlers/handler_intent.py`：解析真实日志或合成意图 JSON 产出数据（约 800 条）。
 - **[已完成]** `src/data_pipeline/handlers/handler_roleplay_safety.py`：合成自我认知（“我是小奇”）与安全拒答数据（约 400 条）。
-- **[待执行]** `src/data_pipeline/handlers/handler_multiturn.py`：处理多轮客服对话数据（约 1000 条）。
+- **[已完成]** `src/data_pipeline/handlers/handler_multiturn.py`：处理多轮客服对话数据（约 1000 条）。
 - **[已完成]** `src/data_pipeline/data_mixer.py`：终极融合器，按配比随机抽取、Shuffle，输出最终的 `soulv_mixed_sft.json`。
 
 #### 当前已落地数据资产（2026-03）
@@ -56,7 +56,7 @@
 ### Phase 2: LLaMA-Factory 训练引擎挂载 (Environment & Framework)
 将我们清洗出的数据无缝接入业界最强微调框架 LLaMA-Factory。
 - **[待执行]** 编写/修改 `dataset_info.json`：向 LLaMA-Factory 注册我们的混合数据集。
-- **[待执行]** 生成 `train_qwen7b_lora.yaml`：配置训练超参数（Batch Size, Learning Rate, Epochs 等），确保在 A10 24G 显存下不 OOM。
+- **[待执行]** 调整 `configs/train_sft_qlora.yaml`：配置 Qwen3-8B 的训练超参数（Batch Size, Learning Rate, Epochs 等），确保在 A10 24G 显存下不 OOM。
 
 ### Phase 3: 模型指令微调 (SFT - LoRA)
 在单卡 A10 上执行高效参数微调。
@@ -66,7 +66,7 @@
 
 ### Phase 4: 模型合并与推理部署 (Inference & Deployment)
 微调结束后，对模型进行权重验证和本地化部署测试。
-- **[待执行]** `merge_lora.sh`：将训练好的 LoRA 权重与 Qwen-8B 基础权重合并。
+- **[待执行]** `merge_lora.sh`：将训练好的 LoRA 权重与 Qwen3-8B 基础权重合并。
 - **[待执行]** `inference_test.py`：利用 vLLM 或 HuggingFace Transformers 编写简易 CLI 对话脚本，进行第一手直观测试。
 
 ### Phase 5: 业务自动化评估 (Evaluation & Metrics)
@@ -130,3 +130,4 @@ SOULV_LLM/
 - `scripts/`：云端一键执行脚本入口
 - `models/` 与 `logs/`：为云端训练和部署预留目录
 - 旧 `pipeline/` 兼容层已清理，后续统一使用 `src/data_pipeline/` 下的新路径
+

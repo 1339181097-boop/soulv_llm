@@ -22,11 +22,13 @@ from src.data_pipeline.data_utils import (
 
 DEFAULT_OUTPUT_PATH = "data/final/soulv_mixed_sft.json"
 DEFAULT_SEED = 42
-# ه½“ه‰چé»کè®¤é‡‡ç”¨â€œه·²ه®Œوˆگçڑ„ن¸‰ç±»و•°وچ®â€‌é…چو–¹م€‚
-# ç­‰ multiturn/basic_qa è،¥é½گهگژï¼Œه†چهˆ‡وچ¢هˆ° README ن¸­è®°ه½•çڑ„ن¸‹ن¸€ç‰ˆç›®و ‡é…چو¯”م€‚
+# 默认纳入当前已经清洗完成的四类 SFT 数据。
+# 在不指定 total_samples 时会全量合并并打乱；
+# 当需要按目标样本量重采样时，再使用下方权重控制混料比例。
 DEFAULT_SPECS = {
-    "sft_itinerary.json": 0.55,
-    "sft_intent.json": 0.30,
+    "sft_itinerary.json": 0.40,
+    "sft_intent.json": 0.20,
+    "sft_dialogue.json": 0.25,
     "sft_roleplay_safety.json": 0.15,
 }
 
@@ -148,4 +150,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
 
