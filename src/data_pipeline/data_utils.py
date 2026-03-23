@@ -121,6 +121,14 @@ def write_json(path: str | Path, payload: Any) -> Path:
     return resolved
 
 
+def write_jsonl(path: str | Path, records: list[dict[str, Any]]) -> Path:
+    resolved = ensure_parent_dir(path)
+    with resolved.open("w", encoding=DEFAULT_ENCODING) as file:
+        for record in records:
+            file.write(json.dumps(record, ensure_ascii=False) + "\n")
+    return resolved
+
+
 def validate_chatml_item(item: Any, item_index: int) -> list[str]:
     errors: list[str] = []
 

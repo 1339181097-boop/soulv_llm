@@ -1,8 +1,11 @@
-# SFT 数据格式约定
+﻿# SFT 数据格式约定
+
+本文件描述当前 8B Domain SFT 阶段的数据契约。  
+当前阶段只训练旅游领域自然语言能力，不训练意图识别 JSON，不训练工具调用。
+
+## 1. 顶层结构
 
 本项目统一使用 ChatML 风格的 JSON 数组作为 SFT 训练输入。
-
-## 顶层结构
 
 ```json
 [
@@ -25,33 +28,54 @@
 ]
 ```
 
-## 约束
+## 2. 当前阶段约束
 
 - 顶层必须是 JSON 数组。
 - 每条样本必须包含 `messages` 字段。
 - `messages` 必须是数组，且至少包含一条 `user` 和一条 `assistant` 消息。
-- 每条消息必须包含：
-  - `role`
-  - `content`
+- 每条消息必须包含 `role` 和 `content`。
 - `content` 必须是非空字符串。
-- 多轮对话允许出现多个 `user` 和 `assistant`，也允许额外出现 `system`、`tool`、`observation`。
+- 当前阶段允许多轮 `user` / `assistant`，也允许保留一条 `system`。
+- 当前阶段训练样本默认只使用 `system`、`user`、`assistant` 三种角色。
 
-## 各模块建议
+## 3. 当前阶段禁止项
 
-- `handler_itinerary.py`
-  - 输出长攻略型样本
-  - `assistant.content` 保留完整攻略正文
-- `handler_intent.py` / `handler_rag.py`
-  - `assistant.content` 优先输出纯 JSON 字符串
-- `handler_multiturn.py`
-  - 直接保留上下文多轮消息
+以下内容不属于当前 Domain SFT 数据：
+
+- 纯 `{"intentionName": ...}` 分类输出
+- `tool_calls` / `function_call` / `function_calls`
+- `tool` / `observation` 轨迹消息
+- 任何模拟工具执行结果的样本
+
+当前阶段 `assistant.content` 必须是自然语言回复。
+
+## 4. 离线元信息
+
+如有需要，每条样本可以在顶层保留离线元信息，例如：
+
+- `id`
+- `task_type`
+- `scene`
+- `source`
+- `brand_style`
+- `difficulty`
+
+这些字段只用于离线分析、采样、审计，不应成为模型要学习输出的内容。
+
+## 5. 当前可用模块
+
+当前阶段可作为主路径的数据模块：
+
+- `handler_guide_generation.py`
+  - 输出攻略生成样本
+  - `assistant.content` 为自然语言攻略正文或局部规划
+- `handler_dialogue.py`
+  - 输出多轮需求补充、改口、约束更新样本
 - `handler_roleplay_safety.py`
-  - 用于“小奇”人设与安全拒答
-- `handler_basic_qa.py`
-  - 用于景点百科类问答
+  - 输出品牌身份和安全约束样本
 
-## 路径约定
+## 6. 路径约定
 
 - 原始数据：`data/raw/`
 - 单模块产物：`data/processed/`
-- 最终混合产物：`data/final/`
+- 当前阶段主混合产物：`data/final/stage1_general_sft.json`
