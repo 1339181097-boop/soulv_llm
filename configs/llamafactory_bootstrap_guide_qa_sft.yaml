@@ -1,0 +1,49 @@
+### model
+model_name_or_path: /root/soulv_llm/models/base_models/Qwen3-8B-Instruct
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+quantization_bit: 4
+
+### dataset
+dataset_dir: /root/llama-factory/data
+dataset: soulv_bootstrap_guide_qa_sft
+template: qwen
+cutoff_len: 2048
+max_samples: 2750
+overwrite_cache: true
+preprocessing_num_workers: 16
+val_size: 0.02
+
+### output
+output_dir: /root/soulv_assets/runs/checkpoints/qwen3_8b_bootstrap_guide_qa_sft
+logging_steps: 10
+save_strategy: steps
+save_steps: 100
+eval_strategy: steps
+eval_steps: 100
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false
+plot_loss: true
+overwrite_output_dir: true
+save_total_limit: 2
+
+### train
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 16
+learning_rate: 5.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+ddp_timeout: 180000000
+gradient_checkpointing: true

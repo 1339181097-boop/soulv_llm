@@ -1,0 +1,16 @@
+{
+  "soulv_bootstrap_guide_qa_sft": {
+    "file_name": "soulv_bootstrap_guide_qa_sft.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  }
+}
