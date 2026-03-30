@@ -108,3 +108,53 @@ def test_process_travel_qa_data_deduplicates_records() -> None:
         assert saved[0]["task_type"] == "travel_qa"
     finally:
         shutil.rmtree(temp_dir, ignore_errors=True)
+
+
+def test_process_travel_qa_data_limits_repeated_answers() -> None:
+    temp_dir = Path(".tmp_travel_qa_answer_cap_test")
+    input_path = temp_dir / "travel_qa_raw.jsonl"
+    output_path = temp_dir / "sft_travel_qa.json"
+    record_template = {
+        "task_type": "spot_qa",
+        "city": "杭州",
+        "entity_type": "spot",
+        "question_type": "玩法推荐",
+        "is_time_sensitive": False,
+        "assistant_content": "这里更适合轻松散步和看看城市景观，整体节奏比较从容。",
+    }
+
+    temp_dir.mkdir(exist_ok=True)
+    try:
+        with input_path.open("w", encoding="utf-8") as file:
+            for index in range(7):
+                record = dict(record_template)
+                record["entity_name"] = f"西湖景点{index}"
+                record["user_query"] = f"西湖景点{index}适合顺路逛吗？"
+                file.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+        dataset = process_travel_qa_data(
+            str(input_path),
+            str(output_path),
+            total_samples=0,
+            city_cap=0,
+            answer_cap=5,
+        )
+
+        assert len(dataset) == 5
+    finally:
+        shutil.rmtree(temp_dir, ignore_errors=True)
+
+
+def test_build_travel_qa_sample_rejects_placeholder_noise() -> None:
+    record = {
+        "task_type": "spot_qa",
+        "city": "成都",
+        "entity_name": "宽窄巷子",
+        "entity_type": "spot",
+        "question_type": "基础信息",
+        "is_time_sensitive": False,
+        "user_query": "宽窄巷子适合什么时候去逛？",
+        "assistant_content": "详情可拨打[PHONE]咨询。",
+    }
+
+    assert build_travel_qa_sample(record) is None

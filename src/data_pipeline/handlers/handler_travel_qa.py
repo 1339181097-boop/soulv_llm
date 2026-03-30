@@ -28,6 +28,7 @@ DEFAULT_INPUT_PATH = "data/raw/travel_qa_raw_3_23.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_travel_qa.json"
 DEFAULT_TOTAL_SAMPLES = 1250
 DEFAULT_CITY_CAP = 80
+DEFAULT_ANSWER_CAP = 5
 SPOT_RATIO = 0.55
 CITY_RATIO = 0.25
 TRAFFIC_RATIO = 0.20
@@ -114,6 +115,8 @@ DETAIL_CLAUSE_PATTERN = re.compile(
     r"\u73ed\u6b21|\u9996\u73ed|\u672b\u73ed)[^\u3002\uff1b;]*"
 )
 TRAILING_PUNCTUATION_PATTERN = re.compile(r"^[\uff0c,;；:\uff1a\s]+|[\uff0c,;；:\uff1a\s]+$")
+PII_TOKEN_PATTERN = re.compile(r"\[(?:PHONE|EMAIL|ID_CARD|TRUNCATED)\]")
+BOOKING_NOISE_PATTERN = re.compile(r"(?:\u5e93\u5b58|\u4f59\u7968|\u6709\u623f|\u9884\u8ba2|\u9884\u7ea6|\u7acb\u5373\u8d2d\u4e70|\u9650\u65f6\u62a2|\u4f18\u60e0\u4ef7)")
 
 
 def _name_aliases(name: str) -> set[str]:
@@ -205,16 +208,26 @@ def _traffic_mode_summary(text: str) -> str:
     return "\u4e00\u822c\u53ef\u4f18\u5148\u8003\u8651\u516c\u5171\u4ea4\u901a\u6216\u6253\u8f66\u524d\u5f80"
 
 
-def _simplify_traffic_answer(answer: str) -> str:
+def _destination_phrase(record: dict[str, Any]) -> str:
+    entity_name = normalize_text(record.get("entity_name"))
+    city = normalize_text(record.get("city"))
+    if entity_name and entity_name != city:
+        return entity_name
+    if city:
+        return city
+    return "\u76ee\u7684\u5730"
+
+
+def _simplify_traffic_answer(record: dict[str, Any], answer: str) -> str:
     normalized = normalize_text(answer)
     minutes = _extract_first_number(DURATION_PATTERN, normalized)
     distance_km = _extract_first_number(DISTANCE_PATTERN, normalized)
     mode_summary = _traffic_mode_summary(normalized)
     trip_summary = _classify_trip_length(minutes, distance_km)
+    destination = _destination_phrase(record)
     return (
-        f"{mode_summary}\uff0c{trip_summary}\u3002"
-        "\u5982\u679c\u66f4\u770b\u91cd\u7701\u5fc3\u6216\u540c\u884c\u4eba\u6570\u8f83\u591a\uff0c"
-        "\u4e5f\u53ef\u4ee5\u76f4\u63a5\u6253\u8f66\u3002"
+        f"\u53bb{destination}\u65f6\uff0c{mode_summary}\uff0c{trip_summary}\u3002"
+        "\u5982\u679c\u66f4\u770b\u91cd\u7701\u5fc3\u6216\u540c\u884c\u4eba\u6570\u8f83\u591a\uff0c\u4e5f\u53ef\u4ee5\u76f4\u63a5\u6253\u8f66\u3002"
         "\u51fa\u53d1\u524d\u5efa\u8bae\u518d\u786e\u8ba4\u5f53\u65e5\u7ebf\u8def\u3001\u7ad9\u70b9\u548c\u8fd0\u8425\u60c5\u51b5\u3002"
     )
 
@@ -282,12 +295,16 @@ def _clean_answer(record: dict[str, Any], answer: str) -> str:
     task_type = normalize_text(record.get("task_type")).lower()
     entity_type = normalize_text(record.get("entity_type")).lower()
     is_time_sensitive = bool(record.get("is_time_sensitive"))
+    normalized_answer = normalize_text(answer)
+
+    if PII_TOKEN_PATTERN.search(normalized_answer) or BOOKING_NOISE_PATTERN.search(normalized_answer):
+        return ""
 
     if task_type == "traffic_qa" or entity_type == "traffic":
-        return _simplify_traffic_answer(answer)
+        return _simplify_traffic_answer(record, normalized_answer)
     if is_time_sensitive:
-        return _soften_time_sensitive_answer(answer)
-    return answer
+        return _soften_time_sensitive_answer(normalized_answer)
+    return normalized_answer
 
 
 def build_travel_qa_sample(record: dict[str, Any]) -> dict[str, Any] | None:
@@ -338,6 +355,10 @@ def _fingerprint(sample: dict[str, Any]) -> str:
     return hashlib.md5(
         f"{messages[1]['content']}\n###\n{messages[2]['content']}".encode("utf-8")
     ).hexdigest()
+
+
+def _answer_fingerprint(sample: dict[str, Any]) -> str:
+    return hashlib.md5(normalize_text(sample["messages"][2]["content"]).encode("utf-8")).hexdigest()
 
 
 def _calculate_category_targets(total_samples: int) -> dict[str, int]:
@@ -424,12 +445,28 @@ def _balance_categories(
     return balanced
 
 
+def _limit_repeated_answers(samples: list[dict[str, Any]], *, answer_cap: int) -> list[dict[str, Any]]:
+    if answer_cap <= 0:
+        return list(samples)
+
+    answer_counts: Counter[str] = Counter()
+    limited: list[dict[str, Any]] = []
+    for sample in samples:
+        fingerprint = _answer_fingerprint(sample)
+        if answer_counts[fingerprint] >= answer_cap:
+            continue
+        answer_counts[fingerprint] += 1
+        limited.append(sample)
+    return limited
+
+
 def process_travel_qa_data(
     input_file_path: str = DEFAULT_INPUT_PATH,
     output_json_path: str = DEFAULT_OUTPUT_PATH,
     *,
     total_samples: int = DEFAULT_TOTAL_SAMPLES,
     city_cap: int = DEFAULT_CITY_CAP,
+    answer_cap: int = DEFAULT_ANSWER_CAP,
 ) -> list[dict[str, Any]]:
     configure_console_output()
     log_info(f"\u5f00\u59cb\u5904\u7406 travel_qa \u6570\u636e: {resolve_path(input_file_path)}")
@@ -459,19 +496,22 @@ def process_travel_qa_data(
         seen_fingerprints.add(fingerprint)
         processed.append(sample)
 
-    balanced = _balance_categories(processed, total_samples=total_samples, city_cap=city_cap)
+    capped = _limit_repeated_answers(processed, answer_cap=answer_cap)
+    balanced = _balance_categories(capped, total_samples=total_samples, city_cap=city_cap)
     output_path = write_json(output_json_path, balanced)
     log_success(
         "\u5904\u7406 travel_qa \u6570\u636e\u5b8c\u6210\u3002"
         f"\u8f93\u51fa {len(balanced)} \u6761\uff0c"
         f"\u8df3\u8fc7 {skipped} \u6761\uff0c"
         f"\u53bb\u91cd {deduped} \u6761\uff0c"
-        f"\u539f\u59cb\u5165\u9009 {len(processed)} \u6761\u3002"
+        f"\u539f\u59cb\u5165\u9009 {len(processed)} \u6761\uff0c"
+        f"\u6a21\u677f\u7b54\u6848\u9650\u9891\u540e {len(capped)} \u6761\u3002"
     )
     log_info(
         "\u76ee\u6807\u5206\u5e03: "
         f"{_calculate_category_targets(total_samples) if total_samples > 0 else 'keep_all'}; "
-        f"\u5355\u57ce\u5e02\u4e0a\u9650: {city_cap if city_cap > 0 else 'unlimited'}"
+        f"\u5355\u57ce\u5e02\u4e0a\u9650: {city_cap if city_cap > 0 else 'unlimited'}; "
+        f"\u76f8\u540c\u7b54\u6848\u4e0a\u9650: {answer_cap if answer_cap > 0 else 'unlimited'}"
     )
     log_info(f"\u8f93\u51fa\u6587\u4ef6: {output_path}")
     return balanced
@@ -483,6 +523,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="travel_qa ChatML JSON \u8f93\u51fa\u8def\u5f84\u3002")
     parser.add_argument("--total-samples", type=int, default=DEFAULT_TOTAL_SAMPLES, help="\u76ee\u6807\u6837\u672c\u6570\uff0c\u9ed8\u8ba4 1250\uff1b\u8bbe\u4e3a 0 \u4fdd\u7559\u5168\u91cf\u3002")
     parser.add_argument("--city-cap", type=int, default=DEFAULT_CITY_CAP, help="\u5355\u57ce\u5e02\u6700\u591a\u4fdd\u7559\u6761\u6570\uff0c\u8bbe\u4e3a 0 \u4e0d\u9650\u5236\u3002")
+    parser.add_argument("--answer-cap", type=int, default=DEFAULT_ANSWER_CAP, help="\u76f8\u540c assistant \u7b54\u6848\u6700\u591a\u4fdd\u7559\u6761\u6570\uff0c\u8bbe\u4e3a 0 \u4e0d\u9650\u5236\u3002")
     return parser
 
 
@@ -493,6 +534,7 @@ def main() -> None:
         args.output,
         total_samples=args.total_samples,
         city_cap=args.city_cap,
+        answer_cap=args.answer_cap,
     )
 
 

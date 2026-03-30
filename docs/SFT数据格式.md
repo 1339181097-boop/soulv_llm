@@ -1,4 +1,4 @@
-﻿# SFT 数据格式约定
+# SFT 数据格式约定
 
 本文件描述当前 8B Domain SFT 阶段的数据契约。  
 当前阶段只训练旅游领域自然语言能力，不训练意图识别 JSON，不训练工具调用。
@@ -62,17 +62,36 @@
 
 这些字段只用于离线分析、采样、审计，不应成为模型要学习输出的内容。
 
-## 5. 当前可用模块
+## 5. 当前处理模块
 
-当前阶段可作为主路径的数据模块：
+当前仓库已经按任务类型拆分处理器，分别负责不同 SFT 桶的数据清洗与格式化：
 
 - `handler_guide_generation.py`
-  - 输出攻略生成样本
-  - `assistant.content` 为自然语言攻略正文或局部规划
-- `handler_dialogue.py`
-  - 输出多轮需求补充、改口、约束更新样本
-- `handler_roleplay_safety.py`
-  - 输出品牌身份和安全约束样本
+  - 负责 `guide_generation` 数据
+  - 输出结构化、可直接训练的攻略生成样本
+- `handler_travel_qa.py`
+  - 负责 `travel_qa` 数据
+  - 覆盖景点 / 城市 / 交通相关问答
+- `handler_hotel_recommendation.py`
+  - 负责 `hotel_recommendation` 数据
+  - 覆盖住宿推荐与需求理解
+- `handler_traffic_planning.py`
+  - 负责 `traffic_planning` 数据
+  - 覆盖交通规划 / 路线建议 / 出行方式选择
+- `handler_multiturn.py`
+  - 负责 `multi_turn_dialogue` 数据
+  - 覆盖多轮上下文承接与约束更新
+
+当前阶段目标是落实 6 类 SFT 任务：
+
+- `guide_generation`
+- `travel_qa`
+- `hotel_recommendation`
+- `traffic_planning`
+- `persona_understanding`
+- `multi_turn_dialogue`
+
+其中 `persona_understanding` 目前还没有进入 `data/processed/` 的正式产物，因此当前 `data/final/stage1_general_sft.json` 仍可能以五类候选版方式先行混合。
 
 ## 6. 路径约定
 

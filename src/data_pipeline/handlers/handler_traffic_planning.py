@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import hashlib
@@ -186,13 +186,13 @@ STRICT_BOILERPLATE_SENTENCES = (
 def _has_promo_noise(text: str) -> bool:
     normalized = normalize_text(text)
     lowered = normalized.lower()
-    if any(pattern in normalized for pattern in ("??", "????", "???", "??", "???")):
+    if any(pattern in normalized for pattern in ("点击“商城”", '点击"商城"', "二维码", "扫码", "专属智能助手")):
         return True
-    if "tripai" in lowered:
+    if "tripai" in lowered or "小奇" in normalized:
         return True
-    if "??" in normalized and any(keyword in normalized for keyword in ("??", "??", "??", "??", "??", "??", "??")):
+    if "商城" in normalized and any(keyword in normalized for keyword in ("抢票", "预订", "订票", "购买", "优惠", "返现", "下单")):
         return True
-    if "app" in lowered and any(keyword in normalized for keyword in ("??", "??", "??", "??")):
+    if "app" in lowered and any(keyword in normalized for keyword in ("下载", "打开", "查看", "预订")):
         return True
     return False
 

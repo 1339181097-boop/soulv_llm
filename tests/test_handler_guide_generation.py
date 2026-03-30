@@ -169,23 +169,23 @@ def test_prepare_guide_generation_raw_reaches_targets(tmp_path) -> None:
     output_path = tmp_path / "guide_generation_raw_expanded.jsonl"
     seed_records = [
         {
-            "destination": "??",
+            "destination": "苏州",
             "days": "3",
             "itinerary_content": (
-                "??????\n\n"
-                "### ?????????\n????????????????????????\n\n"
-                "### ?????????\n???????????????????????\n\n"
-                "### ?????????\n??????????????????????"
+                "行程概览\n\n"
+                "### 第一天：平江路与拙政园\n适合慢慢逛老城街巷，也能感受园林氛围。\n\n"
+                "### 第二天：山塘街与虎丘\n白天逛古街，下午再去虎丘看看园林和古迹。\n\n"
+                "### 第三天：金鸡湖与诚品书店\n最后一天节奏放慢一点，更适合休闲散步。"
             ),
         },
         {
-            "destination": "??",
+            "destination": "厦门",
             "days": "3",
             "itinerary_content": (
-                "??????\n\n"
-                "### ??????\n???????????????????\n\n"
-                "### ???????????\n????????????????\n\n"
-                "### ???????????\n???????????????????"
+                "行程概览\n\n"
+                "### 第一天：鼓浪屿\n安排一整天慢慢走，重点感受岛上街区和海边风景。\n\n"
+                "### 第二天：南普陀与沙坡尾\n白天看城市人文，傍晚去海边街区散步。\n\n"
+                "### 第三天：环岛路与曾厝垵\n适合轻松收尾，也方便拍照和吃点本地小吃。"
             ),
         },
     ]
@@ -205,3 +205,22 @@ def test_prepare_guide_generation_raw_reaches_targets(tmp_path) -> None:
     saved_lines = [line for line in output_path.read_text(encoding="utf-8").splitlines() if line.strip()]
     assert len(saved_lines) == len(raw_records)
     assert any(record.get("variant_type") == "contiguous_day_window" for record in raw_records)
+
+
+def test_build_guide_generation_sample_rejects_placeholder_noise() -> None:
+    rng = random.Random(0)
+    record = {
+        "destination": "重庆",
+        "days": "2",
+        "itinerary_content": (
+            "### 第一天：解放碑与洪崖洞\n"
+            "**上午**：先在解放碑周边慢慢逛街区。\n"
+            "- **建议**：白天以城市步行为主，整体节奏不要太赶。\n"
+            "- **联系方式**：[PHONE]\n\n"
+            "### 第二天：南山与江边\n"
+            "**下午**：安排江边散步和看城市景观。\n"
+            "- **提示**：注意根据当天情况灵活调整。"
+        ),
+    }
+
+    assert build_guide_generation_sample(record, rng) is None

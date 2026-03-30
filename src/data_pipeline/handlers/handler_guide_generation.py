@@ -55,7 +55,7 @@ DAY_MARKER_PATTERN = re.compile(
     re.IGNORECASE,
 )
 PRICE_PATTERN = re.compile(
-    r"(?:\u00a5|\uffe5|RMB|CNY|AED|USD|JPY|\u6e2f\u5e01|\u6b27\u5143|\u7f8e\u5143|\u65e5\u5143|\u8fea\u62c9\u59c6|\u6bd4\u7d22|\u6b27|\u5143)\s*\d+",
+    r"(?:\d+(?:\.\d+)?\s*(?:\u5143|\u65e5\u5143|\u7f8e\u5143|\u6b27\u5143|\u82f1\u9551|\u6e2f\u5e01|\u745e\u90ce|\u8fea\u62c9\u59c6|\u6bd4\u7d22|NOK|CHF|HKD|RMB|CNY)|(?:\u00a5|\uffe5|RMB|CNY|AED|USD|JPY|CHF|HKD)\s*\d+)",
     re.IGNORECASE,
 )
 CLOCK_TIME_PATTERN = re.compile(r"\b\d{1,2}:\d{2}\b")
@@ -64,6 +64,7 @@ GENERIC_PLATFORM_LISTING_PATTERN = re.compile(
     r"^\*{0,2}\s*(?:\u4f4f\u5bbf|\u9152\u5e97|\u673a\u7968|\u822a\u73ed)\*{0,2}\s*[\uff1a:]\s*\u5e73\u53f0\s*$",
     re.IGNORECASE,
 )
+PLACEHOLDER_TOKEN_PATTERN = re.compile(r"\[(?:PHONE|EMAIL|ID_CARD|TRUNCATED)\]")
 
 INTRO_NOISE_PATTERNS = (
     "\u6b22\u8fce\u4f60\u6765\u5230",
@@ -114,12 +115,26 @@ TAIL_NOISE_SECTION_KEYWORDS = (
     "\u7279\u4ea7\u624b\u4fe1",
     "\u8d2d\u7269\u63a8\u8350",
     "\u4f34\u624b\u793c",
+    "\u7b7e\u8bc1",
+    "\u5b9e\u7528\u4fe1\u606f",
+    "\u5b89\u5168\u4e0e\u5e94\u6025",
+    "\u5b63\u8282\u4e0e\u7a7f\u7740\u5efa\u8bae",
+    "\u793e\u4ea4\u793c\u4eea",
+    "\u516c\u5171\u884c\u4e3a",
+    "\u7528\u9910\u793c\u4eea",
+    "\u9000\u7a0e",
+    "\u5b97\u6559\u573a\u6240",
+    "\u63d2\u5934\u4e0e\u7535\u538b",
 )
 CLOSING_PATTERNS = (
     "\u5e0c\u671b\u8fd9\u4efd\u653b\u7565",
     "\u795d\u60a8\u65c5\u9014\u6109\u5feb",
     "\u6b22\u8fce\u968f\u65f6\u54a8\u8be2",
     "\u6b22\u8fce\u968f\u65f6\u6765\u95ee",
+    "\u65c5\u884c\u7684\u610f\u4e49\u5728\u4e8e",
+    "\u8fd9\u5ea7\u57ce\u5e02\u7684\u9b45\u529b\u5c06\u6c38\u8fdc\u7559\u5728\u4f60\u7684\u8bb0\u5fc6\u4e2d",
+    "\u671f\u5f85\u4f60\u7684\u4e0b\u6b21\u5230\u6765",
+    "\u611f\u8c22\u4f60\u9009\u62e9",
 )
 FACTUAL_RISK_KEYWORDS = (
     "\u8fd4\u73b0",
@@ -233,6 +248,8 @@ def _is_stale_detail_line(line: str) -> bool:
     normalized = normalize_text(line)
     if not normalized or DAY_MARKER_PATTERN.search(normalized):
         return False
+    if PLACEHOLDER_TOKEN_PATTERN.search(normalized):
+        return True
     if CLOCK_TIME_PATTERN.search(normalized):
         return True
     if PRICE_PATTERN.search(normalized):
@@ -340,6 +357,8 @@ def _clean_itinerary_content(value: Any) -> str:
 def _has_residual_promo(content: str) -> bool:
     normalized = normalize_text(content)
     lowered = normalized.lower()
+    if PLACEHOLDER_TOKEN_PATTERN.search(normalized):
+        return True
     if any(keyword in normalized for keyword in ("\u5546\u57ce", "\u4f18\u60e0\u822a\u7ebf", "\u4e8c\u7ef4\u7801", "\u626b\u7801", "\u5c0f\u7a0b\u5e8f", "\u8fd4\u73b0")):
         return True
     if "tripai" in lowered:

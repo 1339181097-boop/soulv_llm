@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 
@@ -129,24 +129,22 @@ def test_build_dialogue_sample_rejects_style_heavy_platform_voice() -> None:
     record = {
         "session_id": "sid_style",
         "dialogue": [
-            {"role": "user", "content": "????????????"},
+            {"role": "user", "content": "帮我推荐一个手机"},
             {
                 "role": "assistant",
                 "content": (
-                    "?????????????????????????256G????????\n\n"
-                    "### ?????\n"
-                    "1. ???\n"
-                    "2. ???\n"
-                    "3. ?????\n\n"
-                    "???????????"
+                    "这边给你整理一份热门旗舰机推荐，重点看拍照、续航和256G大存储版本。\n\n"
+                    "### 推荐清单\n"
+                    "1. 机型A\n"
+                    "2. 机型B\n"
+                    "3. 机型C\n\n"
+                    "有需要我再继续展开。"
                 ),
             },
         ],
     }
 
     assert build_dialogue_sample(record) is None
-
-
 def test_build_dialogue_sample_strips_intro_line_and_platform_listing() -> None:
     record = {
         "session_id": "sid_listing",

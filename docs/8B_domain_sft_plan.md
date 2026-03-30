@@ -123,23 +123,54 @@
 6. 多轮对话（multi_turn_dialogue）
 
 ### 5.2 推荐配比（v0）
-建议第一轮大致按以下比例：
+第一轮不要继续只按“样本条数占比”理解六类数据，而要同时约束 token 占比。
 
-- 攻略生成：30%
-- 景点 / 城市 / 交通问答：25%
-- 酒店 / 住宿推荐与需求理解：15%
-- 交通规划：10%
-- 用户画像 / 偏好理解：10%
-- 多轮对话：10%
+原因：
+- `guide_generation` 和 `multi_turn_dialogue` 天然更长。
+- `travel_qa` 虽然条数可以很多，但单条通常很短。
+- 如果继续只按 sample 数量混合，长文本桶会在训练里被明显放大。
 
-### 5.3 如果第一轮总量 5000 条，可参考分配
-- 攻略生成：1500
-- 旅游问答：1250
-- 酒店需求理解：750
-- 交通规划：500
-- 用户画像理解：500
-- 多轮对话：500
+因此 v0 不建议：
+- 直接照搬旧的条数比例。
+- 只看 bucket 样本数。
+- 使用纯 weighted sample mixing。
 
+建议采用 token-aware 配比：
+- `guide_generation`：800
+- `travel_qa`：1000
+- `hotel_recommendation`：750
+- `traffic_planning`：500
+- `persona_understanding`：500
+- `multi_turn_dialogue`：500
+
+说明：
+- 如果机械按 `1500/1250/750/500/500/500` 配，长文本桶的训练权重会明显失衡。
+- 以当前数据长度分布估算，`guide_generation` 的 token 占比很容易超过 50%，甚至接近 60%。
+- 因此需要把六类目标改成 token 更均衡的版本，而不是继续沿用按条数拍脑袋分配的方案。
+
+### 5.3 当前可执行的融合方案（v0）
+正式六类版：
+- `guide_generation`：800
+- `travel_qa`：1000
+- `hotel_recommendation`：750
+- `traffic_planning`：500
+- `persona_understanding`：500
+- `multi_turn_dialogue`：500
+- 总计：4050
+
+若 `persona_understanding` 暂时还没有 processed 数据，则先落五类候选版：
+- `guide_generation`：800
+- `travel_qa`：1000
+- `hotel_recommendation`：750
+- `traffic_planning`：500
+- `multi_turn_dialogue`：500
+- 总计：3550
+
+执行原则：
+- v0 阶段优先使用 stage mixer 的 `filename=count` 精确配额方式。
+- 不再使用只看 sample weight 的旧式 stage 配比。
+- `travel_qa` 进入混合前必须先做严格去重与答案限频。
+- `guide_generation` 进入混合前必须先做噪声过滤与 token 控制。
 ---
 
 ## 6. 公司数据库如何利用
