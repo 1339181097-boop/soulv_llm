@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import math
@@ -25,26 +25,39 @@ from src.data_pipeline.data_utils import (
 DEFAULT_OUTPUT_PATH = "data/final/stage1_general_sft.json"
 DEFAULT_REPORT_PATH = "data/final/stage_mix_report.json"
 DEFAULT_SEED = 42
+GUIDE_ASSISTANT_SHARE_THRESHOLD = 0.45
+LONG_FORM_COMBINED_ASSISTANT_SHARE_THRESHOLD = 0.58
 
-# Ad-hoc weighted mixing remains available, but current stage defaults should prefer
-# exact target counts so the six SFT buckets follow the token-aware plan more closely.
+# Weighted mixing remains available for ad-hoc runs, but stage1 should prefer
+# explicit six-bucket counts that follow the current docs recipe.
 DEFAULT_SPECS = {
     "sft_guide_generation.json": 0.20,
     "sft_travel_qa.json": 0.25,
     "sft_hotel_recommendation.json": 0.19,
     "sft_traffic_planning.json": 0.12,
-    "sft_persona_understanding.json": 0.12,
+    "sft_persona_understanding_strict.json": 0.12,
     "sft_multi_turn_dialogue.json": 0.12,
 }
 
-DEFAULT_TARGET_COUNTS = {
+DOCS_BASELINE_TARGET_COUNTS = {
     "sft_guide_generation.json": 800,
     "sft_travel_qa.json": 1000,
     "sft_hotel_recommendation.json": 750,
     "sft_traffic_planning.json": 500,
-    "sft_persona_understanding.json": 500,
+    "sft_persona_understanding_strict.json": 500,
     "sft_multi_turn_dialogue.json": 500,
 }
+
+ASSISTANT_AWARE_CORRECTED_TARGET_COUNTS = {
+    "sft_guide_generation.json": 250,
+    "sft_travel_qa.json": 1250,
+    "sft_hotel_recommendation.json": 750,
+    "sft_traffic_planning.json": 794,
+    "sft_persona_understanding_strict.json": 500,
+    "sft_multi_turn_dialogue.json": 350,
+}
+
+DEFAULT_TARGET_COUNTS = DOCS_BASELINE_TARGET_COUNTS
 
 
 @dataclass(frozen=True)
@@ -67,11 +80,11 @@ class StageRecipe:
 DEFAULT_STAGE_RECIPES = (
     StageRecipe(
         name="stage1_general_sft",
-        output_path="data/final/stage1_general_sft.json",
+        output_path=DEFAULT_OUTPUT_PATH,
         total_samples=None,
-        seed=42,
+        seed=DEFAULT_SEED,
         specs={},
-        target_counts=DEFAULT_TARGET_COUNTS,
+        target_counts=DOCS_BASELINE_TARGET_COUNTS,
     ),
 )
 
@@ -100,6 +113,75 @@ def _parse_counts(raw_counts: list[str]) -> dict[str, int]:
             raise ValueError(f"Count must be >= 0: {raw_count}")
         counts[filename.strip()] = count
     return counts
+
+
+def _role_total_length(sample: dict[str, Any], role: str) -> int:
+    messages = sample.get("messages", [])
+    if not isinstance(messages, list):
+        return 0
+    total = 0
+    for message in messages:
+        if not isinstance(message, dict) or message.get("role") != role:
+            continue
+        content = message.get("content")
+        if isinstance(content, str):
+            total += len(content)
+    return total
+
+
+def _sample_total_length(sample: dict[str, Any]) -> int:
+    messages = sample.get("messages", [])
+    if not isinstance(messages, list):
+        return 0
+    total = 0
+    for message in messages:
+        if not isinstance(message, dict):
+            continue
+        content = message.get("content")
+        if isinstance(content, str):
+            total += len(content)
+    return total
+
+
+def _task_type_for_records(records: list[dict[str, Any]], filename: str) -> str:
+    for sample in records:
+        task_type = sample.get("task_type")
+        if isinstance(task_type, str) and task_type:
+            return task_type
+    return filename.removeprefix("sft_").removesuffix(".json")
+
+
+def _percentile(lengths: list[int], fraction: float) -> int:
+    if not lengths:
+        return 0
+    ordered = sorted(lengths)
+    index = max(0, min(len(ordered) - 1, math.ceil(len(ordered) * fraction) - 1))
+    return ordered[index]
+
+
+def _length_summary(lengths: list[int]) -> dict[str, Any]:
+    if not lengths:
+        return {"min": 0, "avg": 0.0, "p50": 0, "p90": 0, "max": 0}
+    return {
+        "min": min(lengths),
+        "avg": round(sum(lengths) / len(lengths), 2),
+        "p50": _percentile(lengths, 0.5),
+        "p90": _percentile(lengths, 0.9),
+        "max": max(lengths),
+    }
+
+
+def _bucket_length_report(records: list[dict[str, Any]]) -> dict[str, Any]:
+    user_lengths = [_role_total_length(sample, "user") for sample in records]
+    assistant_lengths = [_role_total_length(sample, "assistant") for sample in records]
+    total_lengths = [_sample_total_length(sample) for sample in records]
+    return {
+        "user_length": _length_summary(user_lengths),
+        "assistant_length": _length_summary(assistant_lengths),
+        "total_length": _length_summary(total_lengths),
+        "avg_total_length": round(sum(total_lengths) / len(total_lengths), 2) if total_lengths else 0.0,
+        "avg_assistant_length": round(sum(assistant_lengths) / len(assistant_lengths), 2) if assistant_lengths else 0.0,
+    }
 
 
 def _load_bucket(filename: str, weight: float) -> DatasetBucket | None:
@@ -160,47 +242,12 @@ def _sample_records(records: list[dict[str, Any]], target: int, rng: random.Rand
     return sampled, duplicates
 
 
-def _message_content(sample: dict[str, Any], role: str) -> str:
-    messages = sample.get("messages", [])
-    if not isinstance(messages, list):
-        return ""
-    for message in messages:
-        if isinstance(message, dict) and message.get("role") == role:
-            content = message.get("content")
-            return content if isinstance(content, str) else ""
-    return ""
-
-
-def _percentile(lengths: list[int], fraction: float) -> int:
-    if not lengths:
-        return 0
-    ordered = sorted(lengths)
-    index = max(0, min(len(ordered) - 1, math.ceil(len(ordered) * fraction) - 1))
-    return ordered[index]
-
-
-def _length_summary(lengths: list[int]) -> dict[str, Any]:
-    if not lengths:
-        return {"min": 0, "avg": 0.0, "p50": 0, "p90": 0, "max": 0}
-    return {
-        "min": min(lengths),
-        "avg": round(sum(lengths) / len(lengths), 2),
-        "p50": _percentile(lengths, 0.5),
-        "p90": _percentile(lengths, 0.9),
-        "max": max(lengths),
-    }
-
-
-def build_mixed_dataset(
-    output_json_path: str,
+def _load_requested_buckets(
     *,
-    seed: int,
+    target_counts: dict[str, int] | None,
+    specs: dict[str, float] | None,
     total_samples: int | None,
-    specs: dict[str, float] | None = None,
-    target_counts: dict[str, int] | None = None,
-) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    configure_console_output()
-    rng = random.Random(seed)
+) -> tuple[list[DatasetBucket], dict[str, int], list[str]]:
     buckets: list[DatasetBucket] = []
     missing_requested: list[str] = []
 
@@ -212,21 +259,154 @@ def build_mixed_dataset(
                 missing_requested.append(filename)
                 continue
             buckets.append(bucket)
+        return buckets, requested_counts, missing_requested
+
+    effective_specs = specs or DEFAULT_SPECS
+    for filename, weight in effective_specs.items():
+        bucket = _load_bucket(filename, weight)
+        if bucket is not None and bucket.records:
+            buckets.append(bucket)
+
+    if total_samples is not None:
+        requested_counts = _resolve_target_counts(buckets, total_samples)
     else:
-        effective_specs = specs or DEFAULT_SPECS
-        for filename, weight in effective_specs.items():
-            bucket = _load_bucket(filename, weight)
-            if bucket is not None and bucket.records:
-                buckets.append(bucket)
-        if total_samples is not None:
-            requested_counts = _resolve_target_counts(buckets, total_samples)
-        else:
-            requested_counts = {bucket.filename: len(bucket.records) for bucket in buckets}
+        requested_counts = {bucket.filename: len(bucket.records) for bucket in buckets}
+    return buckets, requested_counts, missing_requested
+
+
+def _build_bucket_audit(
+    buckets: list[DatasetBucket],
+    requested_counts: dict[str, int],
+) -> dict[str, Any]:
+    audits: dict[str, Any] = {}
+    projected_total_length_all = 0.0
+    projected_assistant_length_all = 0.0
+
+    for bucket in buckets:
+        length_report = _bucket_length_report(bucket.records)
+        target_count = requested_counts.get(bucket.filename, 0)
+        projected_total_length = round(length_report["avg_total_length"] * target_count, 2)
+        projected_assistant_length = round(length_report["avg_assistant_length"] * target_count, 2)
+        projected_total_length_all += projected_total_length
+        projected_assistant_length_all += projected_assistant_length
+        audits[bucket.filename] = {
+            "task_type": _task_type_for_records(bucket.records, bucket.filename),
+            "source_sample_count": len(bucket.records),
+            "target_sample_count": target_count,
+            "length_stats": length_report,
+            "projected_total_length": projected_total_length,
+            "projected_assistant_length": projected_assistant_length,
+        }
+
+    for audit in audits.values():
+        audit["projected_total_length_share"] = round(
+            audit["projected_total_length"] / projected_total_length_all,
+            4,
+        ) if projected_total_length_all > 0 else 0.0
+        audit["projected_assistant_share"] = round(
+            audit["projected_assistant_length"] / projected_assistant_length_all,
+            4,
+        ) if projected_assistant_length_all > 0 else 0.0
+
+    return audits
+
+
+def _choose_assistant_aware_target_counts(
+    bucket_audits: dict[str, Any],
+    baseline_counts: dict[str, int],
+) -> tuple[dict[str, int], dict[str, Any]]:
+    guide_share = bucket_audits.get("sft_guide_generation.json", {}).get("projected_assistant_share", 0.0)
+    multi_share = bucket_audits.get("sft_multi_turn_dialogue.json", {}).get("projected_assistant_share", 0.0)
+    long_form_combined_share = round(guide_share + multi_share, 4)
+
+    use_corrected_counts = (
+        guide_share > GUIDE_ASSISTANT_SHARE_THRESHOLD
+        or long_form_combined_share > LONG_FORM_COMBINED_ASSISTANT_SHARE_THRESHOLD
+    )
+    final_counts = ASSISTANT_AWARE_CORRECTED_TARGET_COUNTS if use_corrected_counts else baseline_counts
+
+    decision = {
+        "mode": "docs_baseline" if not use_corrected_counts else "assistant_aware_correction",
+        "guide_assistant_share_threshold": GUIDE_ASSISTANT_SHARE_THRESHOLD,
+        "long_form_combined_assistant_share_threshold": LONG_FORM_COMBINED_ASSISTANT_SHARE_THRESHOLD,
+        "docs_baseline_counts": baseline_counts,
+        "corrected_counts": ASSISTANT_AWARE_CORRECTED_TARGET_COUNTS,
+        "baseline_guide_assistant_share": round(guide_share, 4),
+        "baseline_multi_turn_assistant_share": round(multi_share, 4),
+        "baseline_long_form_combined_assistant_share": long_form_combined_share,
+        "reason": (
+            "Docs baseline is already reasonable on the assistant side, so keep it."
+            if not use_corrected_counts
+            else "Docs baseline still lets long-form assistant outputs dominate SFT supervision, so apply a one-step assistant-aware correction without oversampling."
+        ),
+    }
+    return final_counts, decision
+
+
+def _build_report(
+    *,
+    output_path: Path,
+    seed: int,
+    total_samples: int | None,
+    requested_counts: dict[str, int],
+    dataset_counts: dict[str, int],
+    dataset_sizes: dict[str, int],
+    oversample_counts: dict[str, int],
+    missing_requested: list[str],
+    mixed: list[dict[str, Any]],
+    bucket_audits: dict[str, Any],
+    strategy: dict[str, Any] | None,
+) -> dict[str, Any]:
+    user_lengths = [_role_total_length(sample, "user") for sample in mixed]
+    assistant_lengths = [_role_total_length(sample, "assistant") for sample in mixed]
+    total_lengths = [_sample_total_length(sample) for sample in mixed]
+    task_type_counts: dict[str, int] = {}
+    for sample in mixed:
+        task_type = sample.get("task_type")
+        if isinstance(task_type, str):
+            task_type_counts[task_type] = task_type_counts.get(task_type, 0) + 1
+
+    return {
+        "output_path": str(output_path),
+        "seed": seed,
+        "target_total_samples": total_samples,
+        "requested_counts": requested_counts,
+        "sample_count": len(mixed),
+        "dataset_counts": dataset_counts,
+        "task_type_counts": task_type_counts,
+        "dataset_sizes": dataset_sizes,
+        "oversample_counts": oversample_counts,
+        "missing_requested": missing_requested,
+        "bucket_audits": bucket_audits,
+        "user_length": _length_summary(user_lengths),
+        "assistant_length": _length_summary(assistant_lengths),
+        "total_length": _length_summary(total_lengths),
+        "strategy": strategy,
+    }
+
+
+def build_mixed_dataset(
+    output_json_path: str,
+    *,
+    seed: int,
+    total_samples: int | None,
+    specs: dict[str, float] | None = None,
+    target_counts: dict[str, int] | None = None,
+    strategy: dict[str, Any] | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    configure_console_output()
+    rng = random.Random(seed)
+    buckets, requested_counts, missing_requested = _load_requested_buckets(
+        target_counts=target_counts,
+        specs=specs,
+        total_samples=total_samples,
+    )
 
     if not buckets:
         log_warn("No processed datasets available for mixing.")
         return [], {"sample_count": 0, "dataset_counts": {}, "missing_requested": missing_requested}
 
+    bucket_audits = _build_bucket_audit(buckets, requested_counts)
     mixed: list[dict[str, Any]] = []
     dataset_counts: dict[str, int] = {}
     dataset_sizes: dict[str, int] = {}
@@ -246,22 +426,19 @@ def build_mixed_dataset(
 
     rng.shuffle(mixed)
     output_path = write_json(output_json_path, mixed)
-
-    user_lengths = [len(_message_content(sample, "user")) for sample in mixed]
-    assistant_lengths = [len(_message_content(sample, "assistant")) for sample in mixed]
-    report = {
-        "output_path": str(output_path),
-        "seed": seed,
-        "target_total_samples": total_samples,
-        "requested_counts": requested_counts,
-        "sample_count": len(mixed),
-        "dataset_counts": dataset_counts,
-        "dataset_sizes": dataset_sizes,
-        "oversample_counts": oversample_counts,
-        "missing_requested": missing_requested,
-        "user_length": _length_summary(user_lengths),
-        "assistant_length": _length_summary(assistant_lengths),
-    }
+    report = _build_report(
+        output_path=output_path,
+        seed=seed,
+        total_samples=total_samples,
+        requested_counts=requested_counts,
+        dataset_counts=dataset_counts,
+        dataset_sizes=dataset_sizes,
+        oversample_counts=oversample_counts,
+        missing_requested=missing_requested,
+        mixed=mixed,
+        bucket_audits=bucket_audits,
+        strategy=strategy,
+    )
 
     if missing_requested:
         log_warn(f"Missing requested datasets: {missing_requested}")
@@ -293,6 +470,32 @@ def mix_datasets(
     return mixed
 
 
+def _build_stage_dataset(recipe: StageRecipe) -> dict[str, Any]:
+    baseline_counts = recipe.target_counts or DOCS_BASELINE_TARGET_COUNTS
+    baseline_buckets, _, missing_requested = _load_requested_buckets(
+        target_counts=baseline_counts,
+        specs=recipe.specs,
+        total_samples=recipe.total_samples,
+    )
+    baseline_audits = _build_bucket_audit(baseline_buckets, baseline_counts)
+    final_counts, strategy = _choose_assistant_aware_target_counts(baseline_audits, baseline_counts)
+    strategy["baseline_bucket_audits"] = baseline_audits
+    strategy["missing_requested"] = missing_requested
+
+    _, report = build_mixed_dataset(
+        recipe.output_path,
+        seed=recipe.seed,
+        total_samples=recipe.total_samples,
+        specs=recipe.specs,
+        target_counts=final_counts,
+        strategy=strategy,
+    )
+    report["name"] = recipe.name
+    report["specs"] = recipe.specs
+    report["target_counts"] = final_counts
+    return report
+
+
 def build_stage_datasets(
     recipes: tuple[StageRecipe, ...] = DEFAULT_STAGE_RECIPES,
     *,
@@ -301,21 +504,9 @@ def build_stage_datasets(
     configure_console_output()
     stage_reports: dict[str, Any] = {}
     for recipe in recipes:
-        _, report = build_mixed_dataset(
-            recipe.output_path,
-            seed=recipe.seed,
-            total_samples=recipe.total_samples,
-            specs=recipe.specs,
-            target_counts=recipe.target_counts,
-        )
-        report["name"] = recipe.name
-        report["specs"] = recipe.specs
-        report["target_counts"] = recipe.target_counts
-        stage_reports[recipe.name] = report
+        stage_reports[recipe.name] = _build_stage_dataset(recipe)
 
-    payload = {
-        "stages": stage_reports,
-    }
+    payload = {"stages": stage_reports}
     write_json(report_path, payload)
     log_success(f"Stage mix report written: {resolve_path(report_path)}")
     return payload
@@ -374,3 +565,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
