@@ -1,0 +1,131 @@
+[
+  {
+    "id": "eval_travel_qa_000001",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去上海玩两天，住在哪一片更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去上海玩两天，住在哪一片更方便？' first, then justify it briefly. It should explicitly use 比较2到3个合适区域 / 体现首次到访和两天节奏 / 给出明确建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较2到3个合适区域",
+      "体现首次到访和两天节奏",
+      "给出明确建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成完整两天攻略",
+      "只报酒店名不解释"
+    ],
+    "notes": "Main check: Main check: 主测：城市级落脚点判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0001",
+    "prediction": "上海的交通非常便利，地铁覆盖了大部分区域，所以住在哪个区都比较方便。不过，如果你是第一次来，建议优先考虑市中心区域，比如黄浦区、徐汇区或静安区，这些地方靠近主要景点和交通枢纽，出行更方便。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000002",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_region_compare",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带老人去重庆玩两天，住解放碑、观音桥还是南滨路更合适？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带老人去重庆玩两天，住解放碑、观音桥还是南滨路更合适？' first, then justify it briefly. It should explicitly use 比较三片区 / 考虑老人出行和坡度 / 给出更稳妥选择; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较三片区",
+      "考虑老人出行和坡度",
+      "给出更稳妥选择"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只按年轻人夜生活偏好回答",
+      "忽略老人行动便利"
+    ],
+    "notes": "Main check: Main check: 主测：多约束区域比较",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0002",
+    "prediction": "如果带老人出行，解放碑和观音桥更合适。这两个区域交通便利，周边有多个公交站点和地铁站，适合老年人乘坐公共交通。解放碑周边有多个景点，如洪崖洞、磁器口、鹅岭二厂等，适合老年人游览。观音桥周边有多个景点，如江北嘴、观音桥步行街等，适合老年人游览。南滨路虽然风景优美，但相对较为偏远，周边景点较少，不太适合老年人游览。因此，如果带老人出行，解放碑和观音桥更合适。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000003",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_mainline",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "成都两天一夜，主线应该抓什么，不想来回折腾。"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '成都两天一夜，主线应该抓什么，不想来回折腾。' first, then justify it briefly. It should explicitly use 概括2天主线 / 强调少折返 / 不要写太长; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "概括2天主线",
+      "强调少折返",
+      "不要写太长"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "堆很多零散景点",
+      "写成详细小时级攻略"
+    ],
+    "notes": "Main check: Main check: 主测：城市主线",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0003",
+    "prediction": "第一天：宽窄巷子、锦里、武侯祠、杜甫草堂、青羊宫、春熙路、太古里、东门市井、人民公园、文殊院、青城山前山（可选）；第二天：熊猫基地、熊猫繁育研究基地、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

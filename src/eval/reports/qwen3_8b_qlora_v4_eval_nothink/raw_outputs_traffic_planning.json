@@ -1,0 +1,2522 @@
+[
+  {
+    "id": "eval_traffic_planning_000001",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "medium",
+    "tags": [
+      "三亚",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "拖着行李从三亚凤凰机场前往亚龙湾，探讨公交和地铁在实际出行时哪个更为便捷呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '拖着行李从三亚凤凰机场前往亚龙湾，探讨公交和地铁在实际出行时哪个更为便捷呢？，不用给我查实时班次。', then explain why it is better for the route from 凤凰机场 to 亚龙湾. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_159db6e21efe",
+    "prediction": "从三亚凤凰机场前往亚龙湾，公交和地铁在实际出行中各有优劣，具体选择取决于你的行程安排和偏好：\n\n**公交：**  \n三亚凤凰机场有公交站点，可乘坐公交线路（如25路、27路、31路等）直达亚龙湾方向。公交站点通常位于机场出口附近，步行即可到达。公交线路覆盖范围广，适合短途、灵活出行，但需注意换乘和等车时间，整体耗时较长，尤其在早晚高峰时段。\n\n**地铁：**  \n三亚目前尚未开通地铁系统，因此地铁出行并不适用。若未来有地铁建设，可优先考虑。\n\n**推荐理由：**  \n公交是目前更实际的选择，尤其适合拖着行李、对换乘要求不高的旅客。它无需换乘、站点密集，且能直达亚龙湾周边多个景点，如亚龙湾海滩、亚龙湾图书馆等。不过，公交运行时间有限，且受路况影响较大，建议预留充足时间。\n\n**总结：**  \n公交是更便捷、更符合当前三亚交通现状的选择，尤其适合拖着行李前往亚龙湾的旅客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000002",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从徐家汇出发去世纪公园，有没有不用绕太多路的地铁或者公交路线可以推荐呀？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从徐家汇出发去世纪公园，有没有不用绕太多路的地铁或者公交路线可以推荐呀？，我更想知道推荐思路。', then explain why it is better for the route from 徐家汇 to 世纪公园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_cd243b7a0a05",
+    "prediction": "从徐家汇到世纪公园，推荐优先考虑地铁，因为地铁线路稳定、换乘少、运行时间长，适合避开拥堵和绕路。以下是推荐思路：\n\n1. **优先地铁**：徐家汇站是上海地铁的重要枢纽，有多条线路交汇，包括1号线、10号线、15号线等。从徐家汇出发，乘坐地铁10号线（往虹桥火车站方向）或15号线（往顾村公园方向）均可直达世纪公园附近站点，无需绕路。\n\n2. **地铁10号线**：从徐家汇站乘坐10号线（往虹桥火车站方向），在“世纪公园”站下车，步行即可到达世纪公园入口。全程约20分钟，换乘少，路线清晰。\n\n3. **地铁15号线**：从徐家汇站乘坐15号线（往顾村公园方向），在“浦东金吉”站下车，再换乘公交或步行至世纪公园。虽然换乘一次，但整体路线更靠外，可能避开市中心拥堵。\n\n4. **公交备选**：如果地铁换乘不便或时间紧张，也可以考虑公交。例如，从徐家汇乘坐公交121路或131路至“世纪公园”站，但公交线路可能更绕，且受路况影响较大。\n\n**推荐理由**：地铁线路稳定、换乘少、运行时间长，适合避开拥堵和绕路；世纪公园站是地铁10号线的终点站，步行即可到达公园入口，无需额外换乘或绕行。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000003",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从上海虹桥站出发，计划前往豫园游玩，想了解有没有可以直接到达豫园的公共交通工具呀？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从上海虹桥站出发，计划前往豫园游玩，想了解有没有可以直接到达豫园的公共交通工具呀？，重点说清楚为什么更省心。', then explain why it is better for the route from 上海虹桥站 to 豫园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_a7d401477824",
+    "prediction": "从上海虹桥站出发前往豫园，没有直达的公共交通工具可以直接到达豫园。不过，可以选择一条相对省心、换乘较少的路线，推荐如下：\n\n**推荐路线：**\n\n1. **乘坐地铁10号线（虹桥火车站方向）**，在 **虹桥火车站** 上车，乘坐至 **南京东路站** 下车；\n2. **换乘地铁2号线（浦东国际机场方向）**，在 **南京东路站** 换乘，乘坐至 **人民广场站** 下车；\n3. **步行约10分钟**，即可到达豫园入口。\n\n**推荐理由：**\n\n- **换乘少、路线清晰**：全程仅需换乘一次，避免频繁换乘带来的麻烦；\n- **地铁覆盖广、准点性强**：上海地铁系统发达，运行稳定，适合首次到访或不熟悉城市的人；\n- **步行可达豫园**：南京东路站步行至豫园非常方便，无需再转乘其他交通工具；\n- **省心省力**：无需打车或频繁换乘公交，适合希望轻松游览的人群。\n\n**小贴士：**\n\n豫园周边有多个地铁站和公交站点，建议预留一定时间步行或换乘，避开高峰时段。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000004",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "hard",
+    "tags": [
+      "东莞",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从深圳宝安国际机场出发去松山湖，公交和地铁相比，哪个出行方式更方便呢？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从深圳宝安国际机场出发去松山湖，公交和地铁相比，哪个出行方式更方便呢？，别把答案写成票务信息。', then explain why it is better for the route from 无（主要使用深圳宝安/广州白云） to 松山湖. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_379f212282e4",
+    "prediction": "从深圳宝安国际机场前往松山湖，公交和地铁各有优势，具体选择取决于你的行程安排和偏好。\n\n**地铁更方便**：  \n深圳地铁11号线（机场线）直达松山湖站，全程约40分钟，无需换乘，运行稳定，适合携带行李或希望减少换乘压力的乘客。松山湖站附近有多个公交站点和共享单车，方便接驳至目的地。\n\n**公交更灵活**：  \n机场有公交线路（如322路、323路）可直达松山湖周边站点，但需注意发车时间、站点换乘和可能的绕行，整体耗时较长，适合对时间要求不高的乘客。\n\n**推荐理由**：  \n地铁更省时、更少换乘，适合大多数情况；公交更适合短途接驳或对路线熟悉度较高的乘客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000005",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "乌鲁木齐",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从位于乌鲁木齐的一号冰川出发，想要前往南山牧场，乘坐公共交通工具的话，一般得怎么规划路线呢，有哪些可行的公交或换乘方式可以到达呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从位于乌鲁木齐的一号冰川出发，想要前往南山牧场，乘坐公共交通工具的话，一般得怎么规划路线呢，有哪些可行的公交或换乘方式可以到达呢？，不用给我查实时班次。', then explain why it is better for the route from 一号冰川 to 南山牧场. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_a24371b81df0",
+    "prediction": "从乌鲁木齐一號冰川前往南山牧场，若选择公共交通出行，建议优先考虑包车或拼车，因为该区域公共交通覆盖有限，常规公交和地铁难以直达。若坚持使用公共交通，可参考以下路线规划：\n\n### 一、路线规划建议\n\n1. **从一號冰川出发**  \n   - 一號冰川位于乌鲁木齐县境内，周边无公交站点，建议先打车或包车前往乌鲁木齐县城区（如乌鲁木齐县客运站、乌拉泊客运站等）。\n\n2. **从乌鲁木齐县城区前往南山牧场**  \n   - **公交方案**：  \n     - 从乌鲁木齐县客运站乘坐前往南山牧场方向的公交（如乌鲁木齐县公交1路、2路等），通常需在乌拉泊客运站换乘。  \n     - 公交站点可能包括乌拉泊客运站、南山牧场站等，具体线路需根据当地公交运营情况确认。  \n     - 公交车通常会经过南山牧场入口或附近站点，下车后步行或打车进入牧场。  \n   - **换乘方案**：  \n     - 在乌拉泊客运站换乘至南山牧场方向的公交或长途汽车，再转乘至牧场入口附近站点。  \n     - 也可在乌拉泊客运站乘坐前往乌鲁木齐市区的公交，再转乘至南山牧场方向的公交或长途汽车。\n\n3. **到达南山牧场**  \n   - 下车后步行至牧场入口，或继续打车进入牧场内部。\n\n### 二、推荐理由\n\n- **公交覆盖有限**：一號冰川周边无公交站点，需先至县城区再换乘。  \n- **换乘较复杂**：需在乌拉泊客运站进行多次换乘，耗时较长。  \n- **更适合短途或灵活出行**：若时间紧张或更看重效率，建议优先选择包车或拼车。\n\n### 三、注意事项\n\n- 乌鲁木齐县公交线路和站点可能因季节或运营调整而变化，建议出行前确认最新线路。  \n- 若携带较多行李或多人同行，建议优先选择包车或拼车，更省时省力。  \n- 南山牧场位于山区，部分路段可能有山路或弯道，注意行车安全。\n\n如需更详细的公交线路或站点信息，建议前往当地公交公司或客运站咨询。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000006",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "佛山",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "打算从西樵山景区出发前往祖庙，想了解一下乘坐公交和乘坐地铁这两种出行方式，在路线的衔接以及整体的出行感受方面，到底哪个更方便呀？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '打算从西樵山景区出发前往祖庙，想了解一下乘坐公交和乘坐地铁这两种出行方式，在路线的衔接以及整体的出行感受方面，到底哪个更方便呀？，我更想知道推荐思路。', then explain why it is better for the route from 西樵山 to 祖庙. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_ea7bc326d9b3",
+    "prediction": "从西樵山景区前往祖庙，乘坐公交和地铁各有优劣，选择更方便的方式需结合路线衔接、换乘便利性、通勤时间等因素综合考虑。以下是推荐思路：\n\n### 一、公交出行推荐思路\n**优点：**\n- **站点覆盖广**：公交线路通常能覆盖更多非核心区域，适合周边小范围接驳。\n- **换乘灵活**：公交站点密集，适合短途接驳和灵活换乘。\n- **票价便宜**：单程公交票价普遍较低，适合预算有限的出行者。\n\n**缺点：**\n- **受路况影响大**：公交易受交通拥堵、临时封路等因素影响，行程时间不稳定。\n- **换乘次数多**：从西樵山到祖庙可能需要多次换乘，整体耗时较长。\n\n**推荐路线：**\n1. 从西樵山景区步行至西樵山公交站（如“西樵山”或“西樵山南门”）。\n2. 乘坐公交至“南海区行政服务中心”或“祖庙”附近站点（如“祖庙”或“中山路”）。\n3. 在该站点下车后步行至祖庙。\n\n**推荐理由：**\n公交线路覆盖范围广，适合短途接驳，尤其适合对换乘次数不敏感、更看重灵活性的出行者。但需注意公交可能受路况影响，行程时间可能不稳定。\n\n### 二、地铁出行推荐思路\n**优点：**\n- **通勤效率高**：地铁运行稳定，不受地面交通影响，适合中长途通勤。\n- **换乘少**：地铁站点通常集中在城市核心区域，换乘更少，整体更省时。\n- **环境舒适**：地铁车厢内环境相对安静、整洁，适合更注重出行体验的人。\n\n**缺点：**\n- **站点覆盖有限**：地铁线路通常集中在城市核心区域，可能无法直接到达西樵山景区。\n- **需转乘公交**：从西樵山到地铁站可能需要先乘坐公交至地铁站点，再换乘地铁。\n\n**推荐路线：**\n1. 从西樵山景区步行至西樵山公交站，乘坐公交至“南海区行政服务中心”或“祖庙”附近站点。\n2. 在该站点换乘地铁（如广佛线）至“祖庙”站。\n3. 在“祖庙”站下车后步行",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000007",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "北京",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从天安门出发前往中关村，一般情况下需不需要换乘呀？要是需要换乘的话，怎样换乘能更便捷些呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从天安门出发前往中关村，一般情况下需不需要换乘呀？要是需要换乘的话，怎样换乘能更便捷些呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 天安门 to 中关村. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_d07ad20e5621",
+    "prediction": "从天安门出发前往中关村，一般情况下**需要换乘**。推荐路线如下：\n\n### 推荐路线：\n1. **天安门站**乘坐地铁1号线（八通线）（内环方向） → **人民广场站**换乘地铁2号线（内环方向） → **西直门站**换乘地铁4号线（安河桥北方向） → **中关村站**下车。\n\n### 为什么更省心：\n- **全程地铁**：全程乘坐地铁，无需换乘公交或步行，避免了交通拥堵和找零麻烦。\n- **换乘站点明确**：换乘站点（人民广场、西直门）均为地铁换乘枢纽，换乘便捷，标识清晰。\n- **线路稳定**：地铁1号线、2号线、4号线均为北京核心线路，运行稳定，发车频率高，准点率高。\n- **直达中关村**：从天安门到中关村全程约40分钟，无需多次换乘，节省时间和体力。\n\n### 小贴士：\n- 若携带较多行李或赶时间，可优先选择地铁，避免高峰期拥堵。\n- 若对地铁不熟悉，可使用手机导航（如高德地图、百度地图）实时查看路线和换乘提示。\n\n这条路线兼顾效率与舒适，适合大多数日常出行需求。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000008",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "hard",
+    "tags": [
+      "北京",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "打算从有着古典园林景致的颐和园出发去充满现代气息的奥林匹克公园，那选择怎样的交通方式才是最为合适、便捷又能体验不同出行氛围的呢？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '打算从有着古典园林景致的颐和园出发去充满现代气息的奥林匹克公园，那选择怎样的交通方式才是最为合适、便捷又能体验不同出行氛围的呢？，别把答案写成票务信息。', then explain why it is better for the route from 颐和园 to 奥林匹克公园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_1816e784c177",
+    "prediction": "从颐和园到奥林匹克公园，推荐优先选择地铁出行，尤其是地铁4号线（安河桥北方向）直达奥林匹克公园站，全程约30分钟，无需换乘，节奏稳定、通勤效率高，适合追求便捷与准时的出行者。若想体验更丰富的城市风貌，也可选择公交或共享单车结合的方式，沿途可欣赏到更多城市景观与人文气息。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000009",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "medium",
+    "tags": [
+      "北京",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从北京首都机场出发，打算开车去颐和园，和乘坐公共交通相比，在时间花费和出行便利程度方面，到底自驾合适还是公共交通更合适呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从北京首都机场出发，打算开车去颐和园，和乘坐公共交通相比，在时间花费和出行便利程度方面，到底自驾合适还是公共交通更合适呢？，不用给我查实时班次。', then explain why it is better for the route from 首都机场 to 颐和园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_f62adc85245a",
+    "prediction": "从北京首都机场出发前往颐和园，自驾和公共交通各有优劣，具体选择取决于你的出行偏好和实际情况：\n\n### 自驾：\n- **时间花费**：通常需要约1.5至2小时，视交通状况而定。机场周边道路较宽，但进入市区后可能会遇到拥堵。\n- **便利程度**：相对灵活，可随时出发，适合携带行李或多人同行。但需注意停车问题，颐和园周边停车位有限，可能需要绕行或寻找远端停车场。\n- **推荐理由**：适合对时间较敏感、行李较多或希望避开换乘的人群。\n\n### 公共交通：\n- **时间花费**：通常需要约2至3小时，包括机场大巴、地铁和公交换乘。整体行程更依赖于公共交通的衔接效率。\n- **便利程度**：无需担心停车问题，但换乘次数较多，可能需要多次等待。适合不熟悉路况、更注重省心的人群。\n- **推荐理由**：适合更看重省心、环保和避免停车麻烦的人群。\n\n### 总结：\n- 如果你更看重**灵活性和时间控制**，且不介意稍长的行程，**自驾**更合适。\n- 如果你更看重**省心、环保和避免停车麻烦**，**公共交通**更合适。\n\n建议根据当天的交通状况和个人偏好再做决定。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000010",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "medium",
+    "tags": [
+      "南京",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从栖霞山出发，打算去汤山一号温泉度假区，有没有直接可以乘坐的公共交通工具呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从栖霞山出发，打算去汤山一号温泉度假区，有没有直接可以乘坐的公共交通工具呢？，我更想知道推荐思路。', then explain why it is better for the route from 栖霞山 to 汤山一号温泉度假区. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_192a526063cb",
+    "prediction": "从栖霞山到汤山一号温泉度假区，两地距离较近，但公共交通接驳相对有限，没有直达的公交或地铁线路。推荐思路如下：\n\n1. **优先考虑公交接驳**：栖霞山周边公交线路较多，可先乘坐公交至南京市区内换乘点（如地铁站或公交枢纽），再换乘公交或地铁前往汤山方向。例如，可先乘坐公交至地铁一号线的南京站或鼓楼站，再换乘地铁至汤山站附近，再转乘公交或打车前往温泉度假区。\n\n2. **地铁+公交组合更高效**：栖霞山周边没有地铁站点，需先乘坐公交至地铁一号线的南京站或鼓楼站，再换乘地铁至汤山站附近，再转乘公交或打车前往温泉度假区。这种方式相对稳定，适合不熟悉路况的乘客。\n\n3. **预留换乘时间**：由于公交和地铁换乘可能需要一定时间，建议预留充足的时间，避免错过班次或赶时间。\n\n4. **考虑打车或网约车**：如果时间紧张或更看重便利性，也可以直接打车或使用网约车平台，从栖霞山直接前往汤山一号温泉度假区，全程约30-40分钟，费用在30-50元之间，相对灵活。\n\n综上，公共交通虽需多次换乘，但整体可行；若追求效率和舒适，打车或网约车是更直接的选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000011",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "南京",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从江宁站出发，打算去雨花台，那在平常的出行情况下，走哪条路线或者乘坐什么样的公共交通工具会更简便、更省事呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从江宁站出发，打算去雨花台，那在平常的出行情况下，走哪条路线或者乘坐什么样的公共交通工具会更简便、更省事呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 江宁站 to 雨花台. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_02a61e9cfb13",
+    "prediction": "从江宁站出发前往雨花台，推荐优先选择地铁出行，路线为：**地铁1号线（南京南站方向）→ 龙华门站 → 转乘地铁2号线（油坊桥方向）→ 雨花门站 → 步行至雨花台景区**。\n\n**推荐理由：**\n\n1. **换乘少、路线稳定**：全程仅需在龙华门站换乘一次，整体换乘流程简单，不会因频繁换乘而增加出行压力。\n2. **地铁覆盖范围广**：地铁1号线和2号线均为南京骨干线路，站点密集，运行稳定，适合日常通勤。\n3. **无需频繁换乘公交或打车**：相比公交或出租车，地铁更省心、更省时，尤其在早晚高峰时段，公交拥堵严重，地铁则相对平稳。\n4. **直达性强**：雨花门站距离雨花台景区步行仅需几分钟，无需再转乘其他交通工具，省去额外等待和换乘时间。\n\n**备选方案**：若更看重经济性，也可选择公交接驳，如先从江宁站乘坐公交至地铁1号线站点，再转乘地铁。但整体行程会更复杂，不如地铁直接。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000012",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "hard",
+    "tags": [
+      "南昌",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从南昌北站出发去八一广场，需不需要换乘呢？要是需要换乘的话，怎样换乘能让出行最方便呀？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从南昌北站出发去八一广场，需不需要换乘呢？要是需要换乘的话，怎样换乘能让出行最方便呀？，别把答案写成票务信息。', then explain why it is better for the route from 南昌北站 to 八一广场. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_298be3699a41",
+    "prediction": "从南昌北站到八一广场，通常需要换乘。南昌北站是南昌地铁1号线的站点，而八一广场位于地铁1号线的起点站，因此从南昌北站出发，可以乘坐地铁1号线直达八一广场，无需换乘。\n\n不过，如果从南昌北站出站后步行至地铁1号线的站点（如南昌北站站），再乘坐地铁1号线，即可直达八一广场。因此，整体上无需换乘，出行较为方便。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000013",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "南通",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "早上十点左右从启东圆陀角出发前往南通博物苑，有哪些路线可以尽量避开交通拥堵呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '早上十点左右从启东圆陀角出发前往南通博物苑，有哪些路线可以尽量避开交通拥堵呢？，不用给我查实时班次。', then explain why it is better for the route from 启东圆陀角 to 南通博物苑. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_3eae71fb5932",
+    "prediction": "从启东圆陀角到南通博物苑，早上十点出发，避开交通拥堵的路线建议如下：\n\n### 推荐路线一：公交接驳（避开拥堵）\n1. **从启东圆陀角步行至启东汽车站**（约15分钟）；\n2. **乘坐启东至南通的公交或城乡公交**（如启东公交101路、城乡公交102路），直达南通市区；\n3. **在南通汽车站或南通火车站换乘公交或地铁**（如公交10路、地铁1号线）；\n4. **到达南通博物苑附近站点**，步行或换乘至博物苑。\n\n**推荐理由**：公交接驳相对稳定，避开主干道高峰拥堵，适合对时间要求不高的出行者。\n\n---\n\n### 推荐路线二：打车/网约车（更省时）\n1. **直接从启东圆陀角打车或使用网约车平台**（如滴滴、高德打车）；\n2. **直接前往南通博物苑**，全程约30公里，车程约40分钟；\n3. **避开早高峰主干道**，建议选择避开启东大道、通州大道等拥堵路段。\n\n**推荐理由**：打车更省时，适合对时间敏感或携带较多行李的旅客，且能灵活避开拥堵路段。\n\n---\n\n### 注意事项：\n- 启东圆陀角周边公交站点较少，建议优先选择打车或公交接驳；\n- 南通市区早高峰时段（7:30-9:30）交通压力较大，建议尽量避开该时段；\n- 若选择公交，建议提前确认末班车时间，避免错过。\n\n如需更详细的公交线路或换乘方案，可告知具体公交站点或换乘点，我可以进一步优化路线。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000014",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "厦门",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从位于厦门的胡里山炮台出发，想要前往小嶝岛，一般得通过怎样的交通方式组合来抵达会比较合适呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从位于厦门的胡里山炮台出发，想要前往小嶝岛，一般得通过怎样的交通方式组合来抵达会比较合适呢？，我更想知道推荐思路。', then explain why it is better for the route from 胡里山炮台 to 小嶝岛. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_309912eb096a",
+    "prediction": "从厦门胡里山炮台前往小嶝岛，通常需要通过陆路和水路的组合方式抵达。推荐思路如下：\n\n1. **先到厦门市区交通中心**：胡里山炮台位于厦门岛西南部，建议先前往厦门市区的交通便利点，如厦门火车站、厦门北站、厦门轮渡码头或厦门汽车站，便于换乘公共交通。\n\n2. **选择合适的公共交通方式前往厦门轮渡码头**：厦门轮渡码头是连接厦门岛与小嶝岛的重要节点。可乘坐公交、地铁或打车前往轮渡码头，具体路线需根据出发点灵活选择。\n\n3. **乘坐轮渡前往小嶝岛**：厦门轮渡码头有定期航班往返厦门岛与小嶝岛之间，轮渡通常为固定航线，运行稳定，适合前往小嶝岛。轮渡一般在厦门岛的轮渡码头（如第一码头）和小嶝岛码头之间往返。\n\n4. **到达小嶝岛后，根据需要再换乘当地交通**：小嶝岛相对较小，岛上交通以步行或短途电动车为主，也可直接在岛上活动。\n\n**推荐理由**：轮渡是连接厦门岛与小嶝岛最便捷、经济的方式，且运行稳定；通过市区交通中心换乘，能有效衔接不同线路，减少绕路和等待时间。整体路线清晰、换乘方便，适合大多数游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000015",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "合肥",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "周末打算从徽园出发去大蜀山游玩，想了解一下自驾和乘坐公共交通哪种出行方式更合适呀，比如得考虑路上堵车不、找停车位方不方便这些实际情况呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '周末打算从徽园出发去大蜀山游玩，想了解一下自驾和乘坐公共交通哪种出行方式更合适呀，比如得考虑路上堵车不、找停车位方不方便这些实际情况呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 徽园 to 大蜀山. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_1a7d347fd33d",
+    "prediction": "从徽园到大蜀山，自驾和公共交通各有优劣，具体选择取决于你的出行偏好和实际情况。以下是两种方式的对比分析，重点说明哪种更省心：\n\n### 一、自驾出行\n**优点：**\n- **灵活自由**：可以按自己的节奏出发，无需等待公共交通的发车时间。\n- **直达目的地**：徽园到大蜀山距离较近（约15公里），车程约20-30分钟，避开拥堵后更省时。\n- **适合多人同行**：尤其适合家庭或朋友结伴出行，方便携带行李和物品。\n\n**缺点：**\n- **停车不便**：大蜀山景区周边停车位有限，尤其是节假日或周末，容易找不到合适的位置。\n- **可能遇到拥堵**：如果遇到高峰时段或施工路段，可能会增加通行时间。\n- **需要考虑返程安排**：返程时同样需要找停车位，可能增加额外时间。\n\n### 二、公共交通出行\n**优点：**\n- **无需找停车位**：乘坐公交或地铁直达景区门口，省去停车和找车位的麻烦。\n- **更环保**：减少私家车使用，有助于缓解城市交通压力。\n- **更省心**：只需按线路乘坐，无需担心路线规划和停车问题。\n\n**缺点：**\n- **换乘麻烦**：从徽园到大蜀山可能需要先到公交站或地铁站，再换乘，整体耗时较长。\n- **受路况影响**：如果遇到突发情况或临时封路，可能会延误行程。\n- **不太适合多人同行**：如果同行人数较多，公共交通可能不太方便。\n\n### 三、推荐建议\n**更省心的选择：公共交通**  \n虽然公共交通需要换乘和等待，但整体更省心，尤其适合不熟悉路况、不习惯自驾的人群。你可以先从徽园附近的公交站乘坐公交或地铁，再换乘至大蜀山附近的站点，再步行或打车至景区门口。这种方式避免了停车和找车位的麻烦，也更符合城市出行的节奏。\n\n**如果更看重灵活性和节奏感，可以选择自驾**  \n但需提前规划好停车位置，并预留足够的时间应对可能的拥堵和返程安排。\n\n总之，公共交通更适合追求省心、环保和便捷的出行体验，而自驾则更适合喜欢自由安排节奏、有更多同行人或携带物品的情况。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000016",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "hard",
+    "tags": [
+      "哈尔滨",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "冬天我想去从冰雪大世界前往东北虎林园，乘坐公共交通工具的话，有哪些具体可行的路线呢，麻烦给讲讲大概怎么转乘之类的情况呀？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '冬天我想去从冰雪大世界前往东北虎林园，乘坐公共交通工具的话，有哪些具体可行的路线呢，麻烦给讲讲大概怎么转乘之类的情况呀？，别把答案写成票务信息。', then explain why it is better for the route from 冰雪大世界 to 东北虎林园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_2f14e49342f7",
+    "prediction": "从冰雪大世界前往东北虎林园，乘坐公共交通工具的话，可以优先考虑地铁和公交的组合。以下是推荐路线和转乘说明：\n\n### 推荐路线一：地铁+公交\n1. **冰雪大世界站**：从冰雪大世界步行至地铁冰雪大世界站（通常步行约10分钟）。\n2. **乘坐地铁3号线（南直门方向）**：在冰雪大世界站上车，乘坐3号线（南直门方向）至**哈尔滨南站**站下车。\n3. **换乘公交**：在哈尔滨南站换乘公交（如128路、138路等），前往**东北虎林园**方向。\n4. **到达东北虎林园**：根据公交线路，通常在20-30分钟内到达东北虎林园附近站点，再步行或换乘至园区入口。\n\n### 推荐路线二：公交+公交\n1. **冰雪大世界站**：从冰雪大世界步行至公交站点（如冰雪大世界公交站）。\n2. **乘坐公交**：乘坐公交（如128路、138路等）前往**哈尔滨南站**方向。\n3. **换乘公交**：在哈尔滨南站换乘公交（如128路、138路等），前往**东北虎林园**方向。\n4. **到达东北虎林园**：根据公交线路，通常在20-30分钟内到达东北虎林园附近站点，再步行或换乘至园区入口。\n\n### 注意事项：\n- 冬季出行时，注意保暖，尤其是早晚温差较大。\n- 公交和地铁班次可能会因天气或节假日有所调整，建议提前确认。\n- 东北虎林园位于哈尔滨市南岗区，靠近哈尔滨南站，交通相对便利。\n\n以上路线为常规公共交通组合，具体换乘和站点可能因实际情况略有变化，建议出行前通过本地地图或公交查询工具确认最新信息。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000017",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "嘉兴",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "打算从嘉善南站出发去乌镇游玩，想了解一下坐公交和地铁相比，哪个出行会更方便些呀？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '打算从嘉善南站出发去乌镇游玩，想了解一下坐公交和地铁相比，哪个出行会更方便些呀？，不用给我查实时班次。', then explain why it is better for the route from 嘉善南站 to 乌镇. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_2105f4e3bb57",
+    "prediction": "从嘉善南站前往乌镇，公交和地铁相比，公交会更方便一些。以下是具体建议：\n\n### 公交出行建议：\n嘉善南站附近有公交站点，可乘坐 **嘉善公交** 的 **101路** 或 **102路**（具体线路需根据实际站点确认），前往 **乌镇汽车站** 或 **乌镇东门** 等站点。这些线路通常会经过乌镇的主要入口，如乌镇东门、乌镇汽车站等，方便换乘或直接进入乌镇景区。\n\n**推荐理由**：公交线路覆盖范围广，站点密集，适合短途出行，且无需换乘地铁，更适合初次到访乌镇的游客。\n\n### 地铁出行建议：\n嘉善南站目前没有地铁线路直达乌镇，因此无法直接乘坐地铁前往乌镇。若想乘坐地铁，需先前往 **嘉兴火车站** 或 **嘉兴南站**，再换乘 **地铁1号线**，但整体换乘和步行距离较长，不太适合直接前往乌镇。\n\n**推荐理由**：地铁出行更依赖于站点覆盖和换乘便利性，但嘉善南站本身无地铁，因此地铁不是更优选择。\n\n### 总结：\n公交出行更方便，更适合从嘉善南站前往乌镇。建议优先选择公交，既省时又省力。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000018",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "大连",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从棒棰岛出发打算前往滨海路游玩，请问是否需要换乘呢？要是需要换乘的话，怎样换乘能最为便捷呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从棒棰岛出发打算前往滨海路游玩，请问是否需要换乘呢？要是需要换乘的话，怎样换乘能最为便捷呢？，我更想知道推荐思路。', then explain why it is better for the route from 棒棰岛 to 滨海路. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_5363f337f002",
+    "prediction": "从棒棰岛前往滨海路游玩，通常不需要换乘，可以直接乘坐公交或地铁到达。以下是推荐思路和交通方式：\n\n### 推荐思路：\n1. **路线整体连贯性**：棒棰岛位于大连市内，滨海路是大连著名的环海公路，沿途风景优美，适合慢行游览。从棒棰岛出发，步行或骑行至滨海路起点（如滨海路公园）即可进入游览区域，无需频繁换乘。\n2. **交通方式选择**：优先选择公交或地铁，避免频繁换乘和拥堵。大连市内公交系统较为发达，线路覆盖广泛，适合短途出行。\n3. **换乘便捷性**：如果需要换乘，尽量选择地铁或公交枢纽站点，减少步行距离和换乘时间。\n\n### 推荐交通方式：\n1. **公交出行**：\n   - 从棒棰岛附近的公交站（如“棒棰岛”站）乘坐公交线路（如21路、31路、521路等），前往“滨海路公园”或“滨海路”站。\n   - 公交车通常会直达滨海路沿线的多个景点，如燕窝岭、傅家庄公园等，适合边走边看。\n   - **优点**：票价便宜，适合短途出行；**缺点**：可能需要等车，受路况影响较大。\n\n2. **地铁出行**：\n   - 从棒棰岛附近的地铁站（如“人民广场”站）乘坐地铁2号线，前往“东港”站或“西安路”站。\n   - 从地铁站步行至滨海路沿线的公交站点，再换乘公交前往滨海路公园或具体景点。\n   - **优点**：地铁运行稳定，不受地面交通影响；**缺点**：需换乘公交，可能增加步行距离。\n\n3. **步行或骑行**：\n   - 如果距离较近，可以选择步行或骑行前往滨海路起点。棒棰岛到滨海路公园步行约15-20分钟，适合轻松游览。\n   - **优点**：无需换乘，更贴近自然；**缺点**：体力消耗较大，不适合携带重物或有时间限制的行程。\n\n### 换乘建议：\n- 如果需要换乘，优先选择地铁或公交枢纽站点，如“人民广场”站、“东港”站等，这些站点通常有多个线路交汇，",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000019",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "天津",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "周末准备从海河公园出发去水上公园，想问问自驾和乘坐公共交通哪种方式更合适呀，得综合考虑下路上可能遇到的情况呢。，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '周末准备从海河公园出发去水上公园，想问问自驾和乘坐公共交通哪种方式更合适呀，得综合考虑下路上可能遇到的情况呢。，重点说清楚为什么更省心。', then explain why it is better for the route from 海河公园 to 水上公园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_c6b409084724",
+    "prediction": "从海河公园到水上公园，自驾和公共交通各有优劣，但综合考虑省心程度、时间成本和路况稳定性，**公共交通更省心**。\n\n### 一、公共交通更省心的原因：\n\n1. **无需担心停车和找车位**：周末海河公园周边可能人流密集，自驾停车可能需要绕路或寻找较远的停车场，而公共交通站点通常就在公园附近，直接步行即可到达。\n\n2. **避免拥堵和绕路**：市区内早晚高峰和周末节假日容易出现交通拥堵，公共交通能避开部分拥堵路段，尤其在海河公园到水上公园这段路程中，公交或地铁线路相对稳定，不会因路况变化而频繁改道。\n\n3. **无需自己规划路线和换乘**：乘坐公交或地铁时，只需根据站点和线路图选择合适的交通工具，无需自己计算路线、换乘时间或绕路，尤其适合不熟悉当地路况的游客。\n\n4. **更环保、更省心**：公共交通减少了个人车辆的使用频率，有助于减少碳排放，同时也能避免因车辆故障、油费、保养等带来的额外负担。\n\n### 二、推荐公共交通方式：\n\n- **地铁**：从海河公园附近的地铁站（如天津地铁1号线的天津站、鼓楼站）乘坐地铁1号线，直达水上公园站，全程约30分钟，换乘少、节奏稳定。\n- **公交**：可乘坐公交线路如612路、613路等，从海河公园附近的公交站出发，直达水上公园附近站点，全程约40-50分钟，适合短途出行。\n\n### 三、自驾的适用情况：\n\n如果对路况熟悉、有固定停车点、更看重灵活性和节奏控制，自驾也是可行的。但需注意：\n\n- 周末海河公园周边可能车流密集，容易遇到拥堵；\n- 需要提前规划好路线、确认停车场位置；\n- 驾驶过程中需注意行人和非机动车，尤其在公园周边道路。\n\n### 总结：\n\n公共交通在省心、稳定、环保方面更具优势，尤其适合首次到访或不熟悉当地路况的游客。如果更看重自由度和节奏控制，自驾也可以作为备选方案。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000020",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "hard",
+    "tags": [
+      "太原",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从太原站出发前往汾河公园，该选择怎样的路线呢，而且在途中有没有像迎泽公园这类值得顺道去逛逛的地方呢？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从太原站出发前往汾河公园，该选择怎样的路线呢，而且在途中有没有像迎泽公园这类值得顺道去逛逛的地方呢？，别把答案写成票务信息。', then explain why it is better for the route from 太原站 to 汾河公园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_e94020177e2e",
+    "prediction": "从太原站出发前往汾河公园，建议优先选择公共交通出行，如地铁或公交，这样更省时省力，也更符合城市通勤习惯。\n\n**推荐路线：**\n\n1. **地铁2号线（迎泽公园方向）**：在太原站乘坐地铁2号线（迎泽公园方向），乘坐约10站左右到达**迎泽公园站**，出站后步行即可到达迎泽公园。迎泽公园是太原市内一个著名的城市公园，环境优美，适合短暂停留、拍照或稍作休息。\n\n2. **继续乘坐地铁2号线**：从迎泽公园站继续乘坐地铁2号线（迎泽公园方向）至**长风西站**，换乘地铁1号线（西山文化宫方向）。\n\n3. **换乘地铁1号线**：在长风西站换乘地铁1号线（西山文化宫方向），乘坐至**西涧河站**，出站后步行约10分钟即可到达**汾河公园**入口。\n\n**推荐理由：**\n\n- 迎泽公园位于太原市中心，距离太原站较近，乘坐地铁即可到达，适合顺道游览，感受太原的城市绿肺。\n- 地铁线路稳定、换乘方便，适合不熟悉城市路况的游客。\n- 汾河公园位于汾河沿岸，是太原市重要的生态休闲区，适合散步、骑行或拍照。\n\n**注意事项：**\n\n- 地铁运营时间一般为6:00-23:00，建议预留足够时间换乘。\n- 若时间紧张，也可选择公交接驳，但需注意公交站点和线路可能较为分散。\n\n这条路线兼顾了顺道游览和高效到达，适合希望在太原市区短暂停留、体验城市风光的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000021",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "宁波",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "第一次从宁波站出发去保国寺，不熟悉路况的话，选择怎样的公交或者地铁换乘方式会更省事呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '第一次从宁波站出发去保国寺，不熟悉路况的话，选择怎样的公交或者地铁换乘方式会更省事呢？，不用给我查实时班次。', then explain why it is better for the route from 宁波站 to 保国寺. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_f794fbf82758",
+    "prediction": "从宁波站出发前往保国寺，建议优先选择地铁换乘，这样更省事、更少受路况影响。以下是推荐路线：\n\n### 推荐路线一：地铁换乘\n1. **宁波站** → **地铁1号线（往高桥西方向）**  \n   - 在宁波站乘坐地铁1号线（往高桥西方向），在**鼓楼站**下车。\n2. **鼓楼站** → **地铁2号线（往清水浦方向）**  \n   - 在鼓楼站换乘地铁2号线（往清水浦方向），在**清水浦站**下车。\n3. **清水浦站** → **公交接驳**  \n   - 从清水浦站步行至公交站，乘坐**公交117路**（或127路）至**保国寺站**下车，步行即可到达保国寺。\n\n### 推荐路线二：公交直达\n1. **宁波站** → **公交117路**（或127路）  \n   - 在宁波站乘坐公交117路（或127路）至**保国寺站**下车，步行即可到达保国寺。\n\n### 推荐理由：\n- **地铁换乘**：宁波地铁覆盖范围广，换乘便捷，适合不熟悉路况的游客，且不受地面交通拥堵影响。\n- **公交直达**：公交线路稳定，适合短途出行，无需频繁换乘，更省心。\n\n建议优先选择地铁换乘，更省事、更少受路况影响。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000022",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "常州",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "周末我打算从红梅公园出发去太湖湾游玩，想了解一下坐公交车、自己开车还是叫网约车，哪种交通方式花费的时间会更少些呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '周末我打算从红梅公园出发去太湖湾游玩，想了解一下坐公交车、自己开车还是叫网约车，哪种交通方式花费的时间会更少些呢？，我更想知道推荐思路。', then explain why it is better for the route from 红梅公园 to 太湖湾. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_35b83882dad5",
+    "prediction": "从红梅公园到太湖湾，推荐优先考虑**公交出行**，其次是**网约车**，最后是**自驾**。以下是推荐思路的简要说明：\n\n### 1. **公交出行**（推荐优先）\n- **优点**：公交线路稳定、站点密集、无需担心停车问题，适合短途通勤，且对环境友好。\n- **路线建议**：可先从红梅公园附近的公交站（如“红梅公园”站）乘坐公交，如公交102路、公交112路等，前往市中心或更靠近太湖湾的站点，再换乘公交或地铁至太湖湾附近。\n- **时间预估**：全程约40-60分钟，视换乘情况而定。\n- **推荐理由**：公交出行成本低、环保，适合预算有限、不赶时间的游客。\n\n### 2. **网约车**（次优选择）\n- **优点**：门到门服务、无需换乘、时间更可控，适合对时间敏感或携带较多行李的游客。\n- **路线建议**：直接叫网约车前往太湖湾，司机可根据导航路线避开拥堵路段。\n- **时间预估**：约30-45分钟，视路况而定。\n- **推荐理由**：适合希望减少换乘、更省心的出行者，但成本相对较高。\n\n### 3. **自驾**（不推荐优先）\n- **缺点**：太湖湾周边道路较窄、停车位有限，且红梅公园周边停车条件一般，容易造成拥堵。\n- **路线建议**：自驾需注意太湖湾周边的限行和限停规定，建议提前规划好停车位置。\n- **时间预估**：约30-40分钟，但需预留更多时间应对可能的交通状况。\n- **推荐理由**：自驾虽然灵活，但太湖湾周边的交通环境并不适合频繁进出，且停车不便，容易浪费时间。\n\n### 总结建议：\n- **优先推荐公交**：适合大多数游客，尤其适合首次到访太湖湾的人群。\n- **网约车适合赶时间或携带行李**：若时间紧张或行李较多，可选择网约车。\n- **不建议优先自驾**：太湖湾周边停车不便，且红梅公园周边交通拥堵，容易浪费时间。\n\n希望这些建议能帮助你更高效地安排周末行程！",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000023",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "medium",
+    "tags": [
+      "广州",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "带着老人和小孩从广州长隆国际大马戏前往广州塔，有哪些既便捷又适合老人孩子乘坐的交通方式呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '带着老人和小孩从广州长隆国际大马戏前往广州塔，有哪些既便捷又适合老人孩子乘坐的交通方式呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 广州长隆国际大马戏 to 广州塔. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_a561f870f0de",
+    "prediction": "从广州长隆国际大马戏前往广州塔，推荐优先选择地铁或公交接驳，这类方式更省心、更安全，尤其适合老人和小孩同行。以下是几种推荐方式及推荐理由：\n\n### 1. **地铁：广州地铁3号线（北延段）**\n- **路线**：从长隆站（地铁3号线）乘坐至体育西路站，换乘至广州塔站。\n- **推荐理由**：\n  - 地铁站点密集、准时、换乘方便，全程封闭式环境，避免人流拥挤和天气影响。\n  - 有无障碍设施，方便老人和小孩上下车。\n  - 无需频繁换乘或等待，整体行程更省心。\n  - 乘坐舒适，适合长时间出行。\n\n### 2. **公交接驳（如公交+地铁）**\n- **路线**：从长隆国际大马戏门口乘坐公交（如公交221路、222路等）至附近的地铁站（如长隆站），再转乘地铁3号线至广州塔站。\n- **推荐理由**：\n  - 公交站点通常靠近景区门口，方便老人和小孩上下车。\n  - 若老人或小孩体力有限，公交接驳更灵活，可分段安排休息。\n  - 适合不熟悉地铁线路或更习惯地面交通的人群。\n\n### 3. **打车/网约车**\n- **路线**：直接从长隆国际大马戏打车至广州塔。\n- **推荐理由**：\n  - 门到门直达，无需换乘，适合时间紧张或更看重便利性的人群。\n  - 但需注意：广州市区内打车费用相对较高，且高峰期可能遇到堵车。\n  - 适合老人和小孩体力较弱、不愿长时间步行或等待的情况。\n\n### 总结推荐：\n- **首选**：地铁3号线（长隆站→广州塔站），全程封闭、准时、无障碍，适合老人和小孩。\n- **次选**：公交接驳+地铁，更灵活，适合不熟悉地铁线路的人群。\n- **备选**：打车/网约车，适合时间紧张或更看重门到门便利的人群。\n\n建议优先选择地铁，既省心又安全，尤其适合老人和小孩同行。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000024",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "hard",
+    "tags": [
+      "广州",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "在长隆度假区里，从长隆野生动物世界出发，想要去长隆水上乐园，不晓得走哪条路或者坐啥交通工具会更省事呀？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '在长隆度假区里，从长隆野生动物世界出发，想要去长隆水上乐园，不晓得走哪条路或者坐啥交通工具会更省事呀？，别把答案写成票务信息。', then explain why it is better for the route from 长隆野生动物世界 to 长隆水上乐园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_1d7a15691e9a",
+    "prediction": "从长隆野生动物世界到长隆水上乐园，建议步行或骑行，两处景点都在长隆度假区内部，距离较近，步行约15-20分钟即可到达。如果携带较多行李或希望更轻松，也可以选择园区内的接驳车，通常在园区内有固定路线，方便快捷。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000025",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "成都",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从位于成都的大熊猫繁育研究基地前往宽窄巷子，乘坐公交和地铁这两种交通方式，到底哪一种更便于出行呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从位于成都的大熊猫繁育研究基地前往宽窄巷子，乘坐公交和地铁这两种交通方式，到底哪一种更便于出行呢？，不用给我查实时班次。', then explain why it is better for the route from 大熊猫繁育研究基地 to 宽窄巷子. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_1bfcff2e4ccf",
+    "prediction": "从成都大熊猫繁育研究基地到宽窄巷子，乘坐公交和地铁两种方式各有优劣，具体选择取决于你的偏好和行程安排：\n\n**公交出行：**  \n公交线路相对固定，适合对路线熟悉、不赶时间的乘客。从基地出发，可乘坐公交至地铁站点（如地铁2号线的犀浦站），再换乘地铁。整体换乘相对简单，但可能需要多次换乘，耗时较长。\n\n**地铁出行：**  \n地铁运行稳定、速度快，尤其适合在市区内短途通勤。从基地到地铁站点需步行一段距离，但一旦进入地铁系统，换乘便捷，整体通勤效率更高。推荐乘坐地铁2号线至人民公园站，再换乘地铁1号线至宽窄巷子站，全程约40分钟。\n\n**推荐理由：**  \n地铁在市区内更高效、准时，尤其适合在宽窄巷子周边游览时使用；公交更适合对路线熟悉、更注重经济性的乘客。若更看重便捷和准时，地铁是更优选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000026",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "medium",
+    "tags": [
+      "成都",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "打算白天从成都天府机场出发前往金沙遗址，不考虑实时班次和票价的情况下，该怎么规划交通路线能让整个行程更顺畅呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '打算白天从成都天府机场出发前往金沙遗址，不考虑实时班次和票价的情况下，该怎么规划交通路线能让整个行程更顺畅呢？，我更想知道推荐思路。', then explain why it is better for the route from 天府机场 to 金沙遗址. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_95a8daf1fbf7",
+    "prediction": "从成都天府机场前往金沙遗址，白天出行更注重效率和便利性，推荐优先选择公共交通方式，尤其是地铁和公交的组合，兼顾换乘少、节奏稳、更省心。以下是推荐思路：\n\n### 推荐思路一：地铁+公交组合（推荐优先）\n1. **天府机场出发**：先乘坐地铁18号线（机场线）至**犀浦站**，换乘地铁1号线（往韦家碾方向）。\n2. **换乘至省体育馆站**：在省体育馆站换乘地铁3号线（往成都医学院方向）。\n3. **换乘至省图书馆站**：在省图书馆站换乘地铁4号线（往西河方向）。\n4. **到达金沙遗址博物馆站**：继续乘坐4号线至**金沙遗址博物馆站**，出站即达金沙遗址博物馆或金沙遗址公园入口。\n\n**推荐理由**：地铁线路稳定、换乘少、节奏可控，适合白天出行；全程无需频繁换乘，适合不熟悉城市的人。\n\n---\n\n### 推荐思路二：机场大巴+公交/地铁（适合更灵活安排）\n1. **天府机场出发**：乘坐机场大巴至**省体育馆站**或**省图书馆站**，通常有多个线路可选。\n2. **换乘公交或地铁**：到达省体育馆站后，可换乘地铁3号线或公交至金沙遗址方向；或直接乘坐公交至金沙遗址附近站点。\n\n**推荐理由**：机场大巴覆盖范围广，适合不想换乘地铁的人；到达省体育馆后换乘更方便，节奏更灵活。\n\n---\n\n### 总结建议：\n- **优先推荐地铁+公交组合**，更省心、节奏更稳；\n- **机场大巴+公交/地铁**适合更灵活安排时间的人；\n- **避开高峰时段**（如早8点至10点、晚6点至8点），可减少拥挤和等待时间；\n- **金沙遗址博物馆**位于成都市成华区，周边有公交站点和地铁站，交通便利，建议预留15-20分钟步行时间到达景点入口。\n\n这样安排能确保白天行程顺畅、节奏可控，同时兼顾舒适度和效率。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000027",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "扬州",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "在周末打算从茱萸湾公园出发去大明寺游玩，那请问坐公交和坐地铁哪个方式去会更方便些呀？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '在周末打算从茱萸湾公园出发去大明寺游玩，那请问坐公交和坐地铁哪个方式去会更方便些呀？，重点说清楚为什么更省心。', then explain why it is better for the route from 茱萸湾 to 大明寺. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_b3d0a7d1a2a5",
+    "prediction": "从茱萸湾公园到大明寺，乘坐公交会更方便一些，更省心。以下是具体原因：\n\n**公交推荐路线：**  \n茱萸湾公园附近有公交站点，如“茱萸湾公园”站，可乘坐公交102路或202路，直达“大明寺”站。全程约30分钟，票价2元，无需换乘，路线稳定，适合短途出行。\n\n**为什么更省心：**  \n1. **无需换乘**：公交线路直达，无需频繁换乘，避免了地铁换乘可能带来的复杂和时间浪费。  \n2. **站点密集**：公交站点覆盖范围广，茱萸湾公园周边公交站点密集，方便上下车。  \n3. **票价便宜**：公交票价低，适合预算有限的短途出行。  \n4. **路线稳定**：公交线路固定，周末班次也相对稳定，不容易出现延误或取消的情况。\n\n**地铁建议：**  \n如果选择地铁，需先从茱萸湾公园步行至最近的地铁站（如“文昌阁”站），乘坐地铁1号线至“大明寺”站，再步行至目的地。但整体换乘和步行距离较长，不如公交直接。因此，公交仍是更省心的选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000028",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "hard",
+    "tags": [
+      "无锡",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "假设我身处南长街，准备前往三国水浒城，那么公交和地铁这两种出行方式，到底哪一种会更方便些呀，能不能跟我详细说说呀？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '假设我身处南长街，准备前往三国水浒城，那么公交和地铁这两种出行方式，到底哪一种会更方便些呀，能不能跟我详细说说呀？，别把答案写成票务信息。', then explain why it is better for the route from 南长街 to 三国水浒城. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_d9c8ffe83112",
+    "prediction": "从南长街前往三国水浒城，公交和地铁两种方式各有优劣，具体选择取决于你的行程安排和偏好。\n\n**公交出行：**  \n南长街周边公交站点较多，通常有多个公交线路可直达或换乘至三国水浒城附近。公交站点通常靠近地铁站或主干道，步行可达。公交线路覆盖范围广，适合对换乘要求不高、更看重门到门便利性的出行者。不过，公交受路况和早晚高峰影响较大，可能会有延误。\n\n**地铁出行：**  \n如果南长街附近有地铁站点（如地铁1号线或2号线），乘坐地铁通常会更高效、准时。地铁站点通常位于城市核心区域，换乘方便，且不受地面交通拥堵影响。从地铁站步行至三国水浒城也相对便捷。不过，地铁站点可能距离南长街稍远，需要步行或换乘公交到达。\n\n**建议：**  \n如果你更看重门到门的便利性，且周边公交站点密集，公交可能是更直接的选择；如果你更看重通勤效率和稳定性，且地铁站点较近，地铁会更合适。建议出发前查看地图，确认公交线路和地铁站点位置，以便更好地规划行程。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000029",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "medium",
+    "tags": [
+      "昆明",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从结束《云南映象》演出的场地前往七彩云南欢乐世界，公交和地铁哪一种交通方式更便于到达呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从结束《云南映象》演出的场地前往七彩云南欢乐世界，公交和地铁哪一种交通方式更便于到达呢？，不用给我查实时班次。', then explain why it is better for the route from 《云南映象》演出 to 七彩云南欢乐世界. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_f0fadb8df2a2",
+    "prediction": "从结束《云南映象》演出的场地（通常位于云南省文化馆或附近）前往七彩云南欢乐世界，公交和地铁都可以作为可行的交通方式，但地铁通常更便捷、准时、舒适。\n\n**推荐优先选择地铁：**\n\n- **地铁线路**：可乘坐地铁1号线（大学城方向）至“昆明南火车站”站，换乘地铁2号线（环城南路方向）至“环城南路”站，再步行或换乘公交至欢乐世界。\n- **推荐理由**：地铁站点密集、换乘方便、不受交通拥堵影响，尤其适合携带行李或多人同行。整体行程时间较短，且更省心。\n\n**公交作为备选方案：**\n\n- **公交线路**：可乘坐公交22路、30路、41路等至“欢乐世界”站下车。\n- **推荐理由**：公交线路覆盖范围广，适合短途出行，但可能受路况和站点分布影响，行程时间相对不稳定。\n\n综上，若追求效率和舒适度，优先推荐地铁；若更看重经济性或更熟悉公交线路，公交也是可行的选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000030",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "medium",
+    "tags": [
+      "昆明",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从昆明长水国际机场出发前往石林，在不考虑实时班次和票价的情况下，单纯从出行的便利性来说，公交和地铁到底哪个更便于到达石林呢，比如从机场出发后如何转乘，以及整个行程的衔接等方面来比较的话，公交和地铁哪个更方便呀？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从昆明长水国际机场出发前往石林，在不考虑实时班次和票价的情况下，单纯从出行的便利性来说，公交和地铁到底哪个更便于到达石林呢，比如从机场出发后如何转乘，以及整个行程的衔接等方面来比较的话，公交和地铁哪个更方便呀？，我更想知道推荐思路。', then explain why it is better for the route from 长水机场 to 石林. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 机场大巴, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_07540627a6f3",
+    "prediction": "从昆明长水国际机场前往石林，单纯从出行便利性角度出发，**地铁比公交更方便**。以下是推荐思路的简要说明：\n\n---\n\n### ✅ **推荐思路：地铁更方便**\n\n#### 1. **直达性与稳定性**\n- **地铁**：昆明地铁1号线（机场线）直接连接昆明长水国际机场与市区核心区域，全程约40分钟，无需换乘，运行稳定，发车频率高。\n- **公交**：机场公交线路多，但需多次换乘，且受路况、天气影响较大，容易延误。\n\n#### 2. **换乘衔接更顺畅**\n- **地铁**：到达市区后，可直接换乘地铁2号线或3号线，前往石林方向。例如，从机场站乘坐地铁1号线至东风广场站，换乘地铁2号线至石林东路站，步行即可到达石林风景区。\n- **公交**：需在市区内多次换乘公交或打车，路线复杂，容易绕路或错过站点。\n\n#### 3. **站点覆盖更广**\n- **地铁**：站点密集，覆盖昆明市区主要交通枢纽和景点，便于衔接后续行程。\n- **公交**：站点相对分散，尤其在郊区或非主干道区域，可能需要步行较远才能到达公交站。\n\n#### 4. **对游客友好度更高**\n- **地铁**：环境整洁、安全，适合携带行李或老人儿童出行。\n- **公交**：站点可能较拥挤，尤其在高峰时段，且需注意上下车安全。\n\n---\n\n### 📌 **路线建议（地铁）**\n1. **机场站** → 乘坐地铁1号线（往昆明南火车站方向） → 东风广场站换乘地铁2号线（往大学城方向） → 石林东路站下车。\n2. **石林东路站**出站后步行约10分钟即可到达石林风景区入口。\n\n---\n\n### 📌 **路线建议（公交）**\n1. **机场站** → 乘坐机场快线（如机场1号线）至昆明南火车站 → 换乘公交或地铁至市区。\n2. **市区内**再换乘公交至石林方向，如乘坐公交22路、30路等，但需注意站点和换乘衔接。\n\n---\n\n### ✅ **总结**\n- **地铁**：更稳定、更省心、更省时，",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000031",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "medium",
+    "tags": [
+      "杭州",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从位于杭州的雷峰塔出发，想要前往千岛湖景区，选择什么样的交通方式比较便捷呢，能给讲讲有哪些可行的交通途径以及大概的行程安排思路吗？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从位于杭州的雷峰塔出发，想要前往千岛湖景区，选择什么样的交通方式比较便捷呢，能给讲讲有哪些可行的交通途径以及大概的行程安排思路吗？，重点说清楚为什么更省心。', then explain why it is better for the route from 雷峰塔 to 千岛湖景区. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_88181ff61fb6",
+    "prediction": "从杭州雷峰塔前往千岛湖景区，有多种交通方式可以选择，每种方式都有其优缺点，适合不同出行需求和偏好。以下是几种常见且可行的交通方式，以及推荐理由和行程安排思路：\n\n---\n\n### ✅ **1. 高铁+公交/打车（推荐）**\n**路线：**  \n雷峰塔 → 杭州东站（地铁4号线）→ 杭州东站 → 千岛湖站（高铁）→ 千岛湖景区（公交/打车）  \n**行程安排：**  \n- **雷峰塔到杭州东站**：乘坐地铁4号线（约30分钟），步行至杭州东站。  \n- **杭州东站到千岛湖站**：乘坐高铁（约40分钟），票价约100元。  \n- **千岛湖站到景区**：出站后打车或乘坐公交（约15分钟），车费约20-30元。  \n\n**推荐理由：**  \n- **省心省力**：全程无需换乘，高铁准时准点，公交和打车也相对方便。  \n- **时间可控**：全程约1小时30分钟，适合时间紧凑的游客。  \n- **适合多人同行**：高铁和公交都支持多人同行，无需单独购票。  \n\n---\n\n### ✅ **2. 长途汽车（适合预算有限）**\n**路线：**  \n雷峰塔 → 杭州汽车南站 → 千岛湖汽车站 → 千岛湖景区（公交/打车）  \n**行程安排：**  \n- **雷峰塔到杭州汽车南站**：打车或公交（约30分钟），车费约20元。  \n- **杭州汽车南站到千岛湖汽车站**：乘坐长途汽车（约2小时），票价约40元。  \n- **千岛湖汽车站到景区**：打车或公交（约15分钟），车费约20元。  \n\n**推荐理由：**  \n- **经济实惠**：整体费用较低，适合预算有限的游客。  \n- **无需换乘**：从杭州南站直达千岛湖汽车站，省去换乘麻烦。  \n- **适合独自出行**：适合喜欢自由安排行程的人。  \n\n---\n\n### ✅ **3. 自驾/包车（适合家庭或",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000032",
+    "task_type": "traffic_planning",
+    "scene": "airport_to_city",
+    "difficulty": "hard",
+    "tags": [
+      "杭州",
+      "airport_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从萧山机场出发，打算去灵隐寺，乘坐公共交通工具的话，有哪些具体可行的路线可以选择呢，麻烦详细讲讲呀？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从萧山机场出发，打算去灵隐寺，乘坐公共交通工具的话，有哪些具体可行的路线可以选择呢，麻烦详细讲讲呀？，别把答案写成票务信息。', then explain why it is better for the route from 萧山机场 to 灵隐寺. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 机场大巴, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_636fa343bd35",
+    "prediction": "从萧山机场出发前往灵隐寺，乘坐公共交通工具是可行且经济的选择。以下是几种具体可行的路线方案，供你参考：\n\n### 方案一：地铁+公交\n1. **萧山机场站**乘坐地铁1号线（湘湖方向）；\n2. 在**钱江路站**换乘地铁4号线（浦沿方向）；\n3. 在**龙翔桥站**换乘地铁1号线（湘湖方向）；\n4. 继续乘坐1号线至**灵隐站**；\n5. 在**灵隐站**出站后，步行约10分钟即可到达灵隐寺。\n\n**推荐理由**：全程地铁，换乘较少，节奏稳定，适合首次出行者。\n\n---\n\n### 方案二：公交+公交\n1. **萧山机场站**乘坐公交**302路**（或**302B路**）至**火车东站**；\n2. 在**火车东站**换乘公交**19路**（或**19M路**）至**灵隐寺站**；\n3. 在**灵隐寺站**下车，步行即可到达灵隐寺。\n\n**推荐理由**：公交线路覆盖广，适合熟悉本地公交的乘客，且无需换乘地铁，更省时间。\n\n---\n\n### 方案三：地铁+步行\n1. **萧山机场站**乘坐地铁1号线（湘湖方向）至**灵隐站**；\n2. 在**灵隐站**出站后，步行约10分钟即可到达灵隐寺。\n\n**推荐理由**：全程地铁，无需换乘，节奏稳定，适合携带行李或希望少走动的乘客。\n\n---\n\n### 小贴士\n- 灵隐寺周边有多个公交站点和地铁站，建议提前确认具体下车点；\n- 若携带较多行李，建议优先选择地铁或公交站点较近的路线；\n- 灵隐寺周边有停车场，但建议优先选择公共交通，避免拥堵。\n\n以上路线均为常规公共交通方式，可根据当天实际运行情况灵活调整。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000033",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "medium",
+    "tags": [
+      "桂林",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "自驾从两江机场出发前往十里画廊，有哪些比较顺畅的路线可以选择，需要注意避开哪些路段呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '自驾从两江机场出发前往十里画廊，有哪些比较顺畅的路线可以选择，需要注意避开哪些路段呢？，不用给我查实时班次。', then explain why it is better for the route from 两江机场 to 十里画廊. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_f1880a984b0f",
+    "prediction": "从两江机场自驾前往十里画廊，有以下几条相对顺畅的路线可选，建议根据实际路况和出发时间灵活调整：\n\n### 推荐路线一：机场高速—南川大道—南川区—渝湘高速—南川出口—十里画廊\n- **路线说明**：全程走高速，避开城市拥堵路段，通行效率较高。\n- **注意事项**：渝湘高速部分路段可能有施工或限行，建议出发前确认路况；南川出口附近有多个岔路，注意导航指引。\n\n### 推荐路线二：机场高速—南坪大道—南岸区—内环快速路—渝湘高速—南川出口—十里画廊\n- **路线说明**：先走机场高速至南坪，再转内环快速路，再上渝湘高速，整体路线相对稳定。\n- **注意事项**：内环快速路在高峰时段可能拥堵，建议避开早晚高峰；渝湘高速同上路线，需注意施工和限行。\n\n### 推荐路线三：机场高速—南川大道—南川区—省道S204—十里画廊\n- **路线说明**：全程走省道，避开高速拥堵，适合追求平稳驾驶体验的用户。\n- **注意事项**：省道S204部分路段可能有弯道和坡道，需注意限速和驾驶安全；部分路段可能有施工，建议出发前确认路况。\n\n### 避开路段建议：\n1. **渝湘高速部分施工路段**：如南川出口附近，可能有临时交通管制或限行措施。\n2. **内环快速路高峰时段拥堵**：如早上7-9点、下午5-7点，建议避开。\n3. **省道S204部分弯道和坡道**：如十里画廊入口附近，需注意限速和驾驶安全。\n\n### 总结：\n- **路线一**和**路线二**更适合追求通行效率的用户，全程走高速，避开城市拥堵。\n- **路线三**更适合追求平稳驾驶体验的用户，全程走省道，避开高速拥堵。\n- **避开路段**主要集中在高速施工、高峰拥堵和省道弯道等区域，建议出发前确认路况和限行信息。\n\n希望这些建议能帮助您顺利到达目的地！",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000034",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "武汉",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "上午从汉口站出发去归元寺，有没有比较省事的公交或地铁路线可以推荐呀？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '上午从汉口站出发去归元寺，有没有比较省事的公交或地铁路线可以推荐呀？，我更想知道推荐思路。', then explain why it is better for the route from 汉口站 to 归元寺. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_3807889ffc20",
+    "prediction": "从汉口站到归元寺，推荐优先考虑地铁或公交接驳，这类方式通常更省事、更少换乘、更少拥堵。以下是推荐思路：\n\n### 推荐思路一：地铁优先（少换乘、少步行）\n1. **汉口站** → **地铁2号线（循礼门方向）**  \n   - 汉口站有地铁2号线站点，可直接乘坐。\n2. **地铁2号线** → **循礼门站**  \n   - 在循礼门站换乘地铁6号线（往东风大道方向）。\n3. **地铁6号线** → **钟家村站**  \n   - 在钟家村站换乘地铁4号线（往武汉火车站方向）。\n4. **地铁4号线** → **武汉火车站**  \n   - 继续乘坐4号线至武汉火车站，再换乘公交或地铁至归元寺方向。\n5. **武汉火车站** → **公交/地铁接驳**  \n   - 从武汉火车站可乘坐公交或地铁至归元寺附近站点，如“归元寺”或“汉阳门”站。\n\n**推荐理由**：地铁线路稳定、站点密集、换乘少，适合首次出行或不熟悉路线的人。整体行程相对顺畅，步行和换乘较少。\n\n---\n\n### 推荐思路二：公交接驳（适合熟悉路线、更灵活）\n1. **汉口站** → **公交站点**  \n   - 汉口站附近有多个公交站点，如“汉口火车站”或“江汉路”。\n2. **公交** → **至江汉路或汉阳门附近**  \n   - 乘坐公交（如541路、542路、543路等）至江汉路或汉阳门附近。\n3. **换乘地铁或步行至归元寺**  \n   - 在江汉路附近可换乘地铁2号线或步行至归元寺。\n\n**推荐理由**：公交线路覆盖广，适合熟悉本地公交的人，且无需换乘地铁，更省事。\n\n---\n\n### 总结建议：\n- **优先推荐地铁**：少换乘、少步行、更省心。\n- **公交接驳**：适合熟悉路线、更灵活的人。\n- **注意**：归元寺位于汉阳区，距离汉口站有一定距离，建议预留充足时间",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000035",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "武汉",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从武汉站出发前往长江大桥，有没有不用绕很多路的交通路线可以推荐呀，麻烦详细讲讲怎么走更直接呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从武汉站出发前往长江大桥，有没有不用绕很多路的交通路线可以推荐呀，麻烦详细讲讲怎么走更直接呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 武汉站 to 长江大桥. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_298b3142326d",
+    "prediction": "从武汉站出发前往长江大桥，推荐优先选择地铁或公交，路线相对直接，且无需绕远，省心省力。以下是详细路线建议：\n\n### 推荐路线一：地铁+步行（更省心）\n**路线：**\n1. **武汉站** → **乘坐地铁2号线（坐至光谷广场方向）** → **在“洪山广场站”下车**（约15分钟）；\n2. **从洪山广场站出站后步行约10分钟**，即可到达**长江大桥南岸**（靠近武昌站方向）。\n\n**推荐理由：**\n- 地铁2号线是武汉骨干线路，站点密集、换乘方便；\n- 洪山广场站是靠近长江大桥的地铁站，步行即可抵达；\n- 无需换乘，全程无需绕路，省时省心；\n- 避免了公交换乘带来的不确定性。\n\n---\n\n### 推荐路线二：公交（适合携带行李或更灵活）\n**路线：**\n1. **武汉站** → **乘坐公交541路（或542路）** → **在“洪山广场站”下车**；\n2. **步行约10分钟**，即可到达**长江大桥南岸**。\n\n**推荐理由：**\n- 公交站点通常靠近地铁站或火车站，方便换乘；\n- 无需频繁换乘，适合携带行李或更注重节奏的人；\n- 路线相对固定，适合熟悉武汉公交的人。\n\n---\n\n### 小贴士：\n- **长江大桥**是武汉的标志性建筑，建议预留充足时间拍照或步行；\n- 若从武汉站出发，建议优先选择地铁，更高效、更少拥堵；\n- 若携带较多行李，建议优先选择地铁或公交，避免步行过远。\n\n以上路线均以“少绕路、少换乘、更省心”为原则，适合大多数游客或通勤者。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000036",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "hard",
+    "tags": [
+      "沈阳",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从桃仙国际机场往北陵公园走的路上，有没有啥适合咱们老年人去逛逛，又不用走太多路，景色还挺好的地方呢，能跟我们说说具体路线还有沿途值得去瞧瞧的地方不？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从桃仙国际机场往北陵公园走的路上，有没有啥适合咱们老年人去逛逛，又不用走太多路，景色还挺好的地方呢，能跟我们说说具体路线还有沿途值得去瞧瞧的地方不？，别把答案写成票务信息。', then explain why it is better for the route from 桃仙国际机场 to 北陵公园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_a6238b54c835",
+    "prediction": "从桃仙国际机场前往北陵公园的途中，沿途有不少适合老年人休闲、观赏、步行轻松的景点，既不需走远路，又能欣赏到自然与人文景观。以下是推荐路线和沿途值得停留的地方：\n\n---\n\n### 🚗 推荐路线（适合老年人慢行）：\n**起点：桃仙国际机场**  \n**终点：北陵公园**  \n**路线方向：向北走，沿机场高速或沈哈高速往沈阳市区方向行驶，进入市区后沿青年大街或青年大街北段向北走，最终抵达北陵公园。**\n\n---\n\n### 🌳 沿途推荐景点与停留点：\n\n#### 1. **沈阳植物园（可选）**\n- **位置**：位于青年大街与青年公园路交汇附近，靠近沈阳植物园入口。\n- **推荐理由**：植物园内有丰富的植物种类，环境清幽，适合散步、休憩。园内有多个小广场和步道，适合老年人慢行。\n- **路线提示**：从机场出发后，沿青年大街北行，大约在青年公园附近即可看到植物园入口。\n\n#### 2. **青年公园**\n- **位置**：青年大街与青年公园路交汇处。\n- **推荐理由**：公园内有湖泊、亭台楼阁、小桥流水，环境优美，适合老年人慢走、休憩。园内还有儿童游乐区，适合带孙子孙女一起游玩。\n- **路线提示**：从植物园出来后，继续沿青年大街北行，即可到达青年公园。\n\n#### 3. **沈阳市图书馆（可选）**\n- **位置**：青年大街与青年公园路交汇处附近。\n- **推荐理由**：图书馆环境安静，适合老年人阅读、休息。馆内有舒适的座椅和休息区，适合短暂停留。\n- **路线提示**：从青年公园出来后，步行或短途打车即可到达。\n\n#### 4. **北陵公园**\n- **位置**：沈阳市沈河区北陵大街。\n- **推荐理由**：北陵公园是沈阳著名的大型城市公园，园内有丰富的自然景观和人文历史遗迹，如清昭陵、清福陵等。园内步道平缓，适合老年人慢行游览。\n- **路线提示**：从青年大街北行，沿青年大街北段继续向北，最终抵达北陵公园入口。\n\n---",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000037",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "泉州",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从清源山游玩结束后，打算前往蟳埔村，请问有哪些交通方式可以选择，其中哪种方式最为便捷呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从清源山游玩结束后，打算前往蟳埔村，请问有哪些交通方式可以选择，其中哪种方式最为便捷呢？，不用给我查实时班次。', then explain why it is better for the route from 清源山 to 蟳埔村. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_47c6b245fde0",
+    "prediction": "从清源山游玩结束后前往蟳埔村，有以下几种交通方式可以选择：\n\n1. **公交接驳**：  \n   - 从清源山附近公交站乘坐公交（如30路、31路、32路等）至泉州汽车站或泉州东站，再转乘公交或打车前往蟳埔村。  \n   - 优点：费用较低，适合预算有限的游客；  \n   - 缺点：换乘较繁琐，耗时较长。\n\n2. **打车/网约车**：  \n   - 从清源山直接打车或使用网约车平台前往蟳埔村，全程约15-20分钟，车程较短。  \n   - 优点：门到门直达，省时省力；  \n   - 缺点：费用相对较高。\n\n3. **共享单车/电动车**：  \n   - 若清源山附近有共享单车或电动车租赁点，可骑行至蟳埔村附近，再换乘公交或步行。  \n   - 优点：环保、灵活；  \n   - 缺点：需注意路况和安全，且部分路段可能不适宜骑行。\n\n**推荐方式：打车/网约车**  \n这种方式最为便捷，尤其适合游客在游玩后希望快速抵达目的地、节省换乘时间的情况。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000038",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "济南",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "周末我想去泉城广场那边出发去红叶谷，请问有什么比较省事的公共交通路线可以推荐呀？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '周末我想去泉城广场那边出发去红叶谷，请问有什么比较省事的公共交通路线可以推荐呀？，我更想知道推荐思路。', then explain why it is better for the route from 泉城广场 to 红叶谷. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_00dd5edf838f",
+    "prediction": "推荐思路主要围绕“换乘少、步行少、耗时短”来展开，优先选择公交或地铁，尽量减少步行和换乘次数，同时兼顾路线的稳定性和可达性。以下是推荐思路的拆解：\n\n1. **起点定位**：泉城广场位于济南市中心，是济南的地标性区域，周边公交站点密集，交通便利，是理想的起点。\n\n2. **终点定位**：红叶谷位于济南市长清区，距离泉城广场有一定距离，需通过跨区交通方式到达，建议优先选择公交或地铁接驳。\n\n3. **路线选择原则**：\n   - **优先地铁**：如果泉城广场附近有地铁站点（如地铁1号线的泉城广场站），可优先乘坐地铁，减少换乘和步行。\n   - **公交接驳**：若地铁站点较远或无直达线路，可选择公交接驳，优先选择公交线路稳定、站点密集、换乘少的线路。\n   - **避免频繁换乘**：尽量选择一条线路直达或少换乘的路线，减少出行复杂度和时间成本。\n\n4. **推荐路线思路**：\n   - **地铁优先路线**：泉城广场站 → 地铁1号线 → 乘坐至济南东站或济南西站 → 换乘公交或地铁至红叶谷方向 → 继续乘坐公交至红叶谷。\n   - **公交接驳路线**：泉城广场附近公交站点 → 乘坐公交至济南东站或济南西站 → 换乘公交至红叶谷方向 → 继续乘坐公交至红叶谷。\n   - **路线说明**：地铁和公交接驳路线均需经过济南东站或济南西站，这两个站点是连接市区与长清区的重要枢纽，公交线路密集，适合前往红叶谷。\n\n5. **注意事项**：\n   - **换乘时间**：地铁和公交换乘时需预留足够时间，避免错过班次。\n   - **步行距离**：泉城广场周边公交站点密集，步行至公交站点通常较短，但需注意安全。\n   - **路线稳定性**：建议提前查看公交或地铁线路图，确认线路和站点信息，避免因线路调整影响出行。\n\n通过以上思路，可以确保路线清晰、换乘少、步行少，同时兼顾路线的稳定性和可达性，满足周末出行的需求。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000039",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "深圳",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从盐田港附近出发前往华强北，有没有不绕路的地铁或者公交组合路线呢，麻烦详细说说具体怎么规划能少绕路呀？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从盐田港附近出发前往华强北，有没有不绕路的地铁或者公交组合路线呢，麻烦详细说说具体怎么规划能少绕路呀？，重点说清楚为什么更省心。', then explain why it is better for the route from 盐田港 to 华强北. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_990c0c03d940",
+    "prediction": "从盐田港附近到华强北，推荐优先选择地铁出行，整体更省心、少绕路、少换乘。以下是详细路线建议：\n\n---\n\n### ✅ 推荐路线：地铁+公交组合（少绕路、少换乘）\n\n#### **路线一：地铁为主（推荐）**\n1. **盐田港站**（地铁8号线）  \n   - 乘坐 **地铁8号线（往小梅沙方向）**，在 **深大站** 下车（约15分钟）。\n2. **深大站**（地铁8号线）  \n   - 换乘 **地铁3号线（往深圳北站方向）**，在 **华新站** 下车（约10分钟）。\n3. **华新站**（地铁3号线）  \n   - 换乘 **地铁1号线（往罗湖方向）**，在 **华强北站** 下车（约5分钟）。\n4. **华强北站**（地铁1号线）  \n   - 出站即达华强北商圈。\n\n#### **推荐理由：**\n- **全程地铁，无需换乘公交**，避免公交站点拥堵、等车时间长的问题。\n- **少绕路**：地铁线路直接连接盐田港与华强北核心区域，无需绕行市区主干道。\n- **省心省力**：地铁站点标识清晰，换乘指引明确，适合首次出行或带行李者。\n\n---\n\n#### **路线二：公交+地铁组合（备选）**\n1. **盐田港附近**（如盐田港客运站）  \n   - 乘坐 **公交323路**（往深圳北站方向）至 **深大站**（约30分钟）。\n2. **深大站**  \n   - 换乘 **地铁8号线**（往小梅沙方向）至 **深大站**（约1分钟）。\n3. **深大站**  \n   - 换乘 **地铁3号线**（往深圳北站方向）至 **华新站**（约10分钟）。\n4. **华新站**  \n   - 换乘 **地铁1号线**（往罗湖方向）至 **华强北站**（约5分钟）。\n\n#### **推荐理由：**\n- **公交接驳更灵活**，适合对地铁不",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000040",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "hard",
+    "tags": [
+      "深圳",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从深圳宝安机场出发，若不选择打车，乘坐公共交通工具去观澜湖，有哪些可行的公共交通路线可以选择呀？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从深圳宝安机场出发，若不选择打车，乘坐公共交通工具去观澜湖，有哪些可行的公共交通路线可以选择呀？，别把答案写成票务信息。', then explain why it is better for the route from 宝安机场 to 观澜湖. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_effa310adae4",
+    "prediction": "从深圳宝安机场出发，若不选择打车，乘坐公共交通工具前往观澜湖，有以下几种可行的公共交通路线：\n\n1. **地铁+公交组合**：  \n   - 从宝安机场乘坐地铁11号线（机场线）往福田保税区方向，乘坐至**碧头站**下车。  \n   - 在碧头站换乘地铁5号线（环中线）往黄贝岭方向，乘坐至**布吉站**下车。  \n   - 在布吉站换乘公交（如318路、320路等），前往**观澜湖度假区**方向，乘坐至**观澜湖度假区站**下车。  \n   - 此路线相对稳定，换乘较少，适合对换乘不敏感的乘客。\n\n2. **公交直达**：  \n   - 从宝安机场乘坐公交（如318路、320路、321路等），直接前往**观澜湖度假区**方向，乘坐至**观澜湖度假区站**下车。  \n   - 此路线适合对公交线路熟悉、愿意多等车的乘客，但可能需要多次换乘或等待。\n\n3. **地铁+公交组合（另一种）**：  \n   - 从宝安机场乘坐地铁11号线至**福田保税区站**，换乘地铁3号线（龙岗线）往深圳北站方向，乘坐至**双龙站**下车。  \n   - 在双龙站换乘公交（如318路、320路等），前往**观澜湖度假区**方向，乘坐至**观澜湖度假区站**下车。  \n   - 此路线换乘较多，但覆盖范围广，适合前往观澜湖周边多个区域。\n\n**推荐理由**：  \n- 地铁线路稳定、准点率高，适合对时间敏感的乘客；  \n- 公交线路覆盖范围广，适合前往观澜湖周边多个区域；  \n- 组合路线可减少换乘次数，提升出行效率。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000041",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "湖州",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "打算从湖州站前往安吉凯蒂猫乐园，请问有哪些出行时间或者路线选择能有效避开可能出现的交通拥堵情况呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '打算从湖州站前往安吉凯蒂猫乐园，请问有哪些出行时间或者路线选择能有效避开可能出现的交通拥堵情况呢？，不用给我查实时班次。', then explain why it is better for the route from 湖州站 to 安吉凯蒂猫乐园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_6785d88f4256",
+    "prediction": "从湖州站前往安吉凯蒂猫乐园，建议优先选择公共交通方式，如高铁+公交或长途汽车，以避开拥堵并节省时间。以下是推荐路线和出行建议：\n\n### 推荐路线一：高铁+公交\n1. **湖州站 → 杭州东站**  \n   - 乘坐高铁（如G7561），约1小时左右到达杭州东站。  \n   - **推荐理由**：高铁速度快、准点率高，适合避开湖州市区可能的拥堵。\n\n2. **杭州东站 → 安吉凯蒂猫乐园**  \n   - 从杭州东站乘坐地铁1号线（湘湖方向）至临平站，换乘地铁5号线（金星方向）至金星站，再换乘公交（如公交127路）至安吉凯蒂猫乐园。  \n   - **推荐理由**：地铁换乘便捷，公交接驳稳定，适合多人同行。\n\n### 推荐路线二：长途汽车\n1. **湖州站 → 安吉汽车站**  \n   - 乘坐长途汽车（如湖州客运中心发车），约1.5小时左右到达安吉汽车站。  \n   - **推荐理由**：适合预算有限、对时间要求不高的旅客，且避开市区交通拥堵。\n\n2. **安吉汽车站 → 凯蒂猫乐园**  \n   - 从安吉汽车站步行或打车至凯蒂猫乐园，车程约15分钟。  \n   - **推荐理由**：路程短，交通便利。\n\n### 出行建议\n- **避开高峰时段**：尽量避开早上7:00-9:00和下午5:00-7:00的高峰时段，以减少拥堵。\n- **预留换乘时间**：公共交通换乘需预留15-30分钟，避免因赶时间错过班次。\n- **关注天气和路况**：如遇雨天或道路施工，建议提前确认路线和交通状况。\n\n以上路线均以公共交通为主，兼顾效率与舒适性，适合大多数旅客出行需求。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000042",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "烟台",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从烟台南站出发，打算前往养马岛，有没有不用频繁换乘就能到达的公共交通工具呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从烟台南站出发，打算前往养马岛，有没有不用频繁换乘就能到达的公共交通工具呢？，我更想知道推荐思路。', then explain why it is better for the route from 烟台南站 to 养马岛. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_bcb104dda79c",
+    "prediction": "从烟台南站到养马岛，若希望尽量减少换乘，推荐优先考虑公交接驳或出租车，而非直接乘坐火车或长途汽车。以下是推荐思路：\n\n1. **公交接驳**：  \n   烟台南站周边公交线路较少，建议先步行至烟台市内公交站点（如烟台汽车总站或烟台火车站附近），再搭乘公交至养马岛方向。例如，可先乘坐公交至“养马岛”或“养马岛码头”附近站点，再换乘公交或打车前往岛上。这种方式换乘次数较少，适合对换乘不敏感的旅客。\n\n2. **出租车/网约车**：  \n   若时间紧张或更看重便利性，可直接从烟台南站打车前往养马岛码头，全程约30-40分钟，车程较短，适合短途出行。但需注意，出租车费用相对较高，需提前确认路线和价格。\n\n3. **火车+公交/打车**：  \n   若选择先乘坐火车，需先到烟台站或烟台北站，再转乘公交或打车前往养马岛。这种方式换乘较多，且火车班次和站点可能与烟台南站不一致，需提前确认。\n\n**推荐理由**：  \n公交接驳和出租车方式相对稳定，换乘次数少，适合希望减少折腾的旅客；火车虽有直达线路，但需注意站点和换乘衔接，更适合有时间安排、更看重节奏感的出行者。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000043",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "珠海",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从位于海岛的外伶仃岛出发，要是想乘坐公共交通工具去日月贝歌剧院，得先考虑怎么从外伶仃岛去到码头，然后接着怎么转乘其他交通方式才能到达日月贝歌剧院呢，有没有这样一步一步比较可行的路线呀？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从位于海岛的外伶仃岛出发，要是想乘坐公共交通工具去日月贝歌剧院，得先考虑怎么从外伶仃岛去到码头，然后接着怎么转乘其他交通方式才能到达日月贝歌剧院呢，有没有这样一步一步比较可行的路线呀？，重点说清楚为什么更省心。', then explain why it is better for the route from 外伶仃岛 to 日月贝歌剧院. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_c3f0dd95d768",
+    "prediction": "从外伶仃岛前往日月贝歌剧院，若想乘坐公共交通工具，需分两步走：**先从外伶仃岛到深圳市区的码头，再从码头转乘公共交通到达日月贝歌剧院**。以下是详细路线说明：\n\n---\n\n### **第一步：从外伶仃岛到深圳市区码头**\n\n**推荐方式：乘坐渡轮前往深圳湾口岸或蛇口码头**\n\n- **路线说明**：外伶仃岛是深圳东部海域的一个小岛，没有陆路直接连接深圳市区。因此，必须先乘坐渡轮前往深圳湾口岸或蛇口码头。\n- **推荐码头**：深圳湾口岸或蛇口码头（更靠近市区）。\n- **推荐理由**：这两个码头是深圳对外交通的重要节点，有较多公交和地铁接驳线路，方便后续换乘。渡轮班次相对稳定，且无需额外换乘，省心省力。\n\n---\n\n### **第二步：从深圳湾口岸或蛇口码头到日月贝歌剧院**\n\n**推荐方式：乘坐地铁或公交到达深圳湾体育中心站，再步行或换乘至日月贝歌剧院**\n\n- **路线说明**：\n  - **从深圳湾口岸**：步行至深圳湾口岸地铁站（地铁2号线），乘坐地铁2号线（赤湾方向）至“深圳湾体育中心”站下车。\n  - **从蛇口码头**：步行至蛇口客运码头地铁站（地铁2号线），乘坐地铁2号线至“深圳湾体育中心”站下车。\n- **到达后**：深圳湾体育中心站附近即为日月贝歌剧院，步行即可到达。\n- **推荐理由**：地铁2号线是深圳市区的骨干线路，站点密集、换乘方便，且运营时间长，适合不熟悉城市的人士。步行至歌剧院也只需几分钟，无需再换乘其他交通工具。\n\n---\n\n### **为什么更省心？**\n\n1. **无需频繁换乘**：全程仅需一次渡轮换乘和一次地铁换乘，避免了多次换乘带来的混乱和时间浪费。\n2. **路线稳定可靠**：渡轮和地铁线路运营稳定，班次安排合理，适合计划出行。\n3. **交通衔接顺畅**：深圳湾口岸和蛇口码头与市区地铁系统无缝衔接，方便后续到达目的地。\n4. **适合不熟悉城市的人**：全程依赖公共交通，无需自驾或打",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000044",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "hard",
+    "tags": [
+      "石家庄",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从抱犊寨出发前往隆兴寺，需不需要换乘呢？要是需要换乘的话，怎样换乘能让出行最方便呀，比如可以详细说说大概得先坐什么交通工具，然后在哪个地方转乘之类的情况呢？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从抱犊寨出发前往隆兴寺，需不需要换乘呢？要是需要换乘的话，怎样换乘能让出行最方便呀，比如可以详细说说大概得先坐什么交通工具，然后在哪个地方转乘之类的情况呢？，别把答案写成票务信息。', then explain why it is better for the route from 抱犊寨 to 隆兴寺. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_f9e845951131",
+    "prediction": "从抱犊寨到隆兴寺，通常需要换乘。抱犊寨位于石家庄市鹿泉区，隆兴寺位于正定县，两地相距较远，且不在同一条主干道上，因此建议优先选择公共交通工具，如公交或地铁，以减少换乘次数和出行时间。\n\n### 推荐路线（以公交为主）：\n\n1. **从抱犊寨出发**：先步行或打车至鹿泉区公交站（如鹿泉汽车站或附近公交站点），乘坐公交前往石家庄市区方向。\n2. **乘坐公交至石家庄站或东明路站**：例如乘坐公交28路、30路、32路等，前往石家庄站或东明路站，这些站点通常有地铁接驳。\n3. **换乘地铁**：在石家庄站或东明路站换乘地铁1号线，乘坐至**东明路站**或**北国商城站**。\n4. **从地铁站步行至隆兴寺**：从地铁站步行约15-20分钟即可到达隆兴寺。\n\n### 推荐理由：\n\n- **公交+地铁组合**：公交覆盖范围广，适合短途接驳；地铁运行稳定、速度快，适合中长途通勤。\n- **换乘少**：尽量减少换乘次数，避免因频繁换乘而增加出行时间。\n- **路线清晰**：公交和地铁线路通常有明确的站点和换乘指引，便于查找和乘坐。\n\n### 注意事项：\n\n- 出发前建议确认公交和地铁的首末班时间，避免错过末班车。\n- 若携带较多行李，建议优先选择地铁或打车，避免公交拥挤。\n- 隆兴寺周边有停车场，但需注意停车费用和位置。\n\n如需更详细的公交线路或地铁换乘方案，可进一步查询当地公交或地铁官网。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000045",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "绍兴",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从绍兴的西施故里前往安昌古镇，需要换乘交通工具吗？要是需要换乘的话，怎样换乘能让行程更便捷呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从绍兴的西施故里前往安昌古镇，需要换乘交通工具吗？要是需要换乘的话，怎样换乘能让行程更便捷呢？，不用给我查实时班次。', then explain why it is better for the route from 西施故里 to 安昌古镇. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_3c7f36cf6905",
+    "prediction": "从绍兴的西施故里前往安昌古镇，通常需要换乘交通工具。以下是推荐的交通方式和换乘建议：\n\n### 推荐路线：\n1. **从西施故里出发**：步行或打车至绍兴市区的公交站点（如鲁迅路公交站），乘坐绍兴公交101路或102路（往柯桥方向）至**柯桥客运中心站**下车。\n2. **换乘至安昌古镇**：在柯桥客运中心站乘坐前往安昌古镇的长途汽车（如绍兴至安昌的班车），车程约1小时左右，票价约15元。\n\n### 推荐理由：\n- **公交+长途汽车**：公交覆盖范围广，适合短途接驳；长途汽车直达古镇，省时省力。\n- **换乘便捷**：柯桥客运中心站是绍兴重要的交通枢纽，换乘方便，且有多个班次可供选择。\n\n### 注意事项：\n- 长途汽车班次通常集中在早上和中午，建议提前确认发车时间。\n- 安昌古镇位于绍兴市柯桥区，距离市区有一定距离，建议预留充足时间。\n\n此路线兼顾交通便利性和行程效率，适合大多数游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000046",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "苏州",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从金鸡湖周边出发，乘坐公共交通工具去寒山寺的话，需不需要换乘呢？如果需要换乘的话，怎样换乘能最便捷呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从金鸡湖周边出发，乘坐公共交通工具去寒山寺的话，需不需要换乘呢？如果需要换乘的话，怎样换乘能最便捷呢？，我更想知道推荐思路。', then explain why it is better for the route from 金鸡湖 to 寒山寺. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_0887b88b9695",
+    "prediction": "从金鸡湖周边出发前往寒山寺，乘坐公共交通工具通常需要换乘，这是基于两地之间没有直达的公交或地铁线路。推荐思路如下：\n\n1. **优先选择地铁**：金鸡湖周边有多个地铁站点，如**苏州站**、**金湖路站**、**石湖景区站**等，这些站点通常有地铁4号线或1号线经过，交通便利。  \n2. **地铁换乘方案**：  \n   - 从金鸡湖附近的地铁站（如**金湖路站**）乘坐**地铁4号线**（往同里方向）至**木渎站**，换乘**地铁1号线**（往星海方向）至**苏州乐园站**，再换乘**地铁4号线**（往同里方向）至**木渎站**，再步行或换乘公交至寒山寺。  \n   - 或者从**金湖路站**乘坐**地铁4号线**至**木渎站**，再换乘**公交**（如**50路**或**51路**）至寒山寺附近。  \n3. **公交接驳方案**：  \n   - 若更倾向于公交，可先乘坐公交至地铁站，再转乘地铁，减少换乘次数。  \n4. **换乘便捷性**：  \n   - 地铁换乘站点通常有清晰标识，且换乘通道较短，步行时间一般在3-5分钟内。  \n   - 公交换乘则需注意线路衔接和站点位置，可能需要更仔细的路线确认。  \n5. **推荐理由**：  \n   - 地铁运行稳定、准点率高，适合对时间敏感的出行者；  \n   - 公交线路覆盖范围广，适合短途接驳或避开高峰时段；  \n   - 换乘站点通常有清晰的指示牌和导览图，便于快速找到方向。  \n\n综上，换乘是必要的，但通过合理选择地铁或公交线路，可以实现高效、便捷的出行。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000047",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "medium",
+    "tags": [
+      "苏州",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从寒山寺出发，想要去虎丘山风景名胜区，平常出行的时候有哪些比较可行的交通方式可以选择呢，比如考虑步行、乘坐公共交通工具或者打车的话，分别是怎样的情况呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从寒山寺出发，想要去虎丘山风景名胜区，平常出行的时候有哪些比较可行的交通方式可以选择呢，比如考虑步行、乘坐公共交通工具或者打车的话，分别是怎样的情况呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 寒山寺 to 虎丘山风景名胜区. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_aad4f40bb76b",
+    "prediction": "从寒山寺到虎丘山风景名胜区，两地距离较近，步行或公共交通都比较方便，打车虽然快捷但略显费时费钱。以下是几种常见出行方式的简要分析和推荐理由：\n\n### 1. **步行**\n- **路线**：寒山寺位于苏州市姑苏区，虎丘山风景名胜区位于苏州市吴中区，两地之间没有直接的步行通道，步行需绕行市区，距离较远（约5公里以上）。\n- **耗时**：步行约需40-60分钟，途中需经过多个路口和街道，不太适合赶时间或体力有限的人。\n- **推荐理由**：适合节奏较慢、喜欢沿途欣赏苏州街景的人，但整体不太省心，尤其对不熟悉路线的人来说。\n\n### 2. **公共交通（地铁+公交）**\n- **路线**：可先乘坐地铁4号线（往同里方向）至金湖站，换乘公交至虎丘路站，再步行至虎丘山景区。\n- **耗时**：全程约40-50分钟，换乘较为顺畅。\n- **推荐理由**：公共交通稳定、价格实惠，适合大多数日常出行者，尤其适合不赶时间、注重预算的人群。无需担心堵车或停车问题，整体更省心。\n\n### 3. **打车/网约车**\n- **路线**：直接从寒山寺打车至虎丘山景区，司机通常会熟悉路线。\n- **耗时**：约20-30分钟，视路况而定。\n- **推荐理由**：最省时，适合赶时间或携带较多行李的人。但费用相对较高，且需注意高峰期可能更拥堵。\n\n### 总结推荐：\n- **更省心的选择**：优先推荐乘坐公共交通（地铁+公交），路线清晰、换乘方便、价格合理，适合大多数日常出行场景。\n- **适合步行的情况**：若只是短途体验或对周边环境感兴趣，可考虑步行至附近地铁站再换乘，但不建议全程步行。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000048",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "hard",
+    "tags": [
+      "西安",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从咸阳机场出发前往兵马俑，考虑到同行有老人和孩子，有哪些相对舒适便捷、适合他们的交通出行途径呢？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从咸阳机场出发前往兵马俑，考虑到同行有老人和孩子，有哪些相对舒适便捷、适合他们的交通出行途径呢？，别把答案写成票务信息。', then explain why it is better for the route from 咸阳机场 to 兵马俑. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 网约车 / 机场大巴, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_8247262ca94c",
+    "prediction": "从咸阳机场前往兵马俑，考虑到有老人和孩子同行，建议优先选择公共交通或正规出租车，以确保出行舒适、安全和便捷。以下是几种推荐方式：\n\n1. **机场大巴**：咸阳机场有直达兵马俑的机场大巴，发车时间相对固定，站点清晰，适合多人同行。大巴通常为空调车，相对平稳，适合老人和孩子乘坐。建议提前确认发车时间，避免错过。\n\n2. **正规出租车/网约车**：可直接在机场打车前往兵马俑，或使用网约车平台预约车辆。出租车通常会直接送至兵马俑景区附近，省去换乘和找路的麻烦，适合对时间要求较高或更看重舒适度的家庭。建议选择正规出租车公司或平台，避免黑车。\n\n3. **地铁+公交接驳**：咸阳机场有地铁2号线直达市区，可乘坐地铁至市区后换乘公交或打车前往兵马俑。这种方式相对灵活，但需要换乘，适合有更多时间安排的家庭。\n\n总体建议优先选择机场大巴或正规出租车，兼顾舒适性、安全性和便利性，同时避免长时间步行或拥挤环境对老人和孩子的影响。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000049",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "西安",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从明城墙脚下的某个标志性建筑附近出发前往钟楼，公交和地铁这两种交通方式，哪个在实际出行时更让人觉得方便呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从明城墙脚下的某个标志性建筑附近出发前往钟楼，公交和地铁这两种交通方式，哪个在实际出行时更让人觉得方便呢？，不用给我查实时班次。', then explain why it is better for the route from 明城墙 to 钟楼. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_015d269eb2f1",
+    "prediction": "从明城墙脚下的某个标志性建筑附近（如中华门）出发前往钟楼，公交和地铁两种方式各有优势，具体选择取决于你的出行习惯和路线偏好：\n\n**地铁更方便**：  \n南京地铁1号线（鼓楼方向）在中华门站或夫子庙站下车，步行即可到达钟楼，全程约15分钟，站点密集、换乘便捷，不受地面交通拥堵影响，尤其适合携带行李或赶时间的人。\n\n**公交更灵活**：  \n可乘坐公交线路如1路、2路、3路、4路、5路、6路、7路、8路、10路、11路、12路、13路、15路、16路、17路、18路、20路、21路、22路、23路、25路、26路、27路、28路、30路、31路、32路、33路、34路、35路、36路、37路、38路、39路、40路、41路、42路、43路、44路、45路、46路、47路、48路、49路、50路、51路、52路、53路、54路、55路、56路、57路、58路、59路、60路、61路、62路、63路、64路、65路、66路、67路、68路、69路、70路、71路、72路、73路、74路、75路、76路、77路、78路、79路、80路、81路、82路、83路、84路、85路、86路、87路、88路、89路、90路、91路、92路、93路、94路、95路、96路、97路、98路、99路、100路、101路、102路、103路、104路、105路、106路",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000050",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "贵阳",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "打算去织金洞游玩后接着去黔灵山，那从织金洞出发去黔灵山，选择哪种交通方式能更节省时间呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '打算去织金洞游玩后接着去黔灵山，那从织金洞出发去黔灵山，选择哪种交通方式能更节省时间呢？，我更想知道推荐思路。', then explain why it is better for the route from 织金洞 to 黔灵山. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_649c0419f8ea",
+    "prediction": "从织金洞到黔灵山，两地相距较远，且位于贵州省不同区域，交通方式的选择应优先考虑**效率与连贯性**。推荐思路如下：\n\n### 1. **优先考虑高铁或动车，再接驳公交或出租车**\n- **推荐理由**：织金洞位于织金县，黔灵山位于贵阳市，两地之间没有直达公交或长途汽车，且距离较远。若直接打车或包车，耗时较长且费用较高。而贵阳市是贵州省的交通枢纽，有完善的高铁网络，从织金县到贵阳市有高铁直达（如织金至贵阳北），再从贵阳北到黔灵山（贵阳市内）可乘坐地铁或公交，整体更节省时间和精力。\n- **路线示例**：\n  - 织金洞 → 织金站（高铁）→ 贵阳北站（高铁）→ 贵阳市内（地铁/公交）→ 黔灵山\n\n### 2. **若时间较紧，可考虑包车直达**\n- **推荐理由**：若对时间非常敏感，且不介意额外费用，可直接包车从织金洞出发，直达贵阳市内黔灵山附近。这种方式虽然成本略高，但能避免多次换乘和等待，更适合行程紧凑的游客。\n- **注意**：需提前确认司机熟悉路线，并确认车辆状况。\n\n### 3. **避免选择长途汽车**\n- **推荐理由**：织金县到贵阳市的长途汽车虽然有班次，但通常发车时间较晚、站点较多、换乘复杂，整体效率不如高铁或包车，容易延误行程。\n\n### 总结推荐思路：\n- **效率优先**：高铁+市内公交/地铁 → 更快、更稳定；\n- **时间敏感**：包车直达 → 更省心、更省时；\n- **成本敏感**：可优先选择高铁，再结合公交或地铁，整体性价比更高。\n\n建议根据当天行程安排和预算灵活选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000051",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "medium",
+    "tags": [
+      "重庆",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从巫山小三峡游玩结束后，想要前往《重庆·1949》演出场地，有哪些交通方式可以选择，其中哪种方式最便捷呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从巫山小三峡游玩结束后，想要前往《重庆·1949》演出场地，有哪些交通方式可以选择，其中哪种方式最便捷呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 巫山小三峡 to 《重庆·1949》演出. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_46b4aa890c6b",
+    "prediction": "从巫山小三峡游玩结束后前往《重庆·1949》演出场地，有以下几种交通方式可供选择：\n\n### 1. **公交接驳+地铁**\n- **路线**：从巫山小三峡附近的公交站点乘坐公交（如巫山旅游专线）前往市区方向，到达市区后换乘地铁1号线或2号线，再转乘公交或步行至演出场地。\n- **推荐理由**：公交和地铁覆盖范围广，适合不熟悉路线的游客，整体换乘相对顺畅，适合携带行李或多人同行。\n\n### 2. **出租车/网约车**\n- **路线**：直接打车或使用网约车平台（如滴滴）从巫山小三峡前往《重庆·1949》演出场地。\n- **推荐理由**：门到门直达，省去换乘和等车时间，尤其适合时间紧张或行李较多的游客，但费用相对较高。\n\n### 3. **包车/顺风车**\n- **路线**：可联系当地包车公司或使用顺风车平台，直接前往演出场地。\n- **推荐理由**：适合多人同行或希望更灵活安排行程的游客，能避免公共交通的不确定性。\n\n### ✅ **最便捷方式推荐：出租车/网约车**\n**推荐理由**：从巫山小三峡到《重庆·1949》演出场地，距离较远且公共交通接驳较为复杂，出租车或网约车能直接到达演出场地，无需多次换乘，省心省力，尤其适合携带行李或时间紧张的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000052",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "hard",
+    "tags": [
+      "重庆",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从重庆小三峡景区出发前往解放碑，要是选择公共交通出行的话，需不需要换乘呀？要是需要换乘的话，怎样换乘能最便捷呢？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从重庆小三峡景区出发前往解放碑，要是选择公共交通出行的话，需不需要换乘呀？要是需要换乘的话，怎样换乘能最便捷呢？，别把答案写成票务信息。', then explain why it is better for the route from 小三峡 to 解放碑. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_82d0869bf8a7",
+    "prediction": "从重庆小三峡景区出发前往解放碑，如果选择公共交通出行，通常需要换乘。小三峡景区位于奉节县，距离市区有一定距离，公共交通线路较少，建议优先选择公交或长途汽车前往市区后再换乘。\n\n推荐路线如下：\n\n1. **公交/长途汽车**：从小三峡景区乘坐公交或长途汽车前往奉节县城或重庆市区（如沙坪坝、观音桥方向），建议优先选择公交，如奉节公交1路、2路等，或长途汽车前往市区。\n\n2. **换乘至市区公交**：到达市区后，换乘公交或地铁前往解放碑。例如，从沙坪坝或观音桥乘坐公交至较场口或临江门，再步行或换乘至解放碑附近。\n\n3. **地铁**：如果到达市区后有地铁站点，可乘坐地铁2号线或1号线，直达解放碑站。\n\n**换乘建议**：尽量选择公交站点集中、换乘方便的线路，避免频繁换乘。到达市区后，优先选择公交或地铁，减少步行距离和换乘次数。\n\n**推荐理由**：公共交通是环保、经济的选择，尤其适合短途出行。换乘虽需一定时间，但整体出行成本较低，且能避开交通拥堵。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000053",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "重庆",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从洪崖洞出发前往长江索道，需不需要换乘呢？要是需要换乘的话，怎样换乘能是最便捷的方式呀？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从洪崖洞出发前往长江索道，需不需要换乘呢？要是需要换乘的话，怎样换乘能是最便捷的方式呀？，不用给我查实时班次。', then explain why it is better for the route from 洪崖洞 to 长江索道. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_ffa38fbd054a",
+    "prediction": "从洪崖洞出发前往长江索道，通常不需要换乘，步行即可直达。洪崖洞位于渝中区，长江索道起点站位于渝中区的较场口，两者距离较近，步行约15-20分钟即可到达。因此，建议优先选择步行方式，既省时又方便，也避免了换乘带来的麻烦。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000054",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "银川",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从咱们住在阅海公园附近，准备去镇北堡西部影城玩，想了解下怎么去最便捷，有哪些交通途径可以选择呀？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从咱们住在阅海公园附近，准备去镇北堡西部影城玩，想了解下怎么去最便捷，有哪些交通途径可以选择呀？，我更想知道推荐思路。', then explain why it is better for the route from 阅海公园 to 镇北堡西部影城. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_63c43f7b6fd7",
+    "prediction": "从阅海公园到镇北堡西部影城，两地距离较近，交通方式多样，推荐优先考虑公共交通或打车，兼顾便捷与经济性。以下是推荐思路：\n\n### 1. **公共交通优先（推荐）**\n   - **公交接驳**：阅海公园周边公交线路较多，可先乘坐公交至市区中心（如西夏区、金凤区），再换乘至镇北堡方向的公交线路。例如：可先乘坐公交31路、32路、33路等至西夏区中心，再换乘公交101路、102路等至镇北堡方向。\n   - **推荐理由**：公交线路稳定、站点密集，适合不赶时间、注重经济性的出行者。尤其适合带老人、小孩或行李较多的游客。\n\n### 2. **打车/网约车（灵活便捷）**\n   - **直接打车**：从阅海公园直接打车前往镇北堡西部影城，车程约30-40分钟，费用约30-50元，具体视路况和车型而定。\n   - **推荐理由**：无需换乘、省时省力，适合时间紧张或携带较多行李的游客。尤其适合节假日或夜间出行。\n\n### 3. **自驾/拼车（适合多人同行）**\n   - **自驾路线**：从阅海公园出发，沿北京中路向北，经贺兰山路、贺兰县方向，进入镇北堡镇，全程约30公里，车程约40分钟。\n   - **推荐理由**：适合多人同行、行李较多或希望灵活安排行程的游客，同时可避开公共交通的拥挤和换乘。\n\n### 4. **注意事项**\n   - 镇北堡西部影城位于银川市贺兰县，建议提前确认景区开放时间及门票信息。\n   - 若选择公交出行，建议使用地图软件（如高德地图、百度地图）查询实时公交到站信息，避免错过末班车。\n   - 避免在节假日高峰期选择公共交通，以免拥堵。\n\n### 总结推荐思路：\n优先考虑公共交通接驳，兼顾经济与便利；若时间紧张或行李较多，可直接打车或自驾前往，灵活高效。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000055",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "长春",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "在城市中，从你所在的这有山区域前往般若寺，有哪些比较可行又舒适的交通方式可以推荐呀？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '在城市中，从你所在的这有山区域前往般若寺，有哪些比较可行又舒适的交通方式可以推荐呀？，重点说清楚为什么更省心。', then explain why it is better for the route from 这有山 to 般若寺. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_580cf9232b39",
+    "prediction": "从你所在的“有山区域”前往般若寺，若该区域位于城市郊区或山地环境中，建议优先考虑以下几种交通方式，以兼顾舒适性和省心程度：\n\n### 1. **公交接驳+地铁/公交直达**\n- **推荐理由**：公交系统通常覆盖较广，尤其适合短途接驳。若从有山区域到市区有公交直达或换乘站点，可先乘坐公交至市区核心站点（如地铁站），再换乘地铁或公交直达般若寺。这种方式无需频繁换乘，路线清晰，适合不熟悉路况的人。\n- **省心点**：无需频繁换乘，公交站点通常有清晰的线路图和到站提示，适合携带行李或老人同行。\n\n### 2. **打车/网约车**\n- **推荐理由**：打车或网约车是最快捷、最省心的方式，尤其适合携带较多行李或希望避免换乘的人。司机熟悉路况，能直接送至目的地，无需自己规划路线。\n- **省心点**：无需自己查路线、换乘、等车，司机会根据导航直接前往般若寺，适合时间紧张或对交通不熟悉的人。\n\n### 3. **共享单车/电动车（如适用）**\n- **推荐理由**：如果般若寺附近有共享单车或电动车站点，且有山区域到市区有较短的骑行路线，可考虑骑行接驳。这种方式环保、灵活，适合短途出行。\n- **省心点**：无需支付额外费用，骑行过程中可欣赏沿途风景，适合喜欢慢节奏出行的人。\n\n### 4. **定制包车/拼车服务**\n- **推荐理由**：如果人数较多或希望更灵活安排时间，可选择定制包车或拼车服务。这种方式能根据行程安排灵活调整出发时间和路线。\n- **省心点**：司机会全程陪同，无需自己处理路线和换乘问题，适合多人同行或有特殊需求的人。\n\n### 总结建议：\n- **优先推荐公交接驳+地铁/公交直达**，适合大多数情况，路线清晰、费用较低。\n- **打车/网约车**适合时间紧张、希望省心省力的人。\n- **共享单车/电动车**适合短途接驳，环保又灵活。\n- **定制包车/拼车**适合多人同行或有特殊需求的人。\n\n建议出发前确认公交线路、地铁站点和网约车",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000056",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "hard",
+    "tags": [
+      "长沙",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从长沙黄花机场出发，想要前往天心阁，有哪些比较合适的交通方式可以选择呢，能说说哪种方式更适合初次来长沙的游客呀？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从长沙黄花机场出发，想要前往天心阁，有哪些比较合适的交通方式可以选择呢，能说说哪种方式更适合初次来长沙的游客呀？，别把答案写成票务信息。', then explain why it is better for the route from 黄花机场 to 天心阁. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_d167646f86f4",
+    "prediction": "从长沙黄花机场前往天心阁，有几种比较合适的交通方式，适合初次来长沙的游客选择：\n\n1. **地铁**：  \n   - 从黄花机场乘坐地铁1号线（西延线）到“长沙南站”站，换乘地铁4号线（一期）到“天心阁”站。  \n   - 这种方式相对稳定、准时，且地铁站内有清晰的指引，适合不熟悉路况的游客。\n\n2. **公交**：  \n   - 在黄花机场乘坐公交211路或212路到“长沙火车站”或“长沙汽车南站”，再转乘公交或地铁前往天心阁。  \n   - 公交线路覆盖较广，但换乘可能稍复杂，适合有时间安排的游客。\n\n3. **打车/网约车**：  \n   - 从黄花机场直接打车或使用网约车前往天心阁，全程约30-40分钟，费用在50-80元之间。  \n   - 这是最直接的方式，适合行李较多或希望节省时间的游客，但需注意高峰期可能更拥堵。\n\n**推荐理由**：  \n对于初次来长沙的游客，**地铁**是更推荐的方式，因为它更省心、更环保，且能更好地体验长沙的城市节奏。地铁线路清晰、站点密集，能有效避开交通拥堵，同时也能方便地到达其他热门景点。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000057",
+    "task_type": "traffic_planning",
+    "scene": "scenic_connection",
+    "difficulty": "medium",
+    "tags": [
+      "长沙",
+      "scenic_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从铜官窑国风乐园出发，打算前往湖南省博物馆，怎样规划交通路线能既便捷又顺畅呢，比如先选择何种交通工具出发，接着在途中如何换乘能更高效，到达博物馆附近后又该如何轻松找到具体位置呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从铜官窑国风乐园出发，打算前往湖南省博物馆，怎样规划交通路线能既便捷又顺畅呢，比如先选择何种交通工具出发，接着在途中如何换乘能更高效，到达博物馆附近后又该如何轻松找到具体位置呢？，不用给我查实时班次。', then explain why it is better for the route from 铜官窑国风乐园 to 湖南省博物馆. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_7ed393c67b21",
+    "prediction": "从铜官窑国风乐园前往湖南省博物馆，建议优先选择公交或地铁出行，路线清晰、换乘少、成本低，适合短途出行。以下是推荐路线：\n\n### 推荐路线一：公交+地铁（推荐优先）\n1. **从铜官窑国风乐园出发**，步行至附近的公交站点（如“铜官窑国风乐园”站）。\n2. **乘坐公交**：乘坐 **306路** 或 **316路**（具体线路可能因站点不同略有差异），前往 **长沙火车站** 或 **长沙汽车南站**。\n3. **换乘地铁**：在长沙火车站乘坐 **地铁1号线（西延线）**，往 **开福寺方向**，在 **五一广场站** 下车。\n4. **换乘公交**：在五一广场站换乘 **公交106路** 或 **公交126路**，前往 **湖南省博物馆**。\n5. **到达博物馆**：在 **湖南省博物馆站** 下车，步行即可到达博物馆正门。\n\n### 推荐路线二：公交直达\n1. **从铜官窑国风乐园出发**，步行至附近的公交站点。\n2. **乘坐公交**：乘坐 **306路** 或 **316路**，直接前往 **湖南省博物馆**。\n3. **到达博物馆**：在 **湖南省博物馆站** 下车，步行即可到达。\n\n### 到达博物馆后的指引\n- **公交站点**：在 **湖南省博物馆站** 下车后，步行约5分钟即可到达博物馆正门。\n- **地铁站点**：若乘坐地铁1号线至 **五一广场站**，再换乘公交至博物馆站，也可直接到达。\n- **建议**：博物馆门口有清晰的指示牌，也可使用地图软件（如高德地图、百度地图）搜索“湖南省博物馆”，输入当前位置即可获取步行路线。\n\n### 推荐理由\n- **公交和地铁线路稳定**，换乘少，适合短途出行。\n- **公交站点密集**，覆盖范围广，适合周边居民和游客。\n- **路线清晰**，无需频繁换乘，节省时间和体力。\n\n如需更详细的站点信息或换乘指引，可告知具体公交站点或地铁站，我可以进一步优化路线。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000058",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "青岛",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "在周末下午从五四广场出发前往啤酒博物馆，自驾和乘坐公共交通，哪种方式能更好地避开可能的拥堵且更轻松呢？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '在周末下午从五四广场出发前往啤酒博物馆，自驾和乘坐公共交通，哪种方式能更好地避开可能的拥堵且更轻松呢？，我更想知道推荐思路。', then explain why it is better for the route from 五四广场 to 啤酒博物馆. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_0fef219a3375",
+    "prediction": "在周末下午从五四广场前往啤酒博物馆，若想避开可能的拥堵并更轻松出行，**公共交通通常是更优选择**，尤其是地铁和公交结合的方式。以下是推荐思路：\n\n### 一、推荐思路分析\n1. **避开拥堵**：周末下午是城市交通的高峰时段，尤其在青岛这样的旅游城市，五四广场周边和啤酒博物馆周边都可能有较多人流和车流。自驾容易陷入拥堵，尤其在没有明确导航引导的情况下，容易绕路或误入慢行区域。\n\n2. **公共交通更稳定**：地铁和公交线路通常有固定的发车时间，且在高峰时段仍能保持相对稳定的运行节奏。相比自驾，公共交通更少受到临时路况变化的影响。\n\n3. **换乘更便捷**：五四广场附近有地铁3号线和1号线交汇，啤酒博物馆附近也有地铁站点（如地铁3号线“海泊桥站”或“五四广场站”），换乘相对方便，且无需频繁停车、找车位、倒车等操作。\n\n4. **更省心省力**：公共交通无需自己处理停车、加油、导航、找路等问题，整体出行节奏更轻松，尤其适合不熟悉当地路况的游客。\n\n### 二、推荐方式：公共交通（地铁+公交）\n#### 具体路线建议：\n- **起点**：五四广场地铁站（地铁3号线或1号线）\n- **换乘**：在五四广场站换乘地铁3号线（往青岛北站方向）\n- **到达**：乘坐地铁3号线至“海泊桥站”下车\n- **出站后步行**：步行约10分钟即可到达啤酒博物馆（或换乘公交前往更近站点）\n\n#### 优势总结：\n- **避开拥堵**：地铁不受地面交通影响，更稳定；\n- **换乘便捷**：站点密集，换乘少；\n- **更省心**：无需停车、找路、倒车等操作；\n- **更环保**：减少碳排放，符合绿色出行理念。\n\n### 三、自驾建议（仅在必要时考虑）\n如果对路况非常熟悉，且目的地较近，也可以选择自驾。但需注意：\n- **避开高峰时段**：尽量避开16:00-18:00的高峰时段；\n- **提前规划路线**：使用导航软件避开拥堵路段；\n- **注意停车**：啤酒博物馆周边停车位有限，建议提前到达或",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000059",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "黄山",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从黄山北站出发，打算前往呈坎，怎样选择交通方式或者规划路线能让整个行程更顺畅呢，比如先坐什么交通工具，然后再怎么衔接比较好呢？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从黄山北站出发，打算前往呈坎，怎样选择交通方式或者规划路线能让整个行程更顺畅呢，比如先坐什么交通工具，然后再怎么衔接比较好呢？，重点说清楚为什么更省心。', then explain why it is better for the route from 黄山北站 to 呈坎. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_1870e6113db8",
+    "prediction": "从黄山北站前往呈坎，推荐优先选择高铁或动车，再转乘公交或打车，这样更省心、更高效。以下是具体建议：\n\n### 推荐路线一：高铁+公交\n1. **黄山北站 → 黄山北站（高铁站）**  \n   - 无需换乘，直接在黄山北站乘坐高铁或动车前往黄山市区或合肥方向。\n\n2. **黄山北站 → 黄山站**  \n   - 乘坐高铁或动车至黄山站（约30分钟），黄山站是黄山市的主要高铁枢纽。\n\n3. **黄山站 → 黄山汽车南站**  \n   - 从黄山站步行至黄山汽车南站（约15分钟），乘坐前往呈坎的公交或旅游专线（如黄山公交101路、102路等）。\n\n4. **黄山汽车南站 → 呈坎**  \n   - 公交车直达呈坎，车程约40分钟，票价约5元。公交线路稳定，发车时间固定，适合首次前往。\n\n### 推荐路线二：高铁+打车\n1. **黄山北站 → 黄山站**  \n   - 乘坐高铁或动车至黄山站。\n\n2. **黄山站 → 呈坎**  \n   - 从黄山站直接打车前往呈坎，车程约30分钟，费用约60-80元。适合时间紧张、行李较多的旅客。\n\n### 为什么更省心？\n- **高铁便捷高效**：黄山北站是黄山市重要的高铁枢纽，发车频繁，连接合肥、南京、杭州等周边城市，方便中转。\n- **公交线路稳定**：黄山汽车南站有固定公交线路直达呈坎，无需频繁换乘，适合慢节奏出行。\n- **无需频繁换乘**：路线清晰，衔接顺畅，避免在陌生城市中迷路或错过班次。\n- **适合多种出行需求**：无论是短途观光还是中转，都能灵活应对。\n\n建议优先选择高铁+公交组合，既节省时间又经济实惠，同时能更好地体验黄山周边的风景与文化。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000060",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "hard",
+    "tags": [
+      "黄山",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "要是想要从屯溪老街去翡翠谷，怎样能找到避开交通拥堵的合适路线呢？比如说在出行时间上有没有什么讲究，或者有没有一些不太拥堵的小路可以走呢？，别把答案写成票务信息。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '要是想要从屯溪老街去翡翠谷，怎样能找到避开交通拥堵的合适路线呢？比如说在出行时间上有没有什么讲究，或者有没有一些不太拥堵的小路可以走呢？，别把答案写成票务信息。', then explain why it is better for the route from 屯溪老街 to 翡翠谷. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 公交车 / 网约车 / 自驾, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_b4fa366d4c26",
+    "prediction": "从屯溪老街前往翡翠谷，避开交通拥堵的关键在于选择合适的出行时间和路线。翡翠谷位于黄山市休宁县境内，距离屯溪市区有一定距离，因此建议优先考虑公共交通或自驾，以减少绕行和拥堵。\n\n**推荐路线与建议：**\n\n1. **公共交通：**\n   - 从屯溪老街可先步行至屯溪汽车站（约15分钟），乘坐前往黄山市区或休宁方向的长途汽车。\n   - 在黄山市区换乘公交或打车前往翡翠谷，通常需要约30-40分钟车程。\n   - **建议出行时间：** 避开早高峰（7:30-9:00）和晚高峰（17:00-19:00），尽量选择上午或下午较早时段出行，以减少拥堵。\n\n2. **自驾或包车：**\n   - 若有私家车或包车，可直接沿黄山市内主干道前往翡翠谷，避开市中心拥堵路段。\n   - **推荐路线：** 从屯溪出发，沿黄山大道或徽州大道向北，进入黄山市区后转至休宁方向，沿徽杭高速或普通公路行驶即可到达翡翠谷。\n   - **建议出行时间：** 选择非节假日或工作日的上午或下午出行，避开节假日和周末高峰。\n\n3. **避开拥堵的小路：**\n   - 翡翠谷周边有部分乡村小路和林间小道，适合步行或骑行，但需注意路况和安全。\n   - 例如，从黄山市区出发，可沿新安江畔的小路绕行，避开主干道，但需预留更多时间。\n\n**注意事项：**\n- 翡翠谷位于山区，部分路段可能较为狭窄，建议提前了解路况。\n- 若选择公共交通，建议预留充足换乘时间，避免因延误影响行程。\n- 若选择自驾，建议提前规划好路线，并注意山区驾驶安全。\n\n总之，避开拥堵的关键在于合理安排出行时间和路线，优先选择公共交通或避开市中心主干道的路线，同时注意山区路况和安全。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

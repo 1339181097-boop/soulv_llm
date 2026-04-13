@@ -1,0 +1,27 @@
+{
+  "provider": "openai_compatible",
+  "model_name": "qwen3_8b_qlora_v4",
+  "request_model": "qwen3-8b-qlora-v4",
+  "base_url": "http://8.155.147.209:8000/v1",
+  "request_url": "http://8.155.147.209:8000/v1/chat/completions",
+  "run_name": "qwen3_8b_qlora_v4_disable_thinking_check",
+  "timestamp_utc": "2026-04-08T01:30:57.238013+00:00",
+  "inference_config": {
+    "max_new_tokens": 512,
+    "temperature": 0.0,
+    "top_p": 0.95,
+    "timeout_seconds": 300,
+    "retry_count": 2,
+    "disable_thinking": true
+  },
+  "tasks": {
+    "hotel_recommendation": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_hotel_recommendation.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_disable_thinking_check\\raw_outputs_hotel_recommendation.json",
+      "sample_count": 1,
+      "error_count": 1
+    }
+  },
+  "total_sample_count": 1,
+  "total_error_count": 1
+}

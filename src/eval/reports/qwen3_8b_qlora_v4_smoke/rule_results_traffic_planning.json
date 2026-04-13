@@ -1,0 +1,53 @@
+[
+  {
+    "id": "eval_traffic_planning_000001",
+    "task_type": "traffic_planning",
+    "status": "ok",
+    "rule_pass": false,
+    "rule_score": 0,
+    "max_severity": "blocker",
+    "hit_count": 1,
+    "triggered_rule_ids": [
+      "enumeration_overflow"
+    ],
+    "rule_hits": [
+      {
+        "rule_id": "enumeration_overflow",
+        "severity": "blocker",
+        "message": "Prediction contains an unrealistic transport enumeration instead of actionable advice",
+        "evidence": "21路, 22路, 23路, 24路, 25路, 26路, 27路, 28路",
+        "matched_must_not_do": [
+          "[system] 票价"
+        ]
+      }
+    ],
+    "prediction_preview": "三亚凤凰机场到亚龙湾没有地铁，公交是主要选择。公交线路有21路、22路、23路、24路、25路、26路、27路、28路、29路、30路、31路、32路、33路、34路、35路、36路、37路、38路、39路、40路、41路、42路、43路、44路、45路、46路、47路、48路、49路、50路、51路、52路、53路、54路、55路、56路、57路、58路、59路、60路、61路、62路、63路、64路、65路、66路、67路、68路、69路、70路、71路、72路、73路、74路、75路、76路、77路、78路、79路、80路、81路、82路、83路、84路、85路、86路、87路、88路、89路、90路、91路、92路、93路、94路、95路、96路、97路、98路、99路、100路、101路、102路、103路、104路、105路、106路、107路、108路、109路、110路、1",
+    "prediction_length": 406
+  },
+  {
+    "id": "eval_traffic_planning_000002",
+    "task_type": "traffic_planning",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "世纪公园位于浦东新区，徐家汇位于徐汇区，两地相距约10公里，属于市区内不同区域。从徐家汇到世纪公园，通常需要换乘地铁或公交。推荐优先考虑地铁，因为地铁通常更高效、准时，且能避免拥堵。推荐优先考虑地铁10号线，从徐家汇站出发，乘坐地铁10号线（往浦东机场方向）到张江路站，换乘地铁11号线（往迪士尼方向）到迪士尼站，再步行至世纪公园。该路线相对直接，换乘较少，且能避开部分拥堵路段。如果更看重公交的经济性，也可以选择公交线路，但公交通常更易受路况影响，且可能需要多次换乘。推荐优先考虑公交线路，如公交120路、公交131路、公交138路等，但公交线路通常更易受路况影响，且可能需要多次换乘。",
+    "prediction_length": 262
+  },
+  {
+    "id": "eval_traffic_planning_000003",
+    "task_type": "traffic_planning",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "从上海虹桥站出发，前往豫园游玩，推荐优先考虑地铁10号线。虹桥站乘坐地铁10号线（地铁10号线）到陕西南路站，换乘地铁9号线（地铁9号线）到人民广场站，再步行约10分钟即可到达豫园。全程约40分钟，无需换乘或倒车，省心省力。地铁10号线和9号线运营稳定，发车频率高，适合游客出行。此外，地铁站内通常有清晰的指示牌和导览图，方便游客找到正确路线。乘坐地铁还能避开地面交通拥堵，尤其在节假日或旅游旺季，地铁通常比出租车更可靠。",
+    "prediction_length": 189
+  }
+]

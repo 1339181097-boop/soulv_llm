@@ -1,0 +1,57 @@
+{
+  "provider": "openai_compatible",
+  "model_name": "qwen3_8b_qlora_v4",
+  "request_model": "qwen3-8b-qlora-v4",
+  "base_url": "http://8.155.147.209:8000/v1",
+  "request_url": "http://8.155.147.209:8000/v1/chat/completions",
+  "run_name": "qwen3_8b_qlora_v4_eval_nothink",
+  "timestamp_utc": "2026-04-08T01:59:47.454066+00:00",
+  "inference_config": {
+    "max_new_tokens": 512,
+    "temperature": 0.0,
+    "top_p": 0.95,
+    "timeout_seconds": 300,
+    "retry_count": 2,
+    "disable_thinking": true
+  },
+  "tasks": {
+    "guide_generation": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_guide_generation.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_guide_generation.json",
+      "sample_count": 60,
+      "error_count": 0
+    },
+    "travel_qa": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_travel_qa.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_travel_qa.json",
+      "sample_count": 60,
+      "error_count": 0
+    },
+    "hotel_recommendation": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_hotel_recommendation.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_hotel_recommendation.json",
+      "sample_count": 60,
+      "error_count": 0
+    },
+    "traffic_planning": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_traffic_planning.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_traffic_planning.json",
+      "sample_count": 60,
+      "error_count": 0
+    },
+    "persona_understanding": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_persona_understanding.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_persona_understanding.json",
+      "sample_count": 60,
+      "error_count": 0
+    },
+    "multi_turn_dialogue": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_multi_turn_dialogue.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_multi_turn_dialogue.json",
+      "sample_count": 60,
+      "error_count": 0
+    }
+  },
+  "total_sample_count": 360,
+  "total_error_count": 0
+}

@@ -1,0 +1,2027 @@
+[
+  {
+    "id": "eval_travel_qa_000001",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 77,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"比较2到3个合适区域\", \"体现首次到访和两天节奏\", \"给出明确建议\"],\n  \"violated_must_not_do\": [\"写成完整两天攻略\"],\n  \"issue_tags\": [\"missing_comparison\", \"no_first_time_context\", \"no_ranked_recommendation\", \"overly_brief_without_justification\"],\n  \"strengths\": [\"语言简洁自然，无营销口吻；未编造实时信息；句式符合TripAI克制风格\"],\n  \"judge_reason\": \"回答仅列出两个区域（徐家汇、南京西路），但未进行实质性比较（如交通效率、步行可达性、首日动线适配度等）；完全未体现‘第一次’（如语言障碍、方向感弱、偏好安全/中心/易抵达）和‘两天’（如无需覆盖远郊、应聚焦核心半径）的关键约束；未给出明确选择（例如‘更推荐南京西路，因…’），而是用‘会比较方便’模糊并列，违反must_include中‘给出明确建议’；‘周边有大型商场、餐饮和景点’隐含泛化判断，接近写成微型攻略，轻微触碰‘写成完整两天攻略’的must_not_do；整体信息量不足，无法支撑用户决策，需人工补充。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "比较2到3个合适区域",
+      "体现首次到访和两天节奏",
+      "给出明确建议"
+    ],
+    "violated_must_not_do": [
+      "写成完整两天攻略"
+    ],
+    "issue_tags": [
+      "missing_comparison",
+      "no_first_time_context",
+      "no_ranked_recommendation",
+      "overly_brief_without_justification"
+    ],
+    "strengths": [
+      "语言简洁自然，无营销口吻；未编造实时信息；句式符合TripAI克制风格"
+    ],
+    "judge_reason": "回答仅列出两个区域（徐家汇、南京西路），但未进行实质性比较（如交通效率、步行可达性、首日动线适配度等）；完全未体现‘第一次’（如语言障碍、方向感弱、偏好安全/中心/易抵达）和‘两天’（如无需覆盖远郊、应聚焦核心半径）的关键约束；未给出明确选择（例如‘更推荐南京西路，因…’），而是用‘会比较方便’模糊并列，违反must_include中‘给出明确建议’；‘周边有大型商场、餐饮和景点’隐含泛化判断，接近写成微型攻略，轻微触碰‘写成完整两天攻略’的must_not_do；整体信息量不足，无法支撑用户决策，需人工补充。"
+  },
+  {
+    "id": "eval_travel_qa_000002",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 129,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"比较三片区\", \"考虑老人出行和坡度\", \"给出更稳妥选择\"],\n  \"violated_must_not_do\": [\"忽略老人行动便利\"],\n  \"issue_tags\": [\"no_comparison\", \"no_elderly_accessibility_reasoning\", \"no_clear_recommendation\"],\n  \"strengths\": [\"语言自然简洁\", \"未编造实时信息\", \"风格克制无营销\"],\n  \"judge_reason\": \"回答未对解放碑、观音桥、南滨路三地进行实质性比较；未提及重庆山城地形对老人步行/坡度的显著影响（如解放碑虽中心但台阶多，观音桥地铁换乘便利但部分路段坡陡，南滨路平坦但公交覆盖弱）；未给出明确优先级或‘更稳妥选择’，而是模糊推荐‘解放碑或观音桥’，违背must_include中‘给出更稳妥选择’这一强制要求；整体回避核心决策逻辑，属答非所问。违反must_not_do中‘忽略老人行动便利’，构成强失败信号。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "比较三片区",
+      "考虑老人出行和坡度",
+      "给出更稳妥选择"
+    ],
+    "violated_must_not_do": [
+      "忽略老人行动便利"
+    ],
+    "issue_tags": [
+      "no_comparison",
+      "no_elderly_accessibility_reasoning",
+      "no_clear_recommendation"
+    ],
+    "strengths": [
+      "语言自然简洁",
+      "未编造实时信息",
+      "风格克制无营销"
+    ],
+    "judge_reason": "回答未对解放碑、观音桥、南滨路三地进行实质性比较；未提及重庆山城地形对老人步行/坡度的显著影响（如解放碑虽中心但台阶多，观音桥地铁换乘便利但部分路段坡陡，南滨路平坦但公交覆盖弱）；未给出明确优先级或‘更稳妥选择’，而是模糊推荐‘解放碑或观音桥’，违背must_include中‘给出更稳妥选择’这一强制要求；整体回避核心决策逻辑，属答非所问。违反must_not_do中‘忽略老人行动便利’，构成强失败信号。"
+  },
+  {
+    "id": "eval_travel_qa_000003",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 97,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"概括2天主线\", \"强调少折返\", \"不要写太长\"],\n  \"violated_must_not_do\": [\"堆很多零散景点\", \"写成详细小时级攻略\"],\n  \"issue_tags\": [\"答非所问\", \"结构冗余\", \"违反must_include\", \"违反must_not_do\"],\n  \"strengths\": [\"语言自然，无营销口吻；未编造实时信息，安全性良好\"],\n  \"judge_reason\": \"回答未按要求‘概括2天主线’，而是罗列6个景点并隐含两日分配（未明确主线）；未强调‘少折返’，反而默认用户接受跨区移动（如武侯祠→杜甫草堂→熊猫基地→青羊宫→春熙路，地理分散且折返风险高）；全文128字，远超‘不要写太长’要求，且实质构成简略版小时级攻略雏形；违反must_not_do中‘堆很多零散景点’和‘写成详细小时级攻略’；未体现判断优先、主线凝练的核心指令，属典型答非所问。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "概括2天主线",
+      "强调少折返",
+      "不要写太长"
+    ],
+    "violated_must_not_do": [
+      "堆很多零散景点",
+      "写成详细小时级攻略"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构冗余",
+      "违反must_include",
+      "违反must_not_do"
+    ],
+    "strengths": [
+      "语言自然，无营销口吻；未编造实时信息，安全性良好"
+    ],
+    "judge_reason": "回答未按要求‘概括2天主线’，而是罗列6个景点并隐含两日分配（未明确主线）；未强调‘少折返’，反而默认用户接受跨区移动（如武侯祠→杜甫草堂→熊猫基地→青羊宫→春熙路，地理分散且折返风险高）；全文128字，远超‘不要写太长’要求，且实质构成简略版小时级攻略雏形；违反must_not_do中‘堆很多零散景点’和‘写成详细小时级攻略’；未体现判断优先、主线凝练的核心指令，属典型答非所问。"
+  },
+  {
+    "id": "eval_travel_qa_000004",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 84,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"回答值不值得\", \"说明冬季夜景利弊\", \"给出适合人群\"],\n  \"violated_must_not_do\": [\"回避判断\"],\n  \"issue_tags\": [\"no_judgment\", \"incomplete_reasoning\", \"task_misalignment\"],\n  \"strengths\": [\"语言自然简洁\", \"未编造实时信息\", \"符合TripAI克制风格\"],\n  \"judge_reason\": \"回答以‘是值得的’开头看似有判断，但未真正完成‘回答值不值得’这一核心指令：它未明确说明‘值’或‘不值’的结论性判断（如‘值得’需附条件，‘不值得’需说明原因），更未展开冬季夜景的具体利弊（如寒冷、游客少、灯光效果受天气影响等），也完全未提及‘适合人群’（如摄影爱好者/怕冷者/家庭游客等）。全文回避实质性权衡，用模糊赞美替代分析，本质是回避判断，直接违反 must_not_do 中‘回避判断’条款；同时三项 must_include 全部缺失，任务完成度为零。属于典型答非所问型失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "回答值不值得",
+      "说明冬季夜景利弊",
+      "给出适合人群"
+    ],
+    "violated_must_not_do": [
+      "回避判断"
+    ],
+    "issue_tags": [
+      "no_judgment",
+      "incomplete_reasoning",
+      "task_misalignment"
+    ],
+    "strengths": [
+      "语言自然简洁",
+      "未编造实时信息",
+      "符合TripAI克制风格"
+    ],
+    "judge_reason": "回答以‘是值得的’开头看似有判断，但未真正完成‘回答值不值得’这一核心指令：它未明确说明‘值’或‘不值’的结论性判断（如‘值得’需附条件，‘不值得’需说明原因），更未展开冬季夜景的具体利弊（如寒冷、游客少、灯光效果受天气影响等），也完全未提及‘适合人群’（如摄影爱好者/怕冷者/家庭游客等）。全文回避实质性权衡，用模糊赞美替代分析，本质是回避判断，直接违反 must_not_do 中‘回避判断’条款；同时三项 must_include 全部缺失，任务完成度为零。属于典型答非所问型失败。"
+  },
+  {
+    "id": "eval_travel_qa_000005",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 115,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"比较两个点的亲子体验\", \"给出先后顺序\"],\n  \"missed_must_include\": [\"说明体力和散步特点\"],\n  \"violated_must_not_do\": [\"不做顺序建议\"],\n  \"issue_tags\": [\"missing_justification_on_physical_demand\", \"insufficient_walkability_analysis\"],\n  \"strengths\": [\"clear recommendation (栈桥优先)\", \"age-appropriate reasoning for 6-year-old\", \"natural, non-marketing tone\", \"avoids fabricated real-time info\"],\n  \"judge_reason\": \"回答明确推荐栈桥优先，并对比了两处对6岁孩子的适配性（趣味性/互动性 vs 慢节奏/拍照），满足'比较亲子体验'和'给出先后顺序'。但完全未提及体力消耗、步行距离、坡度、推婴儿车可行性、休息设施等与'体力和散步特点'直接相关的关键要素，属must_include严重遗漏；虽有顺序建议，但未说明'为何先去栈桥更省力/更顺路/更适合低龄儿童体能节奏'，导致建议缺乏支撑。未违反must_not_do中的硬性禁令（如编票价、说'都值得去'），但专项任务要求未闭环，需人工复核补充。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "比较两个点的亲子体验",
+      "给出先后顺序"
+    ],
+    "missed_must_include": [
+      "说明体力和散步特点"
+    ],
+    "violated_must_not_do": [
+      "不做顺序建议"
+    ],
+    "issue_tags": [
+      "missing_justification_on_physical_demand",
+      "insufficient_walkability_analysis"
+    ],
+    "strengths": [
+      "clear recommendation (栈桥优先)",
+      "age-appropriate reasoning for 6-year-old",
+      "natural, non-marketing tone",
+      "avoids fabricated real-time info"
+    ],
+    "judge_reason": "回答明确推荐栈桥优先，并对比了两处对6岁孩子的适配性（趣味性/互动性 vs 慢节奏/拍照），满足'比较亲子体验'和'给出先后顺序'。但完全未提及体力消耗、步行距离、坡度、推婴儿车可行性、休息设施等与'体力和散步特点'直接相关的关键要素，属must_include严重遗漏；虽有顺序建议，但未说明'为何先去栈桥更省力/更顺路/更适合低龄儿童体能节奏'，导致建议缺乏支撑。未违反must_not_do中的硬性禁令（如编票价、说'都值得去'），但专项任务要求未闭环，需人工复核补充。"
+  },
+  {
+    "id": "eval_travel_qa_000006",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 112,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较老城游和现代城市休闲\", \"给出首次到访建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"明确选择平江路并给出强理由\", \"自然对比老城游与现代休闲，紧扣首次到访需求\", \"无营销话术、无虚构时效信息、无模糊推诿\"],\n  \"judge_reason\": \"回答直接回应问题，明确推荐平江路附近，并基于首次到访者的核心需求（景点密集、步行可达、体验古典风貌）展开简明有力的解释；同时自然完成对老城游与金鸡湖现代休闲的对比，未使用‘看个人喜好’等回避性表述；未编造票价、开放时间等高风险信息；语言简洁克制，符合TripAI品牌风格。完全满足所有must_include，零违反must_not_do。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较老城游和现代城市休闲",
+      "给出首次到访建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "明确选择平江路并给出强理由",
+      "自然对比老城游与现代休闲，紧扣首次到访需求",
+      "无营销话术、无虚构时效信息、无模糊推诿"
+    ],
+    "judge_reason": "回答直接回应问题，明确推荐平江路附近，并基于首次到访者的核心需求（景点密集、步行可达、体验古典风貌）展开简明有力的解释；同时自然完成对老城游与金鸡湖现代休闲的对比，未使用‘看个人喜好’等回避性表述；未编造票价、开放时间等高风险信息；语言简洁克制，符合TripAI品牌风格。完全满足所有must_include，零违反must_not_do。"
+  },
+  {
+    "id": "eval_travel_qa_000007",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 128,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 3,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"比较步行体验和景观氛围\", \"指出适合不同游客\"],\n  \"missed_must_include\": [\"给出半天慢逛建议\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_task_response\"],\n  \"strengths\": [\"判断清晰，明确区分两处特色；语言自然克制，无营销感；未编造实时信息；结构简洁，符合旅游问答定位\"],\n  \"judge_reason\": \"回答准确比较了北山街与杨公堤的步行体验（安静优雅 vs 自然开阔）和景观氛围（文化历史 vs 湖光山色），并指出二者分别适合不同游客偏好，满足前两项 must_include。但未提供任何关于‘半天慢逛’的具体建议（如路线长度、节奏安排、推荐停留点、时间分配等），缺失第三项核心要求，属任务关键环节遗漏。虽整体自然可信、安全诚实、风格契合TripAI，但因未完成题干明确限定的‘半天慢逛建议’，降为 pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 3,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较步行体验和景观氛围",
+      "指出适合不同游客"
+    ],
+    "missed_must_include": [
+      "给出半天慢逛建议"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_task_response"
+    ],
+    "strengths": [
+      "判断清晰，明确区分两处特色；语言自然克制，无营销感；未编造实时信息；结构简洁，符合旅游问答定位"
+    ],
+    "judge_reason": "回答准确比较了北山街与杨公堤的步行体验（安静优雅 vs 自然开阔）和景观氛围（文化历史 vs 湖光山色），并指出二者分别适合不同游客偏好，满足前两项 must_include。但未提供任何关于‘半天慢逛’的具体建议（如路线长度、节奏安排、推荐停留点、时间分配等），缺失第三项核心要求，属任务关键环节遗漏。虽整体自然可信、安全诚实、风格契合TripAI，但因未完成题干明确限定的‘半天慢逛建议’，降为 pass_with_risk。"
+  },
+  {
+    "id": "eval_travel_qa_000008",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 73,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"回答适不适合\", \"说明步行起伏和节奏\"],\n  \"missed_must_include\": [\"给出更稳妥玩法\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_recommendation\"],\n  \"strengths\": [\"判断明确，首句直答适合；对步行环境（无机动车、平缓街道、舒缓节奏）描述准确自然；语言简洁克制，无营销感；未编造时效信息\"],\n  \"judge_reason\": \"回答明确判断‘适合’，并合理说明了步行起伏（平缓街道）与节奏（舒缓、悠闲漫步），符合老人需求；但完全缺失‘更稳妥玩法’这一must_include项——例如未建议避开日光岩台阶、推荐龙头路-港仔后海滨路线、提醒轮椅/电瓶车接驳限制、或建议错峰出行等具体适老方案。虽未违反must_not_do，也无事实错误，但关键任务要求未闭环，属travel_qa专项失分，需人工复核补充。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "回答适不适合",
+      "说明步行起伏和节奏"
+    ],
+    "missed_must_include": [
+      "给出更稳妥玩法"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_recommendation"
+    ],
+    "strengths": [
+      "判断明确，首句直答适合；对步行环境（无机动车、平缓街道、舒缓节奏）描述准确自然；语言简洁克制，无营销感；未编造时效信息"
+    ],
+    "judge_reason": "回答明确判断‘适合’，并合理说明了步行起伏（平缓街道）与节奏（舒缓、悠闲漫步），符合老人需求；但完全缺失‘更稳妥玩法’这一must_include项——例如未建议避开日光岩台阶、推荐龙头路-港仔后海滨路线、提醒轮椅/电瓶车接驳限制、或建议错峰出行等具体适老方案。虽未违反must_not_do，也无事实错误，但关键任务要求未闭环，属travel_qa专项失分，需人工复核补充。"
+  },
+  {
+    "id": "eval_travel_qa_000009",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 104,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较两地对经典景点和夜生活的适配\", \"给出周末两天更顺的选择\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"明确给出‘前门更顺’的判断，紧扣‘第一次’‘周末两天’核心约束；清晰对比两地在经典景点可达性（前门步行密集）与夜生活适配性（三里屯侧重购物时尚）；未编造任何实时信息；语言简洁自然，无营销感\"],\n  \"judge_reason\": \"回答严格遵循 travel_qa 任务要求：直击问题核心，做出明确选择（前门更顺），并基于‘首次到访’和‘周末两天’时间限制，从经典景点密度/可达性与夜生活风格两个维度完成有效比较；未涉及票价、开放时间等高风险时效信息；无工具调用、JSON 或冗余结构；符合 TripAI 克制、自然、信息精准的品牌风格。所有 must_include 均覆盖，must_not_do 全部遵守。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较两地对经典景点和夜生活的适配",
+      "给出周末两天更顺的选择"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "明确给出‘前门更顺’的判断，紧扣‘第一次’‘周末两天’核心约束；清晰对比两地在经典景点可达性（前门步行密集）与夜生活适配性（三里屯侧重购物时尚）；未编造任何实时信息；语言简洁自然，无营销感"
+    ],
+    "judge_reason": "回答严格遵循 travel_qa 任务要求：直击问题核心，做出明确选择（前门更顺），并基于‘首次到访’和‘周末两天’时间限制，从经典景点密度/可达性与夜生活风格两个维度完成有效比较；未涉及票价、开放时间等高风险时效信息；无工具调用、JSON 或冗余结构；符合 TripAI 克制、自然、信息精准的品牌风格。所有 must_include 均覆盖，must_not_do 全部遵守。"
+  },
+  {
+    "id": "eval_travel_qa_000010",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 398,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"给出两天或先后顺序\", \"说明避免折返思路\", \"给一般交通建议\"],\n  \"violated_must_not_do\": [\"只列景点不排顺序\"],\n  \"issue_tags\": [\"答非所问\", \"结构错位\", \"任务核心要求全缺\"],\n  \"strengths\": [\"语言自然流畅，段落清晰；未编造票价/开放时间；风格克制无营销感\"],\n  \"judge_reason\": \"用户明确问‘夫子庙、总统府、中山陵这几个点怎么分配更顺？’，核心诉求是三景点在两天内的**空间动线优化与顺序安排**。但回答完全偏离：①擅自增加秦淮河、老门东、明孝陵等未提及景点，属答非所问；②未对用户指定的三个景点做任何顺序判断（如‘Day1:夫子庙+总统府，Day2:中山陵’），更未说明为何这样排可避免折返；③未提供任何交通建议（如地铁换乘、打车预估、步行可行性等）；④将总统府与明孝陵强行绑定，却忽略用户根本没提明孝陵——违反must_not_do中‘只列景点不排顺序’的禁止项（实际是‘增列+乱排’）。虽无安全风险且表达清晰，但任务关键要求全部缺失，属于根本性失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "给出两天或先后顺序",
+      "说明避免折返思路",
+      "给一般交通建议"
+    ],
+    "violated_must_not_do": [
+      "只列景点不排顺序"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构错位",
+      "任务核心要求全缺"
+    ],
+    "strengths": [
+      "语言自然流畅，段落清晰；未编造票价/开放时间；风格克制无营销感"
+    ],
+    "judge_reason": "用户明确问‘夫子庙、总统府、中山陵这几个点怎么分配更顺？’，核心诉求是三景点在两天内的**空间动线优化与顺序安排**。但回答完全偏离：①擅自增加秦淮河、老门东、明孝陵等未提及景点，属答非所问；②未对用户指定的三个景点做任何顺序判断（如‘Day1:夫子庙+总统府，Day2:中山陵’），更未说明为何这样排可避免折返；③未提供任何交通建议（如地铁换乘、打车预估、步行可行性等）；④将总统府与明孝陵强行绑定，却忽略用户根本没提明孝陵——违反must_not_do中‘只列景点不排顺序’的禁止项（实际是‘增列+乱排’）。虽无安全风险且表达清晰，但任务关键要求全部缺失，属于根本性失败。"
+  },
+  {
+    "id": "eval_travel_qa_000011",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 132,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"判断是否赶\"],\n  \"missed_must_include\": [\"结合体力和两处节奏给建议\", \"可给取舍方案\"],\n  \"violated_must_not_do\": [\"不给节奏建议\"],\n  \"issue_tags\": [\"missing_justification\", \"lacks_elderly-specific_advice\", \"no_tradeoff_suggestion\"],\n  \"strengths\": [\"语言自然简洁，结构清晰；地理位置和交通信息基本准确；未编造票价/开放时间等实时信息；符合TripAI克制、非营销风格\"],\n  \"judge_reason\": \"回答开头给出‘通常不会太赶’的判断，满足must_include第一条；但未结合父母体力（如步行强度、台阶、休息需求）和两处实际游览节奏（白马寺含古建群+文物陈列，龙门石窟需大量步行+攀爬+讲解密度）展开分析，缺失核心论证；未提供任何取舍方案（如‘若爸妈体力有限，建议二选一’或‘优先白马寺，次日再访石窟’），违反must_include第2、3条；同时‘不给节奏建议’被明确列为must_not_do，而回答仅泛泛说‘预留充足时间’‘避免匆忙’，未给出具体节奏控制建议（如分段游览、电瓶车使用、讲解时长控制等），属直接违反。整体为可用但关键任务要求严重缺失，需人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "判断是否赶"
+    ],
+    "missed_must_include": [
+      "结合体力和两处节奏给建议",
+      "可给取舍方案"
+    ],
+    "violated_must_not_do": [
+      "不给节奏建议"
+    ],
+    "issue_tags": [
+      "missing_justification",
+      "lacks_elderly-specific_advice",
+      "no_tradeoff_suggestion"
+    ],
+    "strengths": [
+      "语言自然简洁，结构清晰；地理位置和交通信息基本准确；未编造票价/开放时间等实时信息；符合TripAI克制、非营销风格"
+    ],
+    "judge_reason": "回答开头给出‘通常不会太赶’的判断，满足must_include第一条；但未结合父母体力（如步行强度、台阶、休息需求）和两处实际游览节奏（白马寺含古建群+文物陈列，龙门石窟需大量步行+攀爬+讲解密度）展开分析，缺失核心论证；未提供任何取舍方案（如‘若爸妈体力有限，建议二选一’或‘优先白马寺，次日再访石窟’），违反must_include第2、3条；同时‘不给节奏建议’被明确列为must_not_do，而回答仅泛泛说‘预留充足时间’‘避免匆忙’，未给出具体节奏控制建议（如分段游览、电瓶车使用、讲解时长控制等），属直接违反。整体为可用但关键任务要求严重缺失，需人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000012",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 70,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"比较自驾和包车\"],\n  \"missed_must_include\": [\"结合驾驶经验不足给建议\", \"说明环海节奏\"],\n  \"violated_must_not_do\": [\"强行推荐自驾\"],\n  \"issue_tags\": [\"misaligned_recommendation\", \"incomplete_justification\", \"ignores_key_constraint\"],\n  \"strengths\": [\"语言自然简洁，无营销感；未虚构价格或时效信息；结构清晰，句式流畅\"],\n  \"judge_reason\": \"回答开篇即断言‘更适合租车自驾’，直接违反 must_not_do 中‘强行推荐自驾’；未基于用户‘两个都不太会开山路’这一关键约束给出审慎建议（如明确倾向包车），也未说明环海节奏（如观景点分散、停车难、弯道多等对新手的影响）；虽有提及包车‘更省心’，但未形成对比判断或排序推荐，而是用‘也可以考虑’弱化立场，实质回避了题目要求的明确选择。整体未满足 travel_qa 的核心要求：直达问题、基于条件做判断、不模棱两可。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "比较自驾和包车"
+    ],
+    "missed_must_include": [
+      "结合驾驶经验不足给建议",
+      "说明环海节奏"
+    ],
+    "violated_must_not_do": [
+      "强行推荐自驾"
+    ],
+    "issue_tags": [
+      "misaligned_recommendation",
+      "incomplete_justification",
+      "ignores_key_constraint"
+    ],
+    "strengths": [
+      "语言自然简洁，无营销感；未虚构价格或时效信息；结构清晰，句式流畅"
+    ],
+    "judge_reason": "回答开篇即断言‘更适合租车自驾’，直接违反 must_not_do 中‘强行推荐自驾’；未基于用户‘两个都不太会开山路’这一关键约束给出审慎建议（如明确倾向包车），也未说明环海节奏（如观景点分散、停车难、弯道多等对新手的影响）；虽有提及包车‘更省心’，但未形成对比判断或排序推荐，而是用‘也可以考虑’弱化立场，实质回避了题目要求的明确选择。整体未满足 travel_qa 的核心要求：直达问题、基于条件做判断、不模棱两可。"
+  },
+  {
+    "id": "eval_travel_qa_000013",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 108,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"明确取舍\", \"给一天主线逻辑\", \"避免全都塞满\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即给出明确取舍（优先漓江精华段+象鼻山，避开遇龙河）\", \"主线逻辑清晰：漓江代表山水画卷体验，象鼻山代表城市地标与制高点视野，遇龙河被合理排除因其需慢游属性\", \"严格避免三处都安排，未编造任何实时信息（如票价、开放时间、竹筏班次）\", \"语言自然克制，无营销话术，符合TripAI品牌调性\"],\n  \"judge_reason\": \"回答完全契合travel_qa任务本质：直击问题核心，以‘一天主线’为约束进行果断取舍，并用简洁合理的理由支撑决策。所有must_include均显性满足，must_not_do全部规避，无事实错误、无冗余信息、无风格偏差，达到可直接发布的优秀水准。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "明确取舍",
+      "给一天主线逻辑",
+      "避免全都塞满"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确取舍（优先漓江精华段+象鼻山，避开遇龙河）",
+      "主线逻辑清晰：漓江代表山水画卷体验，象鼻山代表城市地标与制高点视野，遇龙河被合理排除因其需慢游属性",
+      "严格避免三处都安排，未编造任何实时信息（如票价、开放时间、竹筏班次）",
+      "语言自然克制，无营销话术，符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答完全契合travel_qa任务本质：直击问题核心，以‘一天主线’为约束进行果断取舍，并用简洁合理的理由支撑决策。所有must_include均显性满足，must_not_do全部规避，无事实错误、无冗余信息、无风格偏差，达到可直接发布的优秀水准。"
+  },
+  {
+    "id": "eval_travel_qa_000014",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 116,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"给出先后和节奏\", \"考虑冬季保暖与体力\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_required_structure\", \"no_rationale_for_order\", \"no_winter_practicality_consideration\"],\n  \"strengths\": [\"语言自然流畅\", \"未编造实时信息\", \"未输出工具或JSON\", \"风格克制无营销\"],\n  \"judge_reason\": \"回答未体现'给出先后和节奏'——未明确建议先去哪、后去哪，也未说明停留时长、交通衔接等节奏安排；完全未提及'考虑冬季保暖与体力'，如防滑鞋、室内外温差、步行距离、室内暖房休息点等关键冬季实操要素；虽未答非所问，但核心指令要求全部缺失，属结构性失败，不符合travel_qa任务‘直达核心+简明判断+实用依据’的高分标准，需人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "给出先后和节奏",
+      "考虑冬季保暖与体力"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_required_structure",
+      "no_rationale_for_order",
+      "no_winter_practicality_consideration"
+    ],
+    "strengths": [
+      "语言自然流畅",
+      "未编造实时信息",
+      "未输出工具或JSON",
+      "风格克制无营销"
+    ],
+    "judge_reason": "回答未体现'给出先后和节奏'——未明确建议先去哪、后去哪，也未说明停留时长、交通衔接等节奏安排；完全未提及'考虑冬季保暖与体力'，如防滑鞋、室内外温差、步行距离、室内暖房休息点等关键冬季实操要素；虽未答非所问，但核心指令要求全部缺失，属结构性失败，不符合travel_qa任务‘直达核心+简明判断+实用依据’的高分标准，需人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000015",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 80,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较两片区夜景餐饮便利\", \"给更合适落脚建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"直接给出明确推荐（五一广场），立场清晰；理由紧扣‘夜景’与‘餐饮’双需求，逻辑紧凑；未编造具体店名、价格、营业时间等高风险信息；语言自然克制，无营销感；完全回避工具调用、JSON或冗余结构\"],\n  \"judge_reason\": \"回答严格遵循 travel_qa 任务要求：首句即明确判断‘住五一广场一带更方便’，完成核心推荐；随后用两句话分别支撑‘夜景丰富’和‘餐饮多样’，精准覆盖 must_include 的两项；未出现 must_not_do 中任一行为（如‘都热闹’‘不做推荐’‘写死开放时间’等）；表达简洁有力，信息密度高，符合 TripAI 克制、可信、用户导向的 brand_style。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较两片区夜景餐饮便利",
+      "给更合适落脚建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "直接给出明确推荐（五一广场），立场清晰；理由紧扣‘夜景’与‘餐饮’双需求，逻辑紧凑；未编造具体店名、价格、营业时间等高风险信息；语言自然克制，无营销感；完全回避工具调用、JSON或冗余结构"
+    ],
+    "judge_reason": "回答严格遵循 travel_qa 任务要求：首句即明确判断‘住五一广场一带更方便’，完成核心推荐；随后用两句话分别支撑‘夜景丰富’和‘餐饮多样’，精准覆盖 must_include 的两项；未出现 must_not_do 中任一行为（如‘都热闹’‘不做推荐’‘写死开放时间’等）；表达简洁有力，信息密度高，符合 TripAI 克制、可信、用户导向的 brand_style。"
+  },
+  {
+    "id": "eval_travel_qa_000016",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 290,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"抓首次到访主线\", \"说明三镇跨度和取舍\", \"避免贪多\"],\n  \"violated_must_not_do\": [\"全部均匀塞进去\", \"不给取舍理由\"],\n  \"issue_tags\": [\"no_mainline_judgment\", \"no_geographic_rationale\", \"overloading_recommendation\", \"ignores_first_visit_constraint\"],\n  \"strengths\": [\"mentions geographic labels (Wuchang/Hankou/Hanyang)\", \"uses natural language without tool traces or JSON\", \"avoids fabricating prices/times\"],\n  \"judge_reason\": \"回答完全未体现‘抓首次到访主线’这一核心指令，未说明三镇（武昌、汉口、汉阳）之间地理分散、交通耗时等现实约束，也未给出任何取舍逻辑；反而将黄鹤楼、长江大桥、江滩、东湖全部列为‘核心主线’并机械罗列，严重违反‘避免贪多’和‘全部均匀塞进去’的 must_not_do；未对‘第一次去’这一关键前提做出响应，答非所问。属于典型 task-specific failure，且 instruction_following 得分应为最低档。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "抓首次到访主线",
+      "说明三镇跨度和取舍",
+      "避免贪多"
+    ],
+    "violated_must_not_do": [
+      "全部均匀塞进去",
+      "不给取舍理由"
+    ],
+    "issue_tags": [
+      "no_mainline_judgment",
+      "no_geographic_rationale",
+      "overloading_recommendation",
+      "ignores_first_visit_constraint"
+    ],
+    "strengths": [
+      "mentions geographic labels (Wuchang/Hankou/Hanyang)",
+      "uses natural language without tool traces or JSON",
+      "avoids fabricating prices/times"
+    ],
+    "judge_reason": "回答完全未体现‘抓首次到访主线’这一核心指令，未说明三镇（武昌、汉口、汉阳）之间地理分散、交通耗时等现实约束，也未给出任何取舍逻辑；反而将黄鹤楼、长江大桥、江滩、东湖全部列为‘核心主线’并机械罗列，严重违反‘避免贪多’和‘全部均匀塞进去’的 must_not_do；未对‘第一次去’这一关键前提做出响应，答非所问。属于典型 task-specific failure，且 instruction_following 得分应为最低档。"
+  },
+  {
+    "id": "eval_travel_qa_000017",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 111,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"比较三湾\", \"考虑老人休闲交通配套\"],\n  \"missed_must_include\": [\"给更省心选择\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_recommendation\", \"weak_conclusion\"],\n  \"strengths\": [\"自然简洁，语言克制；明确对比三湾差异；提及老人休养、医疗配套等关键维度；未编造时效信息；符合TripAI低调务实风格\"],\n  \"judge_reason\": \"回答虽完成三湾比较并兼顾老人需求（环境、医疗、节奏），但未以明确、果断的句式给出‘更省心选择’——如‘综合来看，亚龙湾最省心’或‘首推亚龙湾’等直接结论性表述，仅用‘通常更省心’弱化判断，未满足must_include中‘给更省心选择’这一强制动作要求；属关键任务指令未闭环，需人工复核是否补强结论。未违反must_not_do，无安全或事实问题，但专项得分不足。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "比较三湾",
+      "考虑老人休闲交通配套"
+    ],
+    "missed_must_include": [
+      "给更省心选择"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_recommendation",
+      "weak_conclusion"
+    ],
+    "strengths": [
+      "自然简洁，语言克制；明确对比三湾差异；提及老人休养、医疗配套等关键维度；未编造时效信息；符合TripAI低调务实风格"
+    ],
+    "judge_reason": "回答虽完成三湾比较并兼顾老人需求（环境、医疗、节奏），但未以明确、果断的句式给出‘更省心选择’——如‘综合来看，亚龙湾最省心’或‘首推亚龙湾’等直接结论性表述，仅用‘通常更省心’弱化判断，未满足must_include中‘给更省心选择’这一强制动作要求；属关键任务指令未闭环，需人工复核是否补强结论。未违反must_not_do，无安全或事实问题，但专项得分不足。"
+  },
+  {
+    "id": "eval_travel_qa_000018",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 104,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"回答值不值得\", \"概括适合一天慢逛的理由\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇直接给出明确判断（‘是的’），满足‘回答值不值得’；后文用两句话精炼概括人文底蕴、节奏舒缓等核心理由，紧扣‘适合一天慢逛’；全文无工具痕迹、无实时信息编造、无冗余扩写，符合TripAI克制自然的风格。\"],\n  \"judge_reason\": \"回答严格遵循任务要求：首句即明确价值判断（值得），随后两句分别从西街的文化氛围与开元寺的历史地位切入，并落脚于‘节奏舒缓’‘适合慢慢感受’，精准完成‘概括适合一天慢逛的理由’；未出现任何must_not_do行为；语言简洁自然，无营销感，事实陈述客观稳妥；完全匹配travel_qa rubric对‘直达核心、简洁准确、有结论’的核心要求。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "回答值不值得",
+      "概括适合一天慢逛的理由"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇直接给出明确判断（‘是的’），满足‘回答值不值得’；后文用两句话精炼概括人文底蕴、节奏舒缓等核心理由，紧扣‘适合一天慢逛’；全文无工具痕迹、无实时信息编造、无冗余扩写，符合TripAI克制自然的风格。"
+    ],
+    "judge_reason": "回答严格遵循任务要求：首句即明确价值判断（值得），随后两句分别从西街的文化氛围与开元寺的历史地位切入，并落脚于‘节奏舒缓’‘适合慢慢感受’，精准完成‘概括适合一天慢逛的理由’；未出现任何must_not_do行为；语言简洁自然，无营销感，事实陈述客观稳妥；完全匹配travel_qa rubric对‘直达核心、简洁准确、有结论’的核心要求。"
+  },
+  {
+    "id": "eval_travel_qa_000019",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 323,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"从到站点出发给顺路安排\", \"给一般交通衔接建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_over_specification\"],\n  \"strengths\": [\"明确以天津西站为起点，给出清晰三段式顺路推荐；交通方式（地铁+换乘+步行/打车）符合现实逻辑；未编造票价、开放时间等高时效信息；语言自然克制，无营销感\"],\n  \"judge_reason\": \"回答严格遵循‘从天津西站出发’这一前提，完成顺路排序（五大道→意式风情区→古文化街）并提供合理交通衔接建议（地铁换乘+步行/打车），覆盖全部 must_include。但存在轻微 over-specification：'地铁2号线（东南方向）至东南角站，换乘地铁1号线（东南方向）至小白楼站'虽大致可行，但实际地铁2号线不直达东南角站（需在长虹公园或西南角换乘），且小白楼站距五大道核心区约800米步行，未说明该距离可能影响体验；属事实性细节偏差，未达严重错误，但构成 pass_with_risk 理由。无 must_not_do 违反，安全诚实，品牌风格得当。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "从到站点出发给顺路安排",
+      "给一般交通衔接建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_over_specification"
+    ],
+    "strengths": [
+      "明确以天津西站为起点，给出清晰三段式顺路推荐；交通方式（地铁+换乘+步行/打车）符合现实逻辑；未编造票价、开放时间等高时效信息；语言自然克制，无营销感"
+    ],
+    "judge_reason": "回答严格遵循‘从天津西站出发’这一前提，完成顺路排序（五大道→意式风情区→古文化街）并提供合理交通衔接建议（地铁换乘+步行/打车），覆盖全部 must_include。但存在轻微 over-specification：'地铁2号线（东南方向）至东南角站，换乘地铁1号线（东南方向）至小白楼站'虽大致可行，但实际地铁2号线不直达东南角站（需在长虹公园或西南角换乘），且小白楼站距五大道核心区约800米步行，未说明该距离可能影响体验；属事实性细节偏差，未达严重错误，但构成 pass_with_risk 理由。无 must_not_do 违反，安全诚实，品牌风格得当。"
+  },
+  {
+    "id": "eval_travel_qa_000020",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 80,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"给首次到访建议\"],\n  \"missed_must_include\": [\"比较文艺慢逛和综合便利\"],\n  \"violated_must_not_do\": [\"不做选择\"],\n  \"issue_tags\": [\"incomplete_comparison\", \"missing_key_phrase\", \"ambiguous_recommendation\"],\n  \"strengths\": [\"Clear recommendation for翠湖附近; natural, non-marketing tone; avoids fabricated real-time info; good structure and readability.\"],\n  \"judge_reason\": \"The answer chooses翠湖附近, satisfying the 'make a choice' requirement in spirit, but fails to explicitly frame the comparison as '文艺慢逛 vs 综合便利' — a required phrase that anchors the reasoning in the user's first-time context and dual criteria. It mentions '交通便利，景点集中' (comprehensive convenience) but omits any reference to '文艺慢逛' (artsy, slow strolling), thus missing half the mandated analytical lens. Also, while it says翠湖 is '更方便', it does not clarify *why* it's more convenient *for a first-timer* beyond general familiarity — the justification lacks the nuance expected (e.g., walkability, low cognitive load, scenic orientation). No safety or style violations. Overall usable but incomplete per rubric — requires revision to include the exact phrase and balanced contrast.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "给首次到访建议"
+    ],
+    "missed_must_include": [
+      "比较文艺慢逛和综合便利"
+    ],
+    "violated_must_not_do": [
+      "不做选择"
+    ],
+    "issue_tags": [
+      "incomplete_comparison",
+      "missing_key_phrase",
+      "ambiguous_recommendation"
+    ],
+    "strengths": [
+      "Clear recommendation for翠湖附近; natural, non-marketing tone; avoids fabricated real-time info; good structure and readability."
+    ],
+    "judge_reason": "The answer chooses翠湖附近, satisfying the 'make a choice' requirement in spirit, but fails to explicitly frame the comparison as '文艺慢逛 vs 综合便利' — a required phrase that anchors the reasoning in the user's first-time context and dual criteria. It mentions '交通便利，景点集中' (comprehensive convenience) but omits any reference to '文艺慢逛' (artsy, slow strolling), thus missing half the mandated analytical lens. Also, while it says翠湖 is '更方便', it does not clarify *why* it's more convenient *for a first-timer* beyond general familiarity — the justification lacks the nuance expected (e.g., walkability, low cognitive load, scenic orientation). No safety or style violations. Overall usable but incomplete per rubric — requires revision to include the exact phrase and balanced contrast."
+  },
+  {
+    "id": "eval_travel_qa_000021",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 88,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"判断建议时长\"],\n  \"missed_must_include\": [\"说明适合搭配什么内容\"],\n  \"violated_must_not_do\": [\"无时长判断\"],\n  \"issue_tags\": [\"incomplete_must_include\", \"ambiguous_recommendation\"],\n  \"strengths\": [\"语言自然简洁，符合TripAI克制风格；明确给出‘半天’作为首选建议；未编造票价/开放时间等实时信息；逻辑合理，基于景点密度和步行特性支撑判断\"],\n  \"judge_reason\": \"回答虽以‘半天’为首选，但后半句‘如果时间充裕，也可以安排一天……’弱化了核心判断，未严格执行must_include中‘明确判断+说明适合搭配内容’的要求；尤其缺失‘说明适合搭配什么内容’（如：可搭配朱紫坊、南后街美食、非遗体验等周边活动），导致推荐缺乏实操指引；‘无时长判断’被违反——因答案呈现为二选一模糊让步式表述，未坚定给出唯一合理建议（参考答案强调‘choose one side or give a ranked recommendation rather than saying both are fine’），构成任务关键失败点，需人工复核。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "判断建议时长"
+    ],
+    "missed_must_include": [
+      "说明适合搭配什么内容"
+    ],
+    "violated_must_not_do": [
+      "无时长判断"
+    ],
+    "issue_tags": [
+      "incomplete_must_include",
+      "ambiguous_recommendation"
+    ],
+    "strengths": [
+      "语言自然简洁，符合TripAI克制风格；明确给出‘半天’作为首选建议；未编造票价/开放时间等实时信息；逻辑合理，基于景点密度和步行特性支撑判断"
+    ],
+    "judge_reason": "回答虽以‘半天’为首选，但后半句‘如果时间充裕，也可以安排一天……’弱化了核心判断，未严格执行must_include中‘明确判断+说明适合搭配内容’的要求；尤其缺失‘说明适合搭配什么内容’（如：可搭配朱紫坊、南后街美食、非遗体验等周边活动），导致推荐缺乏实操指引；‘无时长判断’被违反——因答案呈现为二选一模糊让步式表述，未坚定给出唯一合理建议（参考答案强调‘choose one side or give a ranked recommendation rather than saying both are fine’），构成任务关键失败点，需人工复核。"
+  },
+  {
+    "id": "eval_travel_qa_000022",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 110,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"判断是否分散\"],\n  \"missed_must_include\": [\"说明更顺的组合思路\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_recommendation\", \"incomplete_reasoning\"],\n  \"strengths\": [\"回答直接切入问题，给出明确判断（'不会太散'）；交通与时间安排建议合理；语言自然简洁，无营销感；未编造实时信息\"],\n  \"judge_reason\": \"回答正确判断了‘不会太散’，满足must_include第一条；但未提供替代方案或更顺的组合思路（如：建议东钱湖+天童寺/阿育王寺，或老外滩+宁波博物馆），缺失must_include第二条核心要求；虽未违反must_not_do，但作为travel_qa任务，不给出优化组合即属关键信息遗漏，影响用户决策；task_specific_score因此仅得3分；整体可用但存在明显功能缺陷，需人工复核补充，故判hold。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "判断是否分散"
+    ],
+    "missed_must_include": [
+      "说明更顺的组合思路"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_recommendation",
+      "incomplete_reasoning"
+    ],
+    "strengths": [
+      "回答直接切入问题，给出明确判断（'不会太散'）；交通与时间安排建议合理；语言自然简洁，无营销感；未编造实时信息"
+    ],
+    "judge_reason": "回答正确判断了‘不会太散’，满足must_include第一条；但未提供替代方案或更顺的组合思路（如：建议东钱湖+天童寺/阿育王寺，或老外滩+宁波博物馆），缺失must_include第二条核心要求；虽未违反must_not_do，但作为travel_qa任务，不给出优化组合即属关键信息遗漏，影响用户决策；task_specific_score因此仅得3分；整体可用但存在明显功能缺陷，需人工复核补充，故判hold。"
+  },
+  {
+    "id": "eval_travel_qa_000023",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 82,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"比较落地当日两种处理\", \"说明行李和节奏问题\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_comparison\", \"ignores_airport_context\", \"no_luggage_pace_analysis\"],\n  \"strengths\": [\"语言自然简洁，无营销口吻；未虚构船班或票价；结构清晰\"],\n  \"judge_reason\": \"回答未对‘落地当日’两种方案做实质性比较，完全回避了核心比较逻辑；未提及行李携带、中转耗时、鼓浪屿当日登岛限制（如需提前预约、船班末班时间、岛上无机动车等关键节奏约束），也未说明曾厝垵住宿后次日去鼓浪屿是否更稳妥。仅泛泛而谈‘交通便利’‘方便安排’，属于模糊回应，未履行比较判断义务，严重偏离 task-specific 要求。虽无安全与编造问题，但关键 must_include 全部缺失，必须人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "比较落地当日两种处理",
+      "说明行李和节奏问题"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_comparison",
+      "ignores_airport_context",
+      "no_luggage_pace_analysis"
+    ],
+    "strengths": [
+      "语言自然简洁，无营销口吻；未虚构船班或票价；结构清晰"
+    ],
+    "judge_reason": "回答未对‘落地当日’两种方案做实质性比较，完全回避了核心比较逻辑；未提及行李携带、中转耗时、鼓浪屿当日登岛限制（如需提前预约、船班末班时间、岛上无机动车等关键节奏约束），也未说明曾厝垵住宿后次日去鼓浪屿是否更稳妥。仅泛泛而谈‘交通便利’‘方便安排’，属于模糊回应，未履行比较判断义务，严重偏离 task-specific 要求。虽无安全与编造问题，但关键 must_include 全部缺失，必须人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000024",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 105,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"结合季节赏花体力做取舍\", \"给更舒服的两天搭配\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"直接给出明确推荐（鸡鸣寺+玄武湖），符合‘做取舍’要求；理由紧扣春天赏花、体力负担、节奏舒适三大要素；未编造开放时间/票价/人流等实时信息；语言自然简洁，无营销感；结构清晰：结论先行→分述依据→对比说明明孝陵的适配条件\"],\n  \"judge_reason\": \"回答严格遵循用户问题本质——在限定条件下（春日、2天、赏花、低体力消耗）对三个选项做出优先级判断。'优先安排鸡鸣寺和玄武湖'即完成核心取舍；'相对轻松''慢节奏游览''路程稍远''步行较多'等表述精准落实‘结合季节赏花体力做取舍’；‘更适合有体力的游客’反向强化了对目标用户（不想太累）的适配逻辑；整体构成完整、可执行的两天搭配方案。无任何 must_not_do 行为，风格克制专业，完全符合 TripAI 品牌调性。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "结合季节赏花体力做取舍",
+      "给更舒服的两天搭配"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "直接给出明确推荐（鸡鸣寺+玄武湖），符合‘做取舍’要求；理由紧扣春天赏花、体力负担、节奏舒适三大要素；未编造开放时间/票价/人流等实时信息；语言自然简洁，无营销感；结构清晰：结论先行→分述依据→对比说明明孝陵的适配条件"
+    ],
+    "judge_reason": "回答严格遵循用户问题本质——在限定条件下（春日、2天、赏花、低体力消耗）对三个选项做出优先级判断。'优先安排鸡鸣寺和玄武湖'即完成核心取舍；'相对轻松''慢节奏游览''路程稍远''步行较多'等表述精准落实‘结合季节赏花体力做取舍’；‘更适合有体力的游客’反向强化了对目标用户（不想太累）的适配逻辑；整体构成完整、可执行的两天搭配方案。无任何 must_not_do 行为，风格克制专业，完全符合 TripAI 品牌调性。"
+  },
+  {
+    "id": "eval_travel_qa_000025",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 114,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"比较两个落脚点\"],\n  \"missed_must_include\": [\"结合看日出和次日动线给建议\"],\n  \"violated_must_not_do\": [\"只讲景色不讲赶路便利\"],\n  \"issue_tags\": [\"incomplete_comparison\", \"neglects_travel_logistics\", \"overstates_black_horse_advantage_without_qualification\"],\n  \"strengths\": [\"语言自然简洁，无营销感；明确给出首选黑马河；未编造票价/房价/开放时间等实时信息；安全诚实，未虚构确定性事实\"],\n  \"judge_reason\": \"回答虽明确选择黑马河并简述日出优势，但未真正‘结合次日动线’分析赶路便利性（如未说明黑马河向西/向东的路况、加油站、补给、高速入口距离等实际动线要素），仅用‘交通便利’‘赶路也方便’模糊带过，属于对must_include第二项的实质性遗漏；同时将黑马河称为‘最著名观日出地点之一’属主观强化表述，缺乏必要限定（如‘传统观景点’更妥），且未提二郎剑是否完全不可观日出（实际可，只是角度/体验不同），导致比较失衡。违反must_not_do中‘只讲景色不讲赶路便利’，构成逻辑断层。整体可用但关键任务要求未闭环，需人工复核修正。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "比较两个落脚点"
+    ],
+    "missed_must_include": [
+      "结合看日出和次日动线给建议"
+    ],
+    "violated_must_not_do": [
+      "只讲景色不讲赶路便利"
+    ],
+    "issue_tags": [
+      "incomplete_comparison",
+      "neglects_travel_logistics",
+      "overstates_black_horse_advantage_without_qualification"
+    ],
+    "strengths": [
+      "语言自然简洁，无营销感；明确给出首选黑马河；未编造票价/房价/开放时间等实时信息；安全诚实，未虚构确定性事实"
+    ],
+    "judge_reason": "回答虽明确选择黑马河并简述日出优势，但未真正‘结合次日动线’分析赶路便利性（如未说明黑马河向西/向东的路况、加油站、补给、高速入口距离等实际动线要素），仅用‘交通便利’‘赶路也方便’模糊带过，属于对must_include第二项的实质性遗漏；同时将黑马河称为‘最著名观日出地点之一’属主观强化表述，缺乏必要限定（如‘传统观景点’更妥），且未提二郎剑是否完全不可观日出（实际可，只是角度/体验不同），导致比较失衡。违反must_not_do中‘只讲景色不讲赶路便利’，构成逻辑断层。整体可用但关键任务要求未闭环，需人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000026",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 89,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"做明确取舍\", \"说明半天更适合哪条线\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即给出明确取舍（优先苏州博物馆），符合‘做明确取舍’要求；紧接说明理由——建筑、展品、文化深度、免费、适合深度体验，并对比指出拙政园和平江路耗时更长，自然支撑‘半天更适合哪条线’；无营销话术，无实时信息编造，语气克制专业；结构简洁，无冗余信息\"],\n  \"judge_reason\": \"回答严格遵循travel_qa任务要求：直击问题核心，首句即完成明确取舍；理由充分且紧扣‘半天’时间约束，逻辑闭环；未提任何不确定的开放时间、票价或预约状态，符合安全诚实原则；语言自然精炼，无工具调用、JSON或冗余结构；完全避开must_not_do所有项，且100%覆盖must_include。整体为典范级travel_qa响应。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "做明确取舍",
+      "说明半天更适合哪条线"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确取舍（优先苏州博物馆），符合‘做明确取舍’要求；紧接说明理由——建筑、展品、文化深度、免费、适合深度体验，并对比指出拙政园和平江路耗时更长，自然支撑‘半天更适合哪条线’；无营销话术，无实时信息编造，语气克制专业；结构简洁，无冗余信息"
+    ],
+    "judge_reason": "回答严格遵循travel_qa任务要求：直击问题核心，首句即完成明确取舍；理由充分且紧扣‘半天’时间约束，逻辑闭环；未提任何不确定的开放时间、票价或预约状态，符合安全诚实原则；语言自然精炼，无工具调用、JSON或冗余结构；完全避开must_not_do所有项，且100%覆盖must_include。整体为典范级travel_qa响应。"
+  },
+  {
+    "id": "eval_travel_qa_000027",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 77,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"回答适不适合\", \"说明时长和体力感受\", \"给更稳妥建议\"],\n  \"violated_must_not_do\": [\"不给节奏建议\"],\n  \"issue_tags\": [\"missing_judgment\", \"no_duration_estimate\", \"no_physical_demand_assessment\", \"no_alternative_recommendation\"],\n  \"strengths\": [\"语言自然简洁，无营销口吻；提及天气与装备建议，体现一定实用性；未编造票价/开放时间等实时信息\"],\n  \"judge_reason\": \"回答未对‘是否适合当天往返’作出明确判断（缺核心判断句），未说明单程交通耗时、景区内步行时长及小学生实际体力消耗（如‘需步行2小时山路’或‘含上下台阶约1500级’等关键信息），也未给出更稳妥建议（如‘建议预留至少6小时全程时间’或‘若孩子体力一般，可考虑住一晚’）。虽未违反安全底线，但严重缺失 task-specific 的三项 must_include 要素，且隐性违反 must_not_do 中‘不给节奏建议’——因‘当天往返’本质是节奏与时间管理问题，回避即失职。整体不符合 Travel QA ‘直达核心+简明支撑’要求。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "回答适不适合",
+      "说明时长和体力感受",
+      "给更稳妥建议"
+    ],
+    "violated_must_not_do": [
+      "不给节奏建议"
+    ],
+    "issue_tags": [
+      "missing_judgment",
+      "no_duration_estimate",
+      "no_physical_demand_assessment",
+      "no_alternative_recommendation"
+    ],
+    "strengths": [
+      "语言自然简洁，无营销口吻；提及天气与装备建议，体现一定实用性；未编造票价/开放时间等实时信息"
+    ],
+    "judge_reason": "回答未对‘是否适合当天往返’作出明确判断（缺核心判断句），未说明单程交通耗时、景区内步行时长及小学生实际体力消耗（如‘需步行2小时山路’或‘含上下台阶约1500级’等关键信息），也未给出更稳妥建议（如‘建议预留至少6小时全程时间’或‘若孩子体力一般，可考虑住一晚’）。虽未违反安全底线，但严重缺失 task-specific 的三项 must_include 要素，且隐性违反 must_not_do 中‘不给节奏建议’——因‘当天往返’本质是节奏与时间管理问题，回避即失职。整体不符合 Travel QA ‘直达核心+简明支撑’要求。"
+  },
+  {
+    "id": "eval_travel_qa_000028",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 120,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"比较地铁和打车\", \"考虑晚上到达行李和换乘\"],\n  \"violated_must_not_do\": [\"只说都可以\"],\n  \"issue_tags\": [\"missed_comparison\", \"no_night_consideration\", \"vague_recommendation\"],\n  \"strengths\": [\"语言自然，无营销口吻；未虚构票价/时间等实时信息；结构基本清晰\"],\n  \"judge_reason\": \"回答未进行地铁与打车的实质性比较，也未提及‘晚上到达’这一关键条件下的行李携带、换乘便利性、末班车时间或打车可靠性等要素；仅单方面推荐地铁，却未说明为何比打车‘更省心’，缺乏对比逻辑支撑；且隐含‘地铁更省心’即等于‘打车不省心’的武断推论，未体现权衡；更严重的是，参考答案明确要求‘必须比较’且‘必须考虑晚上到达行李和换乘’，而回答完全遗漏这两项must_include；同时，‘整体行程较省心，也更安全’属主观断言，未基于用户关心的‘省心’维度（如拎行李、夜间导航、换乘次数、出站后步行距离）展开，违反task-specific核心要求；因此属于答非所问+关键约束缺失，判定为fail。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "比较地铁和打车",
+      "考虑晚上到达行李和换乘"
+    ],
+    "violated_must_not_do": [
+      "只说都可以"
+    ],
+    "issue_tags": [
+      "missed_comparison",
+      "no_night_consideration",
+      "vague_recommendation"
+    ],
+    "strengths": [
+      "语言自然，无营销口吻；未虚构票价/时间等实时信息；结构基本清晰"
+    ],
+    "judge_reason": "回答未进行地铁与打车的实质性比较，也未提及‘晚上到达’这一关键条件下的行李携带、换乘便利性、末班车时间或打车可靠性等要素；仅单方面推荐地铁，却未说明为何比打车‘更省心’，缺乏对比逻辑支撑；且隐含‘地铁更省心’即等于‘打车不省心’的武断推论，未体现权衡；更严重的是，参考答案明确要求‘必须比较’且‘必须考虑晚上到达行李和换乘’，而回答完全遗漏这两项must_include；同时，‘整体行程较省心，也更安全’属主观断言，未基于用户关心的‘省心’维度（如拎行李、夜间导航、换乘次数、出站后步行距离）展开，违反task-specific核心要求；因此属于答非所问+关键约束缺失，判定为fail。"
+  },
+  {
+    "id": "eval_travel_qa_000029",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 103,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"判断是否赶\", \"给更稳妥玩法\"],\n  \"violated_must_not_do\": [\"笼统说没问题\"],\n  \"issue_tags\": [\"missing_judgment\", \"no_alternative_plan\", \"vague_feasibility_claim\"],\n  \"strengths\": [\"语言自然流畅\", \"结构清晰有时间线\", \"未编造票价/开放时间等实时信息\", \"符合TripAI克制风格\"],\n  \"judge_reason\": \"回答未对‘会不会太赶’作出明确判断（如‘较赶’‘偏紧张’‘勉强可行但不推荐’），而是以‘可行的’模糊表述弱化核心问题，违反must_include‘判断是否赶’；未提供任何替代方案（如‘建议分两天’‘优先选其一深度游’），缺失must_include‘给更稳妥玩法’；‘可行的’属于笼统说没问题，直接违反must_not_do；虽无事实性错误且表达清晰，但关键任务指令完全未响应，属结构性缺陷，需人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "判断是否赶",
+      "给更稳妥玩法"
+    ],
+    "violated_must_not_do": [
+      "笼统说没问题"
+    ],
+    "issue_tags": [
+      "missing_judgment",
+      "no_alternative_plan",
+      "vague_feasibility_claim"
+    ],
+    "strengths": [
+      "语言自然流畅",
+      "结构清晰有时间线",
+      "未编造票价/开放时间等实时信息",
+      "符合TripAI克制风格"
+    ],
+    "judge_reason": "回答未对‘会不会太赶’作出明确判断（如‘较赶’‘偏紧张’‘勉强可行但不推荐’），而是以‘可行的’模糊表述弱化核心问题，违反must_include‘判断是否赶’；未提供任何替代方案（如‘建议分两天’‘优先选其一深度游’），缺失must_include‘给更稳妥玩法’；‘可行的’属于笼统说没问题，直接违反must_not_do；虽无事实性错误且表达清晰，但关键任务指令完全未响应，属结构性缺陷，需人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000030",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 101,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"明确优先级\", \"按年龄兴趣和一天限制给建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"直接给出明确优先级（故宫）\", \"理由紧扣‘带孩子第一次去’‘只有一天’两大约束，分别从文化代表性、教育适配性、时间效率角度简明支撑\", \"未编造票价/开放时间等实时信息\", \"语言自然克制，无营销感\"],\n  \"judge_reason\": \"回答严格遵循 travel_qa rubric：直击问题核心，以‘建议优先去故宫’开篇完成明确优先级；后续两句分别对应‘带孩子’（历史文化启蒙适配儿童认知）与‘只有一天’（环球影城耗时更长），完整覆盖 must_include；未出现工具调用、模糊话术（如‘看您喜好’）、或实时信息断言；风格简洁中性，符合 TripAI 品牌调性。整体为典型高分 QA 回答。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "明确优先级",
+      "按年龄兴趣和一天限制给建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "直接给出明确优先级（故宫）",
+      "理由紧扣‘带孩子第一次去’‘只有一天’两大约束，分别从文化代表性、教育适配性、时间效率角度简明支撑",
+      "未编造票价/开放时间等实时信息",
+      "语言自然克制，无营销感"
+    ],
+    "judge_reason": "回答严格遵循 travel_qa rubric：直击问题核心，以‘建议优先去故宫’开篇完成明确优先级；后续两句分别对应‘带孩子’（历史文化启蒙适配儿童认知）与‘只有一天’（环球影城耗时更长），完整覆盖 must_include；未出现工具调用、模糊话术（如‘看您喜好’）、或实时信息断言；风格简洁中性，符合 TripAI 品牌调性。整体为典型高分 QA 回答。"
+  },
+  {
+    "id": "eval_travel_qa_000031",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 74,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"判断是否适合步行串联\"],\n  \"missed_must_include\": [\"说明地形和节奏\"],\n  \"violated_must_not_do\": [\"忽略重庆地形\"],\n  \"issue_tags\": [\"missing_terrain_analysis\", \"geographic_oversight\"],\n  \"strengths\": [\"回答简洁直接，结构清晰；未编造票价/开放时间等实时信息；语气自然克制，符合TripAI品牌风格\"],\n  \"judge_reason\": \"回答明确判断‘合适’，满足must_include第一条，但完全未提及重庆典型的山地地形、高差、阶梯路段、坡度对步行体验的影响，也未说明游览节奏（如需频繁上下坡、体力消耗大、是否适合老人/儿童等），严重缺失‘说明地形和节奏’这一核心要求；‘步行时间15-30分钟之间’属模糊估算，未基于实际地理关系展开，且隐含忽略地形导致的路径非线性与耗时不确定性；违反must_not_do中‘忽略重庆地形’；虽无安全风险或营销感，但关键任务要素缺失，不符合travel_qa‘直达核心+地形敏感’专项要求，需人工复核补充。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "判断是否适合步行串联"
+    ],
+    "missed_must_include": [
+      "说明地形和节奏"
+    ],
+    "violated_must_not_do": [
+      "忽略重庆地形"
+    ],
+    "issue_tags": [
+      "missing_terrain_analysis",
+      "geographic_oversight"
+    ],
+    "strengths": [
+      "回答简洁直接，结构清晰；未编造票价/开放时间等实时信息；语气自然克制，符合TripAI品牌风格"
+    ],
+    "judge_reason": "回答明确判断‘合适’，满足must_include第一条，但完全未提及重庆典型的山地地形、高差、阶梯路段、坡度对步行体验的影响，也未说明游览节奏（如需频繁上下坡、体力消耗大、是否适合老人/儿童等），严重缺失‘说明地形和节奏’这一核心要求；‘步行时间15-30分钟之间’属模糊估算，未基于实际地理关系展开，且隐含忽略地形导致的路径非线性与耗时不确定性；违反must_not_do中‘忽略重庆地形’；虽无安全风险或营销感，但关键任务要素缺失，不符合travel_qa‘直达核心+地形敏感’专项要求，需人工复核补充。"
+  },
+  {
+    "id": "eval_travel_qa_000032",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 106,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"比较两片区到景点便利\", \"考虑老人和换乘\"],\n  \"violated_must_not_do\": [\"忽略老人\"],\n  \"issue_tags\": [\"no_comparison\", \"elderly_ignored\", \"non_actionable_recommendation\"],\n  \"strengths\": [\"语言自然简洁，无营销口吻；未编造实时信息；结构清晰，分点陈述\"],\n  \"judge_reason\": \"回答未对武林广场与湖滨进行实质性便利性比较，仅分别描述二者优点，未围绕‘灵隐寺+西湖’双目的地做交通可达性分析；完全未提及‘老人’这一关键约束（如步行距离、台阶、换乘次数、无障碍设施等），违反 must_not_do 中‘忽略老人’；结论模糊（‘可根据偏好选择’），未按要求给出明确推荐或排序，违背 travel_qa 任务核心要求——直达问题核心并做判断。虽无安全风险和编造信息，但关键任务目标未达成，必须人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "比较两片区到景点便利",
+      "考虑老人和换乘"
+    ],
+    "violated_must_not_do": [
+      "忽略老人"
+    ],
+    "issue_tags": [
+      "no_comparison",
+      "elderly_ignored",
+      "non_actionable_recommendation"
+    ],
+    "strengths": [
+      "语言自然简洁，无营销口吻；未编造实时信息；结构清晰，分点陈述"
+    ],
+    "judge_reason": "回答未对武林广场与湖滨进行实质性便利性比较，仅分别描述二者优点，未围绕‘灵隐寺+西湖’双目的地做交通可达性分析；完全未提及‘老人’这一关键约束（如步行距离、台阶、换乘次数、无障碍设施等），违反 must_not_do 中‘忽略老人’；结论模糊（‘可根据偏好选择’），未按要求给出明确推荐或排序，违背 travel_qa 任务核心要求——直达问题核心并做判断。虽无安全风险和编造信息，但关键任务目标未达成，必须人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000033",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 78,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"回答是否适合同天\", \"给简单搭配建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇直接给出明确判断（‘可以放在同一天游览’），完全响应问题核心；搭配建议时间逻辑清晰（上午→中午→下午），自然简洁，无冗余信息；未编造任何实时信息（如票价、预约状态、精确开放时间）；语言平实克制，符合TripAI品牌风格。”\"],\n  \"judge_reason\": \"回答严格遵循travel_qa任务要求：首句直击问题本质（明确回答‘适合同天’），随即提供合理、可执行的时序搭配建议；未使用工具调用、JSON或思维链；未断言不确定的时效信息；结构紧凑，无营销话术；所有must_include项均显性覆盖，must_not_do全部遵守。属典型高分范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "回答是否适合同天",
+      "给简单搭配建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇直接给出明确判断（‘可以放在同一天游览’），完全响应问题核心；搭配建议时间逻辑清晰（上午→中午→下午），自然简洁，无冗余信息；未编造任何实时信息（如票价、预约状态、精确开放时间）；语言平实克制，符合TripAI品牌风格。”"
+    ],
+    "judge_reason": "回答严格遵循travel_qa任务要求：首句直击问题本质（明确回答‘适合同天’），随即提供合理、可执行的时序搭配建议；未使用工具调用、JSON或思维链；未断言不确定的时效信息；结构紧凑，无营销话术；所有must_include项均显性覆盖，must_not_do全部遵守。属典型高分范例。"
+  },
+  {
+    "id": "eval_travel_qa_000034",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 105,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"按区域或先后排序\"],\n  \"missed_must_include\": [\"给一般交通串联逻辑\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_transport_logic\", \"insufficient_justification\"],\n  \"strengths\": [\"明确分两天安排，体现空间邻近性判断；语言简洁自然；未编造票价/时间等实时信息；符合TripAI克制风格\"],\n  \"judge_reason\": \"回答完成了‘按区域或先后排序’（栈桥+奥帆中心为Day1，八大关为Day2），但未提供任何交通串联逻辑——如步行/公交/打车可行性、预估耗时、换乘建议或地理方位关系说明，违反must_include第二项；虽未虚构实时信息，但‘距离较近’‘交通便利’等表述缺乏依据支撑，属模糊断言；整体是可用的路线建议，但关键专项要求缺失，需人工复核补充交通逻辑后方可放行。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "按区域或先后排序"
+    ],
+    "missed_must_include": [
+      "给一般交通串联逻辑"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_transport_logic",
+      "insufficient_justification"
+    ],
+    "strengths": [
+      "明确分两天安排，体现空间邻近性判断；语言简洁自然；未编造票价/时间等实时信息；符合TripAI克制风格"
+    ],
+    "judge_reason": "回答完成了‘按区域或先后排序’（栈桥+奥帆中心为Day1，八大关为Day2），但未提供任何交通串联逻辑——如步行/公交/打车可行性、预估耗时、换乘建议或地理方位关系说明，违反must_include第二项；虽未虚构实时信息，但‘距离较近’‘交通便利’等表述缺乏依据支撑，属模糊断言；整体是可用的路线建议，但关键专项要求缺失，需人工复核补充交通逻辑后方可放行。"
+  },
+  {
+    "id": "eval_travel_qa_000035",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 112,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较老城体验和现代都市体验\", \"给首次到访建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"明确选择北京路并给出清晰理由\", \"自然对比老城（北京路）与现代都市（珠江新城）体验\", \"紧扣‘第一次’这一关键条件提供针对性建议\", \"无营销话术、无虚构时效信息、无模糊折中表述\"],\n  \"judge_reason\": \"回答严格遵循任务要求：直击问题核心，做出明确偏向性判断（北京路更方便），完整覆盖 must_include 的两项要求——既对比了老城与现代都市体验，又基于首次到访视角给出实用建议；未违反任何 must_not_do 条款（无工具调用、无实时数据断言、未说‘都方便’、未回避选择）；语言简洁克制，符合 TripAI 品牌风格；事实准确，逻辑自洽。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较老城体验和现代都市体验",
+      "给首次到访建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "明确选择北京路并给出清晰理由",
+      "自然对比老城（北京路）与现代都市（珠江新城）体验",
+      "紧扣‘第一次’这一关键条件提供针对性建议",
+      "无营销话术、无虚构时效信息、无模糊折中表述"
+    ],
+    "judge_reason": "回答严格遵循任务要求：直击问题核心，做出明确偏向性判断（北京路更方便），完整覆盖 must_include 的两项要求——既对比了老城与现代都市体验，又基于首次到访视角给出实用建议；未违反任何 must_not_do 条款（无工具调用、无实时数据断言、未说‘都方便’、未回避选择）；语言简洁克制，符合 TripAI 品牌风格；事实准确，逻辑自洽。"
+  },
+  {
+    "id": "eval_travel_qa_000036",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 90,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 3,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"判断体力压力\", \"给取舍或节奏建议\"],\n  \"violated_must_not_do\": [\"忽略老人因素\"],\n  \"issue_tags\": [\"missing_judgment\", \"no_concrete_recommendation\", \"elderly_factor_ignored\"],\n  \"strengths\": [\"语言自然简洁，无营销口吻；未编造开放时间/票价；句式克制，符合TripAI风格\"],\n  \"judge_reason\": \"回答未对‘是否太累’作出明确判断（缺失‘判断体力压力’），仅用‘可能会比较累’模糊表述，未基于老人特殊需求给出实质性取舍建议（如‘建议优先中山陵，次日再访博物院’或‘可只选其一并搭配休息’），实质上回避了核心决策点；‘根据老人身体状况合理安排’属笼统鼓励，违反must_not_do中‘笼统鼓励’和隐含的‘忽略老人因素’——因未具体分析老人步行耐力、台阶、轮椅动线、室内/室外负荷等关键差异。虽未编造时效信息且风格得体，但任务关键要求严重缺失，需人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 3,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "判断体力压力",
+      "给取舍或节奏建议"
+    ],
+    "violated_must_not_do": [
+      "忽略老人因素"
+    ],
+    "issue_tags": [
+      "missing_judgment",
+      "no_concrete_recommendation",
+      "elderly_factor_ignored"
+    ],
+    "strengths": [
+      "语言自然简洁，无营销口吻；未编造开放时间/票价；句式克制，符合TripAI风格"
+    ],
+    "judge_reason": "回答未对‘是否太累’作出明确判断（缺失‘判断体力压力’），仅用‘可能会比较累’模糊表述，未基于老人特殊需求给出实质性取舍建议（如‘建议优先中山陵，次日再访博物院’或‘可只选其一并搭配休息’），实质上回避了核心决策点；‘根据老人身体状况合理安排’属笼统鼓励，违反must_not_do中‘笼统鼓励’和隐含的‘忽略老人因素’——因未具体分析老人步行耐力、台阶、轮椅动线、室内/室外负荷等关键差异。虽未编造时效信息且风格得体，但任务关键要求严重缺失，需人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000037",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 46,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"比较两地作为落脚点的逻辑\", \"结合初次到访和不赶路\"],\n  \"violated_must_not_do\": [\"不给选择\"],\n  \"issue_tags\": [\"no_recommendation\", \"ignores_core_constraint\", \"task_type_mismatch\"],\n  \"strengths\": [\"语言自然简洁\", \"未编造时效信息\", \"风格克制无营销感\"],\n  \"judge_reason\": \"回答完全回避了问题核心要求：未对‘大理古城 vs 双廊’做出明确推荐，未体现‘第一次去’和‘不赶路’的关键约束，也未展开两地作为落脚点的比较逻辑；而是平行罗列两个选项的抽象优势，等同于说‘各有利弊’，直接违反 must_not_do 中‘不给选择’；属于典型答非所问，未满足 travel_qa 任务最基础的‘直达判断+简要依据’要求。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "比较两地作为落脚点的逻辑",
+      "结合初次到访和不赶路"
+    ],
+    "violated_must_not_do": [
+      "不给选择"
+    ],
+    "issue_tags": [
+      "no_recommendation",
+      "ignores_core_constraint",
+      "task_type_mismatch"
+    ],
+    "strengths": [
+      "语言自然简洁",
+      "未编造时效信息",
+      "风格克制无营销感"
+    ],
+    "judge_reason": "回答完全回避了问题核心要求：未对‘大理古城 vs 双廊’做出明确推荐，未体现‘第一次去’和‘不赶路’的关键约束，也未展开两地作为落脚点的比较逻辑；而是平行罗列两个选项的抽象优势，等同于说‘各有利弊’，直接违反 must_not_do 中‘不给选择’；属于典型答非所问，未满足 travel_qa 任务最基础的‘直达判断+简要依据’要求。"
+  },
+  {
+    "id": "eval_travel_qa_000038",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 107,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"回答值不值得\", \"说明适合一晚短停留的人群和玩法\"],\n  \"violated_must_not_do\": [\"不下结论\"],\n  \"issue_tags\": [\"no_judgment\", \"incomplete_response\", \"avoids_direct_answer\"],\n  \"strengths\": [\"语言自然，无营销口吻；未编造票价/开放时间等实时信息；符合TripAI克制风格\"],\n  \"judge_reason\": \"回答完全回避核心判断，用'值不值得取决于你对历史文化兴趣的浓厚程度'推诿责任，未按must_include要求明确回答'值不值得'，也未说明适合一晚短停留的具体人群（如文化爱好者、时间紧张的中转旅客）及玩法（如傍晚漫步、听评话、尝小吃）。违反must_not_do中'不下结论'这一强约束，属于答非所问型失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "回答值不值得",
+      "说明适合一晚短停留的人群和玩法"
+    ],
+    "violated_must_not_do": [
+      "不下结论"
+    ],
+    "issue_tags": [
+      "no_judgment",
+      "incomplete_response",
+      "avoids_direct_answer"
+    ],
+    "strengths": [
+      "语言自然，无营销口吻；未编造票价/开放时间等实时信息；符合TripAI克制风格"
+    ],
+    "judge_reason": "回答完全回避核心判断，用'值不值得取决于你对历史文化兴趣的浓厚程度'推诿责任，未按must_include要求明确回答'值不值得'，也未说明适合一晚短停留的具体人群（如文化爱好者、时间紧张的中转旅客）及玩法（如傍晚漫步、听评话、尝小吃）。违反must_not_do中'不下结论'这一强约束，属于答非所问型失败。"
+  },
+  {
+    "id": "eval_travel_qa_000039",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 62,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"给出先后或时段建议\", \"说明步行体力和观景体验\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"直接给出明确时段建议（上午岳麓山→下午橘子洲）\", \"紧扣体力分配（登山宜上午凉爽避峰）与观景体验（下午橘子洲光线/视野更佳）双重依据\", \"语言简洁自然，无冗余信息或营销表达\", \"未编造任何实时信息，表述符合常识且留有合理弹性\"],\n  \"judge_reason\": \"回答严格遵循travel_qa任务要求：首句即作出清晰时段推荐；随后分别从步行体力（上午登山更舒适）和观景体验（下午橘子洲更适合散步拍照）两个维度完成must_include项；未出现must_not_do行为（如工具调用、确定性时效信息、模棱两可表述）；风格克制专业，信息密度高，无冗余。完全匹配reference_answer所定义的strong answer标准。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "给出先后或时段建议",
+      "说明步行体力和观景体验"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "直接给出明确时段建议（上午岳麓山→下午橘子洲）",
+      "紧扣体力分配（登山宜上午凉爽避峰）与观景体验（下午橘子洲光线/视野更佳）双重依据",
+      "语言简洁自然，无冗余信息或营销表达",
+      "未编造任何实时信息，表述符合常识且留有合理弹性"
+    ],
+    "judge_reason": "回答严格遵循travel_qa任务要求：首句即作出清晰时段推荐；随后分别从步行体力（上午登山更舒适）和观景体验（下午橘子洲更适合散步拍照）两个维度完成must_include项；未出现must_not_do行为（如工具调用、确定性时效信息、模棱两可表述）；风格克制专业，信息密度高，无冗余。完全匹配reference_answer所定义的strong answer标准。"
+  },
+  {
+    "id": "eval_travel_qa_000040",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 51,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较两湾风格\", \"指出分别适合谁\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"直击问题核心，首句即给出明确判断；用分号并列结构清晰区分两湾定位与适配人群；语言简洁自然，无营销感；未编造任何时效信息；完全符合Travel QA的‘直接回答+简要依据’范式\"],\n  \"judge_reason\": \"回答严格遵循用户问题意图，以‘更适合哪种人’为锚点，完成风格对比（热闹城市氛围 vs 安静自然风光）和人群指向（喜欢热闹者 vs 喜欢安静者），无模糊表述、无价值偏向、无冗余信息，且完全规避了must_not_do项。符合TripAI克制、精准、以人为本的问答风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较两湾风格",
+      "指出分别适合谁"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "直击问题核心，首句即给出明确判断；用分号并列结构清晰区分两湾定位与适配人群；语言简洁自然，无营销感；未编造任何时效信息；完全符合Travel QA的‘直接回答+简要依据’范式"
+    ],
+    "judge_reason": "回答严格遵循用户问题意图，以‘更适合哪种人’为锚点，完成风格对比（热闹城市氛围 vs 安静自然风光）和人群指向（喜欢热闹者 vs 喜欢安静者），无模糊表述、无价值偏向、无冗余信息，且完全规避了must_not_do项。符合TripAI克制、精准、以人为本的问答风格。"
+  },
+  {
+    "id": "eval_travel_qa_000041",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 74,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"判断一晚中转还是多留半天更值\", \"说明适合什么诉求\"],\n  \"violated_must_not_do\": [\"回避判断\"],\n  \"issue_tags\": [\"no_judgment\", \"incomplete_comparison\", \"task_misalignment\"],\n  \"strengths\": [\"语言自然简洁\", \"未编造时效信息\", \"风格克制无营销\"],\n  \"judge_reason\": \"回答完全回避核心判断，未对‘一晚中转’与‘多留半天’做出明确价值比较或推荐，仅并列陈述两种可能性（‘如果只是中转…但若时间允许…’），违反 must_not_do 中‘回避判断’；同时未满足 must_include 的两项硬性要求，属于答非所问型失效。虽无安全与事实错误，但作为 travel_qa 任务，缺失最关键的决策输出，task_specific_score 极低，整体不可接受。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "判断一晚中转还是多留半天更值",
+      "说明适合什么诉求"
+    ],
+    "violated_must_not_do": [
+      "回避判断"
+    ],
+    "issue_tags": [
+      "no_judgment",
+      "incomplete_comparison",
+      "task_misalignment"
+    ],
+    "strengths": [
+      "语言自然简洁",
+      "未编造时效信息",
+      "风格克制无营销"
+    ],
+    "judge_reason": "回答完全回避核心判断，未对‘一晚中转’与‘多留半天’做出明确价值比较或推荐，仅并列陈述两种可能性（‘如果只是中转…但若时间允许…’），违反 must_not_do 中‘回避判断’；同时未满足 must_include 的两项硬性要求，属于答非所问型失效。虽无安全与事实错误，但作为 travel_qa 任务，缺失最关键的决策输出，task_specific_score 极低，整体不可接受。"
+  },
+  {
+    "id": "eval_travel_qa_000042",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 215,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"概括半天重点\"],\n  \"missed_must_include\": [\"说明适合慢逛和看海的顺序\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_key_instruction\", \"structural_ambiguity\"],\n  \"strengths\": [\"自然简洁的口语化表达；时间分配合理；无编造实时信息；符合TripAI克制、不营销的风格\"],\n  \"judge_reason\": \"回答概括了‘半天轻松游览’这一重点，但未显性说明‘适合慢逛和看海的顺序’——所列三点虽隐含节奏，却未用‘慢逛→看海’逻辑归类（如将沙坡尾归为慢逛、演武大桥归为看海），也未点明该片区本质是‘步行串联的滨海人文动线’。结构上以编号罗列地点，易被理解为刚性行程而非弹性节奏，偏离‘抓重点’的题干意图。未违反must_not_do，但核心指令覆盖不全，属关键缺失，需人工复核是否补强表述。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "概括半天重点"
+    ],
+    "missed_must_include": [
+      "说明适合慢逛和看海的顺序"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_key_instruction",
+      "structural_ambiguity"
+    ],
+    "strengths": [
+      "自然简洁的口语化表达；时间分配合理；无编造实时信息；符合TripAI克制、不营销的风格"
+    ],
+    "judge_reason": "回答概括了‘半天轻松游览’这一重点，但未显性说明‘适合慢逛和看海的顺序’——所列三点虽隐含节奏，却未用‘慢逛→看海’逻辑归类（如将沙坡尾归为慢逛、演武大桥归为看海），也未点明该片区本质是‘步行串联的滨海人文动线’。结构上以编号罗列地点，易被理解为刚性行程而非弹性节奏，偏离‘抓重点’的题干意图。未违反must_not_do，但核心指令覆盖不全，属关键缺失，需人工复核是否补强表述。"
+  },
+  {
+    "id": "eval_travel_qa_000043",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 66,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"回答是否适合\", \"说明到站后节奏和周边串联\"],\n  \"violated_must_not_do\": [\"忽略北京南站\"],\n  \"issue_tags\": [\"missing_judgment\", \"no_rhythm_analysis\", \"no_station_context\", \"vague_transportation\"],\n  \"strengths\": [\"语言自然简洁\", \"风格克制无营销感\"],\n  \"judge_reason\": \"回答未对‘是否适合’给出明确判断（如‘适合’或‘不建议’），完全缺失‘到站后节奏’（如出站耗时、行李、交通接驳、体力分配）和‘周边串联’（如前门与大栅栏的步行关系、是否需中转、与南站地铁/打车动线衔接）等核心must_include要素；且通篇未提及‘北京南站’这一关键起点，实质性忽略题干主语，违反must_not_do；虽未编造票价/时间，但用‘步行或打车都很方便’模糊处理实际距离（南站到前门约5km，步行不可行，需地铁/打车），构成隐性误导；整体未履行travel_qa‘直达核心+简明判断’的专项要求。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "回答是否适合",
+      "说明到站后节奏和周边串联"
+    ],
+    "violated_must_not_do": [
+      "忽略北京南站"
+    ],
+    "issue_tags": [
+      "missing_judgment",
+      "no_rhythm_analysis",
+      "no_station_context",
+      "vague_transportation"
+    ],
+    "strengths": [
+      "语言自然简洁",
+      "风格克制无营销感"
+    ],
+    "judge_reason": "回答未对‘是否适合’给出明确判断（如‘适合’或‘不建议’），完全缺失‘到站后节奏’（如出站耗时、行李、交通接驳、体力分配）和‘周边串联’（如前门与大栅栏的步行关系、是否需中转、与南站地铁/打车动线衔接）等核心must_include要素；且通篇未提及‘北京南站’这一关键起点，实质性忽略题干主语，违反must_not_do；虽未编造票价/时间，但用‘步行或打车都很方便’模糊处理实际距离（南站到前门约5km，步行不可行，需地铁/打车），构成隐性误导；整体未履行travel_qa‘直达核心+简明判断’的专项要求。"
+  },
+  {
+    "id": "eval_travel_qa_000044",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 90,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"给出雨天更适合的选择\", \"说明理由\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇直接给出明确判断（西溪湿地更适合），完全响应比较类问题的核心要求；理由紧扣雨天场景，从环境特征（水域密林/小船避湿滑）、体验影响（灵隐寺地面湿滑、香火氛围受限）展开，简洁有力；无营销话术、无实时信息编造、无中立和稀泥表述\"],\n  \"judge_reason\": \"回答严格遵循 travel_qa 任务要求：首句即完成‘给出雨天更适合的选择’，随后两句话分别从正反两面清晰说明理由，逻辑自洽、常识准确；未出现任何 must_not_do 行为；语言自然克制，符合 TripAI 品牌风格；信息密度高，无冗余，未扩展无关攻略内容。整体为典型高分 QA 回答。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "给出雨天更适合的选择",
+      "说明理由"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇直接给出明确判断（西溪湿地更适合），完全响应比较类问题的核心要求；理由紧扣雨天场景，从环境特征（水域密林/小船避湿滑）、体验影响（灵隐寺地面湿滑、香火氛围受限）展开，简洁有力；无营销话术、无实时信息编造、无中立和稀泥表述"
+    ],
+    "judge_reason": "回答严格遵循 travel_qa 任务要求：首句即完成‘给出雨天更适合的选择’，随后两句话分别从正反两面清晰说明理由，逻辑自洽、常识准确；未出现任何 must_not_do 行为；语言自然克制，符合 TripAI 品牌风格；信息密度高，无冗余，未扩展无关攻略内容。整体为典型高分 QA 回答。"
+  },
+  {
+    "id": "eval_travel_qa_000045",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 119,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"做明确对比\"],\n  \"missed_must_include\": [\"按一天限制和孩子体验给建议\"],\n  \"violated_must_not_do\": [\"不做取舍\"],\n  \"issue_tags\": [\"incomplete_reasoning\", \"weak_constraint_adherence\", \"ambiguous_recommendation\"],\n  \"strengths\": [\"语言自然简洁，无营销感；正确识别科技馆与迪士尼小镇的定位差异；未编造票价/开放时间等实时信息\"],\n  \"judge_reason\": \"回答虽明确倾向科技馆，但未紧扣‘待一天’这一刚性时间约束展开分析（如交通耗时、场馆动线、排队强度、儿童体力分配），也未基于8岁儿童认知与体能特点给出具体体验依据（如科技馆单次参观适宜时长 vs 迪士尼小镇步行负荷）；结尾‘更适合家庭休闲’弱化了决策强度，实质未完成‘必须做取舍’的要求，属于隐性‘两个都行’式软化处理，违反must_not_do中‘不做取舍’。因此关键任务要求未满足，需人工复核。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "做明确对比"
+    ],
+    "missed_must_include": [
+      "按一天限制和孩子体验给建议"
+    ],
+    "violated_must_not_do": [
+      "不做取舍"
+    ],
+    "issue_tags": [
+      "incomplete_reasoning",
+      "weak_constraint_adherence",
+      "ambiguous_recommendation"
+    ],
+    "strengths": [
+      "语言自然简洁，无营销感；正确识别科技馆与迪士尼小镇的定位差异；未编造票价/开放时间等实时信息"
+    ],
+    "judge_reason": "回答虽明确倾向科技馆，但未紧扣‘待一天’这一刚性时间约束展开分析（如交通耗时、场馆动线、排队强度、儿童体力分配），也未基于8岁儿童认知与体能特点给出具体体验依据（如科技馆单次参观适宜时长 vs 迪士尼小镇步行负荷）；结尾‘更适合家庭休闲’弱化了决策强度，实质未完成‘必须做取舍’的要求，属于隐性‘两个都行’式软化处理，违反must_not_do中‘不做取舍’。因此关键任务要求未满足，需人工复核。"
+  },
+  {
+    "id": "eval_travel_qa_000046",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 77,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"回答是否值得\", \"说明夜晚氛围和第二天衔接\"],\n  \"violated_must_not_do\": [\"不提住一晚价值\"],\n  \"issue_tags\": [\"missing_judgment\", \"incomplete_justification\", \"ignores_core_task_requirement\"],\n  \"strengths\": [\"语言自然流畅，描述夜晚氛围有画面感；未编造实时信息，符合安全与诚实要求；风格克制，无营销口吻\"],\n  \"judge_reason\": \"回答完全未对‘是否值得专门留一个晚上’作出明确判断（缺失must_include第一条），也未提及第二天如何衔接（如是否方便游览其他景点、交通便利性等），属于关键任务要求未覆盖；整段仅单向渲染氛围，未完成QA类问题最核心的‘判断+依据’结构，实质答非所问。虽语言清晰、风格合规，但因严重缺失任务强制要素，判定为fail。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "回答是否值得",
+      "说明夜晚氛围和第二天衔接"
+    ],
+    "violated_must_not_do": [
+      "不提住一晚价值"
+    ],
+    "issue_tags": [
+      "missing_judgment",
+      "incomplete_justification",
+      "ignores_core_task_requirement"
+    ],
+    "strengths": [
+      "语言自然流畅，描述夜晚氛围有画面感；未编造实时信息，符合安全与诚实要求；风格克制，无营销口吻"
+    ],
+    "judge_reason": "回答完全未对‘是否值得专门留一个晚上’作出明确判断（缺失must_include第一条），也未提及第二天如何衔接（如是否方便游览其他景点、交通便利性等），属于关键任务要求未覆盖；整段仅单向渲染氛围，未完成QA类问题最核心的‘判断+依据’结构，实质答非所问。虽语言清晰、风格合规，但因严重缺失任务强制要素，判定为fail。"
+  },
+  {
+    "id": "eval_travel_qa_000047",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 150,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"给顺路安排\", \"保持轻松节奏\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"明确给出三景点的时空顺序，逻辑合理（地理邻近+时间节奏）\", \"用‘节奏舒缓’‘兼顾文化与休闲’‘适合轻松游玩’自然涵盖‘保持轻松节奏’\", \"未编造开放时间/票价/库存，无工具调用或冗余结构\", \"语言简洁、口语化、符合TripAI克制自然风格\"],\n  \"judge_reason\": \"回答直接回应‘怎么排更顺’，以清晰序号给出顺路安排，并用‘节奏舒缓’‘适合轻松游玩’精准覆盖must_include；未出现must_not_do行为；无事实错误；无营销话术；结构清晰、信息密度适中，完全符合travel_qa任务核心要求。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "给顺路安排",
+      "保持轻松节奏"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "明确给出三景点的时空顺序，逻辑合理（地理邻近+时间节奏）",
+      "用‘节奏舒缓’‘兼顾文化与休闲’‘适合轻松游玩’自然涵盖‘保持轻松节奏’",
+      "未编造开放时间/票价/库存，无工具调用或冗余结构",
+      "语言简洁、口语化、符合TripAI克制自然风格"
+    ],
+    "judge_reason": "回答直接回应‘怎么排更顺’，以清晰序号给出顺路安排，并用‘节奏舒缓’‘适合轻松游玩’精准覆盖must_include；未出现must_not_do行为；无事实错误；无营销话术；结构清晰、信息密度适中，完全符合travel_qa任务核心要求。"
+  },
+  {
+    "id": "eval_travel_qa_000048",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 90,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"明确优先级\", \"结合兴趣和教育性给理由\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇直给明确优先级（陕西历史博物馆更适合），完全响应比较类问题的核心要求；理由紧扣初中生认知特点，区分‘静态展示’与‘内容丰富+互动体验’，自然融合兴趣激发与教育性；无营销话术、无实时信息断言、无模棱两可表述；语言简洁克制，符合TripAI专业但平实的风格。\"],\n  \"judge_reason\": \"回答严格遵循travel_qa任务要求：首句即给出清晰单选判断，满足‘明确优先级’；后续两句分别从兵马俑的局限性和陕历博的优势切入，基于初中生学习心理和展馆特性展开，切实做到‘结合兴趣和教育性给理由’；未出现任何must_not_do行为（如工具输出、确定性实时信息、两边都好、回避判断）；事实陈述客观合理，无编造；整体表达自然、精炼、可执行。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "明确优先级",
+      "结合兴趣和教育性给理由"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇直给明确优先级（陕西历史博物馆更适合），完全响应比较类问题的核心要求；理由紧扣初中生认知特点，区分‘静态展示’与‘内容丰富+互动体验’，自然融合兴趣激发与教育性；无营销话术、无实时信息断言、无模棱两可表述；语言简洁克制，符合TripAI专业但平实的风格。"
+    ],
+    "judge_reason": "回答严格遵循travel_qa任务要求：首句即给出清晰单选判断，满足‘明确优先级’；后续两句分别从兵马俑的局限性和陕历博的优势切入，基于初中生学习心理和展馆特性展开，切实做到‘结合兴趣和教育性给理由’；未出现任何must_not_do行为（如工具输出、确定性实时信息、两边都好、回避判断）；事实陈述客观合理，无编造；整体表达自然、精炼、可执行。"
+  },
+  {
+    "id": "eval_travel_qa_000049",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 114,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"对比老城核心和本地生活感\"],\n  \"missed_must_include\": [\"给首次到访建议\"],\n  \"violated_must_not_do\": [\"不给结论\"],\n  \"issue_tags\": [\"no_explicit_recommendation_for_first_time_visitor\", \"ambiguous_conclusion\"],\n  \"strengths\": [\"准确指出解放碑为重庆中心区域，交通与餐饮优势明确；语言自然简洁，无营销口吻；未编造实时信息；结构清晰，对比逻辑成立\"],\n  \"judge_reason\": \"回答虽倾向解放碑并给出合理依据，但未以明确、主动的语气给出‘首次到访者应选解放碑’的判断性建议（如‘作为第一次来重庆的游客，建议优先住解放碑’），仅用‘更合适’弱化主体立场，未满足must_include中‘给首次到访建议’这一刚性要求；同时，结尾未形成闭环结论（如‘因此推荐解放碑’），实质上属于‘不给结论’，直接违反must_not_do。虽未编造时效信息且风格克制，但核心任务指令履行不完整，需人工复核修正。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "对比老城核心和本地生活感"
+    ],
+    "missed_must_include": [
+      "给首次到访建议"
+    ],
+    "violated_must_not_do": [
+      "不给结论"
+    ],
+    "issue_tags": [
+      "no_explicit_recommendation_for_first_time_visitor",
+      "ambiguous_conclusion"
+    ],
+    "strengths": [
+      "准确指出解放碑为重庆中心区域，交通与餐饮优势明确；语言自然简洁，无营销口吻；未编造实时信息；结构清晰，对比逻辑成立"
+    ],
+    "judge_reason": "回答虽倾向解放碑并给出合理依据，但未以明确、主动的语气给出‘首次到访者应选解放碑’的判断性建议（如‘作为第一次来重庆的游客，建议优先住解放碑’），仅用‘更合适’弱化主体立场，未满足must_include中‘给首次到访建议’这一刚性要求；同时，结尾未形成闭环结论（如‘因此推荐解放碑’），实质上属于‘不给结论’，直接违反must_not_do。虽未编造时效信息且风格克制，但核心任务指令履行不完整，需人工复核修正。"
+  },
+  {
+    "id": "eval_travel_qa_000050",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 116,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"判断一日或两日更合适\"],\n  \"missed_must_include\": [\"说明适合的旅行偏好\"],\n  \"violated_must_not_do\": [\"不给判断\"],\n  \"issue_tags\": [\"ambiguous_judgment\", \"missing_preference_linkage\"],\n  \"strengths\": [\"信息准确，景点列举合理；语言自然克制，无营销感；未编造时效信息；结构清晰，分句明确\"],\n  \"judge_reason\": \"回答开头称‘泉州适合冬天安排两天游玩’，看似给出判断，但后文立即补充‘如果时间紧张，一天也可以……但会比较赶’，实质弱化并模糊了核心判断，未真正完成‘判断一日或两日更合适’这一强制要求——该任务为二选一决策型问题，必须明确推荐其一并说明依据。同时，全文未说明‘适合的旅行偏好’（如：偏好深度文化体验者宜两日，打卡型游客可压缩为一日），遗漏 must_include 第二项。虽未违反 safety 或 brand 约束，但因关键指令未落实、判断不坚定，构成 hold 级缺陷。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "判断一日或两日更合适"
+    ],
+    "missed_must_include": [
+      "说明适合的旅行偏好"
+    ],
+    "violated_must_not_do": [
+      "不给判断"
+    ],
+    "issue_tags": [
+      "ambiguous_judgment",
+      "missing_preference_linkage"
+    ],
+    "strengths": [
+      "信息准确，景点列举合理；语言自然克制，无营销感；未编造时效信息；结构清晰，分句明确"
+    ],
+    "judge_reason": "回答开头称‘泉州适合冬天安排两天游玩’，看似给出判断，但后文立即补充‘如果时间紧张，一天也可以……但会比较赶’，实质弱化并模糊了核心判断，未真正完成‘判断一日或两日更合适’这一强制要求——该任务为二选一决策型问题，必须明确推荐其一并说明依据。同时，全文未说明‘适合的旅行偏好’（如：偏好深度文化体验者宜两日，打卡型游客可压缩为一日），遗漏 must_include 第二项。虽未违反 safety 或 brand 约束，但因关键指令未落实、判断不坚定，构成 hold 级缺陷。"
+  },
+  {
+    "id": "eval_travel_qa_000051",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 125,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较两种玩法\", \"考虑老人腿脚和看海体验\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即给出明确推荐，立场清晰；紧扣‘老人’核心约束，从腿脚负担与观景体验双维度展开对比；未编造任何实时信息（如票价、开放时间）；语言自然克制，无营销感；结构简洁，无冗余铺垫\"],\n  \"judge_reason\": \"回答严格遵循 comparison question 的本质：首句明确推荐‘看海公路一线’，随后用‘节奏舒缓、多个休息点、避免爬坡’精准呼应‘老人腿脚’，用‘慢慢欣赏自然风光’‘风景优美’落实‘看海体验’；未出现‘都值得’‘各有所长’等模糊表述；未引入工具、JSON、时效性断言；完全符合 TripAI 自然、克制、用户中心的风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较两种玩法",
+      "考虑老人腿脚和看海体验"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确推荐，立场清晰；紧扣‘老人’核心约束，从腿脚负担与观景体验双维度展开对比；未编造任何实时信息（如票价、开放时间）；语言自然克制，无营销感；结构简洁，无冗余铺垫"
+    ],
+    "judge_reason": "回答严格遵循 comparison question 的本质：首句明确推荐‘看海公路一线’，随后用‘节奏舒缓、多个休息点、避免爬坡’精准呼应‘老人腿脚’，用‘慢慢欣赏自然风光’‘风景优美’落实‘看海体验’；未出现‘都值得’‘各有所长’等模糊表述；未引入工具、JSON、时效性断言；完全符合 TripAI 自然、克制、用户中心的风格。"
+  },
+  {
+    "id": "eval_travel_qa_000052",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 88,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"判断是否都要安排\", \"给半天更合理取舍\"],\n  \"violated_must_not_do\": [\"无取舍\", \"把两项都写死\"],\n  \"issue_tags\": [\"no_judgment\", \"no_tradeoff\", \"ambiguous_recommendation\"],\n  \"strengths\": [\"语言自然简洁\", \"未编造实时信息\", \"语气克制符合品牌风格\"],\n  \"judge_reason\": \"回答未对‘是否一定要都安排’作出明确判断，也未给出半天时间下的合理取舍（如推荐优先选其一或排序建议），而是模糊表述‘可以安排但紧张’‘也可以优先选择其中一个’，实质回避核心决策要求；违反 must_not_do 中‘无取舍’和‘把两项都写死’——既未否定‘必须都安排’，又未否定‘只能选一个’，导致逻辑骑墙；完全缺失 must_include 的两个关键动作，属于答非所问型失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "判断是否都要安排",
+      "给半天更合理取舍"
+    ],
+    "violated_must_not_do": [
+      "无取舍",
+      "把两项都写死"
+    ],
+    "issue_tags": [
+      "no_judgment",
+      "no_tradeoff",
+      "ambiguous_recommendation"
+    ],
+    "strengths": [
+      "语言自然简洁",
+      "未编造实时信息",
+      "语气克制符合品牌风格"
+    ],
+    "judge_reason": "回答未对‘是否一定要都安排’作出明确判断，也未给出半天时间下的合理取舍（如推荐优先选其一或排序建议），而是模糊表述‘可以安排但紧张’‘也可以优先选择其中一个’，实质回避核心决策要求；违反 must_not_do 中‘无取舍’和‘把两项都写死’——既未否定‘必须都安排’，又未否定‘只能选一个’，导致逻辑骑墙；完全缺失 must_include 的两个关键动作，属于答非所问型失败。"
+  },
+  {
+    "id": "eval_travel_qa_000053",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 102,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"回答是否适合同天\", \"给简单节奏建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇直接给出明确判断‘可以放在同一天游览’，满足核心要求；节奏建议具体可行（先翠湖后海埂），并解释了交通与时间逻辑；无营销话术、无实时信息编造、无冗余信息；语言自然简洁，符合TripAI克制专业的风格。”\"],\n  \"judge_reason\": \"回答严格遵循travel_qa任务要求：首句直击问题核心（明确回答‘适合同天’），随即提供简明节奏建议（先翠湖、后海埂）并附合理由（位置、交通、耗时），未编造开放时间/票价等高时效信息，未输出任何结构化痕迹或工具相关内容，表达清晰自然，完全符合TripAI品牌调性。所有must_include均被精准覆盖，must_not_do全部遵守。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "回答是否适合同天",
+      "给简单节奏建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇直接给出明确判断‘可以放在同一天游览’，满足核心要求；节奏建议具体可行（先翠湖后海埂），并解释了交通与时间逻辑；无营销话术、无实时信息编造、无冗余信息；语言自然简洁，符合TripAI克制专业的风格。”"
+    ],
+    "judge_reason": "回答严格遵循travel_qa任务要求：首句直击问题核心（明确回答‘适合同天’），随即提供简明节奏建议（先翠湖、后海埂）并附合理由（位置、交通、耗时），未编造开放时间/票价等高时效信息，未输出任何结构化痕迹或工具相关内容，表达清晰自然，完全符合TripAI品牌调性。所有must_include均被精准覆盖，must_not_do全部遵守。"
+  },
+  {
+    "id": "eval_travel_qa_000054",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 120,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较两个点体力负担和观景方式\", \"给更轻松选择\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即给出明确判断（北海公园更轻松），符合比较类问题必须择一推荐的核心要求；清晰对比了面积、步行量、游客密度等关键体力负担因素；未编造任何实时信息（如票价、开放时间）；语言自然克制，无营销感；结构简洁，无冗余\"] ,\n  \"judge_reason\": \"回答严格遵循 travel_qa 任务规范：首句直击问题核心并明确推荐北海公园；随后从面积、步行强度、游客密度三方面完成体力负担与观景方式的实质性比较；全程未出现 must_not_do 中任一行为（如不比较、说都不错、编实时信息、输出非文本内容）；表达清晰、客观、符合 TripAI 克制自然的品牌风格。所有评分维度均达优秀水平。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较两个点体力负担和观景方式",
+      "给更轻松选择"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断（北海公园更轻松），符合比较类问题必须择一推荐的核心要求；清晰对比了面积、步行量、游客密度等关键体力负担因素；未编造任何实时信息（如票价、开放时间）；语言自然克制，无营销感；结构简洁，无冗余"
+    ],
+    "judge_reason": "回答严格遵循 travel_qa 任务规范：首句直击问题核心并明确推荐北海公园；随后从面积、步行强度、游客密度三方面完成体力负担与观景方式的实质性比较；全程未出现 must_not_do 中任一行为（如不比较、说都不错、编实时信息、输出非文本内容）；表达清晰、客观、符合 TripAI 克制自然的品牌风格。所有评分维度均达优秀水平。"
+  },
+  {
+    "id": "eval_travel_qa_000055",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 78,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"结合住处给第一天安排\", \"说明开场节奏\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"直接给出明确推荐（沙坡尾）并紧扣‘住在中山路’这一前提\", \"清晰说明节奏逻辑：近距→轻松开场；远距→耗时→适合后续\", \"无冗余信息，无营销话术，无实时数据断言\", \"句式自然简洁，符合旅游QA的精准应答范式\"],\n  \"judge_reason\": \"回答严格遵循问题核心，首句即明确判断‘第一天安排去沙坡尾更合适’，完整覆盖 must_include 的两项要求：‘结合住处给第一天安排’（点明中山路→沙坡尾距离近）、‘说明开场节奏’（对比鼓浪屿需乘船、耗时，适配后续更轻松行程）。未违反任何 must_not_do：未调用工具、未编实时信息、未忽略住处、给出明确顺序而非模棱两可。事实合理（中山路与沙坡尾地理邻近属厦门常识，鼓浪屿需轮渡亦为基本认知），表达克制自然，完全符合 TripAI 品牌风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "结合住处给第一天安排",
+      "说明开场节奏"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "直接给出明确推荐（沙坡尾）并紧扣‘住在中山路’这一前提",
+      "清晰说明节奏逻辑：近距→轻松开场；远距→耗时→适合后续",
+      "无冗余信息，无营销话术，无实时数据断言",
+      "句式自然简洁，符合旅游QA的精准应答范式"
+    ],
+    "judge_reason": "回答严格遵循问题核心，首句即明确判断‘第一天安排去沙坡尾更合适’，完整覆盖 must_include 的两项要求：‘结合住处给第一天安排’（点明中山路→沙坡尾距离近）、‘说明开场节奏’（对比鼓浪屿需乘船、耗时，适配后续更轻松行程）。未违反任何 must_not_do：未调用工具、未编实时信息、未忽略住处、给出明确顺序而非模棱两可。事实合理（中山路与沙坡尾地理邻近属厦门常识，鼓浪屿需轮渡亦为基本认知），表达克制自然，完全符合 TripAI 品牌风格。"
+  },
+  {
+    "id": "eval_travel_qa_000056",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 103,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"比较两种落脚体验\", \"给慢逛吃喝导向建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"明确给出推荐（春熙路附近），立场清晰；对比逻辑合理：紧扣‘慢慢吃和逛’需求，从餐饮密度、配套丰富度、交通便利性、停留属性等维度区分二者；未编造任何实时信息（如价格、营业时间）；语言自然克制，无营销话术；结构简洁，首句即结论，后文支撑，符合QA类任务‘直达核心’要求。\"],\n  \"judge_reason\": \"回答严格遵循system persona与用户约束：以游客真实动线为锚点，完成明确比较（商业中心密集配套 vs 文化地标短暂停留），并基于‘慢吃慢逛’目标给出单点推荐，完全覆盖must_include；未出现任何must_not_do行为（无工具调用、无实时数据断言、未泛谈网红、未回避推荐）；事实陈述中性准确（春熙路为商业中心、宽窄巷子偏文化体验属公认认知）；风格干净专业，无冗余或诱导性表达。整体为高分标杆级回答。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "比较两种落脚体验",
+      "给慢逛吃喝导向建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "明确给出推荐（春熙路附近），立场清晰；对比逻辑合理：紧扣‘慢慢吃和逛’需求，从餐饮密度、配套丰富度、交通便利性、停留属性等维度区分二者；未编造任何实时信息（如价格、营业时间）；语言自然克制，无营销话术；结构简洁，首句即结论，后文支撑，符合QA类任务‘直达核心’要求。"
+    ],
+    "judge_reason": "回答严格遵循system persona与用户约束：以游客真实动线为锚点，完成明确比较（商业中心密集配套 vs 文化地标短暂停留），并基于‘慢吃慢逛’目标给出单点推荐，完全覆盖must_include；未出现任何must_not_do行为（无工具调用、无实时数据断言、未泛谈网红、未回避推荐）；事实陈述中性准确（春熙路为商业中心、宽窄巷子偏文化体验属公认认知）；风格干净专业，无冗余或诱导性表达。整体为高分标杆级回答。"
+  },
+  {
+    "id": "eval_travel_qa_000057",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 120,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"比较拍照和动线\"],\n  \"missed_must_include\": [\"给少折返建议\"],\n  \"violated_must_not_do\": [\"不做判断\"],\n  \"issue_tags\": [\"no_clear_recommendation\", \"incomplete_action_advice\"],\n  \"strengths\": [\"语言自然简洁，符合TripAI克制风格；准确区分海东/海西地理特征；未编造时效信息；结构清晰，分点逻辑合理\"],\n  \"judge_reason\": \"回答虽指出海西‘行程更连贯’隐含少折返倾向，但未明确给出‘少折返建议’（如推荐住才村/龙龛码头等海西核心区域以减少交通耗时），也未对‘更适合’做出坚定判断（如‘更推荐海西’），而是用‘通常更合适’弱化立场，实质回避了题目要求的明确比较与决策。must_not_do中‘不做判断’被违反：未按题干要求‘choose one side or give a ranked recommendation’，而是采用平衡表述，削弱了问答有效性。属于典型需人工复核的中间态，故判hold。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "比较拍照和动线"
+    ],
+    "missed_must_include": [
+      "给少折返建议"
+    ],
+    "violated_must_not_do": [
+      "不做判断"
+    ],
+    "issue_tags": [
+      "no_clear_recommendation",
+      "incomplete_action_advice"
+    ],
+    "strengths": [
+      "语言自然简洁，符合TripAI克制风格；准确区分海东/海西地理特征；未编造时效信息；结构清晰，分点逻辑合理"
+    ],
+    "judge_reason": "回答虽指出海西‘行程更连贯’隐含少折返倾向，但未明确给出‘少折返建议’（如推荐住才村/龙龛码头等海西核心区域以减少交通耗时），也未对‘更适合’做出坚定判断（如‘更推荐海西’），而是用‘通常更合适’弱化立场，实质回避了题目要求的明确比较与决策。must_not_do中‘不做判断’被违反：未按题干要求‘choose one side or give a ranked recommendation’，而是采用平衡表述，削弱了问答有效性。属于典型需人工复核的中间态，故判hold。"
+  },
+  {
+    "id": "eval_travel_qa_000058",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 159,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"抓首次到访主线\", \"按两天合理分配\", \"避免太满\"],\n  \"violated_must_not_do\": [\"不给主线逻辑\", \"三处硬塞同一天\"],\n  \"issue_tags\": [\"no_mainline_reasoning\", \"overloading_day1\", \"missing_structural_judgment\"],\n  \"strengths\": [\"Clear formatting with bullet points\", \"Accurate general descriptions of attractions\", \"No fabricated real-time info or marketing tone\"],\n  \"judge_reason\": \"回答未体现‘抓首次到访主线’这一核心判断，未说明为何外滩+上博放第一天、武康路单独第二天构成‘主线’；未解释该分配如何体现‘按两天合理分配’或‘避免太满’；事实上将外滩与上博压缩在一天上午+下午，忽略二者实际参观耗时与交通动线，隐含‘硬塞同一天’；全篇无任何主线逻辑陈述（如‘首次到访应优先建立城市空间认知+文化锚点，故首日聚焦黄浦江轴线与历史中枢’），属典型答非所问。违反 must_not_do 中‘不给主线逻辑’和‘三处硬塞同一天’，且全部 must_include 条目均未出现，判定为 fail。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "抓首次到访主线",
+      "按两天合理分配",
+      "避免太满"
+    ],
+    "violated_must_not_do": [
+      "不给主线逻辑",
+      "三处硬塞同一天"
+    ],
+    "issue_tags": [
+      "no_mainline_reasoning",
+      "overloading_day1",
+      "missing_structural_judgment"
+    ],
+    "strengths": [
+      "Clear formatting with bullet points",
+      "Accurate general descriptions of attractions",
+      "No fabricated real-time info or marketing tone"
+    ],
+    "judge_reason": "回答未体现‘抓首次到访主线’这一核心判断，未说明为何外滩+上博放第一天、武康路单独第二天构成‘主线’；未解释该分配如何体现‘按两天合理分配’或‘避免太满’；事实上将外滩与上博压缩在一天上午+下午，忽略二者实际参观耗时与交通动线，隐含‘硬塞同一天’；全篇无任何主线逻辑陈述（如‘首次到访应优先建立城市空间认知+文化锚点，故首日聚焦黄浦江轴线与历史中枢’），属典型答非所问。违反 must_not_do 中‘不给主线逻辑’和‘三处硬塞同一天’，且全部 must_include 条目均未出现，判定为 fail。"
+  },
+  {
+    "id": "eval_travel_qa_000059",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 87,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"比较景观感和交通枢纽感\"],\n  \"missed_must_include\": [\"给首次到访建议\"],\n  \"violated_must_not_do\": [\"不给结论\"],\n  \"issue_tags\": [\"no_clear_recommendation\", \"missing_first_time_advice\"],\n  \"strengths\": [\"准确指出西湖东线靠近核心景点，龙翔桥侧重交通；语言简洁自然；未编造时效信息；符合TripAI克制风格\"],\n  \"judge_reason\": \"回答虽有比较（景观感 vs 交通枢纽感），但未明确给出‘首次到访者应优先选哪个’的判断性建议，仅陈述客观距离关系，未履行‘给首次到访建议’这一must_include；结尾‘更适合以地铁通勤为主的游客’属隐含倾向，但未直面问题要求的明确推荐，构成must_not_do中的‘不给结论’；因此整体可用但关键任务要求缺失，需人工复核，判定为hold。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "比较景观感和交通枢纽感"
+    ],
+    "missed_must_include": [
+      "给首次到访建议"
+    ],
+    "violated_must_not_do": [
+      "不给结论"
+    ],
+    "issue_tags": [
+      "no_clear_recommendation",
+      "missing_first_time_advice"
+    ],
+    "strengths": [
+      "准确指出西湖东线靠近核心景点，龙翔桥侧重交通；语言简洁自然；未编造时效信息；符合TripAI克制风格"
+    ],
+    "judge_reason": "回答虽有比较（景观感 vs 交通枢纽感），但未明确给出‘首次到访者应优先选哪个’的判断性建议，仅陈述客观距离关系，未履行‘给首次到访建议’这一must_include；结尾‘更适合以地铁通勤为主的游客’属隐含倾向，但未直面问题要求的明确推荐，构成must_not_do中的‘不给结论’；因此整体可用但关键任务要求缺失，需人工复核，判定为hold。"
+  },
+  {
+    "id": "eval_travel_qa_000060",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 102,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"回答是否适合同天\", \"给体力和节奏建议\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇直接给出明确判断（适合同天），符合‘先结论后解释’要求；针对老人群体提出具体可操作建议（时间分段、用餐安排、休息、避日晒）；未编造任何实时信息（如票价、开放时间、预约状态）；语言自然克制，无营销感；结构清晰，逻辑紧凑。”\"],\n  \"judge_reason\": \"回答严格遵循 travel_qa rubric：首句直击核心问题并给出明确判断；完整覆盖 must_include 两项；全程未出现 must_not_do 中任一行为（无工具痕迹、无确定性时效信息、充分考虑老人、未用模糊表述如‘顺路’）；信息准确、表达简洁、风格符合 TripAI 品牌调性；无安全或诚实性风险。属典型高分回答。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "回答是否适合同天",
+      "给体力和节奏建议"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇直接给出明确判断（适合同天），符合‘先结论后解释’要求；针对老人群体提出具体可操作建议（时间分段、用餐安排、休息、避日晒）；未编造任何实时信息（如票价、开放时间、预约状态）；语言自然克制，无营销感；结构清晰，逻辑紧凑。”"
+    ],
+    "judge_reason": "回答严格遵循 travel_qa rubric：首句直击核心问题并给出明确判断；完整覆盖 must_include 两项；全程未出现 must_not_do 中任一行为（无工具痕迹、无确定性时效信息、充分考虑老人、未用模糊表述如‘顺路’）；信息准确、表达简洁、风格符合 TripAI 品牌调性；无安全或诚实性风险。属典型高分回答。"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "native_single_route_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_plan_route"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "我从北京南站出发，想去颐和园，优先公共交通，帮我看看怎么走。"
+      }
+    ]
+  },
+  {
+    "id": "native_geocode_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_geocode"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "雷峰塔具体在哪？"
+      }
+    ]
+  },
+  {
+    "id": "native_clarify_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": ["amap_plan_route"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。参数不够时先澄清，再调用工具。"
+      },
+      {
+        "role": "user",
+        "content": "帮我规划一下去机场的路线。"
+      }
+    ]
+  },
+  {
+    "id": "native_no_tool_001",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。参数不够时先澄清，再调用工具。"
+      },
+      {
+        "role": "user",
+        "content": "西湖适合带老人慢慢逛吗？"
+      }
+    ]
+  },
+  {
+    "id": "native_poi_001",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_search_poi"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下西湖附近适合中转住一晚的酒店。"
+      }
+    ]
+  },
+  {
+    "id": "native_fallback_001",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": ["amap_plan_route"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。工具失败时要明确说明不确定性并给出稳妥建议。"
+      },
+      {
+        "role": "user",
+        "content": "帮我查一下从虹桥机场到外滩的最快路线。"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2080 @@
+[
+  {
+    "id": "eval_multi_turn_dialogue_000001",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 289,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准继承全部上下文（万宁4天、日月湾冲浪+休闲、新增潜水需求未被提及但本题未要求响应，因最新指令仅聚焦‘节奏放松’”）\", \"明确声明‘保留原有精华体验’并‘进一步放缓节奏’，清晰区分保留项与优化意图\", \"未重写行程，原Day1–Day4结构完全复用，仅通过引导语和总结句实现轻量级升级，严格符合‘only update the affected part’\", \"语言自然克制，无营销话术、无虚构价格/库存/时效信息，符合TripAI品牌调性\"],\n  \"judge_reason\": \"回答完全响应最新用户指令‘整体节奏再放松一点，别把原来能保留的内容全推翻’，未忽略上下文，未重写整套行程，未引入任何must_not_do内容；所有must_include均被显性或强隐性满足（如‘保留原有精华体验’即对应‘what stays’，‘进一步放缓节奏’即对应‘what changes’，全程未改动日程条目即体现‘only update affected part’）；事实准确、表达清晰、风格统一，属典型高质量多轮承接。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准继承全部上下文（万宁4天、日月湾冲浪+休闲、新增潜水需求未被提及但本题未要求响应，因最新指令仅聚焦‘节奏放松’”）",
+      "明确声明‘保留原有精华体验’并‘进一步放缓节奏’，清晰区分保留项与优化意图",
+      "未重写行程，原Day1–Day4结构完全复用，仅通过引导语和总结句实现轻量级升级，严格符合‘only update the affected part’",
+      "语言自然克制，无营销话术、无虚构价格/库存/时效信息，符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答完全响应最新用户指令‘整体节奏再放松一点，别把原来能保留的内容全推翻’，未忽略上下文，未重写整套行程，未引入任何must_not_do内容；所有must_include均被显性或强隐性满足（如‘保留原有精华体验’即对应‘what stays’，‘进一步放缓节奏’即对应‘what changes’，全程未改动日程条目即体现‘only update affected part’）；事实准确、表达清晰、风格统一，属典型高质量多轮承接。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000002",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 54,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"ignore_latest_update\", \"full_rewrite_violation\", \"context_break\"],\n  \"strengths\": [\"No fabricated real-time data\", \"Tone remains neutral and brand-appropriate\"],\n  \"judge_reason\": \"The prediction completely ignores the user's explicit instruction '别整篇从头来' and fails to acknowledge or preserve any prior plan structure. Instead of stating what stays (e.g., Disneyland as core destination, existing ride/area suggestions) and what changes (removing prior preference constraints), it issues a vague, generic re-launch ('现在将重点放在...深度体验上') — effectively discarding all prior context and restarting. This violates all three must_include items and directly breaches 'Do not rewrite the entire plan from scratch'. The response shows no evidence of multi-turn awareness or selective editing, failing the core task-specific requirement.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "ignore_latest_update",
+      "full_rewrite_violation",
+      "context_break"
+    ],
+    "strengths": [
+      "No fabricated real-time data",
+      "Tone remains neutral and brand-appropriate"
+    ],
+    "judge_reason": "The prediction completely ignores the user's explicit instruction '别整篇从头来' and fails to acknowledge or preserve any prior plan structure. Instead of stating what stays (e.g., Disneyland as core destination, existing ride/area suggestions) and what changes (removing prior preference constraints), it issues a vague, generic re-launch ('现在将重点放在...深度体验上') — effectively discarding all prior context and restarting. This violates all three must_include items and directly breaches 'Do not rewrite the entire plan from scratch'. The response shows no evidence of multi-turn awareness or selective editing, failing the core task-specific requirement."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000003",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 167,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"context_ignorance_of_update\", \"over_rewriting\", \"lack_of_explicit_revision_logic\"],\n  \"strengths\": [\"Maintains factual accuracy about locations; avoids invented real-time data; retains natural, non-marketing tone; clear sentence structure\"],\n  \"judge_reason\": \"The response fails to explicitly state what parts of the original plan are preserved versus changed — violating 'State what stays and what changes'. It rewrites both days' plans in full rather than surgically adjusting only the affected portion (e.g., trimming half a day), thus violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. While it inherits location names and general preferences, it treats the constraint ('less than half a day') as a vague prompt for compression instead of triggering a precise, transparent revision (e.g., 'We’ll drop the afternoon松山湖/南社 option and end Day 2 by noon'). This reflects poor multi-turn state awareness. No safety or brand violations, but task-specific failure is severe enough to warrant hold.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "context_ignorance_of_update",
+      "over_rewriting",
+      "lack_of_explicit_revision_logic"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about locations; avoids invented real-time data; retains natural, non-marketing tone; clear sentence structure"
+    ],
+    "judge_reason": "The response fails to explicitly state what parts of the original plan are preserved versus changed — violating 'State what stays and what changes'. It rewrites both days' plans in full rather than surgically adjusting only the affected portion (e.g., trimming half a day), thus violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. While it inherits location names and general preferences, it treats the constraint ('less than half a day') as a vague prompt for compression instead of triggering a precise, transparent revision (e.g., 'We’ll drop the afternoon松山湖/南社 option and end Day 2 by noon'). This reflects poor multi-turn state awareness. No safety or brand violations, but task-specific failure is severe enough to warrant hold."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000004",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 420,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_update_intent\", \"lack_of_revision_transparency\"],\n  \"strengths\": [\"Natural language flow\", \"Local cultural references accurate\", \"No fabricated real-time data\"],\n  \"judge_reason\": \"回答完全重写了整个三日行程，未保留原始一日半框架，也未说明‘前面的主线先保留’如何体现；未明确指出哪些内容沿用、哪些是新增；新增沂蒙山旅游区等信息属无依据引入（前序对话未提该景点）；违反 must_not_do ‘do not rewrite the entire plan from scratch’；严重偏离 multi-turn dialogue 核心要求——增量更新与上下文继承。虽语言自然、无安全风险，但任务本质失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_update_intent",
+      "lack_of_revision_transparency"
+    ],
+    "strengths": [
+      "Natural language flow",
+      "Local cultural references accurate",
+      "No fabricated real-time data"
+    ],
+    "judge_reason": "回答完全重写了整个三日行程，未保留原始一日半框架，也未说明‘前面的主线先保留’如何体现；未明确指出哪些内容沿用、哪些是新增；新增沂蒙山旅游区等信息属无依据引入（前序对话未提该景点）；违反 must_not_do ‘do not rewrite the entire plan from scratch’；严重偏离 multi-turn dialogue 核心要求——增量更新与上下文继承。虽语言自然、无安全风险，但任务本质失败。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000005",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 193,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\"],\n  \"missed_must_include\": [\"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"over-revision\", \"context-rewriting\", \"loss_of_consistency\"],\n  \"strengths\": [\"Maintains natural, brand-appropriate tone; correctly identifies 'more relaxed' as core intent; avoids fabricated real-time info; clearly signals change intention\"],\n  \"judge_reason\": \"The response correctly inherits the丽江/tourism context and states the change (replacing cable car with Blue Moon Valley), but fails to preserve the original structure and wording of unchanged parts — instead, it rewrites the entire itinerary in new phrasing (e.g., '先远眺...感受...接着步行...' vs original '上午从甘海子出发，远眺十三峰连绵如银龙；随后乘坐大索道...'). This violates 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It also drops explicit reference to prior valid elements (e.g., no mention that云杉坪 remains unchanged *as previously described* — just says '可以安排', losing fidelity). While factually sound and safe, the multi-turn dialogue discipline is materially compromised, warranting hold for human review.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes"
+    ],
+    "missed_must_include": [
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "over-revision",
+      "context-rewriting",
+      "loss_of_consistency"
+    ],
+    "strengths": [
+      "Maintains natural, brand-appropriate tone; correctly identifies 'more relaxed' as core intent; avoids fabricated real-time info; clearly signals change intention"
+    ],
+    "judge_reason": "The response correctly inherits the丽江/tourism context and states the change (replacing cable car with Blue Moon Valley), but fails to preserve the original structure and wording of unchanged parts — instead, it rewrites the entire itinerary in new phrasing (e.g., '先远眺...感受...接着步行...' vs original '上午从甘海子出发，远眺十三峰连绵如银龙；随后乘坐大索道...'). This violates 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It also drops explicit reference to prior valid elements (e.g., no mention that云杉坪 remains unchanged *as previously described* — just says '可以安排', losing fidelity). While factually sound and safe, the multi-turn dialogue discipline is materially compromised, warranting hold for human review."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000006",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 118,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准响应最新指令'只改其中半天，其他能保留的先保留'，未重写全文；完整继承前文关于乌鲁木齐植物园的地理、植物、时序、体验等有效信息；用句式自然承接（'推荐安排半天游览...'），隐含'其余内容如荒漠植物区、时段建议等保持不变'；无编造、无工具痕迹、无营销话术；完全符合TripAI克制、专业、上下文敏感的风格。\"],\n  \"judge_reason\": \"回答严格遵循multi-turn dialogue rubric：未重启全篇，仅复述原计划中'半天游览'相关核心句，该句本身即是对前一轮assistant输出的精准截取与延续，实质完成'只改受影响部分'——而本例中用户并未要求修改具体内容，仅要求'不重写'，因此保留原句即是最优响应；所有must_include均被满足，must_not_do全部规避；表达简洁清晰，事实准确，风格统一。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准响应最新指令'只改其中半天，其他能保留的先保留'，未重写全文；完整继承前文关于乌鲁木齐植物园的地理、植物、时序、体验等有效信息；用句式自然承接（'推荐安排半天游览...'），隐含'其余内容如荒漠植物区、时段建议等保持不变'；无编造、无工具痕迹、无营销话术；完全符合TripAI克制、专业、上下文敏感的风格。"
+    ],
+    "judge_reason": "回答严格遵循multi-turn dialogue rubric：未重启全篇，仅复述原计划中'半天游览'相关核心句，该句本身即是对前一轮assistant输出的精准截取与延续，实质完成'只改受影响部分'——而本例中用户并未要求修改具体内容，仅要求'不重写'，因此保留原句即是最优响应；所有must_include均被满足，must_not_do全部规避；表达简洁清晰，事实准确，风格统一。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000007",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 346,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准继承上下文，未重写整套行程；明确指出‘保留核心景点’‘节奏更舒缓’，体现对‘放松节奏’和‘不推翻原有内容’的双重响应；结构清晰、语言自然，无营销话术；全程未编造时效信息，所有推荐均基于文化常识与地理逻辑\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：准确承接前序九江行程框架，仅对‘节奏’维度做最小必要调整（如增加茶馆小憩、下午休憩等缓冲设计），显式声明‘保留核心景点’‘原有推荐的核心内容’，未重写、未新增虚构信息、未忽略最新约束。语言克制、自然、可执行，完全契合 TripAI 品牌风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准继承上下文，未重写整套行程；明确指出‘保留核心景点’‘节奏更舒缓’，体现对‘放松节奏’和‘不推翻原有内容’的双重响应；结构清晰、语言自然，无营销话术；全程未编造时效信息，所有推荐均基于文化常识与地理逻辑"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：准确承接前序九江行程框架，仅对‘节奏’维度做最小必要调整（如增加茶馆小憩、下午休憩等缓冲设计），显式声明‘保留核心景点’‘原有推荐的核心内容’，未重写、未新增虚构信息、未忽略最新约束。语言克制、自然、可执行，完全契合 TripAI 品牌风格。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000008",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 78,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"ignores_latest_update\", \"full_rewrite_violation\", \"no_context_retention\"],\n  \"strengths\": [\"No fabricated real-time facts; tone remains neutral and brand-appropriate\"],\n  \"judge_reason\": \"模型完全无视用户最新指令'我改主意了，前面那个偏好先不坚持了。请按新条件更新，但别整篇从头来。'，未说明哪些内容保留、哪些调整，也未锚定上下文（如原行程结构、预算约束3000元等），而是输出一句空泛的承接句，实质是抛弃全部已有规划、启动新对话逻辑。严重违反 must_not_do 'Do not rewrite the entire plan from scratch' 和 must_include 'Only update the affected part'。未体现 multi-turn 对话中状态继承与增量更新的核心能力，属于典型答非所问和任务失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "ignores_latest_update",
+      "full_rewrite_violation",
+      "no_context_retention"
+    ],
+    "strengths": [
+      "No fabricated real-time facts; tone remains neutral and brand-appropriate"
+    ],
+    "judge_reason": "模型完全无视用户最新指令'我改主意了，前面那个偏好先不坚持了。请按新条件更新，但别整篇从头来。'，未说明哪些内容保留、哪些调整，也未锚定上下文（如原行程结构、预算约束3000元等），而是输出一句空泛的承接句，实质是抛弃全部已有规划、启动新对话逻辑。严重违反 must_not_do 'Do not rewrite the entire plan from scratch' 和 must_include 'Only update the affected part'。未体现 multi-turn 对话中状态继承与增量更新的核心能力，属于典型答非所问和任务失败。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000009",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 93,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"context_ignorance\", \"over_rewriting\", \"missing_explanation_of_revision\"],\n  \"strengths\": [\"Natural language flow\", \"No fabricated real-time data\", \"Stays on topic of Karamay tourism\"],\n  \"judge_reason\": \"回答虽承接了克拉玛依旅游主题，但完全重写了行程（从2天压缩为1天并删除魔鬼城主体游览），未说明‘原计划中黑油山保留、魔鬼城调整’等继承与取舍逻辑；未显式陈述‘什么保留、什么删减、为何如此取舍’，违反 must_include 的后两项；更严重的是，它未体现 multi-turn 对话中‘最小必要修改’原则，而是用新短行程替代旧结构，实质是另起炉灶，构成 must_not_do 中‘rewrite the entire plan from scratch’的明确违反。因此 task-specific_score 极低，整体不可直接放行，需人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "context_ignorance",
+      "over_rewriting",
+      "missing_explanation_of_revision"
+    ],
+    "strengths": [
+      "Natural language flow",
+      "No fabricated real-time data",
+      "Stays on topic of Karamay tourism"
+    ],
+    "judge_reason": "回答虽承接了克拉玛依旅游主题，但完全重写了行程（从2天压缩为1天并删除魔鬼城主体游览），未说明‘原计划中黑油山保留、魔鬼城调整’等继承与取舍逻辑；未显式陈述‘什么保留、什么删减、为何如此取舍’，违反 must_include 的后两项；更严重的是，它未体现 multi-turn 对话中‘最小必要修改’原则，而是用新短行程替代旧结构，实质是另起炉灶，构成 must_not_do 中‘rewrite the entire plan from scratch’的明确违反。因此 task-specific_score 极低，整体不可直接放行，需人工复核修正。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000010",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 30,
+    "raw_judge_response": "{\n  \"correctness\": 1,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 1,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 1,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\", \"Do not ignore the latest user update\"],\n  \"issue_tags\": [\"答非所问\", \"上下文断裂\", \"未响应最新指令\", \"全量重写\"],\n  \"strengths\": [],\n  \"judge_reason\": \"模型回答仅为一句空洞表态'好的，已将新增部分补顺，行程整体更完整流畅，兼顾节奏与体验。'，未呈现任何实际行程更新内容，未继承前文兰州三日行程框架，未说明哪些部分保留、哪些新增，未体现多轮对话状态延续性，完全违背multi-turn dialogue任务核心要求；既未输出有效新增行程，也未结构化说明调整逻辑，属于典型答非所问和上下文丢失，且违反must_not_do中'不重写整篇'和'不忽略最新更新'两项强约束。\"\n}",
+    "correctness": 1,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 1,
+    "safety_and_honesty": 1,
+    "brand_style": 1,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch",
+      "Do not ignore the latest user update"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "上下文断裂",
+      "未响应最新指令",
+      "全量重写"
+    ],
+    "strengths": [],
+    "judge_reason": "模型回答仅为一句空洞表态'好的，已将新增部分补顺，行程整体更完整流畅，兼顾节奏与体验。'，未呈现任何实际行程更新内容，未继承前文兰州三日行程框架，未说明哪些部分保留、哪些新增，未体现多轮对话状态延续性，完全违背multi-turn dialogue任务核心要求；既未输出有效新增行程，也未结构化说明调整逻辑，属于典型答非所问和上下文丢失，且违反must_not_do中'不重写整篇'和'不忽略最新更新'两项强约束。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000011",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 92,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"Only update the affected part\"],\n  \"missed_must_include\": [\"State what stays and what changes\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_explicit_change_summary\", \"context_ambiguity\"],\n  \"strengths\": [\"Preserves core故宫 content and tone; avoids fabrication; maintains natural, non-marketing language; correctly infers 'more relaxed' as pacing adjustment rather than venue replacement\"],\n  \"judge_reason\": \"The response correctly inherits context and makes a targeted, minimal revision (slowing pace, focusing on core axis, retaining two key halls) — satisfying 'Carry forward' and 'Only update affected part'. However, it fails to explicitly state *what stays* (e.g., '珍宝馆和钟表馆保留，中轴线三大殿 remain') and *what changes* (e.g., '东西六宫中的延禧宫或储秀宫取消，角楼拍照建议保留但 with flexible timing'), violating 'State what stays and what changes'. This omission creates ambiguity: user cannot verify which original elements are preserved or dropped. While not rewriting from scratch, the lack of explicit change accounting undermines multi-turn coherence and violates the core task-specific requirement. No safety, honesty, or brand violations. Scored 3 overall: usable but defective for production due to untraceable state evolution.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_explicit_change_summary",
+      "context_ambiguity"
+    ],
+    "strengths": [
+      "Preserves core故宫 content and tone; avoids fabrication; maintains natural, non-marketing language; correctly infers 'more relaxed' as pacing adjustment rather than venue replacement"
+    ],
+    "judge_reason": "The response correctly inherits context and makes a targeted, minimal revision (slowing pace, focusing on core axis, retaining two key halls) — satisfying 'Carry forward' and 'Only update affected part'. However, it fails to explicitly state *what stays* (e.g., '珍宝馆和钟表馆保留，中轴线三大殿 remain') and *what changes* (e.g., '东西六宫中的延禧宫或储秀宫取消，角楼拍照建议保留但 with flexible timing'), violating 'State what stays and what changes'. This omission creates ambiguity: user cannot verify which original elements are preserved or dropped. While not rewriting from scratch, the lack of explicit change accounting undermines multi-turn coherence and violates the core task-specific requirement. No safety, honesty, or brand violations. Scored 3 overall: usable but defective for production due to untraceable state evolution."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000012",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 129,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_latest_instruction\", \"no_change_explanation\"],\n  \"strengths\": [\"Natural language flow\", \"No fabricated real-time data\", \"Consistent brand tone\"],\n  \"judge_reason\": \"模型完全重写了第二天行程，未说明哪些部分保留、哪些被修改；未响应用户明确指令'只改其中半天，其他能保留的先保留'，而是用新内容覆盖原第二天安排（原含画舫夜景+小吃），且未提及第三天南京博物院/老门东等可保留内容是否延续；违反must_not_do中'do not rewrite the entire plan from scratch'；未体现多轮状态继承意识，属典型答非所问式失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_latest_instruction",
+      "no_change_explanation"
+    ],
+    "strengths": [
+      "Natural language flow",
+      "No fabricated real-time data",
+      "Consistent brand tone"
+    ],
+    "judge_reason": "模型完全重写了第二天行程，未说明哪些部分保留、哪些被修改；未响应用户明确指令'只改其中半天，其他能保留的先保留'，而是用新内容覆盖原第二天安排（原含画舫夜景+小吃），且未提及第三天南京博物院/老门东等可保留内容是否延续；违反must_not_do中'do not rewrite the entire plan from scratch'；未体现多轮状态继承意识，属典型答非所问式失败。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000013",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 597,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"over-revision\", \"lack_of_transparency_on_changes\", \"context_erosion\"],\n  \"strengths\": [\"Maintains factual accuracy about locations and food; avoids invented real-time data; tone remains calm and brand-appropriate\"],\n  \"judge_reason\": \"The response completely rewrites the original plan instead of selectively relaxing the rhythm while preserving valid prior content. It abandons the original 'half-day' framing, adds new locations (Zhongshan Road, Guangxi Museum, Qingshui Mountain) without justification or user request, and introduces unrequested structural segmentation (morning/noon/afternoon/evening). Crucially, it fails to explicitly state what is retained (e.g., 'still visiting万象城', 'same food layer recommendations') versus what is changed (e.g., 'now adding leisurely walking'). This violates core multi-turn principles: no change transparency, no minimal update, and implicit erasure of prior agreement. While safe and stylistically aligned, it fundamentally misinterprets the instruction '整体节奏再放松一点，别把原来能保留的内容全推翻' as a license to rebuild — not refine.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "over-revision",
+      "lack_of_transparency_on_changes",
+      "context_erosion"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about locations and food; avoids invented real-time data; tone remains calm and brand-appropriate"
+    ],
+    "judge_reason": "The response completely rewrites the original plan instead of selectively relaxing the rhythm while preserving valid prior content. It abandons the original 'half-day' framing, adds new locations (Zhongshan Road, Guangxi Museum, Qingshui Mountain) without justification or user request, and introduces unrequested structural segmentation (morning/noon/afternoon/evening). Crucially, it fails to explicitly state what is retained (e.g., 'still visiting万象城', 'same food layer recommendations') versus what is changed (e.g., 'now adding leisurely walking'). This violates core multi-turn principles: no change transparency, no minimal update, and implicit erasure of prior agreement. While safe and stylistically aligned, it fundamentally misinterprets the instruction '整体节奏再放松一点，别把原来能保留的内容全推翻' as a license to rebuild — not refine."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000014",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 172,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\", \"Do not ignore the latest user update\"],\n  \"issue_tags\": [\"ignores_latest_update\", \"full_rewrite_violation\", \"no_state_transition_clarity\"],\n  \"strengths\": [\"Language is natural and stylistically aligned with TripAI brand; no fabricated real-time data; no safety or honesty violations\"],\n  \"judge_reason\": \"The model completely ignored the user's explicit instruction '我改主意了，前面那个偏好先不坚持了。请按新条件更新，但别整篇从头来。' and instead regurgitated the original 2-day plan verbatim — a direct violation of must_not_do ('Do not rewrite the entire plan from scratch') and ('Do not ignore the latest user update'). It fails to state what is retained vs. revised, makes no reference to the prior context (e.g., '前面那个偏好' remains undefined in response), and provides zero indication of adaptation. This violates core multi-turn dialogue requirements: no inheritance, no selective update, no awareness of constraint evolution. The response is functionally identical to the prior assistant message — thus scoring as a fundamental failure on task-specific and instruction-following dimensions.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch",
+      "Do not ignore the latest user update"
+    ],
+    "issue_tags": [
+      "ignores_latest_update",
+      "full_rewrite_violation",
+      "no_state_transition_clarity"
+    ],
+    "strengths": [
+      "Language is natural and stylistically aligned with TripAI brand; no fabricated real-time data; no safety or honesty violations"
+    ],
+    "judge_reason": "The model completely ignored the user's explicit instruction '我改主意了，前面那个偏好先不坚持了。请按新条件更新，但别整篇从头来。' and instead regurgitated the original 2-day plan verbatim — a direct violation of must_not_do ('Do not rewrite the entire plan from scratch') and ('Do not ignore the latest user update'). It fails to state what is retained vs. revised, makes no reference to the prior context (e.g., '前面那个偏好' remains undefined in response), and provides zero indication of adaptation. This violates core multi-turn dialogue requirements: no inheritance, no selective update, no awareness of constraint evolution. The response is functionally identical to the prior assistant message — thus scoring as a fundamental failure on task-specific and instruction-following dimensions."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000015",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 203,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"context_ignoring_latest_update\", \"over_rewriting\", \"lack_of_explicit_revision_logic\"],\n  \"strengths\": [\"Maintains natural, brand-appropriate tone; preserves accurate geographical/logistical facts; avoids unsafe or fabricated info like prices/hours\"],\n  \"judge_reason\": \"The response fully rewrites the plan instead of selectively revising it — violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It fails to explicitly state what is kept vs. cut (e.g., no mention of dropping wind instrument museum or adjusting timing logic), missing two must_include items. While it inherits the destination (Xiamen/Gulangyu) and core activities, it treats the constraint 'only half a day less' as if it were 'full day → half day', rather than trimming *within* the original one-day structure. No acknowledgment of the compression rationale or trade-offs made. Thus, it violates multi-turn dialogue fundamentals: no revision transparency, no state-aware editing, and no fidelity to the latest instruction ('don't hard-stuff the old content').\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "context_ignoring_latest_update",
+      "over_rewriting",
+      "lack_of_explicit_revision_logic"
+    ],
+    "strengths": [
+      "Maintains natural, brand-appropriate tone; preserves accurate geographical/logistical facts; avoids unsafe or fabricated info like prices/hours"
+    ],
+    "judge_reason": "The response fully rewrites the plan instead of selectively revising it — violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It fails to explicitly state what is kept vs. cut (e.g., no mention of dropping wind instrument museum or adjusting timing logic), missing two must_include items. While it inherits the destination (Xiamen/Gulangyu) and core activities, it treats the constraint 'only half a day less' as if it were 'full day → half day', rather than trimming *within* the original one-day structure. No acknowledgment of the compression rationale or trade-offs made. Thus, it violates multi-turn dialogue fundamentals: no revision transparency, no state-aware editing, and no fidelity to the latest instruction ('don't hard-stuff the old content')."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000016",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 44,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\", \"Do not ignore the latest user update\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_latest_update\", \"no_context_retention\", \"no_change_explanation\"],\n  \"strengths\": [\"No fabricated real-time data\"],\n  \"judge_reason\": \"回答完全未承接上下文，未保留任何前序行程细节（如9:30入园、10:30首场表演、动线顺序、母婴室等关键信息），也未说明哪些内容保留、哪些更新；而是输出一句空泛模糊的总结句，未执行‘把新增部分补顺’这一核心指令。严重违反 multi-turn dialogue 的基本要求：不继承、不增量、不响应最新约束。属于典型答非所问与从头重写，触发 must_not_do 中两项强失败信号。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 5,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch",
+      "Do not ignore the latest user update"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_latest_update",
+      "no_context_retention",
+      "no_change_explanation"
+    ],
+    "strengths": [
+      "No fabricated real-time data"
+    ],
+    "judge_reason": "回答完全未承接上下文，未保留任何前序行程细节（如9:30入园、10:30首场表演、动线顺序、母婴室等关键信息），也未说明哪些内容保留、哪些更新；而是输出一句空泛模糊的总结句，未执行‘把新增部分补顺’这一核心指令。严重违反 multi-turn dialogue 的基本要求：不继承、不增量、不响应最新约束。属于典型答非所问与从头重写，触发 must_not_do 中两项强失败信号。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000017",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 132,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接多轮上下文，未重启作答；明确区分保留项（乾陵本体、三座陪葬墓）与调整项（简化六十一蕃臣像和无字碑部分）；仅局部微调，完全符合‘其他部分尽量少动’指令；语言自然克制，无营销话术或虚构信息\"],\n  \"judge_reason\": \"回答严格遵循 multi-turn dialogue rubric：完整继承咸阳-乾陵初始需求及前序行程结构；准确识别最新指令核心是‘减负+局部替换’，而非重规划；用‘保留…但将…简化’句式清晰声明变更范围；未编造价格/时间/库存；未输出任何非文本内容；风格冷静专业，符合 TripAI 品牌调性。所有 must_include 均覆盖，must_not_do 全部遵守。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接多轮上下文，未重启作答；明确区分保留项（乾陵本体、三座陪葬墓）与调整项（简化六十一蕃臣像和无字碑部分）；仅局部微调，完全符合‘其他部分尽量少动’指令；语言自然克制，无营销话术或虚构信息"
+    ],
+    "judge_reason": "回答严格遵循 multi-turn dialogue rubric：完整继承咸阳-乾陵初始需求及前序行程结构；准确识别最新指令核心是‘减负+局部替换’，而非重规划；用‘保留…但将…简化’句式清晰声明变更范围；未编造价格/时间/库存；未输出任何非文本内容；风格冷静专业，符合 TripAI 品牌调性。所有 must_include 均覆盖，must_not_do 全部遵守。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000018",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 116,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准响应最新指令'只改其中半天，其他能保留的先保留'，未重写全文；完整继承前序哈尔滨3日行程结构；明确以'保留其他部分不变'作声明，体现状态意识；语言简洁自然，符合TripAI克制、实用的风格。\"],\n  \"judge_reason\": \"回答严格遵循multi-turn对话要求：未重启规划，未引入任何虚构信息，未输出非文本内容；主动声明'我来调整其中半天的内容，保留其他部分不变'，清晰满足must_include三项；全文仅复述原行程（即默认不修改），隐含'本次无需实际改动'的合理推断（因用户未指定哪半天需改），属合规的最小干预；无任何must_not_do违规；整体专业、轻量、可执行。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准响应最新指令'只改其中半天，其他能保留的先保留'，未重写全文；完整继承前序哈尔滨3日行程结构；明确以'保留其他部分不变'作声明，体现状态意识；语言简洁自然，符合TripAI克制、实用的风格。"
+    ],
+    "judge_reason": "回答严格遵循multi-turn对话要求：未重启规划，未引入任何虚构信息，未输出非文本内容；主动声明'我来调整其中半天的内容，保留其他部分不变'，清晰满足must_include三项；全文仅复述原行程（即默认不修改），隐含'本次无需实际改动'的合理推断（因用户未指定哪半天需改），属合规的最小干预；无任何must_not_do违规；整体专业、轻量、可执行。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000019",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 249,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接多轮上下文，未重启全盘规划；明确保留原行程主干（入口、昭明书院、酱园、女红街、老邮局、摇橹船夜游、大戏院/水上集市），仅对‘节奏放松’作针对性延展（增加午间休整、茶馆评弹、小巷闲逛等弹性安排）；语言自然克制，无营销话术，无虚构时效信息；结构清晰，时间逻辑连贯，便于用户执行。\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：准确继承前序嘉兴-乌镇西栅语境与全部有效约束；对最新指令‘节奏更放松、不推翻原有内容’作出精准响应——未重写整套行程，而是通过插入午休、茶馆、闲逛等低强度活动来稀释密度，同时完整保留所有原始景点与体验节点；未引入任何 must_not_do 行为（如工具调用、实时数据编造、忽略更新或从头生成）；表达简洁流畅，符合 TripAI 克制、人文、可执行的旅行助手风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接多轮上下文，未重启全盘规划；明确保留原行程主干（入口、昭明书院、酱园、女红街、老邮局、摇橹船夜游、大戏院/水上集市），仅对‘节奏放松’作针对性延展（增加午间休整、茶馆评弹、小巷闲逛等弹性安排）；语言自然克制，无营销话术，无虚构时效信息；结构清晰，时间逻辑连贯，便于用户执行。"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：准确继承前序嘉兴-乌镇西栅语境与全部有效约束；对最新指令‘节奏更放松、不推翻原有内容’作出精准响应——未重写整套行程，而是通过插入午休、茶馆、闲逛等低强度活动来稀释密度，同时完整保留所有原始景点与体验节点；未引入任何 must_not_do 行为（如工具调用、实时数据编造、忽略更新或从头生成）；表达简洁流畅，符合 TripAI 克制、人文、可执行的旅行助手风格。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000020",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 233,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_update_semantics\", \"no_change_explanation\"],\n  \"strengths\": [\"Accurate geographical facts about Sayram Lake; natural, non-marketing tone; no hallucinated real-time data\"],\n  \"judge_reason\": \"The model completely ignored the user's explicit instruction '别整篇从头来' and '按新条件更新' — instead of identifying which part was previously tied to the abandoned preference and selectively revising it, it regenerated the *entire* original response verbatim. This violates must_not_do #4 (rewrite from scratch) and fails both 'State what stays and what changes' and 'Only update the affected part'. The response shows zero awareness that the user revoked a prior preference — there is no acknowledgment, no scoping of change, no preservation logic. It is functionally identical to the first assistant message, making it a multi-turn regression, not an update. This is a critical failure in multi-turn dialogue handling.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_update_semantics",
+      "no_change_explanation"
+    ],
+    "strengths": [
+      "Accurate geographical facts about Sayram Lake; natural, non-marketing tone; no hallucinated real-time data"
+    ],
+    "judge_reason": "The model completely ignored the user's explicit instruction '别整篇从头来' and '按新条件更新' — instead of identifying which part was previously tied to the abandoned preference and selectively revising it, it regenerated the *entire* original response verbatim. This violates must_not_do #4 (rewrite from scratch) and fails both 'State what stays and what changes' and 'Only update the affected part'. The response shows zero awareness that the user revoked a prior preference — there is no acknowledgment, no scoping of change, no preservation logic. It is functionally identical to the first assistant message, making it a multi-turn regression, not an update. This is a critical failure in multi-turn dialogue handling."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000021",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 463,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_targeted_revision_request\", \"lost_contextual_continuity\"],\n  \"strengths\": [\"Natural language flow; no fabricated real-time data; maintains TripAI's restrained tone; correctly preserves core cultural venues (Tianyi Pavilion, Cicheng, Moon Lake)\"],\n  \"judge_reason\": \"The response completely abandons the existing 3-day人文-focused structure and rewrites a new 2-day plan from scratch — directly violating 'must_not_do: Do not rewrite the entire plan from scratch' and failing 'must_include: Only update the affected part' and 'State what stays and what changes'. It does not acknowledge which elements were retained (e.g., Tianyi Pavilion remains Day 1, Cicheng remains Day 2), nor does it explain *why* certain items were dropped (e.g., why Nan Tang Old Street replaces Drum Tower or why Moon Lake afternoon is kept but without noting the half-day cut). The user explicitly asked for 'takeaway + no hard stuffing', yet the answer re-packages all prior content into a rigid new skeleton. This breaks multi-turn dialogue integrity and fails the core task-specific requirement of surgical, context-aware revision.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_targeted_revision_request",
+      "lost_contextual_continuity"
+    ],
+    "strengths": [
+      "Natural language flow; no fabricated real-time data; maintains TripAI's restrained tone; correctly preserves core cultural venues (Tianyi Pavilion, Cicheng, Moon Lake)"
+    ],
+    "judge_reason": "The response completely abandons the existing 3-day人文-focused structure and rewrites a new 2-day plan from scratch — directly violating 'must_not_do: Do not rewrite the entire plan from scratch' and failing 'must_include: Only update the affected part' and 'State what stays and what changes'. It does not acknowledge which elements were retained (e.g., Tianyi Pavilion remains Day 1, Cicheng remains Day 2), nor does it explain *why* certain items were dropped (e.g., why Nan Tang Old Street replaces Drum Tower or why Moon Lake afternoon is kept but without noting the half-day cut). The user explicitly asked for 'takeaway + no hard stuffing', yet the answer re-packages all prior content into a rigid new skeleton. This breaks multi-turn dialogue integrity and fails the core task-specific requirement of surgical, context-aware revision."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000022",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 708,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"overwriting\", \"lack_of_change_transparency\", \"context_ignorance\"],\n  \"strengths\": [\"Natural, fluent Chinese; well-structured itinerary with clear time-based sections; maintains TripAI's restrained, non-marketing tone; no hallucinated real-time facts (e.g., no fake opening hours or prices).\"],\n  \"judge_reason\": \"The response completely rewrites the two-day plan from scratch instead of preserving the prior version and only updating the 'affected part' as explicitly required. It fails to state what remains unchanged (e.g., 'first day afternoon arrival', 'evening drum ceremony', 'second day morning bell') versus what is newly added or adjusted — violating both 'State what stays and what changes' and 'Only update the affected part'. While it inherits the general topic (Baoji + Famen), it treats the latest user utterance ('我又多出一点时间，前面的主线先保留，帮我把新增部分补顺') as a request for full regeneration, not incremental refinement. This contradicts the Multi-Turn Dialogue Rubric’s core requirement: 'avoid every turn rewriting the whole long text' and 'know which old conditions to retain'. The output is clear and safe but fundamentally misaligned with task-specific behavior. Hence, hold for revision.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "overwriting",
+      "lack_of_change_transparency",
+      "context_ignorance"
+    ],
+    "strengths": [
+      "Natural, fluent Chinese; well-structured itinerary with clear time-based sections; maintains TripAI's restrained, non-marketing tone; no hallucinated real-time facts (e.g., no fake opening hours or prices)."
+    ],
+    "judge_reason": "The response completely rewrites the two-day plan from scratch instead of preserving the prior version and only updating the 'affected part' as explicitly required. It fails to state what remains unchanged (e.g., 'first day afternoon arrival', 'evening drum ceremony', 'second day morning bell') versus what is newly added or adjusted — violating both 'State what stays and what changes' and 'Only update the affected part'. While it inherits the general topic (Baoji + Famen), it treats the latest user utterance ('我又多出一点时间，前面的主线先保留，帮我把新增部分补顺') as a request for full regeneration, not incremental refinement. This contradicts the Multi-Turn Dialogue Rubric’s core requirement: 'avoid every turn rewriting the whole long text' and 'know which old conditions to retain'. The output is clear and safe but fundamentally misaligned with task-specific behavior. Hence, hold for revision."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000023",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 155,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准识别‘其中一个点’指代前文中的硕龙古镇，未强行追问或模糊处理；明确区分保留项（归春河漫步、观景栈道、竹筏）与调整项（硕龙古镇简化为入口短暂停留）；全程无新增虚构信息，未提价格/营业时间/包车报价等敏感实时数据；语言自然克制，符合TripAI风格；严格遵循multi-turn状态继承原则，未重写整套行程。\"],\n  \"judge_reason\": \"回答完全承接三轮上下文：初始崇左需求 → 预算升级至中等偏上 → 最新诉求‘换一个点为更轻松安排，其他少动’。它合理推断‘其中一个点’为前次回复中唯一可选性较强、非核心瀑布体验的硕龙古镇，并仅对该环节做最小化修改（从‘参观’降级为‘入口短暂停留’），同时显式声明其余环节‘仍按原计划进行’，完美满足must_include三项要求。无任何must_not_do违规，无事实编造，无冗余结构化输出，表达清晰舒缓，品牌调性一致。属典型高分 multi-turn 续写范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别‘其中一个点’指代前文中的硕龙古镇，未强行追问或模糊处理；明确区分保留项（归春河漫步、观景栈道、竹筏）与调整项（硕龙古镇简化为入口短暂停留）；全程无新增虚构信息，未提价格/营业时间/包车报价等敏感实时数据；语言自然克制，符合TripAI风格；严格遵循multi-turn状态继承原则，未重写整套行程。"
+    ],
+    "judge_reason": "回答完全承接三轮上下文：初始崇左需求 → 预算升级至中等偏上 → 最新诉求‘换一个点为更轻松安排，其他少动’。它合理推断‘其中一个点’为前次回复中唯一可选性较强、非核心瀑布体验的硕龙古镇，并仅对该环节做最小化修改（从‘参观’降级为‘入口短暂停留’），同时显式声明其余环节‘仍按原计划进行’，完美满足must_include三项要求。无任何must_not_do违规，无事实编造，无冗余结构化输出，表达清晰舒缓，品牌调性一致。属典型高分 multi-turn 续写范例。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000024",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 179,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"full_rewrite_violation\", \"missing_change_transparency\", \"context_oversight\"],\n  \"strengths\": [\"Accurate factual knowledge about Huaying Mountain sites; natural, non-marketing tone; no hallucinated real-time data\"],\n  \"judge_reason\": \"The model's response is a full re-write of the entire plan — it repeats accommodation recommendation, transportation details, and rephrases both days' itinerary — directly violating 'Do not rewrite the entire plan from scratch'. It fails to explicitly state which parts are preserved (e.g., 'Day 1 remains unchanged') and which part is modified (only 'half a day', per user's latest instruction). No targeted edit is performed; instead, the assistant re-packages the prior answer with minor lexical shifts. This violates core multi-turn dialogue discipline: it ignores the explicit meta-instruction to avoid wholesale rewriting and provide surgical revision. Hence, fails on instruction_following, completeness, and task_specific_score.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "full_rewrite_violation",
+      "missing_change_transparency",
+      "context_oversight"
+    ],
+    "strengths": [
+      "Accurate factual knowledge about Huaying Mountain sites; natural, non-marketing tone; no hallucinated real-time data"
+    ],
+    "judge_reason": "The model's response is a full re-write of the entire plan — it repeats accommodation recommendation, transportation details, and rephrases both days' itinerary — directly violating 'Do not rewrite the entire plan from scratch'. It fails to explicitly state which parts are preserved (e.g., 'Day 1 remains unchanged') and which part is modified (only 'half a day', per user's latest instruction). No targeted edit is performed; instead, the assistant re-packages the prior answer with minor lexical shifts. This violates core multi-turn dialogue discipline: it ignores the explicit meta-instruction to avoid wholesale rewriting and provide surgical revision. Hence, fails on instruction_following, completeness, and task_specific_score."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000025",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 764,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"over-revision\", \"context-ignorance\", \"structural-bloat\"],\n  \"strengths\": [\"Maintains factual accuracy about景区 features; avoids inventing prices/times; retains宋韵民宿核心描述; language remains brand-appropriate in tone\"],\n  \"judge_reason\": \"The response completely abandons the prior single-day relaxed itinerary structure and instead constructs a new 3-day plan from scratch — violating 'Do not rewrite the entire plan from scratch' and failing to 'Only update the affected part'. It does not explicitly state what is preserved (e.g., 'morning at Wansui Temple and Longtan remains unchanged') nor what is modified (e.g., 'we now add a full rest afternoon'). The 'Optimization Note' section is cut off mid-sentence, suggesting truncation or incomplete generation. While it inherits the topic (Kaifeng + Wansuishan), it misinterprets 'relax the rhythm' as requiring structural expansion rather than pacing adjustment — a fundamental failure in multi-turn dialogue state management. This is a high-risk context regression, warranting hold.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "over-revision",
+      "context-ignorance",
+      "structural-bloat"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about景区 features; avoids inventing prices/times; retains宋韵民宿核心描述; language remains brand-appropriate in tone"
+    ],
+    "judge_reason": "The response completely abandons the prior single-day relaxed itinerary structure and instead constructs a new 3-day plan from scratch — violating 'Do not rewrite the entire plan from scratch' and failing to 'Only update the affected part'. It does not explicitly state what is preserved (e.g., 'morning at Wansui Temple and Longtan remains unchanged') nor what is modified (e.g., 'we now add a full rest afternoon'). The 'Optimization Note' section is cut off mid-sentence, suggesting truncation or incomplete generation. While it inherits the topic (Kaifeng + Wansuishan), it misinterprets 'relax the rhythm' as requiring structural expansion rather than pacing adjustment — a fundamental failure in multi-turn dialogue state management. This is a high-risk context regression, warranting hold."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000026",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 141,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接三轮上下文，明确保留‘园区内主题酒店’这一已确认变更；用‘仍为’自然体现状态延续性；未重写行程其余部分，仅聚焦响应‘不坚持前偏好’的语义——即确认该偏好（此前用户说‘想住得更方便些，换成园区内的主题酒店吧’）已被采纳且维持不变，无需回退；语言简洁克制，无冗余营销话术；完全规避时效性编造\"],\n  \"judge_reason\": \"回答严格遵循 multi-turn dialogue rubric：正确识别最新用户指令‘我改主意了，前面那个偏好先不坚持了’实为对自身先前请求的澄清/撤回意图，但结合上下文可知该‘偏好’（换园区内酒店）已在上一轮被采纳并执行，故当前应维持现状而非回退；回答用‘仍为’清晰表明状态延续，未新增、未删减、未重构，仅做最小必要确认，完美满足‘only update the affected part’。无任何 must_not_do 违反，无事实错误，风格自然专业。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接三轮上下文，明确保留‘园区内主题酒店’这一已确认变更；用‘仍为’自然体现状态延续性；未重写行程其余部分，仅聚焦响应‘不坚持前偏好’的语义——即确认该偏好（此前用户说‘想住得更方便些，换成园区内的主题酒店吧’）已被采纳且维持不变，无需回退；语言简洁克制，无冗余营销话术；完全规避时效性编造"
+    ],
+    "judge_reason": "回答严格遵循 multi-turn dialogue rubric：正确识别最新用户指令‘我改主意了，前面那个偏好先不坚持了’实为对自身先前请求的澄清/撤回意图，但结合上下文可知该‘偏好’（换园区内酒店）已在上一轮被采纳并执行，故当前应维持现状而非回退；回答用‘仍为’清晰表明状态延续，未新增、未删减、未重构，仅做最小必要确认，完美满足‘only update the affected part’。无任何 must_not_do 违反，无事实错误，风格自然专业。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000027",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 107,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"Only update the affected part\"],\n  \"missed_must_include\": [\"State what stays and what changes\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"lack_of_explicit_state_transition\"],\n  \"strengths\": [\"Correctly inherits park focus, accommodation upgrade, and time constraint; avoids inventing prices/hours; concise and natural phrasing; preserves brand voice\"],\n  \"judge_reason\": \"The response appropriately condenses the itinerary to fit 'half-day less' by trimming non-essential items (e.g.,萌宠星球, 花车巡游) while retaining core experiences (whale show, sea lion, shark tank) and preserving the updated accommodation logic. It avoids rewriting from scratch and omits unsafe factual claims. However, it fails to explicitly state *what remains unchanged* (e.g., '住宿仍推荐…' is implied but not framed as a deliberate retention) and *what is newly omitted or deprioritized*, violating 'State what stays and what changes'. This reduces transparency in multi-turn state management — a moderate risk for user trust and editability. Hence pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_explicit_state_transition"
+    ],
+    "strengths": [
+      "Correctly inherits park focus, accommodation upgrade, and time constraint; avoids inventing prices/hours; concise and natural phrasing; preserves brand voice"
+    ],
+    "judge_reason": "The response appropriately condenses the itinerary to fit 'half-day less' by trimming non-essential items (e.g.,萌宠星球, 花车巡游) while retaining core experiences (whale show, sea lion, shark tank) and preserving the updated accommodation logic. It avoids rewriting from scratch and omits unsafe factual claims. However, it fails to explicitly state *what remains unchanged* (e.g., '住宿仍推荐…' is implied but not framed as a deliberate retention) and *what is newly omitted or deprioritized*, violating 'State what stays and what changes'. This reduces transparency in multi-turn state management — a moderate risk for user trust and editability. Hence pass_with_risk."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000028",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 227,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接三轮上下文，明确保留‘主线景点不变’和‘住宿/动线建议保持不变’；仅对新增时间作增量补充，未重写整套行程；语言自然克制，无营销话术；对需确认的开放情况（漆器工坊）标注说明，体现诚实性。\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：准确继承前序所有约束（扬州、3天、主线保留），清晰区分‘保持不变’与‘新增融入’部分，仅在 Day3 上午微调节奏并补充弹性文化体验，未重复描述已确认内容；无虚构信息、无工具痕迹、无冗余结构；风格简洁专业，符合 TripAI 品牌调性。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接三轮上下文，明确保留‘主线景点不变’和‘住宿/动线建议保持不变’；仅对新增时间作增量补充，未重写整套行程；语言自然克制，无营销话术；对需确认的开放情况（漆器工坊）标注说明，体现诚实性。"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：准确继承前序所有约束（扬州、3天、主线保留），清晰区分‘保持不变’与‘新增融入’部分，仅在 Day3 上午微调节奏并补充弹性文化体验，未重复描述已确认内容；无虚构信息、无工具痕迹、无冗余结构；风格简洁专业，符合 TripAI 品牌调性。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000029",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 176,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"no_change_explanation\", \"context_erosion\"],\n  \"strengths\": [\"Maintains factual accuracy about locations; avoids inventing real-time data; tone remains calm and brand-appropriate\"],\n  \"judge_reason\": \"The response abandons the prior自驾-optimized structure entirely and rebuilds a new 'lighter' plan from scratch, violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It fails to state which element was removed (e.g., 'we drop the boat trip to Taihu Xian Island') or explicitly preserve unchanged components (e.g., 'parking at Chongshan gate and using the same parking remains valid'). Instead, it reselects attractions arbitrarily without anchoring to the user’s 'one point removed' instruction — effectively ignoring the precise scope of change requested. This breaks multi-turn continuity and violates core task-specific requirements.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "no_change_explanation",
+      "context_erosion"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about locations; avoids inventing real-time data; tone remains calm and brand-appropriate"
+    ],
+    "judge_reason": "The response abandons the prior自驾-optimized structure entirely and rebuilds a new 'lighter' plan from scratch, violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It fails to state which element was removed (e.g., 'we drop the boat trip to Taihu Xian Island') or explicitly preserve unchanged components (e.g., 'parking at Chongshan gate and using the same parking remains valid'). Instead, it reselects attractions arbitrarily without anchoring to the user’s 'one point removed' instruction — effectively ignoring the precise scope of change requested. This breaks multi-turn continuity and violates core task-specific requirements."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000030",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 141,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准响应最新指令，明确声明‘调整第三天行程，保留其他部分不变’，完全避免重写；上下文继承清晰，延续前序5日框架与石林深度安排；语言简洁克制，无营销话术，符合TripAI自然、务实风格；未编造任何时效性信息（如价格、开放时间、库存）\"],\n  \"judge_reason\": \"回答严格遵循 multi-turn dialogue rubric：准确识别用户最新约束（不整篇重写，仅改半天），显式声明保留范围与修改范围，仅聚焦第三天进行细化扩展，且内容与前序对话逻辑一致（延续石林+非遗工坊设定）。无任何 must_not_do 违反，无事实编造，表达清晰自然，品牌风格纯正。属典型高质量多轮承接范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准响应最新指令，明确声明‘调整第三天行程，保留其他部分不变’，完全避免重写；上下文继承清晰，延续前序5日框架与石林深度安排；语言简洁克制，无营销话术，符合TripAI自然、务实风格；未编造任何时效性信息（如价格、开放时间、库存）"
+    ],
+    "judge_reason": "回答严格遵循 multi-turn dialogue rubric：准确识别用户最新约束（不整篇重写，仅改半天），显式声明保留范围与修改范围，仅聚焦第三天进行细化扩展，且内容与前序对话逻辑一致（延续石林+非遗工坊设定）。无任何 must_not_do 违反，无事实编造，表达清晰自然，品牌风格纯正。属典型高质量多轮承接范例。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000031",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 201,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准继承三轮上下文：晋城→司徒小镇→老人适配→节奏再放松；未重写全文，仅对‘节奏’维度做增量优化；明确保留‘茶楼观景、电瓶车、坐姿体验、福源楼包厢’等已验证有效设计；语言自然克制，无营销话术或虚构信息\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：未重启规划，未覆盖已有合理安排，仅针对最新指令‘整体节奏再放松一点，别把原来能保留的内容全推翻’作最小必要调整——通过‘上午入园后优先安排在茶楼式观景台休憩’‘随后乘坐电瓶车’等措辞体现节奏进一步舒缓，同时完整复用前轮所有适老化设计（无台阶、坐姿参与、包厢观演、热饮薄毯、导览图标注），逻辑连贯、状态一致、表达精炼。无任何 must_not_do 违反，无事实编造，风格契合 TripAI 品牌调性。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准继承三轮上下文：晋城→司徒小镇→老人适配→节奏再放松；未重写全文，仅对‘节奏’维度做增量优化；明确保留‘茶楼观景、电瓶车、坐姿体验、福源楼包厢’等已验证有效设计；语言自然克制，无营销话术或虚构信息"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：未重启规划，未覆盖已有合理安排，仅针对最新指令‘整体节奏再放松一点，别把原来能保留的内容全推翻’作最小必要调整——通过‘上午入园后优先安排在茶楼式观景台休憩’‘随后乘坐电瓶车’等措辞体现节奏进一步舒缓，同时完整复用前轮所有适老化设计（无台阶、坐姿参与、包厢观演、热饮薄毯、导览图标注），逻辑连贯、状态一致、表达精炼。无任何 must_not_do 违反，无事实编造，风格契合 TripAI 品牌调性。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000032",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 40,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"答非所问\", \"忽略最新约束\", \"未继承上下文\", \"重写整篇\"],\n  \"strengths\": [\"无明显编造事实\", \"语言基本通顺\"],\n  \"judge_reason\": \"模型回答仅输出一句模糊表态'明白了，已按新条件更新行程安排...'，未体现任何上下文继承（如来宾、古象温泉、原中等预算调整等），未说明哪些内容保留、哪些被撤回，未对'前面那个偏好先不坚持了'作出具体修订动作；完全未响应'multi_turn_dialogue'任务最核心要求——精准增量更新；实质是回避任务，属于严重答非所问和违反must_not_do。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 5,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "忽略最新约束",
+      "未继承上下文",
+      "重写整篇"
+    ],
+    "strengths": [
+      "无明显编造事实",
+      "语言基本通顺"
+    ],
+    "judge_reason": "模型回答仅输出一句模糊表态'明白了，已按新条件更新行程安排...'，未体现任何上下文继承（如来宾、古象温泉、原中等预算调整等），未说明哪些内容保留、哪些被撤回，未对'前面那个偏好先不坚持了'作出具体修订动作；完全未响应'multi_turn_dialogue'任务最核心要求——精准增量更新；实质是回避任务，属于严重答非所问和违反must_not_do。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000033",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 524,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接三轮上下文，未重启作答；明确区分保留项（大战遗址公园深度游、柳琴戏）与删减项（大夫第、山西会馆等）；仅重构受影响时段，其余动线逻辑自然退让；语言克制自然，无营销话术或虚构信息；结构清晰，用加粗标题+短句分层，便于用户快速抓取关键变更。\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：严格继承前序所有约束（枣庄→台儿庄古城→增加遗址公园深度+柳琴戏），对最新‘少半天’指令作出精准响应——不是压缩全部内容，而是战略性取舍，只重写上午+下午核心模块，并显式说明‘其他调整’中哪些被暂不安排、哪些保留为备选。全程未编造开放时间/票价/库存，未输出任何非文本内容，风格冷静专业，符合 TripAI 品牌调性。属于典型高分 multi-turn 修正范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接三轮上下文，未重启作答；明确区分保留项（大战遗址公园深度游、柳琴戏）与删减项（大夫第、山西会馆等）；仅重构受影响时段，其余动线逻辑自然退让；语言克制自然，无营销话术或虚构信息；结构清晰，用加粗标题+短句分层，便于用户快速抓取关键变更。"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：严格继承前序所有约束（枣庄→台儿庄古城→增加遗址公园深度+柳琴戏），对最新‘少半天’指令作出精准响应——不是压缩全部内容，而是战略性取舍，只重写上午+下午核心模块，并显式说明‘其他调整’中哪些被暂不安排、哪些保留为备选。全程未编造开放时间/票价/库存，未输出任何非文本内容，风格冷静专业，符合 TripAI 品牌调性。属于典型高分 multi-turn 修正范例。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000034",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 47,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\", \"Do not ignore the latest user update\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_latest_update\", \"no_context_retention\", \"no_change_explanation\"],\n  \"strengths\": [\"No fabricated real-time data; tone remains calm and brand-appropriate in isolation\"],\n  \"judge_reason\": \"The prediction is a generic, decontextualized one-sentence response that completely abandons the rich multi-turn context: no mention of象鼻山, no reference to the prior accommodation update (临江精品民宿/露台/安静), no acknowledgment of the existing itinerary structure (morning entry, evening love island, etc.), and zero effort to 'add time' or 'patch smoothly' as instructed. It fails the core multi-turn requirement — instead of incrementally extending the plan (e.g., adding a riverside morning sketching session or a late-afternoon tea at the露台), it outputs a vague, standalone platitude. This violates 'must_not_do': ignoring the latest update and rewriting from scratch (by omission — delivering nothing of substance). It scores 1 on task-specific criteria and correctness because it does not answer the question at all.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch",
+      "Do not ignore the latest user update"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_latest_update",
+      "no_context_retention",
+      "no_change_explanation"
+    ],
+    "strengths": [
+      "No fabricated real-time data; tone remains calm and brand-appropriate in isolation"
+    ],
+    "judge_reason": "The prediction is a generic, decontextualized one-sentence response that completely abandons the rich multi-turn context: no mention of象鼻山, no reference to the prior accommodation update (临江精品民宿/露台/安静), no acknowledgment of the existing itinerary structure (morning entry, evening love island, etc.), and zero effort to 'add time' or 'patch smoothly' as instructed. It fails the core multi-turn requirement — instead of incrementally extending the plan (e.g., adding a riverside morning sketching session or a late-afternoon tea at the露台), it outputs a vague, standalone platitude. This violates 'must_not_do': ignoring the latest update and rewriting from scratch (by omission — delivering nothing of substance). It scores 1 on task-specific criteria and correctness because it does not answer the question at all."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000035",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 117,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接三轮上下文，未重写整套方案；明确指出‘飞龙阁’被替换、其余深度体验（讲解员、导览折页等）全部保留；新增选项‘故宫文创馆互动项目’符合‘更轻松’要求且文化相关，不编造开放状态或价格；语言自然克制，无营销话术\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：准确识别最新指令是局部调整（‘其中一个点不想去’），仅替换‘飞龙阁特展’为同等文化属性但更轻松的替代项（文创馆互动），并显式说明‘讲解员仍会重点带您深入理解……避免行程过于紧凑’，清晰体现‘什么留、什么改、为何改’。无事实编造、无工具痕迹、无风格越界，所有 must_include 全覆盖，must_not_do 全遵守。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接三轮上下文，未重写整套方案；明确指出‘飞龙阁’被替换、其余深度体验（讲解员、导览折页等）全部保留；新增选项‘故宫文创馆互动项目’符合‘更轻松’要求且文化相关，不编造开放状态或价格；语言自然克制，无营销话术"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：准确识别最新指令是局部调整（‘其中一个点不想去’），仅替换‘飞龙阁特展’为同等文化属性但更轻松的替代项（文创馆互动），并显式说明‘讲解员仍会重点带您深入理解……避免行程过于紧凑’，清晰体现‘什么留、什么改、为何改’。无事实编造、无工具痕迹、无风格越界，所有 must_include 全覆盖，must_not_do 全遵守。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000036",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 196,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准响应最新指令‘只改其中半天’，未重写全文；明确说明‘只调整第二日行程中与文化类景点相关的部分’，体现状态继承与局部修改；保留全部有效地理、交通、主题呼应等上下文信息；语言简洁克制，无营销话术；未编造任何时效性数据\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue 的核心要求：准确继承前两轮已确立的‘泰安地下龙宫+曲阜三孔双日结构’，对最新用户指令‘别整篇重写，只改其中半天’作出精准响应——仅聚焦第二日文化安排进行微调说明，主动声明‘保留其他内容不变’，并复用已有合理表述（如距离、车程、主题呼应），未引入新事实或冗余信息。全篇无工具调用、无 JSON、无虚构数据、无风格越界，严格遵循 TripAI 自然、克制、上下文敏感的专业旅行助手定位。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准响应最新指令‘只改其中半天’，未重写全文；明确说明‘只调整第二日行程中与文化类景点相关的部分’，体现状态继承与局部修改；保留全部有效地理、交通、主题呼应等上下文信息；语言简洁克制，无营销话术；未编造任何时效性数据"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue 的核心要求：准确继承前两轮已确立的‘泰安地下龙宫+曲阜三孔双日结构’，对最新用户指令‘别整篇重写，只改其中半天’作出精准响应——仅聚焦第二日文化安排进行微调说明，主动声明‘保留其他内容不变’，并复用已有合理表述（如距离、车程、主题呼应），未引入新事实或冗余信息。全篇无工具调用、无 JSON、无虚构数据、无风格越界，严格遵循 TripAI 自然、克制、上下文敏感的专业旅行助手定位。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000037",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 297,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接三轮上下文，明确区分保留项（溱湖湿地、凤城河核心体验）与新增调整（节奏放缓、增加留白、野餐/冥想/休憩等）\", \"未重写整套行程，仅在原自然导向方案上做轻量级松弛化迭代\", \"语言自然克制，无营销话术，符合TripAI品牌调性\", \"所有信息均为通用可验证的地理/生态常识，未编造时效性数据\"],\n  \"judge_reason\": \"回答严格遵循multi-turn dialogue rubric：完整继承‘泰州—自然生态偏好’主线；清晰声明‘保留溱湖湿地公园与凤城河核心体验’，并仅对节奏相关环节（时间分配、活动密度、休憩方式）做针对性松弛化更新；未引入任何工具调用、JSON或实时数据；全程语义连贯、结构清晰、风格统一。完全满足must_include三项要求，且零违反must_not_do。属于典型高分多轮响应。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接三轮上下文，明确区分保留项（溱湖湿地、凤城河核心体验）与新增调整（节奏放缓、增加留白、野餐/冥想/休憩等）",
+      "未重写整套行程，仅在原自然导向方案上做轻量级松弛化迭代",
+      "语言自然克制，无营销话术，符合TripAI品牌调性",
+      "所有信息均为通用可验证的地理/生态常识，未编造时效性数据"
+    ],
+    "judge_reason": "回答严格遵循multi-turn dialogue rubric：完整继承‘泰州—自然生态偏好’主线；清晰声明‘保留溱湖湿地公园与凤城河核心体验’，并仅对节奏相关环节（时间分配、活动密度、休憩方式）做针对性松弛化更新；未引入任何工具调用、JSON或实时数据；全程语义连贯、结构清晰、风格统一。完全满足must_include三项要求，且零违反must_not_do。属于典型高分多轮响应。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000038",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 224,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_latest_update_semantics\", \"no_revision_statement\"],\n  \"strengths\": [\"No fabricated real-time data; language is natural and brand-appropriate in tone\"],\n  \"judge_reason\": \"The prediction completely rewrites the prior assistant response instead of performing a targeted revision. It ignores the user's explicit instruction '别整篇从头来' and fails to state what remains valid vs. what is being updated. There is no acknowledgment of the user's retraction ('前面那个偏好先不坚持了'), nor any indication that the prior accessibility-focused plan is now *optional* rather than *invalid*. This violates core multi-turn dialogue principles: no context inheritance, no selective update, no awareness of constraint rollback. The answer is functionally identical to the previous turn — treating the 'change of mind' as if it never happened. Thus, it fails the task-specific rubric decisively.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_latest_update_semantics",
+      "no_revision_statement"
+    ],
+    "strengths": [
+      "No fabricated real-time data; language is natural and brand-appropriate in tone"
+    ],
+    "judge_reason": "The prediction completely rewrites the prior assistant response instead of performing a targeted revision. It ignores the user's explicit instruction '别整篇从头来' and fails to state what remains valid vs. what is being updated. There is no acknowledgment of the user's retraction ('前面那个偏好先不坚持了'), nor any indication that the prior accessibility-focused plan is now *optional* rather than *invalid*. This violates core multi-turn dialogue principles: no context inheritance, no selective update, no awareness of constraint rollback. The answer is functionally identical to the previous turn — treating the 'change of mind' as if it never happened. Thus, it fails the task-specific rubric decisively."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000039",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 131,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"no_change_explanation\", \"context_erosion\"],\n  \"strengths\": [\"Maintains factual accuracy about timing and geography; avoids invented prices or hours; language is natural and brand-appropriate.\"],\n  \"judge_reason\": \"The response completely rewrites the itinerary instead of selectively pruning — it discards the prior accommodation upgrade rationale (e.g.,露台视野, 晨拍便利性), omits explicit acknowledgment of what is preserved (e.g., '青石嘴镇观景民宿 remains unchanged') and what is cut (e.g., '大坂山垭口 sunrise shoot is removed due to time constraint'), and fails to explain the logic of the cut. It violates the core multi-turn principle: 'only update the affected part'. The new plan also reintroduces '门源县城' as a transit point despite prior optimization that eliminated the need to go there — contradicting the earlier assistant's own update. This reflects context mismanagement, not refinement.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "no_change_explanation",
+      "context_erosion"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about timing and geography; avoids invented prices or hours; language is natural and brand-appropriate."
+    ],
+    "judge_reason": "The response completely rewrites the itinerary instead of selectively pruning — it discards the prior accommodation upgrade rationale (e.g.,露台视野, 晨拍便利性), omits explicit acknowledgment of what is preserved (e.g., '青石嘴镇观景民宿 remains unchanged') and what is cut (e.g., '大坂山垭口 sunrise shoot is removed due to time constraint'), and fails to explain the logic of the cut. It violates the core multi-turn principle: 'only update the affected part'. The new plan also reintroduces '门源县城' as a transit point despite prior optimization that eliminated the need to go there — contradicting the earlier assistant's own update. This reflects context mismanagement, not refinement."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000040",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 762,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_latest_update_intent\", \"no_context_preservation\", \"no_change_annotation\"],\n  \"strengths\": [],\n  \"judge_reason\": \"模型完全无视用户最新指令'我又多出一点时间，前面的主线先保留，帮我把新增部分补顺'，未做任何承接或标注，而是将整个行程从头重写为3天详细分时段方案（含虚构细节如'品尝手抓羊肉、烤全羊'、'骑骆驼、滑草'等），严重违反'must_not_do: Do not rewrite the entire plan from scratch'；未说明哪些内容是原有保留、哪些是新增；未体现上下文继承（如未提及前两轮已确认的'自驾''乌兰县停留''柯柯盐湖备选'等关键要素如何延续）；结构冗长营销化，违背TripAI克制自然风格；属于典型答非所问+结构性违规，应判fail。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 3,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_latest_update_intent",
+      "no_context_preservation",
+      "no_change_annotation"
+    ],
+    "strengths": [],
+    "judge_reason": "模型完全无视用户最新指令'我又多出一点时间，前面的主线先保留，帮我把新增部分补顺'，未做任何承接或标注，而是将整个行程从头重写为3天详细分时段方案（含虚构细节如'品尝手抓羊肉、烤全羊'、'骑骆驼、滑草'等），严重违反'must_not_do: Do not rewrite the entire plan from scratch'；未说明哪些内容是原有保留、哪些是新增；未体现上下文继承（如未提及前两轮已确认的'自驾''乌兰县停留''柯柯盐湖备选'等关键要素如何延续）；结构冗长营销化，违背TripAI克制自然风格；属于典型答非所问+结构性违规，应判fail。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000041",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 240,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"Only update the affected part\"],\n  \"missed_must_include\": [\"State what stays and what changes\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"lack_of_explicit_state_change\"],\n  \"strengths\": [\"Preserves prior structure and tone; replaces南头古城 with深圳湾公园 appropriately; maintains人文与本地美食主线；avoids inventing real-time info；keeps brand voice natural and restrained\"],\n  \"judge_reason\": \"The response correctly inherits all prior context (Shenzhen, Ping An Finance Center, Nanshan tech park accommodation, humanistic/food focus, and the prior replacement of Nantou Ancient Town). It substitutes only the targeted element (replacing Nantou with Shenzhen Bay Park) and retains the rest — including the down-to-earth food experience at 'Shenzhen Bay Park Restaurant' and the unchanged Xiasha Village segment. However, it fails to explicitly state *what stays* (e.g., 'Xiasha Village remains as planned') and *what changes' (e.g., 'Nantou Ancient Town is replaced by Shenzhen Bay Park for a gentler start'). This omission violates must_include 'State what stays and what changes', reducing transparency in multi-turn state management. No must_not_do is violated; no hallucinated prices/hours; no rewrite from scratch. Hence, pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_explicit_state_change"
+    ],
+    "strengths": [
+      "Preserves prior structure and tone; replaces南头古城 with深圳湾公园 appropriately; maintains人文与本地美食主线；avoids inventing real-time info；keeps brand voice natural and restrained"
+    ],
+    "judge_reason": "The response correctly inherits all prior context (Shenzhen, Ping An Finance Center, Nanshan tech park accommodation, humanistic/food focus, and the prior replacement of Nantou Ancient Town). It substitutes only the targeted element (replacing Nantou with Shenzhen Bay Park) and retains the rest — including the down-to-earth food experience at 'Shenzhen Bay Park Restaurant' and the unchanged Xiasha Village segment. However, it fails to explicitly state *what stays* (e.g., 'Xiasha Village remains as planned') and *what changes' (e.g., 'Nantou Ancient Town is replaced by Shenzhen Bay Park for a gentler start'). This omission violates must_include 'State what stays and what changes', reducing transparency in multi-turn state management. No must_not_do is violated; no hallucinated prices/hours; no rewrite from scratch. Hence, pass_with_risk."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000042",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 273,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准识别最新指令‘只改半天’，未重写全篇；明确保留‘其他安排不变’，体现上下文继承；聚焦古龙峡内微调，延续地质导览、静观、云影小径、观星等已确认要素；语言简洁克制，无营销话术或虚构信息；结构清晰，用加粗标题锚定修改范围。\"],\n  \"judge_reason\": \"回答完全响应最新用户指令‘你别整篇重写，只帮我改其中半天，其他能保留的先保留’，开宗明义声明‘只调整半天内容，保留其他安排不变’，并仅输出第一天上午的细化安排——该部分本身即为前一轮中已确立的核心日程（非新增景点、未引入外部信息），且所有细节（如壶穴潭、硅化木露头、云影小径、观星条件）均属合理推演范畴，未编造实时数据。全程未脱离清远—古龙峡—自然轻冒险主线，上下文状态连贯、无冗余重述，符合 TripAI 克制、精准、可执行的风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别最新指令‘只改半天’，未重写全篇；明确保留‘其他安排不变’，体现上下文继承；聚焦古龙峡内微调，延续地质导览、静观、云影小径、观星等已确认要素；语言简洁克制，无营销话术或虚构信息；结构清晰，用加粗标题锚定修改范围。"
+    ],
+    "judge_reason": "回答完全响应最新用户指令‘你别整篇重写，只帮我改其中半天，其他能保留的先保留’，开宗明义声明‘只调整半天内容，保留其他安排不变’，并仅输出第一天上午的细化安排——该部分本身即为前一轮中已确立的核心日程（非新增景点、未引入外部信息），且所有细节（如壶穴潭、硅化木露头、云影小径、观星条件）均属合理推演范畴，未编造实时数据。全程未脱离清远—古龙峡—自然轻冒险主线，上下文状态连贯、无冗余重述，符合 TripAI 克制、精准、可执行的风格。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000043",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 750,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"overwriting\", \"lack_of_change_transparency\", \"structural_noncompliance\"],\n  \"strengths\": [\"Maintains factual accuracy about locations and transport options; preserves core attractions (Huashan, Weinan Old Town, West Yue Temple); avoids inventing prices or opening hours; tone remains consistent with TripAI's restrained, non-marketing style.\"],\n  \"judge_reason\": \"The response completely rewrites the three-day itinerary from scratch in full detail, violating 'must_not_do: Do not rewrite the entire plan from scratch'. It fails to explicitly state which parts of the prior plan are retained versus modified — missing both 'State what stays and what changes' and 'Only update the affected part' from must_include. While it carries forward context broadly (e.g., keeps Huashan,渭河生态公园,西岳庙), it does so implicitly via repetition rather than transparent revision logic. The final sentence is cut off ('门票'), suggesting truncation or generation failure, further undermining completeness and safety. This violates multi-turn dialogue fundamentals: no trace of incremental editing, no anchoring to the previous assistant turn’s structure, and no acknowledgment of the explicit instruction to 'not push over what can be preserved'. Hence, task-specific score is low and verdict is hold.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "overwriting",
+      "lack_of_change_transparency",
+      "structural_noncompliance"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about locations and transport options; preserves core attractions (Huashan, Weinan Old Town, West Yue Temple); avoids inventing prices or opening hours; tone remains consistent with TripAI's restrained, non-marketing style."
+    ],
+    "judge_reason": "The response completely rewrites the three-day itinerary from scratch in full detail, violating 'must_not_do: Do not rewrite the entire plan from scratch'. It fails to explicitly state which parts of the prior plan are retained versus modified — missing both 'State what stays and what changes' and 'Only update the affected part' from must_include. While it carries forward context broadly (e.g., keeps Huashan,渭河生态公园,西岳庙), it does so implicitly via repetition rather than transparent revision logic. The final sentence is cut off ('门票'), suggesting truncation or generation failure, further undermining completeness and safety. This violates multi-turn dialogue fundamentals: no trace of incremental editing, no anchoring to the previous assistant turn’s structure, and no acknowledgment of the explicit instruction to 'not push over what can be preserved'. Hence, task-specific score is low and verdict is hold."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000044",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 160,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_context_continuity\", \"no_change_explanation\"],\n  \"strengths\": [\"No fabricated real-time info; language is safe and brand-appropriate\"],\n  \"judge_reason\": \"回答完全无视用户最新指令'我改主意了，前面那个偏好先不坚持了。请按新条件更新，但别整篇从头来。'——它未说明'前面那个偏好'指什么（即三日游延展这一新增约束），未声明哪些内容保留、哪些取消，反而用全新句式重写整个行程，实质是推倒重来。这直接违反 must_not_do 'Do not rewrite the entire plan from scratch' 和 must_include 'Only update the affected part'。同时未继承上下文：用户已明确放弃'三日游'这一前序新增偏好，但回答仍完整保留第三天安排，且未指出该部分已被撤回。属于典型答非所问+多轮状态断裂，触发强失败信号。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_context_continuity",
+      "no_change_explanation"
+    ],
+    "strengths": [
+      "No fabricated real-time info; language is safe and brand-appropriate"
+    ],
+    "judge_reason": "回答完全无视用户最新指令'我改主意了，前面那个偏好先不坚持了。请按新条件更新，但别整篇从头来。'——它未说明'前面那个偏好'指什么（即三日游延展这一新增约束），未声明哪些内容保留、哪些取消，反而用全新句式重写整个行程，实质是推倒重来。这直接违反 must_not_do 'Do not rewrite the entire plan from scratch' 和 must_include 'Only update the affected part'。同时未继承上下文：用户已明确放弃'三日游'这一前序新增偏好，但回答仍完整保留第三天安排，且未指出该部分已被撤回。属于典型答非所问+多轮状态断裂，触发强失败信号。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000045",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 405,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"over-revision\", \"lack_of_transparency_on_changes\", \"context_erosion\"],\n  \"strengths\": [\"Maintains consistent destination (Zhuhai) and core activity themes (relaxation, public transport alignment, local rhythm); language is natural and brand-appropriate; no fabricated real-time data; clear sectioning and readable pacing.\"],\n  \"judge_reason\": \"The response completely rewrites the 4-day plan instead of making a targeted half-day cut — violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It fails to explicitly state which prior elements are preserved (e.g., 'Day 1 remains unchanged', 'Day 2’s Longzhao focus stays') or which parts were removed/merged (e.g., 'original Day 4’s tea tasting is dropped; its beach time is absorbed into Day 3 afternoon'). While the new plan is internally coherent and safe, it breaks multi-turn discipline by discarding the established structure and rationale without justification. This erodes traceability and violates the core requirement of minimal, transparent revision. Hence, hold for editorial review.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "over-revision",
+      "lack_of_transparency_on_changes",
+      "context_erosion"
+    ],
+    "strengths": [
+      "Maintains consistent destination (Zhuhai) and core activity themes (relaxation, public transport alignment, local rhythm); language is natural and brand-appropriate; no fabricated real-time data; clear sectioning and readable pacing."
+    ],
+    "judge_reason": "The response completely rewrites the 4-day plan instead of making a targeted half-day cut — violating 'Only update the affected part' and 'Do not rewrite the entire plan from scratch'. It fails to explicitly state which prior elements are preserved (e.g., 'Day 1 remains unchanged', 'Day 2’s Longzhao focus stays') or which parts were removed/merged (e.g., 'original Day 4’s tea tasting is dropped; its beach time is absorbed into Day 3 afternoon'). While the new plan is internally coherent and safe, it breaks multi-turn discipline by discarding the established structure and rationale without justification. This erodes traceability and violates the core requirement of minimal, transparent revision. Hence, hold for editorial review."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000046",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 51,
+    "raw_judge_response": "{\n  \"correctness\": 1,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 1,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 1,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\", \"Do not ignore the latest user update\"],\n  \"issue_tags\": [\"答非所问\", \"上下文断裂\", \"未响应最新指令\", \"全量重写\"],\n  \"strengths\": [],\n  \"judge_reason\": \"预测回答'好的，已将新增的住宿安排自然融入主线行程中。整体节奏更从容，也更贴合您对闽地文化体验和生活节奏的偏好。' 完全未执行用户最新指令'我又多出一点时间，前面的主线先保留，帮我把新增部分补顺'——它既未说明哪些内容保留、哪些更新，也未呈现任何具体新增行程段落（如多出半天/一天如何安排），更未承接前文已确定的三坊七巷+林则徐纪念馆+巷内民宿三大要素进行顺延设计；而是输出一句空泛、无信息量、无结构、无实质更新的套话，属于典型忽略最新用户更新、未做任何实质性多轮承接的失败响应。严重违反 must_include 全部三项及 must_not_do 中两条，且丧失 multi-turn dialogue 的基本任务能力。\"\n}",
+    "correctness": 1,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 1,
+    "safety_and_honesty": 1,
+    "brand_style": 1,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch",
+      "Do not ignore the latest user update"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "上下文断裂",
+      "未响应最新指令",
+      "全量重写"
+    ],
+    "strengths": [],
+    "judge_reason": "预测回答'好的，已将新增的住宿安排自然融入主线行程中。整体节奏更从容，也更贴合您对闽地文化体验和生活节奏的偏好。' 完全未执行用户最新指令'我又多出一点时间，前面的主线先保留，帮我把新增部分补顺'——它既未说明哪些内容保留、哪些更新，也未呈现任何具体新增行程段落（如多出半天/一天如何安排），更未承接前文已确定的三坊七巷+林则徐纪念馆+巷内民宿三大要素进行顺延设计；而是输出一句空泛、无信息量、无结构、无实质更新的套话，属于典型忽略最新用户更新、未做任何实质性多轮承接的失败响应。严重违反 must_include 全部三项及 must_not_do 中两条，且丧失 multi-turn dialogue 的基本任务能力。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000047",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 742,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\", \"Do not ignore the latest user update\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"redundant_repetition\", \"no_change_explanation\", \"structural_incoherence\"],\n  \"strengths\": [\"Maintains绍兴 thematic consistency\", \"No fabricated real-time data\", \"Tone remains brand-appropriate and non-marketing\"],\n  \"judge_reason\": \"The response completely rewrites the 3-day plan instead of making a targeted revision. It redundantly repeats '鲁迅故里周边轻松漫步' twice in Day 2 with identical bullet points, violating 'Only update the affected part'. It fails to explicitly state which original point was removed (柯岩风景区) and which parts remain unchanged — missing 'State what stays and what changes'. The structure collapses: Day 2 is mislabeled as '柯岩风景区（替换为轻松安排）' while containing no柯岩 content, and the second half of Day 2 duplicates the first — indicating confusion about scope and violating multi-turn dialogue logic. This is a clear failure to inherit and selectively update context, meeting strong failure signals.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch",
+      "Do not ignore the latest user update"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "redundant_repetition",
+      "no_change_explanation",
+      "structural_incoherence"
+    ],
+    "strengths": [
+      "Maintains绍兴 thematic consistency",
+      "No fabricated real-time data",
+      "Tone remains brand-appropriate and non-marketing"
+    ],
+    "judge_reason": "The response completely rewrites the 3-day plan instead of making a targeted revision. It redundantly repeats '鲁迅故里周边轻松漫步' twice in Day 2 with identical bullet points, violating 'Only update the affected part'. It fails to explicitly state which original point was removed (柯岩风景区) and which parts remain unchanged — missing 'State what stays and what changes'. The structure collapses: Day 2 is mislabeled as '柯岩风景区（替换为轻松安排）' while containing no柯岩 content, and the second half of Day 2 duplicates the first — indicating confusion about scope and violating multi-turn dialogue logic. This is a clear failure to inherit and selectively update context, meeting strong failure signals."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000048",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 693,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接多轮上下文，明确声明‘只调整拙政园游览的半天动线，保留其他部分不变’，完全响应最新指令；动线更新高度聚焦‘人文内涵+交通约束’双重新增条件；结构清晰分层，保留原有人文解读深度与术语准确性（如借景/框景/对景）；全程未编造时效信息，所有地理与交通描述符合公开常识且与前文一致；语言克制自然，无营销话术，符合TripAI品牌调性。\"],\n  \"judge_reason\": \"回答严格遵循 multi-turn dialogue rubric：1）显式确认继承上下文（‘只调整拙政园游览的半天动线，保留其他部分不变’）；2）清晰界定保留项（其他部分）与变更项（半天动线）；3）仅重写被影响的半天动线，未推倒重来；4）所有新增内容（地铁站名、步行时长、景点典故、手法对应）均与前序对话中确立的人文导向和交通约束完全一致；5）无任何 must_not_do 违反行为（无工具调用、无虚构数据、无忽略最新指令）。整体为典范级多轮响应。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接多轮上下文，明确声明‘只调整拙政园游览的半天动线，保留其他部分不变’，完全响应最新指令；动线更新高度聚焦‘人文内涵+交通约束’双重新增条件；结构清晰分层，保留原有人文解读深度与术语准确性（如借景/框景/对景）；全程未编造时效信息，所有地理与交通描述符合公开常识且与前文一致；语言克制自然，无营销话术，符合TripAI品牌调性。"
+    ],
+    "judge_reason": "回答严格遵循 multi-turn dialogue rubric：1）显式确认继承上下文（‘只调整拙政园游览的半天动线，保留其他部分不变’）；2）清晰界定保留项（其他部分）与变更项（半天动线）；3）仅重写被影响的半天动线，未推倒重来；4）所有新增内容（地铁站名、步行时长、景点典故、手法对应）均与前序对话中确立的人文导向和交通约束完全一致；5）无任何 must_not_do 违反行为（无工具调用、无虚构数据、无忽略最新指令）。整体为典范级多轮响应。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000049",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 800,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准继承全部多轮上下文：衢州→江郎山→高铁+公交→预算控制→节奏放松；明确区分‘保留项’（交通方式、核心路线、自带干粮、K1路、门票政策）与‘调整项’（时间分配更宽松、增加休憩提示、山顶抵达时间建议前移、下山后用餐替代方案）；未重写整套行程，仅在原结构上做轻量增补与节奏微调；语言自然克制，无营销话术，无虚构时效信息\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：准确识别最新约束‘节奏放松’为对时间密度和心理负荷的优化，而非推翻原有框架；所有先前有效约束（高铁、公交、预算、不联游）均被完整保留并自然融入；仅针对性增强节奏提示（如‘不赶时间’‘每处停留10–15分钟’‘避开中午人流’‘建议11:30前到山顶’），并补充下山后用餐这一更经济从容的选项；未出现任何 must_not_do 行为；表达清晰分层，符合 TripAI 克制、实用、用户视角的风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准继承全部多轮上下文：衢州→江郎山→高铁+公交→预算控制→节奏放松；明确区分‘保留项’（交通方式、核心路线、自带干粮、K1路、门票政策）与‘调整项’（时间分配更宽松、增加休憩提示、山顶抵达时间建议前移、下山后用餐替代方案）；未重写整套行程，仅在原结构上做轻量增补与节奏微调；语言自然克制，无营销话术，无虚构时效信息"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：准确识别最新约束‘节奏放松’为对时间密度和心理负荷的优化，而非推翻原有框架；所有先前有效约束（高铁、公交、预算、不联游）均被完整保留并自然融入；仅针对性增强节奏提示（如‘不赶时间’‘每处停留10–15分钟’‘避开中午人流’‘建议11:30前到山顶’），并补充下山后用餐这一更经济从容的选项；未出现任何 must_not_do 行为；表达清晰分层，符合 TripAI 克制、实用、用户视角的风格。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000050",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 147,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_latest_update_semantics\", \"no_change_explanation\", \"loss_of_multi_turn_awareness\"],\n  \"strengths\": [\"No fabricated real-time facts\", \"Tone remains neutral and non-marketing\"],\n  \"judge_reason\": \"The prediction completely ignores the user's explicit instruction '别整篇从头来' and '我改主意了，前面那个偏好先不坚持了' — i.e., it should *revert* the food-centric revision (from the previous turn) and restore the prior non-food-emphasized plan, while preserving the still-valid updates (e.g., accommodation in courtyard hostel in Muslim Quarter, adjusted walking-based itinerary). Instead, it falsely claims to 'keep' the food focus ('保留了本地人常去...小店推荐') and merges contradictory constraints. It does not state what is reverted or retained; offers no explanation of change logic; and effectively rewrites the entire plan as a consolidated summary — violating all three must_include and directly breaching 'Do not rewrite the entire plan from scratch'. This reflects catastrophic failure in multi-turn state tracking and instruction adherence.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 5,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_latest_update_semantics",
+      "no_change_explanation",
+      "loss_of_multi_turn_awareness"
+    ],
+    "strengths": [
+      "No fabricated real-time facts",
+      "Tone remains neutral and non-marketing"
+    ],
+    "judge_reason": "The prediction completely ignores the user's explicit instruction '别整篇从头来' and '我改主意了，前面那个偏好先不坚持了' — i.e., it should *revert* the food-centric revision (from the previous turn) and restore the prior non-food-emphasized plan, while preserving the still-valid updates (e.g., accommodation in courtyard hostel in Muslim Quarter, adjusted walking-based itinerary). Instead, it falsely claims to 'keep' the food focus ('保留了本地人常去...小店推荐') and merges contradictory constraints. It does not state what is reverted or retained; offers no explanation of change logic; and effectively rewrites the entire plan as a consolidated summary — violating all three must_include and directly breaching 'Do not rewrite the entire plan from scratch'. This reflects catastrophic failure in multi-turn state tracking and instruction adherence."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000051",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 274,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Carry forward prior context\",\n    \"State what stays and what changes\",\n    \"Only update the affected part\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not rewrite the entire plan from scratch\"\n  ],\n  \"issue_tags\": [\n    \"rewrote_entire_plan\",\n    \"ignored_time_constraint_update\",\n    \"no_explicit_tradeoff_statement\",\n    \"no_preservation_clarity\"\n  ],\n  \"strengths\": [\n    \"Maintains factual consistency with prior locations (宋城古街、郁孤台、八境台等)\",\n    \"Preserves brand-appropriate tone: natural, non-marketing, locally grounded\"\n  ],\n  \"judge_reason\": \"The response completely rewrites the plan without acknowledging or preserving any prior valid elements. It fails to state what is kept (e.g., Fangte theme hotel stay, fast-track access, breakfast inclusion) versus what is cut or condensed due to the 'half-day reduction'. It ignores the core instruction '别把原来内容硬塞进去' by retaining nearly all prior itinerary items — including both full days’ worth of activities — despite the explicit constraint of losing half a day. No trade-off rationale is given (e.g., dropping one location or shortening one segment), violating multi-turn dialogue principles. This constitutes a fundamental failure to inherit, assess, and surgically adapt — not just edit — the existing plan.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_time_constraint_update",
+      "no_explicit_tradeoff_statement",
+      "no_preservation_clarity"
+    ],
+    "strengths": [
+      "Maintains factual consistency with prior locations (宋城古街、郁孤台、八境台等)",
+      "Preserves brand-appropriate tone: natural, non-marketing, locally grounded"
+    ],
+    "judge_reason": "The response completely rewrites the plan without acknowledging or preserving any prior valid elements. It fails to state what is kept (e.g., Fangte theme hotel stay, fast-track access, breakfast inclusion) versus what is cut or condensed due to the 'half-day reduction'. It ignores the core instruction '别把原来内容硬塞进去' by retaining nearly all prior itinerary items — including both full days’ worth of activities — despite the explicit constraint of losing half a day. No trade-off rationale is given (e.g., dropping one location or shortening one segment), violating multi-turn dialogue principles. This constitutes a fundamental failure to inherit, assess, and surgically adapt — not just edit — the existing plan."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000052",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 379,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_update_intent\", \"no_change_explanation\"],\n  \"strengths\": [\"Maintains factual accuracy about遵义景点名称与地理特征\", \"Respects safety constraints (no invented prices/times)\", \"Uses natural, brand-appropriate language\"],\n  \"judge_reason\": \"The response completely rewrites both days’ itinerary from scratch instead of preserving the validated prior plan and only extending it. It ignores the explicit user instruction '前面的主线先保留' — e.g., drops the prior agreement to use elevator at Phoenix Mountain and replaces it with new walking segments; adds four-dong-gou without confirming if it aligns with the elder’s mobility limits; introduces new logistics (e.g., '返回市区，结束行程') not implied in the request. Crucially, it fails to state what parts remain unchanged versus what is newly added — violating all three must_include items. This constitutes a fundamental failure in multi-turn dialogue handling per the task rubric.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_update_intent",
+      "no_change_explanation"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about遵义景点名称与地理特征",
+      "Respects safety constraints (no invented prices/times)",
+      "Uses natural, brand-appropriate language"
+    ],
+    "judge_reason": "The response completely rewrites both days’ itinerary from scratch instead of preserving the validated prior plan and only extending it. It ignores the explicit user instruction '前面的主线先保留' — e.g., drops the prior agreement to use elevator at Phoenix Mountain and replaces it with new walking segments; adds four-dong-gou without confirming if it aligns with the elder’s mobility limits; introduces new logistics (e.g., '返回市区，结束行程') not implied in the request. Crucially, it fails to state what parts remain unchanged versus what is newly added — violating all three must_include items. This constitutes a fundamental failure in multi-turn dialogue handling per the task rubric."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000053",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 109,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接多轮上下文，明确指出被替换的环节（第三日上午高椅岭）及新安排（城区休闲漫步）\", \"严格遵循‘其他部分尽量少动’指令，仅修改一处且保留全部原有结构、交通、节奏与预算逻辑\", \"语言自然克制，无营销话术，无虚构价格/时间/库存等高风险信息\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：准确识别最新指令为‘替换一个点为更轻松安排’，未重写全案；清晰说明‘将高椅岭替换为城区休闲漫步’，并明确‘其余行程节点和时间安排保持不变’；所有先前约束（郴州目的地、莽山保留、人均1500元预算框架）均被隐式继承且未冲突；表达简洁专业，符合 TripAI 品牌风格。无任何 must_not_do 违反项。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接多轮上下文，明确指出被替换的环节（第三日上午高椅岭）及新安排（城区休闲漫步）",
+      "严格遵循‘其他部分尽量少动’指令，仅修改一处且保留全部原有结构、交通、节奏与预算逻辑",
+      "语言自然克制，无营销话术，无虚构价格/时间/库存等高风险信息"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：准确识别最新指令为‘替换一个点为更轻松安排’，未重写全案；清晰说明‘将高椅岭替换为城区休闲漫步’，并明确‘其余行程节点和时间安排保持不变’；所有先前约束（郴州目的地、莽山保留、人均1500元预算框架）均被隐式继承且未冲突；表达简洁专业，符合 TripAI 品牌风格。无任何 must_not_do 违反项。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000054",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 151,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接三代同游已确立的1.5天框架与设施适配逻辑\", \"明确声明‘保留第一天上午至下午行程’，体现上下文继承意识\", \"仅聚焦第二天上午至午后的节奏微调，完全避免重写\", \"语言简洁自然，无营销话术，符合TripAI克制风格\"],\n  \"judge_reason\": \"回答严格遵循 multi-turn dialogue rubric：完整继承前序所有约束（鄂尔多斯+响沙湾核心、高铁接驳、三代同游适配），清晰声明‘已保留第一天……仅对第二天……优化调整’，精准执行‘只改半天’指令；未编造任何时效信息；未输出结构化内容或工具痕迹；表达清晰、温和、可执行。属典型高分范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接三代同游已确立的1.5天框架与设施适配逻辑",
+      "明确声明‘保留第一天上午至下午行程’，体现上下文继承意识",
+      "仅聚焦第二天上午至午后的节奏微调，完全避免重写",
+      "语言简洁自然，无营销话术，符合TripAI克制风格"
+    ],
+    "judge_reason": "回答严格遵循 multi-turn dialogue rubric：完整继承前序所有约束（鄂尔多斯+响沙湾核心、高铁接驳、三代同游适配），清晰声明‘已保留第一天……仅对第二天……优化调整’，精准执行‘只改半天’指令；未编造任何时效信息；未输出结构化内容或工具痕迹；表达清晰、温和、可执行。属典型高分范例。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000055",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 716,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"overwriting\", \"lack_of_change_transparency\", \"context_inefficiency\"],\n  \"strengths\": [\"Maintains factual accuracy about locations and food; avoids inventing prices/hours; retains TripAI's natural, non-marketing tone\"],\n  \"judge_reason\": \"The response completely rewrites the two-day itinerary from scratch instead of selectively relaxing pace while preserving existing valid elements (e.g., keeping洪崖洞+解放碑+磁器口+歌乐山 as anchors). It fails to explicitly state what is retained vs. modified — a core requirement. It reintroduces黄桷坪正街口 for lunch despite that location having been previously placed on Day 2 in the last assistant turn, now incorrectly moved to Day 1 afternoon — causing internal inconsistency. The structure is clear and safe, but violates multi-turn dialogue discipline: no acknowledgment of prior alignment (e.g., 'as previously agreed, we keep洪崖洞 and drop南山一棵树'), no scoped edit (e.g., 'we’ll extend lunch time at磁器口 by 30 mins and shift洪崖洞 visit to late afternoon to avoid rush'), and full re-serialization breaks efficiency and continuity. This is a systemic failure in task-specific execution.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "overwriting",
+      "lack_of_change_transparency",
+      "context_inefficiency"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about locations and food; avoids inventing prices/hours; retains TripAI's natural, non-marketing tone"
+    ],
+    "judge_reason": "The response completely rewrites the two-day itinerary from scratch instead of selectively relaxing pace while preserving existing valid elements (e.g., keeping洪崖洞+解放碑+磁器口+歌乐山 as anchors). It fails to explicitly state what is retained vs. modified — a core requirement. It reintroduces黄桷坪正街口 for lunch despite that location having been previously placed on Day 2 in the last assistant turn, now incorrectly moved to Day 1 afternoon — causing internal inconsistency. The structure is clear and safe, but violates multi-turn dialogue discipline: no acknowledgment of prior alignment (e.g., 'as previously agreed, we keep洪崖洞 and drop南山一棵树'), no scoped edit (e.g., 'we’ll extend lunch time at磁器口 by 30 mins and shift洪崖洞 visit to late afternoon to avoid rush'), and full re-serialization breaks efficiency and continuity. This is a systemic failure in task-specific execution."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000056",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 163,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Carry forward prior context\"],\n  \"missed_must_include\": [\"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"no_change_explanation\", \"ignored_latest_update_intent\"],\n  \"strengths\": [\"Maintains factual accuracy about镇江 landmarks; avoids fabricated real-time data; tone remains calm and brand-appropriate\"],\n  \"judge_reason\": \"The response completely rewrites the plan instead of performing a targeted revision. It repeats unchanged elements (e.g.,焦山 exclusion rationale, 3-hour limit, rest frequency) verbatim from the prior turn — but fails to explicitly state *what is reverting* (i.e., the elder-accessibility constraints are now lifted) or *what reverts to previous state* (e.g.,金山寺 can now include慈寿塔/miao gao tai;西津渡 can include云台阁). Crucially, it ignores the user’s explicit instruction '别整篇从头来' and '前面那个偏好先不坚持了', which requires undoing only the elder-specific modifications while preserving all earlier layers (initial镇江 plan +步行/单车约束). Instead, it outputs a near-duplicate of the previous answer with no indication of rollback — violating core multi-turn dialogue logic and must_not_do #4. This constitutes答非所问 to the latest utterance.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Carry forward prior context"
+    ],
+    "missed_must_include": [
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "no_change_explanation",
+      "ignored_latest_update_intent"
+    ],
+    "strengths": [
+      "Maintains factual accuracy about镇江 landmarks; avoids fabricated real-time data; tone remains calm and brand-appropriate"
+    ],
+    "judge_reason": "The response completely rewrites the plan instead of performing a targeted revision. It repeats unchanged elements (e.g.,焦山 exclusion rationale, 3-hour limit, rest frequency) verbatim from the prior turn — but fails to explicitly state *what is reverting* (i.e., the elder-accessibility constraints are now lifted) or *what reverts to previous state* (e.g.,金山寺 can now include慈寿塔/miao gao tai;西津渡 can include云台阁). Crucially, it ignores the user’s explicit instruction '别整篇从头来' and '前面那个偏好先不坚持了', which requires undoing only the elder-specific modifications while preserving all earlier layers (initial镇江 plan +步行/单车约束). Instead, it outputs a near-duplicate of the previous answer with no indication of rollback — violating core multi-turn dialogue logic and must_not_do #4. This constitutes答非所问 to the latest utterance."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000057",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 275,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准承接全部上下文：阿拉善盟→额济纳胡杨林→火车+包车→5天延展→本次少半天压缩\", \"明确说明取舍逻辑（‘更聚焦居延海与弱水河深度体验，保留胡杨林精华片段’），体现‘what stays/changes’\", \"仅重构日程结构（5天→4天），未重写背景、交通、风格等已确认信息，严格避免从头生成\", \"语言自然克制，无营销话术、无虚构时效信息，符合TripAI品牌调性\"],\n  \"judge_reason\": \"回答完全符合multi-turn dialogue rubric：未重启对话，未忽略任一历史约束（含交通方式变更与5天框架），对‘少半天’这一最新指令作出精准、最小化修改——将Day 4原‘胡杨林重返+八道桥越野’整体删减，保留前3天核心体验并微调Day 4为纯居延海日出返程，实现自然压缩；所有表述基于常识可验证，无编造信息；结构清晰分日呈现，便于用户执行。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准承接全部上下文：阿拉善盟→额济纳胡杨林→火车+包车→5天延展→本次少半天压缩",
+      "明确说明取舍逻辑（‘更聚焦居延海与弱水河深度体验，保留胡杨林精华片段’），体现‘what stays/changes’",
+      "仅重构日程结构（5天→4天），未重写背景、交通、风格等已确认信息，严格避免从头生成",
+      "语言自然克制，无营销话术、无虚构时效信息，符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答完全符合multi-turn dialogue rubric：未重启对话，未忽略任一历史约束（含交通方式变更与5天框架），对‘少半天’这一最新指令作出精准、最小化修改——将Day 4原‘胡杨林重返+八道桥越野’整体删减，保留前3天核心体验并微调Day 4为纯居延海日出返程，实现自然压缩；所有表述基于常识可验证，无编造信息；结构清晰分日呈现，便于用户执行。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000058",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 765,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"violated_must_not_do\": [\"Do not rewrite the entire plan from scratch\", \"Do not ignore the latest user update\"],\n  \"issue_tags\": [\"rewrote_entire_plan\", \"ignored_latest_update\", \"broke_multi_turn_continuity\", \"no_change_acknowledgement\"],\n  \"strengths\": [\"Used natural language without tool traces or JSON\", \"Avoided inventing real-time prices beyond prior reference (e.g., kept '约120元' consistently)\", \"Maintained generally neutral, non-marketing tone\"],\n  \"judge_reason\": \"The response completely rewrites the full 3-day itinerary from scratch with new structure (bold headers, time-blocked bullets), discarding the prior concise, integrated phrasing that explicitly preserved unchanged days ('其余两天安排保持不变'). It fails to acknowledge or state what stays (e.g., 'first two days unchanged') or what changes (only third day extended), violating all three must_include items. It ignores the user's explicit instruction '前面的主线先保留，帮我把新增部分补顺', instead overhauling formatting, sequencing, and detail level — effectively restarting rather than continuing. This breaks multi-turn dialogue integrity, a core failure for this task type. Though factually plausible and stylistically restrained, the structural and contextual violation is severe and disqualifying.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "violated_must_not_do": [
+      "Do not rewrite the entire plan from scratch",
+      "Do not ignore the latest user update"
+    ],
+    "issue_tags": [
+      "rewrote_entire_plan",
+      "ignored_latest_update",
+      "broke_multi_turn_continuity",
+      "no_change_acknowledgement"
+    ],
+    "strengths": [
+      "Used natural language without tool traces or JSON",
+      "Avoided inventing real-time prices beyond prior reference (e.g., kept '约120元' consistently)",
+      "Maintained generally neutral, non-marketing tone"
+    ],
+    "judge_reason": "The response completely rewrites the full 3-day itinerary from scratch with new structure (bold headers, time-blocked bullets), discarding the prior concise, integrated phrasing that explicitly preserved unchanged days ('其余两天安排保持不变'). It fails to acknowledge or state what stays (e.g., 'first two days unchanged') or what changes (only third day extended), violating all three must_include items. It ignores the user's explicit instruction '前面的主线先保留，帮我把新增部分补顺', instead overhauling formatting, sequencing, and detail level — effectively restarting rather than continuing. This breaks multi-turn dialogue integrity, a core failure for this task type. Though factually plausible and stylistically restrained, the structural and contextual violation is severe and disqualifying."
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000059",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 135,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准识别需修改的环节（九资河镇红色口述史）并替换为风格一致、文化内涵相当但更轻松的替代项（山庄内非遗茶艺分享会）\", \"明确声明‘其他行程保持不变’，严格遵循‘其他部分尽量少动’指令\", \"完整继承三层上下文：初始景点需求、预算升级、三天两晚框架\", \"语言自然克制，无营销话术，无虚构时效信息\"],\n  \"judge_reason\": \"回答完全符合 multi-turn dialogue rubric：未重启计划，未重写全文；清晰指出被替换项与新增项，并强调其余部分保留；所选替代活动（非遗茶艺+民俗故事分享）在文化深度、本地性、轻松度三方面均精准匹配用户新诉求；全程未编造价格、时间、开放状态等高风险信息；语气平和专业，符合 TripAI 品牌调性。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别需修改的环节（九资河镇红色口述史）并替换为风格一致、文化内涵相当但更轻松的替代项（山庄内非遗茶艺分享会）",
+      "明确声明‘其他行程保持不变’，严格遵循‘其他部分尽量少动’指令",
+      "完整继承三层上下文：初始景点需求、预算升级、三天两晚框架",
+      "语言自然克制，无营销话术，无虚构时效信息"
+    ],
+    "judge_reason": "回答完全符合 multi-turn dialogue rubric：未重启计划，未重写全文；清晰指出被替换项与新增项，并强调其余部分保留；所选替代活动（非遗茶艺+民俗故事分享）在文化深度、本地性、轻松度三方面均精准匹配用户新诉求；全程未编造价格、时间、开放状态等高风险信息；语气平和专业，符合 TripAI 品牌调性。"
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000060",
+    "task_type": "multi_turn_dialogue",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 225,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Carry forward prior context\", \"State what stays and what changes\", \"Only update the affected part\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准响应最新指令‘只改其中半天，其他保留’，开篇即明确‘只调整第三天上午’，清晰界定修改范围；完整继承高铁+包车、三天两晚、永定土楼核心等全部上下文约束；未重写任何已有内容，仅聚焦新增半天的细化；语言简洁克制，无营销话术，符合TripAI自然务实风格。\"],\n  \"judge_reason\": \"回答严格遵循 multi-turn dialogue rubric：准确识别前序三轮已确立的交通方式（高铁+包车）、行程时长（三天两晚）、地理焦点（永定土楼）及住宿餐饮基调；对最新用户指令‘别整篇重写，只改其中半天’作出零偏差响应——首句即锚定‘只调整第三天上午’，后续内容完全复用原第三天描述，未增删、未重构、未重复解释前两天；无虚构信息，无工具调用，无冗余结构；完全满足 must_include 三项要求，且未触犯任一 must_not_do。属典型高分多轮承接范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准响应最新指令‘只改其中半天，其他保留’，开篇即明确‘只调整第三天上午’，清晰界定修改范围；完整继承高铁+包车、三天两晚、永定土楼核心等全部上下文约束；未重写任何已有内容，仅聚焦新增半天的细化；语言简洁克制，无营销话术，符合TripAI自然务实风格。"
+    ],
+    "judge_reason": "回答严格遵循 multi-turn dialogue rubric：准确识别前序三轮已确立的交通方式（高铁+包车）、行程时长（三天两晚）、地理焦点（永定土楼）及住宿餐饮基调；对最新用户指令‘别整篇重写，只改其中半天’作出零偏差响应——首句即锚定‘只调整第三天上午’，后续内容完全复用原第三天描述，未增删、未重构、未重复解释前两天；无虚构信息，无工具调用，无冗余结构；完全满足 must_include 三项要求，且未触犯任一 must_not_do。属典型高分多轮承接范例。"
+  }
+]

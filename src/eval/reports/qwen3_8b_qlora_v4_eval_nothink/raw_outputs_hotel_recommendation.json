@@ -1,0 +1,2522 @@
+[
+  {
+    "id": "eval_hotel_recommendation_000001",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "南宁",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "南宁青秀区靠近地铁站和南湖公园的青年旅舍有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '南宁青秀区靠近地铁站和南湖公园的青年旅舍有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (南宁 青秀区), budget, traveler type (budget_trip / city_explore), and priorities such as 交通便利 / 适合泡酒店 / 性价比, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_7812d2eba955",
+    "prediction": "好的，我们先来梳理一下你的需求和推荐逻辑，再给出具体的住宿建议。\n\n---\n\n### 一、推荐逻辑梳理\n\n#### 1. **人群定位**：青年旅舍，说明你更倾向于年轻、预算有限、注重社交体验的旅行者，可能更看重性价比、公共空间、氛围感和结识新朋友的机会。\n\n#### 2. **预算定位**：青年旅舍通常价格亲民，适合预算有限的旅行者，尤其适合短途停留或背包客。\n\n#### 3. **位置优先级**：你明确提到“靠近地铁站”和“南湖公园”，说明你更看重交通便利性和周边环境的舒适性。地铁站意味着通勤方便，南湖公园则提供了休闲放松的空间，适合白天游览或傍晚散步。\n\n#### 4. **出行目的**：没有明确说明是短途停留还是长期住宿，但结合青年旅舍的特点，推测可能是短途旅行、城市探索或文化体验为主。\n\n#### 5. **偏好倾向**：更看重交通便利、周边环境、公共空间和社交氛围，而不是豪华设施或私人房间。\n\n---\n\n### 二、推荐建议\n\n基于以上逻辑，我们优先推荐**靠近地铁站、靠近南湖公园、交通便利、环境舒适、适合青年旅舍风格的住宿**。\n\n#### ✅ **推荐类型**：青年旅舍 / 青旅 / 共享住宿 / 青年友好型民宿\n\n#### ✅ **推荐关键词**：地铁站步行可达、南湖公园步行可达、公共空间丰富、社交氛围好、价格亲民\n\n---\n\n### 三、推荐住宿建议（按优先级排序）\n\n#### 1. **南宁青秀区青年旅舍（地铁站附近）**\n- **位置**：靠近地铁站（如地铁1号线或2号线），步行可达，交通便利。\n- **推荐理由**：这类旅舍通常位于地铁口附近，方便换乘和周边出行；内部有公共厨房、休息区、活动室，适合喜欢社交的旅行者；价格通常在100-200元/晚之间，性价比高。\n- **适合人群**：预算有限、喜欢结识朋友、注重交通便利性的旅行者。\n\n#### 2. **南宁南湖公园周边青年旅舍**\n- **位置**：靠近南湖公园，步行可达，环境优美。\n- **推荐理由**：这类旅舍通常",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000002",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "天津",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "宁河区芦台镇附近交通方便的住宿有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '宁河区芦台镇附近交通方便的住宿有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (天津 宁河区), budget, traveler type (中转 / 老人), and priorities such as 交通便利 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_4667a6b1b2d8",
+    "prediction": "宁河区芦台镇位于天津市宁河区，是该区的行政中心，周边交通相对便利，适合短途出行或中转。如果用户更看重交通便利性，优先考虑靠近公交站点、地铁站或主要干道的住宿，会更符合出行需求。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000003",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "上海浦东新区地铁2号线川沙站附近，适合中转短住的青年公寓有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '上海浦东新区地铁2号线川沙站附近，适合中转短住的青年公寓有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 浦东新区), budget, traveler type (中转), and priorities such as 交通便利 / 中转方便 / 性价比, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_ea256a817f58",
+    "prediction": "在上海浦东新区地铁2号线川沙站附近，适合中转短住的青年公寓确实有选择，这类住宿通常以性价比高、生活便利、适合短暂停留为特点。以下是一些推荐方向和取舍建议，供你参考：\n\n---\n\n### ✅ **推荐方向：青年公寓类住宿**\n\n这类公寓通常提供基础生活设施（如厨房、洗衣机、独立卫浴），适合中转短住、出差或短途旅行的人群。它们通常位于地铁站附近或步行可达范围内，方便换乘和周边出行。\n\n#### 1. **靠近地铁站的青年公寓**\n- **推荐理由**：步行5-10分钟即可到达川沙站，方便换乘2号线、10号线等线路，适合需要频繁换乘或短暂停留的人。\n- **便利性**：通常配备共享厨房、洗衣房、公共休息区，适合多人合住或单人短住。\n- **适合人群**：出差、中转、短途旅行者。\n\n#### 2. **周边生活配套完善的公寓**\n- **推荐理由**：这类公寓通常位于川沙站周边生活区，周边有便利店、餐饮、超市、药店等，生活便利。\n- **便利性**：步行可达周边生活设施，适合需要短暂停留、不想频繁外出的人。\n- **适合人群**：中转短住、临时办公、短途旅行者。\n\n---\n\n### ❌ **需注意的取舍与限制**\n\n#### 1. **位置与通勤时间**\n- 川沙站位于浦东新区，虽然地铁2号线直达市区，但周边公共交通相对较少，若需频繁往返市区，可能需要依赖地铁或打车。\n- **建议**：优先选择步行可达地铁站的公寓，避免因交通不便影响行程安排。\n\n#### 2. **设施与隐私**\n- 青年公寓通常为合租或共享空间，隐私性不如独立酒店或民宿。\n- **建议**：如果对隐私有较高要求，建议优先考虑独立酒店或民宿，而非合租公寓。\n\n#### 3. **周边环境与安全性**\n- 川沙站周边属于浦东新区的中等生活区，整体环境较为安静，但需注意夜间出行安全。\n- **建议**：尽量选择有门禁、监控、24小时安保的公寓，确保夜间安全。\n\n---\n\n### ✅ **总结建议**\n\n如果你计划在浦东新区短暂停留，",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000004",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "东莞",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "沙田镇那边住哪里方便坐公交中转？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '沙田镇那边住哪里方便坐公交中转？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (东莞 沙田镇), budget, traveler type (中转), and priorities such as 交通便利 / 适合泡酒店 / 中转方便, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_4079a2a851bb",
+    "prediction": "在沙田镇选择住宿时，优先考虑靠近公交站点或地铁站的位置，能有效提升出行效率，尤其适合需要频繁中转的旅客。以下是一些更合适的住法建议：\n\n### 1. **靠近公交枢纽或地铁站的区域**\n   - **推荐理由**：沙田镇本身是东莞的一个交通枢纽，周边有多条公交线路和地铁连接（如东莞地铁2号线、东莞地铁1号线等），靠近公交枢纽或地铁站的住宿，能方便地换乘到市区、虎门、长安、深圳等地。\n   - **适合人群**：频繁需要中转、通勤或短途出行的旅客。\n   - **推荐区域**：如沙田镇中心、沙田地铁站附近、沙田公交总站附近等。\n\n### 2. **靠近主要道路或生活配套的区域**\n   - **推荐理由**：这类区域通常交通便利，周边有便利店、餐饮、超市等生活设施，适合短暂停留或中转住宿。\n   - **适合人群**：更看重生活便利性，而非纯粹交通效率的旅客。\n   - **推荐区域**：如沙田大道沿线、沙田镇文化广场附近等。\n\n### 3. **靠近景点或商业区的区域**\n   - **推荐理由**：如果计划在沙田镇周边游览景点（如沙田湿地公园、沙田镇文化广场等），住在靠近景点或商业区的区域，可以减少换乘时间，更方便安排行程。\n   - **适合人群**：以休闲、观光为主的旅客。\n   - **推荐区域**：如沙田镇文化广场、沙田湿地公园附近等。\n\n### 4. **避开偏远或交通不便的区域**\n   - **推荐理由**：远离主干道或公交站点的住宿，虽然可能更安静，但出行不便，尤其不适合需要频繁中转的旅客。\n   - **适合人群**：对交通要求不高、更看重环境或价格的旅客。\n\n### 总结建议：\n在沙田镇选择住宿时，优先考虑靠近公交枢纽、地铁站或生活配套的区域，能有效提升出行效率和便利性。如果更看重生活便利性或周边景点，也可以适当向市中心或文化区靠拢。同时，建议提前查看公交线路和地铁时刻表，确保行程安排更顺畅。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000005",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽江",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "丽江火车站附近适合短住中转的客栈有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '丽江火车站附近适合短住中转的客栈有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (丽江 玉龙纳西族自治县), budget, traveler type (中转), and priorities such as 景区周边 / 交通便利 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_dd580e80c9b2",
+    "prediction": "当然可以。在丽江火车站附近寻找适合短住中转的客栈，主要需要考虑几个核心因素：**交通便利性、安全性、基础舒适度、周边配套**，以及**是否适合中转停留**。以下是我推荐这类客栈的逻辑框架：\n\n---\n\n### 一、优先考虑交通便利性\n\n丽江火车站是进出丽江的主要门户，尤其对于中转旅客来说，**离火车站近**意味着更少的换乘和更少的等待时间。因此，优先推荐位于火车站步行5-10分钟范围内的客栈，这类位置通常更符合中转旅客的需求。\n\n---\n\n### 二、安全性与环境稳定\n\n火车站周边通常人流密集，治安相对复杂，因此客栈的位置应尽量避开过于嘈杂或治安隐患较大的区域。优先选择**靠近火车站但又不直接在火车站内部或门口**的区域，这类位置通常更安静、更安全，也更容易找到休息和放松的空间。\n\n---\n\n### 三、基础舒适度与设施\n\n中转旅客通常不需要太复杂的住宿体验，但**基本的舒适度和卫生条件**是必须的。推荐选择有独立卫浴、空调、免费WiFi、24小时热水供应的客栈。同时，尽量避免选择过于老旧或设施简陋的住宿，以免影响休息和体验。\n\n---\n\n### 四、周边配套与生活便利性\n\n虽然中转旅客可能不会长时间停留，但**周边是否有基本的生活配套**（如便利店、小吃店、小超市）会提升整体体验。如果客栈附近有小餐馆或小吃摊，可以方便中转时简单用餐或补充能量。\n\n---\n\n### 五、是否适合中转停留\n\n中转旅客通常只在丽江短暂停留，因此住宿不宜太豪华，但也不能太简陋。推荐选择**风格温馨、有本地特色、服务友好**的客栈，这类客栈往往更符合丽江的氛围，也更容易让旅客在短暂停留时感受到当地的文化和人情味。\n\n---\n\n### 六、避开的潜在问题\n\n- **过于靠近火车站门口**：容易受到进出站人流的干扰，影响休息。\n- **位置偏僻、交通不便**：虽然可能更安静，但会增加出行成本和时间。\n- **设施老旧、卫生条件差**：可能影响整体体验，尤其在短暂停留时。\n\n---\n\n### 总结推荐逻辑\n\n在丽江火车站附近寻找适合短住中转的客栈，应优先考虑**交通便利",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000006",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "北京",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "大兴机场附近安静又方便中转的住宿有啥推荐？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '大兴机场附近安静又方便中转的住宿有啥推荐？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (北京 大兴区), budget, traveler type (中转), and priorities such as 中转方便 / 交通便利 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_443aaba9a6b2",
+    "prediction": "大兴机场附近安静又方便中转的住宿，通常需要满足几个关键点：一是靠近机场，方便快速进出；二是周边环境相对安静，避免机场噪音干扰；三是交通便利，尤其是地铁或公交接驳方便，方便中转或前往市区；四是住宿环境舒适，适合短暂停留或中转休息。综合来看，这类住宿更适合中转旅客、短途出差或需要快速往返机场的人群。\n\n因此，这类住宿更倾向于选择机场周边的中端或经济型酒店，通常位于机场内部或紧邻机场出口，步行或短途车程即可到达地铁站或公交站点。这类住宿通常不设大型娱乐设施，但会提供基本的休息空间、免费WiFi、行李寄存等服务，适合中转旅客快速休息和换乘。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000007",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "easy",
+    "tags": [
+      "南宁",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "南宁兴宁区靠近地铁站、适合中转住宿的地方有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '南宁兴宁区靠近地铁站、适合中转住宿的地方有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (南宁 兴宁区), budget, traveler type (中转), and priorities such as 交通便利 / 中转方便, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_1494931b710d",
+    "prediction": "南宁兴宁区靠近地铁站、适合中转住宿的地方确实有不少选择，尤其适合需要短暂停留、换乘或中转的旅客。以下是一些推荐区域和住宿类型，结合便利性和取舍进行说明：\n\n---\n\n### ✅ **推荐区域：兴宁区核心地段（如朝阳路、民族大道沿线）**\n\n#### 1. **朝阳路一带**\n- **地铁便利性**：朝阳路站是地铁1号线和2号线的换乘站，交通非常便利，步行可达多个地铁口。\n- **周边配套**：靠近南宁国际民歌艺术节广场、南宁博物馆、广西民族博物馆等文化地标，生活配套成熟。\n- **适合人群**：适合中转、短暂停留、需要换乘或前往市中心的旅客。\n- **取舍说明**：该区域通常价格略高，但位置便利，适合对交通和位置有较高要求的旅客。若预算有限，可考虑周边稍远但地铁直达的区域。\n\n#### 2. **民族大道沿线（靠近兴宁区与青秀区交界）**\n- **地铁便利性**：靠近地铁1号线的民族大道站，步行可达。\n- **周边配套**：靠近南宁国际会展中心、广西大学、南宁师范大学等，适合商务或文化出行。\n- **适合人群**：适合需要前往会展中心、高校或文化场所的旅客。\n- **取舍说明**：该区域交通便利，但部分地段可能更偏向商务区，适合对环境有一定要求的旅客。\n\n---\n\n### ⚠️ **需注意的取舍点**\n\n#### 1. **位置与价格的平衡**\n- 兴宁区核心地段的住宿通常价格较高，尤其是靠近地铁站、文化地标或商业区的位置。\n- 若预算有限，可考虑稍远一点但地铁直达的区域，如靠近地铁2号线的站点，通常价格更亲民，同时仍能保持较高的出行便利性。\n\n#### 2. **周边环境与生活配套**\n- 兴宁区整体生活配套成熟，但部分区域可能更偏向居民区，周边商业氛围相对弱于市中心。\n- 若更看重生活便利性（如餐饮、购物、休闲），建议优先选择靠近地铁站、商圈或文化场所的住宿。\n\n#### 3. **中转与换乘的优先级**\n- 如果您的主要目的是中转或换乘，建议优先选择靠近地铁站、公交枢纽或出租车",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000008",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "天津",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "武清高铁站附近住哪里方便中转？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '武清高铁站附近住哪里方便中转？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (天津 武清区), budget, traveler type (中转), and priorities such as 交通便利 / 中转方便, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_96ff49346f9f",
+    "prediction": "在武清高铁站附近选择住宿，方便中转的关键在于交通便利性和周边配套。武清高铁站是京津冀交通网络的重要节点，连接北京、天津、石家庄等地，因此住宿位置应尽量靠近高铁站，便于快速换乘。\n\n### 推荐类型：高铁站周边或步行可达的酒店/民宿\n这类住宿通常位于高铁站附近或步行5-10分钟范围内，步行即可到达地铁站或公交站点，方便换乘。同时，这类区域通常有便利店、餐饮、便利店等生活配套，适合短暂停留或中转。\n\n### 推荐理由：\n1. **交通便利**：步行或短途公交即可到达高铁站，节省换乘时间。\n2. **节省时间**：无需频繁往返车站，尤其适合中转旅客。\n3. **生活配套齐全**：周边通常有餐饮、便利店、ATM等，方便临时补给。\n4. **适合短暂停留**：适合仅需中转或短暂停留的旅客，无需长时间居住。\n\n### 小贴士：\n- 如果计划在武清停留较久，也可以考虑稍远一点但交通更便利的区域，如武清城区或周边乡镇，再安排一次短途接驳。\n- 避免选择过于偏远的住宿，以免影响换乘效率和出行体验。\n\n总之，武清高铁站附近的住宿更注重“快进快出”，适合以中转为主的旅客。选择靠近高铁站、交通便利、生活配套齐全的住宿，能有效提升出行效率和舒适度。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000009",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "广州",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "广州南沙区万顷沙地铁站附近，适合中转短住的公寓式住宿有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '广州南沙区万顷沙地铁站附近，适合中转短住的公寓式住宿有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (广州 南沙区), budget, traveler type (中转), and priorities such as 交通便利 / 适合泡酒店 / 中转方便, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_acda5e2135b0",
+    "prediction": "广州南沙区万顷沙地铁站附近，适合中转短住的公寓式住宿，通常需要满足几个关键条件：**交通便利、生活配套基础、空间适中、价格适中**。以下是我优先考虑的推荐逻辑：\n\n---\n\n### 一、优先考虑交通便利性\n\n万顷沙地铁站是广州地铁18号线的一个站点，连接南沙区与广州市中心，是南沙区重要的交通枢纽之一。因此，优先推荐靠近地铁站、步行可达或步行5分钟以内的住宿，方便中转、换乘和快速抵达市区或周边区域。\n\n---\n\n### 二、适合中转短住的公寓式住宿特点\n\n这类住宿通常具备以下特征：\n\n- **空间紧凑但功能齐全**：适合短住，不需要长期居住的全套设施。\n- **生活配套基础**：如厨房、洗衣机、热水、基本家具等，方便短暂停留时的日常使用。\n- **价格适中**：通常比酒店便宜，适合预算有限的中转旅客。\n- **环境安静、安全**：适合休息和恢复体力。\n\n---\n\n### 三、推荐区域与类型\n\n万顷沙地铁站周边，适合中转短住的公寓式住宿主要集中在以下几个区域：\n\n#### 1. **万顷沙地铁站周边住宅区**\n- **推荐理由**：靠近地铁站，步行可达，生活配套成熟，适合短暂停留。\n- **适合人群**：中转旅客、短途出差、探亲访友。\n- **注意点**：这类住宅区通常以家庭居住为主，可能不太适合长期居住，但适合短住。\n\n#### 2. **南沙区万顷沙镇中心区域**\n- **推荐理由**：靠近地铁站、公交站点，周边有便利店、餐饮、小型超市等，生活便利。\n- **适合人群**：中转旅客、短途出差、探亲访友。\n- **注意点**：该区域可能更偏向生活区，适合短暂停留，但需注意周边环境是否适合安静休息。\n\n---\n\n### 四、推荐逻辑总结\n\n1. **优先靠近地铁站**：方便中转、换乘和快速抵达市区或周边区域。\n2. **适合短住的公寓式住宿**：空间适中、功能齐全、价格适中。\n3. **生活配套基础**：如厨房、洗衣机、热水、基本家具等，方便短暂停留时的日常使用。\n4.",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000010",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "汕头",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "潮阳高铁站附近住哪里方便坐车？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '潮阳高铁站附近住哪里方便坐车？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (汕头 潮阳区), budget, traveler type (中转), and priorities such as 交通便利 / 中转方便, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_980940e3ecad",
+    "prediction": "潮阳高铁站附近住宿方便坐车，通常位于高铁站周边或步行可达范围内，交通便利，适合需要频繁换乘或短途通勤的旅客。这类区域通常有公交站点、出租车停靠点，甚至地铁接驳口，能有效减少出行时间。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000011",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "深圳",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "龙华区地铁站附近安静又方便中转的住宿有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '龙华区地铁站附近安静又方便中转的住宿有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (深圳 龙华区), budget, traveler type (中转), and priorities such as 交通便利 / 安静 / 中转方便, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_a09f0824b174",
+    "prediction": "在龙华区地铁站附近寻找安静又方便中转的住宿，需要在便利性与安静环境之间做出权衡。地铁站本身是交通枢纽，周边通常人流密集、交通便利，但同时也可能带来一定的噪音和喧嚣。因此，选择靠近地铁站但又不直接位于主干道或商业区的住宿，通常能兼顾便利与安静。\n\n### 推荐类型与位置建议：\n\n#### 1. **地铁站周边1-2公里内、靠近地铁口的中档酒店或公寓**\n这类住宿通常步行可达地铁站，方便换乘，同时避开主干道的喧闹。适合需要频繁中转、但又希望晚上能安静休息的人群。\n\n**推荐理由：**\n- **交通便利**：步行或短车程即可到达地铁站，适合需要频繁换乘或前往市区的人。\n- **生活配套**：周边通常有便利店、餐饮、小型超市等，生活便利。\n- **相对安静**：避开主干道和商业区，环境相对安静，适合休息。\n\n**适合人群：** 商务出行、短途旅游、需要频繁中转的人。\n\n#### 2. **地铁站周边3-5公里内、靠近地铁站但远离主干道的精品民宿或家庭式公寓**\n这类住宿通常位于地铁站附近的小社区或住宅区，步行可达地铁站，但远离主干道和商业区，环境更安静、更生活化。\n\n**推荐理由：**\n- **安静舒适**：远离主干道和商业区，环境更安静，适合休息和放松。\n- **生活气息浓厚**：通常有本地居民生活，更有家的感觉。\n- **价格适中**：相比市中心酒店，这类住宿性价比更高。\n\n**适合人群：** 喜欢安静、注重生活体验、预算有限的人。\n\n### 取舍建议：\n\n- **便利性优先**：如果出行频繁、需要频繁换乘或前往市区，建议优先选择靠近地铁站、交通便利的住宿。\n- **安静优先**：如果更看重休息质量、希望晚上能安静入睡，建议选择远离主干道、环境更安静的住宿。\n- **平衡选择**：如果预算允许，可以选择地铁站周边1-2公里内、靠近地铁口但又不直接位于主干道的中档酒店或公寓，兼顾便利与安静。\n\n### 总结：\n\n在龙华区地铁站附近寻找安静又方便",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000012",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "温州",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "温州南站附近住哪里方便中转？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '温州南站附近住哪里方便中转？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (温州 瓯海区), budget, traveler type (中转), and priorities such as 交通便利 / 景区周边 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_e6915e355cd2",
+    "prediction": "在温州南站附近选择住宿，方便中转的关键在于交通便利性和周边配套。温州南站是温州重要的高铁枢纽，连接杭州、上海、福州、厦门等多个城市，因此住宿位置应尽量靠近车站，便于快速换乘。\n\n### 推荐类型：靠近温州南站的中转型酒店\n这类酒店通常位于车站附近或步行可达范围内，步行5-10分钟即可到达车站，适合需要频繁换乘或赶时间的旅客。这类住宿通常配备自助入住、行李寄存、免费WiFi等服务，适合中转旅客。\n\n### 推荐理由：\n1. **交通便利**：步行即可到达温州南站，节省换乘时间，尤其适合需要赶高铁或航班的旅客。\n2. **节省时间**：无需频繁往返车站与住宿之间，尤其适合中转时行李较多或时间紧张的情况。\n3. **周边配套**：多数靠近车站的酒店周边有便利店、餐饮店、出租车停靠点，方便临时补给和出行。\n4. **适合短暂停留**：中转旅客通常不需要长时间停留，这类住宿性价比高，适合短暂停留。\n\n### 小贴士：\n- 如果计划在温州停留较久，也可以考虑稍远一点但交通更便利的区域，如龙湾区或瓯海区，再安排一次短途接驳。\n- 优先选择有电梯、无障碍通道的酒店，方便携带行李或行动不便的旅客。\n\n总之，温州南站附近的中转型住宿更适合需要频繁换乘、赶时间或行李较多的旅客，兼顾便利性与实用性。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000013",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽水",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "温溪镇附近坐公交方便的住宿有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '温溪镇附近坐公交方便的住宿有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 青田县), budget, traveler type (中转), and priorities such as 交通便利 / 景区周边, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_6f481e3c5e75",
+    "prediction": "温溪镇位于浙江省丽水市龙泉市，是一个以自然风光和乡村休闲为主的小镇，周边有丰富的山水资源和田园景观。如果你更关注公交便利性，说明你可能更倾向于慢节奏、少依赖自驾的出行方式，或者更看重交通的可达性和换乘效率。因此，在推荐住宿时，优先考虑以下几个方面：\n\n### 1. **公交站点覆盖与步行可达性**\n温溪镇本身公交站点相对较少，但周边一些镇区或主要道路可能有公交线路经过。因此，住宿地点应尽量靠近公交站点，步行距离控制在5-10分钟内，这样能减少换乘和等待时间，提升出行效率。\n\n### 2. **住宿位置与周边配套**\n优先选择靠近镇中心或主要街道的住宿，这样不仅方便乘坐公交，也更容易找到餐饮、便利店、小超市等生活配套。同时，靠近镇中心的住宿通常更容易融入当地生活节奏，体验更丰富。\n\n### 3. **住宿类型与风格**\n温溪镇周边以乡村民宿和农家乐为主，这类住宿通常更贴近自然，环境安静，适合喜欢慢节奏、亲近自然的旅客。这类住宿往往也更注重本地特色和文化体验，符合你对“慢生活”的偏好。\n\n### 4. **预算与性价比**\n公交便利性通常意味着住宿位置更靠近交通节点，但这类位置的住宿价格可能略高于远离主干道的区域。因此，在推荐时需结合预算，优先推荐性价比高、位置适中的住宿，避免因追求便利而牺牲预算。\n\n### 5. **出行目的与偏好**\n如果你计划在温溪镇周边进行短途徒步、骑行或乡村观光，公交便利的住宿能让你更灵活地安排行程，减少对租车或打车的依赖。同时，这类住宿通常更安静，适合放松和休憩。\n\n### 推荐逻辑总结：\n- **公交便利性**：优先选择靠近公交站点、步行可达的住宿，减少换乘和等待时间。\n- **位置适中**：靠近镇中心或主要街道，方便生活配套和出行。\n- **住宿类型**：乡村民宿或农家乐，符合温溪镇的自然氛围和慢节奏体验。\n- **预算适配**：在保证便利性的前提下，选择性价比高的住宿，避免过度消费。\n- **出行目的匹配**：适合喜欢慢节奏、亲近自然、少依赖自驾的旅客。\n\n综上所述",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000014",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "easy",
+    "tags": [
+      "北京",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "参考信息：城市：北京；区域：朝阳区\n\n用户问题：三里屯附近适合短住中转的酒店式公寓有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '参考信息：城市：北京；区域：朝阳区\n\n用户问题：三里屯附近适合短住中转的酒店式公寓有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (北京 朝阳区), budget, traveler type (中转), and priorities such as 交通便利 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_9f22653fe563",
+    "prediction": "三里屯附近确实有适合短住中转的酒店式公寓，这类住宿通常具备较好的生活便利性、相对独立的空间和一定的舒适度，适合需要短暂停留、换乘或中转的旅客。不过，这类公寓通常更适合有明确入住计划、对居住环境有一定要求的旅客，不太适合临时性、频繁更换住宿的短途出行者。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000015",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "汕头",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "汕头市中心CBD附近，交通方便、适合短住中转的公寓式住宿有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '汕头市中心CBD附近，交通方便、适合短住中转的公寓式住宿有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (汕头 龙湖区), budget, traveler type (中转), and priorities such as 交通便利 / 景区周边 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_8ca1c1e5b5e2",
+    "prediction": "在汕头市中心CBD附近，确实有一些适合短住中转、交通便利的公寓式住宿选择。这类住宿通常位于交通干道附近，步行或短途公交即可到达主要商圈、地铁站或火车站，适合需要频繁换乘或短暂停留的旅客。\n\n### 推荐类型与推荐理由：\n\n#### 1. **市中心地铁站周边的公寓式酒店**\n- **推荐理由**：这类住宿通常靠近地铁站，步行5-10分钟即可到达，方便换乘公交或打车。周边商业配套成熟，有餐饮、便利店、小型超市等，适合短住中转。\n- **便利性**：交通便利，生活配套齐全，适合需要频繁移动的旅客。\n- **取舍**：这类住宿通常价格略高，且可能更偏向商务风格，适合对环境有一定要求的旅客。\n\n#### 2. **CBD核心区域的精品公寓**\n- **推荐理由**：这类公寓通常位于CBD核心地段，视野开阔，环境安静，适合短住或商务出行。部分公寓还提供洗衣、厨房等设施，适合需要短暂停留的旅客。\n- **便利性**：位置优越，步行可达多个地标建筑和商业中心，适合需要频繁出入CBD的旅客。\n- **取舍**：这类住宿通常价格较高，且可能更偏向高端，适合预算充足、追求品质的旅客。\n\n#### 3. **靠近公交枢纽的经济型公寓**\n- **推荐理由**：这类公寓通常位于公交枢纽附近，交通便利，价格相对经济，适合预算有限但又需要短住中转的旅客。\n- **便利性**：交通便利，适合需要频繁换乘的旅客。\n- **取舍**：这类住宿通常设施较为简单，周边配套可能不如市中心公寓完善，适合对环境要求不高的旅客。\n\n### 总结建议：\n\n- **优先考虑**：如果您的出行目的主要是短住中转，且对交通便利性要求较高，建议优先选择靠近地铁站或公交枢纽的公寓式住宿。\n- **注意取舍**：这类住宿通常价格较高，且可能更偏向商务风格，适合预算充足、追求品质的旅客。\n- **建议确认**：在预订前，建议确认住宿的具体位置、周边配套和交通情况，以确保符合您的出行需求。\n\n希望这些建议对您有所帮助！",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000016",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "北京",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "参考信息：城市：北京；区域：大兴区\n\n用户问题：机场附近安静又方便中转的酒店有吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '参考信息：城市：北京；区域：大兴区\n\n用户问题：机场附近安静又方便中转的酒店有吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (北京 大兴区), budget, traveler type (中转), and priorities such as 交通便利 / 中转方便 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_dc637b228d91",
+    "prediction": "在北京大兴区，靠近大兴国际机场的位置，确实有一些酒店既靠近机场又相对安静，同时方便中转。这类住宿通常位于机场周边或机场高速沿线，交通便利，但环境相对安静，适合需要频繁中转或夜间抵达的旅客。\n\n### 推荐住法思路：\n\n#### 1. **优先选择靠近机场的酒店，但避开主干道和机场内部区域**\n   - **推荐理由**：靠近机场可以节省交通时间，尤其适合夜间抵达或需要早起赶飞机的旅客。但避开机场内部或主干道，可以减少噪音和人流，提升休息质量。\n   - **适合人群**：频繁往返机场、需要中转、对交通便利性要求高但对环境安静有要求的人群。\n\n#### 2. **选择有免费机场接送服务的酒店**\n   - **推荐理由**：机场接送服务能有效减少中转压力，尤其适合行李较多或不熟悉当地交通的旅客。同时，部分酒店还提供行李寄存、行李搬运等服务，提升便利性。\n   - **适合人群**：首次到访北京、行李较多、不熟悉当地交通的人群。\n\n#### 3. **优先考虑有良好隔音和安静环境的房间**\n   - **推荐理由**：机场周边虽然交通便利，但部分区域可能较为嘈杂。选择靠近内部、远离主出入口或靠近绿化带的房间，有助于提升休息体验。\n   - **适合人群**：对睡眠质量有较高要求、需要安静环境的人群。\n\n#### 4. **预留足够时间前往机场**\n   - **推荐理由**：机场周边交通有时会因高峰时段或天气原因出现延误，预留至少1.5小时的缓冲时间，可以避免赶飞机的压力。\n   - **适合人群**：所有需要中转或赶飞机的旅客。\n\n### 总结建议：\n在大兴区选择机场附近的酒店时，优先考虑靠近机场但环境相对安静、有免费接送服务、隔音良好、房间位置合适的住宿。这样的安排既能满足交通便利的需求，又能兼顾休息质量，适合频繁往返机场或需要中转的旅客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000017",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽水",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "景宁畲族自治县景区附近安静适合家庭住的民宿有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '景宁畲族自治县景区附近安静适合家庭住的民宿有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 景宁畲族自治县), budget, traveler type (亲子 / 家庭友好), and priorities such as 景区周边 / 安静 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_c8b5790774b0",
+    "prediction": "好的，我们来一步步分析这个推荐逻辑，再给出建议。\n\n---\n\n### 一、人群定位：家庭出行\n\n家庭出行通常意味着有小孩、老人，对住宿环境有更高的安全性和舒适性要求。同时，家庭出行更看重环境安静、生活便利、空间宽敞、适合孩子活动等。\n\n---\n\n### 二、预算：未明确，但需兼顾性价比\n\n虽然预算未明确，但家庭出行通常更看重性价比，即在合理预算内，能提供安静、舒适、适合孩子和老人居住的环境。因此，推荐时会优先考虑中端价位、设施齐全、服务贴心的民宿。\n\n---\n\n### 三、位置：景宁畲族自治县景区附近\n\n景宁畲族自治县是浙江省丽水市下辖的一个自治县，以畲族文化、自然风光和生态旅游为特色。景区附近通常包括自然保护区、民族村寨、生态公园等。这类区域通常环境优美、空气清新，但人流量相对较少，适合喜欢安静、远离喧嚣的家庭。\n\n---\n\n### 四、出行目的：休闲度假、亲近自然、体验文化\n\n家庭出行通常以休闲度假为主，可能希望孩子接触自然、体验民族文化，同时也能让大人放松身心。因此，住宿环境应具备一定的文化氛围、自然景观视野，同时兼顾生活便利性。\n\n---\n\n### 五、偏好：安静、适合家庭住的民宿\n\n安静是家庭出行的重要需求之一，尤其是有小孩或老人的家庭。因此，推荐时会优先考虑远离主干道、周边环境清幽、隔音较好、内部空间布局合理、有儿童友好设施的民宿。\n\n---\n\n### 六、推荐逻辑总结\n\n1. **优先考虑环境安静、远离喧嚣的区域**：避开景区入口、商业区、主干道，选择更靠后、更安静的民宿。\n2. **注重空间布局和功能性**：家庭出行通常需要多个房间、公共区域（如客厅、厨房、儿童活动区），以及适合孩子和老人使用的设施。\n3. **兼顾文化体验与自然景观**：景宁畲族自治县有丰富的民族文化资源，民宿可以结合当地特色设计，同时尽量靠近自然景观，方便出行。\n4. **优先选择中端价位、设施齐全、服务贴心的民宿**：这类民宿通常能提供更稳定的服务和更舒适的居住体验，适合家庭出行。\n5. **避免选择过于紧凑或嘈杂的住宿类型**：如公寓式酒店、背包客",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000018",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "温州",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "雁荡山石门潭附近安静适合带老人小孩住的民宿或小宾馆有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '雁荡山石门潭附近安静适合带老人小孩住的民宿或小宾馆有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (温州 乐清市), budget, traveler type (亲子 / 老人), and priorities such as 景区周边 / 安静 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_c56c18c9e024",
+    "prediction": "雁荡山石门潭周边环境相对自然幽静，适合带老人和小孩出行，但该区域整体属于景区内或景区周边，住宿选择相对有限，且多为小型民宿或农家乐，基础设施和配套服务可能不如城市中心便利。因此，若以“安静”和“适合老人小孩”为主要考量，该区域确实有符合要求的住宿，但需注意以下几点：\n\n1. **位置与环境**：石门潭周边多为山林小径和溪流，住宿环境相对自然，但可能缺乏完全的隔音和独立空间，尤其在雨季或夜间，环境可能较为潮湿或有虫鸣声，需提前确认民宿的隔音和通风条件。\n\n2. **设施与安全**：带老人和小孩入住时，需优先考虑住宿的无障碍设施、紧急出口、安全通道、儿童安全锁等。部分民宿可能没有电梯或无障碍通道，需提前沟通确认。\n\n3. **交通与便利性**：石门潭位于雁荡山景区内，周边公共交通较少，若需频繁往返景区入口或市区，建议优先选择靠近主要交通节点或有接驳服务的住宿，以减少出行压力。\n\n4. **服务与体验**：该区域的民宿多为家庭式经营，服务态度通常友好，但可能缺乏标准化管理。建议提前了解民宿的卫生状况、清洁频率、餐饮安排等，确保符合家庭出行的需求。\n\n综上，石门潭附近确实有适合带老人小孩入住的安静民宿或小宾馆，但需根据具体需求权衡环境、设施、交通和便利性等因素。若更看重安静和自然环境，可优先选择靠近溪流或山林的民宿；若更看重便利性和安全性，则建议选择靠近景区入口或有接驳服务的住宿。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000019",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "松江区佘山附近适合带娃住的度假型酒店有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '松江区佘山附近适合带娃住的度假型酒店有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 松江区), budget, traveler type (亲子), and priorities such as 度假 / 景区周边 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_11e37df94a96",
+    "prediction": "在松江区佘山附近，适合带娃住的度假型酒店确实有一些选择，这类酒店通常更注重亲子友好、环境舒适、设施齐全，同时兼顾便利性。不过，由于佘山本身是自然景区，周边住宿相对分散，因此在选择时需要综合考虑交通、配套、安全性和孩子的兴趣点。\n\n### 推荐类型与推荐理由\n\n#### 1. **亲子主题度假酒店（如：佘山森林度假酒店）**\n- **推荐理由**：这类酒店通常设有儿童乐园、亲子活动区、室内游乐场、亲子餐厅等，适合孩子玩耍和家长放松。部分酒店还提供儿童托管服务，方便家长安排时间。\n- **便利性**：通常位于佘山景区入口附近或周边，步行或短车程即可到达佘山国家旅游度假区，方便带孩子游览佘山天主教堂、佘山天文台、月湖雕塑公园等景点。\n- **取舍**：这类酒店价格相对较高，且部分设施可能更适合年龄较大的孩子，较小的孩子可能需要更多看护。\n\n#### 2. **家庭友好型民宿（如：佘山周边乡村民宿）**\n- **推荐理由**：民宿通常更贴近自然，环境安静，适合亲子家庭放松。部分民宿提供儿童床、玩具、绘本等，适合带娃入住。\n- **便利性**：位置相对灵活，可能更远离景区中心，但更贴近自然环境，适合喜欢慢节奏、亲近自然的家庭。部分民宿靠近公交站点或打车方便的位置。\n- **取舍**：这类住宿通常没有电梯、公共厨房等设施，适合有车的家庭；同时，部分民宿可能缺乏完善的儿童安全措施，需提前确认。\n\n#### 3. **市区或近郊的亲子友好型酒店（如：上海松江万豪侯爵酒店）**\n- **推荐理由**：这类酒店通常位于市区或近郊，交通便利，设施齐全，适合需要频繁往返市区的家庭。部分酒店设有儿童俱乐部、亲子活动等。\n- **便利性**：交通便利，靠近地铁或公交站点，方便带孩子往返市区或佘山景区。同时，周边通常有商场、超市、医院等生活配套。\n- **取舍**：这类酒店通常价格较高，且距离佘山景区有一定距离，需预留更多通勤时间。\n\n### 便利性与取舍建议\n\n- **便利性优先**：如果孩子年龄较小，或需要频繁",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000020",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "丽水",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "庆元县城区附近，适合带孩子逛古桥和博物馆的家庭住哪里？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '庆元县城区附近，适合带孩子逛古桥和博物馆的家庭住哪里？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 庆元县), budget, traveler type (亲子), and priorities such as 景区周边 / 交通便利 / 家庭友好, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_c702296b8a1e",
+    "prediction": "庆元县城区附近适合带孩子逛古桥和博物馆的家庭住宿，应优先考虑交通便利、环境安静、设施齐全、适合亲子活动的区域。以下是一些更合适的住法建议：\n\n### 1. **靠近城区中心，步行可达主要景点**\n   - **推荐理由**：城区中心通常有更多生活配套，如超市、餐饮、公交站点等，方便带孩子出行。同时，步行可达古桥、博物馆等景点，减少交通压力，更适合亲子家庭。\n   - **适合人群**：喜欢慢节奏、注重便利性和步行体验的家庭。\n   - **注意事项**：需注意城区中心可能人流量较大，建议避开高峰时段，或选择有遮阳、绿化较好的住宿。\n\n### 2. **靠近自然景区或文化街区，兼顾休闲与文化体验**\n   - **推荐理由**：如果家庭对文化体验感兴趣，可以选择靠近文化街区或自然景区的住宿，既能方便参观博物馆、古桥，又能让孩子在周边环境中放松。\n   - **适合人群**：喜欢文化探索、希望孩子在自然与人文环境中学习的家庭。\n   - **注意事项**：这类区域可能相对安静，但交通可能稍远，需提前确认周边公交或打车路线。\n\n### 3. **选择有儿童友好设施的住宿**\n   - **推荐理由**：带孩子出行时，住宿的便利性非常重要。优先选择有儿童床、婴儿洗漱用品、安全门、无障碍通道等设施的住宿，能提升整体体验。\n   - **适合人群**：有婴幼儿或学龄前儿童的家庭。\n   - **注意事项**：部分住宿可能不提供儿童设施，建议提前确认或自带相关用品。\n\n### 4. **优先选择有良好评价和口碑的住宿**\n   - **推荐理由**：家庭出行对住宿的舒适度和安全性要求较高，选择有良好评价、服务态度好、卫生条件佳的住宿，能减少不必要的麻烦。\n   - **适合人群**：所有家庭类型，尤其是对住宿体验有较高要求的家庭。\n   - **注意事项**：可通过平台查看其他家庭用户的评价，重点关注是否提到“适合带孩子”“安静”“方便”等关键词。\n\n### 5. **避开交通繁忙或噪音较大的区域**\n   - **推荐理由**：带孩子出行时，住宿环境的安静和舒适尤为重要。尽量避开靠近主干道、工地或商业区的住宿，以免影响休息和孩子的情绪",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000021",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "easy",
+    "tags": [
+      "汕头",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "汕头龙湖区鸥汀街道附近，适合带娃住的民宿有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '汕头龙湖区鸥汀街道附近，适合带娃住的民宿有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (汕头 龙湖区), budget, traveler type (亲子), and priorities such as 交通便利 / 景区周边, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_427ae107c49c",
+    "prediction": "好的，我们先来梳理一下推荐逻辑，再给出具体建议。\n\n---\n\n### 一、推荐逻辑梳理\n\n#### 1. **人群定位：带娃家庭**\n带娃家庭对住宿环境有更高的要求，通常更看重：\n- **安全性**：尤其是有小孩的家庭，需要避免有尖锐物品、易碎玻璃、危险电器等。\n- **空间布局**：需要有独立的儿童活动空间，比如儿童房、游戏区、安全围栏等。\n- **卫生条件**：孩子免疫力较弱，对清洁度要求更高。\n- **便利性**：靠近儿童友好型设施（如公园、游乐场、亲子餐厅）会更方便。\n\n#### 2. **预算与位置**\n- **位置**：汕头龙湖区鸥汀街道，属于汕头市的中南部区域，靠近海滨，生活配套相对便利。\n- **预算**：未明确，但通常带娃家庭更倾向于选择性价比高、环境舒适、服务贴心的住宿，而非豪华型。\n\n#### 3. **出行目的**\n- **亲子出行**：更看重环境友好、适合孩子活动、有亲子设施或活动安排的住宿。\n- **短途休闲**：可能更倾向于选择交通便利、周边有自然景观或文化景点的民宿。\n\n#### 4. **偏好**\n- **民宿类型**：更倾向于有温馨氛围、有本地文化特色、有亲子友好设计的民宿。\n- **服务体验**：更看重服务态度、卫生状况、儿童友好设施等。\n\n---\n\n### 二、推荐建议\n\n基于以上逻辑，优先推荐以下几类民宿：\n\n#### ✅ **1. 亲子友好型民宿（带儿童设施）**\n这类民宿通常会配备：\n- 儿童床、安全围栏、玩具角\n- 儿童餐椅、洗漱用品\n- 安全门、防滑地板\n- 亲子活动区或儿童游乐设施\n\n**推荐理由**：\n- 更符合带娃家庭的实际需求，减少家长在住宿环境上的顾虑。\n- 通常有更贴心的服务，比如提供儿童餐、儿童洗漱包等。\n\n#### ✅ **2. 有本地文化特色的民宿**\n这类民宿通常会融入本地文化元素，比如潮汕民俗、手工艺品、传统美食等，适合亲子家庭体验当地文化。\n\n**推荐理由**：\n- 能让孩子在游玩中了解当地文化，增加旅行的趣味性。\n- 通常",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000022",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "三亚",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "天涯区海边安静适合亲子住的民宿推荐吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '天涯区海边安静适合亲子住的民宿推荐吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (三亚 天涯区), budget, traveler type (亲子), and priorities such as 景区周边 / 海边 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_f72bde781f2e",
+    "prediction": "天涯区海边确实是一个适合亲子居住的区域，这里环境相对安静，远离市中心的喧嚣，适合家庭放松和孩子亲近自然。不过，需要注意的是，该区域整体属于三亚市的旅游热点，周边可能有较多游客活动，因此在选择民宿时，建议优先考虑位置相对独立、周边配套齐全、有儿童友好设施的房源。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000023",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "上海野生动物园附近适合带娃住的酒店有什么推荐？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '上海野生动物园附近适合带娃住的酒店有什么推荐？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 浦东新区), budget, traveler type (亲子), and priorities such as 景区周边 / 交通便利 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_f612919db535",
+    "prediction": "在上海野生动物园附近，适合带娃住的酒店需要兼顾便利性、亲子友好设施和周边配套。以下是一些推荐，同时也会说明推荐理由和取舍：\n\n---\n\n### ✅ **推荐一：上海野生动物园附近的民宿或家庭式酒店（如：上海野生动物园附近的农家乐）**\n\n**推荐理由：**\n- **位置便利**：通常步行或短车程即可到达野生动物园入口，适合带孩子出行。\n- **亲子友好**：这类住宿多为家庭式经营，环境温馨，可能提供儿童游乐区、小厨房、儿童床等设施。\n- **价格亲民**：相比市区酒店，这类住宿价格更实惠，适合预算有限的家庭。\n\n**取舍说明：**\n- **缺点**：可能缺乏正规酒店的卫生标准或服务流程，需提前确认卫生和安全条件。\n- **适合人群**：预算有限、更看重便利性和家庭氛围的家庭。\n\n---\n\n### ✅ **推荐二：上海野生动物园附近的连锁亲子友好型酒店（如：如家、锦江之星、汉庭）**\n\n**推荐理由：**\n- **位置便利**：通常位于野生动物园周边，步行或短车程可达。\n- **设施齐全**：提供儿童洗漱用品、婴儿床、免费儿童餐等，适合带娃出行。\n- **环境整洁**：连锁品牌通常有统一的卫生和服务标准，适合家庭出行。\n\n**取舍说明：**\n- **缺点**：相比高端亲子酒店，这类酒店可能缺乏更丰富的亲子活动或主题房间。\n- **适合人群**：追求性价比、注重基础便利性和卫生的家庭。\n\n---\n\n### ✅ **推荐三：上海野生动物园附近的高端亲子酒店（如：上海迪士尼附近的高端亲子酒店）**\n\n**推荐理由：**\n- **位置便利**：虽然距离野生动物园稍远，但通常有公交或地铁直达，适合带娃出行。\n- **设施丰富**：提供儿童游乐区、亲子套房、儿童托管服务等，适合长时间停留。\n- **环境舒适**：通常有更宽敞的房间和更完善的亲子设施。\n\n**取舍说明：**\n- **缺点**：价格相对较高，适合预算充足、更看重体验的家庭。\n- **适合人群**：希望孩子有更多活动空间、更舒适住宿体验的家庭。\n\n---\n\n### ✅ **推荐四：上海野生动物园附近的地铁站周边酒店（如：地铁16号线沿线）**\n\n**推荐理由：**\n- **位置便利",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000024",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "丽水",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "丽水高铁站附近适合家庭住的酒店有什么特点？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '丽水高铁站附近适合家庭住的酒店有什么特点？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 莲都区), budget, traveler type (亲子), and priorities such as 交通便利 / 景区周边 / 家庭友好, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_d9fcf0802d83",
+    "prediction": "丽水高铁站附近适合家庭入住的酒店，通常具备以下几个特点，能够满足家庭出行的基本需求和舒适体验：\n\n1. **交通便利**：靠近高铁站，步行或短途车程即可到达，方便接驳市区或周边景点，尤其适合带老人和小孩出行的家庭。\n\n2. **设施齐全**：这类酒店通常配备儿童游乐区、婴儿床、免费洗漱用品、儿童餐椅等，部分还提供亲子活动空间或儿童托管服务，让带娃出行更轻松。\n\n3. **房间布局合理**：家庭房或套房面积较大，空间布局更符合家庭成员的活动需求，通常设有独立的休息区、用餐区和起居区，适合多人同时入住。\n\n4. **环境安静舒适**：高铁站周边通常属于城市边缘区域，环境相对安静，适合休息和放松，尤其适合晚上需要安静睡眠的家庭。\n\n5. **餐饮配套便利**：部分酒店设有餐厅或早餐供应，方便家庭成员用餐，节省外出时间。\n\n### 更合适的住法建议：\n\n- **优先选择家庭房或套房**：这类房间更适合多人入住，空间更宽敞，也更便于照顾孩子和老人。\n- **避开高峰期入住**：如果出行时间接近节假日或周末，建议提前预订，避开人流高峰，避免房间紧张。\n- **关注周边配套**：选择靠近公交站点、便利店或小型超市的酒店，方便日常采购和出行。\n- **预留出行时间**：从高铁站到酒店通常需要10-20分钟，建议预留足够时间，避免赶时间带来的压力。\n\n总的来说，丽水高铁站附近的家庭友好型酒店，更注重实用性和舒适性，适合以家庭为核心、注重便利和安全的出行方式。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000025",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "天津",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "北辰区靠近地铁站的家庭友好型公寓住起来方便吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '北辰区靠近地铁站的家庭友好型公寓住起来方便吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (天津 北辰区), budget, traveler type (亲子), and priorities such as 交通便利 / 家庭友好 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_609b9b19c798",
+    "prediction": "北辰区靠近地铁站的家庭友好型公寓，住起来通常会比较方便，但具体是否适合，还要结合几个关键因素来判断。以下是我优先考虑的推荐逻辑：\n\n---\n\n### 1. **地理位置与通勤便利性**\n北辰区是天津的一个重要城区，地铁覆盖相对密集，尤其是地铁3号线、4号线和6号线，连接了市中心、市区核心区域和周边多个交通枢纽。如果公寓靠近地铁站（如北辰科技园、北辰站、小淀站等），步行或短途换乘即可到达市中心或主要商圈，这对家庭出行、接送孩子、日常通勤都比较友好。\n\n**推荐逻辑**：靠近地铁站意味着更少的交通压力，尤其适合有老人、小孩的家庭，能节省通勤时间，也更符合家庭出行的节奏。\n\n---\n\n### 2. **家庭友好型设施**\n家庭友好型公寓通常会配备一些适合孩子的设施，比如：\n- 儿童床或加床\n- 儿童玩具或绘本\n- 儿童餐椅\n- 安全门锁或防护措施\n- 安静、整洁的居住环境\n\n**推荐逻辑**：这类设施能提升居住体验，减少家长在照顾孩子时的负担，尤其适合带小孩出行的家庭。\n\n---\n\n### 3. **周边配套与生活便利性**\n家庭出行时，周边的生活配套也很重要。如果公寓附近有：\n- 小型超市或便利店\n- 儿童游乐场或公园\n- 餐饮店或小吃街\n- 医疗机构或药店\n\n这些都会让家庭在出行期间更安心、更省心。\n\n**推荐逻辑**：生活配套齐全意味着更少的奔波，尤其适合带孩子出行的家庭，能有效提升整体出行体验。\n\n---\n\n### 4. **安全与安静环境**\n家庭出行时，安全和安静是首要考虑的因素。如果公寓位于相对安静、治安良好的社区，远离嘈杂的商业区或交通干道，会更适合孩子休息和家长放松。\n\n**推荐逻辑**：安静、安全的环境有助于孩子更好地适应新环境，也能让家长更安心地安排行程。\n\n---\n\n### 5. **预算与性价比**\n家庭友好型公寓的价格通常会略高于普通公寓，但也要看具体位置和配套设施。如果预算有限，建议优先选择靠近地铁、生活配套齐全、安全性高的中档公寓，而不是一味追求高端。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000026",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "汕头",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "南澳岛海边适合亲子住的度假公寓有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '南澳岛海边适合亲子住的度假公寓有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (汕头 南澳县), budget, traveler type (亲子), and priorities such as 海边 / 景区周边 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_31210a6fa937",
+    "prediction": "南澳岛海边确实适合亲子住的度假公寓，这类住宿通常空间宽敞、设施齐全，适合家庭出行。不过，是否适合还要看具体位置、周边环境和出行目的。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000027",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "深圳",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "深圳海边适合带娃住的民宿推荐吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '深圳海边适合带娃住的民宿推荐吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (深圳 龙岗区), budget, traveler type (亲子), and priorities such as 海边 / 亲子 / 度假, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_52d42118db58",
+    "prediction": "深圳海边确实有很多适合带娃住的民宿，这类住宿通常环境优美、空间宽敞、适合家庭活动，尤其适合亲子出行。不过在推荐时，需要综合考虑便利性、安全性、周边配套和孩子的活动需求，同时也要注意取舍，避免过度追求“完美”而忽略实际体验。\n\n---\n\n### ✅ **推荐理由：适合带娃住的民宿优势**\n\n1. **环境友好**：海边民宿通常视野开阔、空气清新，孩子更容易放松和亲近自然。\n2. **空间宽敞**：多数民宿会配有独立儿童房、儿童床、玩具区等，方便孩子休息和玩耍。\n3. **亲子活动便利**：靠近海滩、公园、儿童乐园等，孩子可以随时接触户外活动。\n4. **家庭氛围温馨**：民宿通常比酒店更有人情味，适合家庭互动和亲子时光。\n\n---\n\n### ⚠️ **需注意的取舍与便利性考量**\n\n1. **交通便利性**：\n   - **优点**：靠近地铁站、公交站或主要景点的民宿更方便带娃出行。\n   - **缺点**：如果民宿位于偏僻海边，可能需要依赖自驾或打车，对带小孩的家庭不太友好。\n   - **建议**：优先选择靠近市区或交通枢纽的海边民宿，如大鹏、西丽湖、大梅沙等区域。\n\n2. **周边配套**：\n   - **优点**：靠近超市、药店、儿童医院、便利店等生活设施，能减少带娃出行的麻烦。\n   - **缺点**：如果周边缺乏医疗、餐饮等配套，可能会增加额外负担。\n   - **建议**：优先选择有基本生活配套的民宿，尤其是带娃出行时更需考虑这一点。\n\n3. **安全与卫生**：\n   - **优点**：民宿通常有独立厨房、卫生间，孩子可以更自由地活动。\n   - **缺点**：部分民宿可能没有严格的卫生管理，尤其在旺季时容易拥挤。\n   - **建议**：选择评价好、卫生条件佳、有明确安全措施的民宿。\n\n4. **噪音与隐私**：\n   - **优点**：海边民宿通常环境安静，适合孩子休息。\n   - **缺点**：如果民宿靠近海滩或有其他游客活动，可能会有噪音干扰。\n   - **建议**：优先选择远离主干道、有隔音设计的民宿。\n\n---\n\n### 📌 **推荐区域与类型**",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000028",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "丽江",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "宁蒗县适合带孩子度假的安静型酒店有哪些？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '宁蒗县适合带孩子度假的安静型酒店有哪些？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (丽江 宁蒗彝族自治县), budget, traveler type (亲子), and priorities such as 度假 / 亲子 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_ea7bb6b3ae38",
+    "prediction": "宁蒗县位于云南省西北部，是一个自然风光优美、空气清新、适合慢节奏度假的地方。这里远离城市喧嚣，适合带孩子来放松身心、亲近自然。如果你希望带孩子来宁蒗度假，选择安静、安全、环境舒适的住宿方式会更合适。\n\n### 推荐住宿方式：选择靠近自然景区、环境安静、设施齐全的民宿或小型度假酒店\n\n#### 1. **靠近自然景区、环境安静的民宿**\n这类住宿通常位于山间或湖边，周围有森林、草地、溪流等自然景观，适合孩子接触自然、放松心情。同时，这类民宿通常不设喧闹的娱乐设施，更适合安静型家庭。\n\n**推荐理由：**\n- 空气清新，远离城市污染；\n- 环境安静，适合孩子休息和睡眠；\n- 通常有儿童友好的设施，如儿童床、玩具、安全围栏等；\n- 位置相对偏僻，适合远离喧嚣、专注亲子时光。\n\n#### 2. **有儿童活动空间的小型度假酒店**\n如果孩子喜欢互动和活动，可以选择有儿童游乐区、亲子活动室或户外活动空间的小型度假酒店。这类酒店通常会提供一些适合孩子的服务，如儿童餐、亲子活动安排等。\n\n**推荐理由：**\n- 有专门的儿童活动区域，孩子可以自由玩耍；\n- 通常有更完善的儿童服务，如儿童看护、安全措施等；\n- 环境相对整洁、安全，适合孩子活动；\n- 位置通常靠近景区或自然风光，方便出行。\n\n#### 3. **靠近村庄、有本地文化氛围的住宿**\n宁蒗县有丰富的彝族文化，一些靠近村庄的住宿可能更贴近当地生活，孩子可以体验到不同的文化氛围，比如参加简单的手工艺活动、品尝当地特色小吃等。\n\n**推荐理由：**\n- 有文化体验的机会，丰富孩子的旅行体验；\n- 环境更贴近自然，孩子更容易适应；\n- 通常价格相对亲民，适合预算有限的家庭。\n\n### 小贴士：带孩子出行时的注意事项\n- **提前确认住宿设施**：确保房间有儿童床、安全门、插座保护盖等；\n- **注意天气变化**：宁蒗县昼夜温差较大，建议带好保暖衣物；\n- **保持节奏舒缓**：避免安排太紧凑的行程，留出足够的时间让孩子休息；\n- **",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000029",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "嘉定区公交站附近适合商务中转的酒店有什么推荐？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '嘉定区公交站附近适合商务中转的酒店有什么推荐？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 嘉定区), budget, traveler type (商务 / 中转), and priorities such as 交通便利 / 商务 / 中转方便, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_9990b81a112c",
+    "prediction": "在嘉定区公交站附近寻找适合商务中转的酒店，核心逻辑是围绕“便利性”和“功能性”展开。这类住宿通常需要满足以下几点：\n\n1. **交通便利**：公交站附近意味着步行可达，方便短途通勤或接驳地铁、机场。同时，周边是否有出租车、网约车站点也会影响通勤效率。\n\n2. **商务配套**：商务中转通常意味着旅客可能需要短暂停留、处理邮件、打印资料或简单会议。因此，酒店应具备基本的办公设施，如免费打印、复印、传真、商务中心等。\n\n3. **环境安静、安全**：商务旅客通常更看重休息质量，因此优先考虑隔音较好、环境整洁、安保措施到位的酒店。\n\n4. **性价比适中**：这类住宿通常不需要豪华配置，但需在价格和舒适度之间找到平衡，避免因追求低价而牺牲基本体验。\n\n5. **周边配套**：附近是否有便利店、餐饮、便利店、咖啡馆等生活配套，也会影响整体体验，尤其在夜间或临时停留时。\n\n基于以上逻辑，推荐优先考虑靠近公交站、步行可达、具备基础商务服务、环境安静、价格适中的中档酒店。这类酒店通常能满足商务旅客的短暂停留需求，同时兼顾通勤效率和休息质量。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000030",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽水",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "龙泉市中心附近，交通方便、靠近公交站的商务型住宿有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '龙泉市中心附近，交通方便、靠近公交站的商务型住宿有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 龙泉市), budget, traveler type (商务), and priorities such as 交通便利 / 商务 / 景区周边, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_fb5e9d5c30d9",
+    "prediction": "龙泉市中心附近，交通便利、靠近公交站的商务型住宿确实存在。这类住宿通常位于城市主干道或核心商圈附近，步行或短途公交即可到达主要景点、商业区和办公区，适合商务出行或短暂停留。这类住宿通常配备基础的办公设施、免费WiFi、24小时热水和前台服务，能满足商务人士的基本需求。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000031",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "参考信息：城市：上海；区域：浦东新区\n\n用户问题：陆家嘴附近适合商务出行又方便逛景点的酒店类型有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '参考信息：城市：上海；区域：浦东新区\n\n用户问题：陆家嘴附近适合商务出行又方便逛景点的酒店类型有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 浦东新区), budget, traveler type (商务), and priorities such as 交通便利 / 景区周边 / 商务, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_a39694cddc15",
+    "prediction": "在浦东新区陆家嘴附近，适合商务出行又方便逛景点的酒店类型，通常以**中高端商务型酒店**为主。这类酒店通常位于陆家嘴金融区核心地段，步行或短途通勤即可抵达外滩、南京东路、豫园等热门景点，同时周边交通便利，便于商务人士快速往返机场、高铁站或市区其他办公地点。\n\n### 推荐类型与推荐理由：\n\n#### 1. **中高端商务型酒店（如上海浦东丽思卡尔顿酒店、上海浦东丽思卡尔顿酒店）**\n- **便利性**：位于陆家嘴核心区域，步行可达上海中心大厦、环球金融中心、国金中心等标志性建筑，周边有地铁2号线、10号线等多条线路，通勤效率高。\n- **取舍**：这类酒店通常价格较高，适合预算充足、注重品质和位置的商务人士。虽然靠近景点，但部分景点（如外滩）需步行或换乘公共交通，可能不如市区内酒店方便。\n\n#### 2. **城市商务型酒店（如上海浦东香格里拉大酒店）**\n- **便利性**：同样位于陆家嘴，靠近外滩和南京东路，周边有多个高端购物中心和餐饮场所，适合商务与休闲结合。\n- **取舍**：相比丽思卡尔顿，这类酒店价格更亲民，但整体环境和设施可能略逊一筹。适合对位置有较高要求但预算有限的商务出行者。\n\n#### 3. **轻奢型酒店（如上海浦东康莱德酒店）**\n- **便利性**：位于陆家嘴，步行可达外滩和南京东路，周边有地铁和公交站点，交通便利。\n- **取舍**：这类酒店通常更注重性价比和舒适度，适合希望兼顾商务与休闲体验的旅客。但相比高端商务型酒店，其品牌影响力和设施配置可能稍弱。\n\n### 总结建议：\n\n- **优先考虑**：如果预算充足且对位置和品质要求较高，优先选择中高端商务型酒店，如丽思卡尔顿或香格里拉，这类酒店通常能提供更优质的商务服务和更便捷的交通连接。\n- **权衡取舍**：如果预算有限，但希望兼顾商务与休闲，可以选择轻奢型酒店或城市商务型酒店，这类酒店通常在价格和便利性之间取得较好的平衡。\n- **注意",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000032",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "丽水",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "缙云县城区里，适合商务出差又交通方便的酒店类型有吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '缙云县城区里，适合商务出差又交通方便的酒店类型有吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 缙云县), budget, traveler type (商务), and priorities such as 交通便利 / 适合泡酒店 / 商务, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_91f43a63505d",
+    "prediction": "在缙云县城区，适合商务出差又交通便利的酒店类型，通常以**中端商务型酒店**为主。这类酒店通常位于城市核心或交通枢纽附近，便于出行、会议和接洽客户，同时提供基本的办公设施和安静的住宿环境。\n\n### 推荐类型与住法建议：\n\n#### 1. **中端商务型酒店（如：缙云某商务酒店）**\n- **推荐理由**：这类酒店通常位于城区主干道附近，靠近公交站点或地铁站（如有的话），步行可达周边商业区、政务中心或会议中心。房间内配备基础办公设施（如打印机、传真机、电脑桌），适合临时办公或会议安排。\n- **适合人群**：商务出差、短期会议、需要安静办公环境的旅客。\n- **住法建议**：优先选择靠近政务中心或交通站点的楼层，方便出行和接洽客户。入住前确认酒店是否提供免费打印、复印服务，或是否支持远程会议设备。\n\n#### 2. **城市便捷型酒店（如：如家、锦江之星等连锁品牌）**\n- **推荐理由**：这类酒店通常价格适中，服务标准化，适合预算有限但又希望保持一定舒适度的商务出行者。它们通常位于交通便利的地段，周边有便利店、餐饮店和小型办公区，生活便利。\n- **适合人群**：预算有限、注重性价比、对住宿环境要求不高的商务出差者。\n- **住法建议**：优先选择靠近公交站或地铁站的房间，方便出行。入住前确认酒店是否提供免费WiFi、早餐服务，以及是否支持远程办公设备的使用。\n\n#### 3. **精品商务酒店（如：缙云某精品酒店）**\n- **推荐理由**：这类酒店通常设计风格独特，注重细节和客户体验，适合希望在出差期间也能享受一定生活品质的商务人士。它们通常位于城市文化或商业中心附近，周边环境安静、有品位。\n- **适合人群**：注重生活品质、希望在出差期间也能放松身心的商务人士。\n- **住法建议**：优先选择靠近文化中心或商业区的房间，方便晚上休闲或社交。入住前确认酒店是否提供免费停车、会议室租赁等服务。\n\n### 总结建议：\n- **优先考虑位置**：选择靠近政务中心、交通枢纽或商业区的酒店，便于出行和接洽客户。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000033",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "天津",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "天津南开区奥体中心附近适合商务出差的酒店有什么特点？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '天津南开区奥体中心附近适合商务出差的酒店有什么特点？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (天津 南开区), budget, traveler type (商务), and priorities such as 交通便利 / 商务 / 景区周边, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_7e8a7abbe007",
+    "prediction": "在天津南开区奥体中心附近选择适合商务出差的酒店，核心逻辑是围绕“便利性”“效率”和“舒适性”展开。这一区域本身是南开区的交通枢纽和文化中心，周边有地铁、公交、商业配套和文化场馆，因此优先考虑交通便利、周边配套成熟、环境安静、服务专业、设施完善的酒店。\n\n### 推荐逻辑一：交通便利性优先\n奥体中心周边有地铁1号线（东南角站）、公交站点密集，是南开区的重要节点。商务出差通常需要频繁往返机场、火车站、市区或周边办公区，因此酒店应尽量靠近地铁站或公交枢纽，步行可达即可。同时，酒店内部应有清晰的交通动线，便于快速抵达会议室、前台、电梯等核心区域。\n\n### 推荐逻辑二：办公与生活配套齐全\n商务出差往往伴随着会议、洽谈、临时办公等需求，因此酒店应配备商务中心、高速网络、打印复印、会议室等设施。同时，周边有餐饮、便利店、咖啡馆、健身房等生活配套，方便出差人员在紧张工作之余放松身心。\n\n### 推荐逻辑三：环境安静、服务专业\n奥体中心周边属于南开区的中高端居住区，整体环境相对安静，适合需要专注工作的商务人士。酒店应选择环境整洁、隔音良好、服务态度专业、响应迅速的类型，避免噪音干扰和低效服务体验。\n\n### 推荐逻辑四：性价比与品牌平衡\n商务出差通常对价格敏感度较高，因此推荐优先考虑性价比高、品牌可靠、口碑良好的中端酒店。这类酒店通常在设施、服务、位置等方面都能满足商务需求，同时避免因追求豪华而带来的额外成本。\n\n### 推荐逻辑五：符合出行目的与偏好\n如果出差人员更注重效率和节奏，可能更倾向于选择交通便利、设施齐全、服务高效、环境安静的酒店；如果更看重舒适度和放松体验，可能更倾向于选择有休闲区、餐饮选择丰富、服务更人性化的酒店。因此，推荐时需结合具体人群、预算、出行目的和偏好进行综合考量。\n\n综上所述，天津南开区奥体中心附近的商务出差酒店应优先考虑交通便利性、办公与生活配套、环境安静、服务专业、性价比与品牌平衡等因素，同时结合具体人群、预算、出行目的和偏好进行推荐。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000034",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "深圳",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "福田口岸附近安静又方便坐地铁的商务型酒店有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '福田口岸附近安静又方便坐地铁的商务型酒店有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (深圳 福田区), budget, traveler type (商务), and priorities such as 商务 / 交通便利 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_9615f735a4b1",
+    "prediction": "福田口岸附近确实有适合商务人士的酒店，这类区域通常交通便利，靠近地铁站，同时周边环境相对安静，适合需要专注工作或休息的旅客。不过，福田口岸本身是深圳的重要交通枢纽，周边商业和人流密集，因此要找到既安静又方便坐地铁的商务型酒店，需要在位置和环境上做一定筛选。\n\n这类酒店通常会避开主干道和商业中心，选择靠近地铁站但又不处于核心闹市区的位置，以兼顾通勤效率和居住舒适度。同时，商务型酒店通常配备基础办公设施、免费Wi-Fi、会议室等，适合需要临时办公或商务洽谈的旅客。\n\n因此，福田口岸附近确实存在符合这一需求的住宿选择，但需根据具体位置、周边环境和酒店设施进一步确认。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000035",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "easy",
+    "tags": [
+      "深圳",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "宝安区石岩那边适合商务出差又安静的酒店有什么推荐？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '宝安区石岩那边适合商务出差又安静的酒店有什么推荐？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (深圳 宝安区), budget, traveler type (商务), and priorities such as 商务 / 交通便利 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_f2c0dbc1d653",
+    "prediction": "在宝安区石岩地区，适合商务出差又安静的酒店，通常需要兼顾交通便利性、周边配套、隔音效果和整体环境。石岩地处深圳东部，是宝安区的重要工业和居住区域，虽然不像市中心那样繁华，但交通相对便利，适合需要兼顾效率与安静的商务人士。\n\n### 推荐酒店：**深圳石岩华美达广场酒店**\n- **位置**：位于石岩街道，靠近地铁5号线（环中线）石岩中心站，步行约10分钟可达，周边有公交站点，交通便利。\n- **推荐理由**：\n  - **安静环境**：酒店整体设计较为现代，客房隔音较好，适合需要专注工作的商务人士。\n  - **商务配套**：提供会议室、商务中心、高速网络等，适合临时办公或会议安排。\n  - **周边配套**：附近有大型购物中心、餐饮和生活配套，满足日常需求。\n  - **性价比高**：相比市中心商务酒店，价格更具竞争力，适合预算有限但又需要稳定环境的出差者。\n- **取舍说明**：\n  - **便利性**：地铁和公交覆盖较好，但相比市中心，周边商业配套相对简单，适合以工作为主、对生活便利要求不高的出差者。\n  - **安静性**：整体环境相对安静，但需注意周边有部分工业区，夜间可能有轻微噪音。\n\n### 其他可选方向：\n- **更偏安静**：如果对周边环境要求更高，可以考虑石岩镇内一些更远离主干道的精品酒店或民宿，但需注意交通可能稍远。\n- **更重便利**：如果更看重交通和配套，可以优先选择靠近地铁站或公交枢纽的酒店，但需接受周边可能更嘈杂。\n\n### 总结建议：\n在石岩地区，**深圳石岩华美达广场酒店**是一个兼顾安静与便利的不错选择，适合商务出差。如果对安静有更高要求，可以适当向镇内更安静的区域靠拢，但需接受交通和配套的便利性可能略有下降。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000036",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "广州",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "广州南沙区南部适合商务短住又安静的地方有吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '广州南沙区南部适合商务短住又安静的地方有吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (广州 南沙区), budget, traveler type (商务人士), and priorities such as 商务 / 交通便利 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_a7da5da11bb3",
+    "prediction": "在广州南沙区南部寻找适合商务短住又安静的住宿，重点应放在交通便利性、周边配套和环境安静度上。南沙区南部靠近珠江口，靠近虎门大桥，交通相对便利，但整体区域相对远离市中心，适合追求安静、少打扰的商务人士。\n\n### 推荐类型：安静、交通便利、配套齐全的商务型酒店或精品民宿\n\n#### 1. **商务型酒店（中高端）**\n这类酒店通常位于交通节点附近，周边有地铁站或公交站点，方便通勤，同时内部环境安静、设施齐全，适合商务短住。\n\n**推荐理由：**\n- **安静环境**：通常位于住宅区或远离主干道，噪音干扰小。\n- **商务配套**：提供会议室、打印、传真、高速网络等服务。\n- **交通便利**：靠近地铁站或公交站点，方便前往南沙区其他区域或市区。\n- **服务专业**：前台、客房服务等更符合商务人士的需求。\n\n**适合人群**：需要频繁往返市区、有会议安排、对环境有一定要求的商务人士。\n\n#### 2. **精品民宿或设计师酒店**\n这类住宿通常更注重设计感和个性化体验，适合希望在安静环境中享受独特氛围的商务人士。\n\n**推荐理由：**\n- **环境安静**：通常位于住宅区或自然景观附近，远离喧嚣。\n- **设计感强**：空间布局更灵活，适合短住办公或休息。\n- **氛围舒适**：相比传统酒店，更有人情味和生活气息。\n- **适合短住**：适合1-3天的短住安排，适合商务出差或临时办公。\n\n**适合人群**：追求生活品质、希望在安静环境中短住办公或放松的商务人士。\n\n#### 3. **靠近地铁站的安静住宅区内的公寓**\n如果预算有限，也可以考虑选择靠近地铁站的安静住宅区内的公寓，这类住宿通常价格更亲民，但环境相对安静，适合短住。\n\n**推荐理由：**\n- **安静舒适**：住宅区通常环境安静，适合休息和办公。\n- **生活便利**：周边有超市、餐饮、便利店等生活配套。\n- **适合短住**：适合1-3天的短住安排，适合商务出差或临时办公。\n\n**适合人群**：预算有限、更看重生活便利和安静环境的商务人士。\n\n### 总结建议：\n-",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000037",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "广州",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "广州南沙区靠近地铁站、安静适合办公的酒店有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '广州南沙区靠近地铁站、安静适合办公的酒店有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (广州 南沙区), budget, traveler type (商务出行者), and priorities such as 商务 / 交通便利 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_ec21df16c6d2",
+    "prediction": "当然可以。广州南沙区靠近地铁站、安静适合办公的酒店，这类住宿通常需要满足几个关键条件：\n\n1. **靠近地铁站**：方便通勤，尤其适合需要频繁往返市区或周边区域的办公人群；\n2. **环境安静**：适合长时间办公、阅读或休息，避免噪音干扰；\n3. **交通便利**：周边有公交、出租车或网约车接驳，便于出行；\n4. **设施齐全**：提供免费Wi-Fi、办公桌、打印机、会议室等办公支持；\n5. **服务友好**：前台或客房服务能提供基本支持，如打印、复印、快递等；\n6. **价格适中**：符合预算，同时兼顾品质和舒适度。\n\n---\n\n### 推荐逻辑分析：\n\n#### 1. **靠近地铁站**：\n南沙区地铁线路密集，尤其是**地铁18号线**（如横沥站、南沙客运港站）和**地铁4号线**（如南沙客运港站）是连接市区与南沙的重要通道。靠近地铁站的酒店，通常能更快抵达市区、机场或周边商圈，尤其适合需要频繁通勤的办公人群。\n\n#### 2. **安静适合办公**：\n南沙区整体环境相对安静，远离市中心的喧嚣，适合需要专注办公、学习或休息的人群。这类区域通常住宅密集、绿化较好，周边有公园、绿地或湖景，有助于放松身心。\n\n#### 3. **交通便利**：\n南沙区内部交通以公交和地铁为主，地铁站点周边通常有公交接驳点，方便短途出行。同时，南沙区有多个大型交通枢纽，如南沙客运港、南沙港等，便于前往周边城市或机场。\n\n#### 4. **设施齐全**：\n适合办公的酒店通常会配备办公桌、打印机、免费Wi-Fi、会议室、商务中心等设施，部分还提供24小时前台、行李寄存、复印打印等服务，方便商务人士随时处理工作。\n\n#### 5. **服务友好**：\n这类酒店通常更注重服务体验，前台或客房服务人员会更主动地提供帮助，如协助打印文件、安排会议室、提供快递服务等，提升整体入住体验。\n\n#### 6. **价格适中**：\n南沙区整体房价相对市区较低，适合预算有限但又希望兼顾品质和舒适度的办公人群。同时，南沙区近年来发展迅速，部分区域的房价也在逐步上涨，因此选择",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000038",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "深圳",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "参考信息：城市：深圳；区域：龙华区\n\n用户问题：观澜湖度假区附近适合商务出差的酒店有什么推荐？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '参考信息：城市：深圳；区域：龙华区\n\n用户问题：观澜湖度假区附近适合商务出差的酒店有什么推荐？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (深圳 龙华区), budget, traveler type (商务旅客), and priorities such as 商务 / 度假 / 景区周边, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_791e7b85d617",
+    "prediction": "观澜湖度假区位于深圳龙华区，周边环境相对安静，适合度假休闲，但整体上更偏向于休闲娱乐型住宿。如果用户是商务出差，通常更看重交通便利性、办公配套、会议设施以及周边生活配套。因此，该区域更适合以休闲度假为主的出行，而非以商务为核心目的的差旅。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000039",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽水",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "丽水莲都区公交站多、靠近景点的安静公寓推荐吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '丽水莲都区公交站多、靠近景点的安静公寓推荐吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 莲都区), budget, traveler type (家庭 / 老人), and priorities such as 交通便利 / 景区周边 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_1759c5f0a0e7",
+    "prediction": "丽水莲都区公交站多、靠近景点的安静公寓，确实是一个适合追求便利与生活品质平衡的选择。这类公寓通常位于城市中轴或交通节点附近，步行可达多个公交站点，方便前往周边景点、商圈或交通枢纽，同时又避免了市中心的喧嚣，环境相对安静，适合喜欢慢节奏出行的人群。\n\n### 推荐理由：\n\n1. **交通便利**：公交站点密集，出行方便，尤其适合短途出行或依赖公共交通的游客。如果计划前往多个景点，这类位置能节省换乘和通勤时间。\n\n2. **靠近景点**：步行可达多个热门景点，如丽水市博物馆、莲都区文化广场、南明山等，省去打车或长时间步行的麻烦，尤其适合喜欢深度体验当地文化的游客。\n\n3. **安静宜居**：相比市中心的繁华地段，这类公寓通常位于城市边缘或次中心区域，周边环境更安静，适合希望在旅途中保持舒适节奏的人。\n\n4. **生活配套齐全**：多数公寓周边有便利店、餐饮、超市等生活设施，满足日常所需，尤其适合家庭出行或多人同行。\n\n### 可能的取舍：\n\n- **相对远离核心商圈**：虽然交通便利，但相比市中心，这类公寓可能距离大型购物中心、高端餐饮或娱乐场所稍远，适合对购物和娱乐需求不高的游客。\n\n- **视野和景观可能有限**：部分公寓可能位于背街小巷或高层较低的位置，视野和景观不如市中心公寓开阔，但这也符合“安静”的定位。\n\n### 总结：\n\n如果你更看重交通便利、景点可达性和生活舒适度，同时希望避开市中心的喧嚣，这类公交站多、靠近景点的安静公寓是一个不错的选择。它在便利性与生活品质之间找到了一个平衡点，适合喜欢慢节奏旅行、注重体验和舒适度的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000040",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "三亚",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "海棠区龙海风情小镇附近适合家庭度假的安静民宿有吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '海棠区龙海风情小镇附近适合家庭度假的安静民宿有吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (三亚 海棠区), budget, traveler type (家庭), and priorities such as 度假 / 景区周边 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_66707c5eac81",
+    "prediction": "在海棠区龙海风情小镇附近寻找适合家庭度假的安静民宿，重点应放在环境舒适、空间布局合理、适合孩子活动、同时又不会太吵闹的住宿类型上。这类区域通常靠近自然风光，适合放松，但周边可能没有太多商业配套，因此住宿的选择也更偏向于温馨、有特色的民宿。\n\n### 推荐住法建议：\n\n#### 1. **选择带庭院或露台的民宿**\n这类民宿通常更安静，适合家庭成员在户外活动、晒太阳、散步，同时也能让孩子在安全的环境中玩耍。庭院或露台还能提供一个相对私密的空间，适合家庭成员之间互动。\n\n#### 2. **优先考虑有儿童友好设施的民宿**\n比如有儿童床、玩具、绘本、安全围栏等，这些设施能让孩子在不打扰他人的情况下自由活动，也能让家长更安心。同时，这类民宿通常会更注重空间的合理利用，比如设置独立的儿童休息区或游戏区。\n\n#### 3. **尽量避开主干道或商业区**\n虽然龙海风情小镇本身有文化氛围，但周边如果靠近主干道或商业区，可能会有较多噪音和人流，影响休息。建议优先选择稍微远离主路、环境更清幽的民宿。\n\n#### 4. **选择有厨房或可提供简单餐饮的民宿**\n家庭度假通常需要准备三餐，如果民宿有厨房或提供简单的餐饮服务，可以节省外出就餐的时间和精力，也更符合家庭出行的节奏。\n\n#### 5. **确认周边交通和生活便利性**\n虽然龙海风情小镇本身可能没有太多大型超市或医院，但建议确认周边是否有便利店、药店、公交站点等基本生活配套，方便出行和应急。\n\n### 总结推荐理由：\n- **安静舒适**：庭院、露台、远离主干道的设计有助于营造安静的度假氛围。\n- **适合家庭**：儿童友好设施和合理空间布局，让全家人都能轻松享受假期。\n- **环境友好**：靠近自然风光，适合放松身心，远离城市喧嚣。\n- **生活便利**：有厨房或餐饮服务，减少外出频率，更适合家庭出行节奏。\n\n如果你更看重环境和氛围，这类民宿会比传统酒店更适合家庭度假；如果你更看重便利性，也可以考虑周边有公交站点或短途车程的住宿点。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000041",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "青浦区金泽镇附近适合家庭度假的安静型住宿有哪些？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '青浦区金泽镇附近适合家庭度假的安静型住宿有哪些？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 青浦区), budget, traveler type (家庭), and priorities such as 度假 / 景区周边 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_285240426845",
+    "prediction": "青浦区金泽镇位于上海郊区，靠近淀山湖，环境相对安静，适合家庭度假。这类住宿通常更注重空间舒适性、安全性、私密性和便利性，同时兼顾周边自然与人文资源。因此，推荐逻辑主要围绕以下几点展开：\n\n---\n\n### 一、优先考虑家庭友好型与安全性\n\n家庭度假通常包括老人、孩子，因此住宿环境需要具备以下特点：\n\n- **空间宽敞**：至少有两间卧室，方便孩子和老人分开休息。\n- **设施齐全**：配备儿童床、婴儿床、洗漱用品、安全门等。\n- **安全措施到位**：如门禁系统、监控、无台阶入口等。\n- **无噪音干扰**：远离主干道、商业区，避免夜间被打扰。\n\n---\n\n### 二、兼顾自然与人文环境\n\n金泽镇周边有淀山湖、朱家角古镇等自然与文化资源，住宿应尽量靠近这些区域，方便出行和体验：\n\n- **靠近自然景观**：如淀山湖、湿地公园、农田风光等，适合散步、观景。\n- **靠近文化景点**：如朱家角古镇、金泽古镇等，方便短途游览。\n- **交通便利**：有公交或地铁接驳，方便往返市区或周边景点。\n\n---\n\n### 三、优先选择安静、远离喧嚣的区域\n\n金泽镇本身相对安静，但仍有部分区域可能靠近主干道或商业区。因此，推荐优先选择：\n\n- **镇内或周边村庄**：远离主路，环境更清幽。\n- **有绿化或小院的住宿**：如民宿、小院式酒店，能提供更自然的居住体验。\n- **无频繁人流或车流**：避免夜间噪音或清晨被打扰。\n\n---\n\n### 四、住宿类型建议\n\n根据以上逻辑，推荐以下几类住宿类型：\n\n#### 1. **家庭式民宿（小院型）**\n- **推荐理由**：通常空间布局合理，有独立厨房、客厅、卧室，适合家庭成员分区域活动；环境安静，有庭院或阳台，适合孩子玩耍或观景。\n- **适合人群**：带老人、孩子的家庭，喜欢慢节奏、自然氛围的游客。\n\n#### 2. **乡村型度假酒店**\n- **推荐理由**：通常位于镇外或周边村庄，环境更清幽，有更完善的设施（如停车场",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000042",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "easy",
+    "tags": [
+      "上海",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "上海静安区地铁站附近适合年轻人自己住的公寓式住宿有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '上海静安区地铁站附近适合年轻人自己住的公寓式住宿有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 静安区), budget, traveler type (年轻人), and priorities such as 交通便利 / 城市探索, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_8b7ac4936537",
+    "prediction": "上海静安区地铁站附近确实有适合年轻人自己住的公寓式住宿选择。这类住宿通常空间相对独立、生活设施齐全，适合追求独立生活和性价比的年轻人。不过，这类公寓式住宿通常更适合短租或中短期居住，长期居住可能需要考虑租金成本和稳定性。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000043",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽江",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "想找个安静、适合泡酒店的度假地方，丽江哪里合适？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '想找个安静、适合泡酒店的度假地方，丽江哪里合适？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (丽江 玉龙纳西族自治县), budget, traveler type (度假游客), and priorities such as 度假 / 景区周边 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_37f50d087379",
+    "prediction": "丽江是一个以古城文化、自然风光和慢节奏生活著称的城市，非常适合寻找安静、适合泡温泉或放松的度假体验。如果你希望找一个安静、适合泡温泉的地方，同时又不牺牲便利性，以下几个区域和住宿类型可以作为参考：\n\n---\n\n### ✅ **推荐区域：束河古镇、白沙古镇、玉湖村**\n\n#### 1. **束河古镇**\n- **推荐理由**：\n  - 相比丽江古城更安静、更少游客，更适合喜欢慢节奏、喜欢泡温泉的人。\n  - 邻近黑龙潭、玉湖村等自然景点，适合白天散步、晚上泡温泉。\n  - 交通便利，有公交直达丽江古城，也有出租车或网约车。\n- **适合人群**：\n  - 喜欢安静、文化氛围浓厚、喜欢慢节奏生活的人。\n  - 希望远离喧嚣、享受自然与温泉的人。\n- **取舍建议**：\n  - **便利性**：相比丽江古城稍逊，但依然有公交和出租车覆盖。\n  - **取舍**：更安静、更自然，但可能需要更长的交通时间。\n\n#### 2. **白沙古镇**\n- **推荐理由**：\n  - 白沙古镇是丽江最原生态的纳西古镇之一，保留了大量传统建筑和生活方式。\n  - 靠近玉湖村，适合喜欢自然风光、喜欢泡温泉的人。\n  - 人少、安静，适合深度放松。\n- **适合人群**：\n  - 喜欢原生态文化、喜欢安静、喜欢泡温泉的人。\n  - 希望远离城市喧嚣、享受慢节奏生活的人。\n- **取舍建议**：\n  - **便利性**：交通相对不便，需自驾或包车前往。\n  - **取舍**：更安静、更原生态，但需要更长的交通时间。\n\n#### 3. **玉湖村**\n- **推荐理由**：\n  - 玉湖村是丽江周边一个非常安静、适合泡温泉的地方，环境优美、空气清新。\n  - 有温泉资源，适合喜欢泡温泉的人。\n  - 人少、安静，适合深度放松。\n- **适合人群**：\n  - 喜欢安静、喜欢泡温泉、喜欢自然风光的人。\n  - 希望远离城市喧嚣、享受慢节奏生活的人。\n- **取",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000044",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "三亚",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "天涯区海边安静的地方适合情侣住的民宿有吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '天涯区海边安静的地方适合情侣住的民宿有吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (三亚 天涯区), budget, traveler type (情侣), and priorities such as 景区周边 / 适合泡酒店 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_3e81f059d6cd",
+    "prediction": "在天涯区海边寻找安静、适合情侣入住的民宿，重点应放在环境氛围、私密性、交通便利性和整体体验上。以下是一些推荐思路和建议，帮助你更清晰地选择适合的住宿方式：\n\n---\n\n### ✅ **推荐思路一：选择靠近海边、视野开阔的民宿**\n这类民宿通常位于小巷或安静的街区，远离喧嚣，适合情侣独处。它们通常有露台、阳台或小庭院，可以一边看海、一边聊天，非常适合营造浪漫氛围。\n\n**推荐理由：**\n- **安静私密**：远离主干道和商业区，适合情侣享受二人世界。\n- **视野好**：能看到海景或远处的山景，有助于放松心情。\n- **氛围感强**：很多民宿会布置得温馨浪漫，适合拍照打卡。\n\n---\n\n### ✅ **推荐思路二：优先考虑交通便利、周边配套齐全的民宿**\n虽然你希望安静，但交通便利和周边配套（如小吃、咖啡馆、小商店）也能提升整体体验。尤其适合计划短途出行、想探索周边景点的情侣。\n\n**推荐理由：**\n- **出行方便**：方便去附近的景点、餐厅或夜市。\n- **生活便利**：周边有餐饮、购物等设施，不用频繁往返市区。\n- **适合灵活安排**：如果计划临时改变行程，也能更从容应对。\n\n---\n\n### ✅ **推荐思路三：选择有特色主题或文化氛围的民宿**\n这类民宿通常有独特的设计风格，比如海边木屋、老宅改造、艺术空间等，能带来更丰富的体验感，也更容易留下美好回忆。\n\n**推荐理由：**\n- **体验感强**：独特的设计和文化背景能带来新鲜感。\n- **适合拍照打卡**：适合情侣一起记录旅行中的浪漫瞬间。\n- **更有故事感**：很多民宿有主人亲自打理，能提供更贴心的服务。\n\n---\n\n### ✅ **推荐思路四：优先选择有良好评价和稳定运营的民宿**\n虽然预算有限，但选择有良好口碑、稳定运营的民宿，能更安心地享受住宿体验，避免遇到突发问题。\n\n**推荐理由：**\n- **更可靠**：有稳定运营的民宿通常更注重服务和卫生。\n- **更安心**：能减少因临时变动带来的不便。\n- **更省心**：能更专注于享受旅行本身。\n\n---\n\n### ✅ **推荐思路五",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000045",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "三亚",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "三亚吉阳区海边安静的LOFT公寓适合情侣住吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '三亚吉阳区海边安静的LOFT公寓适合情侣住吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (三亚 吉阳区), budget, traveler type (情侣), and priorities such as 海边 / 景区周边 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_afca6410e8c2",
+    "prediction": "三亚吉阳区海边安静的LOFT公寓是否适合情侣住，主要取决于几个关键因素：**环境氛围、空间布局、私密性、便利性**，以及**情侣之间的互动偏好**。以下是我优先考虑的推荐逻辑：\n\n---\n\n### 1. **环境氛围：安静与自然的结合**\n吉阳区是三亚的核心城区，靠近亚龙湾、海棠湾等热门海滩，但相比更热闹的区域（如三亚湾、海棠湾），吉阳区整体更安静、生活节奏更慢。如果公寓位于靠近海边、绿化较好、远离主干道的位置，那么它能提供一种**轻松、放松、贴近自然**的氛围，非常适合情侣在旅行中享受二人世界的宁静与浪漫。\n\n---\n\n### 2. **空间布局：LOFT的灵活性与私密性**\nLOFT公寓通常有较高的挑高设计，空间感强，适合喜欢自由活动、喜欢在家中布置浪漫角落的情侣。如果公寓内有独立的卧室、客厅、厨房和阳台，那么它能提供**相对独立的私密空间**，同时又不会显得过于封闭，适合情侣在不同时间段有不同的活动安排。\n\n---\n\n### 3. **私密性：适合情侣独处**\n如果公寓是整栋或整层独租，且周边没有密集的商业或住宅区，那么它能提供较好的**私密性**，避免被外界打扰。这对情侣来说非常重要，尤其是在享受二人时光时，能更专注于彼此的陪伴和互动。\n\n---\n\n### 4. **便利性：靠近海滩与生活配套**\n吉阳区虽然相对安静，但生活配套齐全，交通便利，靠近多个海滩和景点。如果公寓靠近海边或步行可达海滩，那么情侣可以轻松安排日落散步、海边野餐等浪漫活动。同时，周边也有餐饮、超市、便利店等生活设施，方便日常所需。\n\n---\n\n### 5. **情侣互动偏好：是否需要更多社交空间？**\n如果情侣更喜欢**安静独处**，那么LOFT公寓的布局和环境非常合适；但如果他们更倾向于**社交互动**，比如喜欢在旅途中结识新朋友、参加活动，那么可能需要考虑周边是否有更多社交场所或文化体验点。\n\n---\n\n### 总结推荐逻辑：\n这类LOFT公寓适合**喜欢安静、注重私密性、追求浪漫氛围的情侣**，尤其适合希望在旅行中享受二人独处时光、远离喧嚣、贴近自然的情",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000046",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "三亚",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "三亚湾附近适合情侣度假的海景住宿有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '三亚湾附近适合情侣度假的海景住宿有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (三亚 天涯区), budget, traveler type (情侣), and priorities such as 度假 / 海边 / 景区周边, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_f1ee24c5ce24",
+    "prediction": "三亚湾是三亚最热门的度假区域之一，靠近海边，交通便利，适合情侣度假。该区域整体环境安静、生活配套成熟，适合情侣享受浪漫时光。不过，三亚湾整体房价偏高，尤其在旺季，预算有限的情侣需提前规划。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000047",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "参考信息：城市：上海；区域：黄浦区\n\n用户问题：外滩附近适合情侣住的民宿有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '参考信息：城市：上海；区域：黄浦区\n\n用户问题：外滩附近适合情侣住的民宿有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (上海 黄浦区), budget, traveler type (情侣), and priorities such as 景区周边 / 交通便利 / 情侣氛围, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_082a57a66773",
+    "prediction": "在上海黄浦区外滩附近，适合情侣入住的民宿确实存在，但这类房源通常较为有限，且更偏向于短租公寓或精品小屋，而非传统意义上的民宿。这类住宿通常具备以下特点：\n\n### 推荐类型：\n1. **精品小公寓**：这类房源通常位于外滩附近，步行可达外滩、南京东路或豫园，内部空间温馨，适合情侣独处。部分公寓配有小厨房、沙发床、独立卫浴等，适合短途浪漫之旅。\n2. **外滩附近精品酒店**：虽然不是民宿，但部分精品酒店也提供情侣友好型房型，如带浴缸、观景阳台、浪漫布置等，适合追求氛围感的情侣。\n\n### 便利性：\n- **步行可达外滩**：多数房源步行5-10分钟即可到达外滩，方便情侣散步、拍照、欣赏夜景。\n- **靠近地铁站**：外滩附近有多个地铁站点（如南京东路站、人民广场站），交通便利，适合前往市区其他景点或商圈。\n- **周边配套成熟**：外滩周边餐饮、咖啡馆、酒吧、商场等一应俱全，适合情侣在行程中轻松安排。\n\n### 取舍建议：\n- **优点**：环境安静、私密性好、氛围温馨，适合情侣独处；位置便利，便于游览外滩及周边景点。\n- **缺点**：这类房源通常价格偏高，且数量有限，需提前预订；部分房源可能没有电梯，对携带行李或行动不便者不太友好；部分民宿可能没有24小时热水或隔音较差，需提前确认。\n\n### 总结：\n如果你更看重氛围感和私密性，且愿意为便利性支付一定溢价，外滩附近的精品小公寓或精品酒店是不错的选择。但需注意提前确认房源条件、位置和周边配套，以确保符合你的出行需求。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000048",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "丽江",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "丽江古城里面安静一点的民宿适合情侣住吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '丽江古城里面安静一点的民宿适合情侣住吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (丽江 古城区), budget, traveler type (情侣), and priorities such as 景区周边 / 安静 / 情侣氛围, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_0732f6efc888",
+    "prediction": "丽江古城内安静一点的民宿，通常位于古城外围或靠近小巷深处，远离主街的喧嚣，更适合情侣入住。这类民宿通常环境温馨、私密性较好，能让人更专注于彼此的陪伴，同时也能更安静地感受古城的氛围。\n\n### 推荐住法：\n1. **选择靠近小巷或小院的民宿**：这类位置通常更安静，远离游客密集的酒吧街和商业区，适合情侣享受二人世界。\n2. **优先选择有露台或庭院的房间**：可以一起看夜景、聊天、发呆，增加浪漫氛围。\n3. **避开靠近主入口或广场的民宿**：这些地方容易受到游客进出的影响，噪音较大，不太适合需要安静氛围的情侣。\n4. **确认民宿是否提供基础设施**：如免费WiFi、热水、洗漱用品等，确保入住体验舒适。\n\n### 推荐理由：\n- **环境安静**：远离喧嚣，更适合情侣放松和交流。\n- **氛围温馨**：许多民宿会布置得很有格调，适合拍照和留念。\n- **方便出行**：丽江古城步行可达，周边有丰富的文化景点和美食，适合慢慢探索。\n\n如果你更看重私密性和安静，这类民宿会比古城内的客栈更适合情侣入住。同时，也可以提前和民宿主人沟通入住时间，确认是否适合安静休息。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000049",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "easy",
+    "tags": [
+      "丽江",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "丽江古城里面安静又适合情侣住的民宿推荐吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '丽江古城里面安静又适合情侣住的民宿推荐吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (丽江 古城区), budget, traveler type (情侣), and priorities such as 景区周边 / 安静 / 情侣氛围, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_a71b26a0a9e1",
+    "prediction": "当然可以。在丽江古城内寻找安静又适合情侣住的民宿，需要从几个关键维度来考虑：**环境氛围、位置便利性、私密性、隔音效果、服务体验**，以及**是否符合情侣的互动偏好**。以下是我推荐这类民宿的逻辑框架：\n\n---\n\n### 一、优先考虑环境氛围与私密性\n\n**推荐逻辑：**  \n情侣在旅行中更看重的是情感交流和放松体验，因此住宿环境需要安静、温馨、有氛围感。丽江古城本身是旅游热点，白天人流量大，晚上也常有游客聚集，因此**选择靠近古城边缘、远离主街、有庭院或小花园的民宿**，更容易营造出私密、安静的氛围。\n\n这类民宿通常会更注重空间布局，比如设有独立的客厅、小阳台、露台，甚至有小院，适合两人独处、聊天、看风景，也更容易让情侣在旅途中保持亲密感。\n\n---\n\n### 二、位置便利性：兼顾安静与生活便利\n\n**推荐逻辑：**  \n虽然安静是优先项，但也不能完全牺牲便利性。丽江古城内有丰富的文化体验、美食和夜生活，因此民宿的位置应尽量靠近古城入口、主要景点（如四方街、木府）或交通节点，但又不处于核心商业区，避免被喧嚣包围。\n\n比如，**靠近狮子山、黑龙潭、束河古镇**方向的民宿，通常更安静，同时也能方便前往丽江古城内的主要景点。\n\n---\n\n### 三、隔音与空间布局\n\n**推荐逻辑：**  \n古城内的建筑多为老式木结构，隔音效果一般，因此民宿的房间布局和隔音设计尤为重要。优先选择**房间朝南、有窗户、有独立卫浴、有隔音门**的房间，能有效减少外界噪音干扰。\n\n此外，**房间内有独立的休息区、小茶桌、小沙发**，也更适合情侣在旅途中放松、阅读、聊天。\n\n---\n\n### 四、服务体验与文化氛围\n\n**推荐逻辑：**  \n丽江古城的民宿往往带有浓厚的纳西文化特色，因此在推荐时，也可以优先考虑那些**有文化展示、有手工艺品、有本地特色餐饮或茶饮服务**的民宿。这类民宿不仅能让情侣体验当地文化，也能增加旅行的趣味性和独特性。\n\n同时，**服务态度友好、有专人接待、能提供旅游建议**",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000050",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "南宁",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "南宁西乡塘区靠近地铁站又安静适合情侣住的酒店有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '南宁西乡塘区靠近地铁站又安静适合情侣住的酒店有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (南宁 西乡塘区), budget, traveler type (情侣), and priorities such as 交通便利 / 安静 / 情侣氛围, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_aae09674a8c8",
+    "prediction": "南宁西乡塘区靠近地铁站又安静适合情侣住的酒店是有可能存在的，但需要综合考虑多个因素。该区域属于南宁的教育和居住密集区，交通便利，但整体环境相对生活化，可能不如市中心或旅游景点那样浪漫。如果情侣更看重私密性、安静氛围和温馨体验，同时希望出行方便，那么选择靠近地铁站、周边环境安静、有良好隔音设施的酒店会更合适。不过，该区域整体更适合家庭或学生群体，情侣入住可能需要更细致地筛选，比如优先选择有观景阳台、浪漫装饰或贴心服务的房间。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000051",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "汕头",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "南澳岛海边安静适合情侣住的民宿有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '南澳岛海边安静适合情侣住的民宿有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (汕头 南澳县), budget, traveler type (情侣), and priorities such as 海边 / 度假 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_4cc32a1a5ac1",
+    "prediction": "南澳岛是一个非常适合情侣度假的地方，尤其是海边安静、氛围温馨的民宿，能让人远离喧嚣，享受二人世界的浪漫。不过在选择这类民宿时，需要在便利性和环境舒适之间做出取舍。\n\n### ✅ 推荐类型：海边小院式民宿\n这类民宿通常位于岛屿的安静区域，如后花园、西山或东山附近，视野开阔，能看到海景或山景，适合情侣散步、看日落、聊天。这类民宿通常没有电梯，房间较小，但布置温馨，有独立厨房或小厨房，适合短住。\n\n#### ✅ 推荐理由：\n1. **环境安静、私密性强**：远离主街和人群，适合情侣独处，减少被打扰。\n2. **氛围浪漫**：很多民宿会布置成小院、露台或带阳台的形式，适合夜晚一起看星星、聊天。\n3. **适合慢节奏度假**：没有太多娱乐设施，但更注重自然与放松，适合情侣慢慢享受二人时光。\n\n#### ⚠️ 不便之处：\n1. **交通相对不便**：这类民宿通常位于岛屿的偏僻区域，去往景点或市中心可能需要转车或步行一段距离。\n2. **设施相对简单**：可能没有24小时热水、电梯、大型停车场等，适合预算有限、追求安静体验的情侣。\n3. **周边配套较少**：如超市、餐厅、便利店等可能距离较远，不太适合长时间停留或频繁外出。\n\n### 📌 小贴士：\n- 如果更看重便利性，可以选择靠近主街或公交站点的民宿，但这类地方通常更热闹，更适合喜欢热闹氛围的情侣。\n- 如果更看重环境和氛围，建议优先选择靠近海边、有露台或小院的民宿，同时提前确认交通方式和周边配套情况。\n\n### ✅ 总结：\n南澳岛确实有适合情侣住的海边安静民宿，但这类住宿更强调环境与氛围，适合追求慢节奏、浪漫体验的旅行者。如果更看重便利性，可能需要在位置和环境之间做出取舍。建议根据自己的出行节奏和偏好，选择最适合自己的住宿类型。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000052",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "深圳",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "深圳龙岗南澳海边安静适合情侣住的民宿有推荐吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '深圳龙岗南澳海边安静适合情侣住的民宿有推荐吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (深圳 龙岗区), budget, traveler type (情侣), and priorities such as 度假 / 安静 / 情侣氛围, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_e4d98507dbc9",
+    "prediction": "在深圳龙岗南澳海边，如果想找一个安静、适合情侣住的民宿，优先考虑的是环境安静、视野开阔、交通便利、有私密空间和基础生活设施的地方。这类民宿通常位于海边或半山区域，远离喧嚣，适合放松和享受二人世界。\n\n### 推荐住法建议：\n\n#### 1. **选择半山或临海小院类民宿**\n这类民宿通常有小院、露台或阳台，视野开阔，适合情侣一起看海、聊天、发呆。环境相对安静，适合慢节奏的旅行体验。\n\n**推荐理由：**\n- 离海边近，步行可达，方便散步或看日出日落；\n- 有独立空间，私密性好，适合情侣独处；\n- 通常有基础生活设施（如厨房、洗衣机、空调、热水）；\n- 价格适中，适合预算有限的情侣。\n\n#### 2. **避开市中心或热门景点周边**\n南澳虽然风景好，但靠近市区或热门景点的民宿可能人流量大、噪音多，不太适合情侣想要安静的氛围。优先选择稍微远离主干道、更安静的区域。\n\n**推荐理由：**\n- 避免人多嘈杂，保持二人世界的宁静；\n- 交通相对便利，但不会太拥挤；\n- 更容易找到适合拍照、发呆的角落。\n\n#### 3. **优先考虑有露台或小院的房间**\n露台或小院是情侣拍照、发呆、享受二人时光的好地方。如果民宿有小院，建议优先选择带院的房间。\n\n**推荐理由：**\n- 有更多互动空间，适合一起做饭、聊天；\n- 可以在小院里种花、放桌椅，营造浪漫氛围；\n- 适合拍照打卡，留下美好回忆。\n\n#### 4. **注意交通和周边配套**\n虽然环境安静，但也要考虑交通是否方便，周边是否有便利店、药店、小吃店等生活配套。如果出行计划中需要频繁往返市区，建议选择交通便利的位置。\n\n**推荐理由：**\n- 避免因交通不便影响行程安排；\n- 有生活配套更方便应对突发情况；\n- 适合短途停留或深度体验当地生活。\n\n### 总结：\n在深圳龙岗南澳海边，适合情侣住的民宿更注重环境安静、视野开阔、私密性好和生活便利。优先选择半山或",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000053",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽江",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "丽江古城里面安静又适合情侣住的地方有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '丽江古城里面安静又适合情侣住的地方有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (丽江 古城区), budget, traveler type (情侣), and priorities such as 景区周边 / 安静 / 情侣氛围, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_e59f20aeb912",
+    "prediction": "当然可以。丽江古城本身就是一个充满历史与文化氛围的地方，尤其适合情侣慢节奏地体验。如果你更看重“安静”和“适合情侣”，那么推荐逻辑会更偏向于环境氛围、私密性、生活便利性以及整体体验感。\n\n---\n\n### ✅ 推荐逻辑一：优先考虑环境氛围与私密性\n\n**核心需求**：安静、适合情侣、有氛围感  \n**推荐方向**：避开主街、人流密集区域，选择靠近小巷、有庭院或小阳台的住宿，通常这类位置更安静，也更容易营造浪漫氛围。\n\n这类住宿通常位于古城内部的安静角落，远离酒吧街、夜市等喧闹区域，更适合情侣在夜晚散步、聊天、看星星，享受二人世界的宁静与浪漫。\n\n---\n\n### ✅ 推荐逻辑二：优先考虑生活便利性与体验感\n\n**核心需求**：方便出行、体验古城文化、有本地特色  \n**推荐方向**：选择靠近古城入口、主要景点或文化体验点的住宿，方便白天游览，晚上也能轻松返回休息。\n\n这类住宿通常更靠近游客中心、茶马古道、四方街等核心区域，步行可达，适合喜欢白天探索古城、晚上放松的情侣。同时，这类位置也更容易接触到本地生活节奏，体验更地道的丽江文化。\n\n---\n\n### ✅ 推荐逻辑三：优先考虑住宿本身的舒适度与细节\n\n**核心需求**：住宿环境舒适、有特色、有温度  \n**推荐方向**：选择有庭院、露台、小阳台、木质家具、本地装饰风格的住宿，这类住宿往往更注重细节和氛围，更容易让情侣感受到家的温暖。\n\n这类住宿通常由本地人经营，更了解丽江的生活方式和文化，也更容易提供一些贴心的服务，比如推荐本地美食、手工艺品、文化体验等。\n\n---\n\n### ✅ 推荐逻辑四：优先考虑交通与周边配套\n\n**核心需求**：交通便利、周边配套齐全、适合短途出行  \n**推荐方向**：选择靠近公交站点、出租车停靠点、地铁站或主要交通枢纽的住宿，方便前往周边景点或市区。\n\n这类住宿通常更适合计划在丽江短暂停留、需要频繁往返市区或周边景点的情侣，也更适合喜欢灵活安排行程的人。\n\n---\n\n### ✅ 推荐逻辑五：优先考虑预算与性价比\n\n**核心需求**：预算有限、但希望获得高性价比",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000054",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "东莞",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "东莞大岭山镇附近适合带老人和孩子住的自然休闲型酒店有吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '东莞大岭山镇附近适合带老人和孩子住的自然休闲型酒店有吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (东莞 大岭山镇), budget, traveler type (老人 / 亲子), and priorities such as 交通便利 / 景区周边 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_5c3591db58a0",
+    "prediction": "东莞大岭山镇周边确实有适合带老人和孩子入住的自然休闲型酒店，这类住宿通常环境安静、空气清新、设施便利，适合家庭出行。不过，这类区域的自然休闲型酒店数量相对有限，且多集中在镇内或周边小村庄，因此需要根据具体位置、交通便利性、周边配套和住宿条件综合判断。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000055",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "丽水",
+      "酒店类型选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "遂昌县城中心附近，适合带老人的家庭住的经济型酒店有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '遂昌县城中心附近，适合带老人的家庭住的经济型酒店有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 遂昌县), budget, traveler type (老人 / 家庭), and priorities such as 交通便利 / 家庭友好 / 性价比, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_95fd25da49cc",
+    "prediction": "在遂昌县城中心附近，适合带老人的家庭住的经济型酒店，通常需要兼顾便利性、舒适度和安全性。这类住宿通常位于交通便利、周边生活配套齐全的区域，比如靠近公交站点、超市、医院或公园，方便老人日常出行和生活。\n\n### 推荐类型与推荐理由：\n\n#### 1. **城市便捷型经济型酒店（如如家、锦江之星）**\n- **推荐理由**：\n  - **位置便利**：通常位于主干道附近，步行可达公交站点或地铁站（如有），方便老人出行。\n  - **设施基础**：配备电梯、无障碍通道、热水淋浴、独立卫浴等，适合老人使用。\n  - **价格亲民**：单间价格一般在200-400元之间，适合预算有限的家庭。\n  - **服务友好**：前台通常有基本的行李协助、叫车服务等，适合带老人出行。\n- **取舍说明**：\n  - **优点**：性价比高，适合短途停留。\n  - **缺点**：可能缺乏更高端的休闲设施（如健身房、餐厅），适合以休息为主的家庭。\n\n#### 2. **本地特色民宿或家庭旅馆**\n- **推荐理由**：\n  - **环境温馨**：通常由本地家庭经营，环境安静、有家的感觉，适合老人放松。\n  - **位置适中**：多位于老城区或小巷中，步行可达周边景点或生活区，但可能稍远于主干道。\n  - **服务贴心**：主人常会提供额外帮助，如照顾老人、提供本地旅游建议等。\n- **取舍说明**：\n  - **优点**：更有本地生活气息，适合体验遂昌文化。\n  - **缺点**：设施可能较为基础，部分民宿可能没有电梯，需注意楼层高度。\n\n### 便利性与取舍建议：\n\n- **便利性优先**：如果老人行动不便或需要频繁外出，建议优先选择靠近公交站点、医院、超市的经济型酒店，方便日常出行和生活。\n- **舒适性优先**：如果更看重居住体验和环境，可以考虑本地特色民宿，但需提前确认是否有无障碍设施和适合老人的房间。\n- **预算控制**：经济型酒店通常价格稳定，适合家庭出行；但需注意避开节假日或旅游旺季，以免价格上涨。\n\n### 总结：\n\n在遂昌",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000056",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "丽水",
+      "人群适配",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "龙泉市剑川大道附近安静又靠近文化景点的酒店适合老人住吗？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '龙泉市剑川大道附近安静又靠近文化景点的酒店适合老人住吗？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (丽水 龙泉市), budget, traveler type (老人), and priorities such as 交通便利 / 景区周边 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_1473ca59c821",
+    "prediction": "龙泉市剑川大道附近确实是一个适合安静居住、靠近文化景点的区域，尤其适合喜欢慢节奏生活、注重文化体验的老人。如果老人更看重安静、便利和文化氛围，这个区域的住宿选择是合适的。不过，选择适合老人的住宿时，还需要综合考虑以下几个方面：\n\n### 1. **交通便利性**\n剑川大道周边通常有公交站点或出租车服务，但如果是前往更远的文化景点（如龙泉八仙岩、剑池、大窑龙泉窑遗址等），建议确认周边是否有公交线路或打车方便。如果老人出行频率不高，也可以优先选择步行可达的景点附近。\n\n### 2. **周边配套**\n- **医疗设施**：建议优先选择靠近医院或社区卫生服务中心的住宿，以应对突发情况。\n- **生活便利**：周边是否有超市、药店、早餐店等生活配套，对老人来说非常重要。\n- **无障碍设施**：如电梯、坡道、扶手等，这些设施能提升老人的出行安全和舒适度。\n\n### 3. **住宿环境与设施**\n- **房间布局**：建议选择房间内有独立卫浴、无障碍通道、防滑地板的酒店或民宿。\n- **噪音控制**：剑川大道虽然相对安静，但靠近主干道，建议选择远离主路、楼层较高的房间，以减少交通噪音。\n- **床铺与床品**：选择床垫软硬适中、床品柔软舒适的房间，有助于老人休息。\n\n### 4. **文化氛围与活动**\n剑川大道附近有龙泉博物馆、剑川文化广场等文化场所，适合老人在闲暇时参观、散步。如果老人喜欢文化体验，可以选择靠近这些景点的住宿，方便随时参与文化活动或游览。\n\n### 5. **安全与服务**\n- **24小时安保**：选择有24小时安保服务的住宿，能提升安全感。\n- **前台服务**：前台人员是否友好、服务态度好，对老人来说也很重要。\n- **紧急联系人**：确认酒店是否提供紧急联系人服务，如遇突发情况能及时联系家属或医护人员。\n\n### 推荐住法建议：\n- **优先选择靠近文化景点、生活配套齐全、无障碍设施完善的酒店或民宿**，如龙泉市内的精品民宿或中端连锁酒店。\n- **避开靠近主干道、交通繁忙的区域**，优先选择安静、绿化好的小区或小",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000057",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "汕头",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "潮南区峡山街道附近安静适合老人住的酒店有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '潮南区峡山街道附近安静适合老人住的酒店有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (汕头 潮南区), budget, traveler type (老人), and priorities such as 交通便利 / 安静 / 适合泡酒店, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_cbb16c552295",
+    "prediction": "在潮南区峡山街道附近寻找安静、适合老人居住的酒店，核心逻辑是围绕“安静”“安全”“便利”和“舒适”四个关键词展开。以下是我推荐这类住宿的逻辑框架：\n\n---\n\n### 一、优先考虑“安静”环境\n\n老人通常对噪音敏感，尤其在夜间休息时更需要安静的环境。因此，推荐优先选择远离主干道、商业区、交通枢纽或娱乐场所的区域。峡山街道本身属于潮南区的相对安静区域，但周边仍可能有生活配套或交通线路，因此建议优先选择内部安静、绿化较好、周边无大型工地或施工区域的住宿。\n\n---\n\n### 二、关注“安全”与“便利性”\n\n老人出行更看重安全和便利，因此推荐优先选择有24小时安保、门禁系统、电梯、无障碍设施（如扶手、坡道）的酒店或公寓。同时，周边应有基本的生活配套，如超市、药店、医院、公交站点等，方便老人日常所需。\n\n---\n\n### 三、注重“舒适性”与“服务细节”\n\n适合老人的住宿应注重舒适性，如床品柔软、灯光柔和、温控系统稳定、房间内无尖锐物品等。此外，服务细节也很重要，如提供免费行李寄存、代客泊车、叫车服务、送餐服务等，能为老人提供更贴心的体验。\n\n---\n\n### 四、避开“嘈杂”与“高密度人流”\n\n应尽量避开靠近夜市、酒吧、KTV、大型商场、学校、医院等高人流区域的住宿。这类区域通常噪音大、人流量密集，容易影响老人的休息和情绪。\n\n---\n\n### 五、推荐类型与选址建议\n\n#### 1. **精品民宿或家庭式公寓**\n这类住宿通常更安静、更温馨，适合老人慢节奏生活。选址建议靠近自然景观（如公园、小湖）或社区绿地，远离主干道。\n\n#### 2. **中端连锁酒店**\n如如家、汉庭、锦江之星等品牌，通常有标准化服务、安全设施和相对安静的环境，适合对服务有基本要求但预算有限的老人。\n\n#### 3. **社区养老公寓或适老化住宅**\n如果老人有长期居住或养老需求，可优先考虑社区养老公寓或适老化住宅，这类住宅通常配备更完善的无障碍设施和生活配套。\n\n---",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000058",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "深圳",
+      "人群适配",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "盐田区靠近地铁站又安静的民宿适合带老人住吗？，别直接报酒店名，先说判断。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '盐田区靠近地铁站又安静的民宿适合带老人住吗？，别直接报酒店名，先说判断。' as a lodging-strategy question, not just list hotel names. It should use the location (深圳 盐田区), budget, traveler type (老人), and priorities such as 景区周边 / 交通便利 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_36da24e18b5b",
+    "prediction": "盐田区靠近地铁站又安静的民宿，通常更适合带老人居住。这类民宿通常环境安静、交通便利，适合需要安静休息和慢节奏出行的老人。不过，仍需注意以下几点：\n\n1. **设施适配性**：建议优先选择有无障碍设施（如防滑地砖、扶手、电梯）或提供轮椅通道的民宿，以确保老人行动方便和安全。\n2. **房间布局**：选择采光好、通风佳、空间宽敞的房间，避免过于局促或采光不足的环境，有助于老人保持良好的作息和心情。\n3. **周边配套**：虽然民宿本身安静，但周边是否有便利店、药房、医院或公园等生活便利设施也很重要，尤其在紧急情况下能提供支持。\n4. **服务态度**：入住前可提前沟通老人的需求，如是否需要提供额外的床品、助浴服务或饮食安排，确保入住体验更贴心。\n\n综上，这类民宿在满足基本居住需求的同时，若能兼顾适老化设计和便利性，通常是比较适合带老人居住的选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000059",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "南宁",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "西乡塘区靠近地铁站的安静经济型酒店有吗？，请把便利性和取舍说清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '西乡塘区靠近地铁站的安静经济型酒店有吗？，请把便利性和取舍说清楚。' as a lodging-strategy question, not just list hotel names. It should use the location (南宁 西乡塘区), budget, traveler type (预算型 / 中转), and priorities such as 交通便利 / 性价比 / 安静, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_c72b897d303f",
+    "prediction": "在西乡塘区寻找靠近地铁站、安静且经济型的酒店，确实有一些选择，但需要在便利性和安静之间做出取舍。以下是一些推荐方向和建议：\n\n### 1. **靠近地铁站但相对安静的区域**\n西乡塘区地铁线路相对较少，但靠近地铁站的区域通常更方便通勤，但也可能更嘈杂。例如：\n- **靠近地铁1号线或2号线站点**（如安吉客运站、明秀路站）的周边区域，通常交通便利，但周边商业和人流较多，环境相对热闹。\n- **推荐理由**：适合需要频繁通勤、带小孩或老人出行的旅客，方便换乘公交、打车或地铁，节省时间。\n\n### 2. **安静但稍远的经济型酒店**\n如果更看重安静和休息环境，可以选择稍远一点但环境更清幽的区域，如：\n- **靠近大学城或居民区**的酒店，通常周边环境安静，适合休息和办公。\n- **推荐理由**：适合对睡眠质量要求较高、希望远离城市喧嚣的旅客，尤其适合家庭出行或需要安静环境的商务人士。\n\n### 3. **取舍建议**\n- **便利性优先**：选择靠近地铁站、公交站点或主干道的酒店，方便出行和周边游览，但需接受周边环境可能较嘈杂。\n- **安静优先**：选择远离主干道、商业区或地铁站的区域，环境更安静，适合休息和放松，但需多花时间通勤。\n\n### 4. **推荐参考**\n- **南宁西乡塘区安吉客运站附近**：靠近地铁1号线，周边有公交站点，适合需要频繁换乘的旅客，但周边商业较密集，环境相对热闹。\n- **南宁大学城周边**：环境相对安静，适合家庭或学生入住，但距离市中心较远，需预留更多通勤时间。\n\n### 总结\n在西乡塘区寻找安静且经济型的酒店，需在便利性和安静之间权衡。如果更看重通勤便利，可优先选择靠近地铁站的区域；如果更看重休息环境，可选择稍远但更安静的区域。建议根据出行目的和行程安排，结合个人偏好做出选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_hotel_recommendation_000060",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "hard",
+    "tags": [
+      "温州",
+      "便利性选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "瑞安飞云街道附近有没有交通方便、适合短住的宾馆？，我更想知道什么样的住法更合适。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '瑞安飞云街道附近有没有交通方便、适合短住的宾馆？，我更想知道什么样的住法更合适。' as a lodging-strategy question, not just list hotel names. It should use the location (温州 瑞安市), budget, traveler type (预算有限的旅客 / 本地短途出行者), and priorities such as 交通便利 / 性价比, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_aecf701ee331",
+    "prediction": "瑞安飞云街道周边交通便利，适合短住，但选择宾馆时更应关注其是否符合你的出行目的和生活节奏。如果你是短途出差或临时停留，优先考虑交通接驳方便、周边生活配套齐全的住宿，比如靠近公交站点、地铁口或主要干道的宾馆，这样能减少通勤时间，提升效率。同时，这类区域通常价格适中，适合预算有限的短住需求。如果你更看重安静和舒适，可以选择稍远一点但环境更安静、绿化更好的区域，但需提前确认通勤时间和交通方式。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

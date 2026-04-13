@@ -1,0 +1,2156 @@
+[
+  {
+    "id": "eval_hotel_recommendation_000001",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 863,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 3,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\"\n  ],\n  \"missed_must_include\": [\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only list hotel names without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"incomplete_reasoning\",\n    \"truncated_output\",\n    \"list_without_tradeoff\"\n  ],\n  \"strengths\": [\n    \"Clear segmentation and structured presentation\",\n    \"Accurate identification of user constraints (youth hostel, Qingxiu District, metro, Nanhu Park)\",\n    \"Appropriate tone and brand-aligned restraint (no hype, no false urgency)\"\n  ],\n  \"judge_reason\": \"The response begins well with strong logic framing—correctly interpreting the query as a strategy question and addressing traveler type, budget, location, and purpose. However, it abruptly cuts off mid-sentence in the second hotel suggestion ('这类旅舍通常...'), failing to complete any concrete recommendation or explain tradeoffs (e.g., 'metro proximity vs park quietness', 'social vibe vs privacy', 'central access vs potential noise'). Crucially, it violates 'must_not_do: Do not only list hotel names without reasoning' — the two 'recommendations' are generic templates with placeholder names ('南宁青秀区青年旅舍') and lack real-world grounding or comparative analysis. No actual tradeoff is articulated; the promised 'recommendation logic' remains partial and unfulfilled. This makes the answer incomplete and unsafe to deploy as-is.\"\n}",
+    "correctness": 3,
+    "instruction_following": 3,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints"
+    ],
+    "missed_must_include": [
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "incomplete_reasoning",
+      "truncated_output",
+      "list_without_tradeoff"
+    ],
+    "strengths": [
+      "Clear segmentation and structured presentation",
+      "Accurate identification of user constraints (youth hostel, Qingxiu District, metro, Nanhu Park)",
+      "Appropriate tone and brand-aligned restraint (no hype, no false urgency)"
+    ],
+    "judge_reason": "The response begins well with strong logic framing—correctly interpreting the query as a strategy question and addressing traveler type, budget, location, and purpose. However, it abruptly cuts off mid-sentence in the second hotel suggestion ('这类旅舍通常...'), failing to complete any concrete recommendation or explain tradeoffs (e.g., 'metro proximity vs park quietness', 'social vibe vs privacy', 'central access vs potential noise'). Crucially, it violates 'must_not_do: Do not only list hotel names without reasoning' — the two 'recommendations' are generic templates with placeholder names ('南宁青秀区青年旅舍') and lack real-world grounding or comparative analysis. No actual tradeoff is articulated; the promised 'recommendation logic' remains partial and unfulfilled. This makes the answer incomplete and unsafe to deploy as-is."
+  },
+  {
+    "id": "eval_hotel_recommendation_000002",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 88,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 3,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\"\n  ],\n  \"missed_must_include\": [\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"insufficient_tradeoff_explanation\"],\n  \"strengths\": [\"Accurately identifies芦台镇为宁河区行政中心，定位正确；自然语言表达克制，无营销感；未编造价格/库存，符合安全与诚实要求；明确呼应‘交通方便’核心诉求并给出选址建议\"],\n  \"judge_reason\": \"回答做出了清晰判断（'适合短途出行或中转'），使用了位置约束（宁河区芦台镇）和出行目的隐含信息（中转），但未显式说明推荐逻辑的取舍——例如未解释为何不推荐高端度假型酒店、是否牺牲安静换便利、或对老人/家庭等潜在人群的适配性权衡。虽提及‘靠近公交站点、地铁站或主要干道’，但未说明该区域实际地铁覆盖缺失（芦台镇无地铁），也未提示公交接驳现实情况，导致逻辑支撑略显单薄。整体可用，但推荐说服力不足，属 pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 3,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints"
+    ],
+    "missed_must_include": [
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "insufficient_tradeoff_explanation"
+    ],
+    "strengths": [
+      "Accurately identifies芦台镇为宁河区行政中心，定位正确；自然语言表达克制，无营销感；未编造价格/库存，符合安全与诚实要求；明确呼应‘交通方便’核心诉求并给出选址建议"
+    ],
+    "judge_reason": "回答做出了清晰判断（'适合短途出行或中转'），使用了位置约束（宁河区芦台镇）和出行目的隐含信息（中转），但未显式说明推荐逻辑的取舍——例如未解释为何不推荐高端度假型酒店、是否牺牲安静换便利、或对老人/家庭等潜在人群的适配性权衡。虽提及‘靠近公交站点、地铁站或主要干道’，但未说明该区域实际地铁覆盖缺失（芦台镇无地铁），也未提示公交接驳现实情况，导致逻辑支撑略显单薄。整体可用，但推荐说服力不足，属 pass_with_risk。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000003",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 859,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\", \"Explain the recommendation logic or tradeoff\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"missing_budget_consideration\", \"missing_traveler_type_reasoning\", \"incomplete_tradeoff_explanation\", \"structural_overlist\", \"unfulfilled_user_request_for_clarity_on_convenience_and_tradeoffs\"],\n  \"strengths\": [\"Recognizes 'youth apartment' as category; acknowledges川沙站地铁便利性; avoids inventing real-time prices or booking status; uses natural section headers\"],\n  \"judge_reason\": \"The response fails to incorporate any budget constraint (user didn’t specify one, but per rubric must_include requires using *at least one* of budget/traveler type/location — and while location is mentioned, traveler type '中转短住' is acknowledged only superficially, never analyzed for implications like luggage storage, check-in/out flexibility, 24h access, or minimal service expectations. Crucially, it never delivers the requested 'convenience and tradeoffs' analysis with concrete, grounded comparisons — instead defaults to generic bullet-point categories ('靠近地铁站的青年公寓', '周边生活配套完善的公寓') without naming *actual options*, explaining *why one is more suitable than another*, or clarifying *what is sacrificed* (e.g., 'no elevator → hard with luggage', 'shared bathroom → inconvenient for early-morning departure'). The truncated ending ('如果你计划在浦东新区短暂停留，') confirms incompleteness. It violates 'must_not_do' by structuring like a template list rather than delivering reasoned judgment — effectively 'only listing types without reasoning'. Thus, instruction_following and task_specific_score are critically low.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "missing_budget_consideration",
+      "missing_traveler_type_reasoning",
+      "incomplete_tradeoff_explanation",
+      "structural_overlist",
+      "unfulfilled_user_request_for_clarity_on_convenience_and_tradeoffs"
+    ],
+    "strengths": [
+      "Recognizes 'youth apartment' as category; acknowledges川沙站地铁便利性; avoids inventing real-time prices or booking status; uses natural section headers"
+    ],
+    "judge_reason": "The response fails to incorporate any budget constraint (user didn’t specify one, but per rubric must_include requires using *at least one* of budget/traveler type/location — and while location is mentioned, traveler type '中转短住' is acknowledged only superficially, never analyzed for implications like luggage storage, check-in/out flexibility, 24h access, or minimal service expectations. Crucially, it never delivers the requested 'convenience and tradeoffs' analysis with concrete, grounded comparisons — instead defaults to generic bullet-point categories ('靠近地铁站的青年公寓', '周边生活配套完善的公寓') without naming *actual options*, explaining *why one is more suitable than another*, or clarifying *what is sacrificed* (e.g., 'no elevator → hard with luggage', 'shared bathroom → inconvenient for early-morning departure'). The truncated ending ('如果你计划在浦东新区短暂停留，') confirms incompleteness. It violates 'must_not_do' by structuring like a template list rather than delivering reasoned judgment — effectively 'only listing types without reasoning'. Thus, instruction_following and task_specific_score are critically low."
+  },
+  {
+    "id": "eval_hotel_recommendation_000004",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 821,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_overgeneralization\"],\n  \"strengths\": [\n    \"Clear lodging-strategy framing (not just listing hotels)\",\n    \"Explicit alignment with '中转' traveler type and '公交中转' priority\",\n    \"Well-structured tradeoff analysis across 4 housing approaches\",\n    \"Natural, non-marketing language and practical tone\",\n    \"No invented real-time prices, inventory, or booking status\"\n  ],\n  \"judge_reason\": \"The response correctly interprets the query as a lodging-strategy question—not a hotel list—and delivers a structured, location-aware, purpose-driven analysis. It explicitly grounds recommendations in沙田镇的交通 reality (bus/metro lines, hubs), distinguishes suitability by traveler need (e.g., '频繁需要中转' vs '休闲观光'), and includes explicit 'avoid' guidance—fulfilling all must_include items. Minor risk arises from overgeneralizing东莞地铁1/2号线 coverage in沙田镇 (as of 2024, only Line 2 reaches nearby but not directly within沙田镇; Line 1 is under construction and does not yet serve沙田), though the answer avoids stating exact station names or operational status, keeping it safely descriptive rather than factual-assertive. No must_not_do violations. Brand style is restrained and helpful. Thus, pass_with_risk: high utility, low safety risk, minor geographic nuance imperfection.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_overgeneralization"
+    ],
+    "strengths": [
+      "Clear lodging-strategy framing (not just listing hotels)",
+      "Explicit alignment with '中转' traveler type and '公交中转' priority",
+      "Well-structured tradeoff analysis across 4 housing approaches",
+      "Natural, non-marketing language and practical tone",
+      "No invented real-time prices, inventory, or booking status"
+    ],
+    "judge_reason": "The response correctly interprets the query as a lodging-strategy question—not a hotel list—and delivers a structured, location-aware, purpose-driven analysis. It explicitly grounds recommendations in沙田镇的交通 reality (bus/metro lines, hubs), distinguishes suitability by traveler need (e.g., '频繁需要中转' vs '休闲观光'), and includes explicit 'avoid' guidance—fulfilling all must_include items. Minor risk arises from overgeneralizing东莞地铁1/2号线 coverage in沙田镇 (as of 2024, only Line 2 reaches nearby but not directly within沙田镇; Line 1 is under construction and does not yet serve沙田), though the answer avoids stating exact station names or operational status, keeping it safely descriptive rather than factual-assertive. No must_not_do violations. Brand style is restrained and helpful. Thus, pass_with_risk: high utility, low safety risk, minor geographic nuance imperfection."
+  },
+  {
+    "id": "eval_hotel_recommendation_000005",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 885,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_conclusion\"],\n  \"strengths\": [\n    \"清晰分层阐述推荐逻辑，紧扣中转旅客核心需求（交通、安全、基础舒适、配套）\",\n    \"准确识别任务本质为策略型咨询而非酒店列表，全程未列具体客栈名或编造价格/库存\",\n    \"语言自然克制，无营销话术，符合TripAI品牌风格\",\n    \"主动指出需避开的典型问题（如过于靠近站口），体现专业取舍判断\"\n  ],\n  \"judge_reason\": \"回答完整覆盖所有 must_include 条目：明确做出‘优先考虑步行5-10分钟范围内客栈’的判断；充分调用‘中转旅客’身份、‘丽江火车站附近’位置约束及隐含的性价比诉求；系统性解释六大维度逻辑与权衡。未违反任何 must_not_do（无工具调用、无实时数据编造、无纯列表）。但结尾被截断（'应优先考虑交通便利'后 abruptly ends），导致总结段未完成，影响 completeness 得分；虽不影响核心逻辑传达，但构成可修复的结构性缺陷，故判定为 pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_conclusion"
+    ],
+    "strengths": [
+      "清晰分层阐述推荐逻辑，紧扣中转旅客核心需求（交通、安全、基础舒适、配套）",
+      "准确识别任务本质为策略型咨询而非酒店列表，全程未列具体客栈名或编造价格/库存",
+      "语言自然克制，无营销话术，符合TripAI品牌风格",
+      "主动指出需避开的典型问题（如过于靠近站口），体现专业取舍判断"
+    ],
+    "judge_reason": "回答完整覆盖所有 must_include 条目：明确做出‘优先考虑步行5-10分钟范围内客栈’的判断；充分调用‘中转旅客’身份、‘丽江火车站附近’位置约束及隐含的性价比诉求；系统性解释六大维度逻辑与权衡。未违反任何 must_not_do（无工具调用、无实时数据编造、无纯列表）。但结尾被截断（'应优先考虑交通便利'后 abruptly ends），导致总结段未完成，影响 completeness 得分；虽不影响核心逻辑传达，但构成可修复的结构性缺陷，故判定为 pass_with_risk。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000006",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 269,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"严格遵循用户指令‘别直接报酒店名，先说判断’，通篇未出现任何具体酒店名称\",\n    \"完整覆盖中转旅客、大兴机场位置、安静、交通便利等核心约束，并自然融入判断逻辑\",\n    \"清晰区分‘适合’与‘不适合’的住宿特征（如不设大型娱乐设施、强调步行/短途接驳、基本服务导向），体现专业取舍\",\n    \"未编造价格、库存、预订状态等实时信息，完全符合安全与诚实要求\",\n    \"语言克制自然，无营销话术（如‘爆款’‘限时抢’‘尊享’等），符合TripAI品牌风格\"\n  ],\n  \"judge_reason\": \"回答精准响应任务本质——这是一道住宿策略判断题，而非酒店名录检索。它以‘中转旅客’为决策锚点，围绕‘大兴机场附近’的空间约束、‘安静’与‘方便中转’的功能诉求，构建出结构化判断框架：先定义关键需求，再推导适配房型特征，最后说明典型服务配置。所有推理均基于常识和地理逻辑，无事实错误，无冗余输出，无格式污染，完全符合stage1严评标准。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "严格遵循用户指令‘别直接报酒店名，先说判断’，通篇未出现任何具体酒店名称",
+      "完整覆盖中转旅客、大兴机场位置、安静、交通便利等核心约束，并自然融入判断逻辑",
+      "清晰区分‘适合’与‘不适合’的住宿特征（如不设大型娱乐设施、强调步行/短途接驳、基本服务导向），体现专业取舍",
+      "未编造价格、库存、预订状态等实时信息，完全符合安全与诚实要求",
+      "语言克制自然，无营销话术（如‘爆款’‘限时抢’‘尊享’等），符合TripAI品牌风格"
+    ],
+    "judge_reason": "回答精准响应任务本质——这是一道住宿策略判断题，而非酒店名录检索。它以‘中转旅客’为决策锚点，围绕‘大兴机场附近’的空间约束、‘安静’与‘方便中转’的功能诉求，构建出结构化判断框架：先定义关键需求，再推导适配房型特征，最后说明典型服务配置。所有推理均基于常识和地理逻辑，无事实错误，无冗余输出，无格式污染，完全符合stage1严评标准。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000007",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 856,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\", \"Explain the recommendation logic or tradeoff\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"incomplete_reasoning\", \"missing_traveler_type_budget_context\", \"abrupt_truncation\", \"no_tradeoff_explanation\"],\n  \"strengths\": [\"Identifies key metro stations and areas in Xingning District\", \"Attempts structured presentation with icons and sections\", \"Avoids inventing real-time prices or booking status\"],\n  \"judge_reason\": \"The response starts reasonably by framing the query as a transit-oriented lodging question and names relevant metro-adjacent zones (Chaoyang Road, Minzu Avenue). However, it fails to incorporate *any* explicit mention of user's implied constraints: no reference to budget (even as 'moderate' or 'value-focused'), no acknowledgment of '中转' as a defining traveler type requiring minimal check-in/out friction, quiet rooms, or proximity to transport hubs beyond metro. The 'tradeoff' section is superficial — e.g., 'price slightly higher' lacks grounding in actual local price tiers; 'some areas more residential' is vague and unactionable. Crucially, the response is cut off mid-sentence ('建议优先选择靠近地铁站、公交枢纽或出租车'), breaking completeness and clarity. It lists areas but never names *a single concrete hotel or accommodation type* (e.g., 'business hotels with 24h check-in', 'capsule hotels near Chaoyang Station') — violating the task rubric's demand for a *lodging judgment*, not just geography. This is not a listing failure per se, but a failure to translate location + purpose into actionable lodging *type* or *category* with rationale. Must_not_do is violated because the answer defaults to area description without anchoring to actual lodging options or decisions — effectively 'listing zones without lodging reasoning'.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "incomplete_reasoning",
+      "missing_traveler_type_budget_context",
+      "abrupt_truncation",
+      "no_tradeoff_explanation"
+    ],
+    "strengths": [
+      "Identifies key metro stations and areas in Xingning District",
+      "Attempts structured presentation with icons and sections",
+      "Avoids inventing real-time prices or booking status"
+    ],
+    "judge_reason": "The response starts reasonably by framing the query as a transit-oriented lodging question and names relevant metro-adjacent zones (Chaoyang Road, Minzu Avenue). However, it fails to incorporate *any* explicit mention of user's implied constraints: no reference to budget (even as 'moderate' or 'value-focused'), no acknowledgment of '中转' as a defining traveler type requiring minimal check-in/out friction, quiet rooms, or proximity to transport hubs beyond metro. The 'tradeoff' section is superficial — e.g., 'price slightly higher' lacks grounding in actual local price tiers; 'some areas more residential' is vague and unactionable. Crucially, the response is cut off mid-sentence ('建议优先选择靠近地铁站、公交枢纽或出租车'), breaking completeness and clarity. It lists areas but never names *a single concrete hotel or accommodation type* (e.g., 'business hotels with 24h check-in', 'capsule hotels near Chaoyang Station') — violating the task rubric's demand for a *lodging judgment*, not just geography. This is not a listing failure per se, but a failure to translate location + purpose into actionable lodging *type* or *category* with rationale. Must_not_do is violated because the answer defaults to area description without anchoring to actual lodging options or decisions — effectively 'listing zones without lodging reasoning'."
+  },
+  {
+    "id": "eval_hotel_recommendation_000008",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 519,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别用户核心诉求是‘中转便利性’而非单纯酒店罗列，将问题升维为住宿策略判断\",\n    \"明确锚定‘武清高铁站’地理约束与‘中转旅客’身份，并据此定义推荐类型（步行可达型）与排除类型（偏远型）\",\n    \"逻辑链完整：位置→交通→时间→配套→适用场景→反向提醒，形成闭环推理\",\n    \"语言自然克制，无营销话术、无虚构价格/库存/实时信息，符合TripAI专业顾问定位\"\n  ],\n  \"judge_reason\": \"回答完全契合hotel_recommendation任务本质：以用户中转需求为原点，构建‘判断-依据-取舍-提示’四层结构；严格遵守must_include三项要求，未触犯任何must_not_do条款；所有陈述基于常识和公开地理事实（如武清高铁站的枢纽属性、步行可达性标准），无编造；行文简洁清晰，符合TripAI克制、可信、以人为本的品牌风格。属典型高分范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别用户核心诉求是‘中转便利性’而非单纯酒店罗列，将问题升维为住宿策略判断",
+      "明确锚定‘武清高铁站’地理约束与‘中转旅客’身份，并据此定义推荐类型（步行可达型）与排除类型（偏远型）",
+      "逻辑链完整：位置→交通→时间→配套→适用场景→反向提醒，形成闭环推理",
+      "语言自然克制，无营销话术、无虚构价格/库存/实时信息，符合TripAI专业顾问定位"
+    ],
+    "judge_reason": "回答完全契合hotel_recommendation任务本质：以用户中转需求为原点，构建‘判断-依据-取舍-提示’四层结构；严格遵守must_include三项要求，未触犯任何must_not_do条款；所有陈述基于常识和公开地理事实（如武清高铁站的枢纽属性、步行可达性标准），无编造；行文简洁清晰，符合TripAI克制、可信、以人为本的品牌风格。属典型高分范例。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000009",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 847,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\", \"Explain the recommendation logic or tradeoff\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"missing_traveler_type_constraint\", \"incomplete_logic\", \"truncated_response\", \"no_budget_reference\", \"no_concrete_recommendation\"],\n  \"strengths\": [\"Clear structural organization with headings\", \"Accurate description of 18号线 and万顷沙地铁站's role\", \"Appropriate emphasis on short-stay functional needs (kitchen, laundry, etc.)\", \"No fabricated prices or real-time inventory\"],\n  \"judge_reason\": \"The response begins well by framing key criteria (transport, functionality, price, safety) and correctly identifies 18号线 and万顷沙's transit role. However, it completely omits explicit reference to the user's traveler type constraint — '中转短住' — beyond generic '中转旅客' labeling; no analysis of how 'transit' specifically shapes requirements (e.g., minimal check-in friction, luggage storage, late/early access, noise sensitivity). Crucially, it fails to engage with *budget* at all — a core must_include — and never states whether such apartments are *available*, *scarce*, or *not realistically viable* near that station. The response is also abruptly cut off mid-sentence ('4.'), violating completeness. While it avoids tool calls and fake prices, its reasoning remains abstract and non-judgmental: it lists 'areas' but gives zero concrete examples (even hypothetical or platform-verified types like 'self-check-in serviced apartments on major platforms'), no comparative tradeoffs (e.g., 'residential buildings offer quiet but may lack 24h support'), and no final synthesis answering 'yes/no/maybe' to the user's core question: '有吗？'. This makes it non-actionable and insufficient per task rubric.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "missing_traveler_type_constraint",
+      "incomplete_logic",
+      "truncated_response",
+      "no_budget_reference",
+      "no_concrete_recommendation"
+    ],
+    "strengths": [
+      "Clear structural organization with headings",
+      "Accurate description of 18号线 and万顷沙地铁站's role",
+      "Appropriate emphasis on short-stay functional needs (kitchen, laundry, etc.)",
+      "No fabricated prices or real-time inventory"
+    ],
+    "judge_reason": "The response begins well by framing key criteria (transport, functionality, price, safety) and correctly identifies 18号线 and万顷沙's transit role. However, it completely omits explicit reference to the user's traveler type constraint — '中转短住' — beyond generic '中转旅客' labeling; no analysis of how 'transit' specifically shapes requirements (e.g., minimal check-in friction, luggage storage, late/early access, noise sensitivity). Crucially, it fails to engage with *budget* at all — a core must_include — and never states whether such apartments are *available*, *scarce*, or *not realistically viable* near that station. The response is also abruptly cut off mid-sentence ('4.'), violating completeness. While it avoids tool calls and fake prices, its reasoning remains abstract and non-judgmental: it lists 'areas' but gives zero concrete examples (even hypothetical or platform-verified types like 'self-check-in serviced apartments on major platforms'), no comparative tradeoffs (e.g., 'residential buildings offer quiet but may lack 24h support'), and no final synthesis answering 'yes/no/maybe' to the user's core question: '有吗？'. This makes it non-actionable and insufficient per task rubric."
+  },
+  {
+    "id": "eval_hotel_recommendation_000010",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 91,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\", \"Explain the recommendation logic or tradeoff\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"missing_traveler_type\", \"missing_budget_constraint\", \"missing_tradeoff_explanation\", \"reasoning_underdeveloped\"],\n  \"strengths\": [\"Clear, natural phrasing; avoids marketing tone; no fabricated prices or inventory; correctly identifies proximity and transport infrastructure as relevant\"],\n  \"judge_reason\": \"The response makes a general judgment about convenience near the station but completely omits user-specific constraints: no mention of traveler type (e.g., '中转' as implied by '方便坐车'), no reference to budget, and no explanation of *why* this location suits that use case—or what alternatives would be mismatched (e.g., scenic boutique hotels farther away). It fails the core task requirement to reason *from user context*, defaulting instead to generic infrastructure description. While safe and stylistically aligned, it misses two of three must_include items and violates the 'no listing without reasoning' principle by offering zero concrete recommendations *with justification*, rendering it insufficient for a hotel recommendation task.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "missing_traveler_type",
+      "missing_budget_constraint",
+      "missing_tradeoff_explanation",
+      "reasoning_underdeveloped"
+    ],
+    "strengths": [
+      "Clear, natural phrasing; avoids marketing tone; no fabricated prices or inventory; correctly identifies proximity and transport infrastructure as relevant"
+    ],
+    "judge_reason": "The response makes a general judgment about convenience near the station but completely omits user-specific constraints: no mention of traveler type (e.g., '中转' as implied by '方便坐车'), no reference to budget, and no explanation of *why* this location suits that use case—or what alternatives would be mismatched (e.g., scenic boutique hotels farther away). It fails the core task requirement to reason *from user context*, defaulting instead to generic infrastructure description. While safe and stylistically aligned, it misses two of three must_include items and violates the 'no listing without reasoning' principle by offering zero concrete recommendations *with justification*, rendering it insufficient for a hotel recommendation task."
+  },
+  {
+    "id": "eval_hotel_recommendation_000011",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 833,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别任务本质为住宿策略判断而非酒店名录，紧扣‘中转’核心目的与‘安静+便利’的张力关系\",\n    \"结构化呈现两类推荐类型，每类均明确绑定位置特征、交通表现、环境属性与适配人群，实现条件-结论严格对应\",\n    \"‘取舍建议’段落直击用户指令要求，用优先级分层（便利性优先/安静优先/平衡选择）给出可操作决策框架\",\n    \"全程未出现任何实时价格、库存、预订状态等不可验证信息，符合安全诚实原则\",\n    \"语言自然克制，无营销话术（如‘爆款’‘限时特惠’），符合TripAI专业顾问定位\"\n  ],\n  \"judge_reason\": \"回答完全符合hotel_recommendation任务rubric：准确识别龙华区地铁站附近‘安静’与‘中转便利’的内在矛盾，以位置半径（1-2km vs 3-5km）、建筑类型（中档酒店/公寓 vs 精品民宿）、环境特征（避开主干道 vs 社区住宅区）为锚点构建推荐逻辑；三类取舍建议直接响应用户‘把便利性和取舍说清楚’的指令；所有判断均基于地理常识与住宿业态通识，未编造任何时效性信息；行文结构清晰、术语准确、语气专业平和，无任何must_not_do违规。属于典型高分范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别任务本质为住宿策略判断而非酒店名录，紧扣‘中转’核心目的与‘安静+便利’的张力关系",
+      "结构化呈现两类推荐类型，每类均明确绑定位置特征、交通表现、环境属性与适配人群，实现条件-结论严格对应",
+      "‘取舍建议’段落直击用户指令要求，用优先级分层（便利性优先/安静优先/平衡选择）给出可操作决策框架",
+      "全程未出现任何实时价格、库存、预订状态等不可验证信息，符合安全诚实原则",
+      "语言自然克制，无营销话术（如‘爆款’‘限时特惠’），符合TripAI专业顾问定位"
+    ],
+    "judge_reason": "回答完全符合hotel_recommendation任务rubric：准确识别龙华区地铁站附近‘安静’与‘中转便利’的内在矛盾，以位置半径（1-2km vs 3-5km）、建筑类型（中档酒店/公寓 vs 精品民宿）、环境特征（避开主干道 vs 社区住宅区）为锚点构建推荐逻辑；三类取舍建议直接响应用户‘把便利性和取舍说清楚’的指令；所有判断均基于地理常识与住宿业态通识，未编造任何时效性信息；行文结构清晰、术语准确、语气专业平和，无任何must_not_do违规。属于典型高分范例。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000012",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 546,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别用户核心诉求是‘中转住宿策略’而非简单酒店列表\",\n    \"明确给出‘靠近温州南站的中转型酒店’这一判断性结论\",\n    \"完整融合 traveler type（中转）、location（温州南站/瓯海区）、priority（交通便利、短暂停留）进行推理\",\n    \"逐条解释推荐逻辑（交通便利、节省时间、周边配套、适合短停），体现清晰取舍\",\n    \"语言自然克制，无营销话术，无实时价格/库存等编造信息\",\n    \"结构清晰（分类型→理由→小贴士→总结），便于用户快速抓取关键决策依据\"\n  ],\n  \"judge_reason\": \"回答完全符合 hotel_recommendation 任务本质：将用户问题准确解构为住宿策略问题；做出明确判断（‘靠近温州南站的中转型酒店’）；所有推荐理由均锚定中转旅客的核心约束（时间敏感、行李多、停留短、依赖步行可达性）；未出现任何 must_not_do 行为（无工具调用、无虚构价格/库存、无纯列表）；风格冷静专业，符合 TripAI 克制可信的品牌调性。属于可直接放行的标杆级回答。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别用户核心诉求是‘中转住宿策略’而非简单酒店列表",
+      "明确给出‘靠近温州南站的中转型酒店’这一判断性结论",
+      "完整融合 traveler type（中转）、location（温州南站/瓯海区）、priority（交通便利、短暂停留）进行推理",
+      "逐条解释推荐逻辑（交通便利、节省时间、周边配套、适合短停），体现清晰取舍",
+      "语言自然克制，无营销话术，无实时价格/库存等编造信息",
+      "结构清晰（分类型→理由→小贴士→总结），便于用户快速抓取关键决策依据"
+    ],
+    "judge_reason": "回答完全符合 hotel_recommendation 任务本质：将用户问题准确解构为住宿策略问题；做出明确判断（‘靠近温州南站的中转型酒店’）；所有推荐理由均锚定中转旅客的核心约束（时间敏感、行李多、停留短、依赖步行可达性）；未出现任何 must_not_do 行为（无工具调用、无虚构价格/库存、无纯列表）；风格冷静专业，符合 TripAI 克制可信的品牌调性。属于可直接放行的标杆级回答。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000013",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 863,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Explain the recommendation logic or tradeoff\"],\n  \"missed_must_include\": [\"Make a clear lodging judgment\", \"Use budget, traveler type, or location constraints\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"no_judgment\", \"missing_constraints\", \"no_recommendation\", \"incomplete_task_response\"],\n  \"strengths\": [\"Clear explanation of公交便利性's implications for travel style; logically structured sections; avoids fabricated prices/inventory; maintains neutral, non-marketing tone\"],\n  \"judge_reason\": \"The response completely fails to make a concrete lodging judgment (e.g., 'I recommend X over Y because...') — it only discusses abstract criteria without selecting or comparing any actual options. It ignores all explicit user constraints: no mention of budget (unspecified but required to be acknowledged/assumed with transparency), no identification of traveler type (e.g., solo, family, transit passenger), and misstates geography (claims 温溪镇 is in 龙泉市, but it is actually in 青田县, Lishui — a factual error undermining credibility). The reference answer emphasizes this is a *lodging-strategy* question requiring constraint-aware judgment, yet the model delivers generic advice as if writing a travel blog post. Crucially, it ends mid-sentence ('综上所述') with no conclusion, no recommendation, and zero actionable output — violating completeness and task-specific requirements. While it avoids unsafe fabrication and maintains decent clarity, its failure on core task logic, correctness, and instruction-following makes it fundamentally non-functional as a recommendation.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "no_judgment",
+      "missing_constraints",
+      "no_recommendation",
+      "incomplete_task_response"
+    ],
+    "strengths": [
+      "Clear explanation of公交便利性's implications for travel style; logically structured sections; avoids fabricated prices/inventory; maintains neutral, non-marketing tone"
+    ],
+    "judge_reason": "The response completely fails to make a concrete lodging judgment (e.g., 'I recommend X over Y because...') — it only discusses abstract criteria without selecting or comparing any actual options. It ignores all explicit user constraints: no mention of budget (unspecified but required to be acknowledged/assumed with transparency), no identification of traveler type (e.g., solo, family, transit passenger), and misstates geography (claims 温溪镇 is in 龙泉市, but it is actually in 青田县, Lishui — a factual error undermining credibility). The reference answer emphasizes this is a *lodging-strategy* question requiring constraint-aware judgment, yet the model delivers generic advice as if writing a travel blog post. Crucially, it ends mid-sentence ('综上所述') with no conclusion, no recommendation, and zero actionable output — violating completeness and task-specific requirements. While it avoids unsafe fabrication and maintains decent clarity, its failure on core task logic, correctness, and instruction-following makes it fundamentally non-functional as a recommendation."
+  },
+  {
+    "id": "eval_hotel_recommendation_000014",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 126,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即给出明确判断（'确实有……'），完全响应'别直接报酒店名，先说判断'的指令\",\n    \"准确识别核心约束：位置（三里屯/朝阳区）、人群（中转旅客）、住宿类型（酒店式公寓）、目的（短住）\",\n    \"逻辑清晰：指出适配性（生活便利、独立空间、舒适度）与局限性（需明确计划、不适应临时频繁更换）\",\n    \"全程未编造价格、库存、预订结果，无工具调用或结构化输出，语言自然克制\",\n    \"符合TripAI品牌风格：无营销话术、无夸张形容、无主观断言，保持专业顾问口吻\"\n  ],\n  \"judge_reason\": \"回答严格遵循system persona与用户指令，以判断先行，精准锚定'中转'这一核心出行目的，并基于位置（三里屯/朝阳区）和住宿形态（酒店式公寓）展开合理推演；既说明适配原因，也点明适用边界，体现专业取舍；零事实编造、零冗余格式、零风格越界，各项维度均达优秀水平。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断（'确实有……'），完全响应'别直接报酒店名，先说判断'的指令",
+      "准确识别核心约束：位置（三里屯/朝阳区）、人群（中转旅客）、住宿类型（酒店式公寓）、目的（短住）",
+      "逻辑清晰：指出适配性（生活便利、独立空间、舒适度）与局限性（需明确计划、不适应临时频繁更换）",
+      "全程未编造价格、库存、预订结果，无工具调用或结构化输出，语言自然克制",
+      "符合TripAI品牌风格：无营销话术、无夸张形容、无主观断言，保持专业顾问口吻"
+    ],
+    "judge_reason": "回答严格遵循system persona与用户指令，以判断先行，精准锚定'中转'这一核心出行目的，并基于位置（三里屯/朝阳区）和住宿形态（酒店式公寓）展开合理推演；既说明适配原因，也点明适用边界，体现专业取舍；零事实编造、零冗余格式、零风格越界，各项维度均达优秀水平。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000015",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 842,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"slight_overgeneralization\", \"minor_redundancy_in_conclusion\"],\n  \"strengths\": [\n    \"Clear three-category typology aligned with user’s core needs (CBD proximity, transit access, short-stay suitability)\",\n    \"Consistent explanation of convenience vs. tradeoffs per type (e.g., price, facilities, environment)\",\n    \"No invented prices, inventory, or booking outcomes — fully compliant with safety constraint\",\n    \"Natural, advisory tone without marketing hyperbole; matches TripAI brand style\"\n  ],\n  \"judge_reason\": \"The response fully satisfies all must_include requirements: it makes a clear judgment (prioritizing transit-adjacent apartments for short-stay transfers), grounds reasoning in user-specified constraints (Shantou CBD, short stay, transfer purpose, convenience priority), and explicitly articulates tradeoffs (e.g., higher cost vs. location, simplicity vs. convenience). It avoids all must_not_do violations — no tool calls, no real-time data fabrication, no name-only listing. Minor weaknesses: (1) 'budget' is acknowledged but not concretely engaged (e.g., no qualitative tiering like 'mid-range' or 'value-oriented', though user didn’t specify numeric budget — acceptable per rubric); (2) the concluding 'Note' repeats earlier tradeoff language without adding new insight, slightly reducing concision. These are light issues — overall response is usable and well-structured, warranting pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "slight_overgeneralization",
+      "minor_redundancy_in_conclusion"
+    ],
+    "strengths": [
+      "Clear three-category typology aligned with user’s core needs (CBD proximity, transit access, short-stay suitability)",
+      "Consistent explanation of convenience vs. tradeoffs per type (e.g., price, facilities, environment)",
+      "No invented prices, inventory, or booking outcomes — fully compliant with safety constraint",
+      "Natural, advisory tone without marketing hyperbole; matches TripAI brand style"
+    ],
+    "judge_reason": "The response fully satisfies all must_include requirements: it makes a clear judgment (prioritizing transit-adjacent apartments for short-stay transfers), grounds reasoning in user-specified constraints (Shantou CBD, short stay, transfer purpose, convenience priority), and explicitly articulates tradeoffs (e.g., higher cost vs. location, simplicity vs. convenience). It avoids all must_not_do violations — no tool calls, no real-time data fabrication, no name-only listing. Minor weaknesses: (1) 'budget' is acknowledged but not concretely engaged (e.g., no qualitative tiering like 'mid-range' or 'value-oriented', though user didn’t specify numeric budget — acceptable per rubric); (2) the concluding 'Note' repeats earlier tradeoff language without adding new insight, slightly reducing concision. These are light issues — overall response is usable and well-structured, warranting pass_with_risk."
+  },
+  {
+    "id": "eval_hotel_recommendation_000016",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 783,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"准确识别问题本质为中转住宿策略咨询，而非简单酒店列表请求\",\n    \"紧扣大兴区+大兴国际机场地理约束，结合中转旅客核心需求（便利性、安静、缓冲时间）展开分层判断\",\n    \"每条推荐住法均包含明确判断+理由+适配人群，逻辑闭环，无信息堆砌\",\n    \"全程未出现任何实时价格、库存、预订结果等高风险编造信息\",\n    \"语言自然克制，无营销话术，符合TripAI专业顾问定位\"\n  ],\n  \"judge_reason\": \"回答完全契合任务类型定义：将用户问题精准解析为'住宿策略'问题，基于位置（北京大兴区）、出行目的（中转）、核心诉求（安静+方便）构建四维住法框架；每项建议均含明确判断、因果解释与人群适配说明，满足所有must_include；严格规避must_not_do项（无工具调用、无实时数据、无纯列表）；表达清晰结构化但非模板化，安全、诚实、风格统一。属典型优秀范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "准确识别问题本质为中转住宿策略咨询，而非简单酒店列表请求",
+      "紧扣大兴区+大兴国际机场地理约束，结合中转旅客核心需求（便利性、安静、缓冲时间）展开分层判断",
+      "每条推荐住法均包含明确判断+理由+适配人群，逻辑闭环，无信息堆砌",
+      "全程未出现任何实时价格、库存、预订结果等高风险编造信息",
+      "语言自然克制，无营销话术，符合TripAI专业顾问定位"
+    ],
+    "judge_reason": "回答完全契合任务类型定义：将用户问题精准解析为'住宿策略'问题，基于位置（北京大兴区）、出行目的（中转）、核心诉求（安静+方便）构建四维住法框架；每项建议均含明确判断、因果解释与人群适配说明，满足所有must_include；严格规避must_not_do项（无工具调用、无实时数据、无纯列表）；表达清晰结构化但非模板化，安全、诚实、风格统一。属典型优秀范例。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000017",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 884,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [\n    \"Do not only list hotel names without reasoning\"\n  ],\n  \"issue_tags\": [\"no_concrete_recommendation\", \"incomplete_task_execution\"],\n  \"strengths\": [\"Strong logical breakdown by dimension (family, location, quiet, culture); natural, non-marketing tone; no fabricated prices or inventory; clear prioritization of quiet and space\"],\n  \"judge_reason\": \"The response thoroughly analyzes the user's constraints (family, quiet, scenic area, cultural context) and explains the *logic* well — satisfying all 'must_include' items *in principle*. However, it fails the core task: it never delivers an actual hotel/motel recommendation. It stops at 'recommendation logic summary' without naming even one concrete option (e.g., 'Xiangyun Shanju', 'Shanhe Minshu'), nor does it state *whether such accommodations exist* in景宁 — leaving the user’s yes/no question ('有吗？') unanswered. This violates the fundamental purpose of a hotel recommendation task. While reasoning is excellent, omission of any concrete suggestion makes the response incomplete and unusable for the user. Hence, instruction_following and completeness are downgraded to 3, and verdict is 'hold' — requires revision to add at least 1–2 representative, plausibly available examples (with disclaimer about real-time availability) to fulfill the task.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "no_concrete_recommendation",
+      "incomplete_task_execution"
+    ],
+    "strengths": [
+      "Strong logical breakdown by dimension (family, location, quiet, culture); natural, non-marketing tone; no fabricated prices or inventory; clear prioritization of quiet and space"
+    ],
+    "judge_reason": "The response thoroughly analyzes the user's constraints (family, quiet, scenic area, cultural context) and explains the *logic* well — satisfying all 'must_include' items *in principle*. However, it fails the core task: it never delivers an actual hotel/motel recommendation. It stops at 'recommendation logic summary' without naming even one concrete option (e.g., 'Xiangyun Shanju', 'Shanhe Minshu'), nor does it state *whether such accommodations exist* in景宁 — leaving the user’s yes/no question ('有吗？') unanswered. This violates the fundamental purpose of a hotel recommendation task. While reasoning is excellent, omission of any concrete suggestion makes the response incomplete and unusable for the user. Hence, instruction_following and completeness are downgraded to 3, and verdict is 'hold' — requires revision to add at least 1–2 representative, plausibly available examples (with disclaimer about real-time availability) to fulfill the task."
+  },
+  {
+    "id": "eval_hotel_recommendation_000018",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 596,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即给出明确判断：'该区域确实有符合要求的住宿'，严格响应'别直接报酒店名，先说判断'指令\",\n    \"完整嵌入用户全部关键约束：位置（石门潭周边/景区内）、人群（老人小孩）、核心偏好（安静）、住宿类型（民宿/小宾馆）\",\n    \"系统性展开四维权衡（位置与环境、设施与安全、交通与便利性、服务与体验），每点均紧扣亲子+银发出行的实际痛点\",\n    \"所有陈述保持客观克制，未出现任何实时价格、库存、预订状态等编造信息，符合 safety_and_honesty 要求\",\n    \"语言自然流畅，无营销话术，符合 TripAI 克制、专业、以人为本的品牌风格\"\n  ],\n  \"judge_reason\": \"回答完全遵循 system persona 定位为专业旅行住宿顾问，精准识别问题本质是 lodging-strategy 判断而非简单检索。以‘判断先行’结构破题，随后基于地理特征、人群需求、设施适配、交通现实四维度展开严谨推理，逻辑闭环、取舍清晰。未使用任何工具调用、JSON 或痕迹输出，未编造任何高时效信息，所有建议均基于常识和区域典型特征，表达简洁自然，无冗余或夸张表述。全面覆盖 must_include 三项要求，零违反 must_not_do，各评分维度均达优秀水平。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断：'该区域确实有符合要求的住宿'，严格响应'别直接报酒店名，先说判断'指令",
+      "完整嵌入用户全部关键约束：位置（石门潭周边/景区内）、人群（老人小孩）、核心偏好（安静）、住宿类型（民宿/小宾馆）",
+      "系统性展开四维权衡（位置与环境、设施与安全、交通与便利性、服务与体验），每点均紧扣亲子+银发出行的实际痛点",
+      "所有陈述保持客观克制，未出现任何实时价格、库存、预订状态等编造信息，符合 safety_and_honesty 要求",
+      "语言自然流畅，无营销话术，符合 TripAI 克制、专业、以人为本的品牌风格"
+    ],
+    "judge_reason": "回答完全遵循 system persona 定位为专业旅行住宿顾问，精准识别问题本质是 lodging-strategy 判断而非简单检索。以‘判断先行’结构破题，随后基于地理特征、人群需求、设施适配、交通现实四维度展开严谨推理，逻辑闭环、取舍清晰。未使用任何工具调用、JSON 或痕迹输出，未编造任何高时效信息，所有建议均基于常识和区域典型特征，表达简洁自然，无冗余或夸张表述。全面覆盖 must_include 三项要求，零违反 must_not_do，各评分维度均达优秀水平。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000019",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 857,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [\n    \"Do not only list hotel names without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"incomplete_response\",\n    \"truncated_reasoning\",\n    \"implicit_naming_violation\"\n  ],\n  \"strengths\": [\n    \"Correctly identifies core constraints: location (松江区佘山), traveler type (带娃/亲子), purpose (度假型), and explicitly addresses convenience vs. tradeoffs\",\n    \"Maintains natural, non-marketing tone and avoids real-time price/inventory fabrication\",\n    \"Structures response logically with categorized options and consistent reasoning framework\"\n  ],\n  \"judge_reason\": \"The response begins strong—clearly framing the query as a lodging-strategy question, grounding recommendations in location, family needs, and tradeoffs. It satisfies all must_include items *in principle*: it makes a judgment (e.g., '亲子主题度假酒店' is recommended for certain needs), uses traveler type and location, and explains logic (e.g., '便利性：步行或短车程即可到达佘山国家旅游度假区' / '取舍：价格相对较高...'). However, the response is abruptly cut off mid-sentence ('便利性与取舍建议\\\\n\\\\n- **便利性优先**：如果孩子年龄较小，或需要频繁') — this violates completeness and undermines task-specific execution. Crucially, while it *refers* to specific hotels (e.g., '佘山森林度假酒店', '上海松江万豪侯爵酒店'), it does so descriptively—not as mere listings—but as illustrative examples within reasoned categories. That avoids the strictest reading of 'only list hotel names', yet the truncation prevents full articulation of the final tradeoff analysis, leaving the 'convenience vs. tradeoff' request only partially fulfilled. No safety/honesty or brand violations. Verdict is 'hold' due to critical incompleteness affecting usability and trustworthiness.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "incomplete_response",
+      "truncated_reasoning",
+      "implicit_naming_violation"
+    ],
+    "strengths": [
+      "Correctly identifies core constraints: location (松江区佘山), traveler type (带娃/亲子), purpose (度假型), and explicitly addresses convenience vs. tradeoffs",
+      "Maintains natural, non-marketing tone and avoids real-time price/inventory fabrication",
+      "Structures response logically with categorized options and consistent reasoning framework"
+    ],
+    "judge_reason": "The response begins strong—clearly framing the query as a lodging-strategy question, grounding recommendations in location, family needs, and tradeoffs. It satisfies all must_include items *in principle*: it makes a judgment (e.g., '亲子主题度假酒店' is recommended for certain needs), uses traveler type and location, and explains logic (e.g., '便利性：步行或短车程即可到达佘山国家旅游度假区' / '取舍：价格相对较高...'). However, the response is abruptly cut off mid-sentence ('便利性与取舍建议\\n\\n- **便利性优先**：如果孩子年龄较小，或需要频繁') — this violates completeness and undermines task-specific execution. Crucially, while it *refers* to specific hotels (e.g., '佘山森林度假酒店', '上海松江万豪侯爵酒店'), it does so descriptively—not as mere listings—but as illustrative examples within reasoned categories. That avoids the strictest reading of 'only list hotel names', yet the truncation prevents full articulation of the final tradeoff analysis, leaving the 'convenience vs. tradeoff' request only partially fulfilled. No safety/honesty or brand violations. Verdict is 'hold' due to critical incompleteness affecting usability and trustworthiness."
+  },
+  {
+    "id": "eval_hotel_recommendation_000020",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 927,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别任务本质为‘住宿策略建议’而非简单酒店列表，完全契合用户‘更想知道什么样的住法更合适’的核心诉求\",\n    \"系统性覆盖亲子家庭、庆元县城区、古桥与博物馆动线、交通便利性、环境安静度等关键约束，并逐条展开取舍逻辑\",\n    \"每类住法均包含推荐理由、适配人群、注意事项，形成完整决策框架，无事实编造，无实时信息断言\",\n    \"语言自然克制，无营销话术、无夸张形容词，符合TripAI专业顾问的冷静、务实、可信赖风格\"\n  ],\n  \"judge_reason\": \"回答完全遵循system persona（专业中文旅行住宿顾问），未输出任何tool call/JSON/trace；未编造价格、库存、预订结果；未仅罗列酒店名；而是以‘住法类型’为单位，结构化呈现5种策略，每项均锚定用户明确约束（亲子、庆元县城区、古桥+博物馆动线），并清晰说明适配性与权衡点。所有判断基于常识与地理逻辑（如城区中心步行可达、文化街区兼顾体验、儿童设施提升舒适度），无安全或诚实性风险。品牌风格高度一致：中性、信息密度高、无冗余修饰。任务专项要求全部满分达成。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别任务本质为‘住宿策略建议’而非简单酒店列表，完全契合用户‘更想知道什么样的住法更合适’的核心诉求",
+      "系统性覆盖亲子家庭、庆元县城区、古桥与博物馆动线、交通便利性、环境安静度等关键约束，并逐条展开取舍逻辑",
+      "每类住法均包含推荐理由、适配人群、注意事项，形成完整决策框架，无事实编造，无实时信息断言",
+      "语言自然克制，无营销话术、无夸张形容词，符合TripAI专业顾问的冷静、务实、可信赖风格"
+    ],
+    "judge_reason": "回答完全遵循system persona（专业中文旅行住宿顾问），未输出任何tool call/JSON/trace；未编造价格、库存、预订结果；未仅罗列酒店名；而是以‘住法类型’为单位，结构化呈现5种策略，每项均锚定用户明确约束（亲子、庆元县城区、古桥+博物馆动线），并清晰说明适配性与权衡点。所有判断基于常识与地理逻辑（如城区中心步行可达、文化街区兼顾体验、儿童设施提升舒适度），无安全或诚实性风险。品牌风格高度一致：中性、信息密度高、无冗余修饰。任务专项要求全部满分达成。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000021",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 863,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\", \"Explain the recommendation logic or tradeoff\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"incomplete_reasoning\", \"missing_constraint_usage\", \"truncated_output\", \"no_concrete_recommendation\"],\n  \"strengths\": [\"Clear logical framing of 'parenting needs' and 'local culture'; avoids fabricated prices/inventory; structured sectioning improves readability\"],\n  \"judge_reason\": \"回答开头声明‘先梳理逻辑再给建议’，但实际未给出任何具体民宿推荐（全文截断在‘通常’后），严重违反 must_include 要求中的‘Make a clear lodging judgment’——判断必须落脚到可执行的推荐对象；同时全程未使用用户明确提供的关键约束‘汕头龙湖区鸥汀街道’进行地理适配分析（如该区域民宿分布稀疏、交通接驳弱、亲子设施少等现实制约），也未提及‘带娃’这一 traveler type 如何与当地供给匹配或不匹配；虽未编造价格/库存，但因输出被截断且无实质推荐，导致任务失败。属于典型‘有逻辑框架、无落地结论’的半成品，必须人工干预补全或重写。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "incomplete_reasoning",
+      "missing_constraint_usage",
+      "truncated_output",
+      "no_concrete_recommendation"
+    ],
+    "strengths": [
+      "Clear logical framing of 'parenting needs' and 'local culture'; avoids fabricated prices/inventory; structured sectioning improves readability"
+    ],
+    "judge_reason": "回答开头声明‘先梳理逻辑再给建议’，但实际未给出任何具体民宿推荐（全文截断在‘通常’后），严重违反 must_include 要求中的‘Make a clear lodging judgment’——判断必须落脚到可执行的推荐对象；同时全程未使用用户明确提供的关键约束‘汕头龙湖区鸥汀街道’进行地理适配分析（如该区域民宿分布稀疏、交通接驳弱、亲子设施少等现实制约），也未提及‘带娃’这一 traveler type 如何与当地供给匹配或不匹配；虽未编造价格/库存，但因输出被截断且无实质推荐，导致任务失败。属于典型‘有逻辑框架、无落地结论’的半成品，必须人工干预补全或重写。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000022",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 130,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\", \"Explain the recommendation logic or tradeoff\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_budget_constraint\", \"missing_traveler_type_explicit_link\", \"insufficient_tradeoff_analysis\"],\n  \"strengths\": [\"Natural, non-marketing tone; correctly identifies天涯区海边的亲子适配性; avoids inventing prices or availability; clear sentence structure and logical flow\"],\n  \"judge_reason\": \"回答做出了基本判断（'适合亲子居住'）并解释了部分逻辑（安静、近自然、需关注儿童设施），但完全未提及用户隐含或可推断的关键约束：预算（未说明价格区间适配性）、未显式锚定'亲子'作为决策核心变量（仅泛泛而谈'适合家庭'，未对比婴儿床、看护服务、安全防护等亲子刚需），也未体现位置权衡（如'远离喧嚣'但未说明是否牺牲交通便利性或配套成熟度）。虽未违反 must_not_do，但因关键 must_include 条款缺失，推荐缺乏决策支撑力，不符合 task-specific 高分要求，需人工复核补充。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_budget_constraint",
+      "missing_traveler_type_explicit_link",
+      "insufficient_tradeoff_analysis"
+    ],
+    "strengths": [
+      "Natural, non-marketing tone; correctly identifies天涯区海边的亲子适配性; avoids inventing prices or availability; clear sentence structure and logical flow"
+    ],
+    "judge_reason": "回答做出了基本判断（'适合亲子居住'）并解释了部分逻辑（安静、近自然、需关注儿童设施），但完全未提及用户隐含或可推断的关键约束：预算（未说明价格区间适配性）、未显式锚定'亲子'作为决策核心变量（仅泛泛而谈'适合家庭'，未对比婴儿床、看护服务、安全防护等亲子刚需），也未体现位置权衡（如'远离喧嚣'但未说明是否牺牲交通便利性或配套成熟度）。虽未违反 must_not_do，但因关键 must_include 条款缺失，推荐缺乏决策支撑力，不符合 task-specific 高分要求，需人工复核补充。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000023",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 930,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\", \"Explain the recommendation logic or tradeoff\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"missing_budget_constraint\", \"missing_traveler_type_explicit_use\", \"incomplete_recommendation\", \"truncated_output\"],\n  \"strengths\": [\"Clear structure with bullet points and ✅ icons\", \"Explicit tradeoff explanations per option\", \"Avoids inventing real-time prices or booking status\"],\n  \"judge_reason\": \"The response begins reasonably by framing the task around convenience, child-friendliness, and location, and provides four options with rationale and tradeoffs — satisfying 'clear lodging judgment' and 'explanation of logic'. However, it completely omits explicit use of *budget*, *traveler type* (e.g., 'toddler vs. school-age', 'first-time visitors'), or precise *location constraints* (e.g., 'within 3km of Shanghai Wild Animal Park entrance', 'near Metro Line 16 Lingang Station') — violating a core must_include. It also violates 'must_not_do' by listing generic hotel categories ('like Home Inn, Jinjiang Inn') without grounding them in actual nearby options or clarifying that these are illustrative — blurring into name-dropping without contextual justification. Critically, the output is abruptly cut off mid-sentence at '推荐四：上海野生动物园附近的地铁站周边酒店（如：地铁16号线沿线）\\\\n\\\\n**推荐理由：**\\\\n- **位置便利**：...', indicating incomplete generation — failing completeness. While safety and honesty are upheld (no fake prices/inventory), the lack of concrete, actionable constraints and truncation make this unsuitable for direct user delivery without human review.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "missing_budget_constraint",
+      "missing_traveler_type_explicit_use",
+      "incomplete_recommendation",
+      "truncated_output"
+    ],
+    "strengths": [
+      "Clear structure with bullet points and ✅ icons",
+      "Explicit tradeoff explanations per option",
+      "Avoids inventing real-time prices or booking status"
+    ],
+    "judge_reason": "The response begins reasonably by framing the task around convenience, child-friendliness, and location, and provides four options with rationale and tradeoffs — satisfying 'clear lodging judgment' and 'explanation of logic'. However, it completely omits explicit use of *budget*, *traveler type* (e.g., 'toddler vs. school-age', 'first-time visitors'), or precise *location constraints* (e.g., 'within 3km of Shanghai Wild Animal Park entrance', 'near Metro Line 16 Lingang Station') — violating a core must_include. It also violates 'must_not_do' by listing generic hotel categories ('like Home Inn, Jinjiang Inn') without grounding them in actual nearby options or clarifying that these are illustrative — blurring into name-dropping without contextual justification. Critically, the output is abruptly cut off mid-sentence at '推荐四：上海野生动物园附近的地铁站周边酒店（如：地铁16号线沿线）\\n\\n**推荐理由：**\\n- **位置便利**：...', indicating incomplete generation — failing completeness. While safety and honesty are upheld (no fake prices/inventory), the lack of concrete, actionable constraints and truncation make this unsuitable for direct user delivery without human review."
+  },
+  {
+    "id": "eval_hotel_recommendation_000024",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 630,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别用户问题本质是住宿策略咨询（非酒店名录），而非简单罗列酒店\",\n    \"完整嵌入关键约束：丽水高铁站（位置）、家庭（人群）、交通便利/安静/配套（隐含偏好）\",\n    \"每项特点均对应家庭出行真实痛点（如婴儿床、家庭房布局、接驳时间预留），逻辑闭环\",\n    \"语言自然克制，无营销话术（如'爆款''限时抢购'），符合TripAI品牌调性\",\n    \"明确给出‘更合适的住法’判断及可操作建议，体现专业顾问视角\"\n  ],\n  \"judge_reason\": \"回答完全契合任务类型核心要求：将用户模糊提问升维为结构化住宿策略分析；所有推荐点均锚定家庭+高铁站双约束；未编造任何实时信息（如价格、库存、预订状态）；未输出工具调用或非自然文本；判断清晰（如‘优先选择家庭房’‘避开高峰期’），取舍逻辑透明（如‘环境相对安静’对应家庭睡眠需求）。整体表现优秀，可直接接受。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别用户问题本质是住宿策略咨询（非酒店名录），而非简单罗列酒店",
+      "完整嵌入关键约束：丽水高铁站（位置）、家庭（人群）、交通便利/安静/配套（隐含偏好）",
+      "每项特点均对应家庭出行真实痛点（如婴儿床、家庭房布局、接驳时间预留），逻辑闭环",
+      "语言自然克制，无营销话术（如'爆款''限时抢购'），符合TripAI品牌调性",
+      "明确给出‘更合适的住法’判断及可操作建议，体现专业顾问视角"
+    ],
+    "judge_reason": "回答完全契合任务类型核心要求：将用户模糊提问升维为结构化住宿策略分析；所有推荐点均锚定家庭+高铁站双约束；未编造任何实时信息（如价格、库存、预订状态）；未输出工具调用或非自然文本；判断清晰（如‘优先选择家庭房’‘避开高峰期’），取舍逻辑透明（如‘环境相对安静’对应家庭睡眠需求）。整体表现优秀，可直接接受。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000025",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 853,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即给出明确判断（‘通常会比较方便，但具体是否适合，还要结合几个关键因素来判断’），符合‘clear lodging judgment’要求\",\n    \"全程紧扣用户隐含约束：北辰区（location）、家庭友好型（traveler type & preference）、靠近地铁站（transport convenience）、预算暗示（中档公寓建议）\",\n    \"每一点均以‘推荐逻辑’小结，系统性解释取舍依据，逻辑闭环强\",\n    \"未编造任何实时价格、库存、预订结果，所有描述基于常识与区域特征，安全诚实\",\n    \"语言自然克制，无营销话术（如‘爆款’‘限时抢’‘尊享’等），符合TripAI品牌风格\"\n  ],\n  \"judge_reason\": \"回答精准识别该问题为住宿策略咨询而非简单酒店列表请求；完整覆盖must_include三项核心要求；结构清晰分层（地理位置→家庭设施→配套→安全→预算），每层均含事实支撑与逻辑归因；严格规避must_not_do全部条款；无虚构信息，无工具痕迹，无冗余格式；整体体现专业、冷静、以用户决策为中心的顾问风格，达到stage1评测优秀基准。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断（‘通常会比较方便，但具体是否适合，还要结合几个关键因素来判断’），符合‘clear lodging judgment’要求",
+      "全程紧扣用户隐含约束：北辰区（location）、家庭友好型（traveler type & preference）、靠近地铁站（transport convenience）、预算暗示（中档公寓建议）",
+      "每一点均以‘推荐逻辑’小结，系统性解释取舍依据，逻辑闭环强",
+      "未编造任何实时价格、库存、预订结果，所有描述基于常识与区域特征，安全诚实",
+      "语言自然克制，无营销话术（如‘爆款’‘限时抢’‘尊享’等），符合TripAI品牌风格"
+    ],
+    "judge_reason": "回答精准识别该问题为住宿策略咨询而非简单酒店列表请求；完整覆盖must_include三项核心要求；结构清晰分层（地理位置→家庭设施→配套→安全→预算），每层均含事实支撑与逻辑归因；严格规避must_not_do全部条款；无虚构信息，无工具痕迹，无冗余格式；整体体现专业、冷静、以用户决策为中心的顾问风格，达到stage1评测优秀基准。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000026",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 66,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 3,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\", \"Explain the recommendation logic or tradeoff\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_constraints_usage\", \"insufficient_reasoning\", \"no_tradeoff_analysis\"],\n  \"strengths\": [\"Avoids inventing prices or inventory\", \"Natural tone and no marketing language\", \"Correctly identifies 'judgment-first' requirement\"],\n  \"judge_reason\": \"回答开头做出判断（'南澳岛海边确实适合亲子住的度假公寓'），满足'make a clear lodging judgment'，但未使用任何用户隐含或显性约束（如预算范围、具体位置偏好、出行目的细节等）；未解释为何适合/不适合，也未说明取舍逻辑（例如：海边公寓可能缺乏儿童看护服务，但胜在空间自由；景区周边酒店更安全但临海视野弱等）。'亲子'和'海边'被提及但未作为分析维度展开，属于表面覆盖、实质缺失。任务专项要求（推荐逻辑与约束对应）严重不足，需人工复核补充。\"\n}",
+    "correctness": 3,
+    "instruction_following": 3,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_constraints_usage",
+      "insufficient_reasoning",
+      "no_tradeoff_analysis"
+    ],
+    "strengths": [
+      "Avoids inventing prices or inventory",
+      "Natural tone and no marketing language",
+      "Correctly identifies 'judgment-first' requirement"
+    ],
+    "judge_reason": "回答开头做出判断（'南澳岛海边确实适合亲子住的度假公寓'），满足'make a clear lodging judgment'，但未使用任何用户隐含或显性约束（如预算范围、具体位置偏好、出行目的细节等）；未解释为何适合/不适合，也未说明取舍逻辑（例如：海边公寓可能缺乏儿童看护服务，但胜在空间自由；景区周边酒店更安全但临海视野弱等）。'亲子'和'海边'被提及但未作为分析维度展开，属于表面覆盖、实质缺失。任务专项要求（推荐逻辑与约束对应）严重不足，需人工复核补充。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000027",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 903,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"lack_of_concrete_location_specification\", \"no_budget_reference\"],\n  \"strengths\": [\n    \"Clear structure with pros/cons and actionable tradeoffs\",\n    \"Strong emphasis on child-specific needs (safety, space, activity access)\",\n    \"Natural, non-marketing tone aligned with TripAI brand\",\n    \"No fabrication of prices, availability, or booking outcomes\"\n  ],\n  \"judge_reason\": \"The response delivers a well-reasoned, structured analysis of seaside民宿 for families in Shenzhen, explicitly addressing convenience tradeoffs (transport, amenities, safety, noise) and aligning with亲子 priorities. It satisfies all must_include items: makes a clear judgment ('适合带娃住的民宿' with caveats), uses traveler type (亲子) and location (implicitly via '深圳海边', though lacks specificity like '大鹏新区' or '大梅沙'), and thoroughly explains logic and tradeoffs. However, it omits explicit mention of budget — a core constraint in the task rubric — and does not anchor recommendations to any concrete sub-location (e.g., '龙岗区' or '大鹏半岛'), weakening completeness. No must_not_do violations; no tool calls, no real-time data fabrication, no name-only listing. Verdict is pass_with_risk due to missing budget anchoring and vague geography — sufficient for general guidance but insufficient for precise planning.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_concrete_location_specification",
+      "no_budget_reference"
+    ],
+    "strengths": [
+      "Clear structure with pros/cons and actionable tradeoffs",
+      "Strong emphasis on child-specific needs (safety, space, activity access)",
+      "Natural, non-marketing tone aligned with TripAI brand",
+      "No fabrication of prices, availability, or booking outcomes"
+    ],
+    "judge_reason": "The response delivers a well-reasoned, structured analysis of seaside民宿 for families in Shenzhen, explicitly addressing convenience tradeoffs (transport, amenities, safety, noise) and aligning with亲子 priorities. It satisfies all must_include items: makes a clear judgment ('适合带娃住的民宿' with caveats), uses traveler type (亲子) and location (implicitly via '深圳海边', though lacks specificity like '大鹏新区' or '大梅沙'), and thoroughly explains logic and tradeoffs. However, it omits explicit mention of budget — a core constraint in the task rubric — and does not anchor recommendations to any concrete sub-location (e.g., '龙岗区' or '大鹏半岛'), weakening completeness. No must_not_do violations; no tool calls, no real-time data fabrication, no name-only listing. Verdict is pass_with_risk due to missing budget anchoring and vague geography — sufficient for general guidance but insufficient for precise planning."
+  },
+  {
+    "id": "eval_hotel_recommendation_000028",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 851,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_closure\", \"slight_overgeneralization\"],\n  \"strengths\": [\n    \"Correctly interprets the query as a lodging-strategy question, not just a hotel list\",\n    \"Explicitly centers on '亲子' (family with children) and '安静型' (quiet) as core criteria\",\n    \"Uses宁蒗县地理与文化特征 (Yi ethnic culture, natural scenery, low-density environment) to ground recommendations\",\n    \"Provides three distinct, logically differentiated accommodation archetypes with clear rationale\",\n    \"Maintains TripAI's natural, non-marketing tone — no exaggerated adjectives or sales language\",\n    \"Avoids all real-time data: no prices, no availability, no booking claims\"\n  ],\n  \"judge_reason\": \"The response fully satisfies all must_include items: it delivers a clear lodging judgment ('选择靠近自然景区、环境安静的民宿或小型度假酒店'), incorporates traveler type (亲子), location (宁蒗县,彝族文化,山间湖边), and purpose (度假/泡酒店); and explains tradeoffs per option (e.g., '位置相对偏僻，适合远离喧嚣' vs. '有儿童活动空间...方便出行'). It avoids all must_not_do violations — no tool calls, no invented prices/inventory, no bare hotel listing. However, it truncates mid-sentence at the end ('- \\\"'), breaking completeness and clarity; also slightly overgeneralizes safety features (e.g., '通常有儿童床、玩具、安全围栏') without qualifying that these are *not guaranteed* — though this falls short of fabrication and remains within reasonable inference for the region’s family-oriented accommodations. These are minor but non-negligible flaws, warranting pass_with_risk rather than pass.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_closure",
+      "slight_overgeneralization"
+    ],
+    "strengths": [
+      "Correctly interprets the query as a lodging-strategy question, not just a hotel list",
+      "Explicitly centers on '亲子' (family with children) and '安静型' (quiet) as core criteria",
+      "Uses宁蒗县地理与文化特征 (Yi ethnic culture, natural scenery, low-density environment) to ground recommendations",
+      "Provides three distinct, logically differentiated accommodation archetypes with clear rationale",
+      "Maintains TripAI's natural, non-marketing tone — no exaggerated adjectives or sales language",
+      "Avoids all real-time data: no prices, no availability, no booking claims"
+    ],
+    "judge_reason": "The response fully satisfies all must_include items: it delivers a clear lodging judgment ('选择靠近自然景区、环境安静的民宿或小型度假酒店'), incorporates traveler type (亲子), location (宁蒗县,彝族文化,山间湖边), and purpose (度假/泡酒店); and explains tradeoffs per option (e.g., '位置相对偏僻，适合远离喧嚣' vs. '有儿童活动空间...方便出行'). It avoids all must_not_do violations — no tool calls, no invented prices/inventory, no bare hotel listing. However, it truncates mid-sentence at the end ('- \"'), breaking completeness and clarity; also slightly overgeneralizes safety features (e.g., '通常有儿童床、玩具、安全围栏') without qualifying that these are *not guaranteed* — though this falls short of fabrication and remains within reasonable inference for the region’s family-oriented accommodations. These are minor but non-negligible flaws, warranting pass_with_risk rather than pass."
+  },
+  {
+    "id": "eval_hotel_recommendation_000029",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 470,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别任务本质为住宿策略咨询而非酒店名录查询\",\n    \"完整嵌入用户隐含约束（嘉定区、公交站附近、商务中转）并逐条解构推荐逻辑\",\n    \"以‘便利性’和‘功能性’为锚点，系统展开5维判断标准，逻辑闭环且可执行\",\n    \"全程未编造任何实时价格、库存或具体酒店名称，严格守界\",\n    \"语言自然克制，无营销话术，符合TripAI专业顾问语感\"\n  ],\n  \"judge_reason\": \"回答完全契合system persona与用户核心诉求——优先讲清推荐逻辑。它将‘公交站附近’转化为步行可达性、接驳效率等可操作指标；将‘商务中转’具象为办公设施、安静环境、性价比平衡等真实需求；所有判断均基于常识与旅行逻辑，无虚构信息。结构清晰、层次分明、无冗余，是hotel_recommendation任务的标杆级响应。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别任务本质为住宿策略咨询而非酒店名录查询",
+      "完整嵌入用户隐含约束（嘉定区、公交站附近、商务中转）并逐条解构推荐逻辑",
+      "以‘便利性’和‘功能性’为锚点，系统展开5维判断标准，逻辑闭环且可执行",
+      "全程未编造任何实时价格、库存或具体酒店名称，严格守界",
+      "语言自然克制，无营销话术，符合TripAI专业顾问语感"
+    ],
+    "judge_reason": "回答完全契合system persona与用户核心诉求——优先讲清推荐逻辑。它将‘公交站附近’转化为步行可达性、接驳效率等可操作指标；将‘商务中转’具象为办公设施、安静环境、性价比平衡等真实需求；所有判断均基于常识与旅行逻辑，无虚构信息。结构清晰、层次分明、无冗余，是hotel_recommendation任务的标杆级响应。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000030",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 134,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [\n    \"Use budget, traveler type, or location constraints\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"missing_budget_constraint\", \"under-specified_traveler_context\"],\n  \"strengths\": [\"Clear judgment upfront ('确实存在')\", \"Natural, non-marketing language\", \"Explains functional fit (office facilities, WiFi, hot water, front desk)\", \"No hallucinated prices/inventory/tool calls\"],\n  \"judge_reason\": \"The response correctly opens with a clear lodging judgment and provides sound, general reasoning about why such accommodations fit business travelers near bus stops in downtown Longquan. However, it fails to explicitly reference *any* of the three required constraints: budget (not mentioned), traveler type ('商务型' is echoed but not interpreted as 'business traveler needs' — e.g., quiet rooms, work desk, early check-in), or precise location ('龙泉市中心附近' is acknowledged but not leveraged to assess transit accessibility — e.g., proximity to specific bus lines or interchange hubs). While implied, the rubric demands explicit use of at least one constraint; omission lowers completeness and task-specific score. No safety or style violations. Thus, pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_budget_constraint",
+      "under-specified_traveler_context"
+    ],
+    "strengths": [
+      "Clear judgment upfront ('确实存在')",
+      "Natural, non-marketing language",
+      "Explains functional fit (office facilities, WiFi, hot water, front desk)",
+      "No hallucinated prices/inventory/tool calls"
+    ],
+    "judge_reason": "The response correctly opens with a clear lodging judgment and provides sound, general reasoning about why such accommodations fit business travelers near bus stops in downtown Longquan. However, it fails to explicitly reference *any* of the three required constraints: budget (not mentioned), traveler type ('商务型' is echoed but not interpreted as 'business traveler needs' — e.g., quiet rooms, work desk, early check-in), or precise location ('龙泉市中心附近' is acknowledged but not leveraged to assess transit accessibility — e.g., proximity to specific bus lines or interchange hubs). While implied, the rubric demands explicit use of at least one constraint; omission lowers completeness and task-specific score. No safety or style violations. Thus, pass_with_risk."
+  },
+  {
+    "id": "eval_hotel_recommendation_000031",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 823,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [\n    \"Use budget, traveler type, or location constraints\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only list hotel names without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"missing_budget_handling\",\n    \"repeated_hotel_names\",\n    \"incomplete_tradeoff_analysis\",\n    \"truncated_response\"\n  ],\n  \"strengths\": [\n    \"Clear categorization of hotel types with logical grouping\",\n    \"Good explanation of transport links and proximity to landmarks\",\n    \"Natural, non-marketing tone and restrained language\",\n    \"Strong safety: no invented prices, inventory, or booking status\"\n  ],\n  \"judge_reason\": \"The response correctly identifies 'business + sightseeing' as the dual purpose and structures recommendations by hotel type with tradeoffs. However, it fails to explicitly reference or apply the user's implied constraints — notably *no budget was mentioned in the query, but the system must still acknowledge absence and avoid assuming one*; more critically, it violates 'must_not_do' by listing specific hotels (e.g., 'Shanghai Pudong Ritz-Carlton Hotel' twice verbatim) without grounding them in generalizable typology — the repetition suggests pattern-matching over reasoning, and the abrupt cutoff ('注意') confirms incomplete output. Crucially, it omits explicit engagement with 'traveler type = business' as an active filter (e.g., no mention of meeting rooms, quiet floors, high-speed connectivity, or early check-in — all business-critical features). While location (Pudong Lujiazui) is used, it’s descriptive rather than constraint-driven. The truncation also breaks completeness and clarity. These issues — especially the hotel-name repetition and missing traveler-type operationalization — warrant HOLD for revision.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "missing_budget_handling",
+      "repeated_hotel_names",
+      "incomplete_tradeoff_analysis",
+      "truncated_response"
+    ],
+    "strengths": [
+      "Clear categorization of hotel types with logical grouping",
+      "Good explanation of transport links and proximity to landmarks",
+      "Natural, non-marketing tone and restrained language",
+      "Strong safety: no invented prices, inventory, or booking status"
+    ],
+    "judge_reason": "The response correctly identifies 'business + sightseeing' as the dual purpose and structures recommendations by hotel type with tradeoffs. However, it fails to explicitly reference or apply the user's implied constraints — notably *no budget was mentioned in the query, but the system must still acknowledge absence and avoid assuming one*; more critically, it violates 'must_not_do' by listing specific hotels (e.g., 'Shanghai Pudong Ritz-Carlton Hotel' twice verbatim) without grounding them in generalizable typology — the repetition suggests pattern-matching over reasoning, and the abrupt cutoff ('注意') confirms incomplete output. Crucially, it omits explicit engagement with 'traveler type = business' as an active filter (e.g., no mention of meeting rooms, quiet floors, high-speed connectivity, or early check-in — all business-critical features). While location (Pudong Lujiazui) is used, it’s descriptive rather than constraint-driven. The truncation also breaks completeness and clarity. These issues — especially the hotel-name repetition and missing traveler-type operationalization — warrant HOLD for revision."
+  },
+  {
+    "id": "eval_hotel_recommendation_000032",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 870,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_overgeneralization\", \"brand_style_slight_marketing_tone\"],\n  \"strengths\": [\n    \"Correctly interprets the query as a lodging-strategy question, not just hotel listing\",\n    \"Explicitly identifies traveler type (商务出差), location (缙云县城区), and key priorities (交通便利、适合泡酒店、商务)\",\n    \"Provides structured, reasoning-driven recommendations with clear 'why' for each type\",\n    \"Avoids inventing real-time prices, inventory, or booking outcomes\",\n    \"Maintains natural Chinese flow and practical tone\"\n  ],\n  \"judge_reason\": \"The response fully satisfies all must_include items: it makes a clear judgment (‘中端商务型酒店为主’), grounds reasoning in traveler type (商务), location (缙云县城区), and priorities (交通便利/办公需求), and explains tradeoffs (e.g., budget vs. comfort, convenience vs. quiet). It avoids all must_not_do violations — no tool calls, no fake prices/inventory, no name-only listing. However, it slightly overgeneralizes infrastructure (e.g., '地铁站（如有的话）' is cautious, but implying 'printer/传真机' as standard in local business hotels risks inaccuracy for smaller county-level properties; also, naming generic chains like '如家、锦江之星' without confirming their actual presence in缙云县 edges toward implied availability — though phrased conditionally, it weakens safety margin. Brand style is mostly restrained but has minor marketing-adjacent phrasing (e.g., '设计风格独特，注重细节和客户体验'). These are light issues — not failures, but sufficient to warrant pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_overgeneralization",
+      "brand_style_slight_marketing_tone"
+    ],
+    "strengths": [
+      "Correctly interprets the query as a lodging-strategy question, not just hotel listing",
+      "Explicitly identifies traveler type (商务出差), location (缙云县城区), and key priorities (交通便利、适合泡酒店、商务)",
+      "Provides structured, reasoning-driven recommendations with clear 'why' for each type",
+      "Avoids inventing real-time prices, inventory, or booking outcomes",
+      "Maintains natural Chinese flow and practical tone"
+    ],
+    "judge_reason": "The response fully satisfies all must_include items: it makes a clear judgment (‘中端商务型酒店为主’), grounds reasoning in traveler type (商务), location (缙云县城区), and priorities (交通便利/办公需求), and explains tradeoffs (e.g., budget vs. comfort, convenience vs. quiet). It avoids all must_not_do violations — no tool calls, no fake prices/inventory, no name-only listing. However, it slightly overgeneralizes infrastructure (e.g., '地铁站（如有的话）' is cautious, but implying 'printer/传真机' as standard in local business hotels risks inaccuracy for smaller county-level properties; also, naming generic chains like '如家、锦江之星' without confirming their actual presence in缙云县 edges toward implied availability — though phrased conditionally, it weakens safety margin. Brand style is mostly restrained but has minor marketing-adjacent phrasing (e.g., '设计风格独特，注重细节和客户体验'). These are light issues — not failures, but sufficient to warrant pass_with_risk."
+  },
+  {
+    "id": "eval_hotel_recommendation_000033",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 840,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别问题本质为住宿策略咨询而非酒店列表请求\",\n    \"围绕‘商务出差’核心需求，系统拆解五大推荐逻辑，每条均锚定南开区奥体中心地理位置与实际场景\",\n    \"所有判断均基于常识性城市功能布局（如地铁1号线、配套成熟度、环境静谧性），未编造任何实时信息\",\n    \"语言自然克制，无营销话术，无主观夸张表述，符合TripAI专业顾问定位\",\n    \"结构清晰分层，逻辑递进，兼顾普适性原则与个性化适配提示\"\n  ],\n  \"judge_reason\": \"回答完全契合任务类型要求：将用户提问准确理解为‘商务出差住宿策略’问题；严格使用‘天津南开区奥体中心’地理位置、‘商务出差’人群属性、隐含的效率/舒适/性价比等优先级作为约束条件；五维推荐逻辑层层展开，每条均包含明确判断（如‘应尽量靠近地铁站’）、依据（如‘是南开区的重要节点’）和取舍说明（如‘避免因追求豪华而带来的额外成本’）；全文未出现任何工具调用、JSON、价格、库存、预订结果等禁止内容；表达专业、简洁、中性，无冗余修饰或品牌倾向性宣传。属于典型高分范式回答。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别问题本质为住宿策略咨询而非酒店列表请求",
+      "围绕‘商务出差’核心需求，系统拆解五大推荐逻辑，每条均锚定南开区奥体中心地理位置与实际场景",
+      "所有判断均基于常识性城市功能布局（如地铁1号线、配套成熟度、环境静谧性），未编造任何实时信息",
+      "语言自然克制，无营销话术，无主观夸张表述，符合TripAI专业顾问定位",
+      "结构清晰分层，逻辑递进，兼顾普适性原则与个性化适配提示"
+    ],
+    "judge_reason": "回答完全契合任务类型要求：将用户提问准确理解为‘商务出差住宿策略’问题；严格使用‘天津南开区奥体中心’地理位置、‘商务出差’人群属性、隐含的效率/舒适/性价比等优先级作为约束条件；五维推荐逻辑层层展开，每条均包含明确判断（如‘应尽量靠近地铁站’）、依据（如‘是南开区的重要节点’）和取舍说明（如‘避免因追求豪华而带来的额外成本’）；全文未出现任何工具调用、JSON、价格、库存、预订结果等禁止内容；表达专业、简洁、中性，无冗余修饰或品牌倾向性宣传。属于典型高分范式回答。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000034",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 283,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即给出明确判断（‘福田口岸附近确实有适合商务人士的酒店’），严格响应‘别直接报酒店名，先说判断’指令\",\n    \"完整嵌入用户全部关键约束：位置（福田口岸附近）、人群（商务人士）、核心需求（安静、方便坐地铁）、类型（商务型酒店）\",\n    \"逻辑清晰分层：先确认可行性，再分析区域矛盾（交通枢纽 vs 安静），进而说明筛选逻辑（避开主干道+近地铁+设施适配），体现专业取舍\",\n    \"全程未编造任何实时信息（无价格、无房态、无库存、无具体酒店名），符合安全与诚实要求\",\n    \"语言自然克制，无营销话术（如‘尊享’‘爆款’‘限时’），符合 TripAI 品牌风格\"\n  ],\n  \"judge_reason\": \"回答完全遵循 system persona 和用户指令，以判断先行，紧扣任务 rubric 的三大核心要求；对位置特性（福田口岸人流/交通/环境张力）的理解准确，推荐逻辑具备地理与行为合理性；未越界输出工具调用、JSON 或虚构数据；表达简洁专业，无冗余或风险表述。属典型高质量策略型住宿建议。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断（‘福田口岸附近确实有适合商务人士的酒店’），严格响应‘别直接报酒店名，先说判断’指令",
+      "完整嵌入用户全部关键约束：位置（福田口岸附近）、人群（商务人士）、核心需求（安静、方便坐地铁）、类型（商务型酒店）",
+      "逻辑清晰分层：先确认可行性，再分析区域矛盾（交通枢纽 vs 安静），进而说明筛选逻辑（避开主干道+近地铁+设施适配），体现专业取舍",
+      "全程未编造任何实时信息（无价格、无房态、无库存、无具体酒店名），符合安全与诚实要求",
+      "语言自然克制，无营销话术（如‘尊享’‘爆款’‘限时’），符合 TripAI 品牌风格"
+    ],
+    "judge_reason": "回答完全遵循 system persona 和用户指令，以判断先行，紧扣任务 rubric 的三大核心要求；对位置特性（福田口岸人流/交通/环境张力）的理解准确，推荐逻辑具备地理与行为合理性；未越界输出工具调用、JSON 或虚构数据；表达简洁专业，无冗余或风险表述。属典型高质量策略型住宿建议。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000035",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 736,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别用户核心需求：商务出差+安静+石岩本地化+便利性与取舍分析\",\n    \"推荐判断明确（华美达为首选），并分维度展开逻辑支撑（位置、安静、商务配套、性价比）\",\n    \"取舍说明结构清晰，区分‘便利性’与‘安静性’的权衡，并给出替代方向（更静/更便）\",\n    \"全程未编造实时价格、库存、预订结果，符合安全诚实要求\",\n    \"语言自然克制，无营销话术，符合TripAI品牌风格\"\n  ],\n  \"judge_reason\": \"回答完全契合hotel_recommendation任务本质：不是酒店名录，而是基于用户约束（宝安石岩、商务、安静、便利性诉求）的策略型判断。所有must_include均被显性、高质量覆盖；无任何must_not_do违规；事实合理（地铁5号线石岩中心站真实存在，华美达广场酒店确位于石岩且具备商务属性）；结构清晰、逻辑闭环、表达自然。属典型5分范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别用户核心需求：商务出差+安静+石岩本地化+便利性与取舍分析",
+      "推荐判断明确（华美达为首选），并分维度展开逻辑支撑（位置、安静、商务配套、性价比）",
+      "取舍说明结构清晰，区分‘便利性’与‘安静性’的权衡，并给出替代方向（更静/更便）",
+      "全程未编造实时价格、库存、预订结果，符合安全诚实要求",
+      "语言自然克制，无营销话术，符合TripAI品牌风格"
+    ],
+    "judge_reason": "回答完全契合hotel_recommendation任务本质：不是酒店名录，而是基于用户约束（宝安石岩、商务、安静、便利性诉求）的策略型判断。所有must_include均被显性、高质量覆盖；无任何must_not_do违规；事实合理（地铁5号线石岩中心站真实存在，华美达广场酒店确位于石岩且具备商务属性）；结构清晰、逻辑闭环、表达自然。属典型5分范例。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000036",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 879,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_summary\", \"minor_overgeneralization\"],\n  \"strengths\": [\n    \"Correctly interprets the query as a lodging-strategy question, not just hotel listing\",\n    \"Explicitly anchors reasoning in南沙区南部、商务短住、安静三大核心约束\",\n    \"Provides three distinct, well-structured accommodation types with aligned pros/cons and target-user fit\",\n    \"Maintains neutral, advisory tone without marketing language or invented prices/inventory\",\n    \"Clear hierarchical structure (type → rationale → suitability) enhances usability\"\n  ],\n  \"judge_reason\": \"The response fully satisfies all must_include items: it delivers a clear lodging judgment (‘重点应放在交通便利性、周边配套和环境安静度上’), explicitly uses location (南沙区南部), traveler type (商务人士), and purpose (商务短住/安静), and thoroughly explains tradeoffs per option (e.g., business hotels prioritize infrastructure but may lack personality;民宿 prioritize ambiance but may lack formal meeting support). It avoids all must_not_do violations—no tool calls, no real-time data fabrication, no name-only listing. However, the summary is cut off mid-sentence (‘### 总结建议：\\\\n-’), reducing completeness; also, claims like ‘通常位于住宅区或远离主干道’ are reasonable generalizations but slightly overgeneralized without qualifying ‘typically’ or ‘many’. These are minor flaws—not safety, correctness, or instruction-following failures—so verdict is pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_summary",
+      "minor_overgeneralization"
+    ],
+    "strengths": [
+      "Correctly interprets the query as a lodging-strategy question, not just hotel listing",
+      "Explicitly anchors reasoning in南沙区南部、商务短住、安静三大核心约束",
+      "Provides three distinct, well-structured accommodation types with aligned pros/cons and target-user fit",
+      "Maintains neutral, advisory tone without marketing language or invented prices/inventory",
+      "Clear hierarchical structure (type → rationale → suitability) enhances usability"
+    ],
+    "judge_reason": "The response fully satisfies all must_include items: it delivers a clear lodging judgment (‘重点应放在交通便利性、周边配套和环境安静度上’), explicitly uses location (南沙区南部), traveler type (商务人士), and purpose (商务短住/安静), and thoroughly explains tradeoffs per option (e.g., business hotels prioritize infrastructure but may lack personality;民宿 prioritize ambiance but may lack formal meeting support). It avoids all must_not_do violations—no tool calls, no real-time data fabrication, no name-only listing. However, the summary is cut off mid-sentence (‘### 总结建议：\\n-’), reducing completeness; also, claims like ‘通常位于住宅区或远离主干道’ are reasonable generalizations but slightly overgeneralized without qualifying ‘typically’ or ‘many’. These are minor flaws—not safety, correctness, or instruction-following failures—so verdict is pass_with_risk."
+  },
+  {
+    "id": "eval_hotel_recommendation_000037",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 880,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\", \"Explain the recommendation logic or tradeoff\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"incomplete_reasoning\", \"missing_traveler_type_budget_context\", \"abrupt_cut_off\", \"no_concrete_recommendation\"],\n  \"strengths\": [\"Clear structural breakdown of criteria (e.g., '靠近地铁站', '安静适合办公'); good emphasis on南沙区环境优势; avoids inventing real-time prices or bookings\"],\n  \"judge_reason\": \"回答开头声称'当然可以'，但通篇未给出任何具体酒店推荐，也未做出明确住宿判断（如'推荐A类酒店，不建议B类'），仅罗列抽象条件与泛泛而谈的逻辑分析；完全缺失用户隐含的关键约束：'商务办公人群'的典型预算范围（如300–600元/晚）、对'安静'与'地铁便利'的实际权衡（例如横沥站周边新酒店较新但施工噪音风险，南沙客运港站周边成熟但部分老旧），更未说明'什么适合、什么不适合'——违反task-specific核心要求；结尾突然截断（'因此选择...'无下文），属严重 incomplete；虽未编造价格/库存，但因未使用任何用户提供的约束（预算/人群/目的）做定向推理，导致推荐逻辑空转，无法支撑真实决策。必须人工复核补全。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "incomplete_reasoning",
+      "missing_traveler_type_budget_context",
+      "abrupt_cut_off",
+      "no_concrete_recommendation"
+    ],
+    "strengths": [
+      "Clear structural breakdown of criteria (e.g., '靠近地铁站', '安静适合办公'); good emphasis on南沙区环境优势; avoids inventing real-time prices or bookings"
+    ],
+    "judge_reason": "回答开头声称'当然可以'，但通篇未给出任何具体酒店推荐，也未做出明确住宿判断（如'推荐A类酒店，不建议B类'），仅罗列抽象条件与泛泛而谈的逻辑分析；完全缺失用户隐含的关键约束：'商务办公人群'的典型预算范围（如300–600元/晚）、对'安静'与'地铁便利'的实际权衡（例如横沥站周边新酒店较新但施工噪音风险，南沙客运港站周边成熟但部分老旧），更未说明'什么适合、什么不适合'——违反task-specific核心要求；结尾突然截断（'因此选择...'无下文），属严重 incomplete；虽未编造价格/库存，但因未使用任何用户提供的约束（预算/人群/目的）做定向推理，导致推荐逻辑空转，无法支撑真实决策。必须人工复核补全。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000038",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 119,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即明确判断：'该区域更适合以休闲度假为主的出行，而非以商务为核心目的的差旅'，完全响应'别直接报酒店名，先说判断'的要求\",\n    \"精准调用所有给定约束：城市（深圳）、区域（龙华区）、地标（观澜湖度假区）、出行目的（商务出差），并基于常识展开合理推演\",\n    \"逻辑闭环清晰：指出观澜湖‘环境安静’‘偏向休闲娱乐’→与商务旅客核心需求（交通、办公配套、会议设施、生活便利）存在系统性错配→自然导出推荐倾向结论\",\n    \"零编造：未提及任何具体酒店名、价格、房态、评分或实时信息，严格守界\",\n    \"语言克制自然，无营销话术，符合TripAI专业顾问定位\"\n  ],\n  \"judge_reason\": \"回答完全遵循system persona与用户指令，将问题准确识别为住宿策略判断题而非酒店名录题；在无任何预算数值、人群细节等额外信息下，仅基于地理属性（观澜湖度假区位于龙华区）和出行目的（商务出差）进行合理、可验证的供需匹配分析；判断明确、归因扎实、表达精炼，所有must_include项均高质量覆盖，且无任何must_not_do项被触发。属典型优秀范式。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即明确判断：'该区域更适合以休闲度假为主的出行，而非以商务为核心目的的差旅'，完全响应'别直接报酒店名，先说判断'的要求",
+      "精准调用所有给定约束：城市（深圳）、区域（龙华区）、地标（观澜湖度假区）、出行目的（商务出差），并基于常识展开合理推演",
+      "逻辑闭环清晰：指出观澜湖‘环境安静’‘偏向休闲娱乐’→与商务旅客核心需求（交通、办公配套、会议设施、生活便利）存在系统性错配→自然导出推荐倾向结论",
+      "零编造：未提及任何具体酒店名、价格、房态、评分或实时信息，严格守界",
+      "语言克制自然，无营销话术，符合TripAI专业顾问定位"
+    ],
+    "judge_reason": "回答完全遵循system persona与用户指令，将问题准确识别为住宿策略判断题而非酒店名录题；在无任何预算数值、人群细节等额外信息下，仅基于地理属性（观澜湖度假区位于龙华区）和出行目的（商务出差）进行合理、可验证的供需匹配分析；判断明确、归因扎实、表达精炼，所有must_include项均高质量覆盖，且无任何must_not_do项被触发。属典型优秀范式。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000039",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 679,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别任务本质为住宿策略判断，而非简单罗列酒店\",\n    \"紧扣‘莲都区’‘公交站多’‘靠近景点’‘安静’四大地理与体验约束展开推理\",\n    \"结构清晰：分维度说明便利性优势，再以‘可能的取舍’直面权衡，符合用户明确要求\",\n    \"全程未编造价格、房态、预订结果等实时信息，语言克制、无营销话术\",\n    \"自然融入人群适配（如‘适合喜欢慢节奏出行的人群’‘适合家庭出行’），隐含对常见旅客类型的合理推断\"\n  ],\n  \"judge_reason\": \"回答完全符合 system persona 定位——专业、克制、以用户决策逻辑为中心。它没有列出任何具体公寓名称（避免无依据推荐），而是聚焦于‘这类公寓’的共性特征与适用场景，将用户模糊诉求升华为可操作的住宿策略判断。所有推荐理由均与输入约束严格对应，取舍分析坦诚务实，语言简洁自然，毫无工具痕迹或冗余结构。是 hotel_recommendation 任务的标杆级响应。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别任务本质为住宿策略判断，而非简单罗列酒店",
+      "紧扣‘莲都区’‘公交站多’‘靠近景点’‘安静’四大地理与体验约束展开推理",
+      "结构清晰：分维度说明便利性优势，再以‘可能的取舍’直面权衡，符合用户明确要求",
+      "全程未编造价格、房态、预订结果等实时信息，语言克制、无营销话术",
+      "自然融入人群适配（如‘适合喜欢慢节奏出行的人群’‘适合家庭出行’），隐含对常见旅客类型的合理推断"
+    ],
+    "judge_reason": "回答完全符合 system persona 定位——专业、克制、以用户决策逻辑为中心。它没有列出任何具体公寓名称（避免无依据推荐），而是聚焦于‘这类公寓’的共性特征与适用场景，将用户模糊诉求升华为可操作的住宿策略判断。所有推荐理由均与输入约束严格对应，取舍分析坦诚务实，语言简洁自然，毫无工具痕迹或冗余结构。是 hotel_recommendation 任务的标杆级响应。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000040",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 851,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别问题本质为住宿策略咨询而非简单酒店列表，全程围绕‘什么样的住法更合适’展开\",\n    \"完整融合用户隐含约束：海棠区（位置）、家庭（人群）、度假（目的）、安静（偏好）、龙海风情小镇（环境特征）\",\n    \"每条推荐建议均附带明确理由与家庭场景适配性说明，逻辑闭环、取舍清晰（如‘避开主干道’对应‘安静’，‘有厨房’对应‘家庭节奏’）\",\n    \"语言自然克制，无营销话术、无虚构价格/库存/实时信息，符合TripAI专业顾问定位\",\n    \"结构清晰分层（推荐住法+总结理由+权衡提示），便于用户理解与执行\"\n  ],\n  \"judge_reason\": \"回答完全契合hotel_recommendation任务核心要求：将用户提问准确解构为住宿策略问题；所有推荐判断均锚定在位置（海棠区龙海风情小镇）、人群（家庭）、目的（度假）、偏好（安静）四大维度；每项建议均解释‘为什么适合’及‘相比其他选项的取舍’；未出现任何must_not_do行为（无工具调用、无实时数据编造、无纯列表式输出）；表达风格专业、平实、有温度，体现TripAI克制可信的品牌调性。属典型优秀范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别问题本质为住宿策略咨询而非简单酒店列表，全程围绕‘什么样的住法更合适’展开",
+      "完整融合用户隐含约束：海棠区（位置）、家庭（人群）、度假（目的）、安静（偏好）、龙海风情小镇（环境特征）",
+      "每条推荐建议均附带明确理由与家庭场景适配性说明，逻辑闭环、取舍清晰（如‘避开主干道’对应‘安静’，‘有厨房’对应‘家庭节奏’）",
+      "语言自然克制，无营销话术、无虚构价格/库存/实时信息，符合TripAI专业顾问定位",
+      "结构清晰分层（推荐住法+总结理由+权衡提示），便于用户理解与执行"
+    ],
+    "judge_reason": "回答完全契合hotel_recommendation任务核心要求：将用户提问准确解构为住宿策略问题；所有推荐判断均锚定在位置（海棠区龙海风情小镇）、人群（家庭）、目的（度假）、偏好（安静）四大维度；每项建议均解释‘为什么适合’及‘相比其他选项的取舍’；未出现任何must_not_do行为（无工具调用、无实时数据编造、无纯列表式输出）；表达风格专业、平实、有温度，体现TripAI克制可信的品牌调性。属典型优秀范例。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000041",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 841,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [\n    \"Do not only list hotel names without reasoning\"\n  ],\n  \"issue_tags\": [\"incomplete_response\", \"truncated_reasoning\"],\n  \"strengths\": [\"Strong logical framing of family needs and quiet environment\", \"Clear segmentation by criteria (safety, nature, quietness, type)\", \"Natural, non-marketing tone\", \"No fabricated prices or real-time inventory\"],\n  \"judge_reason\": \"The response excels in reasoning structure, safety, and brand voice, and satisfies all must_include items *in principle*. However, it is abruptly cut off mid-sentence at '乡村型度假酒店' — the final recommendation type lacks its full explanation (reason, suitability, tradeoffs), breaking completeness. While no must_not_do is *explicitly* violated (e.g., no listing without reasoning, no fake prices), the truncation renders the recommendation logically incomplete and unactionable — violating the task-specific requirement to 'give a clear judgment' with full supporting logic. This is a structural failure, not just stylistic: users cannot act on an unfinished analysis. Hence, hold for completion check.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "incomplete_response",
+      "truncated_reasoning"
+    ],
+    "strengths": [
+      "Strong logical framing of family needs and quiet environment",
+      "Clear segmentation by criteria (safety, nature, quietness, type)",
+      "Natural, non-marketing tone",
+      "No fabricated prices or real-time inventory"
+    ],
+    "judge_reason": "The response excels in reasoning structure, safety, and brand voice, and satisfies all must_include items *in principle*. However, it is abruptly cut off mid-sentence at '乡村型度假酒店' — the final recommendation type lacks its full explanation (reason, suitability, tradeoffs), breaking completeness. While no must_not_do is *explicitly* violated (e.g., no listing without reasoning, no fake prices), the truncation renders the recommendation logically incomplete and unactionable — violating the task-specific requirement to 'give a clear judgment' with full supporting logic. This is a structural failure, not just stylistic: users cannot act on an unfinished analysis. Hence, hold for completion check."
+  },
+  {
+    "id": "eval_hotel_recommendation_000042",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 110,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 3,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\"\n  ],\n  \"missed_must_include\": [\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_reasoning\",\n    \"missing_tradeoff_explanation\"\n  ],\n  \"strengths\": [\n    \"Clear initial judgment ('确实有...选择')\",\n    \"Accurately identifies target demographic ('年轻人') and key feature ('公寓式住宿')\",\n    \"Appropriate tone: natural, non-marketing, no invented prices/inventory\",\n    \"Correctly avoids listing hotel names\"\n  ],\n  \"judge_reason\": \"The response correctly identifies the query as seeking apartment-style lodging for young travelers near metro stations in Jing'an, Shanghai, and delivers a clear 'yes' judgment. It incorporates traveler type and location implicitly (via '上海静安区地铁站附近') and notes suitability for independence and cost-effectiveness. However, it fails to explicitly articulate *why* such options are suitable *relative to alternatives* (e.g., vs. hotels or hostels), nor does it address tradeoffs (e.g., potential lack of front desk service, variable quality, or booking platform dependency) — a core requirement in the must_include list. While the mention of 'short/medium-term' hints at tradeoffs, it's underdeveloped and lacks connection to user’s implied needs (e.g., solo travel, flexibility, social access). No safety, honesty, or style violations. Thus, pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 3,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints"
+    ],
+    "missed_must_include": [
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_reasoning",
+      "missing_tradeoff_explanation"
+    ],
+    "strengths": [
+      "Clear initial judgment ('确实有...选择')",
+      "Accurately identifies target demographic ('年轻人') and key feature ('公寓式住宿')",
+      "Appropriate tone: natural, non-marketing, no invented prices/inventory",
+      "Correctly avoids listing hotel names"
+    ],
+    "judge_reason": "The response correctly identifies the query as seeking apartment-style lodging for young travelers near metro stations in Jing'an, Shanghai, and delivers a clear 'yes' judgment. It incorporates traveler type and location implicitly (via '上海静安区地铁站附近') and notes suitability for independence and cost-effectiveness. However, it fails to explicitly articulate *why* such options are suitable *relative to alternatives* (e.g., vs. hotels or hostels), nor does it address tradeoffs (e.g., potential lack of front desk service, variable quality, or booking platform dependency) — a core requirement in the must_include list. While the mention of 'short/medium-term' hints at tradeoffs, it's underdeveloped and lacks connection to user’s implied needs (e.g., solo travel, flexibility, social access). No safety, honesty, or style violations. Thus, pass_with_risk."
+  },
+  {
+    "id": "eval_hotel_recommendation_000043",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 828,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [\n    \"Use budget, traveler type, or location constraints\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"missing_budget_constraint_handling\",\n    \"missing_traveler_type_specification\",\n    \"incomplete_response\"\n  ],\n  \"strengths\": [\n    \"Clear regional segmentation with rationale\",\n    \"Explicit tradeoff analysis per area (quietness vs. convenience)\",\n    \"Natural, non-marketing tone and structure\",\n    \"No fabrication of prices, inventory, or booking status\"\n  ],\n  \"judge_reason\": \"The response correctly identifies quiet, hotel-centric areas in Lijiang (Shuhe, Baisha, Yuhu) and explains tradeoffs between tranquility and accessibility — satisfying 'clear judgment' and 'logic/tradeoff' requirements. However, it completely omits any reference to user's implied or explicit constraints: no mention of budget (critical for hotel recommendation), no specification of traveler type (e.g., solo, couple, family), and no anchoring to 'Lijiang Yulong Naxi Autonomous County' as the precise location constraint from reference. Though not violating must_not_do, the truncation mid-sentence ('- **取') renders the answer incomplete and undermines completeness and task-specific execution. This omission of core input constraints and abrupt cutoff warrants hold for human review.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_budget_constraint_handling",
+      "missing_traveler_type_specification",
+      "incomplete_response"
+    ],
+    "strengths": [
+      "Clear regional segmentation with rationale",
+      "Explicit tradeoff analysis per area (quietness vs. convenience)",
+      "Natural, non-marketing tone and structure",
+      "No fabrication of prices, inventory, or booking status"
+    ],
+    "judge_reason": "The response correctly identifies quiet, hotel-centric areas in Lijiang (Shuhe, Baisha, Yuhu) and explains tradeoffs between tranquility and accessibility — satisfying 'clear judgment' and 'logic/tradeoff' requirements. However, it completely omits any reference to user's implied or explicit constraints: no mention of budget (critical for hotel recommendation), no specification of traveler type (e.g., solo, couple, family), and no anchoring to 'Lijiang Yulong Naxi Autonomous County' as the precise location constraint from reference. Though not violating must_not_do, the truncation mid-sentence ('- **取') renders the answer incomplete and undermines completeness and task-specific execution. This omission of core input constraints and abrupt cutoff warrants hold for human review."
+  },
+  {
+    "id": "eval_hotel_recommendation_000044",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 892,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\", \"Explain the recommendation logic or tradeoff\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"missing_budget_constraint\", \"missing_traveler_type_integration\", \"incomplete_reasoning\", \"structural_truncation\", \"list_without_tradeoff_analysis\"],\n  \"strengths\": [\"Recognizes core intent (lodging strategy over listing), maintains natural tone, avoids fabricated prices/inventory, uses clear section headers\"],\n  \"judge_reason\": \"The response correctly interprets the query as a lodging-strategy question and avoids real-time data fabrication. However, it fails to incorporate *any* explicit mention of budget (a key constraint in the user query and must_include), does not meaningfully engage with '情侣' beyond generic 'romantic' labeling (no analysis of couple-specific needs like privacy, check-in flexibility, or shared spaces), and omits all location-based tradeoffs (e.g., 'quiet beachside' vs. 'access to Sanya downtown or Yalong Bay'). The five 'recommendation思路' are generic templates—not grounded in天涯区实际地理/infrastructure context—and lack comparative logic or tradeoff explanation (e.g., no discussion of why quiet may mean longer transit, or how 'cultural theme' affects practicality). Critically, the response is cut off mid-sentence ('推荐思路五...'), violating completeness. It lists patterns but never makes a concrete judgment (e.g., 'For couples in Tianya District prioritizing quiet, we recommend X-style stays *over* Y-style because...'). This violates two must_includes and exhibits structural failure—warranting hold.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "missing_budget_constraint",
+      "missing_traveler_type_integration",
+      "incomplete_reasoning",
+      "structural_truncation",
+      "list_without_tradeoff_analysis"
+    ],
+    "strengths": [
+      "Recognizes core intent (lodging strategy over listing), maintains natural tone, avoids fabricated prices/inventory, uses clear section headers"
+    ],
+    "judge_reason": "The response correctly interprets the query as a lodging-strategy question and avoids real-time data fabrication. However, it fails to incorporate *any* explicit mention of budget (a key constraint in the user query and must_include), does not meaningfully engage with '情侣' beyond generic 'romantic' labeling (no analysis of couple-specific needs like privacy, check-in flexibility, or shared spaces), and omits all location-based tradeoffs (e.g., 'quiet beachside' vs. 'access to Sanya downtown or Yalong Bay'). The five 'recommendation思路' are generic templates—not grounded in天涯区实际地理/infrastructure context—and lack comparative logic or tradeoff explanation (e.g., no discussion of why quiet may mean longer transit, or how 'cultural theme' affects practicality). Critically, the response is cut off mid-sentence ('推荐思路五...'), violating completeness. It lists patterns but never makes a concrete judgment (e.g., 'For couples in Tianya District prioritizing quiet, we recommend X-style stays *over* Y-style because...'). This violates two must_includes and exhibits structural failure—warranting hold."
+  },
+  {
+    "id": "eval_hotel_recommendation_000045",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 884,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_conclusion\"],\n  \"strengths\": [\n    \"Clear, structured reasoning aligned with user's request for logic-first response\",\n    \"Accurate use of location (吉阳区), traveler type (情侣), and key preferences (安静、海边、LOFT)\",\n    \"No fabrication of prices, availability, or booking outcomes\",\n    \"Natural, non-marketing tone consistent with TripAI brand style\"\n  ],\n  \"judge_reason\": \"The response fully addresses the core task: it makes an explicit judgment ('适合...尤其适合...'), grounds reasoning in traveler type (couples), location (Sanya Jiyang District), and preferences (quiet, seaside, LOFT layout), and explains tradeoffs (e.g., quiet vs. social needs). It avoids all must_not_do violations — no tool calls, no real-time data fabrication, no name-only listing. However, the answer is cut off mid-sentence at '尤其适合希望在旅行中享受二人独处时光、远离喧嚣、贴近自然的情' — likely truncation. This breaks completeness: the concluding synthesis and final recommendation statement are missing. While the logic is sound and covers all required dimensions up to that point, the abrupt ending undermines full task-specific execution. Hence, pass_with_risk: usable in practice but requires completion for production.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_conclusion"
+    ],
+    "strengths": [
+      "Clear, structured reasoning aligned with user's request for logic-first response",
+      "Accurate use of location (吉阳区), traveler type (情侣), and key preferences (安静、海边、LOFT)",
+      "No fabrication of prices, availability, or booking outcomes",
+      "Natural, non-marketing tone consistent with TripAI brand style"
+    ],
+    "judge_reason": "The response fully addresses the core task: it makes an explicit judgment ('适合...尤其适合...'), grounds reasoning in traveler type (couples), location (Sanya Jiyang District), and preferences (quiet, seaside, LOFT layout), and explains tradeoffs (e.g., quiet vs. social needs). It avoids all must_not_do violations — no tool calls, no real-time data fabrication, no name-only listing. However, the answer is cut off mid-sentence at '尤其适合希望在旅行中享受二人独处时光、远离喧嚣、贴近自然的情' — likely truncation. This breaks completeness: the concluding synthesis and final recommendation statement are missing. While the logic is sound and covers all required dimensions up to that point, the abrupt ending undermines full task-specific execution. Hence, pass_with_risk: usable in practice but requires completion for production."
+  },
+  {
+    "id": "eval_hotel_recommendation_000046",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 94,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即给出明确判断：'三亚湾是三亚最热门的度假区域之一'，直击用户'适合情侣度假的海景住宿有吗？'的核心诉求\",\n    \"自然融入关键约束：位置（三亚湾）、人群（情侣）、目的（度假）、偏好（海边/浪漫），并点出隐含预算敏感性（'房价偏高，预算有限需提前规划'）\",\n    \"逻辑清晰、有取舍意识：肯定环境与配套优势，同时坦诚提示价格因素，体现专业克制\",\n    \"全程无营销话术、无虚构价格/库存/预订结果，符合安全与诚实要求\",\n    \"语言简洁自然，符合TripAI克制、可信、以用户决策为中心的品牌风格\"\n  ],\n  \"judge_reason\": \"回答完全符合hotel_recommendation任务本质——不是酒店名录，而是住宿策略判断。它精准识别用户问题为'可行性+适配性'判断题，主动构建分析框架（位置价值→人群匹配→成本权衡），所有陈述基于地理常识与普遍旅行认知，未越界编造任何实时信息。结构上先结论、再支撑、后提醒，清晰可执行。无任何must_not_do行为，所有must_include项均高质量覆盖。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断：'三亚湾是三亚最热门的度假区域之一'，直击用户'适合情侣度假的海景住宿有吗？'的核心诉求",
+      "自然融入关键约束：位置（三亚湾）、人群（情侣）、目的（度假）、偏好（海边/浪漫），并点出隐含预算敏感性（'房价偏高，预算有限需提前规划'）",
+      "逻辑清晰、有取舍意识：肯定环境与配套优势，同时坦诚提示价格因素，体现专业克制",
+      "全程无营销话术、无虚构价格/库存/预订结果，符合安全与诚实要求",
+      "语言简洁自然，符合TripAI克制、可信、以用户决策为中心的品牌风格"
+    ],
+    "judge_reason": "回答完全符合hotel_recommendation任务本质——不是酒店名录，而是住宿策略判断。它精准识别用户问题为'可行性+适配性'判断题，主动构建分析框架（位置价值→人群匹配→成本权衡），所有陈述基于地理常识与普遍旅行认知，未越界编造任何实时信息。结构上先结论、再支撑、后提醒，清晰可执行。无任何must_not_do行为，所有must_include项均高质量覆盖。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000047",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 645,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"准确识别任务本质为住宿策略判断而非简单罗列，紧扣‘情侣’‘外滩附近’‘便利性’‘取舍’四大核心要素\",\n    \"明确区分民宿现实供给局限（‘通常较为有限，更偏向短租公寓或精品小屋’），未虚构房源名称或实时库存\",\n    \"结构清晰：分‘推荐类型→便利性→取舍→总结’四层递进，每层均绑定用户约束（如步行5–10分钟对应位置、提前预订对应稀缺性）\",\n    \"语言自然克制，无营销话术（如‘爆款’‘限时抢’），用‘需提前确认’‘可能没有24小时热水’等表述体现诚实与边界感\",\n    \"严格规避 must_not_do：无工具调用、无价格/库存编造、无纯列表式输出\"\n  ],\n  \"judge_reason\": \"回答完全符合 Hotel Recommendation Rubric 要求：以黄浦区外滩为地理锚点，以情侣为人群标签，以便利性与取舍为分析主线，给出有依据的判断（‘适合但有限’），并系统解释逻辑（位置优势、交通配套、私密性溢价 vs 价格高、数量少、设施不确定性）。所有陈述基于常识与地域特征，未越界断言实时信息，风格冷静专业，体现 TripAI 典型的克制、可信、用户导向表达。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "准确识别任务本质为住宿策略判断而非简单罗列，紧扣‘情侣’‘外滩附近’‘便利性’‘取舍’四大核心要素",
+      "明确区分民宿现实供给局限（‘通常较为有限，更偏向短租公寓或精品小屋’），未虚构房源名称或实时库存",
+      "结构清晰：分‘推荐类型→便利性→取舍→总结’四层递进，每层均绑定用户约束（如步行5–10分钟对应位置、提前预订对应稀缺性）",
+      "语言自然克制，无营销话术（如‘爆款’‘限时抢’），用‘需提前确认’‘可能没有24小时热水’等表述体现诚实与边界感",
+      "严格规避 must_not_do：无工具调用、无价格/库存编造、无纯列表式输出"
+    ],
+    "judge_reason": "回答完全符合 Hotel Recommendation Rubric 要求：以黄浦区外滩为地理锚点，以情侣为人群标签，以便利性与取舍为分析主线，给出有依据的判断（‘适合但有限’），并系统解释逻辑（位置优势、交通配套、私密性溢价 vs 价格高、数量少、设施不确定性）。所有陈述基于常识与地域特征，未越界断言实时信息，风格冷静专业，体现 TripAI 典型的克制、可信、用户导向表达。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000048",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 486,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别问题本质为住宿策略咨询而非简单酒店列表\",\n    \"明确判断‘古城内安静民宿适合情侣’并给出条件限定（如‘外围/小巷深处’）\",\n    \"完整融合人群（情侣）、位置（丽江古城内）、核心偏好（安静、私密、浪漫氛围）进行推理\",\n    \"结构清晰：分‘推荐住法’与‘推荐理由’，每条建议均附可执行依据\",\n    \"语言自然克制，无营销话术，未编造价格/库存/实时信息，符合TripAI品牌调性\"\n  ],\n  \"judge_reason\": \"回答完全契合任务类型要求：将用户提问准确理解为住宿策略决策问题；做出明确判断（‘更适合’）；严格基于给定约束（古城内、安静、情侣）展开逻辑推演；解释取舍（如避开主入口/广场）；未使用任何工具调用、JSON或虚构信息；表达简洁专业，具备直接交付用户的完成度。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别问题本质为住宿策略咨询而非简单酒店列表",
+      "明确判断‘古城内安静民宿适合情侣’并给出条件限定（如‘外围/小巷深处’）",
+      "完整融合人群（情侣）、位置（丽江古城内）、核心偏好（安静、私密、浪漫氛围）进行推理",
+      "结构清晰：分‘推荐住法’与‘推荐理由’，每条建议均附可执行依据",
+      "语言自然克制，无营销话术，未编造价格/库存/实时信息，符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答完全契合任务类型要求：将用户提问准确理解为住宿策略决策问题；做出明确判断（‘更适合’）；严格基于给定约束（古城内、安静、情侣）展开逻辑推演；解释取舍（如避开主入口/广场）；未使用任何工具调用、JSON或虚构信息；表达简洁专业，具备直接交付用户的完成度。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000049",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 849,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_recommendation\", \"no_concrete_examples\"],\n  \"strengths\": [\n    \"Clear, structured reasoning aligned with user's priority: 'more want to hear your recommendation logic'\",\n    \"Accurately identifies key criteria: quietness, couple suitability,古城内位置, privacy, soundproofing, cultural ambiance\",\n    \"Avoids inventing real-time prices, availability, or booking outcomes\",\n    \"Natural, non-marketing tone consistent with TripAI brand style\",\n    \"Logically segmented explanation with thematic headings and justifications\"\n  ],\n  \"judge_reason\": \"The response fully satisfies all must_include items: it makes a clear lodging judgment (e.g., prioritizing courtyard-adjacent, off-main-street properties), explicitly uses traveler type (couples), location (Lijiang Ancient Town core), and purpose (intimacy, quiet, shared experience), and thoroughly explains tradeoffs (e.g., balancing quiet vs. convenience, old building limitations vs. charm). It avoids all must_not_do violations — no tool calls, no fake prices/availability, no name-only listing. However, it stops mid-sentence at the end ('同时，**服务态度友好、有专人接待、能提供旅游建议**'), breaking completeness. While the logic is strong, the absence of even one illustrative, non-real-time example (e.g., 'a typical well-regarded option in this category is X-style boutique guesthouse — not a specific name, but a descriptive archetype') slightly weakens actionable utility. This truncation and lack of concrete anchoring (even generic, non-live examples) introduces mild risk for user follow-up confusion, warranting pass_with_risk rather than full pass.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_recommendation",
+      "no_concrete_examples"
+    ],
+    "strengths": [
+      "Clear, structured reasoning aligned with user's priority: 'more want to hear your recommendation logic'",
+      "Accurately identifies key criteria: quietness, couple suitability,古城内位置, privacy, soundproofing, cultural ambiance",
+      "Avoids inventing real-time prices, availability, or booking outcomes",
+      "Natural, non-marketing tone consistent with TripAI brand style",
+      "Logically segmented explanation with thematic headings and justifications"
+    ],
+    "judge_reason": "The response fully satisfies all must_include items: it makes a clear lodging judgment (e.g., prioritizing courtyard-adjacent, off-main-street properties), explicitly uses traveler type (couples), location (Lijiang Ancient Town core), and purpose (intimacy, quiet, shared experience), and thoroughly explains tradeoffs (e.g., balancing quiet vs. convenience, old building limitations vs. charm). It avoids all must_not_do violations — no tool calls, no fake prices/availability, no name-only listing. However, it stops mid-sentence at the end ('同时，**服务态度友好、有专人接待、能提供旅游建议**'), breaking completeness. While the logic is strong, the absence of even one illustrative, non-real-time example (e.g., 'a typical well-regarded option in this category is X-style boutique guesthouse — not a specific name, but a descriptive archetype') slightly weakens actionable utility. This truncation and lack of concrete anchoring (even generic, non-live examples) introduces mild risk for user follow-up confusion, warranting pass_with_risk rather than full pass."
+  },
+  {
+    "id": "eval_hotel_recommendation_000050",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 213,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即给出明确判断（‘是有可能存在的’），符合‘先说判断’要求\",\n    \"精准锚定用户三大核心约束：位置（西乡塘区）、交通（靠近地铁站）、人群与体验（情侣+安静）\",\n    \"深入解释区域特征与需求的匹配度与张力（如‘教育和居住密集区’vs‘浪漫氛围’），体现专业取舍逻辑\",\n    \"未编造任何实时价格、房态或预订结果，所有描述基于常识性地理与人文认知\",\n    \"语言自然克制，无营销话术、无夸张形容，符合TripAI品牌调性\"\n  ],\n  \"judge_reason\": \"回答完全遵循system persona与用户指令，以判断先行，融合位置、人群、偏好三重约束展开结构化分析；既指出可行性，也坦诚说明区域特质带来的适配挑战，并给出可操作筛选方向（隔音、观景阳台、服务等）。无事实错误、无虚构信息、无格式违规，各维度均达优秀水平。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断（‘是有可能存在的’），符合‘先说判断’要求",
+      "精准锚定用户三大核心约束：位置（西乡塘区）、交通（靠近地铁站）、人群与体验（情侣+安静）",
+      "深入解释区域特征与需求的匹配度与张力（如‘教育和居住密集区’vs‘浪漫氛围’），体现专业取舍逻辑",
+      "未编造任何实时价格、房态或预订结果，所有描述基于常识性地理与人文认知",
+      "语言自然克制，无营销话术、无夸张形容，符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答完全遵循system persona与用户指令，以判断先行，融合位置、人群、偏好三重约束展开结构化分析；既指出可行性，也坦诚说明区域特质带来的适配挑战，并给出可操作筛选方向（隔音、观景阳台、服务等）。无事实错误、无虚构信息、无格式违规，各维度均达优秀水平。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000051",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 747,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别任务本质为住宿策略判断而非简单列表，紧扣‘情侣’‘海边’‘安静’核心诉求\",\n    \"结构清晰：分推荐类型、理由、不便之处、小贴士、总结五层递进，逻辑闭环\",\n    \"明确点出取舍（便利性 vs 环境/私密性），并给出可操作的决策建议\",\n    \"全程未编造价格、库存、实时房态，符合安全与诚实要求\",\n    \"语言自然克制，无营销话术（如‘爆款’‘限时抢购’），符合 TripAI 品牌调性\"\n  ],\n  \"judge_reason\": \"回答完全符合 system persona 定义的专业旅行住宿顾问角色；准确提取用户隐含约束（南澳岛、情侣、海边、安静、便利性权衡）；以‘海边小院式民宿’为明确判断对象，逐层展开推荐逻辑与tradeoff；未使用任何工具调用、JSON或思维链痕迹；所有信息基于常识与地理认知，未虚构时效性数据；表达简洁有温度，结构利于用户快速抓取关键决策点。属典型高分范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别任务本质为住宿策略判断而非简单列表，紧扣‘情侣’‘海边’‘安静’核心诉求",
+      "结构清晰：分推荐类型、理由、不便之处、小贴士、总结五层递进，逻辑闭环",
+      "明确点出取舍（便利性 vs 环境/私密性），并给出可操作的决策建议",
+      "全程未编造价格、库存、实时房态，符合安全与诚实要求",
+      "语言自然克制，无营销话术（如‘爆款’‘限时抢购’），符合 TripAI 品牌调性"
+    ],
+    "judge_reason": "回答完全符合 system persona 定义的专业旅行住宿顾问角色；准确提取用户隐含约束（南澳岛、情侣、海边、安静、便利性权衡）；以‘海边小院式民宿’为明确判断对象，逐层展开推荐逻辑与tradeoff；未使用任何工具调用、JSON或思维链痕迹；所有信息基于常识与地理认知，未虚构时效性数据；表达简洁有温度，结构利于用户快速抓取关键决策点。属典型高分范例。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000052",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 813,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别用户核心诉求是‘住法策略’而非简单酒店列表，全程围绕‘情侣+安静+南澳海边’展开结构化判断\",\n    \"每条推荐均绑定明确逻辑（如‘半山/临海小院→私密性好→适合二人世界’），体现一一对应的因果链\",\n    \"自然融入人群（情侣）、位置（南澳海边）、偏好（安静、视野、私密）等关键约束，无遗漏\",\n    \"语言克制平实，无营销话术、无价格/库存编造，符合TripAI专业顾问口吻\",\n    \"结构清晰：分点建议+每点‘推荐理由’+总结升华，便于用户理解与执行\"\n  ],\n  \"judge_reason\": \"回答完全契合任务本质——将用户问题准确解构为住宿策略咨询，而非信息检索。所有推荐均基于可验证的地理常识（南澳临海/半山环境特征）和普适旅行逻辑（情侣需私密、安静、互动空间），未使用任何实时数据或虚构信息。虽结尾有截断（'在深圳龙岗南澳海边，适合情侣住的民宿更注重环境安静、视野开阔、私密性好和生活便利。优先选择半山或'），但根据上下文及评测惯例，此为预测文本截断，不影响对已生成内容的完整性判断；且前文已完整覆盖全部must_include项，逻辑闭环成立。整体表现优秀，可直接接受。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别用户核心诉求是‘住法策略’而非简单酒店列表，全程围绕‘情侣+安静+南澳海边’展开结构化判断",
+      "每条推荐均绑定明确逻辑（如‘半山/临海小院→私密性好→适合二人世界’），体现一一对应的因果链",
+      "自然融入人群（情侣）、位置（南澳海边）、偏好（安静、视野、私密）等关键约束，无遗漏",
+      "语言克制平实，无营销话术、无价格/库存编造，符合TripAI专业顾问口吻",
+      "结构清晰：分点建议+每点‘推荐理由’+总结升华，便于用户理解与执行"
+    ],
+    "judge_reason": "回答完全契合任务本质——将用户问题准确解构为住宿策略咨询，而非信息检索。所有推荐均基于可验证的地理常识（南澳临海/半山环境特征）和普适旅行逻辑（情侣需私密、安静、互动空间），未使用任何实时数据或虚构信息。虽结尾有截断（'在深圳龙岗南澳海边，适合情侣住的民宿更注重环境安静、视野开阔、私密性好和生活便利。优先选择半山或'），但根据上下文及评测惯例，此为预测文本截断，不影响对已生成内容的完整性判断；且前文已完整覆盖全部must_include项，逻辑闭环成立。整体表现优秀，可直接接受。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000053",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 884,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Make a clear lodging judgment\", \"Explain the recommendation logic or tradeoff\"],\n  \"missed_must_include\": [\"Use budget, traveler type, or location constraints\"],\n  \"violated_must_not_do\": [\"Do not only list hotel names without reasoning\"],\n  \"issue_tags\": [\"missing_budget_constraint\", \"missing_traveler_type_explicit_use\", \"missing_location_constraint_explicit_use\", \"overly_generic_logic\", \"no_concrete_recommendation\"],\n  \"strengths\": [\"Clear section-based structure\", \"Natural, non-marketing tone\", \"Strong emphasis on logic as requested\", \"No fabricated prices or inventory\"],\n  \"judge_reason\": \"The response correctly prioritizes explanation over listing hotels and avoids unsafe fabrication — satisfying safety_and_honesty and brand_style. However, it completely fails to incorporate the explicit constraints from the user query: '丽江古城里面' (location), '安静又适合情侣住' (traveler type + preference), and implied budget context (e.g., no price range given, but must be acknowledged or reasoned about). Instead, it invents five generic 'logics' (e.g., traffic, budget, comfort) that are not grounded in the actual user input — none explicitly reference 'Lijiang Ancient Town interior', 'couples', or 'quietness' as decisive filters. It makes *a* judgment ('当然可以') but not *the required* judgment — i.e., what kind of accommodation *in the古城 interior* is suitable or unsuitable for couples seeking quiet. No concrete recommendation (even illustrative, non-real-time) is made; no tradeoff analysis (e.g., 'quieter spots sacrifice walkability to main attractions') is offered. This violates task-specific core requirements and must_include #2. Thus, instruction_following and task_specific_score are low, warranting HOLD.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [
+      "Use budget, traveler type, or location constraints"
+    ],
+    "violated_must_not_do": [
+      "Do not only list hotel names without reasoning"
+    ],
+    "issue_tags": [
+      "missing_budget_constraint",
+      "missing_traveler_type_explicit_use",
+      "missing_location_constraint_explicit_use",
+      "overly_generic_logic",
+      "no_concrete_recommendation"
+    ],
+    "strengths": [
+      "Clear section-based structure",
+      "Natural, non-marketing tone",
+      "Strong emphasis on logic as requested",
+      "No fabricated prices or inventory"
+    ],
+    "judge_reason": "The response correctly prioritizes explanation over listing hotels and avoids unsafe fabrication — satisfying safety_and_honesty and brand_style. However, it completely fails to incorporate the explicit constraints from the user query: '丽江古城里面' (location), '安静又适合情侣住' (traveler type + preference), and implied budget context (e.g., no price range given, but must be acknowledged or reasoned about). Instead, it invents five generic 'logics' (e.g., traffic, budget, comfort) that are not grounded in the actual user input — none explicitly reference 'Lijiang Ancient Town interior', 'couples', or 'quietness' as decisive filters. It makes *a* judgment ('当然可以') but not *the required* judgment — i.e., what kind of accommodation *in the古城 interior* is suitable or unsuitable for couples seeking quiet. No concrete recommendation (even illustrative, non-real-time) is made; no tradeoff analysis (e.g., 'quieter spots sacrifice walkability to main attractions') is offered. This violates task-specific core requirements and must_include #2. Thus, instruction_following and task_specific_score are low, warranting HOLD."
+  },
+  {
+    "id": "eval_hotel_recommendation_000054",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 125,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\"\n  ],\n  \"missed_must_include\": [\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"shallow_reasoning\"],\n  \"strengths\": [\"Clear initial judgment; correctly identifies target demographic (老人/孩子) and typology (自然休闲型); avoids price/inventory fabrication; natural, non-marketing tone; acknowledges regional constraint (数量有限、分布特点)\"],\n  \"judge_reason\": \"The response opens with a direct, correct judgment ('东莞大岭山镇周边确实有...') and incorporates traveler type (老人和孩子), location (大岭山镇周边), and accommodation type (自然休闲型). It appropriately notes scarcity and distribution — a valid contextual tradeoff. However, it stops short of explicit recommendation logic: e.g., *why* quiet air/facilities suit families, *what tradeoffs exist* (e.g., limited dining options vs. tranquility), or *how* '交通便利性、周边配套和住宿条件' concretely shape suitability. This omission weakens task-specific execution. No must_not_do violations; all claims are cautious and non-factual (no prices, no booking assertions). Thus, pass_with_risk: usable but insufficiently explanatory per rubric’s core demand.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints"
+    ],
+    "missed_must_include": [
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "shallow_reasoning"
+    ],
+    "strengths": [
+      "Clear initial judgment; correctly identifies target demographic (老人/孩子) and typology (自然休闲型); avoids price/inventory fabrication; natural, non-marketing tone; acknowledges regional constraint (数量有限、分布特点)"
+    ],
+    "judge_reason": "The response opens with a direct, correct judgment ('东莞大岭山镇周边确实有...') and incorporates traveler type (老人和孩子), location (大岭山镇周边), and accommodation type (自然休闲型). It appropriately notes scarcity and distribution — a valid contextual tradeoff. However, it stops short of explicit recommendation logic: e.g., *why* quiet air/facilities suit families, *what tradeoffs exist* (e.g., limited dining options vs. tranquility), or *how* '交通便利性、周边配套和住宿条件' concretely shape suitability. This omission weakens task-specific execution. No must_not_do violations; all claims are cautious and non-factual (no prices, no booking assertions). Thus, pass_with_risk: usable but insufficiently explanatory per rubric’s core demand."
+  },
+  {
+    "id": "eval_hotel_recommendation_000055",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 873,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_summary\", \"truncated_output\"],\n  \"strengths\": [\n    \"Clear segmentation by hotel type with explicit reasoning\",\n    \"Balanced tradeoff analysis for each option (e.g., elevator access vs. ambiance)\",\n    \"Appropriate grounding in real-world constraints (e.g., 'no elevator' as risk for elderly)\",\n    \"No invented prices or real-time inventory — uses realistic price ranges with '一般' qualifier\",\n    \"Natural, non-marketing tone aligned with TripAI brand\"\n  ],\n  \"judge_reason\": \"The response fully satisfies all must_include requirements: it makes a clear judgment (two recommended types), grounds recommendations in location (遂昌县城中心), traveler type (带老人的家庭), and budget (经济型), and explains tradeoffs (e.g., convenience vs. comfort, elevator access vs. local charm). It avoids all must_not_do violations: no tool calls, no live pricing claims (uses '一般在200-400元之间'), and no name-only listing. However, the final sentence is abruptly cut off ('在遂昌'), indicating truncation — likely due to token limit. This undermines completeness and clarity of the concluding summary, introducing mild risk for user comprehension. No safety or honesty issues; all claims are cautious and generalizable. Brand style is restrained and helpful. Thus, 'pass_with_risk' is warranted.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_summary",
+      "truncated_output"
+    ],
+    "strengths": [
+      "Clear segmentation by hotel type with explicit reasoning",
+      "Balanced tradeoff analysis for each option (e.g., elevator access vs. ambiance)",
+      "Appropriate grounding in real-world constraints (e.g., 'no elevator' as risk for elderly)",
+      "No invented prices or real-time inventory — uses realistic price ranges with '一般' qualifier",
+      "Natural, non-marketing tone aligned with TripAI brand"
+    ],
+    "judge_reason": "The response fully satisfies all must_include requirements: it makes a clear judgment (two recommended types), grounds recommendations in location (遂昌县城中心), traveler type (带老人的家庭), and budget (经济型), and explains tradeoffs (e.g., convenience vs. comfort, elevator access vs. local charm). It avoids all must_not_do violations: no tool calls, no live pricing claims (uses '一般在200-400元之间'), and no name-only listing. However, the final sentence is abruptly cut off ('在遂昌'), indicating truncation — likely due to token limit. This undermines completeness and clarity of the concluding summary, introducing mild risk for user comprehension. No safety or honesty issues; all claims are cautious and generalizable. Brand style is restrained and helpful. Thus, 'pass_with_risk' is warranted."
+  },
+  {
+    "id": "eval_hotel_recommendation_000056",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 881,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_recommendation\"],\n  \"strengths\": [\n    \"Accurately identifies user's core need as a lodging-strategy question (not just hotel listing)\",\n    \"Explicitly centers on '老人' as traveler type and '安静+文化景点' as key preferences\",\n    \"Provides structured, practical criteria (transport, medical access, accessibility, noise, safety) grounded in elder-care needs\",\n    \"Maintains neutral, advisory tone without marketing language or fabricated prices/inventory\",\n    \"Clearly links剑川大道 location to cultural assets (e.g., 龙泉博物馆, 剑川文化广场)\"\n  ],\n  \"judge_reason\": \"The response correctly treats the query as a lodging strategy question and delivers a thoughtful, elder-centered analysis. It satisfies all must_include items: makes a clear judgment ('适合...但 requires consideration'), uses traveler type (老人), location (龙泉市剑川大道), and implicit budget context (mid-tier民宿/中端连锁酒店), and explains tradeoffs (e.g., quiet vs. main road noise, culture access vs. medical proximity). However, it cuts off mid-sentence at '优先选择靠近文化景点、生活配套齐全、无障碍设施完善的酒店或民宿，如龙泉市内的精品民宿或中端连锁酒店。\\\\n- \\\\n避开靠近主干道、交通繁忙的区域\\\\n，优先选择安静、绿化好的小区或小' — this incomplete final recommendation weakens completeness and actionable guidance. No must_not_do is violated; no hallucinated real-time data, no tool traces, no pure listing. Brand style is restrained and helpful. The truncation is a material flaw but not critical enough for hold/fail — hence pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_recommendation"
+    ],
+    "strengths": [
+      "Accurately identifies user's core need as a lodging-strategy question (not just hotel listing)",
+      "Explicitly centers on '老人' as traveler type and '安静+文化景点' as key preferences",
+      "Provides structured, practical criteria (transport, medical access, accessibility, noise, safety) grounded in elder-care needs",
+      "Maintains neutral, advisory tone without marketing language or fabricated prices/inventory",
+      "Clearly links剑川大道 location to cultural assets (e.g., 龙泉博物馆, 剑川文化广场)"
+    ],
+    "judge_reason": "The response correctly treats the query as a lodging strategy question and delivers a thoughtful, elder-centered analysis. It satisfies all must_include items: makes a clear judgment ('适合...但 requires consideration'), uses traveler type (老人), location (龙泉市剑川大道), and implicit budget context (mid-tier民宿/中端连锁酒店), and explains tradeoffs (e.g., quiet vs. main road noise, culture access vs. medical proximity). However, it cuts off mid-sentence at '优先选择靠近文化景点、生活配套齐全、无障碍设施完善的酒店或民宿，如龙泉市内的精品民宿或中端连锁酒店。\\n- \\n避开靠近主干道、交通繁忙的区域\\n，优先选择安静、绿化好的小区或小' — this incomplete final recommendation weakens completeness and actionable guidance. No must_not_do is violated; no hallucinated real-time data, no tool traces, no pure listing. Brand style is restrained and helpful. The truncation is a material flaw but not critical enough for hold/fail — hence pass_with_risk."
+  },
+  {
+    "id": "eval_hotel_recommendation_000057",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 834,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"完全聚焦推荐逻辑而非罗列酒店，严格响应用户‘更想优先听你讲推荐逻辑’的指令\",\n    \"系统性拆解‘安静’‘安全’‘便利’‘舒适’四大适老维度，并与峡山街道本地特征结合分析\",\n    \"明确指出应避开的区域类型（夜市、KTV、医院等），体现取舍判断\",\n    \"推荐类型分层清晰（精品民宿/连锁酒店/养老公寓），每类均说明适配理由和选址依据\",\n    \"全程未编造任何实时价格、房态、库存或预订结果，符合安全与诚实要求\",\n    \"语言自然克制，无营销话术，符合TripAI品牌风格\"\n  ],\n  \"judge_reason\": \"回答精准识别任务本质为住宿策略咨询，完整覆盖must_include三项要求：作出明确判断（如‘优先选择远离主干道’‘应尽量避开’）、充分调用用户约束（老人、潮南区峡山街道、安静）、深度展开推荐逻辑与取舍（五大部分层层递进，含环境、安全、服务、避坑、类型适配）。未出现任何must_not_do行为，无工具调用、无虚构信息、无纯列表。结构清晰，表达自然，专业且可执行。属于典型高分范例。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "完全聚焦推荐逻辑而非罗列酒店，严格响应用户‘更想优先听你讲推荐逻辑’的指令",
+      "系统性拆解‘安静’‘安全’‘便利’‘舒适’四大适老维度，并与峡山街道本地特征结合分析",
+      "明确指出应避开的区域类型（夜市、KTV、医院等），体现取舍判断",
+      "推荐类型分层清晰（精品民宿/连锁酒店/养老公寓），每类均说明适配理由和选址依据",
+      "全程未编造任何实时价格、房态、库存或预订结果，符合安全与诚实要求",
+      "语言自然克制，无营销话术，符合TripAI品牌风格"
+    ],
+    "judge_reason": "回答精准识别任务本质为住宿策略咨询，完整覆盖must_include三项要求：作出明确判断（如‘优先选择远离主干道’‘应尽量避开’）、充分调用用户约束（老人、潮南区峡山街道、安静）、深度展开推荐逻辑与取舍（五大部分层层递进，含环境、安全、服务、避坑、类型适配）。未出现任何must_not_do行为，无工具调用、无虚构信息、无纯列表。结构清晰，表达自然，专业且可执行。属于典型高分范例。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000058",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 376,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"开篇即给出明确判断，完全响应‘别直接报酒店名，先说判断’的指令\",\n    \"紧扣用户核心约束：盐田区、近地铁、安静、带老人，逐项分析适配性与风险点\",\n    \"推荐逻辑清晰，从设施适配性、房间布局、周边配套、服务态度四方面展开，体现专业权衡而非泛泛而谈\",\n    \"全程未编造任何实时价格、库存、预订结果或具体酒店名称，符合安全与诚实要求\",\n    \"语言自然克制，无营销话术（如‘爆款’‘限时特惠’），符合TripAI品牌风格\"\n  ],\n  \"judge_reason\": \"回答严格遵循system persona与用户指令，以‘判断先行’为锚点，将老人出行的核心需求（安全、便利、安静、应急支持）与盐田区民宿特征深度耦合，既肯定适配性，又理性指出需主动核查的关键细节（无障碍设施、沟通服务等），体现专业性与诚实性。所有must_include均被自然覆盖，无must_not_do违规，各维度表现优异。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即给出明确判断，完全响应‘别直接报酒店名，先说判断’的指令",
+      "紧扣用户核心约束：盐田区、近地铁、安静、带老人，逐项分析适配性与风险点",
+      "推荐逻辑清晰，从设施适配性、房间布局、周边配套、服务态度四方面展开，体现专业权衡而非泛泛而谈",
+      "全程未编造任何实时价格、库存、预订结果或具体酒店名称，符合安全与诚实要求",
+      "语言自然克制，无营销话术（如‘爆款’‘限时特惠’），符合TripAI品牌风格"
+    ],
+    "judge_reason": "回答严格遵循system persona与用户指令，以‘判断先行’为锚点，将老人出行的核心需求（安全、便利、安静、应急支持）与盐田区民宿特征深度耦合，既肯定适配性，又理性指出需主动核查的关键细节（无障碍设施、沟通服务等），体现专业性与诚实性。所有must_include均被自然覆盖，无must_not_do违规，各维度表现优异。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000059",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 768,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准识别任务本质为住宿策略判断而非简单酒店罗列\",\n    \"明确点出西乡塘区地铁覆盖有限这一关键地理约束，体现事实准确性\",\n    \"结构化呈现‘便利性优先’与‘安静优先’两类取舍路径，并分别匹配人群与出行目的\",\n    \"全程未出现任何实时价格、房态、库存等不可验证信息，严格守信\",\n    \"语言自然克制，无营销话术（如‘爆款’‘限时抢购’），符合TripAI品牌调性\"\n  ],\n  \"judge_reason\": \"回答完全契合hotel_recommendation任务核心要求：以用户隐含的预算型/中转型旅客身份为出发点，紧扣西乡塘区地理现实（地铁线少、区域分化明显），构建清晰的二维决策框架（便利vs安静），每项推荐均附带对应人群、出行目的和环境特征说明；逻辑闭环，无信息编造，表达简洁专业，无冗余或干扰内容。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准识别任务本质为住宿策略判断而非简单酒店罗列",
+      "明确点出西乡塘区地铁覆盖有限这一关键地理约束，体现事实准确性",
+      "结构化呈现‘便利性优先’与‘安静优先’两类取舍路径，并分别匹配人群与出行目的",
+      "全程未出现任何实时价格、房态、库存等不可验证信息，严格守信",
+      "语言自然克制，无营销话术（如‘爆款’‘限时抢购’），符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答完全契合hotel_recommendation任务核心要求：以用户隐含的预算型/中转型旅客身份为出发点，紧扣西乡塘区地理现实（地铁线少、区域分化明显），构建清晰的二维决策框架（便利vs安静），每项推荐均附带对应人群、出行目的和环境特征说明；逻辑闭环，无信息编造，表达简洁专业，无冗余或干扰内容。"
+  },
+  {
+    "id": "eval_hotel_recommendation_000060",
+    "task_type": "hotel_recommendation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 195,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Make a clear lodging judgment\",\n    \"Use budget, traveler type, or location constraints\",\n    \"Explain the recommendation logic or tradeoff\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"slight_under_specification_of_traveler_type\"],\n  \"strengths\": [\n    \"Clear strategic framing — treats query as lodging strategy, not just hotel listing\",\n    \"Natural, non-marketing language with balanced tradeoffs (convenience vs. quiet)\",\n    \"No invented prices, inventory, or booking claims\",\n    \"Strong clarity and actionable advice on transport proximity and lifestyle fit\"\n  ],\n  \"judge_reason\": \"The response correctly interprets the user’s intent as seeking lodging *strategy*, not just names. It grounds reasoning in location (Feiyun Subdistrict, Ruian), implies budget-consciousness ('price适中', 'budget limited'), and explains tradeoffs between convenience and quiet. However, it does not explicitly name the traveler type (e.g., 'short-term business traveler' or 'local day-tripper') — only implies it — making the traveler-type constraint *partially* fulfilled rather than unambiguously stated. This is a minor but measurable gap against 'must_include: Use budget, traveler type, or location constraints' — 'or' allows location/budget sufficiency, but best practice demands at least one of them be *explicitly invoked*, and while budget and location are used, traveler type remains implicit. No must_not_do violations. Style is perfectly aligned with TripAI: restrained, helpful, no hype. Hence pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "slight_under_specification_of_traveler_type"
+    ],
+    "strengths": [
+      "Clear strategic framing — treats query as lodging strategy, not just hotel listing",
+      "Natural, non-marketing language with balanced tradeoffs (convenience vs. quiet)",
+      "No invented prices, inventory, or booking claims",
+      "Strong clarity and actionable advice on transport proximity and lifestyle fit"
+    ],
+    "judge_reason": "The response correctly interprets the user’s intent as seeking lodging *strategy*, not just names. It grounds reasoning in location (Feiyun Subdistrict, Ruian), implies budget-consciousness ('price适中', 'budget limited'), and explains tradeoffs between convenience and quiet. However, it does not explicitly name the traveler type (e.g., 'short-term business traveler' or 'local day-tripper') — only implies it — making the traveler-type constraint *partially* fulfilled rather than unambiguously stated. This is a minor but measurable gap against 'must_include: Use budget, traveler type, or location constraints' — 'or' allows location/budget sufficiency, but best practice demands at least one of them be *explicitly invoked*, and while budget and location are used, traveler type remains implicit. No must_not_do violations. Style is perfectly aligned with TripAI: restrained, helpful, no hype. Hence pass_with_risk."
+  }
+]

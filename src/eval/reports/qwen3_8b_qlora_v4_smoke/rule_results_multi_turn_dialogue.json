@@ -1,0 +1,65 @@
+[
+  {
+    "id": "eval_multi_turn_dialogue_000001",
+    "task_type": "multi_turn_dialogue",
+    "status": "ok",
+    "rule_pass": false,
+    "rule_score": 0,
+    "max_severity": "blocker",
+    "hit_count": 1,
+    "triggered_rule_ids": [
+      "exact_price"
+    ],
+    "rule_hits": [
+      {
+        "rule_id": "exact_price",
+        "severity": "blocker",
+        "message": "Prediction gives a concrete price that was not provided by the user",
+        "evidence": "500元",
+        "matched_must_not_do": [
+          "Do not invent live prices, inventory, or opening-time facts"
+        ]
+      }
+    ],
+    "prediction_preview": "好的，已调整为更轻松的节奏，保留了日月湾冲浪体验、海边漫步和日落观赏，同时增加了更多自由活动和休息时间。具体安排如下：Day1 抵达后入住日月湾附近民宿，傍晚在【海边教堂】打卡，晚上逛【日落吧】；Day2 上午体验【冲浪体验课】（2小时，1对2，约500元/人），下午自由练习或租板自行冲浪；Day3 前往【石梅湾】沙滩漫步，或【兴隆热带植物园】品尝咖啡和巧克力；Day4 上午【仙女潭瀑布】或【神州半岛】灯塔拍照，返程。日月湾有很多冲浪俱乐部，推荐「沙卡冲浪」或「戒浪·不」，教练专业。需要帮您预订冲浪课程吗？",
+    "prediction_length": 209
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000002",
+    "task_type": "multi_turn_dialogue",
+    "status": "ok",
+    "rule_pass": false,
+    "rule_score": 65,
+    "max_severity": "major",
+    "hit_count": 1,
+    "triggered_rule_ids": [
+      "multi_turn_full_rewrite_risk"
+    ],
+    "rule_hits": [
+      {
+        "rule_id": "multi_turn_full_rewrite_risk",
+        "severity": "major",
+        "message": "Prediction likely rewrites the whole plan instead of only updating the affected part",
+        "evidence": "similarity_to_previous_assistant=0.87",
+        "matched_must_not_do": [
+          "Do not ignore the latest user update"
+        ]
+      }
+    ],
+    "prediction_preview": "好的，已根据最新偏好调整行程。现在更注重深度体验与文化融合，同时兼顾轻松节奏。建议从米奇大街开始，与迪士尼朋友合影；接着进入奇想花园乘坐幻想曲旋转木马和小飞象，傍晚前抵达梦幻世界，打卡奇幻童话城堡、七个小矮人矿山车和晶彩奇航；下午可安排探险岛的翱翔·飞越地平线和雷鸣山漂流，傍晚在宝藏湾体验加勒比海盗——沉落宝藏之战；晚上务必预留时间观看‘奇梦之光幻影秀’。乐园内餐饮推荐皮诺丘乡村厨房或部落丰盛堂，轻松满足中西口味。",
+    "prediction_length": 189
+  },
+  {
+    "id": "eval_multi_turn_dialogue_000003",
+    "task_type": "multi_turn_dialogue",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "时间压缩后，首日可优先安排隐贤山庄，上午入园，避开正午烈日，下午稍作休整后，傍晚在山庄附近的水岸步道散步。次日可灵活安排周边，比如松山湖骑行或茶山南社明清古村落探访。住宿推荐选择市区或寮步镇附近，方便出行。",
+    "prediction_length": 93
+  }
+]

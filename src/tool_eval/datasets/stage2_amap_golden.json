@@ -1,0 +1,154 @@
+[
+  {
+    "id": "golden_route_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_plan_route"],
+    "expected_arguments_subset": {
+      "origin": "北京南站",
+      "destination": "颐和园",
+      "mode": "transit"
+    },
+    "must_include": ["路线", "换乘"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "我从北京南站出发，想去颐和园，优先公共交通，帮我看看怎么走。"
+      }
+    ]
+  },
+  {
+    "id": "golden_geocode_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_geocode"],
+    "expected_arguments_subset": {
+      "address": "雷峰塔"
+    },
+    "must_include": ["位置"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "雷峰塔具体在哪？"
+      }
+    ]
+  },
+  {
+    "id": "golden_clarify_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": ["amap_plan_route"],
+    "expected_arguments_subset": {
+      "mode": "transit"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。参数缺失时先澄清，再调用工具。"
+      },
+      {
+        "role": "user",
+        "content": "帮我规划一下去机场的路线。"
+      }
+    ]
+  },
+  {
+    "id": "golden_no_tool_001",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "must_include": ["适合"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。不需要实时工具时直接自然回答。"
+      },
+      {
+        "role": "user",
+        "content": "西湖适合带老人慢慢逛吗？"
+      }
+    ]
+  },
+  {
+    "id": "golden_search_001",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_search_poi"],
+    "expected_arguments_subset": {
+      "keyword": "酒店"
+    },
+    "must_include": ["酒店"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下西湖附近适合中转住一晚的酒店。"
+      }
+    ]
+  },
+  {
+    "id": "golden_chain_001",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_geocode", "amap_search_poi"],
+    "must_include": ["附近"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。最多允许两步工具链，优先 geocode -> search_poi。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下鼓浪屿码头附近能步行到的酒店。"
+      }
+    ]
+  },
+  {
+    "id": "golden_fallback_001",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": ["amap_plan_route"],
+    "tool_test_mode": {
+      "force_error_on": "amap_plan_route"
+    },
+    "must_include": ["暂时", "再查"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。工具失败时不要编造，明确说明不确定性并给 fallback。"
+      },
+      {
+        "role": "user",
+        "content": "帮我查一下从虹桥机场到外滩的最快路线。"
+      }
+    ]
+  },
+  {
+    "id": "golden_direct_geocode_then_route_001",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": ["amap_geocode", "amap_plan_route"],
+    "must_include": ["路线", "出发"],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。最多允许两步工具链，优先 geocode -> plan_route。"
+      },
+      {
+        "role": "user",
+        "content": "我在西湖音乐喷泉附近，想去灵隐寺，帮我规划一下路线。"
+      }
+    ]
+  }
+]

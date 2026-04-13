@@ -1,0 +1,2159 @@
+[
+  {
+    "id": "eval_guide_generation_000001",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 783,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"按天安排\", \"节奏偏松、少折返\", \"照顾老人步行强度\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"slight_overload_Day1\", \"minor_temporal_vagueness\"],\n  \"strengths\": [\"结构清晰，每日主题明确；全程无营销话术；未编造票价/开放时间；充分体现‘慢’与‘少折返’；语言自然克制，符合TripAI品牌调性\"],\n  \"judge_reason\": \"回答严格按3天分日组织，每日常态节奏舒缓、步行路径连贯（如Day1白堤→苏堤→花港→孤山→西泠桥，属环湖低强度动线），明确标注‘缓步’‘稍作休息’‘适合长辈’等适老提示，完全覆盖must_include。未出现工具调用、实时数据断言或小时级细排，符合must_not_do。但Day1景点密度略高（白堤、苏堤、花港、孤山、西泠桥），虽有休息提示，对腿脚一般者仍存在轻微超载风险；另‘断桥残雪（冬季可能无雪）’表述稍显冗余，非必要语境提示，属微小冗余。整体可用，但需提醒用户依当日体力灵活删减，故判pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "按天安排",
+      "节奏偏松、少折返",
+      "照顾老人步行强度"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "slight_overload_Day1",
+      "minor_temporal_vagueness"
+    ],
+    "strengths": [
+      "结构清晰，每日主题明确；全程无营销话术；未编造票价/开放时间；充分体现‘慢’与‘少折返’；语言自然克制，符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答严格按3天分日组织，每日常态节奏舒缓、步行路径连贯（如Day1白堤→苏堤→花港→孤山→西泠桥，属环湖低强度动线），明确标注‘缓步’‘稍作休息’‘适合长辈’等适老提示，完全覆盖must_include。未出现工具调用、实时数据断言或小时级细排，符合must_not_do。但Day1景点密度略高（白堤、苏堤、花港、孤山、西泠桥），虽有休息提示，对腿脚一般者仍存在轻微超载风险；另‘断桥残雪（冬季可能无雪）’表述稍显冗余，非必要语境提示，属微小冗余。整体可用，但需提醒用户依当日体力灵活删减，故判pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000002",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 754,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"覆盖周五晚到周日晚\", \"突出吃逛拍照\", \"保持周末节奏\"],\n  \"violated_must_not_do\": [\"忽略晚到早回\", \"写成景点百科\", \"输出工具调用、JSON 或轨迹\"],\n  \"issue_tags\": [\"答非所问\", \"结构断裂\", \"关键约束完全缺失\", \"行程超载且不可执行\", \"时间线错乱\"],\n  \"strengths\": [\"使用了部分成都本地地名\", \"尝试分日安排\"],\n  \"judge_reason\": \"回答严重偏离用户需求：用户明确限定‘周五下班到、周日晚上回’（即仅约2天1.5夜），但回答错误拆分为‘Day 1：周五晚-周六晚’+‘Day 2：周日’，未覆盖周日晚返程安排，且在Day 2中强行塞入武侯祠（未完成的截断句），彻底忽略‘只想吃、逛、拍照’的核心偏好，转为泛泛罗列景点（宽窄巷子、锦里、武侯祠）并堆砌百科式描述；未体现女生结伴、夜间友好、拍照动线等关键场景；结尾突兀截断，暴露生成失控；违反must_not_do中‘忽略晚到早回’‘写成景点百科’‘输出工具调用、JSON或轨迹’（虽未显式输出JSON，但格式含大量Markdown结构化痕迹，且内容呈现方式类模板填充而非自然行程组织）。整体为典型模板套用、条件失焦、不可执行的失败回答。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 3,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "覆盖周五晚到周日晚",
+      "突出吃逛拍照",
+      "保持周末节奏"
+    ],
+    "violated_must_not_do": [
+      "忽略晚到早回",
+      "写成景点百科",
+      "输出工具调用、JSON 或轨迹"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构断裂",
+      "关键约束完全缺失",
+      "行程超载且不可执行",
+      "时间线错乱"
+    ],
+    "strengths": [
+      "使用了部分成都本地地名",
+      "尝试分日安排"
+    ],
+    "judge_reason": "回答严重偏离用户需求：用户明确限定‘周五下班到、周日晚上回’（即仅约2天1.5夜），但回答错误拆分为‘Day 1：周五晚-周六晚’+‘Day 2：周日’，未覆盖周日晚返程安排，且在Day 2中强行塞入武侯祠（未完成的截断句），彻底忽略‘只想吃、逛、拍照’的核心偏好，转为泛泛罗列景点（宽窄巷子、锦里、武侯祠）并堆砌百科式描述；未体现女生结伴、夜间友好、拍照动线等关键场景；结尾突兀截断，暴露生成失控；违反must_not_do中‘忽略晚到早回’‘写成景点百科’‘输出工具调用、JSON或轨迹’（虽未显式输出JSON，但格式含大量Markdown结构化痕迹，且内容呈现方式类模板填充而非自然行程组织）。整体为典型模板套用、条件失焦、不可执行的失败回答。"
+  },
+  {
+    "id": "eval_guide_generation_000003",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 779,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"补全其余时间\"],\n  \"missed_must_include\": [\"承接已有住宿和固定安排\", \"减少折返\"],\n  \"violated_must_not_do\": [\"无视已订酒店\", \"重写成完全新的两天\"],\n  \"issue_tags\": [\"答非所问\", \"结构错位\", \"约束失效\", \"行程不可执行\"],\n  \"strengths\": [\"语言通顺，段落清晰；未编造票价/开放时间；风格克制，无营销话术\"],\n  \"judge_reason\": \"回答严重偏离用户核心约束：用户明确已订外滩附近两晚酒店、第一天晚上才到、第二天下午固定去陆家嘴见朋友——所有安排必须以此为锚点‘补全’剩余空白时段，并优先减少跨区折返。但该回答将行程拆成‘第一天’‘第二天’两个完整日，机械套用标准上海两日游模板，完全无视‘第一天仅晚上抵达’（故上午/中午安排无效）、‘第二天下午已占用’（却仍安排上午豫园、中午城隍庙、下午南京西路，导致与陆家嘴会面冲突或地理上严重绕路）。未体现‘外滩→陆家嘴’地理邻近性，也未利用‘同住外滩’优势做步行/短途接驳设计；反而新增豫园（距外滩3km+，需地铁换乘）、南京西路（远离陆家嘴）等高折返节点。属于典型‘无视已订酒店’+‘重写成完全新的两天’，违反 must_not_do 两条硬性禁令，任务失败信号明确。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "补全其余时间"
+    ],
+    "missed_must_include": [
+      "承接已有住宿和固定安排",
+      "减少折返"
+    ],
+    "violated_must_not_do": [
+      "无视已订酒店",
+      "重写成完全新的两天"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构错位",
+      "约束失效",
+      "行程不可执行"
+    ],
+    "strengths": [
+      "语言通顺，段落清晰；未编造票价/开放时间；风格克制，无营销话术"
+    ],
+    "judge_reason": "回答严重偏离用户核心约束：用户明确已订外滩附近两晚酒店、第一天晚上才到、第二天下午固定去陆家嘴见朋友——所有安排必须以此为锚点‘补全’剩余空白时段，并优先减少跨区折返。但该回答将行程拆成‘第一天’‘第二天’两个完整日，机械套用标准上海两日游模板，完全无视‘第一天仅晚上抵达’（故上午/中午安排无效）、‘第二天下午已占用’（却仍安排上午豫园、中午城隍庙、下午南京西路，导致与陆家嘴会面冲突或地理上严重绕路）。未体现‘外滩→陆家嘴’地理邻近性，也未利用‘同住外滩’优势做步行/短途接驳设计；反而新增豫园（距外滩3km+，需地铁换乘）、南京西路（远离陆家嘴）等高折返节点。属于典型‘无视已订酒店’+‘重写成完全新的两天’，违反 must_not_do 两条硬性禁令，任务失败信号明确。"
+  },
+  {
+    "id": "eval_guide_generation_000004",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 589,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"直接给两天主线\", \"少介绍、多规划\", \"符合第一次去\"],\n  \"violated_must_not_do\": [\"大量景点背景介绍\", \"回避主线\"],\n  \"issue_tags\": [\"答非所问\", \"结构泛化\", \"信息堆砌\", \"缺乏主线逻辑\", \"过度背景阐释\"],\n  \"strengths\": [\"提及预约提醒和交通建议，体现一定实用性；未编造具体票价/开放时间\"],\n  \"judge_reason\": \"回答完全违背用户核心诉求‘不是让我看一堆景点介绍，我只想知道第一次去西安两天应该怎么走主线’。全文以景点为中心展开冗长背景介绍（如‘重点展品包括兵马俑、唐三彩’‘与玄奘取经相关’‘唐代皇家园林’），严重违反‘少介绍、多规划’；未构建清晰时空主线（如未明确每日动线逻辑、交通衔接、节奏控制），反而拆解为孤立景点条目，且第二天安排曲江池→大慈恩寺→芙蓉园，地理混乱、动线断裂，不符合‘第一次去’所需的简洁性与可执行性；全程未体现‘主线’意识（如文化轴线：周秦汉唐—碑林→陕历博→大雁塔→大慈恩寺→城墙），属典型泛泛而谈式旅游手册写法；大量使用解释性语句（‘适合对文化感兴趣的人’‘适合慢节奏游览’）而非指令性规划语言，丧失guide生成任务本质。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 3,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "直接给两天主线",
+      "少介绍、多规划",
+      "符合第一次去"
+    ],
+    "violated_must_not_do": [
+      "大量景点背景介绍",
+      "回避主线"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构泛化",
+      "信息堆砌",
+      "缺乏主线逻辑",
+      "过度背景阐释"
+    ],
+    "strengths": [
+      "提及预约提醒和交通建议，体现一定实用性；未编造具体票价/开放时间"
+    ],
+    "judge_reason": "回答完全违背用户核心诉求‘不是让我看一堆景点介绍，我只想知道第一次去西安两天应该怎么走主线’。全文以景点为中心展开冗长背景介绍（如‘重点展品包括兵马俑、唐三彩’‘与玄奘取经相关’‘唐代皇家园林’），严重违反‘少介绍、多规划’；未构建清晰时空主线（如未明确每日动线逻辑、交通衔接、节奏控制），反而拆解为孤立景点条目，且第二天安排曲江池→大慈恩寺→芙蓉园，地理混乱、动线断裂，不符合‘第一次去’所需的简洁性与可执行性；全程未体现‘主线’意识（如文化轴线：周秦汉唐—碑林→陕历博→大雁塔→大慈恩寺→城墙），属典型泛泛而谈式旅游手册写法；大量使用解释性语句（‘适合对文化感兴趣的人’‘适合慢节奏游览’）而非指令性规划语言，丧失guide生成任务本质。"
+  },
+  {
+    "id": "eval_guide_generation_000005",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 758,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"保留原有大框架\"],\n  \"missed_must_include\": [\"优化顺路和体力\", \"可适度调整顺序\"],\n  \"violated_must_not_do\": [\"不解释为什么调整\"],\n  \"issue_tags\": [\"no_justification_for_changes\", \"missing_physical_flow_optimization\", \"unexplained_reordering\"],\n  \"strengths\": [\"语言自然，符合TripAI克制风格；未编造票价/开放时间；结构清晰，分日分时段呈现\"],\n  \"judge_reason\": \"回答保留了D1-D3的原始框架，但未体现任何顺路性优化（如李子坝→磁器口实际需绕行，未建议更优交通衔接或顺序微调）；未说明为何新增朝天门、东水门大桥等用户未提及的点，也未解释调整逻辑，直接违反'must_not_do: 不解释为什么调整'；D2将李子坝与磁器口强行并列，忽略二者地理距离远（需跨区换乘）、体力消耗大，未落实'别太累'核心诉求；D3南山完全缺失，属关键遗漏；结尾截断亦影响完整性。整体未吸收用户'优化得更顺一点，别太累'这一核心指令，仅做表面扩展，缺乏行程动线、交通逻辑、体力节奏等实质性优化。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "保留原有大框架"
+    ],
+    "missed_must_include": [
+      "优化顺路和体力",
+      "可适度调整顺序"
+    ],
+    "violated_must_not_do": [
+      "不解释为什么调整"
+    ],
+    "issue_tags": [
+      "no_justification_for_changes",
+      "missing_physical_flow_optimization",
+      "unexplained_reordering"
+    ],
+    "strengths": [
+      "语言自然，符合TripAI克制风格；未编造票价/开放时间；结构清晰，分日分时段呈现"
+    ],
+    "judge_reason": "回答保留了D1-D3的原始框架，但未体现任何顺路性优化（如李子坝→磁器口实际需绕行，未建议更优交通衔接或顺序微调）；未说明为何新增朝天门、东水门大桥等用户未提及的点，也未解释调整逻辑，直接违反'must_not_do: 不解释为什么调整'；D2将李子坝与磁器口强行并列，忽略二者地理距离远（需跨区换乘）、体力消耗大，未落实'别太累'核心诉求；D3南山完全缺失，属关键遗漏；结尾截断亦影响完整性。整体未吸收用户'优化得更顺一点，别太累'这一核心指令，仅做表面扩展，缺乏行程动线、交通逻辑、体力节奏等实质性优化。"
+  },
+  {
+    "id": "eval_guide_generation_000006",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 733,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"适合情侣\", \"突出散步和氛围\"],\n  \"missed_must_include\": [\"安排不早起\"],\n  \"violated_must_not_do\": [\"排满传统景点\"],\n  \"issue_tags\": [\"timing_violation\", \"overloading\", \"structural_inconsistency\"],\n  \"strengths\": [\"Strong atmospheric language and romantic framing; good use of local, non-touristy routes like Yanggongdi and Xixi; avoids pricing/opening hours; natural, brand-aligned tone.\"],\n  \"judge_reason\": \"The response correctly centers on couple-friendly ambiance, walking, and evening mood, and avoids real-time factual claims. However, it fails to explicitly honor '不赶早' — Day 1 starts with '上午：西湖苏堤漫步' without clarifying a late start (e.g., 10am+), and Day 2 opens with '上午：西溪湿地轻游', implying early departure. Moreover, it overloads the itinerary: Sudi → Bai Di → Gushan → Yanggongdi → Hubin → Xixi across two days violates 'not overloaded' and contradicts 'no rushing'. The abrupt cutoff mid-sentence ('梅墅—秋雪庵—梅墅码头，沿途有芦苇荡') suggests truncation or incomplete planning, harming completeness and execution reliability. These are material flaws for a guide generation task where rhythm and feasibility are core.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "适合情侣",
+      "突出散步和氛围"
+    ],
+    "missed_must_include": [
+      "安排不早起"
+    ],
+    "violated_must_not_do": [
+      "排满传统景点"
+    ],
+    "issue_tags": [
+      "timing_violation",
+      "overloading",
+      "structural_inconsistency"
+    ],
+    "strengths": [
+      "Strong atmospheric language and romantic framing; good use of local, non-touristy routes like Yanggongdi and Xixi; avoids pricing/opening hours; natural, brand-aligned tone."
+    ],
+    "judge_reason": "The response correctly centers on couple-friendly ambiance, walking, and evening mood, and avoids real-time factual claims. However, it fails to explicitly honor '不赶早' — Day 1 starts with '上午：西湖苏堤漫步' without clarifying a late start (e.g., 10am+), and Day 2 opens with '上午：西溪湿地轻游', implying early departure. Moreover, it overloads the itinerary: Sudi → Bai Di → Gushan → Yanggongdi → Hubin → Xixi across two days violates 'not overloaded' and contradicts 'no rushing'. The abrupt cutoff mid-sentence ('梅墅—秋雪庵—梅墅码头，沿途有芦苇荡') suggests truncation or incomplete planning, harming completeness and execution reliability. These are material flaws for a guide generation task where rhythm and feasibility are core."
+  },
+  {
+    "id": "eval_guide_generation_000007",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 810,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"承接北京南站和住前门\", \"覆盖周末有限时长\"],\n  \"missed_must_include\": [\"动线顺\"],\n  \"violated_must_not_do\": [\"安排太满\"],\n  \"issue_tags\": [\"overloaded_schedule\", \"incomplete_route_logic\", \"unresolved_closure\"],\n  \"strengths\": [\"Clear time framing and accommodation anchoring; natural, non-marketing tone; avoids fabricated real-time info; well-structured with section headers\"],\n  \"judge_reason\": \"Answer correctly anchors at Beijing South Station and Front Gate, and respects the weekend timeframe. However, it fails to ensure '动线顺': Saturday afternoon clusters 3 major sites (Qianmen St, Zhengyangmen, Dashilan) without clarifying spatial proximity or walking feasibility — in reality, they are adjacent and walkable, but the answer doesn’t leverage that continuity or warn against redundancy. Sunday adds Tian Tan (15km away) without justifying transport choice or timing rigor — 'suggest metro or taxi' is vague; no estimate of travel time, no buffer for weekend traffic, and no explicit linkage back to Front Gate or Beijing South Station for departure. Crucially, the response cuts off mid-sentence ('但需...'), breaking completeness and execution readiness. The Sunday plan feels tacked-on rather than integrated, violating '动线顺'. Also, listing 'Gugong' and 'Nanluoguxiang' as optional 'if time permits' contradicts 'avoid overloading' — those are high-effort, distant locations incompatible with a tight Sunday before evening departure. This constitutes 'arrange too much', a must-not-do violation. Hence, hold for revision.\"\n}",
+    "correctness": 3,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "承接北京南站和住前门",
+      "覆盖周末有限时长"
+    ],
+    "missed_must_include": [
+      "动线顺"
+    ],
+    "violated_must_not_do": [
+      "安排太满"
+    ],
+    "issue_tags": [
+      "overloaded_schedule",
+      "incomplete_route_logic",
+      "unresolved_closure"
+    ],
+    "strengths": [
+      "Clear time framing and accommodation anchoring; natural, non-marketing tone; avoids fabricated real-time info; well-structured with section headers"
+    ],
+    "judge_reason": "Answer correctly anchors at Beijing South Station and Front Gate, and respects the weekend timeframe. However, it fails to ensure '动线顺': Saturday afternoon clusters 3 major sites (Qianmen St, Zhengyangmen, Dashilan) without clarifying spatial proximity or walking feasibility — in reality, they are adjacent and walkable, but the answer doesn’t leverage that continuity or warn against redundancy. Sunday adds Tian Tan (15km away) without justifying transport choice or timing rigor — 'suggest metro or taxi' is vague; no estimate of travel time, no buffer for weekend traffic, and no explicit linkage back to Front Gate or Beijing South Station for departure. Crucially, the response cuts off mid-sentence ('但需...'), breaking completeness and execution readiness. The Sunday plan feels tacked-on rather than integrated, violating '动线顺'. Also, listing 'Gugong' and 'Nanluoguxiang' as optional 'if time permits' contradicts 'avoid overloading' — those are high-effort, distant locations incompatible with a tight Sunday before evening departure. This constitutes 'arrange too much', a must-not-do violation. Hence, hold for revision."
+  },
+  {
+    "id": "eval_guide_generation_000008",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 789,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"考虑尽量少换住宿\", \"前松后远\", \"按天分层次\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_final_day\"],\n  \"strengths\": [\"结构清晰，四日节奏分明；严格遵循‘前松后远’逻辑；住宿统一锚定洱海/古城周边，落实‘少换住’；语言自然克制，无营销感；未编造票价、开放时间等实时信息\"],\n  \"judge_reason\": \"回答完整覆盖所有 must_include 条目：住宿全程锚定洱海门/古城周边（满足‘尽量少换住宿’），Day1–2轻松本地游、Day3–4转向苍山/远途（体现‘前松后远’），且每日标题+分时段安排明确体现‘按天分层次’。表达清晰、品牌风格优秀，无安全与事实风险。但 Day4 描述截断于‘上午’，未完成当日安排（如返程交通建议、轻量收尾活动或弹性缓冲），导致 completeness 和 task-specific 可执行性微损，属明显但非致命缺陷，故判为 pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "考虑尽量少换住宿",
+      "前松后远",
+      "按天分层次"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_final_day"
+    ],
+    "strengths": [
+      "结构清晰，四日节奏分明；严格遵循‘前松后远’逻辑；住宿统一锚定洱海/古城周边，落实‘少换住’；语言自然克制，无营销感；未编造票价、开放时间等实时信息"
+    ],
+    "judge_reason": "回答完整覆盖所有 must_include 条目：住宿全程锚定洱海门/古城周边（满足‘尽量少换住宿’），Day1–2轻松本地游、Day3–4转向苍山/远途（体现‘前松后远’），且每日标题+分时段安排明确体现‘按天分层次’。表达清晰、品牌风格优秀，无安全与事实风险。但 Day4 描述截断于‘上午’，未完成当日安排（如返程交通建议、轻量收尾活动或弹性缓冲），导致 completeness 和 task-specific 可执行性微损，属明显但非致命缺陷，故判为 pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000009",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 854,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"给雨天版本\", \"减少纯室外暴露\", \"两日仍可执行\"],\n  \"violated_must_not_do\": [\"照搬晴天海边路线\", \"不处理天气限制\"],\n  \"issue_tags\": [\"答非所问\", \"关键约束未响应\", \"过度依赖户外景点\", \"结构虚假完整\"],\n  \"strengths\": [\"格式工整，有分日标题和交通提示\", \"语言自然，无明显营销口吻\"],\n  \"judge_reason\": \"回答完全无视‘雨天’核心约束：Day1推荐露天德国风情街、栈桥夜景（需户外步行+观景），Day2推荐鲁迅公园（典型露天滨海公园）；所有‘室内部分’描述均属主观臆断——青岛德国风情街无官方‘青岛德国建筑博物馆’，老舍茶馆不存在于该街区，青岛啤酒博物馆餐厅不在风情街内；‘栈桥夜景（雨天观景）’直接违反‘避免纯室外吹海风’；‘鲁迅公园（室内部分）’严重失实，该公园无室内展馆，仅有露天亭台；全文未提供任何真实可行的雨天替代方案（如美术馆、科技馆、商场、咖啡馆动线等），也未说明如何应对雨天交通、防滑、衣物等实际问题；属于典型照搬晴天模板+强行贴标签，实质性违背全部 must_include 和 must_not_do。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "给雨天版本",
+      "减少纯室外暴露",
+      "两日仍可执行"
+    ],
+    "violated_must_not_do": [
+      "照搬晴天海边路线",
+      "不处理天气限制"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "关键约束未响应",
+      "过度依赖户外景点",
+      "结构虚假完整"
+    ],
+    "strengths": [
+      "格式工整，有分日标题和交通提示",
+      "语言自然，无明显营销口吻"
+    ],
+    "judge_reason": "回答完全无视‘雨天’核心约束：Day1推荐露天德国风情街、栈桥夜景（需户外步行+观景），Day2推荐鲁迅公园（典型露天滨海公园）；所有‘室内部分’描述均属主观臆断——青岛德国风情街无官方‘青岛德国建筑博物馆’，老舍茶馆不存在于该街区，青岛啤酒博物馆餐厅不在风情街内；‘栈桥夜景（雨天观景）’直接违反‘避免纯室外吹海风’；‘鲁迅公园（室内部分）’严重失实，该公园无室内展馆，仅有露天亭台；全文未提供任何真实可行的雨天替代方案（如美术馆、科技馆、商场、咖啡馆动线等），也未说明如何应对雨天交通、防滑、衣物等实际问题；属于典型照搬晴天模板+强行贴标签，实质性违背全部 must_include 和 must_not_do。"
+  },
+  {
+    "id": "eval_guide_generation_000010",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 810,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"突出吃喝和轻松逛\", \"少走路\", \"不过度网红化\"],\n  \"violated_must_not_do\": [\"安排高强度暴走\", \"只推热门打卡点\", \"输出工具调用、JSON 或轨迹\"],\n  \"issue_tags\": [\"答非所问\", \"结构断裂\", \"内容截断\", \"违反老人友好约束\", \"隐含高强度安排\"],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重偏离用户核心诉求：用户明确要求‘我妈和阿姨’（长辈）、‘怕太累’、‘不喜欢很网红的地方’，但回答中密集堆砌广州塔、北京路、上下九、沙面岛等典型网红/人流密集景点，且未体现‘少走路’设计（如未建议打车/轮椅/休息频次）；Day1上午安排广州塔登塔+珠江边步道+茶餐厅，下午又推北京路+上下九+书店+多个茶餐厅，明显超载；‘小贴士’仅轻描淡写‘避开高峰’，未落实‘不赶时间、不赶景点、不走远、不爬楼’等关键限制；结尾截断在‘沙面老建筑群’，暴露生成失控；全文无一处强调‘吃喝’主导性，未区分本地人常去 vs 游客扎堆场所；违反 must_not_do 中‘安排高强度暴走’‘只推热门打卡点’；存在事实风险（如将陶陶居、银记肠粉默认为‘本地人常去’而未说明需排队/价格/时段不确定性）；完全未体现 TripAI 克制、自然、以用户真实约束为先的 brand_style。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 2,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "突出吃喝和轻松逛",
+      "少走路",
+      "不过度网红化"
+    ],
+    "violated_must_not_do": [
+      "安排高强度暴走",
+      "只推热门打卡点",
+      "输出工具调用、JSON 或轨迹"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构断裂",
+      "内容截断",
+      "违反老人友好约束",
+      "隐含高强度安排"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重偏离用户核心诉求：用户明确要求‘我妈和阿姨’（长辈）、‘怕太累’、‘不喜欢很网红的地方’，但回答中密集堆砌广州塔、北京路、上下九、沙面岛等典型网红/人流密集景点，且未体现‘少走路’设计（如未建议打车/轮椅/休息频次）；Day1上午安排广州塔登塔+珠江边步道+茶餐厅，下午又推北京路+上下九+书店+多个茶餐厅，明显超载；‘小贴士’仅轻描淡写‘避开高峰’，未落实‘不赶时间、不赶景点、不走远、不爬楼’等关键限制；结尾截断在‘沙面老建筑群’，暴露生成失控；全文无一处强调‘吃喝’主导性，未区分本地人常去 vs 游客扎堆场所；违反 must_not_do 中‘安排高强度暴走’‘只推热门打卡点’；存在事实风险（如将陶陶居、银记肠粉默认为‘本地人常去’而未说明需排队/价格/时段不确定性）；完全未体现 TripAI 克制、自然、以用户真实约束为先的 brand_style。"
+  },
+  {
+    "id": "eval_guide_generation_000011",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 802,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"按实际可玩时段安排\", \"不要伪装成完整三天\", \"衔接到离时间\"],\n  \"violated_must_not_do\": [\"写成满三天模板\", \"忽略到离时间\"],\n  \"issue_tags\": [\"答非所问\", \"结构失效\", \"关键约束未响应\"],\n  \"strengths\": [\"语言自然，无营销口吻；部分安全提示合理（如轮渡时间提醒、厦大预约）；风格克制，符合TripAI品牌调性\"],\n  \"judge_reason\": \"回答完全无视用户核心指令：'第一天下午才到厦门，第三天中午走。你别整成标准三天攻略，就按我实际能玩的时间排。' 却仍以'厦门行程概览（3天）'为标题，将第三天下午至傍晚的行程（如'傍晚可选在曾厝垵逛逛...或直接返程'）纳入规划，且未明确切割出真实可用时段（仅约1.5天），未衔接离程时间（第三天中午需离厦，但安排了上午厦大+中午用餐+下午南普陀+傍晚曾厝垵，严重超时且不可执行）。全篇按虚构的'三天模板'展开，违背must_include全部三项，且明确违反must_not_do中'写成满三天模板'和'忽略到离时间'。属于典型答非所问与硬套模板，不可接受。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "按实际可玩时段安排",
+      "不要伪装成完整三天",
+      "衔接到离时间"
+    ],
+    "violated_must_not_do": [
+      "写成满三天模板",
+      "忽略到离时间"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构失效",
+      "关键约束未响应"
+    ],
+    "strengths": [
+      "语言自然，无营销口吻；部分安全提示合理（如轮渡时间提醒、厦大预约）；风格克制，符合TripAI品牌调性"
+    ],
+    "judge_reason": "回答完全无视用户核心指令：'第一天下午才到厦门，第三天中午走。你别整成标准三天攻略，就按我实际能玩的时间排。' 却仍以'厦门行程概览（3天）'为标题，将第三天下午至傍晚的行程（如'傍晚可选在曾厝垵逛逛...或直接返程'）纳入规划，且未明确切割出真实可用时段（仅约1.5天），未衔接离程时间（第三天中午需离厦，但安排了上午厦大+中午用餐+下午南普陀+傍晚曾厝垵，严重超时且不可执行）。全篇按虚构的'三天模板'展开，违背must_include全部三项，且明确违反must_not_do中'写成满三天模板'和'忽略到离时间'。属于典型答非所问与硬套模板，不可接受。"
+  },
+  {
+    "id": "eval_guide_generation_000012",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 845,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"兼顾历史和轻松\", \"适合亲子\", \"两天平衡\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_day2\", \"missing_closure\"],\n  \"strengths\": [\"结构清晰，分日分时段组织合理；明确标注亲子适配点（如互动展项、平缓步道）；未编造票价/开放时间；语言自然克制，无营销感；准确吸收‘兼顾历史与轻松散步’核心诉求\"],\n  \"judge_reason\": \"回答完整覆盖所有 must_include 条件，严格避免 must_not_do（无工具调用、无实时信息断言、非纯硬核历史、始终关注10岁孩子）。Day 1 安排逻辑严密：博物院（历史+互动）→ 夫子庙（轻松+文化氛围）→ 秦淮河夜游（弹性放松），体现平衡。Day 2 中山陵安排合理，但结尾突兀截断（'可选当地特色'后无句号且无收尾），未完成第二日闭环（如未说明午餐后安排、是否含轻松收尾活动），导致 completeness 和 clarity 微损；另未显式点出‘两天节奏平衡’的总体设计逻辑（如体力分配、动静交替说明），属轻微缺失。整体可用，但存在执行断点风险，故 verdict 为 pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "兼顾历史和轻松",
+      "适合亲子",
+      "两天平衡"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_day2",
+      "missing_closure"
+    ],
+    "strengths": [
+      "结构清晰，分日分时段组织合理；明确标注亲子适配点（如互动展项、平缓步道）；未编造票价/开放时间；语言自然克制，无营销感；准确吸收‘兼顾历史与轻松散步’核心诉求"
+    ],
+    "judge_reason": "回答完整覆盖所有 must_include 条件，严格避免 must_not_do（无工具调用、无实时信息断言、非纯硬核历史、始终关注10岁孩子）。Day 1 安排逻辑严密：博物院（历史+互动）→ 夫子庙（轻松+文化氛围）→ 秦淮河夜游（弹性放松），体现平衡。Day 2 中山陵安排合理，但结尾突兀截断（'可选当地特色'后无句号且无收尾），未完成第二日闭环（如未说明午餐后安排、是否含轻松收尾活动），导致 completeness 和 clarity 微损；另未显式点出‘两天节奏平衡’的总体设计逻辑（如体力分配、动静交替说明），属轻微缺失。整体可用，但存在执行断点风险，故 verdict 为 pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000013",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 524,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"只安排局部时段\", \"围绕春熙路附近\", \"适合到达当天\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"mild_overload_risk\", \"slight_genericity\"],\n  \"strengths\": [\"结构清晰，严格限定在到达当天半日+晚上；所有推荐均锚定春熙路及步行可达范围（太古里、锦里属合理辐射圈）；未编造票价/开放时间；语气克制，无营销话术；注意事项强调轻松适应，契合‘到达当天’核心诉求\"],\n  \"judge_reason\": \"回答完全聚焦用户指定的‘到达当天半日+晚上’，所有景点与活动均控制在春熙路步行圈内（太古里紧邻，锦里虽稍远但被明确标注为‘可选’且建议挪至晚上以避拥挤，属合理权衡），未展开多日行程，未输出任何工具痕迹或实时数据。但存在两处轻微风险：1）锦里被列为下午可选项，而实际距离春熙路约1.5km，对刚抵达者略显勉强，构成‘mild_overload_risk’；2）晚餐推荐列举了4家具体餐厅名，虽未标价格/营业状态，但未加‘建议提前确认是否营业’等免责提示，稍弱化了safety_and_honesty的极致表现（故该项未给5分）。整体可用，但需提醒用户按体力灵活取舍，故判为pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "只安排局部时段",
+      "围绕春熙路附近",
+      "适合到达当天"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "mild_overload_risk",
+      "slight_genericity"
+    ],
+    "strengths": [
+      "结构清晰，严格限定在到达当天半日+晚上；所有推荐均锚定春熙路及步行可达范围（太古里、锦里属合理辐射圈）；未编造票价/开放时间；语气克制，无营销话术；注意事项强调轻松适应，契合‘到达当天’核心诉求"
+    ],
+    "judge_reason": "回答完全聚焦用户指定的‘到达当天半日+晚上’，所有景点与活动均控制在春熙路步行圈内（太古里紧邻，锦里虽稍远但被明确标注为‘可选’且建议挪至晚上以避拥挤，属合理权衡），未展开多日行程，未输出任何工具痕迹或实时数据。但存在两处轻微风险：1）锦里被列为下午可选项，而实际距离春熙路约1.5km，对刚抵达者略显勉强，构成‘mild_overload_risk’；2）晚餐推荐列举了4家具体餐厅名，虽未标价格/营业状态，但未加‘建议提前确认是否营业’等免责提示，稍弱化了safety_and_honesty的极致表现（故该项未给5分）。整体可用，但需提醒用户按体力灵活取舍，故判为pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000014",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 835,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"节奏舒服\"],\n  \"missed_must_include\": [\"承接已知安排\", \"规划中间一天半\"],\n  \"violated_must_not_do\": [\"重写全程\"],\n  \"issue_tags\": [\"misaligned_scope\", \"overgeneralization\", \"ignores_fixed_constraints\"],\n  \"strengths\": [\"语言自然流畅，结构清晰，小贴士实用；未编造票价/开放时间，符合安全与诚实要求；品牌风格克制，无营销口吻\"],\n  \"judge_reason\": \"回答严重偏离任务核心：用户明确要求‘只规划中间一天半’，且已固定第一天住西湖边、第二天晚上看演出。但模型却重写了全部三天行程（Day 1–Day 3），将已知固定安排（如‘第一天住西湖边’）错误处理为待规划内容，并新增大量未被要求的细节（如湖滨银泰、杭州博物馆、龙井村采茶等）。未体现‘承接已知安排’——未说明如何从西湖住宿自然过渡到第二天演出；未聚焦‘中间一天半’——反而平均分配三天，且Day 1和Day 3均含冗余规划；‘节奏舒服’虽有提及，但因整体结构错位而失去意义。违反 must_not_do 中‘重写全程’，属强失败信号，需人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "节奏舒服"
+    ],
+    "missed_must_include": [
+      "承接已知安排",
+      "规划中间一天半"
+    ],
+    "violated_must_not_do": [
+      "重写全程"
+    ],
+    "issue_tags": [
+      "misaligned_scope",
+      "overgeneralization",
+      "ignores_fixed_constraints"
+    ],
+    "strengths": [
+      "语言自然流畅，结构清晰，小贴士实用；未编造票价/开放时间，符合安全与诚实要求；品牌风格克制，无营销口吻"
+    ],
+    "judge_reason": "回答严重偏离任务核心：用户明确要求‘只规划中间一天半’，且已固定第一天住西湖边、第二天晚上看演出。但模型却重写了全部三天行程（Day 1–Day 3），将已知固定安排（如‘第一天住西湖边’）错误处理为待规划内容，并新增大量未被要求的细节（如湖滨银泰、杭州博物馆、龙井村采茶等）。未体现‘承接已知安排’——未说明如何从西湖住宿自然过渡到第二天演出；未聚焦‘中间一天半’——反而平均分配三天，且Day 1和Day 3均含冗余规划；‘节奏舒服’虽有提及，但因整体结构错位而失去意义。违反 must_not_do 中‘重写全程’，属强失败信号，需人工复核修正。"
+  },
+  {
+    "id": "eval_guide_generation_000015",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 851,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"节奏舒适\"],\n  \"missed_must_include\": [\"考虑避开人潮\", \"两天仍保留代表性\"],\n  \"violated_must_not_do\": [\"全排最热门点\"],\n  \"issue_tags\": [\"fail_to_avoid_crowds\", \"overloads_hotspot\", \"incomplete_constraint_adherence\", \"truncated_response\"],\n  \"strengths\": [\"Clear section-based structure; natural, non-marketing tone; practical tips like timing suggestions and local food notes\"],\n  \"judge_reason\": \"Answer starts well by acknowledging crowds but immediately contradicts 'avoiding popular spots' by placing龙门石窟 — the single most crowded, iconic, and explicitly mentioned 'hottest spot' in the user query — as a *mandatory* morning activity on Day 2, with only weak mitigation ('try to arrive before 9am'). This violates 'must_not_do: full排最热门点' and fails 'must_include: 考虑避开人潮'. It also omits justification for why龙门石窟 remains essential despite the user's explicit aversion — thus failing '两天仍保留代表性' *without redefining representativeness away from mainstream icons*. The response is cut off mid-sentence (after '小贴士：'), breaking completeness and raising safety concerns about unverified claims. No alternative low-crowd cultural/natural site (e.g., Guanlin Temple, Mangshan Tombs, or Songshan foothills) is offered to uphold representativeness *while avoiding crowds*. Therefore, core task logic collapses.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 3,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "节奏舒适"
+    ],
+    "missed_must_include": [
+      "考虑避开人潮",
+      "两天仍保留代表性"
+    ],
+    "violated_must_not_do": [
+      "全排最热门点"
+    ],
+    "issue_tags": [
+      "fail_to_avoid_crowds",
+      "overloads_hotspot",
+      "incomplete_constraint_adherence",
+      "truncated_response"
+    ],
+    "strengths": [
+      "Clear section-based structure; natural, non-marketing tone; practical tips like timing suggestions and local food notes"
+    ],
+    "judge_reason": "Answer starts well by acknowledging crowds but immediately contradicts 'avoiding popular spots' by placing龙门石窟 — the single most crowded, iconic, and explicitly mentioned 'hottest spot' in the user query — as a *mandatory* morning activity on Day 2, with only weak mitigation ('try to arrive before 9am'). This violates 'must_not_do: full排最热门点' and fails 'must_include: 考虑避开人潮'. It also omits justification for why龙门石窟 remains essential despite the user's explicit aversion — thus failing '两天仍保留代表性' *without redefining representativeness away from mainstream icons*. The response is cut off mid-sentence (after '小贴士：'), breaking completeness and raising safety concerns about unverified claims. No alternative low-crowd cultural/natural site (e.g., Guanlin Temple, Mangshan Tombs, or Songshan foothills) is offered to uphold representativeness *while avoiding crowds*. Therefore, core task logic collapses."
+  },
+  {
+    "id": "eval_guide_generation_000016",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 782,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"两天结构清楚\"],\n  \"missed_must_include\": [\"突出城市气质和散步感\", \"避免贪多\"],\n  \"violated_must_not_do\": [\"塞满景点\"],\n  \"issue_tags\": [\"overloaded_itinerary\", \"generic_description\", \"lack_of_atmosphere_focus\", \"incomplete_response\"],\n  \"strengths\": [\"Clear day-based structure; some attention to pacing and local ambiance in descriptions; avoids real-time factual claims\"],\n  \"judge_reason\": \"The response starts with a clear two-day framework but rapidly devolves into a dense, checklist-style list of locations (e.g., '外滩、南京西路、静安雕塑公园、愚园路、复兴公园、武康路、田子坊、新天地') — directly violating 'avoid overloading' and 'avoid ticking off all spots'. It treats each site as a mandatory stop rather than curating for 'city temperament and walking sensation'. Descriptions are superficially atmospheric ('梧桐树影', '静谧') but lack sustained focus on sensory texture, rhythm, or emotional resonance — failing the core requirement of 'highlighting city temperament and walking feeling'. Day 2 is cut off mid-sentence, breaking completeness. No explicit acknowledgment of 'not pursuing full打卡' as a guiding principle — instead, it implicitly contradicts it by listing 8+ locations across 2 days. Brand style is mildly restrained but undermined by touristic density. Must_not_do '塞满景点' is clearly violated. Verdict: hold — requires structural revision to prioritize slowness, selectivity, and atmosphere over coverage.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "两天结构清楚"
+    ],
+    "missed_must_include": [
+      "突出城市气质和散步感",
+      "避免贪多"
+    ],
+    "violated_must_not_do": [
+      "塞满景点"
+    ],
+    "issue_tags": [
+      "overloaded_itinerary",
+      "generic_description",
+      "lack_of_atmosphere_focus",
+      "incomplete_response"
+    ],
+    "strengths": [
+      "Clear day-based structure; some attention to pacing and local ambiance in descriptions; avoids real-time factual claims"
+    ],
+    "judge_reason": "The response starts with a clear two-day framework but rapidly devolves into a dense, checklist-style list of locations (e.g., '外滩、南京西路、静安雕塑公园、愚园路、复兴公园、武康路、田子坊、新天地') — directly violating 'avoid overloading' and 'avoid ticking off all spots'. It treats each site as a mandatory stop rather than curating for 'city temperament and walking sensation'. Descriptions are superficially atmospheric ('梧桐树影', '静谧') but lack sustained focus on sensory texture, rhythm, or emotional resonance — failing the core requirement of 'highlighting city temperament and walking feeling'. Day 2 is cut off mid-sentence, breaking completeness. No explicit acknowledgment of 'not pursuing full打卡' as a guiding principle — instead, it implicitly contradicts it by listing 8+ locations across 2 days. Brand style is mildly restrained but undermined by touristic density. Must_not_do '塞满景点' is clearly violated. Verdict: hold — requires structural revision to prioritize slowness, selectivity, and atmosphere over coverage."
+  },
+  {
+    "id": "eval_guide_generation_000017",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 842,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"夜晚热闹\"],\n  \"missed_must_include\": [\"体现预算友好\", \"白天别太累\"],\n  \"violated_must_not_do\": [\"昼夜都很满\"],\n  \"issue_tags\": [\"overloaded_schedule\", \"missing_budget_constraint\", \"missing_rest_constraint\", \"incomplete_response\"],\n  \"strengths\": [\"Natural, brand-aligned tone; avoids marketing language; correctly identifies nightlife as core theme; mentions free/low-cost options like橘子洲头 and湖南省博物馆; no fabricated real-time info\"],\n  \"judge_reason\": \"Answer starts well with structure and context awareness, but fails to embed '预算友好' concretely (e.g., no cost comparisons, no budget-conscious alternatives for meals/transport, no warning about expensive traps like full-price 文和友 dining). '白天别太累' is violated: Day 1 packs morning (橘子洲头), noon (坡子街 lunch + possible wait), afternoon (岳麓山 — steep & tiring), evening (night market + 文和友); Day 2 adds museum + lunch — no rest, no pacing cues, no low-effort options like café breaks or riverside lounging. Also, response is cut off mid-sentence at '五一广场附近，', breaking completeness. While it avoids unsafe claims, the structural overload and omission of two core must-includes — especially the explicit user constraint '白天别太累' — make it non-executable as-is. Must be revised before release.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "夜晚热闹"
+    ],
+    "missed_must_include": [
+      "体现预算友好",
+      "白天别太累"
+    ],
+    "violated_must_not_do": [
+      "昼夜都很满"
+    ],
+    "issue_tags": [
+      "overloaded_schedule",
+      "missing_budget_constraint",
+      "missing_rest_constraint",
+      "incomplete_response"
+    ],
+    "strengths": [
+      "Natural, brand-aligned tone; avoids marketing language; correctly identifies nightlife as core theme; mentions free/low-cost options like橘子洲头 and湖南省博物馆; no fabricated real-time info"
+    ],
+    "judge_reason": "Answer starts well with structure and context awareness, but fails to embed '预算友好' concretely (e.g., no cost comparisons, no budget-conscious alternatives for meals/transport, no warning about expensive traps like full-price 文和友 dining). '白天别太累' is violated: Day 1 packs morning (橘子洲头), noon (坡子街 lunch + possible wait), afternoon (岳麓山 — steep & tiring), evening (night market + 文和友); Day 2 adds museum + lunch — no rest, no pacing cues, no low-effort options like café breaks or riverside lounging. Also, response is cut off mid-sentence at '五一广场附近，', breaking completeness. While it avoids unsafe claims, the structural overload and omission of two core must-includes — especially the explicit user constraint '白天别太累' — make it non-executable as-is. Must be revised before release."
+  },
+  {
+    "id": "eval_guide_generation_000018",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 282,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"基于住在人民广场\"],\n  \"missed_must_include\": [\"只安排最后一天\", \"照顾16点去虹桥站\"],\n  \"violated_must_not_do\": [\"写成完整上海攻略\"],\n  \"issue_tags\": [\"missing_time_constraint\", \"overgeneralized\", \"lacks_practical_route_to_hongqiao\"],\n  \"strengths\": [\"Clear section formatting; mentions transport lines; avoids price/fake hours; tone is calm and brand-appropriate\"],\n  \"judge_reason\": \"Answer fails to anchor the plan in the critical time constraint: user has only until 16:00 and must reach Hongqiao Station — yet no concrete timing, travel method (e.g., metro Line 2 direct), or buffer for check-in/security is provided. 'Last day' is implied but never explicitly acknowledged or prioritized; instead, it reads like a generic half-day cultural stroll. Recommends Shanghai Library and Nanjing West Road without justifying relevance or feasibility within ~3.5 hours (check-out + transit + visit + buffer). Critically omits *how* to get from People's Square to Hongqiao by 16:00 — no estimated duration, no line transfer warning, no reminder to leave by 15:00–15:15. Thus violates core task-specific requirement: practical, time-bound, executable last-day routing. Not outright unsafe or dishonest, but structurally non-compliant with the task’s defining constraints.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "基于住在人民广场"
+    ],
+    "missed_must_include": [
+      "只安排最后一天",
+      "照顾16点去虹桥站"
+    ],
+    "violated_must_not_do": [
+      "写成完整上海攻略"
+    ],
+    "issue_tags": [
+      "missing_time_constraint",
+      "overgeneralized",
+      "lacks_practical_route_to_hongqiao"
+    ],
+    "strengths": [
+      "Clear section formatting; mentions transport lines; avoids price/fake hours; tone is calm and brand-appropriate"
+    ],
+    "judge_reason": "Answer fails to anchor the plan in the critical time constraint: user has only until 16:00 and must reach Hongqiao Station — yet no concrete timing, travel method (e.g., metro Line 2 direct), or buffer for check-in/security is provided. 'Last day' is implied but never explicitly acknowledged or prioritized; instead, it reads like a generic half-day cultural stroll. Recommends Shanghai Library and Nanjing West Road without justifying relevance or feasibility within ~3.5 hours (check-out + transit + visit + buffer). Critically omits *how* to get from People's Square to Hongqiao by 16:00 — no estimated duration, no line transfer warning, no reminder to leave by 15:00–15:15. Thus violates core task-specific requirement: practical, time-bound, executable last-day routing. Not outright unsafe or dishonest, but structurally non-compliant with the task’s defining constraints."
+  },
+  {
+    "id": "eval_guide_generation_000019",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 864,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"适合作为进疆第一站\"],\n  \"missed_must_include\": [\"一天半轻节奏\", \"不要太猛\"],\n  \"violated_must_not_do\": [\"安排高强度远途\"],\n  \"issue_tags\": [\"overload\", \"temporal_mismatch\", \"rhythm_violation\"],\n  \"strengths\": [\"结构清晰，分日标注明确；语言自然克制，无营销口吻；注意事项实用；品牌风格把握良好\"],\n  \"judge_reason\": \"回答虽结构清晰、风格得体，但严重偏离用户核心约束：'一天半'被处理为完整两天（Day1+Day2），未体现'半天'的弹性与休整本质；'不要太猛'被违背——南山牧场单程1.5小时车程+游览+返程，对初抵新疆且仅停留36小时的游客属典型高强度远途安排，直接违反must_not_do；'一天半轻节奏'完全未体现，无午休、无缓冲、无弹性时间提示；所有景点均未标注开放时间不确定性，存在安全风险；未强调'稳住节奏'这一心理与生理双重目标。综上，关键任务约束三缺二，且主动触发强失败信号（高强度远途），必须人工复核。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 3,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "适合作为进疆第一站"
+    ],
+    "missed_must_include": [
+      "一天半轻节奏",
+      "不要太猛"
+    ],
+    "violated_must_not_do": [
+      "安排高强度远途"
+    ],
+    "issue_tags": [
+      "overload",
+      "temporal_mismatch",
+      "rhythm_violation"
+    ],
+    "strengths": [
+      "结构清晰，分日标注明确；语言自然克制，无营销口吻；注意事项实用；品牌风格把握良好"
+    ],
+    "judge_reason": "回答虽结构清晰、风格得体，但严重偏离用户核心约束：'一天半'被处理为完整两天（Day1+Day2），未体现'半天'的弹性与休整本质；'不要太猛'被违背——南山牧场单程1.5小时车程+游览+返程，对初抵新疆且仅停留36小时的游客属典型高强度远途安排，直接违反must_not_do；'一天半轻节奏'完全未体现，无午休、无缓冲、无弹性时间提示；所有景点均未标注开放时间不确定性，存在安全风险；未强调'稳住节奏'这一心理与生理双重目标。综上，关键任务约束三缺二，且主动触发强失败信号（高强度远途），必须人工复核。"
+  },
+  {
+    "id": "eval_guide_generation_000020",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 830,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"轻松好走\", \"吃饭方便\"],\n  \"missed_must_include\": [\"同时照顾老人和孩子\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_must_include_coverage\"],\n  \"strengths\": [\"结构清晰，分日规划合理；节奏控制得当，强调避免长时间步行与高温时段；语言自然克制，无营销感；未编造票价/开放时间等实时信息；交通与用餐建议具体可行\"],\n  \"judge_reason\": \"回答整体紧扣‘轻松、好走、吃饭方便’三大原则，每日安排1–2个核心景点，明确标注适合老人小孩的细节（如避开陡峭区域、推荐清淡餐食、建议包车），且未违反任何must_not_do。但全文未显式点出‘同时照顾老人和孩子’这一must_include项——虽内容实质体现该原则（如兼顾体力、口味、休息频次），却未以关键词或短语直接呼应，属关键约束覆盖不完整。按rubric要求，must_include必须被明确包含，故判定为completeness=3，整体为pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "轻松好走",
+      "吃饭方便"
+    ],
+    "missed_must_include": [
+      "同时照顾老人和孩子"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_must_include_coverage"
+    ],
+    "strengths": [
+      "结构清晰，分日规划合理；节奏控制得当，强调避免长时间步行与高温时段；语言自然克制，无营销感；未编造票价/开放时间等实时信息；交通与用餐建议具体可行"
+    ],
+    "judge_reason": "回答整体紧扣‘轻松、好走、吃饭方便’三大原则，每日安排1–2个核心景点，明确标注适合老人小孩的细节（如避开陡峭区域、推荐清淡餐食、建议包车），且未违反任何must_not_do。但全文未显式点出‘同时照顾老人和孩子’这一must_include项——虽内容实质体现该原则（如兼顾体力、口味、休息频次），却未以关键词或短语直接呼应，属关键约束覆盖不完整。按rubric要求，must_include必须被明确包含，故判定为completeness=3，整体为pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000021",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 828,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"一天半\"],\n  \"missed_must_include\": [\"偏本地感\", \"可执行\"],\n  \"violated_must_not_do\": [\"套用游客模板\", \"排很多远点\"],\n  \"issue_tags\": [\"答非所问\", \"结构断裂\", \"本地感缺失\", \"不可执行\"],\n  \"strengths\": [\"语言通顺，段落分隔清晰；未编造实时票价/开放时间；风格克制，无营销口吻\"],\n  \"judge_reason\": \"回答表面按天分段，但内容完全套用标准游客模板：三坊七巷→上下杭→西湖公园→鼓山，全是经典打卡点，未体现‘偏本地感’（如菜市场、社区茶摊、公交接驳、晨练老人、街角修伞匠等真实生活切口）；‘一天半’仅机械拆分为Day1/Day2，未处理半天衔接（如第二天仅安排上午，下午去哪？如何返程？是否含交通耗时？）；‘可执行’严重缺失——无时间估算、无交通方式建议、无步行距离提示、无弹性调整说明；鼓山属远郊且需2–3小时游览，与‘一天半+本地感’核心约束直接冲突，属典型‘排很多远点’违规；结尾截断（'---\\\\n\\\\n### **Day 2：自然与城市融合**\\\\n\\\\n**上午：鼓山（自然与宗教结合）**  \\\\n- **鼓山**：...'），暴露生成失控，进一步削弱可执行性。综上，关键must_include全部缺位，must_not_do双重违反，判定为fail。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "一天半"
+    ],
+    "missed_must_include": [
+      "偏本地感",
+      "可执行"
+    ],
+    "violated_must_not_do": [
+      "套用游客模板",
+      "排很多远点"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构断裂",
+      "本地感缺失",
+      "不可执行"
+    ],
+    "strengths": [
+      "语言通顺，段落分隔清晰；未编造实时票价/开放时间；风格克制，无营销口吻"
+    ],
+    "judge_reason": "回答表面按天分段，但内容完全套用标准游客模板：三坊七巷→上下杭→西湖公园→鼓山，全是经典打卡点，未体现‘偏本地感’（如菜市场、社区茶摊、公交接驳、晨练老人、街角修伞匠等真实生活切口）；‘一天半’仅机械拆分为Day1/Day2，未处理半天衔接（如第二天仅安排上午，下午去哪？如何返程？是否含交通耗时？）；‘可执行’严重缺失——无时间估算、无交通方式建议、无步行距离提示、无弹性调整说明；鼓山属远郊且需2–3小时游览，与‘一天半+本地感’核心约束直接冲突，属典型‘排很多远点’违规；结尾截断（'---\\n\\n### **Day 2：自然与城市融合**\\n\\n**上午：鼓山（自然与宗教结合）**  \\n- **鼓山**：...'），暴露生成失控，进一步削弱可执行性。综上，关键must_include全部缺位，must_not_do双重违反，判定为fail。"
+  },
+  {
+    "id": "eval_guide_generation_000022",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 816,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"三天有留白\", \"不是满负荷\"],\n  \"missed_must_include\": [\"仍有主线\"],\n  \"violated_must_not_do\": [\"从早到晚排满\"],\n  \"issue_tags\": [\"missing_main_thread\", \"overly_vague_structure\", \"incomplete_day2_night\"],\n  \"strengths\": [\"clear emphasis on slowness and freedom; avoids real-time factual claims; natural, non-marketing tone; good use of optional/soft phrasing like '可选体验'\"],\n  \"judge_reason\": \"回答准确理解了'留白'和'不排满'的核心诉求，结构清晰、语言克制，符合TripAI品牌风格，且未编造时效信息。但严重缺失'仍有主线'——通篇以'自由活动'为主导，未锚定任何一条连贯的文化动线（如'城墙-碑林-大雁塔'或'曲江文化带'），导致行程缺乏辨识度与执行抓手；第二天晚上内容被截断，进一步削弱完整性；虽未强制排满，但因主线缺失，实际可执行性低，用户无法判断'留白'围绕什么展开。必须人工复核补全主线逻辑后方可放行。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "三天有留白",
+      "不是满负荷"
+    ],
+    "missed_must_include": [
+      "仍有主线"
+    ],
+    "violated_must_not_do": [
+      "从早到晚排满"
+    ],
+    "issue_tags": [
+      "missing_main_thread",
+      "overly_vague_structure",
+      "incomplete_day2_night"
+    ],
+    "strengths": [
+      "clear emphasis on slowness and freedom; avoids real-time factual claims; natural, non-marketing tone; good use of optional/soft phrasing like '可选体验'"
+    ],
+    "judge_reason": "回答准确理解了'留白'和'不排满'的核心诉求，结构清晰、语言克制，符合TripAI品牌风格，且未编造时效信息。但严重缺失'仍有主线'——通篇以'自由活动'为主导，未锚定任何一条连贯的文化动线（如'城墙-碑林-大雁塔'或'曲江文化带'），导致行程缺乏辨识度与执行抓手；第二天晚上内容被截断，进一步削弱完整性；虽未强制排满，但因主线缺失，实际可执行性低，用户无法判断'留白'围绕什么展开。必须人工复核补全主线逻辑后方可放行。"
+  },
+  {
+    "id": "eval_guide_generation_000023",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 812,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"三天放空型\", \"不依赖海上项目\", \"节奏松\"],\n  \"violated_must_not_do\": [\"安排很多项目\", \"把实时票价、库存、开放时间写成确定事实\"],\n  \"issue_tags\": [\"答非所问\", \"过度安排\", \"编造细节\", \"违反核心约束\"],\n  \"strengths\": [\"结构清晰，分日标注明确\", \"语言自然，有基本可读性\"],\n  \"judge_reason\": \"回答完全偏离用户核心诉求：用户明确要求‘不想下海玩项目，只想找个海边城市待三天放空’，即强调极简、无项目、低刺激、高留白的放空状态。但预测答案却强行指定青岛，并密集安排6个景点（五四广场、八大关、石老人海水浴场、小鱼山公园、崂山、信号山）、含交通/餐饮/住宿细节，严重违背‘节奏松’和‘不依赖海上项目’；其中‘石老人海水浴场’直接涉及下海场景，与‘不想下海’矛盾；‘乘缆车’‘登顶太清宫’‘农家乐用餐’等均为虚构执行细节，属编造实时可操作信息；全文未出现‘放空型’‘节奏松’等must_include关键词，也未体现对‘不依赖海上项目’的主动规避设计（如强调纯观海、听浪、静坐等非活动性行为）。整体为典型泛化景点罗列式攻略，与用户‘放空’本质需求背道而驰，属明显失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "三天放空型",
+      "不依赖海上项目",
+      "节奏松"
+    ],
+    "violated_must_not_do": [
+      "安排很多项目",
+      "把实时票价、库存、开放时间写成确定事实"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "过度安排",
+      "编造细节",
+      "违反核心约束"
+    ],
+    "strengths": [
+      "结构清晰，分日标注明确",
+      "语言自然，有基本可读性"
+    ],
+    "judge_reason": "回答完全偏离用户核心诉求：用户明确要求‘不想下海玩项目，只想找个海边城市待三天放空’，即强调极简、无项目、低刺激、高留白的放空状态。但预测答案却强行指定青岛，并密集安排6个景点（五四广场、八大关、石老人海水浴场、小鱼山公园、崂山、信号山）、含交通/餐饮/住宿细节，严重违背‘节奏松’和‘不依赖海上项目’；其中‘石老人海水浴场’直接涉及下海场景，与‘不想下海’矛盾；‘乘缆车’‘登顶太清宫’‘农家乐用餐’等均为虚构执行细节，属编造实时可操作信息；全文未出现‘放空型’‘节奏松’等must_include关键词，也未体现对‘不依赖海上项目’的主动规避设计（如强调纯观海、听浪、静坐等非活动性行为）。整体为典型泛化景点罗列式攻略，与用户‘放空’本质需求背道而驰，属明显失败。"
+  },
+  {
+    "id": "eval_guide_generation_000024",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 766,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"仍有北京味道\"],\n  \"missed_must_include\": [\"承接已经玩过经典线\", \"最后一天不重复\"],\n  \"violated_must_not_do\": [\"再排故宫天坛\"],\n  \"issue_tags\": [\"ignore_context\", \"redundant_content\", \"structural_incompleteness\"],\n  \"strengths\": [\"Clear time-based structure; natural, non-marketing tone; good visual formatting with emojis and sections; no fabricated real-time info\"],\n  \"judge_reason\": \"回答未显式承接用户‘已玩两天经典线’这一关键前情，未说明为何颐和园/景山/前门属于‘不重复’（颐和园同为皇家园林，易被感知为同类景点）；行程中景山‘俯瞰故宫全景’虽客观成立，但与用户明确回避故宫的诉求存在隐性冲突，构成对‘不重复’的实质性违背；结尾 abruptly cut off at ‘交通建议：颐和’，严重缺失完整性；未解释为何该组合满足‘仍有北京味道’的文化逻辑，仅罗列名称。虽无安全或风格问题，但核心任务约束大面积失效，需人工复核调整。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "仍有北京味道"
+    ],
+    "missed_must_include": [
+      "承接已经玩过经典线",
+      "最后一天不重复"
+    ],
+    "violated_must_not_do": [
+      "再排故宫天坛"
+    ],
+    "issue_tags": [
+      "ignore_context",
+      "redundant_content",
+      "structural_incompleteness"
+    ],
+    "strengths": [
+      "Clear time-based structure; natural, non-marketing tone; good visual formatting with emojis and sections; no fabricated real-time info"
+    ],
+    "judge_reason": "回答未显式承接用户‘已玩两天经典线’这一关键前情，未说明为何颐和园/景山/前门属于‘不重复’（颐和园同为皇家园林，易被感知为同类景点）；行程中景山‘俯瞰故宫全景’虽客观成立，但与用户明确回避故宫的诉求存在隐性冲突，构成对‘不重复’的实质性违背；结尾 abruptly cut off at ‘交通建议：颐和’，严重缺失完整性；未解释为何该组合满足‘仍有北京味道’的文化逻辑，仅罗列名称。虽无安全或风格问题，但核心任务约束大面积失效，需人工复核调整。"
+  },
+  {
+    "id": "eval_guide_generation_000025",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 743,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"只做一天\"],\n  \"missed_must_include\": [\"基于住平江路附近\", \"适合雨天\"],\n  \"violated_must_not_do\": [\"大量室外暴走\", \"写成两三天\"],\n  \"issue_tags\": [\"答非所问\", \"结构断裂\", \"未响应核心约束\", \"行程不可执行\"],\n  \"strengths\": [\"语言风格克制，无营销口吻；未编造实时票价或开放时间；段落有基本分隔，视觉可读性尚可\"],\n  \"judge_reason\": \"回答严重偏离用户指令：标题虽写'下雨天住在平江路附近的一天'，但正文未体现'住在平江路附近'这一关键空间锚点（如未以住处为起点规划动线、未说明步行可达性）；'适合雨天'仅在标题和开头小贴士中泛泛提及，未实质性规避室外活动——'平江路街区慢行'在雨天属明显湿滑高风险行为，且未提供替代性室内主干方案（如全程室内文化空间串联）；行程描述在14:00戛然而止，内容不完整，疑似截断，导致下午及傍晚安排全无，实际仅覆盖半天，违背'一天'完整性要求；更严重的是，结尾突兀中断于'雨'字，暴露生成失控，丧失基本可执行性。综上，核心must_include两项未落实，must_not_do中'大量室外暴走'和隐含的'写成两三天（因未完成一日闭环）'均被违反，属明显失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只做一天"
+    ],
+    "missed_must_include": [
+      "基于住平江路附近",
+      "适合雨天"
+    ],
+    "violated_must_not_do": [
+      "大量室外暴走",
+      "写成两三天"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构断裂",
+      "未响应核心约束",
+      "行程不可执行"
+    ],
+    "strengths": [
+      "语言风格克制，无营销口吻；未编造实时票价或开放时间；段落有基本分隔，视觉可读性尚可"
+    ],
+    "judge_reason": "回答严重偏离用户指令：标题虽写'下雨天住在平江路附近的一天'，但正文未体现'住在平江路附近'这一关键空间锚点（如未以住处为起点规划动线、未说明步行可达性）；'适合雨天'仅在标题和开头小贴士中泛泛提及，未实质性规避室外活动——'平江路街区慢行'在雨天属明显湿滑高风险行为，且未提供替代性室内主干方案（如全程室内文化空间串联）；行程描述在14:00戛然而止，内容不完整，疑似截断，导致下午及傍晚安排全无，实际仅覆盖半天，违背'一天'完整性要求；更严重的是，结尾突兀中断于'雨'字，暴露生成失控，丧失基本可执行性。综上，核心must_include两项未落实，must_not_do中'大量室外暴走'和隐含的'写成两三天（因未完成一日闭环）'均被违反，属明显失败。"
+  },
+  {
+    "id": "eval_guide_generation_000026",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 763,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"一天内体现山城感和夜景\", \"减少爬坡负担\"],\n  \"violated_must_not_do\": [\"安排大量高强度步行\", \"只顾打卡\"],\n  \"issue_tags\": [\"no_route_rhythm\", \"no_pace_management\", \"unexecuted_constraints\", \"overloaded_itinerary\", \"missing_accessibility_focus\"],\n  \"strengths\": [\"Natural Chinese phrasing\", \"Clear section headers\", \"Appropriate brand tone (no marketing exaggeration)\", \"No fabricated real-time info\"],\n  \"judge_reason\": \"Answer fails to internalize core constraints: it lists '洪崖洞初印象' and '鹅岭二厂' without addressing their steep terrain — both locations require significant climbing or stairs, directly violating '减少爬坡负担'. It omits any strategy for achieving '山城感' *without* walking (e.g., using elevators, gondolas, or viewpoints with minimal ascent). The itinerary is overloaded (5 time blocks in one day, including transit + meals + 4 major stops), lacks pacing logic, and offers no alternatives or accessibility notes. No explicit acknowledgment of the 'friend' context (e.g., shared pace, photo breaks) or night-optimized flow. Structure exists but is not *functional* — it's a checklist, not a guided experience. Must_include items are entirely unaddressed; must_not_do violations are structural, not incidental.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "一天内体现山城感和夜景",
+      "减少爬坡负担"
+    ],
+    "violated_must_not_do": [
+      "安排大量高强度步行",
+      "只顾打卡"
+    ],
+    "issue_tags": [
+      "no_route_rhythm",
+      "no_pace_management",
+      "unexecuted_constraints",
+      "overloaded_itinerary",
+      "missing_accessibility_focus"
+    ],
+    "strengths": [
+      "Natural Chinese phrasing",
+      "Clear section headers",
+      "Appropriate brand tone (no marketing exaggeration)",
+      "No fabricated real-time info"
+    ],
+    "judge_reason": "Answer fails to internalize core constraints: it lists '洪崖洞初印象' and '鹅岭二厂' without addressing their steep terrain — both locations require significant climbing or stairs, directly violating '减少爬坡负担'. It omits any strategy for achieving '山城感' *without* walking (e.g., using elevators, gondolas, or viewpoints with minimal ascent). The itinerary is overloaded (5 time blocks in one day, including transit + meals + 4 major stops), lacks pacing logic, and offers no alternatives or accessibility notes. No explicit acknowledgment of the 'friend' context (e.g., shared pace, photo breaks) or night-optimized flow. Structure exists but is not *functional* — it's a checklist, not a guided experience. Must_include items are entirely unaddressed; must_not_do violations are structural, not incidental."
+  },
+  {
+    "id": "eval_guide_generation_000027",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 783,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"周末型\", \"散步和吃海鲜\"],\n  \"missed_must_include\": [\"不赶景点\"],\n  \"violated_must_not_do\": [\"全排景点\"],\n  \"issue_tags\": [\"overloading_with_locations\", \"structural_ambiguity_on_pace\", \"missing_explicit_pacing_intent\"],\n  \"strengths\": [\"Clear day-wise structure\", \"Strong focus on seaside ambiance and seafood dining\", \"Natural, non-marketing language\", \"No fabricated real-time info (prices/hours)\"],\n  \"judge_reason\": \"Answer correctly identifies '周末型' and '散步和吃海鲜', and avoids unsafe or promotional language. However, it violates 'must_not_do: 全排景点' by listing star attractions (星海广场、滨海路、东港商务区、东港公园) without explicitly framing them as *optional*, *leisurely*, or *non-sequential* — undermining the core constraint '不赶景点'. The itinerary implies sequential movement between multiple locations per half-day, contradicting 'not rushing'. No explicit reassurance (e.g., 'choose just one stretch', 'linger where you like') is given to enforce low-pressure pacing. Also, Day 2 ends abruptly mid-sentence, reducing completeness. These issues make the plan feel subtly agenda-driven rather than truly unhurried — a critical failure for this task type.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "周末型",
+      "散步和吃海鲜"
+    ],
+    "missed_must_include": [
+      "不赶景点"
+    ],
+    "violated_must_not_do": [
+      "全排景点"
+    ],
+    "issue_tags": [
+      "overloading_with_locations",
+      "structural_ambiguity_on_pace",
+      "missing_explicit_pacing_intent"
+    ],
+    "strengths": [
+      "Clear day-wise structure",
+      "Strong focus on seaside ambiance and seafood dining",
+      "Natural, non-marketing language",
+      "No fabricated real-time info (prices/hours)"
+    ],
+    "judge_reason": "Answer correctly identifies '周末型' and '散步和吃海鲜', and avoids unsafe or promotional language. However, it violates 'must_not_do: 全排景点' by listing star attractions (星海广场、滨海路、东港商务区、东港公园) without explicitly framing them as *optional*, *leisurely*, or *non-sequential* — undermining the core constraint '不赶景点'. The itinerary implies sequential movement between multiple locations per half-day, contradicting 'not rushing'. No explicit reassurance (e.g., 'choose just one stretch', 'linger where you like') is given to enforce low-pressure pacing. Also, Day 2 ends abruptly mid-sentence, reducing completeness. These issues make the plan feel subtly agenda-driven rather than truly unhurried — a critical failure for this task type."
+  },
+  {
+    "id": "eval_guide_generation_000028",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 818,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"承接明确约束\", \"两天住汉口带爸妈交通简单\"],\n  \"missed_must_include\": [\"动线清楚\"],\n  \"violated_must_not_do\": [\"忽略住汉口\", \"安排复杂换乘\"],\n  \"issue_tags\": [\"incomplete_route\", \"geographic_inconsistency\", \"unexecuted_constraint\"],\n  \"strengths\": [\"清晰标注用户原始条件\", \"语言自然克制，无营销口吻\", \"对老人友好细节有意识（如电梯提示、防晒提醒）\"],\n  \"judge_reason\": \"回答开头正确承接了‘两天、住汉口、带爸妈、不坐太复杂的交通’，但实际行程严重违背核心地理约束：Day 1 下午推荐‘武汉博物馆’（位于汉口青年路，勉强可接受），但 Day 2 上午突兀转向‘黄鹤楼’（位于武昌蛇山，需跨长江且至少一次地铁+公交或轮渡+步行，明显违反‘不坐太复杂的交通’和‘住汉口’前提）；更严重的是，结尾截断在‘从汉口江滩’，暴露未完成规划，动线完全断裂。未体现汉口本地深度动线（如黎黄陂路→咸安坊→江汉路→同兴里闭环），也未说明为何放弃汉口核心资源而强行跨江。虽未编造票价/时间，但地理可行性为零，属结构性失败，必须人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "承接明确约束",
+      "两天住汉口带爸妈交通简单"
+    ],
+    "missed_must_include": [
+      "动线清楚"
+    ],
+    "violated_must_not_do": [
+      "忽略住汉口",
+      "安排复杂换乘"
+    ],
+    "issue_tags": [
+      "incomplete_route",
+      "geographic_inconsistency",
+      "unexecuted_constraint"
+    ],
+    "strengths": [
+      "清晰标注用户原始条件",
+      "语言自然克制，无营销口吻",
+      "对老人友好细节有意识（如电梯提示、防晒提醒）"
+    ],
+    "judge_reason": "回答开头正确承接了‘两天、住汉口、带爸妈、不坐太复杂的交通’，但实际行程严重违背核心地理约束：Day 1 下午推荐‘武汉博物馆’（位于汉口青年路，勉强可接受），但 Day 2 上午突兀转向‘黄鹤楼’（位于武昌蛇山，需跨长江且至少一次地铁+公交或轮渡+步行，明显违反‘不坐太复杂的交通’和‘住汉口’前提）；更严重的是，结尾截断在‘从汉口江滩’，暴露未完成规划，动线完全断裂。未体现汉口本地深度动线（如黎黄陂路→咸安坊→江汉路→同兴里闭环），也未说明为何放弃汉口核心资源而强行跨江。虽未编造票价/时间，但地理可行性为零，属结构性失败，必须人工复核修正。"
+  },
+  {
+    "id": "eval_guide_generation_000029",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 710,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"承接固定演出\", \"补全其余时段\", \"两天一夜完整\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准锚定用户已定‘第二天下午海边演出’为刚性节点，全程围绕其展开时间拼接；结构清晰分两天、每段标注目的与节奏，强调‘不超载’‘预留精力’等可执行提示；全程未编造任何实时信息（如票价、开放时间、交通班次），用‘建议提前确认’‘请根据实际交通情况预留’等克制表达；语言自然简洁，无营销话术，符合TripAI克制、实用、以人为本的风格。\"],\n  \"judge_reason\": \"回答完全响应任务核心——在用户已锁定‘第二天下午海边演出’的前提下，严谨补全剩余时段，形成逻辑自洽、节奏合理、可立即执行的两天一夜方案。所有 must_include 均显性落实：‘承接固定演出’体现在第二天下午专节重申并前置准备提示；‘补全其余时段’覆盖第一天全天+第二天上午/中午/晚上；‘两天一夜完整’通过明确标题划分与起止动线（抵达→适应→演出→返程）闭环验证。零违反 must_not_do：无工具调用、无JSON、无确定性时效信息、未忽略或推翻原安排。各评分维度均达优秀水平。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "承接固定演出",
+      "补全其余时段",
+      "两天一夜完整"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准锚定用户已定‘第二天下午海边演出’为刚性节点，全程围绕其展开时间拼接；结构清晰分两天、每段标注目的与节奏，强调‘不超载’‘预留精力’等可执行提示；全程未编造任何实时信息（如票价、开放时间、交通班次），用‘建议提前确认’‘请根据实际交通情况预留’等克制表达；语言自然简洁，无营销话术，符合TripAI克制、实用、以人为本的风格。"
+    ],
+    "judge_reason": "回答完全响应任务核心——在用户已锁定‘第二天下午海边演出’的前提下，严谨补全剩余时段，形成逻辑自洽、节奏合理、可立即执行的两天一夜方案。所有 must_include 均显性落实：‘承接固定演出’体现在第二天下午专节重申并前置准备提示；‘补全其余时段’覆盖第一天全天+第二天上午/中午/晚上；‘两天一夜完整’通过明确标题划分与起止动线（抵达→适应→演出→返程）闭环验证。零违反 must_not_do：无工具调用、无JSON、无确定性时效信息、未忽略或推翻原安排。各评分维度均达优秀水平。"
+  },
+  {
+    "id": "eval_guide_generation_000030",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 694,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"先判断最后一晚落脚逻辑\", \"再给次日离开思路\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准锚定用户核心问题，未泛化为桂林全攻略；逻辑分层清晰：先决策依据（交通/配套/景点），再分时段给出可执行离开动线；所有时效性信息均用‘建议’‘预留’‘避免’等克制表述，未断言实时班次或票价；语言自然简洁，符合TripAI克制、实用、非营销的风格\"],\n  \"judge_reason\": \"回答完全围绕用户限定问题展开，严格遵循‘先判断→再安排’双阶段结构；所有推荐均基于常识性地理与交通逻辑，无虚构信息；未出现工具调用、JSON、开放时间断言等禁止项；节奏合理，信息密度适中，用户可直接依此决策和行动。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "先判断最后一晚落脚逻辑",
+      "再给次日离开思路"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准锚定用户核心问题，未泛化为桂林全攻略；逻辑分层清晰：先决策依据（交通/配套/景点），再分时段给出可执行离开动线；所有时效性信息均用‘建议’‘预留’‘避免’等克制表述，未断言实时班次或票价；语言自然简洁，符合TripAI克制、实用、非营销的风格"
+    ],
+    "judge_reason": "回答完全围绕用户限定问题展开，严格遵循‘先判断→再安排’双阶段结构；所有推荐均基于常识性地理与交通逻辑，无虚构信息；未出现工具调用、JSON、开放时间断言等禁止项；节奏合理，信息密度适中，用户可直接依此决策和行动。"
+  },
+  {
+    "id": "eval_guide_generation_000031",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 787,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"围绕用户偏好组织\", \"结构清楚\"],\n  \"missed_must_include\": [\"不要贪多\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"mild_overload_risk\"],\n  \"strengths\": [\"开篇点题明确，紧扣‘城市气质’与‘散步感’；每日结构清晰、节奏舒缓；全程规避实时信息与营销话术；语言克制自然，符合TripAI品牌调性；武康路、田子坊、朱家角等选点精准呼应‘气质’与‘非打卡’诉求\"],\n  \"judge_reason\": \"回答整体优秀：严格以用户偏好为纲，结构分明（分日+时段+动线说明），未编造票价/开放时间，无工具痕迹，风格克制。但Day2安排辰山植物园+松江简餐+朱家角古镇+返程短停，地理跨度大（辰山在松江北部，朱家角在青浦，相距约30km），单日串联存在交通耗时高、实际散步感被削弱的风险，隐含轻微‘贪多’倾向——虽未列景点数量清单，但空间逻辑上未充分贯彻‘不贪多’的减法原则，故 missed_must_include 中标记此项。此为唯一实质性瑕疵，未达hold或fail程度，属pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "围绕用户偏好组织",
+      "结构清楚"
+    ],
+    "missed_must_include": [
+      "不要贪多"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "mild_overload_risk"
+    ],
+    "strengths": [
+      "开篇点题明确，紧扣‘城市气质’与‘散步感’；每日结构清晰、节奏舒缓；全程规避实时信息与营销话术；语言克制自然，符合TripAI品牌调性；武康路、田子坊、朱家角等选点精准呼应‘气质’与‘非打卡’诉求"
+    ],
+    "judge_reason": "回答整体优秀：严格以用户偏好为纲，结构分明（分日+时段+动线说明），未编造票价/开放时间，无工具痕迹，风格克制。但Day2安排辰山植物园+松江简餐+朱家角古镇+返程短停，地理跨度大（辰山在松江北部，朱家角在青浦，相距约30km），单日串联存在交通耗时高、实际散步感被削弱的风险，隐含轻微‘贪多’倾向——虽未列景点数量清单，但空间逻辑上未充分贯彻‘不贪多’的减法原则，故 missed_must_include 中标记此项。此为唯一实质性瑕疵，未达hold或fail程度，属pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000032",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 512,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"承接已有固定安排\", \"补全其余时间\", \"不要推翻已知前提\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未偏离；结构按日分层，节奏松弛合理，无信息堆砌；所有建议均保持可执行性与克制性，未承诺任何实时信息；结尾留出弹性接口，符合TripAI自然、不强推的风格。\"],\n  \"judge_reason\": \"回答完全围绕用户给定的两个刚性前提展开，未泛泛介绍城市，未虚构票价/开放时间，未输出工具调用或结构化痕迹；行程逻辑闭环：Day1聚焦适应与轻探索，Day2紧扣演出动线与返程，小贴士强调确认而非断言；语言简洁自然，无营销话术，符合TripAI克制、务实、用户中心的品牌调性；所有must_include均显性落实，must_not_do全部遵守。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未偏离；结构按日分层，节奏松弛合理，无信息堆砌；所有建议均保持可执行性与克制性，未承诺任何实时信息；结尾留出弹性接口，符合TripAI自然、不强推的风格。"
+    ],
+    "judge_reason": "回答完全围绕用户给定的两个刚性前提展开，未泛泛介绍城市，未虚构票价/开放时间，未输出工具调用或结构化痕迹；行程逻辑闭环：Day1聚焦适应与轻探索，Day2紧扣演出动线与返程，小贴士强调确认而非断言；语言简洁自然，无营销话术，符合TripAI克制、务实、用户中心的品牌调性；所有must_include均显性落实，must_not_do全部遵守。"
+  },
+  {
+    "id": "eval_guide_generation_000033",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 637,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"只回答局部时段\"],\n  \"missed_must_include\": [\"不要扩成全程\", \"围绕局部窗口可执行\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\", \"忽略用户给定的时间窗或前置条件\"],\n  \"issue_tags\": [\"overgeneralization\", \"structural_overload\", \"lack_of_partial_focus\"],\n  \"strengths\": [\"Clear time labeling (9:00–12:00), natural tone, no marketing language, no fabricated prices/times\"],\n  \"judge_reason\": \"Answer violates core task constraint '不要扩成全程': it constructs a rigid 4-stop sequential itinerary (九眼桥 → 宽窄巷子 → 人民公园 → 东门市井) with cumulative time estimates (~3.5+ hours), ignoring that '最后一天上午' is a single, finite, light-weight window — not a full half-day tour. It fails '围绕局部窗口可执行': no prioritization, no contingency (e.g., 'choose one based on your hotel location'), no acknowledgment of fatigue/transfer time, and no option to skip or adapt. The list reads like a generic top-attractions checklist — violating '写成模板化景点清单'. Also ignores implicit constraint: '最后一天' implies departure logistics (e.g., check-out, transport to airport/station), yet none is addressed. While safety and style are sound, task-specific failure is severe and disqualifying.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 3,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只回答局部时段"
+    ],
+    "missed_must_include": [
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "issue_tags": [
+      "overgeneralization",
+      "structural_overload",
+      "lack_of_partial_focus"
+    ],
+    "strengths": [
+      "Clear time labeling (9:00–12:00), natural tone, no marketing language, no fabricated prices/times"
+    ],
+    "judge_reason": "Answer violates core task constraint '不要扩成全程': it constructs a rigid 4-stop sequential itinerary (九眼桥 → 宽窄巷子 → 人民公园 → 东门市井) with cumulative time estimates (~3.5+ hours), ignoring that '最后一天上午' is a single, finite, light-weight window — not a full half-day tour. It fails '围绕局部窗口可执行': no prioritization, no contingency (e.g., 'choose one based on your hotel location'), no acknowledgment of fatigue/transfer time, and no option to skip or adapt. The list reads like a generic top-attractions checklist — violating '写成模板化景点清单'. Also ignores implicit constraint: '最后一天' implies departure logistics (e.g., check-out, transport to airport/station), yet none is addressed. While safety and style are sound, task-specific failure is severe and disqualifying."
+  },
+  {
+    "id": "eval_guide_generation_000034",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 801,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"保留大框架\"],\n  \"missed_must_include\": [\"优化顺路和体力\", \"不要完全推翻\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"template_driven\", \"lack_of_optimization\", \"structural_incompleteness\"],\n  \"strengths\": [\"结构清晰，分日分时段呈现；语言自然克制，无营销口吻；未编造实时信息\"],\n  \"judge_reason\": \"回答虽保留了'第一天老城慢逛、第二天生活化'的大框架，但未体现任何实质性的'优化顺路和体力'动作（如未分析动线合理性、未减少往返、未考虑步行距离与休息节奏）；也未说明为何当前安排更'顺'，属于机械拆解而非优化。第二日行程戛然而止（'晚上18:30：在生活气息更'），内容不完整，属严重结构性缺陷。整体呈现为泛泛的模板化景点+时段堆砌（如'逛早市''找小店''休憩'等无具体逻辑锚点），违背'不要完全推翻'的隐含要求——用户原意是微调，而回答实为重写式填充，且未呼应'更顺一点'这一核心指令。违反must_not_do中'写成模板化景点清单'。因此多项关键维度得分偏低，需人工复核。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "保留大框架"
+    ],
+    "missed_must_include": [
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "template_driven",
+      "lack_of_optimization",
+      "structural_incompleteness"
+    ],
+    "strengths": [
+      "结构清晰，分日分时段呈现；语言自然克制，无营销口吻；未编造实时信息"
+    ],
+    "judge_reason": "回答虽保留了'第一天老城慢逛、第二天生活化'的大框架，但未体现任何实质性的'优化顺路和体力'动作（如未分析动线合理性、未减少往返、未考虑步行距离与休息节奏）；也未说明为何当前安排更'顺'，属于机械拆解而非优化。第二日行程戛然而止（'晚上18:30：在生活气息更'），内容不完整，属严重结构性缺陷。整体呈现为泛泛的模板化景点+时段堆砌（如'逛早市''找小店''休憩'等无具体逻辑锚点），违背'不要完全推翻'的隐含要求——用户原意是微调，而回答实为重写式填充，且未呼应'更顺一点'这一核心指令。违反must_not_do中'写成模板化景点清单'。因此多项关键维度得分偏低，需人工复核。"
+  },
+  {
+    "id": "eval_guide_generation_000035",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 826,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"体现天气条件\"],\n  \"missed_must_include\": [\"仍然保持可执行\", \"不要照搬晴天版\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\", \"不体现偏好或天气限制\"],\n  \"issue_tags\": [\"overloaded_itinerary\", \"weather_adaptation_shallow\", \"lack_of_constraint_integration\", \"generic_attraction_listing\"],\n  \"strengths\": [\"mentions weather awareness in intro and notes\", \"includes basic practical tips like clothing and transport buffer\", \"avoids real-time pricing or opening hours\"],\n  \"judge_reason\": \"回答表面提及阴天/大风，但未真正重构行程逻辑：仍机械套用鼓浪屿+植物园+科技馆等晴天高频景点，未剔除/替换易受风影响的户外点（如日光岩露天观景、园博苑大面积露天园区）；'避开大风天气（如风力较大，可选择上午9点后出发）'等表述缺乏依据且自相矛盾（上午风通常更小），属伪适应；全程未说明用户原行程约束（如天数、同行人群、偏好），导致方案脱离实际输入；结构看似清晰，实为模板填充，违反'不要照搬晴天版'和'保持可执行'核心要求；多日安排节奏密集、室内外混排无缓冲，与'更稳'目标背道而驰。必须人工复核重写。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "体现天气条件"
+    ],
+    "missed_must_include": [
+      "仍然保持可执行",
+      "不要照搬晴天版"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "issue_tags": [
+      "overloaded_itinerary",
+      "weather_adaptation_shallow",
+      "lack_of_constraint_integration",
+      "generic_attraction_listing"
+    ],
+    "strengths": [
+      "mentions weather awareness in intro and notes",
+      "includes basic practical tips like clothing and transport buffer",
+      "avoids real-time pricing or opening hours"
+    ],
+    "judge_reason": "回答表面提及阴天/大风，但未真正重构行程逻辑：仍机械套用鼓浪屿+植物园+科技馆等晴天高频景点，未剔除/替换易受风影响的户外点（如日光岩露天观景、园博苑大面积露天园区）；'避开大风天气（如风力较大，可选择上午9点后出发）'等表述缺乏依据且自相矛盾（上午风通常更小），属伪适应；全程未说明用户原行程约束（如天数、同行人群、偏好），导致方案脱离实际输入；结构看似清晰，实为模板填充，违反'不要照搬晴天版'和'保持可执行'核心要求；多日安排节奏密集、室内外混排无缓冲，与'更稳'目标背道而驰。必须人工复核重写。"
+  },
+  {
+    "id": "eval_guide_generation_000036",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 610,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"只安排最后一天或半天\"],\n  \"missed_must_include\": [\"承接住处或离开点\", \"减少折返\"],\n  \"violated_must_not_do\": [\"忽略用户给定的时间窗 or 前置条件\"],\n  \"issue_tags\": [\"no_location_anchor\", \"no_route_logic\", \"overgeneralized\", \"unexecutable\"],\n  \"strengths\": [\"语言自然克制，无营销口吻；未编造票价/开放时间；结构分段清晰；安全诚实。\"],\n  \"judge_reason\": \"回答严重偏离任务核心：用户明确住在广州、中午前退房、下午去机场，但回答未锚定具体住处位置（如酒店名/区域），未基于该出发点规划‘承接住处→活动点→机场’的动线，也未做任何地理或交通逻辑上的‘减少折返’设计；反而泛泛推荐北京路、上下九等远距离景点，完全无视用户仅剩上午、需退房+赶机场的刚性约束；‘上午9:30-10:30步行街’与‘11:00前退房’存在时间冲突且未协调；‘下午1:00-2:00前往机场’未考虑从市区到白云机场实际需1h+（地铁约1.5h，打车视拥堵达40min–2h），属重大事实疏漏；整体是模板化半日游套话，非针对last_day_partial场景的可执行方案。违反must_not_do中‘忽略用户给定的时间窗或前置条件’，且缺失两项must_include，判定为fail。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只安排最后一天或半天"
+    ],
+    "missed_must_include": [
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "violated_must_not_do": [
+      "忽略用户给定的时间窗 or 前置条件"
+    ],
+    "issue_tags": [
+      "no_location_anchor",
+      "no_route_logic",
+      "overgeneralized",
+      "unexecutable"
+    ],
+    "strengths": [
+      "语言自然克制，无营销口吻；未编造票价/开放时间；结构分段清晰；安全诚实。"
+    ],
+    "judge_reason": "回答严重偏离任务核心：用户明确住在广州、中午前退房、下午去机场，但回答未锚定具体住处位置（如酒店名/区域），未基于该出发点规划‘承接住处→活动点→机场’的动线，也未做任何地理或交通逻辑上的‘减少折返’设计；反而泛泛推荐北京路、上下九等远距离景点，完全无视用户仅剩上午、需退房+赶机场的刚性约束；‘上午9:30-10:30步行街’与‘11:00前退房’存在时间冲突且未协调；‘下午1:00-2:00前往机场’未考虑从市区到白云机场实际需1h+（地铁约1.5h，打车视拥堵达40min–2h），属重大事实疏漏；整体是模板化半日游套话，非针对last_day_partial场景的可执行方案。违反must_not_do中‘忽略用户给定的时间窗或前置条件’，且缺失两项must_include，判定为fail。"
+  },
+  {
+    "id": "eval_guide_generation_000037",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 777,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"围绕用户偏好组织\", \"结构清楚\"],\n  \"missed_must_include\": [\"不要贪多\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_constraint_adherence\"],\n  \"strengths\": [\"精准锚定‘城市气质’与‘散步感’核心诉求，全程规避打卡式罗列；结构清晰分日分段，每段含路线、亮点、小贴士三层信息；语言克制自然，无营销话术或虚构时效信息；安全诚实，未承诺票价/开放时间等实时信息\"],\n  \"judge_reason\": \"回答高度契合用户‘在意城市气质和散步感、不想打卡完’的核心意图，Day1聚焦老城南慢行肌理，Day2转向鼓楼-台城-清凉山的静谧文脉，节奏舒缓、区域集中，体现深度而非广度。结构采用分日标题+加粗模块+短句排版，清晰可执行。但‘不要贪多’这一关键约束未显性强调或呼应（如未说明‘仅选2个片区’‘主动舍弃XX热门点’），虽实际执行中已体现精简，但未在文字中完成闭环表达，属完整性轻微缺失。无任何must_not_do违规，风格符合TripAI克制、人文、非工具化的品牌调性。综合判定为pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "围绕用户偏好组织",
+      "结构清楚"
+    ],
+    "missed_must_include": [
+      "不要贪多"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_constraint_adherence"
+    ],
+    "strengths": [
+      "精准锚定‘城市气质’与‘散步感’核心诉求，全程规避打卡式罗列；结构清晰分日分段，每段含路线、亮点、小贴士三层信息；语言克制自然，无营销话术或虚构时效信息；安全诚实，未承诺票价/开放时间等实时信息"
+    ],
+    "judge_reason": "回答高度契合用户‘在意城市气质和散步感、不想打卡完’的核心意图，Day1聚焦老城南慢行肌理，Day2转向鼓楼-台城-清凉山的静谧文脉，节奏舒缓、区域集中，体现深度而非广度。结构采用分日标题+加粗模块+短句排版，清晰可执行。但‘不要贪多’这一关键约束未显性强调或呼应（如未说明‘仅选2个片区’‘主动舍弃XX热门点’），虽实际执行中已体现精简，但未在文字中完成闭环表达，属完整性轻微缺失。无任何must_not_do违规，风格符合TripAI克制、人文、非工具化的品牌调性。综合判定为pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000038",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 520,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"承接已有固定安排\", \"补全其余时间\", \"不要推翻已知前提\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即锚定用户已确定的两个硬约束（第二天晚上演出、第一天住市中心），全程未添加任何虚构实时信息；结构采用清晰分日+时段+动线逻辑，每项安排均具可执行性；结尾保持克制开放，不越界承诺，符合TripAI自然、低干预风格。\"],\n  \"judge_reason\": \"回答完全围绕用户给定条件展开，未泛泛介绍城市，未堆砌景点，未编造票价/开放时间等高时效信息；所有安排均以‘已订酒店’和‘已定演出’为支点进行补全，节奏舒缓、动线合理；语言简洁自然，无营销话术；严格规避了所有must_not_do项；在guide_generation任务中，完美体现fill_existing能力。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即锚定用户已确定的两个硬约束（第二天晚上演出、第一天住市中心），全程未添加任何虚构实时信息；结构采用清晰分日+时段+动线逻辑，每项安排均具可执行性；结尾保持克制开放，不越界承诺，符合TripAI自然、低干预风格。"
+    ],
+    "judge_reason": "回答完全围绕用户给定条件展开，未泛泛介绍城市，未堆砌景点，未编造票价/开放时间等高时效信息；所有安排均以‘已订酒店’和‘已定演出’为支点进行补全，节奏舒缓、动线合理；语言简洁自然，无营销话术；严格规避了所有must_not_do项；在guide_generation任务中，完美体现fill_existing能力。"
+  },
+  {
+    "id": "eval_guide_generation_000039",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 445,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"只回答局部时段\", \"不要扩成全程\", \"围绕局部窗口可执行\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准锚定‘最后一天上午’这一局部时间窗，未延伸至全天或全程；所有推荐点均位于昆明市中心且步行可达，确保可执行性；未出现任何实时信息断言（如票价、开放时间、库存）；结构清晰，含时间定位、地点聚焦、分项节奏、注意事项与交通建议，符合guide generation高分特征；语言自然克制，无营销话术或主观夸张表述\"],\n  \"judge_reason\": \"回答完全遵循用户指令‘不用排全程，只帮我做一个最后一天上午，地点在昆明’，未泛化为昆明全城介绍或扩展为多日行程；所有内容严格限定在上午时段、市区范围、步行可达动线内；景点选择兼顾文化性、可达性与节奏合理性；注意事项和交通建议增强实操性；全文无编造信息、无工具痕迹、无模板化罗列，符合TripAI克制、自然、可执行的品牌风格。各项维度均达优秀水平。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "只回答局部时段",
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准锚定‘最后一天上午’这一局部时间窗，未延伸至全天或全程；所有推荐点均位于昆明市中心且步行可达，确保可执行性；未出现任何实时信息断言（如票价、开放时间、库存）；结构清晰，含时间定位、地点聚焦、分项节奏、注意事项与交通建议，符合guide generation高分特征；语言自然克制，无营销话术或主观夸张表述"
+    ],
+    "judge_reason": "回答完全遵循用户指令‘不用排全程，只帮我做一个最后一天上午，地点在昆明’，未泛化为昆明全城介绍或扩展为多日行程；所有内容严格限定在上午时段、市区范围、步行可达动线内；景点选择兼顾文化性、可达性与节奏合理性；注意事项和交通建议增强实操性；全文无编造信息、无工具痕迹、无模板化罗列，符合TripAI克制、自然、可执行的品牌风格。各项维度均达优秀水平。"
+  },
+  {
+    "id": "eval_guide_generation_000040",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 800,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"保留大框架\"],\n  \"missed_must_include\": [\"优化顺路和体力\", \"不要完全推翻\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"overly_generic\", \"no_route_optimization\", \"structural_repetition\", \"lacks_justification_for_ordering\"],\n  \"strengths\": [\"Clear two-day structure with time-stamped slots\", \"Maintains slow pace and local atmosphere tone\", \"Avoids real-time factual claims (e.g., no fixed prices/hours)\"],\n  \"judge_reason\": \"The response preserves the two-day framework but fails to meaningfully optimize for 'smoothness' or 'physical flow' — it lists parallel time slots without explaining *why* this order is smoother, nor does it adjust sequencing to reduce backtracking or fatigue. It fully replaces user's vague 'life-oriented line' with a generic 'market → workshop → community center' template, violating 'don't completely overturn'. The itinerary reads like a boilerplate checklist rather than a tailored optimization: no rationale for location groupings, no transport logic, no pacing notes (e.g., 'walkable cluster', 'adjacent blocks'), and no acknowledgment of how Day 2's 'life-oriented' sites connect geographically to Day 1's old town. This violates core task-specific requirement: optimize_rough. Also, the response cuts off mid-sentence at '生活', indicating truncation — further undermining completeness and safety.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "保留大框架"
+    ],
+    "missed_must_include": [
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "overly_generic",
+      "no_route_optimization",
+      "structural_repetition",
+      "lacks_justification_for_ordering"
+    ],
+    "strengths": [
+      "Clear two-day structure with time-stamped slots",
+      "Maintains slow pace and local atmosphere tone",
+      "Avoids real-time factual claims (e.g., no fixed prices/hours)"
+    ],
+    "judge_reason": "The response preserves the two-day framework but fails to meaningfully optimize for 'smoothness' or 'physical flow' — it lists parallel time slots without explaining *why* this order is smoother, nor does it adjust sequencing to reduce backtracking or fatigue. It fully replaces user's vague 'life-oriented line' with a generic 'market → workshop → community center' template, violating 'don't completely overturn'. The itinerary reads like a boilerplate checklist rather than a tailored optimization: no rationale for location groupings, no transport logic, no pacing notes (e.g., 'walkable cluster', 'adjacent blocks'), and no acknowledgment of how Day 2's 'life-oriented' sites connect geographically to Day 1's old town. This violates core task-specific requirement: optimize_rough. Also, the response cuts off mid-sentence at '生活', indicating truncation — further undermining completeness and safety."
+  },
+  {
+    "id": "eval_guide_generation_000041",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 790,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"体现天气条件\", \"仍然保持可执行\"],\n  \"missed_must_include\": [\"不要照搬晴天版\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"template_reuse\", \"lack_of_weather_adaptation_depth\", \"structural_overload\"],\n  \"strengths\": [\"明确区分大风/阴天应对策略；全程无实时票价/开放时间断言；语言自然克制，符合TripAI风格；结构清晰，分日分时段便于执行\"],\n  \"judge_reason\": \"回答覆盖了天气条件响应和基本可执行性，但未真正脱离晴天版逻辑框架——如Day1仍安排外滩夜景（仅加'如天气允许'弱条件），Day2仍保留豫园登高风险点（仅说'避免登高'却未给出替代方案），Day3上海中心登顶仍列为'可选'而未主动降级为纯室内观展。行程本质是晴天版+少量天气备注，违反'must_include: 不要照搬晴天版'；且连续三天均以'博物馆/商圈/商场'为主干，缺乏差异化天气适配节奏，呈现模板化景点清单特征，违反'must_not_do'。虽无安全与事实错误，但任务核心——生成真正稳健的天气变体方案——未达要求，需人工复核调整深度。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "体现天气条件",
+      "仍然保持可执行"
+    ],
+    "missed_must_include": [
+      "不要照搬晴天版"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "template_reuse",
+      "lack_of_weather_adaptation_depth",
+      "structural_overload"
+    ],
+    "strengths": [
+      "明确区分大风/阴天应对策略；全程无实时票价/开放时间断言；语言自然克制，符合TripAI风格；结构清晰，分日分时段便于执行"
+    ],
+    "judge_reason": "回答覆盖了天气条件响应和基本可执行性，但未真正脱离晴天版逻辑框架——如Day1仍安排外滩夜景（仅加'如天气允许'弱条件），Day2仍保留豫园登高风险点（仅说'避免登高'却未给出替代方案），Day3上海中心登顶仍列为'可选'而未主动降级为纯室内观展。行程本质是晴天版+少量天气备注，违反'must_include: 不要照搬晴天版'；且连续三天均以'博物馆/商圈/商场'为主干，缺乏差异化天气适配节奏，呈现模板化景点清单特征，违反'must_not_do'。虽无安全与事实错误，但任务核心——生成真正稳健的天气变体方案——未达要求，需人工复核调整深度。"
+  },
+  {
+    "id": "eval_guide_generation_000042",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 685,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"只安排最后一天或半天\"],\n  \"missed_must_include\": [\"承接住处或离开点\", \"减少折返\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"lack_of_personalization\", \"structural_ambiguity\", \"route_unspecified\"],\n  \"strengths\": [\"时间窗明确限定在上午，未超范围；语言自然克制，无营销口吻；安全提示合理（如提前2小时到机场）；未编造票价/开放时间\"],\n  \"judge_reason\": \"回答虽聚焦于‘最后一天上午’，但未真正承接用户隐含关键约束：用户住在杭州某处（需以该住处为起点规划动线），且下午去机场（需确保路线单向高效、减少折返）。文中仅泛泛提及‘西湖边附近’‘市区’‘酒店附近’，未要求用户提供位置就擅自假设地理关系，导致‘承接住处’完全落空；‘减少折返’亦无体现——例如未说明‘若住湖滨，可步行至断桥拍照后直赴机场’，也未对比不同住处的最优路径。交通建议笼统（地铁换乘站名错误：杭州地铁无‘机场线’，实际为19号线直达萧山机场；湘湖站非1号线换乘点），削弱可执行性。虽未违反 must_not_do，但 task-specific 核心要求严重缺位，属结构性缺陷，需人工复核修正。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只安排最后一天或半天"
+    ],
+    "missed_must_include": [
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_personalization",
+      "structural_ambiguity",
+      "route_unspecified"
+    ],
+    "strengths": [
+      "时间窗明确限定在上午，未超范围；语言自然克制，无营销口吻；安全提示合理（如提前2小时到机场）；未编造票价/开放时间"
+    ],
+    "judge_reason": "回答虽聚焦于‘最后一天上午’，但未真正承接用户隐含关键约束：用户住在杭州某处（需以该住处为起点规划动线），且下午去机场（需确保路线单向高效、减少折返）。文中仅泛泛提及‘西湖边附近’‘市区’‘酒店附近’，未要求用户提供位置就擅自假设地理关系，导致‘承接住处’完全落空；‘减少折返’亦无体现——例如未说明‘若住湖滨，可步行至断桥拍照后直赴机场’，也未对比不同住处的最优路径。交通建议笼统（地铁换乘站名错误：杭州地铁无‘机场线’，实际为19号线直达萧山机场；湘湖站非1号线换乘点），削弱可执行性。虽未违反 must_not_do，但 task-specific 核心要求严重缺位，属结构性缺陷，需人工复核修正。"
+  },
+  {
+    "id": "eval_guide_generation_000043",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 767,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"围绕用户偏好组织\", \"结构清楚\"],\n  \"missed_must_include\": [\"不要贪多\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_constraint_adherence\"],\n  \"strengths\": [\"开篇明确点出'慢节奏、沉浸式体验城市气质'，紧扣'城市气质和散步感'；Day 1/2分日结构清晰；全程规避实时信息与营销话术；语言自然克制，符合TripAI风格\"],\n  \"judge_reason\": \"回答高度契合用户核心诉求——以散步感和城市气质为线索组织成都2日行程，结构分明（分日+小标题+节奏提示），未编造票价/开放时间，风格干净。但'不要贪多'这一关键must_include未显性落实：Day 1含宽窄巷子、青羊宫、人民公园三处；Day 2叠加青城前山+农家乐，虽标注'轻走''轻徒步'，仍存在隐性超载风险，未主动做减法声明（如'仅选1-2处深逛'或'每日聚焦1个区域'），导致'不要贪多'的约束未被完整体现。故 completeness 得3分，整体判为 pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "围绕用户偏好组织",
+      "结构清楚"
+    ],
+    "missed_must_include": [
+      "不要贪多"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_constraint_adherence"
+    ],
+    "strengths": [
+      "开篇明确点出'慢节奏、沉浸式体验城市气质'，紧扣'城市气质和散步感'；Day 1/2分日结构清晰；全程规避实时信息与营销话术；语言自然克制，符合TripAI风格"
+    ],
+    "judge_reason": "回答高度契合用户核心诉求——以散步感和城市气质为线索组织成都2日行程，结构分明（分日+小标题+节奏提示），未编造票价/开放时间，风格干净。但'不要贪多'这一关键must_include未显性落实：Day 1含宽窄巷子、青羊宫、人民公园三处；Day 2叠加青城前山+农家乐，虽标注'轻走''轻徒步'，仍存在隐性超载风险，未主动做减法声明（如'仅选1-2处深逛'或'每日聚焦1个区域'），导致'不要贪多'的约束未被完整体现。故 completeness 得3分，整体判为 pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000044",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 520,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"承接已有固定安排\", \"补全其余时间\", \"不要推翻已知前提\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未偏离；结构按日分层，节奏松弛合理，无信息堆砌；所有建议均为条件性、可选动作（如‘可逛’‘建议确认’），无实时信息断言；结尾保持开放，不越界承诺；语言自然克制，无营销话术\"],\n  \"judge_reason\": \"回答完全围绕用户给定的两个刚性前提展开，以‘补全’为逻辑主线，Day1聚焦适应与氛围感知，Day2紧扣演出动线与返程，未添加任何未经提示的景点、价格或时效信息。结构清晰、语气平和、执行性强，严格符合TripAI专业助手定位与guide generation专项要求。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未偏离；结构按日分层，节奏松弛合理，无信息堆砌；所有建议均为条件性、可选动作（如‘可逛’‘建议确认’），无实时信息断言；结尾保持开放，不越界承诺；语言自然克制，无营销话术"
+    ],
+    "judge_reason": "回答完全围绕用户给定的两个刚性前提展开，以‘补全’为逻辑主线，Day1聚焦适应与氛围感知，Day2紧扣演出动线与返程，未添加任何未经提示的景点、价格或时效信息。结构清晰、语气平和、执行性强，严格符合TripAI专业助手定位与guide generation专项要求。"
+  },
+  {
+    "id": "eval_guide_generation_000045",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 469,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"只回答局部时段\", \"不要扩成全程\", \"围绕局部窗口可执行\"],\n  \"violated_must_not_do\": [\"忽略用户给定的时间窗或前置条件\", \"写成模板化景点清单\"],\n  \"issue_tags\": [\"答非所问\", \"过度扩展\", \"结构错位\", \"任务理解失败\"],\n  \"strengths\": [\"语言通顺\", \"部分注意事项表述合理\", \"未编造实时票价/开放时间\"],\n  \"judge_reason\": \"用户明确要求‘只帮我做一个最后一天上午，地点在厦门’，即严格限定为局部时段（仅上午）、非全程、可立即执行的微型行程。但回答错误构建为‘鼓浪屿一日游（精华版）’，标题与内容均隐含全天逻辑；时间安排虽标为8:30–11:30，却嵌套在‘一日游’框架下，且景点选择（日光岩+菽庄花园+小巷漫步+小吃）明显超载，不符合‘上午’物理时长与体力现实；未体现‘最后一天’的特殊性（如交通衔接、行李寄存、离厦动线）；全篇未呼应‘只做上午’这一核心约束，反而用‘如需更紧凑或更轻松的节奏，可进一步调整’暴露其本质是通用模板。严重违反 must_include 全部三项及 must_not_do 中‘忽略时间窗’和‘模板化清单’两项，属典型任务理解失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "只回答局部时段",
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "violated_must_not_do": [
+      "忽略用户给定的时间窗或前置条件",
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "过度扩展",
+      "结构错位",
+      "任务理解失败"
+    ],
+    "strengths": [
+      "语言通顺",
+      "部分注意事项表述合理",
+      "未编造实时票价/开放时间"
+    ],
+    "judge_reason": "用户明确要求‘只帮我做一个最后一天上午，地点在厦门’，即严格限定为局部时段（仅上午）、非全程、可立即执行的微型行程。但回答错误构建为‘鼓浪屿一日游（精华版）’，标题与内容均隐含全天逻辑；时间安排虽标为8:30–11:30，却嵌套在‘一日游’框架下，且景点选择（日光岩+菽庄花园+小巷漫步+小吃）明显超载，不符合‘上午’物理时长与体力现实；未体现‘最后一天’的特殊性（如交通衔接、行李寄存、离厦动线）；全篇未呼应‘只做上午’这一核心约束，反而用‘如需更紧凑或更轻松的节奏，可进一步调整’暴露其本质是通用模板。严重违反 must_include 全部三项及 must_not_do 中‘忽略时间窗’和‘模板化清单’两项，属典型任务理解失败。"
+  },
+  {
+    "id": "eval_guide_generation_000046",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 797,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"保留大框架\", \"优化顺路和体力\"],\n  \"missed_must_include\": [\"不要完全推翻\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"template_overuse\", \"incomplete_constraint_adherence\", \"structural_incompleteness\"],\n  \"strengths\": [\"结构清晰，分日分时段呈现；语言自然克制，无营销口吻；未编造实时信息；安全诚实；基本保留用户原始两天框架并尝试优化动线\"],\n  \"judge_reason\": \"回答虽保留了‘第一天老城慢逛、第二天生活化’的大框架，并在时间安排上体现顺路与体力分配（如上午集中游览、下午休憩），但未明确强调‘不推翻用户原意’这一关键约束，且第二日行程末尾突然截断（'晚上18:30：'无后续），导致完整性严重受损；更关键的是，通篇使用泛化地点描述（如‘老城区标志性建筑’‘附近小店’‘社区活动中心’），未结合具体城市落地，实质沦为可套用于任何古城的模板化景点清单，直接违反must_not_do中‘写成模板化景点清单’；虽未编造票价/开放时间，但缺乏真实可执行锚点（如不指明具体市场名、巷子名或可查证的社区空间），削弱可操作性。综上，属可用但有明显缺陷，需人工复核修正后方可放行。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "保留大框架",
+      "优化顺路和体力"
+    ],
+    "missed_must_include": [
+      "不要完全推翻"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "template_overuse",
+      "incomplete_constraint_adherence",
+      "structural_incompleteness"
+    ],
+    "strengths": [
+      "结构清晰，分日分时段呈现；语言自然克制，无营销口吻；未编造实时信息；安全诚实；基本保留用户原始两天框架并尝试优化动线"
+    ],
+    "judge_reason": "回答虽保留了‘第一天老城慢逛、第二天生活化’的大框架，并在时间安排上体现顺路与体力分配（如上午集中游览、下午休憩），但未明确强调‘不推翻用户原意’这一关键约束，且第二日行程末尾突然截断（'晚上18:30：'无后续），导致完整性严重受损；更关键的是，通篇使用泛化地点描述（如‘老城区标志性建筑’‘附近小店’‘社区活动中心’），未结合具体城市落地，实质沦为可套用于任何古城的模板化景点清单，直接违反must_not_do中‘写成模板化景点清单’；虽未编造票价/开放时间，但缺乏真实可执行锚点（如不指明具体市场名、巷子名或可查证的社区空间），削弱可操作性。综上，属可用但有明显缺陷，需人工复核修正后方可放行。"
+  },
+  {
+    "id": "eval_guide_generation_000047",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 836,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"体现天气条件\", \"仍然保持可执行\"],\n  \"missed_must_include\": [\"不要照搬晴天版\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"template_repetition\", \"lack_of_weather_adaptation_depth\", \"structural_overload\"],\n  \"strengths\": [\"结构清晰，分日分时段呈现；语言自然克制；安全提示到位；室内优先逻辑成立\"],\n  \"judge_reason\": \"回答虽体现天气条件（如‘避开户外风大区域’）并保持基本可执行性，但实质是将晴天行程机械替换为‘室内+避风’标签，未重构节奏、动线或体验逻辑——例如仍保留玄武湖公园（阴天大风下湖边步道实际体验差）、秦淮河乘船（大风天极可能停航，却未说明替代方案）、中山陵登高（未提供真正低风感替代路径）。全篇沿用晴天版景点框架，属典型‘照搬晴天版’，违反 must_include 第三条；且四日行程堆砌8个景点+4个商业体，严重超载，违背‘节奏自然、不超载’的 task-specific 要求。虽无编造票价/时间等安全问题，但可执行性存疑，需人工复核调整。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "体现天气条件",
+      "仍然保持可执行"
+    ],
+    "missed_must_include": [
+      "不要照搬晴天版"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "template_repetition",
+      "lack_of_weather_adaptation_depth",
+      "structural_overload"
+    ],
+    "strengths": [
+      "结构清晰，分日分时段呈现；语言自然克制；安全提示到位；室内优先逻辑成立"
+    ],
+    "judge_reason": "回答虽体现天气条件（如‘避开户外风大区域’）并保持基本可执行性，但实质是将晴天行程机械替换为‘室内+避风’标签，未重构节奏、动线或体验逻辑——例如仍保留玄武湖公园（阴天大风下湖边步道实际体验差）、秦淮河乘船（大风天极可能停航，却未说明替代方案）、中山陵登高（未提供真正低风感替代路径）。全篇沿用晴天版景点框架，属典型‘照搬晴天版’，违反 must_include 第三条；且四日行程堆砌8个景点+4个商业体，严重超载，违背‘节奏自然、不超载’的 task-specific 要求。虽无编造票价/时间等安全问题，但可执行性存疑，需人工复核调整。"
+  },
+  {
+    "id": "eval_guide_generation_000048",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 414,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"只安排最后一天或半天\", \"承接住处或离开点\", \"减少折返\"],\n  \"violated_must_not_do\": [\"忽略用户给定的时间窗或前置条件\", \"写成模板化景点清单\"],\n  \"issue_tags\": [\"答非所问\", \"结构失效\", \"时间逻辑错误\", \"地理脱节\"],\n  \"strengths\": [\"语言通顺\", \"格式清晰\", \"有基础注意事项提醒\"],\n  \"judge_reason\": \"回答完全违背用户核心约束：用户明确‘只剩最后一天上午’且‘中午前要退房、下午去机场’，但方案却安排08:00–11:00游览洪崖洞、11:00–11:30返回酒店退房——这意味着用户需在退房后（11:30）才出发去机场，而洪崖洞距重庆江北机场约35km，常规交通需1h+，根本无法保障下午顺利抵达；更严重的是，方案未承接‘住处’位置（未从酒店出发规划），也未减少折返（先去洪崖洞再回酒店退房，属典型无效折返）；将洪崖洞‘游览’设为必选项，属模板化景点清单，未体现‘最后半天’的轻量、顺路、低负担本质；所有时间点均未校验可行性，构成事实性错误和任务目标失焦。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "只安排最后一天或半天",
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "violated_must_not_do": [
+      "忽略用户给定的时间窗或前置条件",
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "结构失效",
+      "时间逻辑错误",
+      "地理脱节"
+    ],
+    "strengths": [
+      "语言通顺",
+      "格式清晰",
+      "有基础注意事项提醒"
+    ],
+    "judge_reason": "回答完全违背用户核心约束：用户明确‘只剩最后一天上午’且‘中午前要退房、下午去机场’，但方案却安排08:00–11:00游览洪崖洞、11:00–11:30返回酒店退房——这意味着用户需在退房后（11:30）才出发去机场，而洪崖洞距重庆江北机场约35km，常规交通需1h+，根本无法保障下午顺利抵达；更严重的是，方案未承接‘住处’位置（未从酒店出发规划），也未减少折返（先去洪崖洞再回酒店退房，属典型无效折返）；将洪崖洞‘游览’设为必选项，属模板化景点清单，未体现‘最后半天’的轻量、顺路、低负担本质；所有时间点均未校验可行性，构成事实性错误和任务目标失焦。"
+  },
+  {
+    "id": "eval_guide_generation_000049",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 698,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"围绕用户偏好组织\", \"不要贪多\", \"结构清楚\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"全程紧扣‘城市气质’与‘散步感’核心偏好，未罗列热门打卡点；两天行程节奏舒缓、动线自然，每日仅3–4个轻量节点；结构清晰分日+分时段+小贴士三层，可直接执行；无任何实时票价/开放时间等高风险断言；语言克制平实，无营销话术或主观夸张\"],\n  \"judge_reason\": \"回答完全响应用户‘在意城市气质和散步感、不想打卡完’的核心诉求，以氛围、节奏、步行体验为线索组织行程，而非景点堆砌。Day1聚焦翠湖-云大-老街的在地生活肌理，Day2转向黑龙潭-西山的自然人文轻触，严格遵循‘不贪多’原则（每日仅3–4个低强度节点）。结构采用加粗标题+短句分项+符号引导，清晰易读。所有描述基于常识性地理与文化事实，未虚构时效信息。风格冷静、具象、有呼吸感，符合TripAI克制、可信赖的品牌调性。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "围绕用户偏好组织",
+      "不要贪多",
+      "结构清楚"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "全程紧扣‘城市气质’与‘散步感’核心偏好，未罗列热门打卡点；两天行程节奏舒缓、动线自然，每日仅3–4个轻量节点；结构清晰分日+分时段+小贴士三层，可直接执行；无任何实时票价/开放时间等高风险断言；语言克制平实，无营销话术或主观夸张"
+    ],
+    "judge_reason": "回答完全响应用户‘在意城市气质和散步感、不想打卡完’的核心诉求，以氛围、节奏、步行体验为线索组织行程，而非景点堆砌。Day1聚焦翠湖-云大-老街的在地生活肌理，Day2转向黑龙潭-西山的自然人文轻触，严格遵循‘不贪多’原则（每日仅3–4个低强度节点）。结构采用加粗标题+短句分项+符号引导，清晰易读。所有描述基于常识性地理与文化事实，未虚构时效信息。风格冷静、具象、有呼吸感，符合TripAI克制、可信赖的品牌调性。"
+  },
+  {
+    "id": "eval_guide_generation_000050",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 504,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"承接已有固定安排\", \"补全其余时间\", \"不要推翻已知前提\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未添加任何虚构实时信息；结构采用清晰分日+时段+动线逻辑，每项活动均具可执行性；语言自然克制，无营销话术、无工具痕迹、无景点堆砌；小贴士聚焦真实风险点（入场要求、交通预留），体现专业预判\"],\n  \"judge_reason\": \"回答完全围绕用户给定的两个刚性前提展开，Day 1 明确以‘已预订酒店’为起点组织上午至晚上动线，Day 2 以‘演出’为核心调度上午准备、中午休整与下午返程，严格补全空白时段且未覆盖或质疑任何用户既定安排。未出现任何 must_not_do 行为：无 JSON/工具调用、无确定性时效信息、非模板化清单、完整尊重时间窗与前置条件。符合 TripAI ‘信息克制、结构清晰、拿来即用’的核心风格。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未添加任何虚构实时信息；结构采用清晰分日+时段+动线逻辑，每项活动均具可执行性；语言自然克制，无营销话术、无工具痕迹、无景点堆砌；小贴士聚焦真实风险点（入场要求、交通预留），体现专业预判"
+    ],
+    "judge_reason": "回答完全围绕用户给定的两个刚性前提展开，Day 1 明确以‘已预订酒店’为起点组织上午至晚上动线，Day 2 以‘演出’为核心调度上午准备、中午休整与下午返程，严格补全空白时段且未覆盖或质疑任何用户既定安排。未出现任何 must_not_do 行为：无 JSON/工具调用、无确定性时效信息、非模板化清单、完整尊重时间窗与前置条件。符合 TripAI ‘信息克制、结构清晰、拿来即用’的核心风格。"
+  },
+  {
+    "id": "eval_guide_generation_000051",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 418,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"只回答局部时段\"],\n  \"missed_must_include\": [\"不要扩成全程\", \"围绕局部窗口可执行\"],\n  \"violated_must_not_do\": [\"忽略用户给定的时间窗或前置条件\"],\n  \"issue_tags\": [\"overgeneralization\", \"structural_overreach\", \"partial_compliance\"],\n  \"strengths\": [\"Clear section headers and readable formatting\", \"Appropriate tone and brand-aligned restraint\", \"Safety-aware phrasing (e.g., 'suggest', 'if time permits')\"],\n  \"judge_reason\": \"The response nominally addresses 'last morning in Shanghai' but violates core constraints: it prescribes a fixed 9:00–11:30 slot at Shanghai Museum without acknowledging user's 'only last morning' is *unspecified duration* — turning partial into de facto full-morning rigid schedule. It then adds two unbounded alternatives ('if time紧张', 'if interested') — effectively expanding scope beyond the single local window, violating '不要扩成全程' and '围绕局部窗口可执行'. The museum timing is presented as factual (9:00–11:30), though opening hours vary and booking windows are dynamic — risking violation of safety_and_honesty if interpreted as guaranteed. No acknowledgment that 'last day' implies departure logistics (e.g., check-out, transport to station/airport), making the plan non-executable as-is. Thus, fails task-specific core: partial-only, constraint-respecting, actionably bounded.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只回答局部时段"
+    ],
+    "missed_must_include": [
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "violated_must_not_do": [
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "issue_tags": [
+      "overgeneralization",
+      "structural_overreach",
+      "partial_compliance"
+    ],
+    "strengths": [
+      "Clear section headers and readable formatting",
+      "Appropriate tone and brand-aligned restraint",
+      "Safety-aware phrasing (e.g., 'suggest', 'if time permits')"
+    ],
+    "judge_reason": "The response nominally addresses 'last morning in Shanghai' but violates core constraints: it prescribes a fixed 9:00–11:30 slot at Shanghai Museum without acknowledging user's 'only last morning' is *unspecified duration* — turning partial into de facto full-morning rigid schedule. It then adds two unbounded alternatives ('if time紧张', 'if interested') — effectively expanding scope beyond the single local window, violating '不要扩成全程' and '围绕局部窗口可执行'. The museum timing is presented as factual (9:00–11:30), though opening hours vary and booking windows are dynamic — risking violation of safety_and_honesty if interpreted as guaranteed. No acknowledgment that 'last day' implies departure logistics (e.g., check-out, transport to station/airport), making the plan non-executable as-is. Thus, fails task-specific core: partial-only, constraint-respecting, actionably bounded."
+  },
+  {
+    "id": "eval_guide_generation_000052",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 800,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"保留大框架\"],\n  \"missed_must_include\": [\"优化顺路和体力\", \"不要完全推翻\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"template_overuse\", \"missing_optimization_logic\", \"structural_rigidity\"],\n  \"strengths\": [\"结构清晰，分日分时段呈现；语言自然克制，无营销口吻；未编造实时信息\"],\n  \"judge_reason\": \"回答虽保留了'第一天老城慢逛、第二天生活化'的大框架，但未体现任何'优化顺路和体力'的具体逻辑（如动线衔接、步行距离、交通换乘、体力分配），也未说明为何当前安排更'顺'；全程采用刻板的'上午/中午/下午/晚上'八段式模板，实为模板化景点清单堆砌，违背must_not_do；第二天内容在'晚上18:30'处意外截断，导致关键收尾缺失，完整性严重受损；未回应用户'粗想法→优化'的核心诉求，缺乏对原始意图的迭代说明（如'原计划可能需跨区往返，现调整为相邻片区串联'等），属于形式服从、实质脱节。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "保留大框架"
+    ],
+    "missed_must_include": [
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "template_overuse",
+      "missing_optimization_logic",
+      "structural_rigidity"
+    ],
+    "strengths": [
+      "结构清晰，分日分时段呈现；语言自然克制，无营销口吻；未编造实时信息"
+    ],
+    "judge_reason": "回答虽保留了'第一天老城慢逛、第二天生活化'的大框架，但未体现任何'优化顺路和体力'的具体逻辑（如动线衔接、步行距离、交通换乘、体力分配），也未说明为何当前安排更'顺'；全程采用刻板的'上午/中午/下午/晚上'八段式模板，实为模板化景点清单堆砌，违背must_not_do；第二天内容在'晚上18:30'处意外截断，导致关键收尾缺失，完整性严重受损；未回应用户'粗想法→优化'的核心诉求，缺乏对原始意图的迭代说明（如'原计划可能需跨区往返，现调整为相邻片区串联'等），属于形式服从、实质脱节。"
+  },
+  {
+    "id": "eval_guide_generation_000053",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 799,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"体现天气条件\", \"仍然保持可执行\", \"不要照搬晴天版\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"精准响应天气变量，全程围绕‘大风/阴天’重构行程逻辑；所有景点均标注室内/半室内属性，体现真实可执行性；结构清晰分层（策略→日程→贴士→总结），无冗余信息；未出现任何实时价格、开放时间等高风险断言；语言克制自然，无营销话术或过度渲染\"],\n  \"judge_reason\": \"回答完全紧扣‘天气变体’任务本质：主动识别并转化天气约束为行动原则（减少户外、避开阔地、增文化体验），所有日程安排均服务于‘更稳’目标，且未复用晴天行程模板；每个景点均标注空间属性（如‘室内为主’‘创意园区，室内为主’），确保可执行性；未出现任何 must_not_do 行为（无工具调用、无虚构时效信息、非模板化清单、明确体现天气与偏好）；风格符合 TripAI 克制、实用、用户导向的定位。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "体现天气条件",
+      "仍然保持可执行",
+      "不要照搬晴天版"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准响应天气变量，全程围绕‘大风/阴天’重构行程逻辑；所有景点均标注室内/半室内属性，体现真实可执行性；结构清晰分层（策略→日程→贴士→总结），无冗余信息；未出现任何实时价格、开放时间等高风险断言；语言克制自然，无营销话术或过度渲染"
+    ],
+    "judge_reason": "回答完全紧扣‘天气变体’任务本质：主动识别并转化天气约束为行动原则（减少户外、避开阔地、增文化体验），所有日程安排均服务于‘更稳’目标，且未复用晴天行程模板；每个景点均标注空间属性（如‘室内为主’‘创意园区，室内为主’），确保可执行性；未出现任何 must_not_do 行为（无工具调用、无虚构时效信息、非模板化清单、明确体现天气与偏好）；风格符合 TripAI 克制、实用、用户导向的定位。"
+  },
+  {
+    "id": "eval_guide_generation_000054",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 459,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"只安排最后一天或半天\"],\n  \"missed_must_include\": [\"承接住处或离开点\", \"减少折返\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"structure_failure\", \"constraint_ignorance\", \"route_unspecified\"],\n  \"strengths\": [\"语言简洁自然，无营销口吻；安全诚实，未编造实时信息；段落清晰，有分项建议\"],\n  \"judge_reason\": \"回答误将用户‘最后一天上午’需求泛化为全天+下午的机场行程，未聚焦‘上午’这一核心时间窗；未承接用户‘住在某处’这一关键起点（未提及酒店位置、退房后如何动线衔接），也未设计‘减少折返’的顺路逻辑（如是否顺访机场附近可快速打卡点？是否考虑退房后直赴机场？）；反而输出模板化交通/行李提醒，形同通用机场指南，实质是答非所问。虽未编造票价开放时间，但严重偏离last_day_partial任务本质，结构上缺失具体路线、节奏与空间锚点，不可执行。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只安排最后一天或半天"
+    ],
+    "missed_must_include": [
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "structure_failure",
+      "constraint_ignorance",
+      "route_unspecified"
+    ],
+    "strengths": [
+      "语言简洁自然，无营销口吻；安全诚实，未编造实时信息；段落清晰，有分项建议"
+    ],
+    "judge_reason": "回答误将用户‘最后一天上午’需求泛化为全天+下午的机场行程，未聚焦‘上午’这一核心时间窗；未承接用户‘住在某处’这一关键起点（未提及酒店位置、退房后如何动线衔接），也未设计‘减少折返’的顺路逻辑（如是否顺访机场附近可快速打卡点？是否考虑退房后直赴机场？）；反而输出模板化交通/行李提醒，形同通用机场指南，实质是答非所问。虽未编造票价开放时间，但严重偏离last_day_partial任务本质，结构上缺失具体路线、节奏与空间锚点，不可执行。"
+  },
+  {
+    "id": "eval_guide_generation_000055",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 775,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"围绕用户偏好组织\", \"结构清楚\"],\n  \"missed_must_include\": [\"不要贪多\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_constraint_adherence\"],\n  \"strengths\": [\"开篇点题明确聚焦‘城市气质+散步感’，两天节奏舒缓，路线以步行/短途交通为主；未编造票价、开放时间等实时信息；语言自然克制，无营销话术；结构分日清晰，每段含Tips增强可执行性\"],\n  \"judge_reason\": \"回答整体契合用户核心诉求：以气质与散步感为纲组织2日行程，避开打卡式罗列，结构清晰、节奏松弛。但‘不要贪多’这一关键must_include未显性体现——Day1含沙坡尾、曾厝垵、白城沙滩三处，Day2含植物园、集美学村两处，虽有Tips提示‘避开人潮’‘选择小巷子’，却未在整体建议或日计划中主动做减法（如明确建议‘二选一’或‘仅深度体验其中1–2处’），导致‘不贪多’的约束未被实质性落实。结尾截断（'避免集中在热门景点打卡，更注重体验和'）属技术性缺陷，但未影响主干逻辑。故判定为pass_with_risk。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "围绕用户偏好组织",
+      "结构清楚"
+    ],
+    "missed_must_include": [
+      "不要贪多"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_constraint_adherence"
+    ],
+    "strengths": [
+      "开篇点题明确聚焦‘城市气质+散步感’，两天节奏舒缓，路线以步行/短途交通为主；未编造票价、开放时间等实时信息；语言自然克制，无营销话术；结构分日清晰，每段含Tips增强可执行性"
+    ],
+    "judge_reason": "回答整体契合用户核心诉求：以气质与散步感为纲组织2日行程，避开打卡式罗列，结构清晰、节奏松弛。但‘不要贪多’这一关键must_include未显性体现——Day1含沙坡尾、曾厝垵、白城沙滩三处，Day2含植物园、集美学村两处，虽有Tips提示‘避开人潮’‘选择小巷子’，却未在整体建议或日计划中主动做减法（如明确建议‘二选一’或‘仅深度体验其中1–2处’），导致‘不贪多’的约束未被实质性落实。结尾截断（'避免集中在热门景点打卡，更注重体验和'）属技术性缺陷，但未影响主干逻辑。故判定为pass_with_risk。"
+  },
+  {
+    "id": "eval_guide_generation_000056",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 512,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"承接已有固定安排\", \"补全其余时间\", \"不要推翻已知前提\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"开篇即锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未添加任何虚构实时信息；结构按日分层，节奏松紧得当，每段均体现‘补全’逻辑而非重置；小贴士强调确认动作而非断言开放时间/票价；结尾保持开放、克制，不越界承诺服务\"],\n  \"judge_reason\": \"回答完全围绕用户给定的两个刚性前提展开，未泛泛介绍城市，未堆砌景点，未编造时效信息，未输出任何非自然语言内容。Day 1聚焦适应与氛围感知，Day 2紧扣演出动线与返程，所有建议均具可执行性且留有弹性空间。语言自然、克制、无营销感，符合TripAI品牌调性。所有must_include被显性覆盖，must_not_do全部遵守。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "开篇即锚定用户两个硬约束（第二天晚上演出、第一天住市中心），全程未添加任何虚构实时信息；结构按日分层，节奏松紧得当，每段均体现‘补全’逻辑而非重置；小贴士强调确认动作而非断言开放时间/票价；结尾保持开放、克制，不越界承诺服务"
+    ],
+    "judge_reason": "回答完全围绕用户给定的两个刚性前提展开，未泛泛介绍城市，未堆砌景点，未编造时效信息，未输出任何非自然语言内容。Day 1聚焦适应与氛围感知，Day 2紧扣演出动线与返程，所有建议均具可执行性且留有弹性空间。语言自然、克制、无营销感，符合TripAI品牌调性。所有must_include被显性覆盖，must_not_do全部遵守。"
+  },
+  {
+    "id": "eval_guide_generation_000057",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 481,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"只回答局部时段\"],\n  \"missed_must_include\": [\"不要扩成全程\", \"围绕局部窗口可执行\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\", \"忽略用户给定的时间窗或前置条件\"],\n  \"issue_tags\": [\"overgeneralization\", \"scope_creep\", \"low_executability\"],\n  \"strengths\": [\"结构清晰，时间标注明确；语言自然克制，无营销口吻；安全提示合理（如预约提醒、舒适着装）\"],\n  \"judge_reason\": \"回答虽聚焦‘上午’并标注南京博物院为唯一主景点，但严重违反‘不要扩成全程’：后半段主动引入‘夫子庙、明孝陵、紫金山、玄武湖’等无关选项，并附带‘需注意时间安排’‘需预留更多时间’等隐含全程规划逻辑，实质将局部任务泛化为多日/全天决策框架；‘其他建议’部分完全脱离‘最后一天上午’这一刚性约束，属于典型 scope creep。同时，未体现‘围绕局部窗口可执行’——未说明如何从住宿地抵达博物院、交通耗时、预约截止时间等关键执行要素，仅罗列展馆名称和泛泛提示，缺乏可操作性。虽未编造票价/开放时间，但‘免费开放，需提前预约’未说明预约是否当日可行、是否需实名、是否限流，信息仍显笼统。综上，核心任务约束双重失效，必须人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只回答局部时段"
+    ],
+    "missed_must_include": [
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "issue_tags": [
+      "overgeneralization",
+      "scope_creep",
+      "low_executability"
+    ],
+    "strengths": [
+      "结构清晰，时间标注明确；语言自然克制，无营销口吻；安全提示合理（如预约提醒、舒适着装）"
+    ],
+    "judge_reason": "回答虽聚焦‘上午’并标注南京博物院为唯一主景点，但严重违反‘不要扩成全程’：后半段主动引入‘夫子庙、明孝陵、紫金山、玄武湖’等无关选项，并附带‘需注意时间安排’‘需预留更多时间’等隐含全程规划逻辑，实质将局部任务泛化为多日/全天决策框架；‘其他建议’部分完全脱离‘最后一天上午’这一刚性约束，属于典型 scope creep。同时，未体现‘围绕局部窗口可执行’——未说明如何从住宿地抵达博物院、交通耗时、预约截止时间等关键执行要素，仅罗列展馆名称和泛泛提示，缺乏可操作性。虽未编造票价/开放时间，但‘免费开放，需提前预约’未说明预约是否当日可行、是否需实名、是否限流，信息仍显笼统。综上，核心任务约束双重失效，必须人工复核修正。"
+  },
+  {
+    "id": "eval_guide_generation_000058",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 800,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"保留大框架\"],\n  \"missed_must_include\": [\"优化顺路和体力\", \"不要完全推翻\"],\n  \"violated_must_not_do\": [\"写成模板化景点清单\"],\n  \"issue_tags\": [\"template_driven\", \"no_route_optimization\", \"incomplete_constraints_adherence\", \"structural_incoherence\"],\n  \"strengths\": [\"语言自然，符合中文表达习惯；未编造实时信息；结构有基本分段；品牌调性未明显越界\"],\n  \"judge_reason\": \"回答表面结构完整，但本质是套用‘上午/中午/下午/晚上’模板填充泛化动词（如‘逛’‘体验’‘休憩’），未体现任何实际地理顺路逻辑或体力分配设计；未回应‘更顺一点’这一核心优化诉求；第二天‘更生活化的线’被简化为抽象区域标签（如‘市井生活区域’）而无具体动线支撑；结尾截断暴露内容生成失控；完全未说明如何‘不推翻’原想法——例如未确认是否保留用户心中已有的老城起点或生活化区域偏好；违反 must_not_do 中‘写成模板化景点清单’；任务专项得分低因未完成 optimize_rough 的本质：基于用户粗粒度意图做空间-时间耦合优化，而非重写标准日程表。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "保留大框架"
+    ],
+    "missed_must_include": [
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "violated_must_not_do": [
+      "写成模板化景点清单"
+    ],
+    "issue_tags": [
+      "template_driven",
+      "no_route_optimization",
+      "incomplete_constraints_adherence",
+      "structural_incoherence"
+    ],
+    "strengths": [
+      "语言自然，符合中文表达习惯；未编造实时信息；结构有基本分段；品牌调性未明显越界"
+    ],
+    "judge_reason": "回答表面结构完整，但本质是套用‘上午/中午/下午/晚上’模板填充泛化动词（如‘逛’‘体验’‘休憩’），未体现任何实际地理顺路逻辑或体力分配设计；未回应‘更顺一点’这一核心优化诉求；第二天‘更生活化的线’被简化为抽象区域标签（如‘市井生活区域’）而无具体动线支撑；结尾截断暴露内容生成失控；完全未说明如何‘不推翻’原想法——例如未确认是否保留用户心中已有的老城起点或生活化区域偏好；违反 must_not_do 中‘写成模板化景点清单’；任务专项得分低因未完成 optimize_rough 的本质：基于用户粗粒度意图做空间-时间耦合优化，而非重写标准日程表。"
+  },
+  {
+    "id": "eval_guide_generation_000059",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 812,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\"体现天气条件\", \"仍然保持可执行\"],\n  \"missed_must_include\": [\"不要照搬晴天版\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"partial_reuse_of_sunny_plan\", \"mild_template_risk\"],\n  \"strengths\": [\"明确区分天气应对策略与替代行程，结构清晰；所有建议均未承诺实时开放/票价，符合安全要求；语言自然克制，无营销口吻；预留弹性时间、携带雨具等建议体现实用性。\"],\n  \"judge_reason\": \"回答紧扣‘大风或阴天’条件，提出减少户外、增加室内、灵活调整顺序等核心策略，并给出3天替代行程，满足‘体现天气条件’和‘保持可执行’。但Day 2上午仍写‘滇池大坝（若天气不佳可改为室内茶馆）’，隐含默认原计划含滇池大坝——即未彻底脱离晴天框架；Day 3仍将石林列为首选并仅附带括号备注，存在轻微照搬晴天版结构的风险。未显式声明‘本方案完全重构，不依赖任何晴天行程前提’，导致‘不要照搬晴天版’这一must_include未被完全、主动、可验证地落实。其余维度均表现良好，无安全、风格或格式违规。\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "体现天气条件",
+      "仍然保持可执行"
+    ],
+    "missed_must_include": [
+      "不要照搬晴天版"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "partial_reuse_of_sunny_plan",
+      "mild_template_risk"
+    ],
+    "strengths": [
+      "明确区分天气应对策略与替代行程，结构清晰；所有建议均未承诺实时开放/票价，符合安全要求；语言自然克制，无营销口吻；预留弹性时间、携带雨具等建议体现实用性。"
+    ],
+    "judge_reason": "回答紧扣‘大风或阴天’条件，提出减少户外、增加室内、灵活调整顺序等核心策略，并给出3天替代行程，满足‘体现天气条件’和‘保持可执行’。但Day 2上午仍写‘滇池大坝（若天气不佳可改为室内茶馆）’，隐含默认原计划含滇池大坝——即未彻底脱离晴天框架；Day 3仍将石林列为首选并仅附带括号备注，存在轻微照搬晴天版结构的风险。未显式声明‘本方案完全重构，不依赖任何晴天行程前提’，导致‘不要照搬晴天版’这一must_include未被完全、主动、可验证地落实。其余维度均表现良好，无安全、风格或格式违规。"
+  },
+  {
+    "id": "eval_guide_generation_000060",
+    "task_type": "guide_generation",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 503,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"只安排最后一天或半天\"],\n  \"missed_must_include\": [\"承接住处或离开点\", \"减少折返\"],\n  \"violated_must_not_do\": [\"把实时票价、库存、开放时间写成确定事实\"],\n  \"issue_tags\": [\"missing_location_anchor\", \"unverified_airport_assumption\", \"no_route_optimization\", \"overgeneralized_recommendations\"],\n  \"strengths\": [\"Clear time-based sectioning; natural, non-marketing tone; acknowledges uncertainty in hotel policy and flight prep\"],\n  \"judge_reason\": \"回答虽结构清晰、语气克制，但严重缺失关键任务约束：未承接用户实际住处（无酒店位置锚点），未基于住处规划动线，未减少折返（如推荐平江路/观前街却未确认是否邻近酒店）；错误将‘苏南硕放国际机场’表述为‘苏州有多个机场’并默认其为用户出发机场——苏州无民用机场，硕放机场属无锡，此为事实性错误且违反must_not_do中‘不把实时/地理信息说成确定事实’；全程未体现路线顺接逻辑，仅泛泛列出地点+交通提醒，未完成‘顺一下’这一核心指令。属于典型last_day_partial任务失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "只安排最后一天或半天"
+    ],
+    "missed_must_include": [
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "violated_must_not_do": [
+      "把实时票价、库存、开放时间写成确定事实"
+    ],
+    "issue_tags": [
+      "missing_location_anchor",
+      "unverified_airport_assumption",
+      "no_route_optimization",
+      "overgeneralized_recommendations"
+    ],
+    "strengths": [
+      "Clear time-based sectioning; natural, non-marketing tone; acknowledges uncertainty in hotel policy and flight prep"
+    ],
+    "judge_reason": "回答虽结构清晰、语气克制，但严重缺失关键任务约束：未承接用户实际住处（无酒店位置锚点），未基于住处规划动线，未减少折返（如推荐平江路/观前街却未确认是否邻近酒店）；错误将‘苏南硕放国际机场’表述为‘苏州有多个机场’并默认其为用户出发机场——苏州无民用机场，硕放机场属无锡，此为事实性错误且违反must_not_do中‘不把实时/地理信息说成确定事实’；全程未体现路线顺接逻辑，仅泛泛列出地点+交通提醒，未完成‘顺一下’这一核心指令。属于典型last_day_partial任务失败。"
+  }
+]

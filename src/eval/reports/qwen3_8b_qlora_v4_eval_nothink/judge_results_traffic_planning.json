@@ -1,0 +1,2314 @@
+[
+  {
+    "id": "eval_traffic_planning_000001",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 389,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"Correctly identifies that Sanya has no metro system — avoids fabrication\",\n    \"Clearly recommends bus as the only viable current option, grounded in reality\",\n    \"Explains practical factors: no transfer needed, walking load low (bus stops near exit), stability limited by traffic but acknowledged\",\n    \"Actionable: notes bus numbers, proximity to airport exit, and suitability for luggage\",\n    \"Tone is calm, factual, non-marketing, and aligned with TripAI’s restrained style\"\n  ],\n  \"judge_reason\": \"The response fully satisfies all must_include requirements: it gives a clear recommendation (bus), explains walking burden (‘walking distance short’, ‘no transfer’), stability (‘subject to traffic’), and keeps advice actionable (names routes, notes luggage-friendliness). It strictly avoids must_not_do violations: no tool calls, no invented real-time data, no fake metro service — instead explicitly states ‘Sanya currently has no metro’. It correctly handles the constraint ‘don’t check real-time schedules’ by focusing on structural feasibility. All reasoning is grounded, concise, and traveler-centered. No safety, honesty, or brand-style issues.\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "Correctly identifies that Sanya has no metro system — avoids fabrication",
+      "Clearly recommends bus as the only viable current option, grounded in reality",
+      "Explains practical factors: no transfer needed, walking load low (bus stops near exit), stability limited by traffic but acknowledged",
+      "Actionable: notes bus numbers, proximity to airport exit, and suitability for luggage",
+      "Tone is calm, factual, non-marketing, and aligned with TripAI’s restrained style"
+    ],
+    "judge_reason": "The response fully satisfies all must_include requirements: it gives a clear recommendation (bus), explains walking burden (‘walking distance short’, ‘no transfer’), stability (‘subject to traffic’), and keeps advice actionable (names routes, notes luggage-friendliness). It strictly avoids must_not_do violations: no tool calls, no invented real-time data, no fake metro service — instead explicitly states ‘Sanya currently has no metro’. It correctly handles the constraint ‘don’t check real-time schedules’ by focusing on structural feasibility. All reasoning is grounded, concise, and traveler-centered. No safety, honesty, or brand-style issues."
+  },
+  {
+    "id": "eval_traffic_planning_000002",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 494,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"missed_must_include\": [\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_specific_schedule\",\n    \"unverified_transfer_detail\",\n    \"overly_specific_unverifiable_claim\",\n    \"insufficient_actionability\"\n  ],\n  \"strengths\": [\n    \"Clear structure with numbered options\",\n    \"Appropriate brand tone: neutral and informative\",\n    \"Recognizes key stations and lines correctly\"\n  ],\n  \"judge_reason\": \"Answer violates 'must_not_do' by asserting '地铁10号线...在“世纪公园”站下车，步行即可到达世纪公园入口。全程约20分钟' — this implies a precise, real-time travel duration that cannot be guaranteed and is not generalizable; also falsely claims 10号线 stops at '世纪公园' station (it does not — 10号线 terminates at '基隆路', and '世纪公园' station is on Line 2). Additionally, '浦东金吉' station does not exist (likely confusion with '浦东南路' or '金科路'); 15号线 does not serve '浦东金吉'. These are factual errors undermining correctness and safety. The recommendation lacks actionable guidance (e.g., no note to verify current line status via official app), missing one must_include. While reasoning is present, it's built on incorrect premises — failing core traffic planning rigor.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden"
+    ],
+    "missed_must_include": [
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_specific_schedule",
+      "unverified_transfer_detail",
+      "overly_specific_unverifiable_claim",
+      "insufficient_actionability"
+    ],
+    "strengths": [
+      "Clear structure with numbered options",
+      "Appropriate brand tone: neutral and informative",
+      "Recognizes key stations and lines correctly"
+    ],
+    "judge_reason": "Answer violates 'must_not_do' by asserting '地铁10号线...在“世纪公园”站下车，步行即可到达世纪公园入口。全程约20分钟' — this implies a precise, real-time travel duration that cannot be guaranteed and is not generalizable; also falsely claims 10号线 stops at '世纪公园' station (it does not — 10号线 terminates at '基隆路', and '世纪公园' station is on Line 2). Additionally, '浦东金吉' station does not exist (likely confusion with '浦东南路' or '金科路'); 15号线 does not serve '浦东金吉'. These are factual errors undermining correctness and safety. The recommendation lacks actionable guidance (e.g., no note to verify current line status via official app), missing one must_include. While reasoning is present, it's built on incorrect premises — failing core traffic planning rigor."
+  },
+  {
+    "id": "eval_traffic_planning_000003",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 435,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"lack_of_reasoning\", \"overly_prescriptive_route\", \"ignores_connectivity_realities\"],\n  \"strengths\": [\"Identifies no direct service correctly\", \"Uses natural, non-marketing language\", \"Avoids inventing fares/times\"],\n  \"judge_reason\": \"The response falsely claims a specific 3-step route (10→2→walk) as 'recommended', but this is not actually optimal: 10号线从虹桥火车站出发不经过南京东路站 — it goes directly to Yuyuan Garden via Line 10's branch to Yuyuan Station (via Laoximen), making the described transfer at Nanjing East Road both unnecessary and incorrect. It fails to explain *why* any option is more stable/less burdensome; instead, it recites generic platitudes ('地铁准点性强') without comparing alternatives (e.g., direct Line 10 to Yuyuan Station vs. bus vs. taxi). It violates 'must_not_do' by prescribing an unworkable sequence without reasoning — naming modes ≠ explaining trade-offs. Also misses must_include on actionable advice: no guidance on how to verify station names, signage, or exit choices at Yuyuan Station. Safety/honesty is preserved (no fake prices/times), and tone aligns with brand, but core traffic logic is flawed.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "lack_of_reasoning",
+      "overly_prescriptive_route",
+      "ignores_connectivity_realities"
+    ],
+    "strengths": [
+      "Identifies no direct service correctly",
+      "Uses natural, non-marketing language",
+      "Avoids inventing fares/times"
+    ],
+    "judge_reason": "The response falsely claims a specific 3-step route (10→2→walk) as 'recommended', but this is not actually optimal: 10号线从虹桥火车站出发不经过南京东路站 — it goes directly to Yuyuan Garden via Line 10's branch to Yuyuan Station (via Laoximen), making the described transfer at Nanjing East Road both unnecessary and incorrect. It fails to explain *why* any option is more stable/less burdensome; instead, it recites generic platitudes ('地铁准点性强') without comparing alternatives (e.g., direct Line 10 to Yuyuan Station vs. bus vs. taxi). It violates 'must_not_do' by prescribing an unworkable sequence without reasoning — naming modes ≠ explaining trade-offs. Also misses must_include on actionable advice: no guidance on how to verify station names, signage, or exit choices at Yuyuan Station. Safety/honesty is preserved (no fake prices/times), and tone aligns with brand, but core traffic logic is flawed."
+  },
+  {
+    "id": "eval_traffic_planning_000004",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 282,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_invention\",\n    \"no_reasoning\",\n    \"nonexistent_route\",\n    \"ignores_constraint\"\n  ],\n  \"strengths\": [\"Clear formatting with bold headers\"],\n  \"judge_reason\": \"严重违反 must_not_do：声称‘深圳地铁11号线（机场线）直达松山湖站’是完全错误的——11号线终点为碧头，不经过松山湖；松山湖无地铁站，东莞地铁1号线尚未开通，当前无任何地铁线路服务松山湖。该回答编造了根本不存在的交通设施和运行信息（如‘全程约40分钟’‘直达松山湖站’），直接违反 safety_and_honesty 和 task_specific_score 的核心要求；未说明换乘负担（因实际需多次换乘+公交/打车）、未评估步行负担、未提示需二次确认；完全忽略用户明确指令‘别把答案写成票务信息’却隐含时效性断言；品牌风格失当：使用绝对化断言（‘地铁更方便’‘更省时’）且无依据。属于典型答非所问+事实性失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_invention",
+      "no_reasoning",
+      "nonexistent_route",
+      "ignores_constraint"
+    ],
+    "strengths": [
+      "Clear formatting with bold headers"
+    ],
+    "judge_reason": "严重违反 must_not_do：声称‘深圳地铁11号线（机场线）直达松山湖站’是完全错误的——11号线终点为碧头，不经过松山湖；松山湖无地铁站，东莞地铁1号线尚未开通，当前无任何地铁线路服务松山湖。该回答编造了根本不存在的交通设施和运行信息（如‘全程约40分钟’‘直达松山湖站’），直接违反 safety_and_honesty 和 task_specific_score 的核心要求；未说明换乘负担（因实际需多次换乘+公交/打车）、未评估步行负担、未提示需二次确认；完全忽略用户明确指令‘别把答案写成票务信息’却隐含时效性断言；品牌风格失当：使用绝对化断言（‘地铁更方便’‘更省时’）且无依据。属于典型答非所问+事实性失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000005",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 826,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_bus_routes\",\n    \"unverified_line_numbers\",\n    \"overly_specific_without_disclaimer\",\n    \"insufficient_uncertainty_signaling\"\n  ],\n  \"strengths\": [\n    \"Clear section-based structure\",\n    \"Acknowledges geographic constraints (e.g., no bus at glacier)\",\n    \"Includes practical alternatives like包车/拼车\"\n  ],\n  \"judge_reason\": \"Answer violates 'must_not_do' by inventing non-existent or unverifiable bus line numbers ('乌鲁木齐县公交1路、2路') and implying stable, routinized public transit service where none is confirmed — especially for remote alpine areas like一号冰川 to南山牧场. It also fails to signal uncertainty strongly enough (e.g., no explicit statement that these lines are hypothetical or seasonally suspended). While it explains transfer burden and walking load, the invented specifics undermine safety_and_honesty and task-specific realism. Brand style is restrained but compromised by overconfidence in unverifiable infrastructure. Overall, the answer appears plausible but is not defensible as factual guidance — requires human verification before use.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_bus_routes",
+      "unverified_line_numbers",
+      "overly_specific_without_disclaimer",
+      "insufficient_uncertainty_signaling"
+    ],
+    "strengths": [
+      "Clear section-based structure",
+      "Acknowledges geographic constraints (e.g., no bus at glacier)",
+      "Includes practical alternatives like包车/拼车"
+    ],
+    "judge_reason": "Answer violates 'must_not_do' by inventing non-existent or unverifiable bus line numbers ('乌鲁木齐县公交1路、2路') and implying stable, routinized public transit service where none is confirmed — especially for remote alpine areas like一号冰川 to南山牧场. It also fails to signal uncertainty strongly enough (e.g., no explicit statement that these lines are hypothetical or seasonally suspended). While it explains transfer burden and walking load, the invented specifics undermine safety_and_honesty and task-specific realism. Brand style is restrained but compromised by overconfidence in unverifiable infrastructure. Overall, the answer appears plausible but is not defensible as factual guidance — requires human verification before use."
+  },
+  {
+    "id": "eval_traffic_planning_000006",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 794,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Give a clear travel recommendation\", \"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"答非所问\", \"编造不可靠细节\", \"缺乏推荐结论\", \"未解释比较依据\", \"结构虚假详实\"],\n  \"strengths\": [\"格式分层清晰\", \"语言通顺\"],\n  \"judge_reason\": \"回答未给出明确推荐（如‘更推荐地铁+短驳公交’或‘公交直达更省心’），而是平行罗列两种方式优缺点，违背must_include第一条；未就西樵山→祖庙实际交通现实（西樵山无地铁站，必须公交接驳）进行换乘负担、步行距离、连接稳定性等关键维度分析，仅泛泛而谈‘地铁换乘少’‘公交受路况影响’，属空洞套话；结尾截断（'在“祖庙”站下车后步行'不完整），且隐含编造：如虚构‘南海区行政服务中心’为中转点（该地距西樵山约15km，非常规接驳节点），并暗示可‘乘坐公交至祖庙附近站点再换乘地铁’，但广佛线祖庙站周边无公交密集接驳枢纽，该建议不可执行；全文未体现‘推荐思路’这一用户核心诉求，属严重答非所问；违反must_not_do中‘不编造实时信息’和‘不只列模式无推理’两项。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "编造不可靠细节",
+      "缺乏推荐结论",
+      "未解释比较依据",
+      "结构虚假详实"
+    ],
+    "strengths": [
+      "格式分层清晰",
+      "语言通顺"
+    ],
+    "judge_reason": "回答未给出明确推荐（如‘更推荐地铁+短驳公交’或‘公交直达更省心’），而是平行罗列两种方式优缺点，违背must_include第一条；未就西樵山→祖庙实际交通现实（西樵山无地铁站，必须公交接驳）进行换乘负担、步行距离、连接稳定性等关键维度分析，仅泛泛而谈‘地铁换乘少’‘公交受路况影响’，属空洞套话；结尾截断（'在“祖庙”站下车后步行'不完整），且隐含编造：如虚构‘南海区行政服务中心’为中转点（该地距西樵山约15km，非常规接驳节点），并暗示可‘乘坐公交至祖庙附近站点再换乘地铁’，但广佛线祖庙站周边无公交密集接驳枢纽，该建议不可执行；全文未体现‘推荐思路’这一用户核心诉求，属严重答非所问；违反must_not_do中‘不编造实时信息’和‘不只列模式无推理’两项。"
+  },
+  {
+    "id": "eval_traffic_planning_000007",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 444,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_error\",\n    \"invented_route\",\n    \"no_reasoning\",\n    \"violation_of_must_not_do\",\n    \"unrealistic_transit_logic\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重失实：北京地铁无'人民广场站'（该站位于上海），也不存在'1号线（八通线）内环方向'的混搭命名（八通线已并入1号线，但无'内环方向'说法）；西直门换乘4号线去中关村虽可行，但推荐路径中虚构了不存在的换乘节点和方向逻辑。全程未解释为何该路线'更省心'，未提及换乘次数、步行距离、稳定性或连接复杂度等关键维度，纯罗列错误站点与方向，属典型编造。违反must_not_do中'不编造实时班次/站点'及'不只列模式不解释'两条核心禁令。完全未覆盖must_include任一要点。风格上存在过度断言（如'全程约40分钟'无依据）、伪专业口吻，违背TripAI克制、诚实、可验证的品牌调性。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_error",
+      "invented_route",
+      "no_reasoning",
+      "violation_of_must_not_do",
+      "unrealistic_transit_logic"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重失实：北京地铁无'人民广场站'（该站位于上海），也不存在'1号线（八通线）内环方向'的混搭命名（八通线已并入1号线，但无'内环方向'说法）；西直门换乘4号线去中关村虽可行，但推荐路径中虚构了不存在的换乘节点和方向逻辑。全程未解释为何该路线'更省心'，未提及换乘次数、步行距离、稳定性或连接复杂度等关键维度，纯罗列错误站点与方向，属典型编造。违反must_not_do中'不编造实时班次/站点'及'不只列模式不解释'两条核心禁令。完全未覆盖must_include任一要点。风格上存在过度断言（如'全程约40分钟'无依据）、伪专业口吻，违背TripAI克制、诚实、可验证的品牌调性。"
+  },
+  {
+    "id": "eval_traffic_planning_000008",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 135,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\"],\n  \"issue_tags\": [\"factual_invention\", \"missing_reasoning\", \"unactionable_advice\"],\n  \"strengths\": [\"Natural phrasing\", \"Clear recommendation of metro\", \"Appropriate brand tone\"],\n  \"judge_reason\": \"回答声称‘地铁4号线（安河桥北方向）直达奥林匹克公园站’——这是严重错误：4号线不达奥林匹克公园；实际需换乘至8/15号线，且‘奥林匹克公园站’并非标准站名（应为‘奥林匹克公园’或‘奥体中心’等，但北京地铁无此精确站名）；‘全程约30分钟，无需换乘’属编造实时行程信息，违反 must_not_do；未解释换乘负担、步行距离或稳定性差异；未说明为何该路线更省心/稳妥；‘公交或共享单车结合’未说明如何结合、步行多远、是否现实，缺乏可执行性。整体违背 traffic planning rubric 核心要求，属明显失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability"
+    ],
+    "issue_tags": [
+      "factual_invention",
+      "missing_reasoning",
+      "unactionable_advice"
+    ],
+    "strengths": [
+      "Natural phrasing",
+      "Clear recommendation of metro",
+      "Appropriate brand tone"
+    ],
+    "judge_reason": "回答声称‘地铁4号线（安河桥北方向）直达奥林匹克公园站’——这是严重错误：4号线不达奥林匹克公园；实际需换乘至8/15号线，且‘奥林匹克公园站’并非标准站名（应为‘奥林匹克公园’或‘奥体中心’等，但北京地铁无此精确站名）；‘全程约30分钟，无需换乘’属编造实时行程信息，违反 must_not_do；未解释换乘负担、步行距离或稳定性差异；未说明为何该路线更省心/稳妥；‘公交或共享单车结合’未说明如何结合、步行多远、是否现实，缺乏可执行性。整体违背 traffic planning rubric 核心要求，属明显失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000009",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 484,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"moderate_time_range_vagueness\"],\n  \"strengths\": [\n    \"Clear side-by-side comparison of自驾 vs 公共交通 with balanced pros/cons\",\n    \"Explicitly avoids real-time schedules, fares, or seat availability\",\n    \"Natural, non-marketing language aligned with TripAI brand style\",\n    \"Actionable summary with conditional recommendation based on user priorities\"\n  ],\n  \"judge_reason\": \"The response correctly identifies and compares key factors (time variability, parking burden, transfer complexity, walking load) without inventing live data. It gives a clear, context-aware recommendation ('自驾 more suitable if... / 公共交通 more suitable if...') and explains why — satisfying all must_include items. Minor risk stems from broad time ranges ('1.5–2 hours', '2–3 hours') which—while reasonable and hedged—are slightly less precise than ideal for stability assessment; however, they are not fabricated specifics (e.g., no exact departure times or fare amounts), so they do not violate must_not_do. No tool traces, JSON, or marketing tone. Overall robust and user-centered.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "moderate_time_range_vagueness"
+    ],
+    "strengths": [
+      "Clear side-by-side comparison of自驾 vs 公共交通 with balanced pros/cons",
+      "Explicitly avoids real-time schedules, fares, or seat availability",
+      "Natural, non-marketing language aligned with TripAI brand style",
+      "Actionable summary with conditional recommendation based on user priorities"
+    ],
+    "judge_reason": "The response correctly identifies and compares key factors (time variability, parking burden, transfer complexity, walking load) without inventing live data. It gives a clear, context-aware recommendation ('自驾 more suitable if... / 公共交通 more suitable if...') and explains why — satisfying all must_include items. Minor risk stems from broad time ranges ('1.5–2 hours', '2–3 hours') which—while reasonable and hedged—are slightly less precise than ideal for stability assessment; however, they are not fabricated specifics (e.g., no exact departure times or fare amounts), so they do not violate must_not_do. No tool traces, JSON, or marketing tone. Overall robust and user-centered."
+  },
+  {
+    "id": "eval_traffic_planning_000010",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 473,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"missed_must_include\": [\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_fare\",\n    \"invented_duration\",\n    \"insufficient_actionability\",\n    \"overly_specific_unverifiable_claim\"\n  ],\n  \"strengths\": [\n    \"Clear structure with numbered options\",\n    \"Acknowledges lack of direct service\",\n    \"Compares multiple modalities (bus, metro, ride-hailing)\",\n    \"Natural, non-marketing tone\"\n  ],\n  \"judge_reason\": \"The response violates 'must_not_do' by inventing concrete, unverifiable real-time information: '全程约30-40分钟, 费用在30-50元之间' — these are precise fare/duration claims with no source or qualification, violating safety_and_honesty and traffic planning rubric's prohibition on fabricating live data. It also fails full actionability: no guidance on *which* specific bus routes serve栖霞山, how to identify them, or where to board; '地铁一号线的南京站或鼓楼站' is misleading (neither is on Line 1 — Nanjing Station is Line 1/3/6 interchange, Gulou is Line 1/4 — but this inaccuracy isn't corrected). While reasoning is present, it's superficial ('more efficient' without quantifying transfer burden or walking load), and the recommendation lacks a decisive, prioritized 'one best思路' as required. Thus, correctness and task-specific score are compromised; instruction_following is low due to explicit must_not_do violations. Verdict is 'hold' — not outright fail (it’s not hallucinated entirely), but requires correction before release.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden"
+    ],
+    "missed_must_include": [
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_fare",
+      "invented_duration",
+      "insufficient_actionability",
+      "overly_specific_unverifiable_claim"
+    ],
+    "strengths": [
+      "Clear structure with numbered options",
+      "Acknowledges lack of direct service",
+      "Compares multiple modalities (bus, metro, ride-hailing)",
+      "Natural, non-marketing tone"
+    ],
+    "judge_reason": "The response violates 'must_not_do' by inventing concrete, unverifiable real-time information: '全程约30-40分钟, 费用在30-50元之间' — these are precise fare/duration claims with no source or qualification, violating safety_and_honesty and traffic planning rubric's prohibition on fabricating live data. It also fails full actionability: no guidance on *which* specific bus routes serve栖霞山, how to identify them, or where to board; '地铁一号线的南京站或鼓楼站' is misleading (neither is on Line 1 — Nanjing Station is Line 1/3/6 interchange, Gulou is Line 1/4 — but this inaccuracy isn't corrected). While reasoning is present, it's superficial ('more efficient' without quantifying transfer burden or walking load), and the recommendation lacks a decisive, prioritized 'one best思路' as required. Thus, correctness and task-specific score are compromised; instruction_following is low due to explicit must_not_do violations. Verdict is 'hold' — not outright fail (it’s not hallucinated entirely), but requires correction before release."
+  },
+  {
+    "id": "eval_traffic_planning_000011",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 393,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_geographic_inaccuracy\"],\n  \"strengths\": [\n    \"Clear hierarchical structure with bolded route and numbered reasoning\",\n    \"Explicit comparison of transfer burden, stability, and walking load\",\n    \"Appropriate avoidance of real-time data (no fares, schedules, or seat info)\",\n    \"Natural, non-marketing tone aligned with TripAI brand style\",\n    \"Actionable endpoint: '步行至雨花台景区' with time estimate ('几分钟')\"\n  ],\n  \"judge_reason\": \"The response correctly recommends metro as primary mode and explains why it's more hassle-free — covering transfer count (one), line stability (1/2号线为骨干线), walking burden (minutes from 雨花门站), and avoids inventing live data. However, there is a minor geographic inaccuracy: 江宁站 is not on Nanjing Metro Line 1; it's a high-speed rail station with no direct metro access — the nearest metro station is Jiangning University Town (Line 1) or Hohai University (Line 5), requiring initial bus/walk. The answer treats '江宁站' as a metro station, which misrepresents infrastructure reality. This undermines 'correctness' and 'task_specific_score' slightly but doesn't rise to violation level since no false real-time data is invented and the core logic (metro > bus/taxi for stability & simplicity) remains sound. Hence 'pass_with_risk'.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_geographic_inaccuracy"
+    ],
+    "strengths": [
+      "Clear hierarchical structure with bolded route and numbered reasoning",
+      "Explicit comparison of transfer burden, stability, and walking load",
+      "Appropriate avoidance of real-time data (no fares, schedules, or seat info)",
+      "Natural, non-marketing tone aligned with TripAI brand style",
+      "Actionable endpoint: '步行至雨花台景区' with time estimate ('几分钟')"
+    ],
+    "judge_reason": "The response correctly recommends metro as primary mode and explains why it's more hassle-free — covering transfer count (one), line stability (1/2号线为骨干线), walking burden (minutes from 雨花门站), and avoids inventing live data. However, there is a minor geographic inaccuracy: 江宁站 is not on Nanjing Metro Line 1; it's a high-speed rail station with no direct metro access — the nearest metro station is Jiangning University Town (Line 1) or Hohai University (Line 5), requiring initial bus/walk. The answer treats '江宁站' as a metro station, which misrepresents infrastructure reality. This undermines 'correctness' and 'task_specific_score' slightly but doesn't rise to violation level since no false real-time data is invented and the core logic (metro > bus/taxi for stability & simplicity) remains sound. Hence 'pass_with_risk'."
+  },
+  {
+    "id": "eval_traffic_planning_000012",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 153,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 4,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"factual_inaccuracy\", \"lack_of_reasoning\", \"invented_infrastructure_detail\", \"ignores_transfer_analysis\"],\n  \"strengths\": [\"Tone is neutral and brand-aligned; no marketing language\"],\n  \"judge_reason\": \"回答严重失实：南昌北站并非南昌地铁1号线站点（实际为高铁站，无地铁直连），且八一广场站是1号线中途站而非起点站；回答虚构‘南昌北站站’这一不存在的地铁站，并错误断言‘无需换乘’，完全违背现实交通结构；未分析换乘负担、步行距离、稳定性等核心维度；未提供任何可操作建议（如打车/公交接驳方案）；将不存在的线路关系描述为确定事实，违反 safety_and_honesty；未解释为何推荐该方式，仅堆砌错误名词，违反 must_not_do 和 must_include。属于关键事实性失败，应 fail。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 4,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_inaccuracy",
+      "lack_of_reasoning",
+      "invented_infrastructure_detail",
+      "ignores_transfer_analysis"
+    ],
+    "strengths": [
+      "Tone is neutral and brand-aligned; no marketing language"
+    ],
+    "judge_reason": "回答严重失实：南昌北站并非南昌地铁1号线站点（实际为高铁站，无地铁直连），且八一广场站是1号线中途站而非起点站；回答虚构‘南昌北站站’这一不存在的地铁站，并错误断言‘无需换乘’，完全违背现实交通结构；未分析换乘负担、步行距离、稳定性等核心维度；未提供任何可操作建议（如打车/公交接驳方案）；将不存在的线路关系描述为确定事实，违反 safety_and_honesty；未解释为何推荐该方式，仅堆砌错误名词，违反 must_not_do 和 must_include。属于关键事实性失败，应 fail。"
+  },
+  {
+    "id": "eval_traffic_planning_000013",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 592,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_specific_bus_numbers\",\n    \"unverified_route_stability_claim\",\n    \"missing_explanation_of_transfer_burden_or_walking_load\",\n    \"implied_real-time_feasibility_without_qualification\"\n  ],\n  \"strengths\": [\n    \"Clear two-option structure (bus vs. taxi)\",\n    \"Actionable step-by-step format\",\n    \"Natural, non-marketing tone\",\n    \"Acknowledges local geography (e.g., '启东圆陀角周边公交站点较少')\"\n  ],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重违反 must_not_do: 它虚构了不存在的‘启东公交101路、城乡公交102路’（无公开信息支持该编号在启东实际运营），并声称‘直达南通市区’——实则启东圆陀角无常规公交直达南通市区，需至少一次换乘；同时未真正解释‘transfer burden’（如换乘次数、步行距离、候车不确定性）或‘stability’（如城乡公交班次稀疏、早十点可能已错过末班），仅用模糊形容词（‘相对稳定’）搪塞。‘避开早高峰主干道’建议缺乏依据，且将‘7:30–9:30’称作‘早高峰时段’却忽略用户明确要求‘早上十点左右出发’，逻辑脱节。未满足 traffic planning rubric 核心要求：不提供实时信息，但必须基于现实交通逻辑做可验证比较。因此判定为 hold。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_specific_bus_numbers",
+      "unverified_route_stability_claim",
+      "missing_explanation_of_transfer_burden_or_walking_load",
+      "implied_real-time_feasibility_without_qualification"
+    ],
+    "strengths": [
+      "Clear two-option structure (bus vs. taxi)",
+      "Actionable step-by-step format",
+      "Natural, non-marketing tone",
+      "Acknowledges local geography (e.g., '启东圆陀角周边公交站点较少')"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重违反 must_not_do: 它虚构了不存在的‘启东公交101路、城乡公交102路’（无公开信息支持该编号在启东实际运营），并声称‘直达南通市区’——实则启东圆陀角无常规公交直达南通市区，需至少一次换乘；同时未真正解释‘transfer burden’（如换乘次数、步行距离、候车不确定性）或‘stability’（如城乡公交班次稀疏、早十点可能已错过末班），仅用模糊形容词（‘相对稳定’）搪塞。‘避开早高峰主干道’建议缺乏依据，且将‘7:30–9:30’称作‘早高峰时段’却忽略用户明确要求‘早上十点左右出发’，逻辑脱节。未满足 traffic planning rubric 核心要求：不提供实时信息，但必须基于现实交通逻辑做可验证比较。因此判定为 hold。"
+  },
+  {
+    "id": "eval_traffic_planning_000014",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 456,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_overgeneralization\"],\n  \"strengths\": [\n    \"Clear stepwise structure with logical flow from origin to destination\",\n    \"Correctly identifies轮渡 as core water-link and avoids inventing schedules/fares\",\n    \"Explains rationale (stability, convenience, reduced detour) without overpromising\",\n    \"Maintains TripAI's natural, non-marketing tone and avoids hype\"\n  ],\n  \"judge_reason\": \"The response correctly recommends a land+water combination (via transport hub → ferry), explains transfer logic and stability, and remains actionable without real-time fabrication. However, it slightly overgeneralizes by implying 'regular ferry service' exists directly between 'Xiamen Ferry Terminal' and Xiaodeng Island — in reality, public ferries to Xiaodeng Island are extremely limited (often seasonal, charter-only, or via Dongdu Port with prior arrangement), and no regular scheduled service operates from First Pier or Xiamen Ferry Terminal. While the answer avoids stating exact times/fare/availability (thus satisfying safety_and_honesty), this factual gap in route feasibility lowers correctness and task-specific robustness. Not severe enough for hold/fail, but warrants 'pass_with_risk'.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_overgeneralization"
+    ],
+    "strengths": [
+      "Clear stepwise structure with logical flow from origin to destination",
+      "Correctly identifies轮渡 as core water-link and avoids inventing schedules/fares",
+      "Explains rationale (stability, convenience, reduced detour) without overpromising",
+      "Maintains TripAI's natural, non-marketing tone and avoids hype"
+    ],
+    "judge_reason": "The response correctly recommends a land+water combination (via transport hub → ferry), explains transfer logic and stability, and remains actionable without real-time fabrication. However, it slightly overgeneralizes by implying 'regular ferry service' exists directly between 'Xiamen Ferry Terminal' and Xiaodeng Island — in reality, public ferries to Xiaodeng Island are extremely limited (often seasonal, charter-only, or via Dongdu Port with prior arrangement), and no regular scheduled service operates from First Pier or Xiamen Ferry Terminal. While the answer avoids stating exact times/fare/availability (thus satisfying safety_and_honesty), this factual gap in route feasibility lowers correctness and task-specific robustness. Not severe enough for hold/fail, but warrants 'pass_with_risk'."
+  },
+  {
+    "id": "eval_traffic_planning_000015",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 854,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"slight_overgeneralization\", \"minor_redundancy\"],\n  \"strengths\": [\n    \"Clear comparative structure between自驾 and 公共交通\",\n    \"Explicit recommendation ('更省心的选择：公共交通') with rationale focused on parking stress and predictability\",\n    \"No invented real-time data (no fake schedules, fares, or seat counts)\",\n    \"Natural, non-marketing tone aligned with TripAI brand\"\n  ],\n  \"judge_reason\": \"The response correctly identifies and weighs key factors: parking difficulty at Dà Shǔ Shān (a well-known pain point), transfer burden (noted but not over-specified), stability (acknowledges traffic risk for driving), and walking load (implied via 'walk or taxi to entrance'). It avoids prohibited elements: no tool calls, no live data, no unsubstantiated claims. However, it slightly overgeneralizes by stating '公交或地铁直达景区门口' — in reality, no metro line serves Dà Shǔ Shān directly; bus routes require short walks (~5–10 min) from stops to entrances. Also, the phrase '整体更省心' is repeated without distinguishing *why* it's more stable than driving beyond parking — missing slight nuance in 'stability' (e.g., bus frequency vs. traffic unpredictability). These are minor but tangible risks for user execution, warranting pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "slight_overgeneralization",
+      "minor_redundancy"
+    ],
+    "strengths": [
+      "Clear comparative structure between自驾 and 公共交通",
+      "Explicit recommendation ('更省心的选择：公共交通') with rationale focused on parking stress and predictability",
+      "No invented real-time data (no fake schedules, fares, or seat counts)",
+      "Natural, non-marketing tone aligned with TripAI brand"
+    ],
+    "judge_reason": "The response correctly identifies and weighs key factors: parking difficulty at Dà Shǔ Shān (a well-known pain point), transfer burden (noted but not over-specified), stability (acknowledges traffic risk for driving), and walking load (implied via 'walk or taxi to entrance'). It avoids prohibited elements: no tool calls, no live data, no unsubstantiated claims. However, it slightly overgeneralizes by stating '公交或地铁直达景区门口' — in reality, no metro line serves Dà Shǔ Shān directly; bus routes require short walks (~5–10 min) from stops to entrances. Also, the phrase '整体更省心' is repeated without distinguishing *why* it's more stable than driving beyond parking — missing slight nuance in 'stability' (e.g., bus frequency vs. traffic unpredictability). These are minor but tangible risks for user execution, warranting pass_with_risk."
+  },
+  {
+    "id": "eval_traffic_planning_000016",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 652,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"factual_inaccuracy\", \"unjustified_specificity\", \"lack_of_reasoning\", \"realtime_fabrication\"],\n  \"strengths\": [\"Structurally organized with numbered steps\", \"Mentions winter context and general caution\"],\n  \"judge_reason\": \"回答严重违反 must_not_do：虚构了不存在的‘地铁冰雪大世界站’（哈尔滨地铁3号线无此站名，冰雪大世界实际毗邻的是‘冰雪大世界’公交枢纽，无直连地铁站）；编造‘哈尔滨南站’为换乘节点（哈尔滨南站是铁路货运站，非公交/地铁客运枢纽，且不靠近东北虎林园）；错误声称128路、138路等公交可直达东北虎林园（实际无128路，138路不途经该区域）；给出‘步行约10分钟’‘20-30分钟内到达’等不可靠时效信息，属典型实时信息编造。未解释为何推荐该路线——未比较换乘负担、步行负荷、稳定性或连接复杂度，完全缺失 task-specific 核心要求。所有路线描述缺乏现实依据，不可执行，构成事实性失败和安全风险。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_inaccuracy",
+      "unjustified_specificity",
+      "lack_of_reasoning",
+      "realtime_fabrication"
+    ],
+    "strengths": [
+      "Structurally organized with numbered steps",
+      "Mentions winter context and general caution"
+    ],
+    "judge_reason": "回答严重违反 must_not_do：虚构了不存在的‘地铁冰雪大世界站’（哈尔滨地铁3号线无此站名，冰雪大世界实际毗邻的是‘冰雪大世界’公交枢纽，无直连地铁站）；编造‘哈尔滨南站’为换乘节点（哈尔滨南站是铁路货运站，非公交/地铁客运枢纽，且不靠近东北虎林园）；错误声称128路、138路等公交可直达东北虎林园（实际无128路，138路不途经该区域）；给出‘步行约10分钟’‘20-30分钟内到达’等不可靠时效信息，属典型实时信息编造。未解释为何推荐该路线——未比较换乘负担、步行负荷、稳定性或连接复杂度，完全缺失 task-specific 核心要求。所有路线描述缺乏现实依据，不可执行，构成事实性失败和安全风险。"
+  },
+  {
+    "id": "eval_traffic_planning_000017",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 453,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"missed_must_include\": [\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\"\n  ],\n  \"issue_tags\": [\n    \"invented_route_detail\",\n    \"unverified_bus_number\",\n    \"overly_specific_without_disclaimer\"\n  ],\n  \"strengths\": [\n    \"Clear comparative structure (bus vs metro)\",\n    \"Correct high-level fact: no metro at 嘉善南站\",\n    \"Natural, non-marketing tone\"\n  ],\n  \"judge_reason\": \"Answer correctly identifies that metro is infeasible and recommends bus — but violates must_not_do by naming specific unverified bus numbers ('101路' / '102路') without qualification, implying real-time operational certainty. No disclaimer like 'check local signage or app for current routes' is given. Also misses full actionability: doesn't specify *how* to locate the bus stop at 嘉善南站, nor clarify whether '乌镇汽车站' is still operational (it has been largely replaced by shuttle services post-2022). Fails to mention viable alternatives like intercity bus or taxi for reliability/stability comparison. Thus, passes core logic but fails on safety/honesty and task-specific realism — requires human verification before deployment.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 3,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden"
+    ],
+    "missed_must_include": [
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability"
+    ],
+    "issue_tags": [
+      "invented_route_detail",
+      "unverified_bus_number",
+      "overly_specific_without_disclaimer"
+    ],
+    "strengths": [
+      "Clear comparative structure (bus vs metro)",
+      "Correct high-level fact: no metro at 嘉善南站",
+      "Natural, non-marketing tone"
+    ],
+    "judge_reason": "Answer correctly identifies that metro is infeasible and recommends bus — but violates must_not_do by naming specific unverified bus numbers ('101路' / '102路') without qualification, implying real-time operational certainty. No disclaimer like 'check local signage or app for current routes' is given. Also misses full actionability: doesn't specify *how* to locate the bus stop at 嘉善南站, nor clarify whether '乌镇汽车站' is still operational (it has been largely replaced by shuttle services post-2022). Fails to mention viable alternatives like intercity bus or taxi for reliability/stability comparison. Thus, passes core logic but fails on safety/honesty and task-specific realism — requires human verification before deployment."
+  },
+  {
+    "id": "eval_traffic_planning_000018",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 793,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_invention\",\n    \"no_reasoning\",\n    \"incomplete_recommendation\",\n    \"unrealistic_route_assumption\",\n    \"missing_explanation_of_transfer_burden_stability_walking_load\"\n  ],\n  \"strengths\": [\"Structural clarity in section headings\", \"Attempt to list multiple options\"],\n  \"judge_reason\": \"回答严重违反 must_not_do：虚构了不存在的公交线路（如'21路、31路、521路'）直达'滨海路公园'站——实际大连公交无521路，且滨海路为开放式景观道路，无标准公交站点命名'滨海路公园'；未说明棒棰岛与滨海路的空间关系（二者实为相邻地理单元，部分路段可步行直连），却默认'需要换乘'并罗列无效换乘方案；完全缺失对换乘负担、稳定性、步行负荷、连接复杂度的比较分析，仅堆砌交通方式名称而无任何推荐逻辑；结尾截断，未完成建议；整体违背TripAI克制、诚实、不编造的风格。属于明显失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_invention",
+      "no_reasoning",
+      "incomplete_recommendation",
+      "unrealistic_route_assumption",
+      "missing_explanation_of_transfer_burden_stability_walking_load"
+    ],
+    "strengths": [
+      "Structural clarity in section headings",
+      "Attempt to list multiple options"
+    ],
+    "judge_reason": "回答严重违反 must_not_do：虚构了不存在的公交线路（如'21路、31路、521路'）直达'滨海路公园'站——实际大连公交无521路，且滨海路为开放式景观道路，无标准公交站点命名'滨海路公园'；未说明棒棰岛与滨海路的空间关系（二者实为相邻地理单元，部分路段可步行直连），却默认'需要换乘'并罗列无效换乘方案；完全缺失对换乘负担、稳定性、步行负荷、连接复杂度的比较分析，仅堆砌交通方式名称而无任何推荐逻辑；结尾截断，未完成建议；整体违背TripAI克制、诚实、不编造的风格。属于明显失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000019",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 775,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_overconfidence_in_line_stability\"],\n  \"strengths\": [\n    \"Clear comparative reasoning across key dimensions (parking, congestion, route planning burden)\",\n    \"Actionable and structured presentation with bullet points and section headers\",\n    \"Appropriate avoidance of real-time data (no invented fares, schedules, or seat counts)\",\n    \"Balanced treatment of both options without overpromising either\"\n  ],\n  \"judge_reason\": \"The response correctly recommends public transport as more 'stress-free' (省心), explains why using stability (avoiding traffic), walking burden (no parking search), and transfer simplicity (direct metro line). It avoids prohibited real-time details. However, it states '地铁1号线...直达水上公园站' with implied certainty — while Tianjin Metro Line 1 does serve Water Park Station, the exact proximity of '海河公园' to a Line 1 station is ambiguous (no official station named '海河公园'; nearest may be Xiaobailou or Yingkoudao, requiring short walk). This introduces minor overconfidence in connection simplicity — a soft violation of 'avoid seeming specific but actually unreliable'. Not severe enough for hold/fail, but warrants pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_overconfidence_in_line_stability"
+    ],
+    "strengths": [
+      "Clear comparative reasoning across key dimensions (parking, congestion, route planning burden)",
+      "Actionable and structured presentation with bullet points and section headers",
+      "Appropriate avoidance of real-time data (no invented fares, schedules, or seat counts)",
+      "Balanced treatment of both options without overpromising either"
+    ],
+    "judge_reason": "The response correctly recommends public transport as more 'stress-free' (省心), explains why using stability (avoiding traffic), walking burden (no parking search), and transfer simplicity (direct metro line). It avoids prohibited real-time details. However, it states '地铁1号线...直达水上公园站' with implied certainty — while Tianjin Metro Line 1 does serve Water Park Station, the exact proximity of '海河公园' to a Line 1 station is ambiguous (no official station named '海河公园'; nearest may be Xiaobailou or Yingkoudao, requiring short walk). This introduces minor overconfidence in connection simplicity — a soft violation of 'avoid seeming specific but actually unreliable'. Not severe enough for hold/fail, but warrants pass_with_risk."
+  },
+  {
+    "id": "eval_traffic_planning_000020",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 576,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_schedule\",\n    \"unverified_transfer_steps\",\n    \"no_reasoning_for_recommendation\",\n    \"excessive_precision_without_source\",\n    \"ignores_uncertainty\"\n  ],\n  \"strengths\": [\n    \"Uses natural language (no JSON/tool traces)\",\n    \"Mentions迎泽公园 as a stopover candidate\",\n    \"Identifies汾河公园 as ecological destination\"\n  ],\n  \"judge_reason\": \"Answer fabricates a multi-step metro route with specific station names (e.g., '长风西站', '西涧河站'), exact stop counts ('约10站左右'), and walking duration ('步行约10分钟') — none of which exist in太原地铁实际运营网络 (as of 2024: only Line 1 and Line 2 operate; no '西涧河站' exists; Line 2 does not serve '迎泽公园站' — the nearest is '大南门站'; '长风西站' is on Line 2 but does not connect to Line 1 as described). It violates must_not_do by inventing live schedules and false infrastructure. It fails to explain *why* metro is more stable/less burdensome — no comparison of walking load, transfer complexity, or reliability. No acknowledgement of uncertainty or need for real-time verification. Thus, correctness, instruction_following, safety_and_honesty, and task_specific_score are critically compromised.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_schedule",
+      "unverified_transfer_steps",
+      "no_reasoning_for_recommendation",
+      "excessive_precision_without_source",
+      "ignores_uncertainty"
+    ],
+    "strengths": [
+      "Uses natural language (no JSON/tool traces)",
+      "Mentions迎泽公园 as a stopover candidate",
+      "Identifies汾河公园 as ecological destination"
+    ],
+    "judge_reason": "Answer fabricates a multi-step metro route with specific station names (e.g., '长风西站', '西涧河站'), exact stop counts ('约10站左右'), and walking duration ('步行约10分钟') — none of which exist in太原地铁实际运营网络 (as of 2024: only Line 1 and Line 2 operate; no '西涧河站' exists; Line 2 does not serve '迎泽公园站' — the nearest is '大南门站'; '长风西站' is on Line 2 but does not connect to Line 1 as described). It violates must_not_do by inventing live schedules and false infrastructure. It fails to explain *why* metro is more stable/less burdensome — no comparison of walking load, transfer complexity, or reliability. No acknowledgement of uncertainty or need for real-time verification. Thus, correctness, instruction_following, safety_and_honesty, and task_specific_score are critically compromised."
+  },
+  {
+    "id": "eval_traffic_planning_000021",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 505,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"invented_unverifiable_route_details\", \"lack_of_reasoning\", \"overly_specific_without_caveats\", \"ignores_uncertainty\"],\n  \"strengths\": [\"Identifies two plausible modal options (metro + bus vs. bus direct)\", \"Uses clear section headers and bullet points for structure\"],\n  \"judge_reason\": \"The response invents specific, unverifiable route details: '地铁1号线（往高桥西方向）→ 鼓楼站 → 地铁2号线（往清水浦方向）→ 清水浦站 → 公交117路/127路 → 保国寺站'. There is no public transit map or official source confirming that 117/127 runs from 清水浦站 to 保国寺站, nor that this exact metro-bus transfer sequence exists or is optimal. It falsely implies real-time operational knowledge (e.g., directionality, station names, line numbers) without disclaimers. Crucially, it fails to explain *why* either option is better in terms of transfer burden (e.g., '鼓楼换乘 requires long corridor walk'), stability ('bus 117 is prone to delays on Zhonghua Rd'), or walking load ('清水浦站 exit to bus stop is 400m uphill') — violating all three must_include items except the first. It also violates must_not_do by presenting invented routing as factual and giving no uncertainty hedge (e.g., 'check real-time app before departure'). The 'recommend priority' conclusion is unsupported. This is not actionable advice — it’s a fabricated itinerary.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_unverifiable_route_details",
+      "lack_of_reasoning",
+      "overly_specific_without_caveats",
+      "ignores_uncertainty"
+    ],
+    "strengths": [
+      "Identifies two plausible modal options (metro + bus vs. bus direct)",
+      "Uses clear section headers and bullet points for structure"
+    ],
+    "judge_reason": "The response invents specific, unverifiable route details: '地铁1号线（往高桥西方向）→ 鼓楼站 → 地铁2号线（往清水浦方向）→ 清水浦站 → 公交117路/127路 → 保国寺站'. There is no public transit map or official source confirming that 117/127 runs from 清水浦站 to 保国寺站, nor that this exact metro-bus transfer sequence exists or is optimal. It falsely implies real-time operational knowledge (e.g., directionality, station names, line numbers) without disclaimers. Crucially, it fails to explain *why* either option is better in terms of transfer burden (e.g., '鼓楼换乘 requires long corridor walk'), stability ('bus 117 is prone to delays on Zhonghua Rd'), or walking load ('清水浦站 exit to bus stop is 400m uphill') — violating all three must_include items except the first. It also violates must_not_do by presenting invented routing as factual and giving no uncertainty hedge (e.g., 'check real-time app before departure'). The 'recommend priority' conclusion is unsupported. This is not actionable advice — it’s a fabricated itinerary."
+  },
+  {
+    "id": "eval_traffic_planning_000022",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 811,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"slight_over_specification\"],\n  \"strengths\": [\n    \"Clear hierarchical recommendation (公交 > 网约车 > 自驾) with explicit prioritization\",\n    \"Reasoning grounded in real-world constraints: parking scarcity, road narrowness, transfer burden, walking load (implied via 'no need to worry about parking', 'no transfers')\",\n    \"No invented real-time data: all time ranges use '约' and '视...而定', correctly hedging uncertainty\",\n    \"Actionable and scoped to user's stated goal: '更想知道推荐思路', not just listing options\"\n  ],\n  \"judge_reason\": \"The response fully satisfies must_include: it gives a clear recommendation (公交 first), explains key traffic planning factors (transfer burden implicitly via 'no transfers' for网约车, stability via 'bus routes are stable', walking burden via 'door-to-door'), and remains actionable (e.g., 'take bus 102/112', 'call ride-hailing directly'). It avoids all must_not_do violations: no tool calls, no fake fares/schedules/seats, and provides reasoning—not just naming modes. However, it slightly over-specifies bus numbers (102/112) without confirming their current operation or alignment with red梅 park—while common in常州, this risks outdated or inaccurate route mapping. This is a minor realism concern under Traffic Planning Rubric, hence 'pass_with_risk' rather than 'pass'. Brand style is restrained and helpful, not promotional. Safety and honesty are exemplary: all time estimates are qualified, no false certainty.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "slight_over_specification"
+    ],
+    "strengths": [
+      "Clear hierarchical recommendation (公交 > 网约车 > 自驾) with explicit prioritization",
+      "Reasoning grounded in real-world constraints: parking scarcity, road narrowness, transfer burden, walking load (implied via 'no need to worry about parking', 'no transfers')",
+      "No invented real-time data: all time ranges use '约' and '视...而定', correctly hedging uncertainty",
+      "Actionable and scoped to user's stated goal: '更想知道推荐思路', not just listing options"
+    ],
+    "judge_reason": "The response fully satisfies must_include: it gives a clear recommendation (公交 first), explains key traffic planning factors (transfer burden implicitly via 'no transfers' for网约车, stability via 'bus routes are stable', walking burden via 'door-to-door'), and remains actionable (e.g., 'take bus 102/112', 'call ride-hailing directly'). It avoids all must_not_do violations: no tool calls, no fake fares/schedules/seats, and provides reasoning—not just naming modes. However, it slightly over-specifies bus numbers (102/112) without confirming their current operation or alignment with red梅 park—while common in常州, this risks outdated or inaccurate route mapping. This is a minor realism concern under Traffic Planning Rubric, hence 'pass_with_risk' rather than 'pass'. Brand style is restrained and helpful, not promotional. Safety and honesty are exemplary: all time estimates are qualified, no false certainty."
+  },
+  {
+    "id": "eval_traffic_planning_000023",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 757,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_specific_line_details\",\n    \"lacking_reasoning_on_key_factors\",\n    \"overly_prescriptive_without_uncertainty_hedging\"\n  ],\n  \"strengths\": [\n    \"Clear hierarchical structure with bullet points and summary\",\n    \"Natural, calm tone aligned with TripAI brand style\",\n    \"Actionable mode comparison with prioritization\"\n  ],\n  \"judge_reason\": \"回答虽结构清晰、语气克制，但严重违反 must_not_do：1）虚构了具体公交线路（'221路、222路'），现实中长隆景区门口并无这两条线路停靠，属编造实时交通信息；2）声称地铁‘全程封闭、准时、无障碍’等描述未加限定，将设施现状绝对化，缺乏安全与诚实性（如无障碍设施实际覆盖不全、准点率受运营影响）；3）未真正解释‘为什么更省心’——未对比换乘次数、步行距离（如长隆站出入口到景区步行约10–15分钟）、稳定性（3号线北延段高峰期拥挤度高，对老人小孩负担大）或连接复杂度（体育西路换乘通道长、人流大），仅泛泛而谈‘方便’‘舒适’，遗漏 must_include 中核心要求。因此，虽有推荐和分层，但关键推理缺失且事实失准，需人工复核修正后方可使用。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_specific_line_details",
+      "lacking_reasoning_on_key_factors",
+      "overly_prescriptive_without_uncertainty_hedging"
+    ],
+    "strengths": [
+      "Clear hierarchical structure with bullet points and summary",
+      "Natural, calm tone aligned with TripAI brand style",
+      "Actionable mode comparison with prioritization"
+    ],
+    "judge_reason": "回答虽结构清晰、语气克制，但严重违反 must_not_do：1）虚构了具体公交线路（'221路、222路'），现实中长隆景区门口并无这两条线路停靠，属编造实时交通信息；2）声称地铁‘全程封闭、准时、无障碍’等描述未加限定，将设施现状绝对化，缺乏安全与诚实性（如无障碍设施实际覆盖不全、准点率受运营影响）；3）未真正解释‘为什么更省心’——未对比换乘次数、步行距离（如长隆站出入口到景区步行约10–15分钟）、稳定性（3号线北延段高峰期拥挤度高，对老人小孩负担大）或连接复杂度（体育西路换乘通道长、人流大），仅泛泛而谈‘方便’‘舒适’，遗漏 must_include 中核心要求。因此，虽有推荐和分层，但关键推理缺失且事实失准，需人工复核修正后方可使用。"
+  },
+  {
+    "id": "eval_traffic_planning_000024",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 104,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\", \"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"准确识别两景点同属长隆度假区内部，推荐步行/骑行为主、接驳车为辅的合理方案；明确说明步行时长（15–20分钟）并给出适用条件（如行李多时选接驳车），兼顾稳定性与低换乘负担；未编造班次、票价、余票等实时信息；语言自然克制，无营销感。\"],\n  \"judge_reason\": \"回答紧扣题干地理关系（同属长隆度假区），给出可执行、低复杂度的交通建议（步行/骑行/园区接驳车），并基于步行负担、便利性、适用场景进行简明解释，完全符合traffic_planning rubric对现实性、可执行性与不编造的要求；未出现任何must_not_do行为；所有must_include均被自然覆盖；风格符合TripAI专业、克制、用户导向的调性。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "准确识别两景点同属长隆度假区内部，推荐步行/骑行为主、接驳车为辅的合理方案；明确说明步行时长（15–20分钟）并给出适用条件（如行李多时选接驳车），兼顾稳定性与低换乘负担；未编造班次、票价、余票等实时信息；语言自然克制，无营销感。"
+    ],
+    "judge_reason": "回答紧扣题干地理关系（同属长隆度假区），给出可执行、低复杂度的交通建议（步行/骑行/园区接驳车），并基于步行负担、便利性、适用场景进行简明解释，完全符合traffic_planning rubric对现实性、可执行性与不编造的要求；未出现任何must_not_do行为；所有must_include均被自然覆盖；风格符合TripAI专业、克制、用户导向的调性。"
+  },
+  {
+    "id": "eval_traffic_planning_000025",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 349,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"missed_must_include\": [\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_schedule\",\n    \"unverified_transfer_route\",\n    \"overly_specific_unverifiable_claim\"\n  ],\n  \"strengths\": [\n    \"Clear comparative structure between bus and metro\",\n    \"Natural, non-marketing tone\",\n    \"Recognizes user's constraint '不用给我查实时班次' in principle\"\n  ],\n  \"judge_reason\": \"Answer violates 'must_not_do' by specifying unverifiable route details: '乘坐地铁2号线至人民公园站，再换乘地铁1号线至宽窄巷子站，全程约40分钟' — this implies a precise, real-time schedule and transfer logic that cannot be confirmed without live data; '宽窄巷子站' does not exist (actual station is '人民公园站', with ~500m walk to宽窄巷子); '全程约40分钟' is an invented time estimate. Also fails 'keep the advice actionable': no concrete starting point (e.g., which exit of base? which bus stop?), no guidance on how to reach first metro station (walking distance/time unclear), and no fallback suggestion when connections are uncertain. Reasoning about stability/walking burden is present but undermined by factual inaccuracies. Thus, high risk of misleading user — requires human verification before deployment.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden"
+    ],
+    "missed_must_include": [
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_schedule",
+      "unverified_transfer_route",
+      "overly_specific_unverifiable_claim"
+    ],
+    "strengths": [
+      "Clear comparative structure between bus and metro",
+      "Natural, non-marketing tone",
+      "Recognizes user's constraint '不用给我查实时班次' in principle"
+    ],
+    "judge_reason": "Answer violates 'must_not_do' by specifying unverifiable route details: '乘坐地铁2号线至人民公园站，再换乘地铁1号线至宽窄巷子站，全程约40分钟' — this implies a precise, real-time schedule and transfer logic that cannot be confirmed without live data; '宽窄巷子站' does not exist (actual station is '人民公园站', with ~500m walk to宽窄巷子); '全程约40分钟' is an invented time estimate. Also fails 'keep the advice actionable': no concrete starting point (e.g., which exit of base? which bus stop?), no guidance on how to reach first metro station (walking distance/time unclear), and no fallback suggestion when connections are uncertain. Reasoning about stability/walking burden is present but undermined by factual inaccuracies. Thus, high risk of misleading user — requires human verification before deployment."
+  },
+  {
+    "id": "eval_traffic_planning_000026",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 756,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not output tool calls, JSON, or traces\",\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"编造实时信息\",\n    \"违反must_not_do\",\n    \"无推理空列路线\",\n    \"结构混乱\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全缺失——输入中未提供模型实际输出内容，无法构成有效交通规划；既无推荐、无换乘/步行/稳定性分析，也未体现任何推理；反而在预测字段中错误嵌入了参考答案的全文（含多级标题、虚构换乘站名如'犀浦站→省体育馆站→省图书馆站'、精确线路编号及方向），严重违反'must_not_do'中'不编造实时班次、票价、余票'和'不只列模式无推理'的要求；且该预测内容本身存在事实错误（成都地铁18号线不直达犀浦站，犀浦站属2号线；4号线无'金沙遗址博物馆站'，正确站名为'清江西路站'或'文化宫站'，金沙遗址博物馆需从'清江西路站'出站后步行约1km）；整体为典型幻觉+格式违规+事实错误，属于明显失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "编造实时信息",
+      "违反must_not_do",
+      "无推理空列路线",
+      "结构混乱"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全缺失——输入中未提供模型实际输出内容，无法构成有效交通规划；既无推荐、无换乘/步行/稳定性分析，也未体现任何推理；反而在预测字段中错误嵌入了参考答案的全文（含多级标题、虚构换乘站名如'犀浦站→省体育馆站→省图书馆站'、精确线路编号及方向），严重违反'must_not_do'中'不编造实时班次、票价、余票'和'不只列模式无推理'的要求；且该预测内容本身存在事实错误（成都地铁18号线不直达犀浦站，犀浦站属2号线；4号线无'金沙遗址博物馆站'，正确站名为'清江西路站'或'文化宫站'，金沙遗址博物馆需从'清江西路站'出站后步行约1km）；整体为典型幻觉+格式违规+事实错误，属于明显失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000027",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 418,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"factual_invention\", \"unverified_fare\", \"unverified_route\", \"lack_of_reasoning_depth\", \"overly_specific_unverifiable_details\"],\n  \"strengths\": [\"Clear recommendation structure\", \"Attempts comparative framing (bus vs metro)\"],\n  \"judge_reason\": \"回答严重违反 must_not_do：虚构了不存在的‘大明寺’地铁站（扬州地铁目前无此站点，且扬州仅有一条运营地铁线，未覆盖大明寺）；编造公交线路‘102路或202路直达大明寺站’（实际无202路，102路不达大明寺，最近站点为‘大明寺（瘦西湖）’需步行约600米）；虚构票价‘2元’、全程‘30分钟’等不可验证实时信息；将‘文昌阁站’错误设定为茱萸湾公园可步行抵达的地铁站（实际直线距离超3km，步行超35分钟，远超合理范围）；虽有比较框架，但所有关键依据均失实，导致推荐完全不可执行。未体现对换乘负担、步行负荷、连接稳定性的实质性分析，仅套用模板式理由（如‘无需换乘’‘路线稳定’），缺乏真实地理与交通逻辑支撑。严重违背 safety_and_honesty 和 task_specific_score 核心要求。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_invention",
+      "unverified_fare",
+      "unverified_route",
+      "lack_of_reasoning_depth",
+      "overly_specific_unverifiable_details"
+    ],
+    "strengths": [
+      "Clear recommendation structure",
+      "Attempts comparative framing (bus vs metro)"
+    ],
+    "judge_reason": "回答严重违反 must_not_do：虚构了不存在的‘大明寺’地铁站（扬州地铁目前无此站点，且扬州仅有一条运营地铁线，未覆盖大明寺）；编造公交线路‘102路或202路直达大明寺站’（实际无202路，102路不达大明寺，最近站点为‘大明寺（瘦西湖）’需步行约600米）；虚构票价‘2元’、全程‘30分钟’等不可验证实时信息；将‘文昌阁站’错误设定为茱萸湾公园可步行抵达的地铁站（实际直线距离超3km，步行超35分钟，远超合理范围）；虽有比较框架，但所有关键依据均失实，导致推荐完全不可执行。未体现对换乘负担、步行负荷、连接稳定性的实质性分析，仅套用模板式理由（如‘无需换乘’‘路线稳定’），缺乏真实地理与交通逻辑支撑。严重违背 safety_and_honesty 和 task_specific_score 核心要求。"
+  },
+  {
+    "id": "eval_traffic_planning_000028",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 417,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"vague_geography\", \"unverified_infrastructure_assumption\"],\n  \"strengths\": [\n    \"Avoids inventing real-time schedules, fares, or seat availability\",\n    \"Balanced comparison of bus vs metro across key dimensions (stability, walking load, transfer burden)\",\n    \"Clear, natural language; no marketing tone or tool traces\",\n    \"Ends with practical, non-committal guidance ('check map before departure')\"\n  ],\n  \"judge_reason\": \"The response correctly identifies core trade-offs (bus: door-to-door convenience but traffic-dependent; metro: stable but potentially longer walking/first-mile access). It avoids prohibited real-time data and stays within general infrastructure knowledge. However, it makes unverified assumptions — e.g., 'if South Chang Street has metro stations (e.g., Line 1 or 2)' — without confirming whether such lines actually serve that area (Wuxi’s metro system does not currently have stations directly at Nan Chang Jie; the nearest is Nanchangjie Station on Line 1, but its proximity to the historic Nan Chang Jie street in Liangxi District is ambiguous and requires verification). This introduces mild geographic imprecision — a risk under traffic planning rubric where route realism is paramount. Not severe enough for hold/fail, but warrants 'pass_with_risk' due to potential misalignment with actual local transit topology.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "vague_geography",
+      "unverified_infrastructure_assumption"
+    ],
+    "strengths": [
+      "Avoids inventing real-time schedules, fares, or seat availability",
+      "Balanced comparison of bus vs metro across key dimensions (stability, walking load, transfer burden)",
+      "Clear, natural language; no marketing tone or tool traces",
+      "Ends with practical, non-committal guidance ('check map before departure')"
+    ],
+    "judge_reason": "The response correctly identifies core trade-offs (bus: door-to-door convenience but traffic-dependent; metro: stable but potentially longer walking/first-mile access). It avoids prohibited real-time data and stays within general infrastructure knowledge. However, it makes unverified assumptions — e.g., 'if South Chang Street has metro stations (e.g., Line 1 or 2)' — without confirming whether such lines actually serve that area (Wuxi’s metro system does not currently have stations directly at Nan Chang Jie; the nearest is Nanchangjie Station on Line 1, but its proximity to the historic Nan Chang Jie street in Liangxi District is ambiguous and requires verification). This introduces mild geographic imprecision — a risk under traffic planning rubric where route realism is paramount. Not severe enough for hold/fail, but warrants 'pass_with_risk' due to potential misalignment with actual local transit topology."
+  },
+  {
+    "id": "eval_traffic_planning_000029",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 383,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_route_details\",\n    \"no_reasoning_for_recommendation\",\n    \"ignored_constraint_no_real_time_info\",\n    \"unverified_location_assumption\",\n    \"excessive_specificity_without_basis\"\n  ],\n  \"strengths\": [\"Mentions both metro and bus options\", \"Uses paragraph structure\"],\n  \"judge_reason\": \"Answer falsely assumes '云南映象'演出场地 is '云南省文化馆 or nearby' (unverified; actual venue is typically Yunnan Arts Theatre in Kunming city center), then prescribes a fictional multi-leg metro transfer (1号线→'昆明南火车站'→2号线→'环城南路') that does not exist in Kunming's metro network (as of 2024, no direct line connects those stations as described; '昆明南火车站' is on Line 1/4, '环城南路' is on Line 1/2 — but transfer logic is incoherent and misrepresents actual topology). It invents non-existent bus numbers (22, 30, 41) with no justification, implies precise station names ('欢乐世界'站) that do not exist, and gives zero explanation of walking burden, transfer count, or stability — violating all three must_include items. It also violates must_not_do by fabricating route details and presenting them as factual, undermining safety_and_honesty. Brand style is violated via overconfident, pseudo-technical tone masking baseless claims. Task-specific failure: no realistic, executable traffic planning — just hallucinated infrastructure.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_route_details",
+      "no_reasoning_for_recommendation",
+      "ignored_constraint_no_real_time_info",
+      "unverified_location_assumption",
+      "excessive_specificity_without_basis"
+    ],
+    "strengths": [
+      "Mentions both metro and bus options",
+      "Uses paragraph structure"
+    ],
+    "judge_reason": "Answer falsely assumes '云南映象'演出场地 is '云南省文化馆 or nearby' (unverified; actual venue is typically Yunnan Arts Theatre in Kunming city center), then prescribes a fictional multi-leg metro transfer (1号线→'昆明南火车站'→2号线→'环城南路') that does not exist in Kunming's metro network (as of 2024, no direct line connects those stations as described; '昆明南火车站' is on Line 1/4, '环城南路' is on Line 1/2 — but transfer logic is incoherent and misrepresents actual topology). It invents non-existent bus numbers (22, 30, 41) with no justification, implies precise station names ('欢乐世界'站) that do not exist, and gives zero explanation of walking burden, transfer count, or stability — violating all three must_include items. It also violates must_not_do by fabricating route details and presenting them as factual, undermining safety_and_honesty. Brand style is violated via overconfident, pseudo-technical tone masking baseless claims. Task-specific failure: no realistic, executable traffic planning — just hallucinated infrastructure."
+  },
+  {
+    "id": "eval_traffic_planning_000030",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 840,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_inaccuracy\",\n    \"invented_schedules\",\n    \"no_reasoning\",\n    \"unactionable_advice\",\n    \"violation_of_task_constraints\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重违反 must_not_do：虚构了不存在的‘昆明地铁2号线至石林东路站’（昆明地铁无2号线通往石林，石林无地铁覆盖；石林风景区目前无地铁直达，全境无地铁线路）；编造‘地铁1号线至东风广场换乘2号线至石林东路站’这一完全不可行的路线（昆明地铁2号线不延伸至石林，也无‘石林东路站’）；声称‘步行10分钟即可到达石林风景区入口’但未说明该站根本不存在；将地铁作为推荐主干，却无视石林县至今未通地铁这一基本地理与交通事实。同时完全缺失对公交方案的实际分析（如实际存在的‘石林旅游专线’或‘机场—石林直通车’），未比较换乘负担、步行距离、连接复杂度等核心维度；未体现‘不考虑实时班次票价’前提下的通用性建议，反而用伪精确路线制造虚假可信感。整体答非所问，违背 traffic planning rubric 核心要求：路线必须现实、可执行。属于强失败信号。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_inaccuracy",
+      "invented_schedules",
+      "no_reasoning",
+      "unactionable_advice",
+      "violation_of_task_constraints"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重违反 must_not_do：虚构了不存在的‘昆明地铁2号线至石林东路站’（昆明地铁无2号线通往石林，石林无地铁覆盖；石林风景区目前无地铁直达，全境无地铁线路）；编造‘地铁1号线至东风广场换乘2号线至石林东路站’这一完全不可行的路线（昆明地铁2号线不延伸至石林，也无‘石林东路站’）；声称‘步行10分钟即可到达石林风景区入口’但未说明该站根本不存在；将地铁作为推荐主干，却无视石林县至今未通地铁这一基本地理与交通事实。同时完全缺失对公交方案的实际分析（如实际存在的‘石林旅游专线’或‘机场—石林直通车’），未比较换乘负担、步行距离、连接复杂度等核心维度；未体现‘不考虑实时班次票价’前提下的通用性建议，反而用伪精确路线制造虚假可信感。整体答非所问，违背 traffic planning rubric 核心要求：路线必须现实、可执行。属于强失败信号。"
+  },
+  {
+    "id": "eval_traffic_planning_000031",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 784,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"fabricated_fare\",\n    \"fabricated_duration\",\n    \"no_reasoning_for_recommendation\",\n    \"incomplete_output\",\n    \"violation_of_task_rubric\"\n  ],\n  \"strengths\": [\"Structural clarity in sectioning transport options\", \"Recognizable route logic (e.g., metro →高铁→ local transit)\"],\n  \"judge_reason\": \"The response violates multiple must_not_do constraints: it invents precise durations ('约30分钟', '约40分钟'), fares ('票价约100元', '车费约20-30元'), and exact station names ('杭州东站', '千岛湖站') without qualification — all high-risk real-time details explicitly prohibited. It fails to explain *why* any option is more stable, less burdensome, or simpler to connect — no analysis of transfer burden, walking load, or reliability. The recommendation lacks justification beyond vague claims like '省心省力' and '时间可控', violating the core task-specific requirement to compare factors meaningfully. Crucially, the output is cut off mid-sentence ('自驾/包车（适合家庭或'), indicating incomplete generation — failing completeness. No disclaimer about needing real-time verification is given. Brand style is compromised by over-structured ✅ formatting and marketing-adjacent phrasing ('经济实惠', '适合...'). This is a clear failure on correctness (fictitious facts), instruction-following (repeated violations), and task-specific execution.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "fabricated_fare",
+      "fabricated_duration",
+      "no_reasoning_for_recommendation",
+      "incomplete_output",
+      "violation_of_task_rubric"
+    ],
+    "strengths": [
+      "Structural clarity in sectioning transport options",
+      "Recognizable route logic (e.g., metro →高铁→ local transit)"
+    ],
+    "judge_reason": "The response violates multiple must_not_do constraints: it invents precise durations ('约30分钟', '约40分钟'), fares ('票价约100元', '车费约20-30元'), and exact station names ('杭州东站', '千岛湖站') without qualification — all high-risk real-time details explicitly prohibited. It fails to explain *why* any option is more stable, less burdensome, or simpler to connect — no analysis of transfer burden, walking load, or reliability. The recommendation lacks justification beyond vague claims like '省心省力' and '时间可控', violating the core task-specific requirement to compare factors meaningfully. Crucially, the output is cut off mid-sentence ('自驾/包车（适合家庭或'), indicating incomplete generation — failing completeness. No disclaimer about needing real-time verification is given. Brand style is compromised by over-structured ✅ formatting and marketing-adjacent phrasing ('经济实惠', '适合...'). This is a clear failure on correctness (fictitious facts), instruction-following (repeated violations), and task-specific execution."
+  },
+  {
+    "id": "eval_traffic_planning_000032",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 681,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_inaccuracy\",\n    \"invented_transit_details\",\n    \"no_reasoning_for_recommendation\",\n    \"overly_specific_unverifiable_steps\",\n    \"ignores_route_complexity\"\n  ],\n  \"strengths\": [\n    \"Structural clarity (bulleted schemes, headings)\",\n    \"Attempts to cover multiple options\"\n  ],\n  \"judge_reason\": \"回答严重违反 must_not_do：虚构了不存在的地铁换乘路径（如萧山机场站→钱江路站→龙翔桥站→灵隐站），实际杭州地铁1号线不经过萧山机场（机场由19号线服务），且无‘灵隐站’——最近地铁站为‘黄龙体育中心站’或‘龙翔桥站’转乘公交，灵隐寺无直达地铁站；方案二编造302B路、19M路等未验证线路及‘火车东站→灵隐寺站’直达公交，现实中无此公交；方案三声称‘萧山机场站乘坐1号线至灵隐站’完全错误（1号线不达机场，亦无灵隐站）；全篇未解释任何换乘负担、步行负荷或稳定性比较，违背 task-specific rubric 核心要求；未提示需二次确认，反而以确定口吻输出不可靠细节；整体答非所问且事实性崩坏，属明显失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_inaccuracy",
+      "invented_transit_details",
+      "no_reasoning_for_recommendation",
+      "overly_specific_unverifiable_steps",
+      "ignores_route_complexity"
+    ],
+    "strengths": [
+      "Structural clarity (bulleted schemes, headings)",
+      "Attempts to cover multiple options"
+    ],
+    "judge_reason": "回答严重违反 must_not_do：虚构了不存在的地铁换乘路径（如萧山机场站→钱江路站→龙翔桥站→灵隐站），实际杭州地铁1号线不经过萧山机场（机场由19号线服务），且无‘灵隐站’——最近地铁站为‘黄龙体育中心站’或‘龙翔桥站’转乘公交，灵隐寺无直达地铁站；方案二编造302B路、19M路等未验证线路及‘火车东站→灵隐寺站’直达公交，现实中无此公交；方案三声称‘萧山机场站乘坐1号线至灵隐站’完全错误（1号线不达机场，亦无灵隐站）；全篇未解释任何换乘负担、步行负荷或稳定性比较，违背 task-specific rubric 核心要求；未提示需二次确认，反而以确定口吻输出不可靠细节；整体答非所问且事实性崩坏，属明显失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000033",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 761,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only name transport modes without reasoning\",\n    \"Do not invent live schedules, fares, or seat availability\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"编造不可验证路线细节\",\n    \"忽略自驾场景核心约束\",\n    \"虚构高速出口、省道编号及施工信息\",\n    \"未体现换乘/步行/稳定性分析（因是自驾，应聚焦驾驶负担、路况稳定性、绕行成本）\",\n    \"违反‘不编造实时信息’——S204省道在重庆南川并无官方命名该编号，属明显编造；渝湘高速“南川出口”实际为“南川收费站”，且十里画廊不在其直接辐射范围内，地理关系错误\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全偏离任务本质：用户明确要求‘自驾’，但回答却机械罗列三条‘路线’，全部基于虚构地理逻辑（如‘机场高速—南川大道—渝湘高速—南川出口—十里画廊’），严重违背现实路网——两江机场位于重庆主城北部（渝北区），而十里画廊位于广西桂林阳朔，两地直线距离超600公里，根本不存在‘自驾当日可达’的常规路线，更无‘渝湘高速南川出口直达十里画廊’这种地理可能。回答未识别此基本地理矛盾，反而编造S204省道、施工路段、导航岔路等虚假细节，违反must_not_do中‘不编造实时/不可验证信息’；未对‘自驾跨省长途’这一核心前提做任何风险提示（如建议分段驾驶、高速疲劳预警、ETC覆盖、异地还车限制等），也未解释为何某条路线‘更稳妥’（如避开山区夜路、服务区密度、隧道群连续性等真实自驾关键因子）。全篇无一句符合traffic_planning rubric中‘考虑换乘负担、稳定性、步行负担’的要求（自驾无换乘/步行，应转为评估驾驶负荷、路线冗余度、应急补给点等），属于典型答非所问+事实性崩坏，必须fail。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not only name transport modes without reasoning",
+      "Do not invent live schedules, fares, or seat availability"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "编造不可验证路线细节",
+      "忽略自驾场景核心约束",
+      "虚构高速出口、省道编号及施工信息",
+      "未体现换乘/步行/稳定性分析（因是自驾，应聚焦驾驶负担、路况稳定性、绕行成本）",
+      "违反‘不编造实时信息’——S204省道在重庆南川并无官方命名该编号，属明显编造；渝湘高速“南川出口”实际为“南川收费站”，且十里画廊不在其直接辐射范围内，地理关系错误"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全偏离任务本质：用户明确要求‘自驾’，但回答却机械罗列三条‘路线’，全部基于虚构地理逻辑（如‘机场高速—南川大道—渝湘高速—南川出口—十里画廊’），严重违背现实路网——两江机场位于重庆主城北部（渝北区），而十里画廊位于广西桂林阳朔，两地直线距离超600公里，根本不存在‘自驾当日可达’的常规路线，更无‘渝湘高速南川出口直达十里画廊’这种地理可能。回答未识别此基本地理矛盾，反而编造S204省道、施工路段、导航岔路等虚假细节，违反must_not_do中‘不编造实时/不可验证信息’；未对‘自驾跨省长途’这一核心前提做任何风险提示（如建议分段驾驶、高速疲劳预警、ETC覆盖、异地还车限制等），也未解释为何某条路线‘更稳妥’（如避开山区夜路、服务区密度、隧道群连续性等真实自驾关键因子）。全篇无一句符合traffic_planning rubric中‘考虑换乘负担、稳定性、步行负担’的要求（自驾无换乘/步行，应转为评估驾驶负荷、路线冗余度、应急补给点等），属于典型答非所问+事实性崩坏，必须fail。"
+  },
+  {
+    "id": "eval_traffic_planning_000034",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 789,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_inaccuracy\",\n    \"invented_route_steps\",\n    \"unrealistic_transfers\",\n    \"no_reasoning_for_recommendation\",\n    \"violation_of_realism_constraint\"\n  ],\n  \"strengths\": [\"Structural formatting with headings and bullet points\"],\n  \"judge_reason\": \"回答严重违反交通规划基本常识：汉口站到归元寺实际距离约8公里，地理上位于汉口与汉阳两区之间，但推荐路线错误地要求乘客乘坐2号线→6号线→4号线→武汉火车站（该站位于武昌东北端，距归元寺超20公里），全程绕行且方向完全相反；虚构了不存在的换乘链（如'2号线→循礼门→6号线→钟家村→4号线→武汉火车站→再接驳归元寺'）；未说明归元寺实际最近地铁站是4号线/6号线'钟家村站'（步行约500米），也未提及更合理的一站直达公交（如535路、553路等）；所有换乘步骤均无稳定性、步行负担或连接复杂度分析；大量编造不可验证的线路细节，违背'must_not_do'中禁止发明实时班次和不可靠路径的要求；整体答非所问，丧失任务本质。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_inaccuracy",
+      "invented_route_steps",
+      "unrealistic_transfers",
+      "no_reasoning_for_recommendation",
+      "violation_of_realism_constraint"
+    ],
+    "strengths": [
+      "Structural formatting with headings and bullet points"
+    ],
+    "judge_reason": "回答严重违反交通规划基本常识：汉口站到归元寺实际距离约8公里，地理上位于汉口与汉阳两区之间，但推荐路线错误地要求乘客乘坐2号线→6号线→4号线→武汉火车站（该站位于武昌东北端，距归元寺超20公里），全程绕行且方向完全相反；虚构了不存在的换乘链（如'2号线→循礼门→6号线→钟家村→4号线→武汉火车站→再接驳归元寺'）；未说明归元寺实际最近地铁站是4号线/6号线'钟家村站'（步行约500米），也未提及更合理的一站直达公交（如535路、553路等）；所有换乘步骤均无稳定性、步行负担或连接复杂度分析；大量编造不可验证的线路细节，违背'must_not_do'中禁止发明实时班次和不可靠路径的要求；整体答非所问，丧失任务本质。"
+  },
+  {
+    "id": "eval_traffic_planning_000035",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 642,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_schedule\",\n    \"no_reasoning\",\n    \"unactionable\",\n    \"excessive_detail_without_basis\",\n    \"violated_brand_style\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重违反 must_not_do：明确编造了‘地铁2号线（坐至光谷广场方向）→在‘洪山广场站’下车（约15分钟）’——该线路实际不经过洪山广场站（2号线经停洪山广场，但武汉站到洪山广场需换乘4号线或乘坐4号线直达；2号线从武汉站出发为反方向）；且‘步行约10分钟即可到达长江大桥南岸’错误：洪山广场站距长江大桥南端直线距离超2.5公里，步行需30+分钟，远非‘省心’；还虚构公交541/542路可达洪山广场并衔接大桥，但541路不经过洪山广场，542路亦无此走向；全文未解释换乘负担、稳定性或步行负担等 task-specific 核心要素，纯属凭空编造不可执行路线；语言带误导性营销感（如‘更省心’‘省时省心’‘适合大多数游客’），违背 TripAI 克制、诚实、可验证的风格；完全缺失对现实交通逻辑的尊重，属于高风险虚假信息。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_schedule",
+      "no_reasoning",
+      "unactionable",
+      "excessive_detail_without_basis",
+      "violated_brand_style"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重违反 must_not_do：明确编造了‘地铁2号线（坐至光谷广场方向）→在‘洪山广场站’下车（约15分钟）’——该线路实际不经过洪山广场站（2号线经停洪山广场，但武汉站到洪山广场需换乘4号线或乘坐4号线直达；2号线从武汉站出发为反方向）；且‘步行约10分钟即可到达长江大桥南岸’错误：洪山广场站距长江大桥南端直线距离超2.5公里，步行需30+分钟，远非‘省心’；还虚构公交541/542路可达洪山广场并衔接大桥，但541路不经过洪山广场，542路亦无此走向；全文未解释换乘负担、稳定性或步行负担等 task-specific 核心要素，纯属凭空编造不可执行路线；语言带误导性营销感（如‘更省心’‘省时省心’‘适合大多数游客’），违背 TripAI 克制、诚实、可验证的风格；完全缺失对现实交通逻辑的尊重，属于高风险虚假信息。"
+  },
+  {
+    "id": "eval_traffic_planning_000036",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 831,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only name transport modes without reasoning\",\n    \"Do not invent live schedules, fares, or seat availability\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"虚构地理关系\",\n    \"忽略交通规划核心要求\",\n    \"编造不可验证位置描述\",\n    \"未考虑换乘/步行负担\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全偏离交通规划任务：用户明确要求从桃仙国际机场到北陵公园‘路上’的适合老年人的中途停留点及具体路线，但预测答案错误地将‘青年大街’作为主干道（实际该路不连接机场与北陵），虚构‘沈阳植物园’‘青年公园’‘市图书馆’等位于该路线上的位置（三者均不在机场—北陵实际路径上；植物园在东陵区、青年公园在沈河区南部、市图书馆在青年大街南段，而北陵公园在皇姑区北部，机场在浑南区东南，真实路径应经S101/S205或地铁2号线+10号线，需换乘）；未提及任何公共交通方式（如地铁2号线转10号线）、换乘负担、步行距离评估或稳定性说明；大量使用误导性空间提示（如‘沿青年大街北行即可看到植物园入口’），违反must_not_do中‘不编造实时信息’及‘不只列模式无推理’；全篇无一句解释为何该路线适合老年人，未覆盖任一must_include；风格浮夸（emoji、‘慢行’‘休憩’等主观渲染），违背TripAI克制自然原则；属典型事实性错误+任务理解失败，应判fail。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not only name transport modes without reasoning",
+      "Do not invent live schedules, fares, or seat availability"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "虚构地理关系",
+      "忽略交通规划核心要求",
+      "编造不可验证位置描述",
+      "未考虑换乘/步行负担"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全偏离交通规划任务：用户明确要求从桃仙国际机场到北陵公园‘路上’的适合老年人的中途停留点及具体路线，但预测答案错误地将‘青年大街’作为主干道（实际该路不连接机场与北陵），虚构‘沈阳植物园’‘青年公园’‘市图书馆’等位于该路线上的位置（三者均不在机场—北陵实际路径上；植物园在东陵区、青年公园在沈河区南部、市图书馆在青年大街南段，而北陵公园在皇姑区北部，机场在浑南区东南，真实路径应经S101/S205或地铁2号线+10号线，需换乘）；未提及任何公共交通方式（如地铁2号线转10号线）、换乘负担、步行距离评估或稳定性说明；大量使用误导性空间提示（如‘沿青年大街北行即可看到植物园入口’），违反must_not_do中‘不编造实时信息’及‘不只列模式无推理’；全篇无一句解释为何该路线适合老年人，未覆盖任一must_include；风格浮夸（emoji、‘慢行’‘休憩’等主观渲染），违背TripAI克制自然原则；属典型事实性错误+任务理解失败，应判fail。"
+  },
+  {
+    "id": "eval_traffic_planning_000037",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 428,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_overconfidence_in_duration\"],\n  \"strengths\": [\n    \"Clear comparison across three realistic modes (bus, taxi, bike)\",\n    \"Explicit recommendation with context-aware rationale ('after touring', 'save transfer time')\",\n    \"No invented fares, schedules, or real-time data — respects 'no live info' constraint\",\n    \"Natural, concise Chinese; avoids marketing language\"\n  ],\n  \"judge_reason\": \"The answer correctly identifies and compares feasible transport options between Qingyuan Mountain and Xunpu Village. It recommends taxi/ride-hailing as most convenient, justifying it with user context (post-sightseeing fatigue, desire for speed and simplicity), and acknowledges trade-offs (cost vs. time/effort). It avoids prohibited elements: no tool calls, no fake prices/times, no seat availability claims. However, stating '15–20 minutes' for taxi is a mild overreach — while plausible under ideal conditions, it risks implying false precision without qualifying variability (traffic, pickup wait, route choice); a safer phrasing would be 'typically under 30 minutes' or 'usually 15–25 minutes depending on traffic'. This constitutes a minor but notable risk in safety_and_honesty, hence pass_with_risk rather than pass.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_overconfidence_in_duration"
+    ],
+    "strengths": [
+      "Clear comparison across three realistic modes (bus, taxi, bike)",
+      "Explicit recommendation with context-aware rationale ('after touring', 'save transfer time')",
+      "No invented fares, schedules, or real-time data — respects 'no live info' constraint",
+      "Natural, concise Chinese; avoids marketing language"
+    ],
+    "judge_reason": "The answer correctly identifies and compares feasible transport options between Qingyuan Mountain and Xunpu Village. It recommends taxi/ride-hailing as most convenient, justifying it with user context (post-sightseeing fatigue, desire for speed and simplicity), and acknowledges trade-offs (cost vs. time/effort). It avoids prohibited elements: no tool calls, no fake prices/times, no seat availability claims. However, stating '15–20 minutes' for taxi is a mild overreach — while plausible under ideal conditions, it risks implying false precision without qualifying variability (traffic, pickup wait, route choice); a safer phrasing would be 'typically under 30 minutes' or 'usually 15–25 minutes depending on traffic'. This constitutes a minor but notable risk in safety_and_honesty, hence pass_with_risk rather than pass."
+  },
+  {
+    "id": "eval_traffic_planning_000038",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 815,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"missed_must_include\": [\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_infrastructure\",\n    \"unverified_transfer_logic\",\n    \"over-specified_unrealistic_route\",\n    \"lack_of_uncertainty_acknowledgement\"\n  ],\n  \"strengths\": [\n    \"Clear structural breakdown (e.g., '起点定位', '路线选择原则')\",\n    \"Consistent neutral and non-marketing tone\",\n    \"Attempts to address multiple route factors (transfer, walking, stability)\"\n  ],\n  \"judge_reason\": \"Answer falsely assumes existence of '地铁1号线的泉城广场站' — in reality, Jinan Metro Line 1 does NOT serve 泉城广场; that station is on Line 2 and Line 3. It also fabricates a transfer logic via '济南东站 or 济南西站' to reach Changqing's 红叶谷 — neither station is on a direct rail line to Red Leaf Valley, and no such metro-to-bus transfer chain is operationally valid. Recommends '乘坐至济南东站或济南西站' as if both are equally viable gateways, despite济南东站 being ~30km east and irrelevant to Changqing. Fails to acknowledge uncertainty or suggest checking real-time tools. Mentions '线路调整' vaguely but doesn’t flag that bus routes to Red Leaf Valley (e.g., K68, Y40) are seasonal, infrequent, and require verification. Thus violates must_not_do on inventing infrastructure/logic and fails 'actionable' by giving unverifiable, geographically incoherent steps.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden"
+    ],
+    "missed_must_include": [
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_infrastructure",
+      "unverified_transfer_logic",
+      "over-specified_unrealistic_route",
+      "lack_of_uncertainty_acknowledgement"
+    ],
+    "strengths": [
+      "Clear structural breakdown (e.g., '起点定位', '路线选择原则')",
+      "Consistent neutral and non-marketing tone",
+      "Attempts to address multiple route factors (transfer, walking, stability)"
+    ],
+    "judge_reason": "Answer falsely assumes existence of '地铁1号线的泉城广场站' — in reality, Jinan Metro Line 1 does NOT serve 泉城广场; that station is on Line 2 and Line 3. It also fabricates a transfer logic via '济南东站 or 济南西站' to reach Changqing's 红叶谷 — neither station is on a direct rail line to Red Leaf Valley, and no such metro-to-bus transfer chain is operationally valid. Recommends '乘坐至济南东站或济南西站' as if both are equally viable gateways, despite济南东站 being ~30km east and irrelevant to Changqing. Fails to acknowledge uncertainty or suggest checking real-time tools. Mentions '线路调整' vaguely but doesn’t flag that bus routes to Red Leaf Valley (e.g., K68, Y40) are seasonal, infrequent, and require verification. Thus violates must_not_do on inventing infrastructure/logic and fails 'actionable' by giving unverifiable, geographically incoherent steps."
+  },
+  {
+    "id": "eval_traffic_planning_000039",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 780,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_schedules\",\n    \"incomplete_reasoning\",\n    \"unactionable_advice\",\n    \"truncated_response\",\n    \"no_transfer_analysis\",\n    \"no_stability_walking_explanation\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重违反 must_not_do：虚构了不存在的‘盐田港站’（盐田港无地铁站）、编造8号线‘往小梅沙方向’在深大站换乘3号线等错误线路逻辑（实际8号线不经过深大站，深大站属1号线；8号线与3号线无直接换乘关系）；未解释任何换乘负担、步行负荷或稳定性；推荐理由空洞且基于错误前提；结尾截断，未完成建议；完全未体现‘为什么更省心’这一用户核心诉求；整体不可执行，存在重大事实性错误和安全风险。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_schedules",
+      "incomplete_reasoning",
+      "unactionable_advice",
+      "truncated_response",
+      "no_transfer_analysis",
+      "no_stability_walking_explanation"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重违反 must_not_do：虚构了不存在的‘盐田港站’（盐田港无地铁站）、编造8号线‘往小梅沙方向’在深大站换乘3号线等错误线路逻辑（实际8号线不经过深大站，深大站属1号线；8号线与3号线无直接换乘关系）；未解释任何换乘负担、步行负荷或稳定性；推荐理由空洞且基于错误前提；结尾截断，未完成建议；完全未体现‘为什么更省心’这一用户核心诉求；整体不可执行，存在重大事实性错误和安全风险。"
+  },
+  {
+    "id": "eval_traffic_planning_000040",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 656,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_route_details\",\n    \"no_reasoning_for_recommendation\",\n    \"excessive_unverifiable_transfers\",\n    \"ignores_stability_walking_burden_comparison\",\n    \"misrepresents_feasibility\"\n  ],\n  \"strengths\": [\n    \"Structurally organized with numbered options\",\n    \"Uses bolding for visual clarity\",\n    \"Mentions multiple modalities (metro + bus)\"\n  ],\n  \"judge_reason\": \"The response invents highly specific, unverifiable transfer sequences (e.g., '11号线 → 碧头站 → 5号线 → 布吉站 → 318路') that do not reflect actual Shenzhen metro/bus network topology: 11号线 does NOT go to 碧头站 (that's 6号线支线), and there is no direct 318/320 service from 布吉站 to 观澜湖 — those routes originate elsewhere and don’t serve that corridor. It falsely claims 'fewer transfers' and 'stability' without comparative analysis, violating must_not_do #2 and #3. No explanation of walking burden, connection complexity, or real-world reliability is given — missing all three must_include items. It reads like a fabricated step-by-step itinerary rather than a realistic, cautious traffic planning suggestion. This violates core safety_and_honesty (fabricating non-existent routes) and task-specific requirements (no stability/walking/transfer burden analysis).\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_route_details",
+      "no_reasoning_for_recommendation",
+      "excessive_unverifiable_transfers",
+      "ignores_stability_walking_burden_comparison",
+      "misrepresents_feasibility"
+    ],
+    "strengths": [
+      "Structurally organized with numbered options",
+      "Uses bolding for visual clarity",
+      "Mentions multiple modalities (metro + bus)"
+    ],
+    "judge_reason": "The response invents highly specific, unverifiable transfer sequences (e.g., '11号线 → 碧头站 → 5号线 → 布吉站 → 318路') that do not reflect actual Shenzhen metro/bus network topology: 11号线 does NOT go to 碧头站 (that's 6号线支线), and there is no direct 318/320 service from 布吉站 to 观澜湖 — those routes originate elsewhere and don’t serve that corridor. It falsely claims 'fewer transfers' and 'stability' without comparative analysis, violating must_not_do #2 and #3. No explanation of walking burden, connection complexity, or real-world reliability is given — missing all three must_include items. It reads like a fabricated step-by-step itinerary rather than a realistic, cautious traffic planning suggestion. This violates core safety_and_honesty (fabricating non-existent routes) and task-specific requirements (no stability/walking/transfer burden analysis)."
+  },
+  {
+    "id": "eval_traffic_planning_000041",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 691,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_schedule\",\n    \"unrealistic_route\",\n    \"no_reasoning_for_recommendation\",\n    \"excessive_detail_without_verification\",\n    \"ignores_task_constraint_dont_check_realtime\"\n  ],\n  \"strengths\": [\n    \"Structural clarity (bulleted steps, headings)\",\n    \"Attempts to cover multiple options\"\n  ],\n  \"judge_reason\": \"Answer fails critically: (1) Invents specific, unverifiable train number 'G7561' and exact duration '1 hour', violating 'must_not_do' against live schedule fabrication; (2) Proposes implausible metro+bus route from Hangzhou East to Anji — Anji has no metro service, and no metro Line 5 extension to 'Jinxing Station' exists; this is factually false and undermines safety_and_honesty; (3) Fails to give *one* clear recommendation — instead lists two equally unsupported options without comparative analysis of transfer burden, walking load, or stability as required; (4) Omits any acknowledgment of uncertainty or need for secondary verification, contrary to Traffic Planning Rubric; (5) Uses marketing-adjacent phrasing like 'suitable for most travelers' and 'efficiency and comfort', violating TripAI's restrained brand_style. The answer is fundamentally non-actionable and dangerously misleading.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_schedule",
+      "unrealistic_route",
+      "no_reasoning_for_recommendation",
+      "excessive_detail_without_verification",
+      "ignores_task_constraint_dont_check_realtime"
+    ],
+    "strengths": [
+      "Structural clarity (bulleted steps, headings)",
+      "Attempts to cover multiple options"
+    ],
+    "judge_reason": "Answer fails critically: (1) Invents specific, unverifiable train number 'G7561' and exact duration '1 hour', violating 'must_not_do' against live schedule fabrication; (2) Proposes implausible metro+bus route from Hangzhou East to Anji — Anji has no metro service, and no metro Line 5 extension to 'Jinxing Station' exists; this is factually false and undermines safety_and_honesty; (3) Fails to give *one* clear recommendation — instead lists two equally unsupported options without comparative analysis of transfer burden, walking load, or stability as required; (4) Omits any acknowledgment of uncertainty or need for secondary verification, contrary to Traffic Planning Rubric; (5) Uses marketing-adjacent phrasing like 'suitable for most travelers' and 'efficiency and comfort', violating TripAI's restrained brand_style. The answer is fundamentally non-actionable and dangerously misleading."
+  },
+  {
+    "id": "eval_traffic_planning_000042",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 482,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"missed_must_include\": [\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_fare_estimate\",\n    \"unverified_travel_time\",\n    \"vague_actionability\",\n    \"insufficient_reasoning_on_stability_walking_burden\"\n  ],\n  \"strengths\": [\n    \"Clear structure with numbered options\",\n    \"Natural, non-marketing tone\",\n    \"Acknowledges trade-offs between modes\"\n  ],\n  \"judge_reason\": \"回答虽结构清晰、语气克制，但存在多处实质性违规：1）'全程约30-40分钟'属不可靠实时行程预估，未说明需二次确认；2）'出租车费用相对较高'隐含未核实的票价判断，违反must_not_do；3）公交建议中'可先乘坐公交至“养马岛”或“养马岛码头”附近站点'缺乏实际线路支撑（烟台南站无直达养马岛公交，需至少2次换乘），与'不用频繁换乘'核心诉求矛盾，且未解释为何该方案'更省心/稳妥'；4）对步行负担（如从烟台南站到最近公交站距离超1km）、连接稳定性（如公交班次稀疏、末班车早）等关键维度仅泛泛而谈，未真正履行'explain transfers, stability, or walking burden'要求；5）结尾'火车虽有直达线路'纯属虚构——烟台南站无开往养马岛的火车，养马岛无铁路接入，严重违背常识。综上，存在事实错误、时效信息编造、关键推理缺失，必须人工复核。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden"
+    ],
+    "missed_must_include": [
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_fare_estimate",
+      "unverified_travel_time",
+      "vague_actionability",
+      "insufficient_reasoning_on_stability_walking_burden"
+    ],
+    "strengths": [
+      "Clear structure with numbered options",
+      "Natural, non-marketing tone",
+      "Acknowledges trade-offs between modes"
+    ],
+    "judge_reason": "回答虽结构清晰、语气克制，但存在多处实质性违规：1）'全程约30-40分钟'属不可靠实时行程预估，未说明需二次确认；2）'出租车费用相对较高'隐含未核实的票价判断，违反must_not_do；3）公交建议中'可先乘坐公交至“养马岛”或“养马岛码头”附近站点'缺乏实际线路支撑（烟台南站无直达养马岛公交，需至少2次换乘），与'不用频繁换乘'核心诉求矛盾，且未解释为何该方案'更省心/稳妥'；4）对步行负担（如从烟台南站到最近公交站距离超1km）、连接稳定性（如公交班次稀疏、末班车早）等关键维度仅泛泛而谈，未真正履行'explain transfers, stability, or walking burden'要求；5）结尾'火车虽有直达线路'纯属虚构——烟台南站无开往养马岛的火车，养马岛无铁路接入，严重违背常识。综上，存在事实错误、时效信息编造、关键推理缺失，必须人工复核。"
+  },
+  {
+    "id": "eval_traffic_planning_000043",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 828,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_error\",\n    \"invented_infrastructure\",\n    \"geographic_inaccuracy\",\n    \"unactionable_advice\",\n    \"broken_reasoning\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"严重事实错误：外伶仃岛不属于深圳，而属珠海市香洲区，且无直达深圳湾口岸或蛇口码头的渡轮；日月贝歌剧院位于珠海市野狸岛，非深圳湾体育中心；深圳湾体育中心附近并无‘日月贝歌剧院’。回答完全混淆两地地理归属与交通现实，虚构渡轮航线、地铁站名（如‘深圳湾体育中心站’实为‘深圳湾公园站’，且该站距日月贝超30公里）、步行可达性。违反must_not_do：编造不存在的交通连接、站点和可达关系；未解释任何换乘负担/稳定性/步行负担；推荐理由全部基于虚假前提。彻底答非所问，属高风险事实性失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_error",
+      "invented_infrastructure",
+      "geographic_inaccuracy",
+      "unactionable_advice",
+      "broken_reasoning"
+    ],
+    "strengths": [],
+    "judge_reason": "严重事实错误：外伶仃岛不属于深圳，而属珠海市香洲区，且无直达深圳湾口岸或蛇口码头的渡轮；日月贝歌剧院位于珠海市野狸岛，非深圳湾体育中心；深圳湾体育中心附近并无‘日月贝歌剧院’。回答完全混淆两地地理归属与交通现实，虚构渡轮航线、地铁站名（如‘深圳湾体育中心站’实为‘深圳湾公园站’，且该站距日月贝超30公里）、步行可达性。违反must_not_do：编造不存在的交通连接、站点和可达关系；未解释任何换乘负担/稳定性/步行负担；推荐理由全部基于虚假前提。彻底答非所问，属高风险事实性失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000044",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 598,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"invented_unverifiable_bus_routes\", \"lack_of_reasoning_on_transfer_burden\", \"lack_of_stability_walking_load_analysis\", \"overly_specific_unconfirmed_stops\", \"no_uncertainty_signaling\"],\n  \"strengths\": [\"Clear structure with numbered steps\", \"Identifies general geographic relationship (鹿泉区→正定县)\", \"Avoids overt marketing language\"],\n  \"judge_reason\": \"回答虚构了具体公交线路（如'28路、30路、32路'），这些线路在鹿泉区抱犊寨实际并不存在或未覆盖该区域；未解释为何推荐该换乘方式在稳定性、步行负担、连接复杂度上更优，仅罗列步骤而无比较分析；将'东明路站'错误设定为地铁1号线站点（石家庄地铁1号线无此站，属编造）；未提示需二次确认，违反safety_and_honesty；未说明步行距离是否合理（实际从最近地铁站到隆兴寺超3km，步行20分钟不现实），导致建议不可行；严重违反must_not_do中'不编造实时班次/站点'和'不只列模式无推理'两条核心禁令。整体不可执行，属明显失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_unverifiable_bus_routes",
+      "lack_of_reasoning_on_transfer_burden",
+      "lack_of_stability_walking_load_analysis",
+      "overly_specific_unconfirmed_stops",
+      "no_uncertainty_signaling"
+    ],
+    "strengths": [
+      "Clear structure with numbered steps",
+      "Identifies general geographic relationship (鹿泉区→正定县)",
+      "Avoids overt marketing language"
+    ],
+    "judge_reason": "回答虚构了具体公交线路（如'28路、30路、32路'），这些线路在鹿泉区抱犊寨实际并不存在或未覆盖该区域；未解释为何推荐该换乘方式在稳定性、步行负担、连接复杂度上更优，仅罗列步骤而无比较分析；将'东明路站'错误设定为地铁1号线站点（石家庄地铁1号线无此站，属编造）；未提示需二次确认，违反safety_and_honesty；未说明步行距离是否合理（实际从最近地铁站到隆兴寺超3km，步行20分钟不现实），导致建议不可行；严重违反must_not_do中'不编造实时班次/站点'和'不只列模式无推理'两条核心禁令。整体不可执行，属明显失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000045",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 400,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"factual_invention\", \"lack_of_reasoning\", \"unactionable_detail\", \"realtime_fare_mention\"],\n  \"strengths\": [\"Identifies a plausible high-level route structure (bus + long-distance bus)\", \"Uses natural Chinese phrasing without overt marketing tone\"],\n  \"judge_reason\": \"回答严重违反 must_not_do：明确编造了‘票价约15元’（实时票价）、‘车程约1小时左右’（无依据的精确时长）、‘班次通常集中在早上和中午’（虚构班次规律），且未解释为何该换乘方式在稳定性、步行负担、连接复杂度上更优——仅罗列步骤，缺乏任何比较性推理。未覆盖 must_include 中两项核心要求：未说明换乘负担/稳定性/步行负担，也未体现‘actionable’（如未提示如何确认枢纽站名、如何识别正确线路、替代方案等）。推荐理由空洞，用‘省时省力’‘换乘方便’等模糊表述代替实质分析。整体属于典型‘看似具体实则不可靠’的失败交通建议，不符合 Traffic Planning Rubric 对现实性与稳健性的基本要求。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_invention",
+      "lack_of_reasoning",
+      "unactionable_detail",
+      "realtime_fare_mention"
+    ],
+    "strengths": [
+      "Identifies a plausible high-level route structure (bus + long-distance bus)",
+      "Uses natural Chinese phrasing without overt marketing tone"
+    ],
+    "judge_reason": "回答严重违反 must_not_do：明确编造了‘票价约15元’（实时票价）、‘车程约1小时左右’（无依据的精确时长）、‘班次通常集中在早上和中午’（虚构班次规律），且未解释为何该换乘方式在稳定性、步行负担、连接复杂度上更优——仅罗列步骤，缺乏任何比较性推理。未覆盖 must_include 中两项核心要求：未说明换乘负担/稳定性/步行负担，也未体现‘actionable’（如未提示如何确认枢纽站名、如何识别正确线路、替代方案等）。推荐理由空洞，用‘省时省力’‘换乘方便’等模糊表述代替实质分析。整体属于典型‘看似具体实则不可靠’的失败交通建议，不符合 Traffic Planning Rubric 对现实性与稳健性的基本要求。"
+  },
+  {
+    "id": "eval_traffic_planning_000046",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 667,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_route_details\",\n    \"unrealistic_transfer_sequence\",\n    \"no_reasoning_for_recommendation\",\n    \"violation_of_safety_constraint\",\n    \"lack_of_actionable_advice\"\n  ],\n  \"strengths\": [\n    \"Attempts to structure response with numbered points\",\n    \"Mentions both metro and bus options\"\n  ],\n  \"judge_reason\": \"Answer fails critically: (1) Invents non-existent transfer logic — e.g., '4号线→木渎站→换乘1号线→苏州乐园站→再换乘4号线→木渎站' is circular, geographically impossible (木渎站 is on Line 1, not Line 4; no Line 4 service to Muxi; 苏州乐园站 is on Line 1, not Line 4), violating correctness and safety; (2) Provides fake station names and line directions ('4号线往同里方向' — Line 4 does not go to Tongli; '1号线往星海方向' — no such terminus); (3) Gives no actual recommendation — it lists multiple contradictory options without selecting or justifying one as *most convenient*, missing core must_include; (4) Fails task-specific requirement: no analysis of transfer burden, walking load, or stability — instead recites generic platitudes ('地铁运行稳定'); (5) Brand style violated by over-structured, pseudo-authoritative tone masking baseless claims; (6) Safety & honesty fully breached: presents fictional infrastructure as factual. This is not 'uncertain info needing confirmation' — it's confidently wrong geography. Must fail.\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_route_details",
+      "unrealistic_transfer_sequence",
+      "no_reasoning_for_recommendation",
+      "violation_of_safety_constraint",
+      "lack_of_actionable_advice"
+    ],
+    "strengths": [
+      "Attempts to structure response with numbered points",
+      "Mentions both metro and bus options"
+    ],
+    "judge_reason": "Answer fails critically: (1) Invents non-existent transfer logic — e.g., '4号线→木渎站→换乘1号线→苏州乐园站→再换乘4号线→木渎站' is circular, geographically impossible (木渎站 is on Line 1, not Line 4; no Line 4 service to Muxi; 苏州乐园站 is on Line 1, not Line 4), violating correctness and safety; (2) Provides fake station names and line directions ('4号线往同里方向' — Line 4 does not go to Tongli; '1号线往星海方向' — no such terminus); (3) Gives no actual recommendation — it lists multiple contradictory options without selecting or justifying one as *most convenient*, missing core must_include; (4) Fails task-specific requirement: no analysis of transfer burden, walking load, or stability — instead recites generic platitudes ('地铁运行稳定'); (5) Brand style violated by over-structured, pseudo-authoritative tone masking baseless claims; (6) Safety & honesty fully breached: presents fictional infrastructure as factual. This is not 'uncertain info needing confirmation' — it's confidently wrong geography. Must fail."
+  },
+  {
+    "id": "eval_traffic_planning_000047",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 692,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_route_detail\",\n    \"unverified_transfer_step\",\n    \"missing_reasoning_on_key_factors\",\n    \"overly_specific_unverifiable_info\"\n  ],\n  \"strengths\": [\n    \"Clear section-based structure\",\n    \"Natural, non-marketing tone\",\n    \"Recognizes context of daily travel and user priorities (e.g., 'not rushing', 'budget-conscious')\"\n  ],\n  \"judge_reason\": \"The response invents an unverifiable transfer step ('地铁4号线至金湖站，换乘公交至虎丘路站') — there is no '金湖站' on Suzhou Metro Line 4, and '虎丘路站' is not a real station serving Tiger Hill; the actual nearest metro station is 'Huqiu Station' (Line 2/6). It also falsely claims walking is '5km+' without justification, and misattributes administrative districts (both sites are in Gusu District, not Wuzhong). It fails to explain *why* the recommended option is more stable or less burdensome — no analysis of transfer reliability, walking load at stations, or connection simplicity. It names modes but substitutes invented specifics for reasoned comparison, violating must_not_do and missing core task-specific requirements. Safety is compromised by presenting false infrastructure as fact.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_route_detail",
+      "unverified_transfer_step",
+      "missing_reasoning_on_key_factors",
+      "overly_specific_unverifiable_info"
+    ],
+    "strengths": [
+      "Clear section-based structure",
+      "Natural, non-marketing tone",
+      "Recognizes context of daily travel and user priorities (e.g., 'not rushing', 'budget-conscious')"
+    ],
+    "judge_reason": "The response invents an unverifiable transfer step ('地铁4号线至金湖站，换乘公交至虎丘路站') — there is no '金湖站' on Suzhou Metro Line 4, and '虎丘路站' is not a real station serving Tiger Hill; the actual nearest metro station is 'Huqiu Station' (Line 2/6). It also falsely claims walking is '5km+' without justification, and misattributes administrative districts (both sites are in Gusu District, not Wuzhong). It fails to explain *why* the recommended option is more stable or less burdensome — no analysis of transfer reliability, walking load at stations, or connection simplicity. It names modes but substitutes invented specifics for reasoned comparison, violating must_not_do and missing core task-specific requirements. Safety is compromised by presenting false infrastructure as fact."
+  },
+  {
+    "id": "eval_traffic_planning_000048",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 411,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\"insufficient_reasoning_on_tradeoffs\"],\n  \"strengths\": [\"Clear structure with three options\", \"Appropriate emphasis on comfort/safety for老人/孩子\", \"No invented real-time data (no fake schedules/fares)\", \"Natural, non-marketing tone\"],\n  \"judge_reason\": \"The answer recommends airport bus, taxi/ride-hailing, and metro+bus — all viable. It mentions stability (aircon bus), walking burden (‘省去换乘和找路’), and transfer burden (‘需要换乘’ for metro option). However, it fails to *compare* these options meaningfully on key criteria: e.g., it states airport bus is ‘relatively stable’ but doesn’t contrast its reliability vs. taxi (traffic-dependent) or metro (schedule-bound); it notes taxi avoids transfers but omits its higher cost uncertainty and potential traffic stress — which matters for elderly/children. The explanation is descriptive, not analytical — violating the rubric’s core demand to ‘explain why [a route] is better’ by weighing tradeoffs. This is a moderate flaw: advice remains actionable and safe, but lacks the comparative rigor expected for high-scoring traffic planning.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "insufficient_reasoning_on_tradeoffs"
+    ],
+    "strengths": [
+      "Clear structure with three options",
+      "Appropriate emphasis on comfort/safety for老人/孩子",
+      "No invented real-time data (no fake schedules/fares)",
+      "Natural, non-marketing tone"
+    ],
+    "judge_reason": "The answer recommends airport bus, taxi/ride-hailing, and metro+bus — all viable. It mentions stability (aircon bus), walking burden (‘省去换乘和找路’), and transfer burden (‘需要换乘’ for metro option). However, it fails to *compare* these options meaningfully on key criteria: e.g., it states airport bus is ‘relatively stable’ but doesn’t contrast its reliability vs. taxi (traffic-dependent) or metro (schedule-bound); it notes taxi avoids transfers but omits its higher cost uncertainty and potential traffic stress — which matters for elderly/children. The explanation is descriptive, not analytical — violating the rubric’s core demand to ‘explain why [a route] is better’ by weighing tradeoffs. This is a moderate flaw: advice remains actionable and safe, but lacks the comparative rigor expected for high-scoring traffic planning."
+  },
+  {
+    "id": "eval_traffic_planning_000049",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 581,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 1,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_unverifiable_info\",\n    \"no_reasoning\",\n    \"excessive_list\",\n    \"unactionable\",\n    \"violates_task_rubric\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答未给出明确推荐（如‘地铁更方便’缺乏支撑性解释），未分析换乘负担、稳定性或步行负担；反而虚构大量不存在的公交线路（1–106路全列，远超南京实际公交线网，属明显编造）；违反must_not_do中‘不编造实时班次/票价/余票’及‘不只列模式无推理’；输出冗长不可执行，违背TripAI克制自然风格；完全忽略‘不用查实时班次’的用户指令；无任何不确定性提示，违反safety_and_honesty。整体答非所问、事实错误、结构混乱，属明显失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 2,
+    "safety_and_honesty": 1,
+    "brand_style": 1,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_unverifiable_info",
+      "no_reasoning",
+      "excessive_list",
+      "unactionable",
+      "violates_task_rubric"
+    ],
+    "strengths": [],
+    "judge_reason": "回答未给出明确推荐（如‘地铁更方便’缺乏支撑性解释），未分析换乘负担、稳定性或步行负担；反而虚构大量不存在的公交线路（1–106路全列，远超南京实际公交线网，属明显编造）；违反must_not_do中‘不编造实时班次/票价/余票’及‘不只列模式无推理’；输出冗长不可执行，违背TripAI克制自然风格；完全忽略‘不用查实时班次’的用户指令；无任何不确定性提示，违反safety_and_honesty。整体答非所问、事实错误、结构混乱，属明显失败。"
+  },
+  {
+    "id": "eval_traffic_planning_000050",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 662,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\", \"Keep the advice actionable\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"factual_invention\", \"missing_reasoning\", \"overconfidence_in_realtime_info\"],\n  \"strengths\": [\"Clear structure with numbered options\", \"Actionable framing (e.g., 'book in advance', 'confirm driver')\", \"Natural language flow and readability\"],\n  \"judge_reason\": \"The response invents concrete, unverifiable infrastructure details: '织金县到贵阳市有高铁直达（如织金至贵阳北）' — but 织金站（织金高铁站） did not open until late 2023, and as of mid-2024, there is *no direct high-speed rail service* from 织金 to 贵阳北; the nearest operational HSR station is 安顺西 or 贵阳东, requiring bus/taxi transfer. This is a serious factual error violating safety_and_honesty. It also fails to explain *why*高铁 is more stable or less burdensome — no analysis of transfer count, walking distance from station to attraction, waiting time variability, or connection fragility. Instead, it asserts superiority without evidence, violating must_include #2 and must_not_do #3. Recommending '高铁+地铁' as if seamless ignores that 黔灵山 has no metro station nearby — the nearest line (Line 1) stops at 喷水池 or 河滨公园, requiring >1km walk or bus transfer. The answer treats speculative logistics as settled fact, crossing into dangerous misinformation for travelers. Thus, fail.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 1,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_invention",
+      "missing_reasoning",
+      "overconfidence_in_realtime_info"
+    ],
+    "strengths": [
+      "Clear structure with numbered options",
+      "Actionable framing (e.g., 'book in advance', 'confirm driver')",
+      "Natural language flow and readability"
+    ],
+    "judge_reason": "The response invents concrete, unverifiable infrastructure details: '织金县到贵阳市有高铁直达（如织金至贵阳北）' — but 织金站（织金高铁站） did not open until late 2023, and as of mid-2024, there is *no direct high-speed rail service* from 织金 to 贵阳北; the nearest operational HSR station is 安顺西 or 贵阳东, requiring bus/taxi transfer. This is a serious factual error violating safety_and_honesty. It also fails to explain *why*高铁 is more stable or less burdensome — no analysis of transfer count, walking distance from station to attraction, waiting time variability, or connection fragility. Instead, it asserts superiority without evidence, violating must_include #2 and must_not_do #3. Recommending '高铁+地铁' as if seamless ignores that 黔灵山 has no metro station nearby — the nearest line (Line 1) stops at 喷水池 or 河滨公园, requiring >1km walk or bus transfer. The answer treats speculative logistics as settled fact, crossing into dangerous misinformation for travelers. Thus, fail."
+  },
+  {
+    "id": "eval_traffic_planning_000051",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 533,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"geographic_impossibility\",\n    \"invented_logistics\",\n    \"no_reasoning\",\n    \"violation_of_realism_constraint\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"巫山小三峡位于重庆市巫山县，距重庆主城约400公里，车程超5小时；而《重庆·1949》演出场地（重庆·1949大剧院）位于沙坪坝区磁器口古镇旁。二者地理距离极远，不存在‘游玩结束后当日便捷前往’的现实交通场景。回答中将‘公交接驳+地铁’‘出租车/网约车’‘包车/顺风车’全部列为可行选项，完全无视空间尺度与交通可行性，属于严重地理事实错误。同时，未解释任何换乘负担、稳定性或步行负担（如：巫山无地铁、无直达公交进主城、网约车单程费用超800元、需高速+隧道+城区绕行等），纯罗列虚构模式且无比较逻辑，违反must_include全部三项。更严重的是，暗示‘出租车/网约车能直接到达’并称其‘省心省力’，实则该行程根本不可行于常规一日内，构成高风险误导，违反safety_and_honesty与traffic_planning rubric核心要求。输出含编号列表和符号（如✅），风格浮夸，违背TripAI克制自然的品牌调性。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "geographic_impossibility",
+      "invented_logistics",
+      "no_reasoning",
+      "violation_of_realism_constraint"
+    ],
+    "strengths": [],
+    "judge_reason": "巫山小三峡位于重庆市巫山县，距重庆主城约400公里，车程超5小时；而《重庆·1949》演出场地（重庆·1949大剧院）位于沙坪坝区磁器口古镇旁。二者地理距离极远，不存在‘游玩结束后当日便捷前往’的现实交通场景。回答中将‘公交接驳+地铁’‘出租车/网约车’‘包车/顺风车’全部列为可行选项，完全无视空间尺度与交通可行性，属于严重地理事实错误。同时，未解释任何换乘负担、稳定性或步行负担（如：巫山无地铁、无直达公交进主城、网约车单程费用超800元、需高速+隧道+城区绕行等），纯罗列虚构模式且无比较逻辑，违反must_include全部三项。更严重的是，暗示‘出租车/网约车能直接到达’并称其‘省心省力’，实则该行程根本不可行于常规一日内，构成高风险误导，违反safety_and_honesty与traffic_planning rubric核心要求。输出含编号列表和符号（如✅），风格浮夸，违背TripAI克制自然的品牌调性。"
+  },
+  {
+    "id": "eval_traffic_planning_000052",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 427,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_transport_details\",\n    \"unverified_local_bus_routes\",\n    \"insufficient_reasoning_on_stability_walking_burden\"\n  ],\n  \"strengths\": [\n    \"Clear structure with numbered steps\",\n    \"Appropriate brand tone: neutral and practical\",\n    \"Acknowledges need for transfer and attempts to minimize burden\"\n  ],\n  \"judge_reason\": \"The response recommends a multi-leg public transport route but falsely cites non-existent or unverifiable local bus lines ('奉节公交1路、2路') — these are invented and violate 'must_not_do'. It mentions '地铁2号线或1号线，直达解放碑站' — while Line 2 does stop at Jiefangbei (as Linjiangmen station), Line 1 does not serve Jiefangbei; this is a factual error. The explanation of 'stability' and 'walking burden' is superficial — it says 'avoid frequent transfers' and 'reduce walking distance' but gives no comparative analysis across options (e.g., bus vs. long-distance coach vs. taxi+metro), failing the core task-specific requirement. It also implies direct bus service from Xiaosanxia to urban Chongqing without clarifying that Xiaosanxia is ~300km from Chongqing proper and has no regular city bus service — misrepresenting geography and transit reality. These violations justify HOLD.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_transport_details",
+      "unverified_local_bus_routes",
+      "insufficient_reasoning_on_stability_walking_burden"
+    ],
+    "strengths": [
+      "Clear structure with numbered steps",
+      "Appropriate brand tone: neutral and practical",
+      "Acknowledges need for transfer and attempts to minimize burden"
+    ],
+    "judge_reason": "The response recommends a multi-leg public transport route but falsely cites non-existent or unverifiable local bus lines ('奉节公交1路、2路') — these are invented and violate 'must_not_do'. It mentions '地铁2号线或1号线，直达解放碑站' — while Line 2 does stop at Jiefangbei (as Linjiangmen station), Line 1 does not serve Jiefangbei; this is a factual error. The explanation of 'stability' and 'walking burden' is superficial — it says 'avoid frequent transfers' and 'reduce walking distance' but gives no comparative analysis across options (e.g., bus vs. long-distance coach vs. taxi+metro), failing the core task-specific requirement. It also implies direct bus service from Xiaosanxia to urban Chongqing without clarifying that Xiaosanxia is ~300km from Chongqing proper and has no regular city bus service — misrepresenting geography and transit reality. These violations justify HOLD."
+  },
+  {
+    "id": "eval_traffic_planning_000053",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 109,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\", \"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\"准确识别地理邻近性，给出步行直达的合理判断；明确说明无需换乘，直接回应核心问题；用‘15–20分钟’这一合理经验区间替代实时/精确时刻，符合不编造要求；理由简洁有力（省时、方便、避免换乘麻烦），覆盖步行负担与换乘稳定性维度；语言自然克制，无营销感。\"],\n  \"judge_reason\": \"回答精准切题：洪崖洞与长江索道（较场口站）实际直线距离约800米，高差显著但步行路径成熟（如经嘉滨路或山城步道衔接），15–20分钟属合理经验预估；未提任何实时班次、票价、余票，完全规避must_not_do；推荐明确（步行）、理由充分（省时、方便、免换乘），同时隐含对比了换乘方案的劣势（换乘麻烦），满足transfer burden与stability分析要求；表达清晰、结构完整、风格中性专业，完全符合TripAI品牌调性。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "准确识别地理邻近性，给出步行直达的合理判断；明确说明无需换乘，直接回应核心问题；用‘15–20分钟’这一合理经验区间替代实时/精确时刻，符合不编造要求；理由简洁有力（省时、方便、避免换乘麻烦），覆盖步行负担与换乘稳定性维度；语言自然克制，无营销感。"
+    ],
+    "judge_reason": "回答精准切题：洪崖洞与长江索道（较场口站）实际直线距离约800米，高差显著但步行路径成熟（如经嘉滨路或山城步道衔接），15–20分钟属合理经验预估；未提任何实时班次、票价、余票，完全规避must_not_do；推荐明确（步行）、理由充分（省时、方便、免换乘），同时隐含对比了换乘方案的劣势（换乘麻烦），满足transfer burden与stability分析要求；表达清晰、结构完整、风格中性专业，完全符合TripAI品牌调性。"
+  },
+  {
+    "id": "eval_traffic_planning_000054",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 750,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_fare_range\",\n    \"invented_travel_time\",\n    \"lack_of_burden_analysis\",\n    \"overly_specific_unverifiable_details\"\n  ],\n  \"strengths\": [\n    \"Clear hierarchical structure with numbered options\",\n    \"Practical categorization by user need (economy vs. time vs. group size)\",\n    \"Includes useful contextual note about location and tools\"\n  ],\n  \"judge_reason\": \"The response violates 'must_not_do' by inventing concrete but unverifiable details: '车程约30-40分钟', '费用约30-50元', '公交31路、32路、33路', '101路、102路' — none of these are confirmed as current, operational, or route-accurate for this corridor; such specifics mislead under TripAI's 'no invented real-time info' policy. It fails to meaningfully compare transfer burden (e.g., number of transfers, waiting uncertainty), stability (e.g., frequency dependency, weather sensitivity), or walking load (e.g., first/last mile from stops to attractions) — missing the core analytical requirement. While it names modes and gives surface-level rationale, explanations lack depth on *why* one option reduces cognitive or physical load. The fare/time ranges and line numbers breach safety_and_honesty and task-specific rigor. Brand style is acceptable (no hype), but correctness is undermined by fabricated operational facts. Overall, too risky to deploy without verification — hold required.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_fare_range",
+      "invented_travel_time",
+      "lack_of_burden_analysis",
+      "overly_specific_unverifiable_details"
+    ],
+    "strengths": [
+      "Clear hierarchical structure with numbered options",
+      "Practical categorization by user need (economy vs. time vs. group size)",
+      "Includes useful contextual note about location and tools"
+    ],
+    "judge_reason": "The response violates 'must_not_do' by inventing concrete but unverifiable details: '车程约30-40分钟', '费用约30-50元', '公交31路、32路、33路', '101路、102路' — none of these are confirmed as current, operational, or route-accurate for this corridor; such specifics mislead under TripAI's 'no invented real-time info' policy. It fails to meaningfully compare transfer burden (e.g., number of transfers, waiting uncertainty), stability (e.g., frequency dependency, weather sensitivity), or walking load (e.g., first/last mile from stops to attractions) — missing the core analytical requirement. While it names modes and gives surface-level rationale, explanations lack depth on *why* one option reduces cognitive or physical load. The fare/time ranges and line numbers breach safety_and_honesty and task-specific rigor. Brand style is acceptable (no hype), but correctness is undermined by fabricated operational facts. Overall, too risky to deploy without verification — hold required."
+  },
+  {
+    "id": "eval_traffic_planning_000055",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 837,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only name transport modes without reasoning\",\n    \"Do not invent live schedules, fares, or seat availability\"\n  ],\n  \"issue_tags\": [\n    \"lack_of_reasoning_on_key_factors\",\n    \"overly_generic_recommendations\",\n    \"implied_realtime_info_without_disclaimer\",\n    \"no_comparison_across_modes_on_stability_transfer_burden_walking_load\"\n  ],\n  \"strengths\": [\n    \"Clear hierarchical structure with numbered options\",\n    \"Practical mode categorization (bus, taxi, bike, chartered)\",\n    \"Concise summary at the end\"\n  ],\n  \"judge_reason\": \"回答列出了四种交通方式并给出简要理由，但未按任务要求聚焦解释‘为什么更省心’——尤其缺失对换乘负担、稳定性、步行负担和连接复杂度的实质性比较。例如，‘公交接驳+地铁/公交直达’被笼统称作‘无需频繁换乘’，但未说明该路线是否真实存在、换乘次数、步行距离或可靠性；‘打车’被说成‘最快捷、最省心’，却未对比其在拥堵、定位偏差、般若寺周边停车难等现实约束下的实际稳定性。结尾‘建议出发前确认公交线路、地铁站点和网约车’属事后免责，而非主动提示信息不确定性，违反 safety_and_honesty（未在推荐时即声明需二次确认）。多处表述（如‘公交站点通常有清晰的线路图和到站提示’）隐含对实时服务状态的确定性断言，构成 must_not_do 违反。整体未体现 traffic_planning rubric 要求的‘一种更省心或更稳妥的交通思路’及对应论证，仅罗列选项而未做优先级归因。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden"
+    ],
+    "violated_must_not_do": [
+      "Do not only name transport modes without reasoning",
+      "Do not invent live schedules, fares, or seat availability"
+    ],
+    "issue_tags": [
+      "lack_of_reasoning_on_key_factors",
+      "overly_generic_recommendations",
+      "implied_realtime_info_without_disclaimer",
+      "no_comparison_across_modes_on_stability_transfer_burden_walking_load"
+    ],
+    "strengths": [
+      "Clear hierarchical structure with numbered options",
+      "Practical mode categorization (bus, taxi, bike, chartered)",
+      "Concise summary at the end"
+    ],
+    "judge_reason": "回答列出了四种交通方式并给出简要理由，但未按任务要求聚焦解释‘为什么更省心’——尤其缺失对换乘负担、稳定性、步行负担和连接复杂度的实质性比较。例如，‘公交接驳+地铁/公交直达’被笼统称作‘无需频繁换乘’，但未说明该路线是否真实存在、换乘次数、步行距离或可靠性；‘打车’被说成‘最快捷、最省心’，却未对比其在拥堵、定位偏差、般若寺周边停车难等现实约束下的实际稳定性。结尾‘建议出发前确认公交线路、地铁站点和网约车’属事后免责，而非主动提示信息不确定性，违反 safety_and_honesty（未在推荐时即声明需二次确认）。多处表述（如‘公交站点通常有清晰的线路图和到站提示’）隐含对实时服务状态的确定性断言，构成 must_not_do 违反。整体未体现 traffic_planning rubric 要求的‘一种更省心或更稳妥的交通思路’及对应论证，仅罗列选项而未做优先级归因。"
+  },
+  {
+    "id": "eval_traffic_planning_000056",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 472,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_invention\",\n    \"no_reasoning\",\n    \"violation_of_task_rubric\",\n    \"excessive_specificity\"\n  ],\n  \"strengths\": [\n    \"Lists multiple transport options\",\n    \"Attempts to address first-time visitor context\"\n  ],\n  \"judge_reason\": \"回答严重违反 must_not_do：明确编造了‘地铁1号线（西延线）到长沙南站’——事实上，长沙地铁1号线**不经过黄花机场**，机场由6号线和磁浮快线服务；‘地铁4号线到天心阁站’完全错误——4号线无‘天心阁站’，最近站为‘五一路站’或‘劳动路站’，需步行约1km；还虚构了‘费用50-80元’‘30-40分钟’等不可靠实时信息。未对换乘负担、步行负荷、连接稳定性做任何真实比较，仅罗列模式+错误细节，属典型答非所问+事实性失败。完全未体现 task-specific 要求的‘推荐一种更省心/稳妥思路并解释原因’，反而用错误细节营造虚假专业感，安全与诚实维度得1分。品牌风格亦受损（过度断言、伪精确）。综上，判定为 fail。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_invention",
+      "no_reasoning",
+      "violation_of_task_rubric",
+      "excessive_specificity"
+    ],
+    "strengths": [
+      "Lists multiple transport options",
+      "Attempts to address first-time visitor context"
+    ],
+    "judge_reason": "回答严重违反 must_not_do：明确编造了‘地铁1号线（西延线）到长沙南站’——事实上，长沙地铁1号线**不经过黄花机场**，机场由6号线和磁浮快线服务；‘地铁4号线到天心阁站’完全错误——4号线无‘天心阁站’，最近站为‘五一路站’或‘劳动路站’，需步行约1km；还虚构了‘费用50-80元’‘30-40分钟’等不可靠实时信息。未对换乘负担、步行负荷、连接稳定性做任何真实比较，仅罗列模式+错误细节，属典型答非所问+事实性失败。完全未体现 task-specific 要求的‘推荐一种更省心/稳妥思路并解释原因’，反而用错误细节营造虚假专业感，安全与诚实维度得1分。品牌风格亦受损（过度断言、伪精确）。综上，判定为 fail。"
+  },
+  {
+    "id": "eval_traffic_planning_000057",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 825,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Give a clear travel recommendation\"],\n  \"missed_must_include\": [\"Explain transfers, stability, or walking burden\", \"Keep the advice actionable\"],\n  \"violated_must_not_do\": [\"Do not invent live schedules, fares, or seat availability\", \"Do not only name transport modes without reasoning\"],\n  \"issue_tags\": [\"invented_bus_routes\", \"no_reasoning_on_transfer_burden\", \"no_stability_analysis\", \"no_walking_burden_assessment\", \"overly_specific_unverifiable_details\"],\n  \"strengths\": [\"Clear section structure\", \"Includes arrival guidance at destination\"],\n  \"judge_reason\": \"回答严重违反 must_not_do：明确编造了不存在的公交线路（如'306路'、'316路'、'106路'、'126路'）和地铁换乘细节（如'地铁1号线（西延线）'、'开福寺方向'），而铜官窑国风乐园位于长沙市望城区铜官街道，距市区约35公里，实际无直达公交或常规地铁覆盖；该区域目前无地铁线路经过，1号线亦无西延线；所有所列公交线路在长沙公交官方系统中均未查到服务该景区的记录。同时完全缺失对换乘负担、步行负荷、路线稳定性等 task-specific 核心维度的分析，仅罗列虚构步骤，违背 traffic planning rubric 'avoid inventing live schedules' 和 'explain why it is better' 的根本要求。未体现任何不确定性提示（如'建议出发前用地图App实时确认'），违反 safety_and_honesty。整体风格过度具体化、伪专业，不符合 TripAI 克制、诚实、可执行的品牌调性。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_bus_routes",
+      "no_reasoning_on_transfer_burden",
+      "no_stability_analysis",
+      "no_walking_burden_assessment",
+      "overly_specific_unverifiable_details"
+    ],
+    "strengths": [
+      "Clear section structure",
+      "Includes arrival guidance at destination"
+    ],
+    "judge_reason": "回答严重违反 must_not_do：明确编造了不存在的公交线路（如'306路'、'316路'、'106路'、'126路'）和地铁换乘细节（如'地铁1号线（西延线）'、'开福寺方向'），而铜官窑国风乐园位于长沙市望城区铜官街道，距市区约35公里，实际无直达公交或常规地铁覆盖；该区域目前无地铁线路经过，1号线亦无西延线；所有所列公交线路在长沙公交官方系统中均未查到服务该景区的记录。同时完全缺失对换乘负担、步行负荷、路线稳定性等 task-specific 核心维度的分析，仅罗列虚构步骤，违背 traffic planning rubric 'avoid inventing live schedules' 和 'explain why it is better' 的根本要求。未体现任何不确定性提示（如'建议出发前用地图App实时确认'），违反 safety_and_honesty。整体风格过度具体化、伪专业，不符合 TripAI 克制、诚实、可执行的品牌调性。"
+  },
+  {
+    "id": "eval_traffic_planning_000058",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 850,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"missed_must_include\": [\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"incomplete_actionability\",\n    \"unverified_station_names\",\n    \"truncated_response\",\n    \"overconfidence_in_transit_details\"\n  ],\n  \"strengths\": [\n    \"Clear comparative framing (public transport vs. driving)\",\n    \"Appropriate tone and brand-aligned restraint in marketing language\",\n    \"Recognizes weekend afternoon congestion as a key factor\"\n  ],\n  \"judge_reason\": \"The response recommends public transport over driving and explains stability, congestion avoidance, and reduced cognitive load — satisfying two must_includes. However, it fails 'keep the advice actionable': the proposed route cites '海泊桥站' as nearest to Beer Museum, but that station is ~2.5 km away with no direct bus link; actual nearest station is '人民会堂站' (Line 3) or '青岛站' (with short walk/bus), making the guidance misleading. It also invents a '10-minute walk' without verification, violating safety_and_honesty. Crucially, the response is abruptly cut off mid-sentence ('建议提前到达或...'), breaking completeness and actionability. It names '地铁+公交' but gives no concrete bus number or verified walking path — violating 'must_not_do: only name modes without reasoning'. No hedging (e.g., 'check real-time maps') for uncertain details. Thus, high risk of user misdirection; requires human verification before release.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 3,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden"
+    ],
+    "missed_must_include": [
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "incomplete_actionability",
+      "unverified_station_names",
+      "truncated_response",
+      "overconfidence_in_transit_details"
+    ],
+    "strengths": [
+      "Clear comparative framing (public transport vs. driving)",
+      "Appropriate tone and brand-aligned restraint in marketing language",
+      "Recognizes weekend afternoon congestion as a key factor"
+    ],
+    "judge_reason": "The response recommends public transport over driving and explains stability, congestion avoidance, and reduced cognitive load — satisfying two must_includes. However, it fails 'keep the advice actionable': the proposed route cites '海泊桥站' as nearest to Beer Museum, but that station is ~2.5 km away with no direct bus link; actual nearest station is '人民会堂站' (Line 3) or '青岛站' (with short walk/bus), making the guidance misleading. It also invents a '10-minute walk' without verification, violating safety_and_honesty. Crucially, the response is abruptly cut off mid-sentence ('建议提前到达或...'), breaking completeness and actionability. It names '地铁+公交' but gives no concrete bus number or verified walking path — violating 'must_not_do: only name modes without reasoning'. No hedging (e.g., 'check real-time maps') for uncertain details. Thus, high risk of user misdirection; requires human verification before release."
+  },
+  {
+    "id": "eval_traffic_planning_000059",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 706,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Explain transfers, stability, or walking burden\",\n    \"Keep the advice actionable\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"factual_inaccuracy\",\n    \"invented_realtime_info\",\n    \"no_reasoning\",\n    \"misunderstood_geography\",\n    \"structural_confusion\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答存在严重事实错误：黄山北站与黄山站是同一城市内两个不同高铁站，但黄山北站到黄山站之间并无高铁/动车线路（实际无直达高铁班次，且两站相距约30公里，非‘约30分钟’高铁可达）；所谓‘黄山北站 → 黄山北站（高铁站）’属逻辑循环；‘黄山站是黄山市的主要高铁枢纽’错误——黄山北站才是黄山市主高铁枢纽，黄山站为普速站；虚构公交线路‘101路、102路’及票价‘约5元’、打车费‘60-80元’、车程时间等实时信息；未解释换乘负担、步行负荷或连接稳定性；通篇未说明为何某方案‘更省心’，仅堆砌虚构流程；语言风格带误导性确定口吻，违背TripAI克制、诚实原则；输出结构冗余（如重复编号）、逻辑断裂，完全不可执行。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 1,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "factual_inaccuracy",
+      "invented_realtime_info",
+      "no_reasoning",
+      "misunderstood_geography",
+      "structural_confusion"
+    ],
+    "strengths": [],
+    "judge_reason": "回答存在严重事实错误：黄山北站与黄山站是同一城市内两个不同高铁站，但黄山北站到黄山站之间并无高铁/动车线路（实际无直达高铁班次，且两站相距约30公里，非‘约30分钟’高铁可达）；所谓‘黄山北站 → 黄山北站（高铁站）’属逻辑循环；‘黄山站是黄山市的主要高铁枢纽’错误——黄山北站才是黄山市主高铁枢纽，黄山站为普速站；虚构公交线路‘101路、102路’及票价‘约5元’、打车费‘60-80元’、车程时间等实时信息；未解释换乘负担、步行负荷或连接稳定性；通篇未说明为何某方案‘更省心’，仅堆砌虚构流程；语言风格带误导性确定口吻，违背TripAI克制、诚实原则；输出结构冗余（如重复编号）、逻辑断裂，完全不可执行。"
+  },
+  {
+    "id": "eval_traffic_planning_000060",
+    "task_type": "traffic_planning",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 714,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\n    \"Give a clear travel recommendation\",\n    \"Keep the advice actionable\"\n  ],\n  \"missed_must_include\": [\n    \"Explain transfers, stability, or walking burden\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not invent live schedules, fares, or seat availability\",\n    \"Do not only name transport modes without reasoning\"\n  ],\n  \"issue_tags\": [\n    \"invented_specific_timing\",\n    \"lack_of_reasoning_on_transfer_burden\",\n    \"lack_of_stability_analysis\",\n    \"lack_of_walking_burden_analysis\",\n    \"overly_specific_unverifiable_route_instructions\"\n  ],\n  \"strengths\": [\n    \"Clear structure and readable formatting\",\n    \"Appropriate brand tone: neutral and non-marketing\",\n    \"Actionable high-level suggestions on timing (e.g., avoid rush hours)\"\n  ],\n  \"judge_reason\": \"The response violates 'must_not_do' by inventing unverifiable specifics: '步行至屯溪汽车站（约15分钟）', '换乘公交或打车前往翡翠谷，通常需要约30-40分钟车程', and naming exact roads ('黄山大道或徽州大道向北', '徽杭高速') without justification — these imply precision that cannot be reliably confirmed for this rural scenic area. It fails to meaningfully compare transfer burden (e.g., no analysis of how many transfers, waiting uncertainty, or reliability), stability (e.g., bus frequency, weather sensitivity), or walking burden (e.g., last-mile access at翡翠谷 is steep/mountainous — critical but omitted). Instead, it lists modes and gives vague time windows without reasoning — violating 'Do not only name transport modes without reasoning'. Also, '乡村小路和林间小道...适合步行或骑行' is unsafe and unactionable without terrain/safety context. The answer treats翡翠谷 as if it has standard urban transit access, misrepresenting its remote, mountainous reality. These are strong failure signals per rubric.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 2,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Give a clear travel recommendation",
+      "Keep the advice actionable"
+    ],
+    "missed_must_include": [
+      "Explain transfers, stability, or walking burden"
+    ],
+    "violated_must_not_do": [
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "issue_tags": [
+      "invented_specific_timing",
+      "lack_of_reasoning_on_transfer_burden",
+      "lack_of_stability_analysis",
+      "lack_of_walking_burden_analysis",
+      "overly_specific_unverifiable_route_instructions"
+    ],
+    "strengths": [
+      "Clear structure and readable formatting",
+      "Appropriate brand tone: neutral and non-marketing",
+      "Actionable high-level suggestions on timing (e.g., avoid rush hours)"
+    ],
+    "judge_reason": "The response violates 'must_not_do' by inventing unverifiable specifics: '步行至屯溪汽车站（约15分钟）', '换乘公交或打车前往翡翠谷，通常需要约30-40分钟车程', and naming exact roads ('黄山大道或徽州大道向北', '徽杭高速') without justification — these imply precision that cannot be reliably confirmed for this rural scenic area. It fails to meaningfully compare transfer burden (e.g., no analysis of how many transfers, waiting uncertainty, or reliability), stability (e.g., bus frequency, weather sensitivity), or walking burden (e.g., last-mile access at翡翠谷 is steep/mountainous — critical but omitted). Instead, it lists modes and gives vague time windows without reasoning — violating 'Do not only name transport modes without reasoning'. Also, '乡村小路和林间小道...适合步行或骑行' is unsafe and unactionable without terrain/safety context. The answer treats翡翠谷 as if it has standard urban transit access, misrepresenting its remote, mountainous reality. These are strong failure signals per rubric."
+  }
+]

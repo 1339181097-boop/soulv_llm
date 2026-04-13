@@ -1,0 +1,70 @@
+{
+  "run_dir": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_smoke",
+  "run_name": "qwen3_8b_qlora_v4_smoke",
+  "model_name": "qwen3_8b_qlora_v4",
+  "request_model": "qwen3-8b-qlora-v4",
+  "generated_at_utc": "2026-04-08T04:28:19.944258+00:00",
+  "judge_provider": "dashscope_compatible",
+  "judge_model": "qwen-plus",
+  "judge_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "judge_request_url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "judge_config": {
+    "temperature": 0.0,
+    "max_tokens": 1200,
+    "timeout_seconds": 300,
+    "retry_count": 2,
+    "seed": 1234,
+    "enable_thinking": false,
+    "rubrics_dir": "D:\\soulv_llm\\src\\eval\\rubrics"
+  },
+  "total_sample_count": 1,
+  "total_pass_count": 0,
+  "total_fail_count": 1,
+  "judge_error_count": 0,
+  "overall_pass_rate": 0.0,
+  "overall_avg_scores": {
+    "correctness": 4.0,
+    "instruction_following": 3.0,
+    "completeness": 3.0,
+    "clarity": 4.0,
+    "safety_and_honesty": 5.0,
+    "brand_style": 4.0,
+    "task_specific_score": 3.0,
+    "overall_score": 3.0
+  },
+  "task_summaries": {
+    "travel_qa": {
+      "sample_count": 1,
+      "pass_count": 0,
+      "fail_count": 1,
+      "pass_rate": 0.0,
+      "avg_scores": {
+        "correctness": 4.0,
+        "instruction_following": 3.0,
+        "completeness": 3.0,
+        "clarity": 4.0,
+        "safety_and_honesty": 5.0,
+        "brand_style": 4.0,
+        "task_specific_score": 3.0,
+        "overall_score": 3.0
+      },
+      "verdict_counts": {
+        "hold": 1
+      },
+      "top_issue_tags": {
+        "ambiguous_recommendation": 1,
+        "lack_of_decision": 1
+      },
+      "fail_sample_ids": [
+        "eval_travel_qa_000001"
+      ],
+      "judge_error_count": 0,
+      "raw_output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_smoke\\raw_outputs_travel_qa.json"
+    }
+  },
+  "overall_top_issue_tags": {
+    "ambiguous_recommendation": 1,
+    "lack_of_decision": 1
+  },
+  "rule_summary_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_smoke\\rule_summary.json"
+}

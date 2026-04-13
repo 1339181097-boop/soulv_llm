@@ -1,0 +1,44 @@
+[
+  {
+    "id": "eval_hotel_recommendation_000001",
+    "task_type": "hotel_recommendation",
+    "scene": "hotel_recommendation",
+    "difficulty": "medium",
+    "tags": [
+      "南宁",
+      "区域选择",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行住宿顾问。请根据用户的人群、预算、位置、出行目的和偏好，提供清晰、自然的住宿建议，并说明推荐理由。避免营销口吻，不编造实时价格、库存或预订结果。"
+      },
+      {
+        "role": "user",
+        "content": "南宁青秀区靠近地铁站和南湖公园的青年旅舍有吗？，更想优先听你讲推荐逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should treat '南宁青秀区靠近地铁站和南湖公园的青年旅舍有吗？，更想优先听你讲推荐逻辑。' as a lodging-strategy question, not just list hotel names. It should use the location (南宁 青秀区), budget, traveler type (budget_trip / city_explore), and priorities such as 交通便利 / 适合泡酒店 / 性价比, then explain what kind of stay fits and what kind of stay is a mismatch.",
+    "must_include": [
+      "Make a clear lodging judgment",
+      "Use budget, traveler type, or location constraints",
+      "Explain the recommendation logic or tradeoff"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or booking results",
+      "Do not only list hotel names without reasoning"
+    ],
+    "notes": "Main check: hotel recommendation and fit judgment",
+    "seed_source": "sft_hotel_recommendation.json",
+    "seed_sample_id": "hotel_recommendation_7812d2eba955",
+    "prediction": "",
+    "status": "error",
+    "error": "Request to http://8.155.147.209:8000/v1/chat/completions failed: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

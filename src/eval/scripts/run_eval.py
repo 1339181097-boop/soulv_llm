@@ -5,7 +5,7 @@ import json
 import sys
 import time
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib import error, request
@@ -158,12 +158,14 @@ class OpenAICompatibleChatRunner:
         request_model: str,
         timeout_seconds: int,
         retry_count: int,
+        disable_thinking: bool,
     ) -> None:
         self.request_url = request_url
         self.api_key = api_key
         self.request_model = request_model
         self.timeout_seconds = timeout_seconds
         self.retry_count = retry_count
+        self.disable_thinking = disable_thinking
 
     def generate(
         self,
@@ -181,6 +183,8 @@ class OpenAICompatibleChatRunner:
             "top_p": top_p,
             "stream": False,
         }
+        if self.disable_thinking:
+            payload["chat_template_kwargs"] = {"enable_thinking": False}
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         headers = {"Content-Type": "application/json"}
         if self.api_key:
@@ -267,6 +271,11 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--timeout-seconds", type=int, default=300, help="HTTP timeout in seconds for each inference request.")
     parser.add_argument("--retry-count", type=int, default=2, help="How many times to retry transient HTTP or network errors.")
     parser.add_argument(
+        "--disable-thinking",
+        action="store_true",
+        help="Pass chat_template_kwargs.enable_thinking=false for Qwen3-style reasoning models on vLLM.",
+    )
+    parser.add_argument(
         "--overwrite",
         action="store_true",
         help="Overwrite an existing output directory.",
@@ -283,7 +292,7 @@ def _resolve_output_dir(
     if run_name:
         folder_name = run_name
     else:
-        timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
         folder_name = f"{model_name}_{timestamp}"
     return reports_dir / folder_name
 
@@ -322,6 +331,7 @@ def run_eval(args: argparse.Namespace) -> Path:
         request_model=args.model,
         timeout_seconds=args.timeout_seconds,
         retry_count=args.retry_count,
+        disable_thinking=args.disable_thinking,
     )
 
     summary: dict[str, Any] = {
@@ -331,13 +341,14 @@ def run_eval(args: argparse.Namespace) -> Path:
         "base_url": args.base_url,
         "request_url": request_url,
         "run_name": output_dir.name,
-        "timestamp_utc": datetime.now(UTC).isoformat(),
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "inference_config": {
             "max_new_tokens": args.max_new_tokens,
             "temperature": args.temperature,
             "top_p": args.top_p,
             "timeout_seconds": args.timeout_seconds,
             "retry_count": args.retry_count,
+            "disable_thinking": args.disable_thinking,
         },
         "tasks": {},
     }

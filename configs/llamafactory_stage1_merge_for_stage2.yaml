@@ -1,0 +1,11 @@
+### model
+model_name_or_path: /root/soulv_llm/models/base_models/Qwen3-8B-Instruct
+adapter_name_or_path: /root/soulv_assets/runs/checkpoints/qwen3_8b_stage1_general_sft
+template: qwen
+finetuning_type: lora
+trust_remote_code: true
+
+### export
+export_dir: /root/soulv_assets/runs/merged/stage1_merged_base
+export_size: 5
+export_device: cpu

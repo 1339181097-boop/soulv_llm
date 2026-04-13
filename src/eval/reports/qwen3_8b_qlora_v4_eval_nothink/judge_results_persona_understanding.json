@@ -1,0 +1,2298 @@
+[
+  {
+    "id": "eval_persona_understanding_000001",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 871,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_deprioritization\", \"no_logic_transformation\", \"incomplete_output\", \"generic_recommendation\"],\n  \"strengths\": [\"Clear hierarchical structure with priority labels; natural, non-marketing tone; readable formatting; acknowledges budget and rhythm constraints at surface level\"],\n  \"judge_reason\": \"The response lists four景点 with 'priority' labels but fails to explain *why* they are ranked that way — no mapping of '三代同堂', '轻松节奏', or '预算适中' into concrete trade-offs (e.g., '泰宁地质公园 ranks above 天湖山 because it offers flat boardwalks and shuttle boats, unlike the steep trails at 天湖山 which require 2h hiking'). Crucially, it omits *any* deprioritization or avoidance rationale — no mention of why 九龙潭, 桃源洞, or 侠天下 are unsuitable (e.g., stairs, lack of rest areas, long walks), violating core task rubric. The final entry is cut off mid-sentence, breaking completeness. While tone and safety are sound, the absence of persona-driven logic transformation and explicit down-ranking makes this fundamentally misaligned with the task’s central requirement.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_deprioritization",
+      "no_logic_transformation",
+      "incomplete_output",
+      "generic_recommendation"
+    ],
+    "strengths": [
+      "Clear hierarchical structure with priority labels; natural, non-marketing tone; readable formatting; acknowledges budget and rhythm constraints at surface level"
+    ],
+    "judge_reason": "The response lists four景点 with 'priority' labels but fails to explain *why* they are ranked that way — no mapping of '三代同堂', '轻松节奏', or '预算适中' into concrete trade-offs (e.g., '泰宁地质公园 ranks above 天湖山 because it offers flat boardwalks and shuttle boats, unlike the steep trails at 天湖山 which require 2h hiking'). Crucially, it omits *any* deprioritization or avoidance rationale — no mention of why 九龙潭, 桃源洞, or 侠天下 are unsuitable (e.g., stairs, lack of rest areas, long walks), violating core task rubric. The final entry is cut off mid-sentence, breaking completeness. While tone and safety are sound, the absence of persona-driven logic transformation and explicit down-ranking makes this fundamentally misaligned with the task’s central requirement."
+  },
+  {
+    "id": "eval_persona_understanding_000002",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 855,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"lack_of_tradeoff_reasoning\", \"missing_deprioritization\", \"generic_recommendation\"],\n  \"strengths\": [\"Clear structure with day-by-day breakdown\", \"Appropriate tone and brand-aligned phrasing\", \"No safety violations or hallucinated facts\"],\n  \"judge_reason\": \"The response correctly identifies the三代同堂 constraint and provides a structured itinerary, but fails to explicitly translate 'budget适中' and '轻松节奏' into concrete recommendation logic (e.g., why鼓浪屿 is still recommended despite steep stairs and crowds for elders/children). It omits any explanation of what should be *avoided or deprioritized* (e.g., no mention of why日光岩 may be unsuitable for elderly mobility, or why军营村 is too remote/rugged). The鼓浪屿 recommendation contradicts the '轻松节奏' requirement without acknowledging trade-offs — violating core task rubric. It repeats user labels ('节奏舒缓', '适合三代') without analytical justification, falling into generic advice. Thus, it meets only one must_include and violates 'do not only repeat labels'.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "lack_of_tradeoff_reasoning",
+      "missing_deprioritization",
+      "generic_recommendation"
+    ],
+    "strengths": [
+      "Clear structure with day-by-day breakdown",
+      "Appropriate tone and brand-aligned phrasing",
+      "No safety violations or hallucinated facts"
+    ],
+    "judge_reason": "The response correctly identifies the三代同堂 constraint and provides a structured itinerary, but fails to explicitly translate 'budget适中' and '轻松节奏' into concrete recommendation logic (e.g., why鼓浪屿 is still recommended despite steep stairs and crowds for elders/children). It omits any explanation of what should be *avoided or deprioritized* (e.g., no mention of why日光岩 may be unsuitable for elderly mobility, or why军营村 is too remote/rugged). The鼓浪屿 recommendation contradicts the '轻松节奏' requirement without acknowledging trade-offs — violating core task rubric. It repeats user labels ('节奏舒缓', '适合三代') without analytical justification, falling into generic advice. Thus, it meets only one must_include and violates 'do not only repeat labels'."
+  },
+  {
+    "id": "eval_persona_understanding_000003",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 847,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not answer every persona with the same generic advice\"],\n  \"issue_tags\": [\"generic_recommending\", \"no_ranking_logic\", \"no_deprioritization_explanation\", \"geographic_error\"],\n  \"strengths\": [\"Clear section formatting with ✅/❌ icons\", \"Natural, non-marketing tone\", \"Safety-aware (no fabricated prices/times)\"],\n  \"judge_reason\": \"回答表面结构清晰，但严重缺乏三代同堂这一核心画像的深度转化：未将‘老人体力限制’‘孩子注意力时长’‘预算适中’等条件转化为具体推荐逻辑（如：为何君山岛比石牛寨更合适？为何岳阳楼需权衡台阶与文化价值？）；未说明任何景点应被降级或避免——反而错误推荐了‘岳麓山（长沙）’作为‘不适合景点’，但岳麓山根本不在岳阳，属地理事实错误，暴露对任务地域约束（岳阳旅游）完全忽视；所有推荐均泛泛而谈‘适合老人孩子’，无差异化取舍依据，违反task rubric强调的‘因人而异排序’和‘明确deprioritize’要求；本质是套用通用家庭游模板，未体现persona understanding。must_not_do中‘不要用同一套话应对不同persona’被明确违反。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_ranking_logic",
+      "no_deprioritization_explanation",
+      "geographic_error"
+    ],
+    "strengths": [
+      "Clear section formatting with ✅/❌ icons",
+      "Natural, non-marketing tone",
+      "Safety-aware (no fabricated prices/times)"
+    ],
+    "judge_reason": "回答表面结构清晰，但严重缺乏三代同堂这一核心画像的深度转化：未将‘老人体力限制’‘孩子注意力时长’‘预算适中’等条件转化为具体推荐逻辑（如：为何君山岛比石牛寨更合适？为何岳阳楼需权衡台阶与文化价值？）；未说明任何景点应被降级或避免——反而错误推荐了‘岳麓山（长沙）’作为‘不适合景点’，但岳麓山根本不在岳阳，属地理事实错误，暴露对任务地域约束（岳阳旅游）完全忽视；所有推荐均泛泛而谈‘适合老人孩子’，无差异化取舍依据，违反task rubric强调的‘因人而异排序’和‘明确deprioritize’要求；本质是套用通用家庭游模板，未体现persona understanding。must_not_do中‘不要用同一套话应对不同persona’被明确违反。"
+  },
+  {
+    "id": "eval_persona_understanding_000004",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 869,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_ranking_logic\", \"no_deprioritization\", \"generic_recommendation\", \"persona_shallow\"],\n  \"strengths\": [\"Clear section structure\", \"Natural language flow\", \"No hallucinated real-time data\", \"Appropriate tone for family travel\"],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重缺乏 persona-driven 推荐逻辑：未将‘三代同堂’‘轻松节奏’‘预算适中’转化为具体取舍标准；未说明为何开元寺/西湖公园比清源山/崇武古城更合适，也未解释为何欧乐堡或海丝野生动物世界可能更优（参考答案明确要求对比）；反而将开元寺列为首推——该景点台阶多、讲解密集、无亲子互动设施，与‘老人孩子兼顾’‘不想高强度’明显冲突，属事实性推荐失当；全文未出现任何‘应降级’‘建议避开’‘需谨慎考虑’等 deprioritization 表述，完全违背 must_include 第三条；结尾截断（'孩子可以尝试制作蟳埔'），暴露生成不完整，进一步削弱 completeness。综上，属关键任务要求系统性缺失，判定为 fail。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_ranking_logic",
+      "no_deprioritization",
+      "generic_recommendation",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear section structure",
+      "Natural language flow",
+      "No hallucinated real-time data",
+      "Appropriate tone for family travel"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重缺乏 persona-driven 推荐逻辑：未将‘三代同堂’‘轻松节奏’‘预算适中’转化为具体取舍标准；未说明为何开元寺/西湖公园比清源山/崇武古城更合适，也未解释为何欧乐堡或海丝野生动物世界可能更优（参考答案明确要求对比）；反而将开元寺列为首推——该景点台阶多、讲解密集、无亲子互动设施，与‘老人孩子兼顾’‘不想高强度’明显冲突，属事实性推荐失当；全文未出现任何‘应降级’‘建议避开’‘需谨慎考虑’等 deprioritization 表述，完全违背 must_include 第三条；结尾截断（'孩子可以尝试制作蟳埔'），暴露生成不完整，进一步削弱 completeness。综上，属关键任务要求系统性缺失，判定为 fail。"
+  },
+  {
+    "id": "eval_persona_understanding_000005",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 845,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"incomplete_recommendation_logic\", \"no_deprioritization_explanation\", \"truncated_response\", \"generic_ranking_without_justification\"],\n  \"strengths\": [\"Recognizes '三代同堂' as core constraint; includes some age-appropriate reasoning for each site; maintains generally safe, non-factual-claiming language; avoids overt marketing tone.\"],\n  \"judge_reason\": \"Response begins with persona-aware framing but fails to convert key constraints (老人孩子兼顾、轻松节奏、预算适中) into explicit recommendation logic — e.g., no explanation of *why*鲁迅故里 is ranked above沈园 in terms of walking distance, rest facilities, or accessibility. Crucially, it omits any deprioritization or avoidance rationale (e.g., why兰亭/十九峰/五泄 are unsuitable for this group), violating must_include #3. The response is also abruptly cut off mid-sentence at '东湖景区', breaking completeness and clarity. It lists sites with labels and generic benefits ('节奏轻松', '互动性强') but does not differentiate based on actual physical demands or intergenerational trade-offs — thus falling into 'repeating labels without recommendation', violating must_not_do #3. No evidence of budget-conscious curation (e.g., free/low-cost entry, combo tickets). Overall, insufficient for autonomous use.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "incomplete_recommendation_logic",
+      "no_deprioritization_explanation",
+      "truncated_response",
+      "generic_ranking_without_justification"
+    ],
+    "strengths": [
+      "Recognizes '三代同堂' as core constraint; includes some age-appropriate reasoning for each site; maintains generally safe, non-factual-claiming language; avoids overt marketing tone."
+    ],
+    "judge_reason": "Response begins with persona-aware framing but fails to convert key constraints (老人孩子兼顾、轻松节奏、预算适中) into explicit recommendation logic — e.g., no explanation of *why*鲁迅故里 is ranked above沈园 in terms of walking distance, rest facilities, or accessibility. Crucially, it omits any deprioritization or avoidance rationale (e.g., why兰亭/十九峰/五泄 are unsuitable for this group), violating must_include #3. The response is also abruptly cut off mid-sentence at '东湖景区', breaking completeness and clarity. It lists sites with labels and generic benefits ('节奏轻松', '互动性强') but does not differentiate based on actual physical demands or intergenerational trade-offs — thus falling into 'repeating labels without recommendation', violating must_not_do #3. No evidence of budget-conscious curation (e.g., free/low-cost entry, combo tickets). Overall, insufficient for autonomous use."
+  },
+  {
+    "id": "eval_persona_understanding_000006",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 825,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not answer every persona with the same generic advice\",\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"persona_ignorance\",\n    \"no_prioritization_logic\",\n    \"generic_recommendation\",\n    \"missing_deprioritization\",\n    \"task_failure\"\n  ],\n  \"strengths\": [\n    \"Uses natural, readable Chinese\",\n    \"Includes basic structural clarity (bulleted list, headings)\"\n  ],\n  \"judge_reason\": \"回答完全未体现三代同堂这一核心画像的差异化处理：未识别‘老人+孩子’带来的体力、安全、设施、动线等刚性约束；未将‘轻松节奏’‘预算适中’转化为具体筛选标准（如拒绝需爬山/涉水/长距离步行/高门票景点）；未对任一推荐项说明‘为何更匹配’，也未明确指出哪些应降级或避免（如东兴口岸含通关排队、边检流程、语言障碍、人流密集，明显不适宜老人孩子；白龙洞有台阶、湿滑、照明不足，与‘轻松’‘兼顾老人孩子’直接冲突）；所有推荐均套用泛化话术（‘环境清幽’‘节奏轻松’‘适合家庭’），属典型模板化输出；未完成任务最核心要求——把用户条件转化为推荐逻辑与取舍判断。严重违反 must_include 三项，且双重违反 must_not_do。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "persona_ignorance",
+      "no_prioritization_logic",
+      "generic_recommendation",
+      "missing_deprioritization",
+      "task_failure"
+    ],
+    "strengths": [
+      "Uses natural, readable Chinese",
+      "Includes basic structural clarity (bulleted list, headings)"
+    ],
+    "judge_reason": "回答完全未体现三代同堂这一核心画像的差异化处理：未识别‘老人+孩子’带来的体力、安全、设施、动线等刚性约束；未将‘轻松节奏’‘预算适中’转化为具体筛选标准（如拒绝需爬山/涉水/长距离步行/高门票景点）；未对任一推荐项说明‘为何更匹配’，也未明确指出哪些应降级或避免（如东兴口岸含通关排队、边检流程、语言障碍、人流密集，明显不适宜老人孩子；白龙洞有台阶、湿滑、照明不足，与‘轻松’‘兼顾老人孩子’直接冲突）；所有推荐均套用泛化话术（‘环境清幽’‘节奏轻松’‘适合家庭’），属典型模板化输出；未完成任务最核心要求——把用户条件转化为推荐逻辑与取舍判断。严重违反 must_include 三项，且双重违反 must_not_do。"
+  },
+  {
+    "id": "eval_persona_understanding_000007",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 923,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_deprioritization\",\n    \"truncated_output\"\n  ],\n  \"strengths\": [\n    \"Clear persona grounding in '亲子''互动体验''儿童友好''预算有限' throughout\",\n    \"Strong use of free/low-cost criteria to reflect budget constraint\",\n    \"Natural, non-marketing tone aligned with TripAI brand style\",\n    \"Well-structured with ✅/❌ visual cues and concise rationale per site\"\n  ],\n  \"judge_reason\": \"The response demonstrates solid persona understanding and converts constraints (free/low-cost, interactivity, child-friendliness) into concrete recommendations. However, it fails to fully satisfy the third must_include: while it labels some sites as 'unsuitable', it does not explicitly explain *why* they should be *deprioritized* (e.g., lack of indoor options during summer heat, long walking distances for toddlers, or historical content mismatching developmental stage). Crucially, the output is abruptly cut off mid-sentence at '合肥大剧院、博物馆（部分）' — no explanation follows, violating completeness. Though no must_not_do is violated, the truncation and incomplete deprioritization logic prevent a pass. A human review is needed to assess whether the missing portion would have fulfilled the requirement.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_deprioritization",
+      "truncated_output"
+    ],
+    "strengths": [
+      "Clear persona grounding in '亲子''互动体验''儿童友好''预算有限' throughout",
+      "Strong use of free/low-cost criteria to reflect budget constraint",
+      "Natural, non-marketing tone aligned with TripAI brand style",
+      "Well-structured with ✅/❌ visual cues and concise rationale per site"
+    ],
+    "judge_reason": "The response demonstrates solid persona understanding and converts constraints (free/low-cost, interactivity, child-friendliness) into concrete recommendations. However, it fails to fully satisfy the third must_include: while it labels some sites as 'unsuitable', it does not explicitly explain *why* they should be *deprioritized* (e.g., lack of indoor options during summer heat, long walking distances for toddlers, or historical content mismatching developmental stage). Crucially, the output is abruptly cut off mid-sentence at '合肥大剧院、博物馆（部分）' — no explanation follows, violating completeness. Though no must_not_do is violated, the truncation and incomplete deprioritization logic prevent a pass. A human review is needed to assess whether the missing portion would have fulfilled the requirement."
+  },
+  {
+    "id": "eval_persona_understanding_000008",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 913,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_prioritization_logic\",\n    \"missing_deprecation_reasoning\"\n  ],\n  \"strengths\": [\n    \"Clear segmentation by age group and budget sensitivity\",\n    \"Concrete, low-cost/free options aligned with 'budget limited' and 'child-friendly'\",\n    \"Natural, non-marketing tone with practical activity framing\",\n    \"No hallucinated prices or real-time data\"\n  ],\n  \"judge_reason\": \"The response correctly identifies and acts on core persona cues (parent-child, budget-limited, interaction-focused, child-friendly), offering three well-aligned, low-cost venues (Zoo, Science Museum, Children's Park) with age-appropriate rationales. It avoids generic advice and tool traces. However, it completely omits explicit comparative prioritization — e.g., no explanation of why拈花湾 or鼋头渚 are *less suitable* for this persona (e.g., high cost, low interactivity, long walking distances), nor does it justify deprioritizing宜兴竹海 (e.g., distance, limited child-centric facilities). This violates the must_include 'Explain what fits better and what should be deprioritized', a core requirement of persona_understanding. While the recommendations themselves are sound, the absence of trade-off reasoning undermines the '因人而异' mandate. Hence, hold — needs revision to add explicit fit/avoid logic.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_prioritization_logic",
+      "missing_deprecation_reasoning"
+    ],
+    "strengths": [
+      "Clear segmentation by age group and budget sensitivity",
+      "Concrete, low-cost/free options aligned with 'budget limited' and 'child-friendly'",
+      "Natural, non-marketing tone with practical activity framing",
+      "No hallucinated prices or real-time data"
+    ],
+    "judge_reason": "The response correctly identifies and acts on core persona cues (parent-child, budget-limited, interaction-focused, child-friendly), offering three well-aligned, low-cost venues (Zoo, Science Museum, Children's Park) with age-appropriate rationales. It avoids generic advice and tool traces. However, it completely omits explicit comparative prioritization — e.g., no explanation of why拈花湾 or鼋头渚 are *less suitable* for this persona (e.g., high cost, low interactivity, long walking distances), nor does it justify deprioritizing宜兴竹海 (e.g., distance, limited child-centric facilities). This violates the must_include 'Explain what fits better and what should be deprioritized', a core requirement of persona_understanding. While the recommendations themselves are sound, the absence of trade-off reasoning undermines the '因人而异' mandate. Hence, hold — needs revision to add explicit fit/avoid logic."
+  },
+  {
+    "id": "eval_persona_understanding_000009",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 869,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_deprioritization\", \"no_budget_logic\", \"generic_recommending\", \"persona_shallow\"],\n  \"strengths\": [\"Clear hierarchical structure with priority labels; free-entry emphasis aligns loosely with budget constraint; no hallucinated prices or hours; natural, non-marketing tone\"],\n  \"judge_reason\": \"The response lists five free attractions with ✅ priority labels but fails to *actually rank* them meaningfully — all are labeled '✅' and 'free', with no comparative analysis. It does not explain *why*曹魏古城 is more suitable than others for interactivity/child-friendliness/pace, nor does it justify the order (e.g., why is曹魏古城 P1 over儿童公园?). Crucially, it completely omits *deprioritization logic*: no mention of why 曹丞相府 or 春秋楼 — explicitly named in reference as needing downgrading — should be avoided or deprioritized, despite user specifying '互动体验、儿童友好、轻松节奏、预算有限'. The recommendations are generic ('寓教于乐', '亲近自然') and apply equally to any family — no tailoring to *how* limited budget constrains transport, timing, or combo visits; no trade-off reasoning (e.g., 'museum is great but requires 2h focus — may strain young kids, so lower priority than park'). Worse, it cuts off mid-sentence at '周边有小吃', violating completeness. Must_not_do violated: it repeats 'free' and 'suitable for families' without converting constraints into logic — essentially label-stamping, not reasoning.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_deprioritization",
+      "no_budget_logic",
+      "generic_recommending",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear hierarchical structure with priority labels; free-entry emphasis aligns loosely with budget constraint; no hallucinated prices or hours; natural, non-marketing tone"
+    ],
+    "judge_reason": "The response lists five free attractions with ✅ priority labels but fails to *actually rank* them meaningfully — all are labeled '✅' and 'free', with no comparative analysis. It does not explain *why*曹魏古城 is more suitable than others for interactivity/child-friendliness/pace, nor does it justify the order (e.g., why is曹魏古城 P1 over儿童公园?). Crucially, it completely omits *deprioritization logic*: no mention of why 曹丞相府 or 春秋楼 — explicitly named in reference as needing downgrading — should be avoided or deprioritized, despite user specifying '互动体验、儿童友好、轻松节奏、预算有限'. The recommendations are generic ('寓教于乐', '亲近自然') and apply equally to any family — no tailoring to *how* limited budget constrains transport, timing, or combo visits; no trade-off reasoning (e.g., 'museum is great but requires 2h focus — may strain young kids, so lower priority than park'). Worse, it cuts off mid-sentence at '周边有小吃', violating completeness. Must_not_do violated: it repeats 'free' and 'suitable for families' without converting constraints into logic — essentially label-stamping, not reasoning."
+  },
+  {
+    "id": "eval_persona_understanding_000010",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 866,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not answer every persona with the same generic advice\", \"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"generic_recommending\", \"no_prioritization_logic\", \"no_deprecation_reasoning\", \"persona_shallow\"],\n  \"strengths\": [\"Clear paragraph structure\", \"Natural, non-marketing tone\", \"No hallucinated prices/times\", \"Mentions budget and rhythm constraints\"],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重缺乏 persona-driven 推荐逻辑：未将‘互动体验’‘儿童友好’‘预算适中’转化为具体取舍标准；未说明为何青秀山比方特更优/或更劣，未解释为何广西民族博物馆应被降级（参考答案明确要求 deprioritize）；所有推荐项并列罗列，无排序、无权衡、无匹配强度说明；用‘生态公园’‘博物馆生态区’等虚构子区域替代真实可验证景点，属隐性编造；整体是泛化亲子游模板套用，未体现南宁地域特性与用户画像的深度耦合。违反 must_not_do 中‘不应用同一套话应对所有 persona’和‘不可仅复述标签而不做推荐’两项核心禁令，构成强失败信号。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_prioritization_logic",
+      "no_deprecation_reasoning",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear paragraph structure",
+      "Natural, non-marketing tone",
+      "No hallucinated prices/times",
+      "Mentions budget and rhythm constraints"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重缺乏 persona-driven 推荐逻辑：未将‘互动体验’‘儿童友好’‘预算适中’转化为具体取舍标准；未说明为何青秀山比方特更优/或更劣，未解释为何广西民族博物馆应被降级（参考答案明确要求 deprioritize）；所有推荐项并列罗列，无排序、无权衡、无匹配强度说明；用‘生态公园’‘博物馆生态区’等虚构子区域替代真实可验证景点，属隐性编造；整体是泛化亲子游模板套用，未体现南宁地域特性与用户画像的深度耦合。违反 must_not_do 中‘不应用同一套话应对所有 persona’和‘不可仅复述标签而不做推荐’两项核心禁令，构成强失败信号。"
+  },
+  {
+    "id": "eval_persona_understanding_000011",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 913,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_deprioritization\",\n    \"shallow_reasoning_for_avoidance\"\n  ],\n  \"strengths\": [\n    \"Clear segmentation of ✅/❌ sections\",\n    \"Consistent grounding in亲子,互动体验,儿童友好,轻松节奏,预算适中等关键词\",\n    \"Natural, non-marketing tone aligned with TripAI brand\",\n    \"No hallucinated real-time data (prices are plausible and labeled as '约')\"\n  ],\n  \"judge_reason\": \"回答正确识别了亲子核心需求，并将‘互动体验’‘儿童友好’‘轻松节奏’‘预算适中’转化为具体景点筛选逻辑（如强调室内互动、动物观察、免费/低价、慢节奏动线），体现了基本persona understanding。但对‘不适合景点’的分析严重不完整：黄鹤楼仅给出笼统理由（‘缺乏互动’‘易疲惫’），未说明其文化密集型动线、台阶多、排队久、无儿童设施等真实亲子障碍；更关键的是，参考答案明确要求对比分析‘钱基博故居’等应被降级的选项，而预测完全遗漏该点，也未提及其他高文化密度/低互动性场所（如辛亥革命武昌起义纪念馆、武汉美术馆旧馆）；结尾被截断（‘适合’后无下文），进一步削弱完整性。虽未违反must_not_do，但task-specific核心要求‘explain what should be deprioritized’未达标，属典型pass_with_risk情形。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_deprioritization",
+      "shallow_reasoning_for_avoidance"
+    ],
+    "strengths": [
+      "Clear segmentation of ✅/❌ sections",
+      "Consistent grounding in亲子,互动体验,儿童友好,轻松节奏,预算适中等关键词",
+      "Natural, non-marketing tone aligned with TripAI brand",
+      "No hallucinated real-time data (prices are plausible and labeled as '约')"
+    ],
+    "judge_reason": "回答正确识别了亲子核心需求，并将‘互动体验’‘儿童友好’‘轻松节奏’‘预算适中’转化为具体景点筛选逻辑（如强调室内互动、动物观察、免费/低价、慢节奏动线），体现了基本persona understanding。但对‘不适合景点’的分析严重不完整：黄鹤楼仅给出笼统理由（‘缺乏互动’‘易疲惫’），未说明其文化密集型动线、台阶多、排队久、无儿童设施等真实亲子障碍；更关键的是，参考答案明确要求对比分析‘钱基博故居’等应被降级的选项，而预测完全遗漏该点，也未提及其他高文化密度/低互动性场所（如辛亥革命武昌起义纪念馆、武汉美术馆旧馆）；结尾被截断（‘适合’后无下文），进一步削弱完整性。虽未违反must_not_do，但task-specific核心要求‘explain what should be deprioritized’未达标，属典型pass_with_risk情形。"
+  },
+  {
+    "id": "eval_persona_understanding_000012",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 829,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"minor_overgeneralization\"],\n  \"strengths\": [\n    \"Clear persona grounding: explicitly links '商务出差' → '时间有限、节奏紧凑' → prioritizes市区步行可达景点\",\n    \"Strong logic mapping: converts '交通便利' → metro/bus/taxi + '避开人潮' → avoids篁岭/三清山\",\n    \"Actionable structure: includes 2-day itinerary with timing, transport mode, and rationale per slot\",\n    \"Brand-aligned tone: no hype words, no forced marketing, restrained phrasing like '适合短暂停留''稍作放松'\"\n  ],\n  \"judge_reason\": \"Answer fully satisfies all must_include by anchoring every recommendation in the user's business-travel persona (e.g., '步行可达' for efficiency, '避开人潮' for crowd-avoidance), explicitly deprioritizing三清山 (distance/time) and篁岭 (crowds), and explaining trade-offs. No must_not_do violations — no tool calls, no generic templates, no label repetition without logic. Minor risk:江湾古镇虽标为'避开核心景区'，但未说明其实际客流水平是否真低于篁岭; also, '方岩风景区' is mentioned but not clearly tied to the persona (e.g., why it's too slow for business travel). Still, overall logic is sound and execution is clean — hence pass_with_risk, not hold.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "minor_overgeneralization"
+    ],
+    "strengths": [
+      "Clear persona grounding: explicitly links '商务出差' → '时间有限、节奏紧凑' → prioritizes市区步行可达景点",
+      "Strong logic mapping: converts '交通便利' → metro/bus/taxi + '避开人潮' → avoids篁岭/三清山",
+      "Actionable structure: includes 2-day itinerary with timing, transport mode, and rationale per slot",
+      "Brand-aligned tone: no hype words, no forced marketing, restrained phrasing like '适合短暂停留''稍作放松'"
+    ],
+    "judge_reason": "Answer fully satisfies all must_include by anchoring every recommendation in the user's business-travel persona (e.g., '步行可达' for efficiency, '避开人潮' for crowd-avoidance), explicitly deprioritizing三清山 (distance/time) and篁岭 (crowds), and explaining trade-offs. No must_not_do violations — no tool calls, no generic templates, no label repetition without logic. Minor risk:江湾古镇虽标为'避开核心景区'，但未说明其实际客流水平是否真低于篁岭; also, '方岩风景区' is mentioned but not clearly tied to the persona (e.g., why it's too slow for business travel). Still, overall logic is sound and execution is clean — hence pass_with_risk, not hold."
+  },
+  {
+    "id": "eval_persona_understanding_000013",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 913,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_deprioritization\", \"no_logic_transformation\", \"incomplete_recommendation_ranking\"],\n  \"strengths\": [\"Clear hierarchical structure with priority levels\", \"Natural, concise Chinese expression\", \"No hallucinated real-time info or unsafe content\", \"Consistent with TripAI's restrained tone\"],\n  \"judge_reason\": \"The response lists five locations with priority labels and basic rationale, but fails to meaningfully transform the user's persona cues (商务出差, 高效行程, 交通便利, 快速通道, 预算充足) into actionable recommendation logic. It does not explain *why* certain options are more aligned (e.g., no mention of business traveler needs like proximity to CBD, airport, or meeting venues), nor does it explicitly deprioritize or reject mismatched options (e.g., no justification for why 六怀山 — mentioned in reference — is unsuitable). The 'priority five' list is arbitrary and lacks comparative reasoning; the cutoff at '优先级五' followed by abrupt truncation ('---\\\\n\\\\n### **推荐逻辑总结**\\\\n1. **高效行程**：...') further undermines completeness. Crucially, it repeats '优先级X' as a label without embedding actual ranking logic — violating 'must_not_do: only repeat labels without making a recommendation'. Thus, persona understanding is superficial, not operational.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_deprioritization",
+      "no_logic_transformation",
+      "incomplete_recommendation_ranking"
+    ],
+    "strengths": [
+      "Clear hierarchical structure with priority levels",
+      "Natural, concise Chinese expression",
+      "No hallucinated real-time info or unsafe content",
+      "Consistent with TripAI's restrained tone"
+    ],
+    "judge_reason": "The response lists five locations with priority labels and basic rationale, but fails to meaningfully transform the user's persona cues (商务出差, 高效行程, 交通便利, 快速通道, 预算充足) into actionable recommendation logic. It does not explain *why* certain options are more aligned (e.g., no mention of business traveler needs like proximity to CBD, airport, or meeting venues), nor does it explicitly deprioritize or reject mismatched options (e.g., no justification for why 六怀山 — mentioned in reference — is unsuitable). The 'priority five' list is arbitrary and lacks comparative reasoning; the cutoff at '优先级五' followed by abrupt truncation ('---\\n\\n### **推荐逻辑总结**\\n1. **高效行程**：...') further undermines completeness. Crucially, it repeats '优先级X' as a label without embedding actual ranking logic — violating 'must_not_do: only repeat labels without making a recommendation'. Thus, persona understanding is superficial, not operational."
+  },
+  {
+    "id": "eval_persona_understanding_000014",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 627,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"lack_of_prioritization_logic\",\n    \"missing_deprecation_reasoning\"\n  ],\n  \"strengths\": [\n    \"Clear linkage of '高效行程' and '交通便利' to concrete criteria (e.g., metro proximity, compact timing)\",\n    \"Appropriate avoidance of marketing language; tone is professional and restrained\",\n    \"Accurate cultural facts about扬州 sites (e.g., 个园 as one of Four Famous Gardens, architectural blend)\"\n  ],\n  \"judge_reason\": \"The response correctly interprets '商务出差' as implying time sensitivity and convenience needs, and maps '预算充足' to prioritizing service quality (e.g., guided tours, rest areas). It provides structured, actionable logic for site selection. However, it fails to explicitly state *what should be deprioritized or avoided* — e.g., no mention of why 甘泉影视城 (a large-scale, low-culture-density, transit-remote set-piece) is mismatched, nor does it rank options (e.g., '瘦西湖 > 个园 > 何园' in efficiency terms) or justify relative trade-offs. This omission violates a core must_include and weakens persona differentiation. While not generic, it stops short of the ranked, comparative reasoning required for high task-specific score. No safety or style violations; all claims are verifiable and non-promotional.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_prioritization_logic",
+      "missing_deprecation_reasoning"
+    ],
+    "strengths": [
+      "Clear linkage of '高效行程' and '交通便利' to concrete criteria (e.g., metro proximity, compact timing)",
+      "Appropriate avoidance of marketing language; tone is professional and restrained",
+      "Accurate cultural facts about扬州 sites (e.g., 个园 as one of Four Famous Gardens, architectural blend)"
+    ],
+    "judge_reason": "The response correctly interprets '商务出差' as implying time sensitivity and convenience needs, and maps '预算充足' to prioritizing service quality (e.g., guided tours, rest areas). It provides structured, actionable logic for site selection. However, it fails to explicitly state *what should be deprioritized or avoided* — e.g., no mention of why 甘泉影视城 (a large-scale, low-culture-density, transit-remote set-piece) is mismatched, nor does it rank options (e.g., '瘦西湖 > 个园 > 何园' in efficiency terms) or justify relative trade-offs. This omission violates a core must_include and weakens persona differentiation. While not generic, it stops short of the ranked, comparative reasoning required for high task-specific score. No safety or style violations; all claims are verifiable and non-promotional."
+  },
+  {
+    "id": "eval_persona_understanding_000015",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 889,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"generic_recommendation\", \"missing_logic\", \"unjustified_prioritization\", \"persona_shallow\"],\n  \"strengths\": [\"Identifies some locations in湛江; includes basic交通便利 mention; avoids overt marketing tone; ends with practical tip on transport\"],\n  \"judge_reason\": \"回答表面贴合‘商务出差’关键词，但未真正将‘高效行程’‘交通便利’‘预算充足’转化为推荐逻辑：如未说明为何市政府大楼/会展中心比海滨公园更高效，未解释‘海底隧道’作为景点的合理性（实为交通设施，非景点），且将图书馆、博物馆等静态场所列为‘推荐景点’缺乏商务适配性论证；对‘不适合’景点的排除仅基于距离，未结合节奏、时间成本、商务价值做深度取舍；大量条目罗列而无排序依据或权重说明，属典型标签堆砌；违反must_not_do中‘not only repeat labels without making a recommendation’；未体现‘什么更匹配、什么应降级’这一核心任务要求；结尾截断亦影响completeness。整体属机械响应，未达persona_understanding rubric中‘因人而异’‘推荐排序逻辑清楚’的高分标准。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "generic_recommendation",
+      "missing_logic",
+      "unjustified_prioritization",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Identifies some locations in湛江; includes basic交通便利 mention; avoids overt marketing tone; ends with practical tip on transport"
+    ],
+    "judge_reason": "回答表面贴合‘商务出差’关键词，但未真正将‘高效行程’‘交通便利’‘预算充足’转化为推荐逻辑：如未说明为何市政府大楼/会展中心比海滨公园更高效，未解释‘海底隧道’作为景点的合理性（实为交通设施，非景点），且将图书馆、博物馆等静态场所列为‘推荐景点’缺乏商务适配性论证；对‘不适合’景点的排除仅基于距离，未结合节奏、时间成本、商务价值做深度取舍；大量条目罗列而无排序依据或权重说明，属典型标签堆砌；违反must_not_do中‘not only repeat labels without making a recommendation’；未体现‘什么更匹配、什么应降级’这一核心任务要求；结尾截断亦影响completeness。整体属机械响应，未达persona_understanding rubric中‘因人而异’‘推荐排序逻辑清楚’的高分标准。"
+  },
+  {
+    "id": "eval_persona_understanding_000016",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 883,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"lack_of_tradeoff_reasoning\",\n    \"incomplete_prioritization\"\n  ],\n  \"strengths\": [\n    \"Clear identification of user as business traveler with efficiency and convenience needs\",\n    \"Consistent focus on transport accessibility (metro/bus/walking) and short-duration cultural exposure\",\n    \"Natural, concise language aligned with TripAI's restrained brand voice\",\n    \"No hallucinated real-time data (e.g., no fake opening hours or prices)\"\n  ],\n  \"judge_reason\": \"The response correctly interprets '商务出差' as the core persona and grounds all recommendations in efficiency, centrality, and low time cost — satisfying 'persona-specific reasoning' and 'turning preferences into logic'. However, it completely omits explicit comparative prioritization: it never states *why* certain attractions (e.g., Tongtian Rock, Song City Tourism Zone) are more suitable than others (e.g., Ganzhou Polar Ocean World, Sanbaoshan), nor does it deprioritize or advise against any option — violating the must-include requirement. The list ends abruptly mid-sentence ('赣州博物馆（推荐指数：★★★★☆）...'), breaking completeness and clarity. While safe and stylistically appropriate, the absence of tradeoff logic and truncation make this unsuitable for direct release without revision.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_tradeoff_reasoning",
+      "incomplete_prioritization"
+    ],
+    "strengths": [
+      "Clear identification of user as business traveler with efficiency and convenience needs",
+      "Consistent focus on transport accessibility (metro/bus/walking) and short-duration cultural exposure",
+      "Natural, concise language aligned with TripAI's restrained brand voice",
+      "No hallucinated real-time data (e.g., no fake opening hours or prices)"
+    ],
+    "judge_reason": "The response correctly interprets '商务出差' as the core persona and grounds all recommendations in efficiency, centrality, and low time cost — satisfying 'persona-specific reasoning' and 'turning preferences into logic'. However, it completely omits explicit comparative prioritization: it never states *why* certain attractions (e.g., Tongtian Rock, Song City Tourism Zone) are more suitable than others (e.g., Ganzhou Polar Ocean World, Sanbaoshan), nor does it deprioritize or advise against any option — violating the must-include requirement. The list ends abruptly mid-sentence ('赣州博物馆（推荐指数：★★★★☆）...'), breaking completeness and clarity. While safe and stylistically appropriate, the absence of tradeoff logic and truncation make this unsuitable for direct release without revision."
+  },
+  {
+    "id": "eval_persona_understanding_000017",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 874,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not answer every persona with the same generic advice\"],\n  \"issue_tags\": [\"generic_recommending\", \"no_deprioritization_logic\", \"persona_shallow\"],\n  \"strengths\": [\"Clear sectioning and visual hierarchy; natural, non-marketing tone; no hallucinated real-time data; safe and honest phrasing\"],\n  \"judge_reason\": \"The response fails to meaningfully translate '商务出差' + '高效行程' + '交通便利' + '预算充足' into concrete prioritization logic. It lists景点 in three tiers but assigns ★★★★☆ to both city museums and remote natural sites (e.g., 可可托海, 喀纳斯湖) without explaining why a business traveler should prioritize a 2-hour drive to 喀纳斯 over a 10-minute walk to a café or co-working space — contradicting '高效' and '交通便利'. It never explains *what should be avoided or deprioritized* (e.g., no mention that 喀纳斯 is logistically incompatible with tight meeting schedules), nor does it justify trade-offs (e.g., why 白桦林 > 青河县博物馆 for efficiency). Instead, it defaults to generic tourism framing ('适合拍照打卡', '适合放松身心'), violating must_not_do #2. The ranking is superficial (star ratings without rationale), and no recommendation reflects the core constraint: this is *not leisure travel*. Thus, persona understanding is shallow, task-specific score is low, and instruction_following fails on critical must_includes.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_deprioritization_logic",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear sectioning and visual hierarchy; natural, non-marketing tone; no hallucinated real-time data; safe and honest phrasing"
+    ],
+    "judge_reason": "The response fails to meaningfully translate '商务出差' + '高效行程' + '交通便利' + '预算充足' into concrete prioritization logic. It lists景点 in three tiers but assigns ★★★★☆ to both city museums and remote natural sites (e.g., 可可托海, 喀纳斯湖) without explaining why a business traveler should prioritize a 2-hour drive to 喀纳斯 over a 10-minute walk to a café or co-working space — contradicting '高效' and '交通便利'. It never explains *what should be avoided or deprioritized* (e.g., no mention that 喀纳斯 is logistically incompatible with tight meeting schedules), nor does it justify trade-offs (e.g., why 白桦林 > 青河县博物馆 for efficiency). Instead, it defaults to generic tourism framing ('适合拍照打卡', '适合放松身心'), violating must_not_do #2. The ranking is superficial (star ratings without rationale), and no recommendation reflects the core constraint: this is *not leisure travel*. Thus, persona understanding is shallow, task-specific score is low, and instruction_following fails on critical must_includes."
+  },
+  {
+    "id": "eval_persona_understanding_000018",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 751,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"slight_genericity_in_ranking\", \"underdeveloped_deprioritization_logic\"],\n  \"strengths\": [\n    \"Clear linkage of '学生党' → free/low-cost + social + cultural + slow-paced criteria\",\n    \"Explicit mapping of budget constraint to concrete venue types (e.g., parks, free museum hours)\",\n    \"Natural, non-marketing tone; avoids hype words like '必去''爆款'\",\n    \"Includes practical execution cues: public transport, food/rest spots, photo-sharing utility\"\n  ],\n  \"judge_reason\": \"The response demonstrates strong persona understanding by grounding all recommendations in student-specific constraints (budget, social motivation, pace) and explicitly justifying fit/non-fit. It satisfies all must_include items. However, the deprioritization logic is somewhat underdeveloped — e.g., '太原美术馆' is dismissed as 'for budget-sufficient people' without explaining *why* it’s mismatched for students beyond cost (e.g., lack of interactivity, limited peer engagement, no free entry days). Also, while ranking is implied via grouping (culture/nature/social), no explicit priority order (e.g., 'top 3 for first day') is given — a minor but task-relevant gap per persona_understanding rubric. No must_not_do violations; no hallucinated prices/hours; brand voice is restrained and helpful. Hence pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "slight_genericity_in_ranking",
+      "underdeveloped_deprioritization_logic"
+    ],
+    "strengths": [
+      "Clear linkage of '学生党' → free/low-cost + social + cultural + slow-paced criteria",
+      "Explicit mapping of budget constraint to concrete venue types (e.g., parks, free museum hours)",
+      "Natural, non-marketing tone; avoids hype words like '必去''爆款'",
+      "Includes practical execution cues: public transport, food/rest spots, photo-sharing utility"
+    ],
+    "judge_reason": "The response demonstrates strong persona understanding by grounding all recommendations in student-specific constraints (budget, social motivation, pace) and explicitly justifying fit/non-fit. It satisfies all must_include items. However, the deprioritization logic is somewhat underdeveloped — e.g., '太原美术馆' is dismissed as 'for budget-sufficient people' without explaining *why* it’s mismatched for students beyond cost (e.g., lack of interactivity, limited peer engagement, no free entry days). Also, while ranking is implied via grouping (culture/nature/social), no explicit priority order (e.g., 'top 3 for first day') is given — a minor but task-relevant gap per persona_understanding rubric. No must_not_do violations; no hallucinated prices/hours; brand voice is restrained and helpful. Hence pass_with_risk."
+  },
+  {
+    "id": "eval_persona_understanding_000019",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 885,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 1,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not answer every persona with the same generic advice\",\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"persona_blind\",\n    \"generic_recommending\",\n    \"no_tradeoff_reasoning\",\n    \"misclassified_guige\",\n    \"inconsistent_pricing\"\n  ],\n  \"strengths\": [\n    \"Mentions student ticket pricing (though inaccurately)\",\n    \"Attempts section-based structure (✅/❌)\"\n  ],\n  \"judge_reason\": \"回答严重违反 persona_understanding 核心要求：通篇未体现‘学生党’的真实约束逻辑（如时间自由但资金极有限、社交=低成本高频互动场景），反而将高消费景点（阿那亚）错误归为‘不太适合’却未说明为何——实际阿那亚对多数学生党完全不可及，而鸽子窝公园在参考答案中明确应被点出‘不适合’（因其门票已涨价至35元且观日出需早起+交通不便，不符合学生社交轻松性），但预测中却列为✅推荐并称‘免费’，属事实错误；更严重的是，将秦皇岛野生动物园（门票实为130元，学生票无普遍半价政策，且园区偏远、耗时长）与老龙头并列推荐，未做任何性价比或节奏适配分析；全篇用‘适合人群：喜欢X的学生’循环套话，未将‘预算有限’转化为取舍标准（如优先免费/50元内、公交可达、停留≤2h），也未解释为何某景点‘更匹配’或‘应降级’。本质是模板化罗列景点，未完成任务最核心的‘因人而异推理’。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 1,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "persona_blind",
+      "generic_recommending",
+      "no_tradeoff_reasoning",
+      "misclassified_guige",
+      "inconsistent_pricing"
+    ],
+    "strengths": [
+      "Mentions student ticket pricing (though inaccurately)",
+      "Attempts section-based structure (✅/❌)"
+    ],
+    "judge_reason": "回答严重违反 persona_understanding 核心要求：通篇未体现‘学生党’的真实约束逻辑（如时间自由但资金极有限、社交=低成本高频互动场景），反而将高消费景点（阿那亚）错误归为‘不太适合’却未说明为何——实际阿那亚对多数学生党完全不可及，而鸽子窝公园在参考答案中明确应被点出‘不适合’（因其门票已涨价至35元且观日出需早起+交通不便，不符合学生社交轻松性），但预测中却列为✅推荐并称‘免费’，属事实错误；更严重的是，将秦皇岛野生动物园（门票实为130元，学生票无普遍半价政策，且园区偏远、耗时长）与老龙头并列推荐，未做任何性价比或节奏适配分析；全篇用‘适合人群：喜欢X的学生’循环套话，未将‘预算有限’转化为取舍标准（如优先免费/50元内、公交可达、停留≤2h），也未解释为何某景点‘更匹配’或‘应降级’。本质是模板化罗列景点，未完成任务最核心的‘因人而异推理’。"
+  },
+  {
+    "id": "eval_persona_understanding_000020",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 832,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not answer every persona with the same generic advice\",\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"泛化推荐\",\n    \"未体现学生党约束转化\",\n    \"未做取舍逻辑\",\n    \"内容截断\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重偏离任务要求：通篇未体现‘学生党’的核心约束（如无收入、时间弹性、社交刚需、对价格极度敏感）如何转化为景点筛选逻辑；未说明为何那拉提草原‘免费’就一定适合——实际那拉提核心景区需门票且交通成本高，该信息错误且未加说明；将赛里木湖（门票60元+区间车120元，合计180元）轻描淡写为‘略高’，严重低估学生预算压力，违背safety_and_honesty；未对琼库什台/唐布拉等典型高消费/高交通成本目的地进行任何deprioritization解释，完全忽略must_include第三项；结尾突兀截断，属严重 incomplete；全文套用模板式分点罗列，无一人一策的推理链条，纯属generic tourist advice，直接违反must_not_do第2条；语言风格带营销感（如‘大西洋最后一滴眼泪’），不符合TripAI克制自然的品牌调性。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 3,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "泛化推荐",
+      "未体现学生党约束转化",
+      "未做取舍逻辑",
+      "内容截断"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重偏离任务要求：通篇未体现‘学生党’的核心约束（如无收入、时间弹性、社交刚需、对价格极度敏感）如何转化为景点筛选逻辑；未说明为何那拉提草原‘免费’就一定适合——实际那拉提核心景区需门票且交通成本高，该信息错误且未加说明；将赛里木湖（门票60元+区间车120元，合计180元）轻描淡写为‘略高’，严重低估学生预算压力，违背safety_and_honesty；未对琼库什台/唐布拉等典型高消费/高交通成本目的地进行任何deprioritization解释，完全忽略must_include第三项；结尾突兀截断，属严重 incomplete；全文套用模板式分点罗列，无一人一策的推理链条，纯属generic tourist advice，直接违反must_not_do第2条；语言风格带营销感（如‘大西洋最后一滴眼泪’），不符合TripAI克制自然的品牌调性。"
+  },
+  {
+    "id": "eval_persona_understanding_000021",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 872,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_deprioritization\", \"generic_logic\", \"incomplete_ranking\", \"unfulfilled_priority_instruction\"],\n  \"strengths\": [\"Recognizes student budget constraint and cultural context of Kaifeng\", \"Attempts structured prioritization with headings\", \"Avoids fabricated real-time pricing or opening hours\"],\n  \"judge_reason\": \"The response acknowledges '学生党' and mentions budget/price control, but fails to translate persona cues into concrete, differentiated recommendation logic. It lists multiple景点 without explaining *why* one fits better than another (e.g., no comparison between Qingming Shanghe Park and Wansui Mountain Wuxia City). Crucially, it omits explicit deprioritization or avoidance guidance as required — the prompt demands 'what should be deprioritized', yet the answer stops mid-sentence at '节奏轻松优先' and never names any site to avoid. The ranking is superficial (four parallel 'priorities' rather than a single coherent hierarchy), violating the core task rubric: 'recommendation sorting or trade-off logic must be clear'. Also violates 'must_not_do' by repeating abstract labels ('文化体验优先', '社交体验优先') without grounding them in actual comparative judgment. The abrupt cutoff further undermines completeness and clarity.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_deprioritization",
+      "generic_logic",
+      "incomplete_ranking",
+      "unfulfilled_priority_instruction"
+    ],
+    "strengths": [
+      "Recognizes student budget constraint and cultural context of Kaifeng",
+      "Attempts structured prioritization with headings",
+      "Avoids fabricated real-time pricing or opening hours"
+    ],
+    "judge_reason": "The response acknowledges '学生党' and mentions budget/price control, but fails to translate persona cues into concrete, differentiated recommendation logic. It lists multiple景点 without explaining *why* one fits better than another (e.g., no comparison between Qingming Shanghe Park and Wansui Mountain Wuxia City). Crucially, it omits explicit deprioritization or avoidance guidance as required — the prompt demands 'what should be deprioritized', yet the answer stops mid-sentence at '节奏轻松优先' and never names any site to avoid. The ranking is superficial (four parallel 'priorities' rather than a single coherent hierarchy), violating the core task rubric: 'recommendation sorting or trade-off logic must be clear'. Also violates 'must_not_do' by repeating abstract labels ('文化体验优先', '社交体验优先') without grounding them in actual comparative judgment. The abrupt cutoff further undermines completeness and clarity."
+  },
+  {
+    "id": "eval_persona_understanding_000022",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 889,
+    "raw_judge_response": "{\n  \"correctness\": 1,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 1,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 1,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\"Show persona-specific reasoning\", \"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\", \"Do not answer every persona with the same generic advice\"],\n  \"issue_tags\": [\"repetition\", \"no_recommendation_logic\", \"no_deprioritization\", \"no_persona_reasoning\", \"empty_content\"],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全未体现学生党、性价比、社交、营口地域等任何persona要素；通篇重复'适合拍照打卡'达50余次，无一句实质性推荐、逻辑分析或取舍说明；未提及任何营口具体景点（如月亮湖公园/山海广场/辽河老街/熊岳温泉），更未解释匹配或排除原因；严重违反must_not_do中'不得仅复述标签而不做推荐'和'不得泛化套话'；内容空洞、机械、无信息量，属于典型失败输出。\"\n}",
+    "correctness": 1,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 1,
+    "safety_and_honesty": 1,
+    "brand_style": 1,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation",
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "repetition",
+      "no_recommendation_logic",
+      "no_deprioritization",
+      "no_persona_reasoning",
+      "empty_content"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全未体现学生党、性价比、社交、营口地域等任何persona要素；通篇重复'适合拍照打卡'达50余次，无一句实质性推荐、逻辑分析或取舍说明；未提及任何营口具体景点（如月亮湖公园/山海广场/辽河老街/熊岳温泉），更未解释匹配或排除原因；严重违反must_not_do中'不得仅复述标签而不做推荐'和'不得泛化套话'；内容空洞、机械、无信息量，属于典型失败输出。"
+  },
+  {
+    "id": "eval_persona_understanding_000023",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 844,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"generic_recommending\", \"no_ranking_logic\", \"no_deprioritization_reasoning\", \"persona_shallow\"],\n  \"strengths\": [\"Clear section formatting with ✅/❌; natural Chinese tone; no hallucinated real-time data; avoids marketing language\"],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重缺乏 persona-driven logic：未将‘预算充足’转化为体验升级建议（如优先小众包场、私密导览、黄昏时段预约等），未解释为何华佗纪念馆比药王庙更浪漫或更适合拍照；对‘不适合’景点仅以‘人流量大’泛泛而谈，未结合情侣需求说明庄子祠/蒙城博物馆等为何文化调性不匹配（如说教感强、缺乏互动/光影/私密空间）；所有推荐项并列罗列，无排序、无取舍依据，本质是‘标签堆砌’而非因人而异的判断。违反 must_not_do ‘only repeat labels without making a recommendation’，且完全缺失 task-specific 核心要求——推荐逻辑转化与显性降级说明。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_ranking_logic",
+      "no_deprioritization_reasoning",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear section formatting with ✅/❌; natural Chinese tone; no hallucinated real-time data; avoids marketing language"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重缺乏 persona-driven logic：未将‘预算充足’转化为体验升级建议（如优先小众包场、私密导览、黄昏时段预约等），未解释为何华佗纪念馆比药王庙更浪漫或更适合拍照；对‘不适合’景点仅以‘人流量大’泛泛而谈，未结合情侣需求说明庄子祠/蒙城博物馆等为何文化调性不匹配（如说教感强、缺乏互动/光影/私密空间）；所有推荐项并列罗列，无排序、无取舍依据，本质是‘标签堆砌’而非因人而异的判断。违反 must_not_do ‘only repeat labels without making a recommendation’，且完全缺失 task-specific 核心要求——推荐逻辑转化与显性降级说明。"
+  },
+  {
+    "id": "eval_persona_understanding_000024",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 847,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"no_reasoning_logic\",\n    \"generic_recommendation\",\n    \"incomplete_task_response\",\n    \"unranked_options\",\n    \"no_deprecation_explanation\"\n  ],\n  \"strengths\": [\n    \"Uses clear section headers and emoji formatting\",\n    \"Maintains neutral, non-marketing tone\",\n    \"Avoids fabricating real-time info (e.g., prices, hours)\"\n  ],\n  \"judge_reason\": \"The response completely fails to demonstrate persona understanding: it ignores the explicit instruction '我想听的是因人而异的建议' and defaults to three generic, label-based categories ('自然与浪漫结合型', '文化与艺术结合型', '主题乐园与互动体验型') with no grounding in the user's actual constraints. It does not explain *why* any specific常州景点 (e.g., 天目射击俱乐部/乱针绣博物馆/A35·红盒子) fits better — nor why 顾龙山/横塘河湿地公园 should be deprioritized — violating all three must_include items. The answer is cut off mid-sentence, further confirming incompleteness. Crucially, it repeats user labels ('情侣', '拍照', '预算充足') without transforming them into ranked, justified recommendations — directly violating 'Do not only repeat labels without making a recommendation'. While safe and stylistically acceptable, it fails the core task rubric: no evidence of turning persona cues into logic-driven trade-offs.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_reasoning_logic",
+      "generic_recommendation",
+      "incomplete_task_response",
+      "unranked_options",
+      "no_deprecation_explanation"
+    ],
+    "strengths": [
+      "Uses clear section headers and emoji formatting",
+      "Maintains neutral, non-marketing tone",
+      "Avoids fabricating real-time info (e.g., prices, hours)"
+    ],
+    "judge_reason": "The response completely fails to demonstrate persona understanding: it ignores the explicit instruction '我想听的是因人而异的建议' and defaults to three generic, label-based categories ('自然与浪漫结合型', '文化与艺术结合型', '主题乐园与互动体验型') with no grounding in the user's actual constraints. It does not explain *why* any specific常州景点 (e.g., 天目射击俱乐部/乱针绣博物馆/A35·红盒子) fits better — nor why 顾龙山/横塘河湿地公园 should be deprioritized — violating all three must_include items. The answer is cut off mid-sentence, further confirming incompleteness. Crucially, it repeats user labels ('情侣', '拍照', '预算充足') without transforming them into ranked, justified recommendations — directly violating 'Do not only repeat labels without making a recommendation'. While safe and stylistically acceptable, it fails the core task rubric: no evidence of turning persona cues into logic-driven trade-offs."
+  },
+  {
+    "id": "eval_persona_understanding_000025",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 860,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"lack_of_prioritization_clarity\",\n    \"missing_deprecation_reasoning\"\n  ],\n  \"strengths\": [\n    \"Clear persona grounding (couples, romance, photography, budget充足)\",\n    \"Natural, non-marketing language with practical tips (e.g., timing, attire, crowd advice)\",\n    \"Well-structured with visual hierarchy (✅ priority tiers, bullet points, headings)\"\n  ],\n  \"judge_reason\": \"The response correctly identifies the user as a couple seeking romance and photo opportunities in Zhuhai with ample budget, and structures recommendations into two priority tiers. However, it fails to explicitly explain *why* certain options (e.g., Zhuhai Chimelong) are ranked lower or should be deprioritized — it labels them 'priority one' or 'priority two' but does not articulate trade-offs (e.g., 'Chimelong is high-energy and family-oriented, diluting romantic intimacy; better for friend groups than couples seeking quiet moments'). It also omits any mention of what to *avoid* (e.g., industrial sites like By-Health Factory), violating the must_include requirement to clarify what 'should be deprioritized or avoided'. While no must_not_do is violated and safety/honesty is strong (no fabricated prices/hours), the absence of explicit comparative logic undermines persona understanding rigor. Hence, hold for revision.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_prioritization_clarity",
+      "missing_deprecation_reasoning"
+    ],
+    "strengths": [
+      "Clear persona grounding (couples, romance, photography, budget充足)",
+      "Natural, non-marketing language with practical tips (e.g., timing, attire, crowd advice)",
+      "Well-structured with visual hierarchy (✅ priority tiers, bullet points, headings)"
+    ],
+    "judge_reason": "The response correctly identifies the user as a couple seeking romance and photo opportunities in Zhuhai with ample budget, and structures recommendations into two priority tiers. However, it fails to explicitly explain *why* certain options (e.g., Zhuhai Chimelong) are ranked lower or should be deprioritized — it labels them 'priority one' or 'priority two' but does not articulate trade-offs (e.g., 'Chimelong is high-energy and family-oriented, diluting romantic intimacy; better for friend groups than couples seeking quiet moments'). It also omits any mention of what to *avoid* (e.g., industrial sites like By-Health Factory), violating the must_include requirement to clarify what 'should be deprioritized or avoided'. While no must_not_do is violated and safety/honesty is strong (no fabricated prices/hours), the absence of explicit comparative logic undermines persona understanding rigor. Hence, hold for revision."
+  },
+  {
+    "id": "eval_persona_understanding_000026",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 684,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not answer every persona with the same generic advice\"],\n  \"issue_tags\": [\"generic_recommending\", \"no_prioritization_logic\", \"no_deprecation_reasoning\", \"geographic_inaccuracy\"],\n  \"strengths\": [\"Natural language flow\", \"No hallucinated real-time data\", \"No tool traces or JSON\", \"Tone aligns with TripAI's restrained style\"],\n  \"judge_reason\": \"回答严重偏离任务核心要求：未将‘情侣+浪漫+拍照+预算适中+2-3天’转化为具体推荐逻辑；未对景点进行排序或说明取舍依据（如为何莫日格勒河优于满洲里套娃景区）；错误推荐阿尔山市——其地理上属兴安盟，距呼伦贝尔市区超500km，2-3天行程完全不可行，属事实性错误与节奏无视；满洲里国门虽提及，但未对比分析其与更优选项（如白桦林、额尔古纳湿地）的匹配度差异；通篇为泛化描述，未体现‘因人而异’的决策过程，实质是套用模板式景点罗列，违反must_not_do第2条。task_specific_score仅2分：未完成persona understanding最核心的‘转化偏好为逻辑’动作。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_prioritization_logic",
+      "no_deprecation_reasoning",
+      "geographic_inaccuracy"
+    ],
+    "strengths": [
+      "Natural language flow",
+      "No hallucinated real-time data",
+      "No tool traces or JSON",
+      "Tone aligns with TripAI's restrained style"
+    ],
+    "judge_reason": "回答严重偏离任务核心要求：未将‘情侣+浪漫+拍照+预算适中+2-3天’转化为具体推荐逻辑；未对景点进行排序或说明取舍依据（如为何莫日格勒河优于满洲里套娃景区）；错误推荐阿尔山市——其地理上属兴安盟，距呼伦贝尔市区超500km，2-3天行程完全不可行，属事实性错误与节奏无视；满洲里国门虽提及，但未对比分析其与更优选项（如白桦林、额尔古纳湿地）的匹配度差异；通篇为泛化描述，未体现‘因人而异’的决策过程，实质是套用模板式景点罗列，违反must_not_do第2条。task_specific_score仅2分：未完成persona understanding最核心的‘转化偏好为逻辑’动作。"
+  },
+  {
+    "id": "eval_persona_understanding_000027",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 855,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"missing_deprioritization\",\n    \"no_justified_tradeoffs\"\n  ],\n  \"strengths\": [\n    \"Clear, well-structured formatting with emoji and bullet points\",\n    \"Strong alignment with romantic/photo-friendly criteria (e.g., lighting, ambiance, aesthetics)\",\n    \"No hallucinated real-time info (prices, hours, availability)\",\n    \"Natural, brand-appropriate tone — restrained, descriptive, not salesy\"\n  ],\n  \"judge_reason\": \"The response correctly identifies the user as a couple seeking romance and photography, and delivers five well-curated, contextually appropriate recommendations with tailored rationale per location. However, it completely omits explicit deprioritization or avoidance guidance — a core must_include. While implicitly some choices (e.g., OCT over wildlife park) suggest filtering, the answer never states *what is less suitable* or *why something should be avoided*, violating 'Explain what fits better and what should be deprioritized'. This omission undermines persona-understanding rigor: no tradeoff logic, no budget-aware filtering (e.g., noting free vs. paid entries), and no acknowledgment of mismatched options (e.g., 'Wildlife Zoo is low-priority for romance/photo'). Instruction-following and task-specific score are therefore downgraded. No must_not_do violations, and safety/honesty is flawless. Verdict is 'hold' due to critical missing dimension required for confident acceptance.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "missing_deprioritization",
+      "no_justified_tradeoffs"
+    ],
+    "strengths": [
+      "Clear, well-structured formatting with emoji and bullet points",
+      "Strong alignment with romantic/photo-friendly criteria (e.g., lighting, ambiance, aesthetics)",
+      "No hallucinated real-time info (prices, hours, availability)",
+      "Natural, brand-appropriate tone — restrained, descriptive, not salesy"
+    ],
+    "judge_reason": "The response correctly identifies the user as a couple seeking romance and photography, and delivers five well-curated, contextually appropriate recommendations with tailored rationale per location. However, it completely omits explicit deprioritization or avoidance guidance — a core must_include. While implicitly some choices (e.g., OCT over wildlife park) suggest filtering, the answer never states *what is less suitable* or *why something should be avoided*, violating 'Explain what fits better and what should be deprioritized'. This omission undermines persona-understanding rigor: no tradeoff logic, no budget-aware filtering (e.g., noting free vs. paid entries), and no acknowledgment of mismatched options (e.g., 'Wildlife Zoo is low-priority for romance/photo'). Instruction-following and task-specific score are therefore downgraded. No must_not_do violations, and safety/honesty is flawless. Verdict is 'hold' due to critical missing dimension required for confident acceptance."
+  },
+  {
+    "id": "eval_persona_understanding_000028",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 799,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not output tool calls, JSON, or traces\",\n    \"Do not answer every persona with the same generic advice\",\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"严重遗漏核心逻辑\",\n    \"未体现情侣画像转化\",\n    \"未做推荐排序或取舍\",\n    \"半截输出\",\n    \"违反禁止输出格式\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全未体现 persona understanding：通篇是泛化景点罗列（净月潭、伪满皇宫、雕塑公园等），未将‘情侣’‘浪漫’‘拍照’‘预算适中’转化为推荐逻辑；未说明为何某景点更匹配、某景点应降级（如未提及长影世纪城应避免，也未解释净月潭比南湖更适配）；未进行任何因人而异的取舍判断，纯属通用攻略模板；结尾突兀截断（‘晚上：南湖大观音乐喷泉’后无内容），疑似生成中断；且结构上使用 emoji 和 markdown 标题，违背 TripAI 克制自然的 brand_style；更严重的是，输出含明显非自然语言痕迹（如‘🌙 第二天’‘🌸 第一天’等营销化符号），并隐含工具调用式组织逻辑，违反 must_not_do 中‘不得输出 tool calls、JSON 或 traces’。整体为典型失败样本。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 2,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "严重遗漏核心逻辑",
+      "未体现情侣画像转化",
+      "未做推荐排序或取舍",
+      "半截输出",
+      "违反禁止输出格式"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全未体现 persona understanding：通篇是泛化景点罗列（净月潭、伪满皇宫、雕塑公园等），未将‘情侣’‘浪漫’‘拍照’‘预算适中’转化为推荐逻辑；未说明为何某景点更匹配、某景点应降级（如未提及长影世纪城应避免，也未解释净月潭比南湖更适配）；未进行任何因人而异的取舍判断，纯属通用攻略模板；结尾突兀截断（‘晚上：南湖大观音乐喷泉’后无内容），疑似生成中断；且结构上使用 emoji 和 markdown 标题，违背 TripAI 克制自然的 brand_style；更严重的是，输出含明显非自然语言痕迹（如‘🌙 第二天’‘🌸 第一天’等营销化符号），并隐含工具调用式组织逻辑，违反 must_not_do 中‘不得输出 tool calls、JSON 或 traces’。整体为典型失败样本。"
+  },
+  {
+    "id": "eval_persona_understanding_000029",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 813,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"lack_of_deprioritization_logic\"],\n  \"strengths\": [\n    \"Clear prioritization with three tiers\",\n    \"Strong alignment with photography + night scene focus\",\n    \"Concrete shooting tips per location\",\n    \"Natural, non-marketing tone consistent with TripAI brand\"\n  ],\n  \"judge_reason\": \"The response correctly identifies and ranks photo-centric locations (Central Street/Sophia Cathedral > Ice & Snow World > Songhua River/Sun Island) based on user's 'photography + night scene' priority and ample budget. It provides actionable shooting advice and avoids generic tourism language. However, it fails to explicitly explain *why certain alternatives should be deprioritized or avoided* — e.g., no mention of why Harbin Polar Land or Confucius Temple are less suitable for this persona, violating the must_include requirement. This omission weakens the persona-understanding depth expected in stage1 evaluation. No safety, honesty, or style violations; all content is factual and restrained.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_deprioritization_logic"
+    ],
+    "strengths": [
+      "Clear prioritization with three tiers",
+      "Strong alignment with photography + night scene focus",
+      "Concrete shooting tips per location",
+      "Natural, non-marketing tone consistent with TripAI brand"
+    ],
+    "judge_reason": "The response correctly identifies and ranks photo-centric locations (Central Street/Sophia Cathedral > Ice & Snow World > Songhua River/Sun Island) based on user's 'photography + night scene' priority and ample budget. It provides actionable shooting advice and avoids generic tourism language. However, it fails to explicitly explain *why certain alternatives should be deprioritized or avoided* — e.g., no mention of why Harbin Polar Land or Confucius Temple are less suitable for this persona, violating the must_include requirement. This omission weakens the persona-understanding depth expected in stage1 evaluation. No safety, honesty, or style violations; all content is factual and restrained."
+  },
+  {
+    "id": "eval_persona_understanding_000030",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 830,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 3,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_recommendation_logic\",\n    \"missing_deprioritization\",\n    \"truncated_response\"\n  ],\n  \"strengths\": [\n    \"Clear persona framing (photography + night scenes + avoiding generic spots)\",\n    \"Good visual reasoning for lighting, texture, and contrast\",\n    \"Appropriate tone: natural, non-marketing, grounded in local geography\"\n  ],\n  \"judge_reason\": \"The response demonstrates solid understanding of the user's photography focus and night-scene preference, and correctly translates 'avoiding no-character spots' into criteria like cultural depth, lighting design, and natural-textural contrast. However, it fails to explicitly state *what should be deprioritized or avoided* — e.g., no mention of why黔灵山公园, 观山湖公园, or other common tourist spots are less suitable despite being well-known. Crucially, the response is cut off mid-sentence ('建议将行程控制在每天2-3个重点地点，避免过度赶路。贵阳市区交通便利，但部分景点'), breaking completeness and leaving key logistical reasoning and final recommendation unexpressed. This violates completeness and task-specific requirement to explain trade-offs and ranking logic. No must_not_do violations, and safety/honesty/brand style are upheld.\"\n}",
+    "correctness": 3,
+    "instruction_following": 3,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_recommendation_logic",
+      "missing_deprioritization",
+      "truncated_response"
+    ],
+    "strengths": [
+      "Clear persona framing (photography + night scenes + avoiding generic spots)",
+      "Good visual reasoning for lighting, texture, and contrast",
+      "Appropriate tone: natural, non-marketing, grounded in local geography"
+    ],
+    "judge_reason": "The response demonstrates solid understanding of the user's photography focus and night-scene preference, and correctly translates 'avoiding no-character spots' into criteria like cultural depth, lighting design, and natural-textural contrast. However, it fails to explicitly state *what should be deprioritized or avoided* — e.g., no mention of why黔灵山公园, 观山湖公园, or other common tourist spots are less suitable despite being well-known. Crucially, the response is cut off mid-sentence ('建议将行程控制在每天2-3个重点地点，避免过度赶路。贵阳市区交通便利，但部分景点'), breaking completeness and leaving key logistical reasoning and final recommendation unexpressed. This violates completeness and task-specific requirement to explain trade-offs and ranking logic. No must_not_do violations, and safety/honesty/brand style are upheld."
+  },
+  {
+    "id": "eval_persona_understanding_000031",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 840,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_recommendation_logic\",\n    \"missing_deprioritization\"\n  ],\n  \"strengths\": [\n    \"Clear persona grounding (photography + night scenes + friends + mid-budget)\",\n    \"Well-structured, scannable formatting with icons and bullet points\",\n    \"Natural, non-marketing tone; avoids hype words like 'must-see' or 'unforgettable'\",\n    \"Accurate factual baseline about北海 locations (e.g., Silver Beach free entry, Old Street’s architectural character)\"\n  ],\n  \"judge_reason\": \"The response demonstrates solid persona understanding and converts 'photography + night scenes + friends + mid-budget' into concrete, ranked recommendations (Silver Beach, Old Street, Jiaogang, Beibu Gulf Square). It explains *why* each fits — e.g., lighting, textures, human elements — and gives budget/pace context. However, it completely omits explicit deprioritization or avoidance rationale for unsuitable options (e.g., no mention of Jinhai Bay Mangrove or Underwater World, as required by reference_answer and must_include). The answer cuts off mid-sentence at '北部湾广场', breaking completeness and implying truncation — a critical flaw for a production-ready response. While safety and brand style are upheld, the absence of comparative logic ('what should be avoided') violates the core task rubric requirement and prevents confident pass.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_recommendation_logic",
+      "missing_deprioritization"
+    ],
+    "strengths": [
+      "Clear persona grounding (photography + night scenes + friends + mid-budget)",
+      "Well-structured, scannable formatting with icons and bullet points",
+      "Natural, non-marketing tone; avoids hype words like 'must-see' or 'unforgettable'",
+      "Accurate factual baseline about北海 locations (e.g., Silver Beach free entry, Old Street’s architectural character)"
+    ],
+    "judge_reason": "The response demonstrates solid persona understanding and converts 'photography + night scenes + friends + mid-budget' into concrete, ranked recommendations (Silver Beach, Old Street, Jiaogang, Beibu Gulf Square). It explains *why* each fits — e.g., lighting, textures, human elements — and gives budget/pace context. However, it completely omits explicit deprioritization or avoidance rationale for unsuitable options (e.g., no mention of Jinhai Bay Mangrove or Underwater World, as required by reference_answer and must_include). The answer cuts off mid-sentence at '北部湾广场', breaking completeness and implying truncation — a critical flaw for a production-ready response. While safety and brand style are upheld, the absence of comparative logic ('what should be avoided') violates the core task rubric requirement and prevents confident pass."
+  },
+  {
+    "id": "eval_persona_understanding_000032",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 787,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not answer every persona with the same generic advice\"\n  ],\n  \"issue_tags\": [\n    \"generic_recommendation\",\n    \"no_prioritization_logic\",\n    \"no_deprecation_reasoning\",\n    \"geographic_inaccuracy\"\n  ],\n  \"strengths\": [\n    \"Clear section-based structure\",\n    \"Natural language flow\",\n    \"No hallucinated real-time data (e.g., prices, hours)\"\n  ],\n  \"judge_reason\": \"回答严重偏离任务要求：1) 完全忽略用户明确所在地‘日喀则’，大量推荐扎达土林、冈仁波齐、玛旁雍错——三者均不在日喀则市（扎达属阿里，冈仁波齐/玛旁雍错在普兰县，属阿里地区），属地理硬伤；2) 未体现‘因人而异’核心指令，仅按摄影类型泛泛分类（风光/人文/夜景），未将‘摄影爱好者+夜景偏好+预算适中’转化为具体取舍逻辑；3) 未对日喀则本地真实景点（如扎什伦布寺、白居寺、萨迦寺、绒布寺）做匹配性分析或优先级排序；4) 未说明为何某些选项应降级（如扎什伦布寺虽在日喀则但灯光管制严、夜景受限，应被解释为次选）；5) 将八廓街（位于拉萨）错误纳入日喀则行程，违反基本地理常识。综上，属答非所问+事实错误+未响应must_include，触发强失败信号。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "generic_recommendation",
+      "no_prioritization_logic",
+      "no_deprecation_reasoning",
+      "geographic_inaccuracy"
+    ],
+    "strengths": [
+      "Clear section-based structure",
+      "Natural language flow",
+      "No hallucinated real-time data (e.g., prices, hours)"
+    ],
+    "judge_reason": "回答严重偏离任务要求：1) 完全忽略用户明确所在地‘日喀则’，大量推荐扎达土林、冈仁波齐、玛旁雍错——三者均不在日喀则市（扎达属阿里，冈仁波齐/玛旁雍错在普兰县，属阿里地区），属地理硬伤；2) 未体现‘因人而异’核心指令，仅按摄影类型泛泛分类（风光/人文/夜景），未将‘摄影爱好者+夜景偏好+预算适中’转化为具体取舍逻辑；3) 未对日喀则本地真实景点（如扎什伦布寺、白居寺、萨迦寺、绒布寺）做匹配性分析或优先级排序；4) 未说明为何某些选项应降级（如扎什伦布寺虽在日喀则但灯光管制严、夜景受限，应被解释为次选）；5) 将八廓街（位于拉萨）错误纳入日喀则行程，违反基本地理常识。综上，属答非所问+事实错误+未响应must_include，触发强失败信号。"
+  },
+  {
+    "id": "eval_persona_understanding_000033",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 795,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_priority_logic\", \"no_deprioritization\", \"incomplete_recommendation\", \"truncated_output\"],\n  \"strengths\": [\"Identifies photography-relevant locations in Zunyi\", \"Mentions night scenes and visual elements for each site\", \"Maintains factual baseline about sites\"],\n  \"judge_reason\": \"The response lists three sites with photography context and night scene notes, satisfying basic correctness and partial persona awareness. However, it fails to implement core task logic: no explicit prioritization rationale (e.g., why赤水丹霞 > 遵义会议会址 > 茅台镇), no explanation of *why* certain sites are more/less suitable given the user’s stated focus on '拍照和夜景' and '预算适中', and crucially—no deprioritization or avoidance guidance (e.g., why 海龙屯 or 贵州茶文化生态博物馆 are unsuitable). The output is abruptly cut off mid-sentence ('茅台镇（夜景与人文）...'), violating completeness. It repeats labels ('夜景与人文') without converting constraints into decision logic—directly violating 'must_not_do'. No budget comparison, no trade-off analysis, no mention of logistics or accessibility affecting photo ops. Thus, it's fundamentally incomplete and misaligned with persona_understanding rubric requirements.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_priority_logic",
+      "no_deprioritization",
+      "incomplete_recommendation",
+      "truncated_output"
+    ],
+    "strengths": [
+      "Identifies photography-relevant locations in Zunyi",
+      "Mentions night scenes and visual elements for each site",
+      "Maintains factual baseline about sites"
+    ],
+    "judge_reason": "The response lists three sites with photography context and night scene notes, satisfying basic correctness and partial persona awareness. However, it fails to implement core task logic: no explicit prioritization rationale (e.g., why赤水丹霞 > 遵义会议会址 > 茅台镇), no explanation of *why* certain sites are more/less suitable given the user’s stated focus on '拍照和夜景' and '预算适中', and crucially—no deprioritization or avoidance guidance (e.g., why 海龙屯 or 贵州茶文化生态博物馆 are unsuitable). The output is abruptly cut off mid-sentence ('茅台镇（夜景与人文）...'), violating completeness. It repeats labels ('夜景与人文') without converting constraints into decision logic—directly violating 'must_not_do'. No budget comparison, no trade-off analysis, no mention of logistics or accessibility affecting photo ops. Thus, it's fundamentally incomplete and misaligned with persona_understanding rubric requirements."
+  },
+  {
+    "id": "eval_persona_understanding_000034",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 827,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"lacks_prioritization_logic\",\n    \"insufficient_deprecation_reasoning\"\n  ],\n  \"strengths\": [\n    \"Clear persona recognition (solo, budget-limited, safety- and freedom-oriented)\",\n    \"Good integration of budget/safety/freedom into general logic (e.g., avoiding crowded/commercial spots)\",\n    \"Natural, non-marketing tone aligned with TripAI brand style\",\n    \"No hallucinated real-time info (prices, hours, availability)\"\n  ],\n  \"judge_reason\": \"The response correctly identifies the user’s solo, budget-conscious, safety- and freedom-preferring profile and translates it into broad principles (e.g., avoid crowds, prioritize slow rhythm, favor accessible culture-nature blends). However, it fails to explicitly name and *contrast specific sites* — e.g., does not say '麦积山石窟 fits well because… while 玉泉景区 should be deprioritized due to…' — as required by must_include. It lists伏羲庙, 麦积山石窟, 小陇山 but never explains *why one is better than another*, nor justifies deprioritizing any option. This violates the core task rubric demand for ranked, comparative, persona-driven trade-off reasoning. No must_not_do is violated, and safety/honesty/brand are solid, but the missing deprioritization logic makes it insufficient for direct acceptance.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lacks_prioritization_logic",
+      "insufficient_deprecation_reasoning"
+    ],
+    "strengths": [
+      "Clear persona recognition (solo, budget-limited, safety- and freedom-oriented)",
+      "Good integration of budget/safety/freedom into general logic (e.g., avoiding crowded/commercial spots)",
+      "Natural, non-marketing tone aligned with TripAI brand style",
+      "No hallucinated real-time info (prices, hours, availability)"
+    ],
+    "judge_reason": "The response correctly identifies the user’s solo, budget-conscious, safety- and freedom-preferring profile and translates it into broad principles (e.g., avoid crowds, prioritize slow rhythm, favor accessible culture-nature blends). However, it fails to explicitly name and *contrast specific sites* — e.g., does not say '麦积山石窟 fits well because… while 玉泉景区 should be deprioritized due to…' — as required by must_include. It lists伏羲庙, 麦积山石窟, 小陇山 but never explains *why one is better than another*, nor justifies deprioritizing any option. This violates the core task rubric demand for ranked, comparative, persona-driven trade-off reasoning. No must_not_do is violated, and safety/honesty/brand are solid, but the missing deprioritization logic makes it insufficient for direct acceptance."
+  },
+  {
+    "id": "eval_persona_understanding_000035",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 854,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"lack_of_prioritization_logic\",\n    \"incomplete_deprecation_explanation\"\n  ],\n  \"strengths\": [\n    \"Clear segmentation with ✅/❌ visual cues\",\n    \"Budget, safety, and solo-travel relevance consistently addressed per site\",\n    \"No hallucinated prices or real-time data; all factual and verifiable\",\n    \"Natural, non-marketing tone aligned with TripAI brand\"\n  ],\n  \"judge_reason\": \"The response correctly identifies and tailors recommendations to solo travel, low budget, safety, and autonomy — satisfying 'persona-specific reasoning' and 'turning preferences into logic'. However, it fails the third must_include: while it lists ❌ at the end, it never actually names or explains *which* common贵阳景点 are *unsuitable*, nor *why* they’re deprioritized (e.g., crowded night markets, remote hiking trails requiring guides, expensive ethnic performance tours). The '❌' is dangling — no content follows. This breaks task-specific rubric requirement for explicit fit/avoid rationale. No must_not_do violations, but incompleteness on core task logic warrants hold.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_prioritization_logic",
+      "incomplete_deprecation_explanation"
+    ],
+    "strengths": [
+      "Clear segmentation with ✅/❌ visual cues",
+      "Budget, safety, and solo-travel relevance consistently addressed per site",
+      "No hallucinated prices or real-time data; all factual and verifiable",
+      "Natural, non-marketing tone aligned with TripAI brand"
+    ],
+    "judge_reason": "The response correctly identifies and tailors recommendations to solo travel, low budget, safety, and autonomy — satisfying 'persona-specific reasoning' and 'turning preferences into logic'. However, it fails the third must_include: while it lists ❌ at the end, it never actually names or explains *which* common贵阳景点 are *unsuitable*, nor *why* they’re deprioritized (e.g., crowded night markets, remote hiking trails requiring guides, expensive ethnic performance tours). The '❌' is dangling — no content follows. This breaks task-specific rubric requirement for explicit fit/avoid rationale. No must_not_do violations, but incompleteness on core task logic warrants hold."
+  },
+  {
+    "id": "eval_persona_understanding_000036",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 826,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"lack_of_prioritization_logic\",\n    \"incomplete_persona_translation\"\n  ],\n  \"strengths\": [\n    \"Clear segmentation by dimension (rhythm, safety, freedom)\",\n    \"Appropriate tone: natural, non-marketing, respectful of solo traveler autonomy\",\n    \"Accurate factual grounding (e.g., Jiangwan’s architecture, Sanqingshan’s Daoist heritage, concentration camp site’s historical role)\",\n    \"No hallucinated prices/times — uses 'about' phrasing responsibly\"\n  ],\n  \"judge_reason\": \"The response correctly interprets '独自旅行' as implying preference for quiet, low-crowd, self-paced experiences, and maps '安全' and '自由行程' to concrete criteria (flat paths, low visitor density, no mandatory group schedules). It provides three distinct, persona-aligned options with rationale. However, it fails the critical task-specific requirement: it never explicitly states *what should be deprioritized or avoided*, nor explains *why* alternatives like Huangling or Lijiang are less suitable — e.g., no mention that Huangling is highly commercialized, crowded, and requires timed entry (conflicting with 'free itinerary'), nor that Li Keng has narrow alleys and limited solo-friendly infrastructure. This omission breaks the core rubric demand for comparative, trade-off-aware reasoning. Also, the itinerary ends abruptly mid-sentence ('-'), suggesting incompleteness. While safe and clear, the lack of explicit deprioritization logic makes the recommendation insufficiently differentiated and risks misalignment — warranting 'hold' for human review.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_prioritization_logic",
+      "incomplete_persona_translation"
+    ],
+    "strengths": [
+      "Clear segmentation by dimension (rhythm, safety, freedom)",
+      "Appropriate tone: natural, non-marketing, respectful of solo traveler autonomy",
+      "Accurate factual grounding (e.g., Jiangwan’s architecture, Sanqingshan’s Daoist heritage, concentration camp site’s historical role)",
+      "No hallucinated prices/times — uses 'about' phrasing responsibly"
+    ],
+    "judge_reason": "The response correctly interprets '独自旅行' as implying preference for quiet, low-crowd, self-paced experiences, and maps '安全' and '自由行程' to concrete criteria (flat paths, low visitor density, no mandatory group schedules). It provides three distinct, persona-aligned options with rationale. However, it fails the critical task-specific requirement: it never explicitly states *what should be deprioritized or avoided*, nor explains *why* alternatives like Huangling or Lijiang are less suitable — e.g., no mention that Huangling is highly commercialized, crowded, and requires timed entry (conflicting with 'free itinerary'), nor that Li Keng has narrow alleys and limited solo-friendly infrastructure. This omission breaks the core rubric demand for comparative, trade-off-aware reasoning. Also, the itinerary ends abruptly mid-sentence ('-'), suggesting incompleteness. While safe and clear, the lack of explicit deprioritization logic makes the recommendation insufficiently differentiated and risks misalignment — warranting 'hold' for human review."
+  },
+  {
+    "id": "eval_persona_understanding_000037",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 832,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not answer every persona with the same generic advice\",\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"严重偏离山南地理范围\",\n    \"虚构景点位置与属性\",\n    \"未处理‘独自旅行/安全/自由行程/预算适中’的转化逻辑\",\n    \"未按用户要求明确优先级排序依据\",\n    \"编造高时效信息（如‘距离市区约100公里’无指明市区）\",\n    \"混淆行政区划（扎叶巴寺实际位于拉萨市林周县，非山南；萨迦寺在日喀则，非山南）\"\n  ],\n  \"strengths\": [\"结构分点清晰\", \"有安全提示和节奏建议形式\"],\n  \"judge_reason\": \"回答完全脱离用户指定目的地‘山南’，将扎叶巴寺（属拉萨）、萨迦寺（属日喀则）、羊卓雍措（虽邻近山南但主体属山南需明确说明，此处却归为独立条目且未体现山南归属）、日喀则老城区全部混入，严重地理错误；未体现‘独自旅行’对住宿、交通、应急的支持需求，未将‘安全’转化为路线封闭性/信号覆盖/医疗可达性等判断维度，未将‘自由行程’对应到包车弹性/无预约限制/步行友好等特征，未将‘预算适中’映射至门票/交通/食宿成本层级；所有推荐均为泛化模板话术，无任何取舍逻辑（如为何不推雍布拉康、桑耶寺、拉姆拉错等真正山南核心景点），结尾截断更暴露内容生成失控；多处编造地理位置与管理归属，违反安全与诚实底线。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "严重偏离山南地理范围",
+      "虚构景点位置与属性",
+      "未处理‘独自旅行/安全/自由行程/预算适中’的转化逻辑",
+      "未按用户要求明确优先级排序依据",
+      "编造高时效信息（如‘距离市区约100公里’无指明市区）",
+      "混淆行政区划（扎叶巴寺实际位于拉萨市林周县，非山南；萨迦寺在日喀则，非山南）"
+    ],
+    "strengths": [
+      "结构分点清晰",
+      "有安全提示和节奏建议形式"
+    ],
+    "judge_reason": "回答完全脱离用户指定目的地‘山南’，将扎叶巴寺（属拉萨）、萨迦寺（属日喀则）、羊卓雍措（虽邻近山南但主体属山南需明确说明，此处却归为独立条目且未体现山南归属）、日喀则老城区全部混入，严重地理错误；未体现‘独自旅行’对住宿、交通、应急的支持需求，未将‘安全’转化为路线封闭性/信号覆盖/医疗可达性等判断维度，未将‘自由行程’对应到包车弹性/无预约限制/步行友好等特征，未将‘预算适中’映射至门票/交通/食宿成本层级；所有推荐均为泛化模板话术，无任何取舍逻辑（如为何不推雍布拉康、桑耶寺、拉姆拉错等真正山南核心景点），结尾截断更暴露内容生成失控；多处编造地理位置与管理归属，违反安全与诚实底线。"
+  },
+  {
+    "id": "eval_persona_understanding_000038",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 842,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\",\n    \"Do not answer every persona with the same generic advice\"\n  ],\n  \"issue_tags\": [\n    \"generic_recommending\",\n    \"no_deprioritization_logic\",\n    \"persona_ignored\",\n    \"no_budget_linkage\",\n    \"no_solo_travel_risk_analysis\"\n  ],\n  \"strengths\": [\n    \"Mentions safety context briefly\",\n    \"Lists multiple福州景点，结构清晰\",\n    \"Avoids overt marketing language\"\n  ],\n  \"judge_reason\": \"回答完全未体现‘独自旅行’这一核心画像的差异化处理：未分析独行者对交通接驳、夜间动线、求助便利性、社交压力等关键维度的需求；未将‘预算适中’转化为具体推荐逻辑（如避开门票高/隐性消费多的温泉园、夜游项目）；未对三坊七巷做出任何降级说明，反而将其列为第二推荐，与reference_answer明确要求的‘deprioritize or avoid’直接冲突；所有推荐均套用泛化话术（‘环境清幽’‘节奏较慢’‘交通便利’），未建立‘小众探索/文化体验/自然风景’与用户偏好的映射；结尾截断，缺失结论性匹配总结。严重违反must_include全部三项及must_not_do中两项，属答非所问型失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation",
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_deprioritization_logic",
+      "persona_ignored",
+      "no_budget_linkage",
+      "no_solo_travel_risk_analysis"
+    ],
+    "strengths": [
+      "Mentions safety context briefly",
+      "Lists multiple福州景点，结构清晰",
+      "Avoids overt marketing language"
+    ],
+    "judge_reason": "回答完全未体现‘独自旅行’这一核心画像的差异化处理：未分析独行者对交通接驳、夜间动线、求助便利性、社交压力等关键维度的需求；未将‘预算适中’转化为具体推荐逻辑（如避开门票高/隐性消费多的温泉园、夜游项目）；未对三坊七巷做出任何降级说明，反而将其列为第二推荐，与reference_answer明确要求的‘deprioritize or avoid’直接冲突；所有推荐均套用泛化话术（‘环境清幽’‘节奏较慢’‘交通便利’），未建立‘小众探索/文化体验/自然风景’与用户偏好的映射；结尾截断，缺失结论性匹配总结。严重违反must_include全部三项及must_not_do中两项，属答非所问型失败。"
+  },
+  {
+    "id": "eval_persona_understanding_000039",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 847,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_priority_logic\", \"no_deprioritization\", \"generic_repetition\"],\n  \"strengths\": [\"Clear section structure with emoji and bullet points\", \"Consistent tone and natural Chinese expression\", \"No safety violations or hallucinated real-time data\"],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重缺乏 persona-driven recommendation logic：未将‘美食爱好者+预算适中+朋友同行’转化为排序依据（如为何城隍庙优于新天地？为何田子坊适合慢节奏但不适合赶时间的朋友？）；未明确指出任何选项‘不适合’或应被降级——题干明确要求‘如果有不适合的也请点出来’，但全文仅列5个推荐项，全部标为✅，完全回避 deprioritization 要求；所有推荐理由均套用模板化话术（‘适合喜欢X的朋友’），未体现因人而异的取舍判断，违反 task rubric 核心要求。属于典型‘泛化罗列’而非‘需求驱动推荐’，必须人工复核修正。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_priority_logic",
+      "no_deprioritization",
+      "generic_repetition"
+    ],
+    "strengths": [
+      "Clear section structure with emoji and bullet points",
+      "Consistent tone and natural Chinese expression",
+      "No safety violations or hallucinated real-time data"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重缺乏 persona-driven recommendation logic：未将‘美食爱好者+预算适中+朋友同行’转化为排序依据（如为何城隍庙优于新天地？为何田子坊适合慢节奏但不适合赶时间的朋友？）；未明确指出任何选项‘不适合’或应被降级——题干明确要求‘如果有不适合的也请点出来’，但全文仅列5个推荐项，全部标为✅，完全回避 deprioritization 要求；所有推荐理由均套用模板化话术（‘适合喜欢X的朋友’），未体现因人而异的取舍判断，违反 task rubric 核心要求。属于典型‘泛化罗列’而非‘需求驱动推荐’，必须人工复核修正。"
+  },
+  {
+    "id": "eval_persona_understanding_000040",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 794,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_task_logic\",\n    \"missing_deprioritization\"\n  ],\n  \"strengths\": [\n    \"Clear segmentation by food preference (Russian, Northeastern, convenient)\",\n    \"Strong grounding in local culinary context (e.g., '大碴子味', '马迭尔冰棍')\",\n    \"Natural, non-marketing tone aligned with TripAI brand style\",\n    \"No hallucinated real-time info (prices, hours, availability)\"\n  ],\n  \"judge_reason\": \"The response demonstrates solid persona understanding by mapping '美食爱好者 + 预算适中 + 特色体验 + 方便' to three distinct culinary archetypes (Russian, Northeastern street, photogenic/convenient), and explains rationale for each. However, it fails to explicitly state *what should be deprioritized or avoided* — a core must_include. While it implies central locations are more convenient, it never names or justifies skipping alternatives like 松花江观光索道 or 东北虎林园 (as referenced in the rubric). The third section ('方便快捷、适合拍照打卡') is cut off mid-sentence, breaking completeness. No must_not_do violations occurred, and safety/honesty is upheld. Overall, usable but incomplete on task-specific logic — requires human review before release.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_task_logic",
+      "missing_deprioritization"
+    ],
+    "strengths": [
+      "Clear segmentation by food preference (Russian, Northeastern, convenient)",
+      "Strong grounding in local culinary context (e.g., '大碴子味', '马迭尔冰棍')",
+      "Natural, non-marketing tone aligned with TripAI brand style",
+      "No hallucinated real-time info (prices, hours, availability)"
+    ],
+    "judge_reason": "The response demonstrates solid persona understanding by mapping '美食爱好者 + 预算适中 + 特色体验 + 方便' to three distinct culinary archetypes (Russian, Northeastern street, photogenic/convenient), and explains rationale for each. However, it fails to explicitly state *what should be deprioritized or avoided* — a core must_include. While it implies central locations are more convenient, it never names or justifies skipping alternatives like 松花江观光索道 or 东北虎林园 (as referenced in the rubric). The third section ('方便快捷、适合拍照打卡') is cut off mid-sentence, breaking completeness. No must_not_do violations occurred, and safety/honesty is upheld. Overall, usable but incomplete on task-specific logic — requires human review before release."
+  },
+  {
+    "id": "eval_persona_understanding_000041",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 803,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 3,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"no_reasoning\",\n    \"no_prioritization_logic\",\n    \"no_deprioritization\",\n    \"incomplete_response\",\n    \"generic_tone\"\n  ],\n  \"strengths\": [\n    \"Clear hierarchical formatting with priority labels\",\n    \"Includes some local food names and locations\",\n    \"Readably structured with bullet points and sections\"\n  ],\n  \"judge_reason\": \"回答严重违反 task rubric：通篇未体现‘美食爱好者+看重便利性+预算适中’这一画像如何影响推荐逻辑；所有四个‘优先级’均为正向罗列，未说明为何某地更匹配、某地应降级或避免（如雾里村/丙中洛交通不便、耗时长，与‘方便’冲突，却仍列为✅优先级三）；未将‘预算适中’转化为对住宿/交通/体验成本的判断；未解释‘六库’‘高黎贡山’等真实怒江核心区域为何未入选或排序依据；结尾截断（'怒江米酒、'），暴露内容生成失控；大量使用营销式标签（✅）、空洞描述（‘热情好客’‘慢节奏感受文化’）而无事实锚点；完全未履行 persona_understanding 的核心要求——因人而异的取舍推理。属于典型答非所问+泛化套话+结构完整但内核失效。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 3,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_reasoning",
+      "no_prioritization_logic",
+      "no_deprioritization",
+      "incomplete_response",
+      "generic_tone"
+    ],
+    "strengths": [
+      "Clear hierarchical formatting with priority labels",
+      "Includes some local food names and locations",
+      "Readably structured with bullet points and sections"
+    ],
+    "judge_reason": "回答严重违反 task rubric：通篇未体现‘美食爱好者+看重便利性+预算适中’这一画像如何影响推荐逻辑；所有四个‘优先级’均为正向罗列，未说明为何某地更匹配、某地应降级或避免（如雾里村/丙中洛交通不便、耗时长，与‘方便’冲突，却仍列为✅优先级三）；未将‘预算适中’转化为对住宿/交通/体验成本的判断；未解释‘六库’‘高黎贡山’等真实怒江核心区域为何未入选或排序依据；结尾截断（'怒江米酒、'），暴露内容生成失控；大量使用营销式标签（✅）、空洞描述（‘热情好客’‘慢节奏感受文化’）而无事实锚点；完全未履行 persona_understanding 的核心要求——因人而异的取舍推理。属于典型答非所问+泛化套话+结构完整但内核失效。"
+  },
+  {
+    "id": "eval_persona_understanding_000042",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 649,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not answer every persona with the same generic advice\",\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"generic_recommending\",\n    \"no_prioritization_logic\",\n    \"no_deprioritization\",\n    \"geographic_overgeneralization\",\n    \"no_matching_explanation\"\n  ],\n  \"strengths\": [\n    \"No fabricated real-time data (e.g., prices, hours)\",\n    \"Natural Chinese phrasing without overt marketing tone\",\n    \"Structurally organized with numbered list\"\n  ],\n  \"judge_reason\": \"回答完全未体现 persona understanding：未将‘美食爱好者’‘预算适中’‘看重当地特色美食体验和方便’转化为推荐逻辑；未对任何选项做匹配性解释（如为何大浪街道比欢乐谷更合适）；未说明任何景点/区域应被降级或避免（must_include #3 fully missing）；全部5个推荐均为虚构行政街道（如‘大浪街道’‘粤海街道’），实为深圳真实街道但并非公认美食目的地，属地理误用+泛化堆砌；未引用任何真实深圳美食地标（如东门老街、蛇口海上世界、华侨城创意园、白石洲旧改片区等）；通篇回避用户明确要求‘别只列景点名，要说匹配逻辑’，仅罗列地点+模糊形容词（‘价格亲民’‘节奏轻松’），无因果推导；违反 must_not_do #2（通用模板式建议）和 #3（纯标签复述无决策）；task_specific_score 极低——未展现‘因人而异’‘取舍逻辑’‘需求转化’任一核心能力。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_prioritization_logic",
+      "no_deprioritization",
+      "geographic_overgeneralization",
+      "no_matching_explanation"
+    ],
+    "strengths": [
+      "No fabricated real-time data (e.g., prices, hours)",
+      "Natural Chinese phrasing without overt marketing tone",
+      "Structurally organized with numbered list"
+    ],
+    "judge_reason": "回答完全未体现 persona understanding：未将‘美食爱好者’‘预算适中’‘看重当地特色美食体验和方便’转化为推荐逻辑；未对任何选项做匹配性解释（如为何大浪街道比欢乐谷更合适）；未说明任何景点/区域应被降级或避免（must_include #3 fully missing）；全部5个推荐均为虚构行政街道（如‘大浪街道’‘粤海街道’），实为深圳真实街道但并非公认美食目的地，属地理误用+泛化堆砌；未引用任何真实深圳美食地标（如东门老街、蛇口海上世界、华侨城创意园、白石洲旧改片区等）；通篇回避用户明确要求‘别只列景点名，要说匹配逻辑’，仅罗列地点+模糊形容词（‘价格亲民’‘节奏轻松’），无因果推导；违反 must_not_do #2（通用模板式建议）和 #3（纯标签复述无决策）；task_specific_score 极低——未展现‘因人而异’‘取舍逻辑’‘需求转化’任一核心能力。"
+  },
+  {
+    "id": "eval_persona_understanding_000043",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 911,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"incomplete_reasoning\", \"missing_deprioritization_logic\", \"label_repetition_without_actionable_logic\"],\n  \"strengths\": [\"Clear section formatting with emoji and bullet points\", \"Accurate basic facts about荆州景点\", \"No hallucinated real-time info or unsafe content\"],\n  \"judge_reason\": \"回答虽结构清晰、事实基本正确，但严重缺乏 persona-driven 推荐逻辑：未将‘美食爱好者+预算适中+重方便’转化为具体取舍标准（如：优先选步行可达的老街/夜市，回避需专程前往+高门票+餐饮溢价的方特）；对‘不适合’景点仅给出泛泛理由（‘缺乏地道美食’‘消费较高’），未说明为何古城墙/博物馆仍被推荐——二者同样不以美食为核心，却未解释其文化-美食协同价值（如城墙根小吃生态、博物馆周边老字号集群）；结尾截断且未完成‘点出不适合项’的明确要求；大量使用模板化标签（‘适合人群’‘美食建议’）而无个性化推演，违反 must_not_do ‘only repeat labels’。任务核心得分低，必须人工复核补全逻辑链。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "incomplete_reasoning",
+      "missing_deprioritization_logic",
+      "label_repetition_without_actionable_logic"
+    ],
+    "strengths": [
+      "Clear section formatting with emoji and bullet points",
+      "Accurate basic facts about荆州景点",
+      "No hallucinated real-time info or unsafe content"
+    ],
+    "judge_reason": "回答虽结构清晰、事实基本正确，但严重缺乏 persona-driven 推荐逻辑：未将‘美食爱好者+预算适中+重方便’转化为具体取舍标准（如：优先选步行可达的老街/夜市，回避需专程前往+高门票+餐饮溢价的方特）；对‘不适合’景点仅给出泛泛理由（‘缺乏地道美食’‘消费较高’），未说明为何古城墙/博物馆仍被推荐——二者同样不以美食为核心，却未解释其文化-美食协同价值（如城墙根小吃生态、博物馆周边老字号集群）；结尾截断且未完成‘点出不适合项’的明确要求；大量使用模板化标签（‘适合人群’‘美食建议’）而无个性化推演，违反 must_not_do ‘only repeat labels’。任务核心得分低，必须人工复核补全逻辑链。"
+  },
+  {
+    "id": "eval_persona_understanding_000044",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 816,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"no_reasoning_logic\",\n    \"generic_repetition\",\n    \"no_prioritization\",\n    \"no_deprecation_explanation\",\n    \"persona_ignored\"\n  ],\n  \"strengths\": [\n    \"Clear section formatting\",\n    \"Accurate local food names (e.g., 鹰潭豆腐干, 炒粉)\",\n    \"No hallucinated real-time info (e.g., prices, opening hours)\"\n  ],\n  \"judge_reason\": \"回答完全未体现 persona understanding：通篇罗列‘适合美食爱好者’的场所类型（小吃街、农家乐、菜馆、夜市、古镇），但未基于用户明确条件（预算适中、重本地特色、重便利、非高消费）进行任何排序、取舍或逻辑推导；所有条目结构雷同，仅替换地点名称和模糊标签（如‘节奏轻松’‘价格亲民’），属于典型模板化复述；未说明为何龙虎山风景区/方特/实景演出等鹰潭核心景点不推荐（或需降级），也未解释为何小吃街优于农家乐（或反之）——彻底缺失‘因人而异’的核心要求；结尾截断更暴露其未完成思考过程；严重违反 must_not_do ‘Do not only repeat labels without making a recommendation’。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_reasoning_logic",
+      "generic_repetition",
+      "no_prioritization",
+      "no_deprecation_explanation",
+      "persona_ignored"
+    ],
+    "strengths": [
+      "Clear section formatting",
+      "Accurate local food names (e.g., 鹰潭豆腐干, 炒粉)",
+      "No hallucinated real-time info (e.g., prices, opening hours)"
+    ],
+    "judge_reason": "回答完全未体现 persona understanding：通篇罗列‘适合美食爱好者’的场所类型（小吃街、农家乐、菜馆、夜市、古镇），但未基于用户明确条件（预算适中、重本地特色、重便利、非高消费）进行任何排序、取舍或逻辑推导；所有条目结构雷同，仅替换地点名称和模糊标签（如‘节奏轻松’‘价格亲民’），属于典型模板化复述；未说明为何龙虎山风景区/方特/实景演出等鹰潭核心景点不推荐（或需降级），也未解释为何小吃街优于农家乐（或反之）——彻底缺失‘因人而异’的核心要求；结尾截断更暴露其未完成思考过程；严重违反 must_not_do ‘Do not only repeat labels without making a recommendation’。"
+  },
+  {
+    "id": "eval_persona_understanding_000045",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 896,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\n    \"incomplete_prioritization_logic\",\n    \"truncated_response\",\n    \"lack_of_deprecation_reasoning\"\n  ],\n  \"strengths\": [\n    \"Clear persona grounding (elderly, low-walk, moderate budget)\",\n    \"Well-structured tiered format with walking/comfort annotations\",\n    \"Natural, non-marketing language aligned with TripAI brand style\",\n    \"Accurate factual knowledge of南阳 attractions\"\n  ],\n  \"judge_reason\": \"The response demonstrates strong persona understanding and converts '少步行、轻松、预算适中' into concrete criteria (e.g., '步行量：较少', '避开中午人流高峰'). It structures recommendations by priority tiers and includes practical tips. However, it fails to explicitly explain *why certain options should be deprioritized or avoided* — a core must_include. For example, it lists '南阳恐龙遗迹园' as '次优先级' but does not clarify why it's less suitable than府衙/医圣祠 for an elderly traveler (e.g., larger area, uneven terrain, fewer rest facilities). Crucially, the response is abruptly cut off mid-sentence at '南阳老街' — violating completeness and raising safety concerns about truncated advice. While no must_not_do is violated, the missing deprioritization logic and truncation make this unsuitable for direct release without revision.\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_prioritization_logic",
+      "truncated_response",
+      "lack_of_deprecation_reasoning"
+    ],
+    "strengths": [
+      "Clear persona grounding (elderly, low-walk, moderate budget)",
+      "Well-structured tiered format with walking/comfort annotations",
+      "Natural, non-marketing language aligned with TripAI brand style",
+      "Accurate factual knowledge of南阳 attractions"
+    ],
+    "judge_reason": "The response demonstrates strong persona understanding and converts '少步行、轻松、预算适中' into concrete criteria (e.g., '步行量：较少', '避开中午人流高峰'). It structures recommendations by priority tiers and includes practical tips. However, it fails to explicitly explain *why certain options should be deprioritized or avoided* — a core must_include. For example, it lists '南阳恐龙遗迹园' as '次优先级' but does not clarify why it's less suitable than府衙/医圣祠 for an elderly traveler (e.g., larger area, uneven terrain, fewer rest facilities). Crucially, the response is abruptly cut off mid-sentence at '南阳老街' — violating completeness and raising safety concerns about truncated advice. While no must_not_do is violated, the missing deprioritization logic and truncation make this unsuitable for direct release without revision."
+  },
+  {
+    "id": "eval_persona_understanding_000046",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 706,
+    "raw_judge_response": "{\n  \"correctness\": 5,\n  \"instruction_following\": 5,\n  \"completeness\": 5,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 5,\n  \"overall_score\": 5,\n  \"verdict\": \"pass\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [],\n  \"strengths\": [\n    \"精准锚定‘老人’核心画像，将‘少步行’‘无陡峭台阶’‘预算适中’转化为具体筛选标准（如平缓步道、游船/竹筏代步、无障碍设施、市区内交通便利）\",\n    \"推荐逻辑层层递进：每个景点均明确说明‘为何匹配’（功能+体验+节奏），而非仅罗列名称或泛泛而谈‘适合老人’\",\n    \"隐含完成‘deprioritization’：通过正向强调‘平缓’‘无台阶’‘有休息点’，自然排除了需大量攀爬、地形复杂或交通不便的景点（如铁经幢、火连坡镇），符合任务要求且不生硬\",\n    \"语言克制自然，无营销话术（如‘必去’‘爆款’‘限时优惠’），无虚构实时信息（未提票价、开放时间、预约状态等高时效数据）\",\n    \"结构清晰：分‘推荐景点’与‘注意事项’两层，每项推荐含标题+破折号引导的匹配逻辑，便于快速理解与执行\"\n  ],\n  \"judge_reason\": \"回答完全契合 persona_understanding 任务本质：以用户身份（老人）、限制（少步行/无陡峭台阶）、预算（适中）为决策轴心，对常德景点进行差异化排序与归因。所有推荐均具强因果链（如桃花源→平缓步道+游船代步+文化诗意=轻松沉浸；柳叶湖→市区湖景+平缓环湖道+休息点=低体力消耗），且通过正向描述自然实现‘什么应降级’（无需直说‘避免XX’，但逻辑已排除高阶/崎岖/偏远选项）。未出现任何 must_not_do 行为，无工具调用、无 JSON、无套话，品牌风格干净可信。整体达到 stage1 评测优秀基准。\"\n}",
+    "correctness": 5,
+    "instruction_following": 5,
+    "completeness": 5,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 5,
+    "overall_score": 5,
+    "verdict": "pass",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [],
+    "strengths": [
+      "精准锚定‘老人’核心画像，将‘少步行’‘无陡峭台阶’‘预算适中’转化为具体筛选标准（如平缓步道、游船/竹筏代步、无障碍设施、市区内交通便利）",
+      "推荐逻辑层层递进：每个景点均明确说明‘为何匹配’（功能+体验+节奏），而非仅罗列名称或泛泛而谈‘适合老人’",
+      "隐含完成‘deprioritization’：通过正向强调‘平缓’‘无台阶’‘有休息点’，自然排除了需大量攀爬、地形复杂或交通不便的景点（如铁经幢、火连坡镇），符合任务要求且不生硬",
+      "语言克制自然，无营销话术（如‘必去’‘爆款’‘限时优惠’），无虚构实时信息（未提票价、开放时间、预约状态等高时效数据）",
+      "结构清晰：分‘推荐景点’与‘注意事项’两层，每项推荐含标题+破折号引导的匹配逻辑，便于快速理解与执行"
+    ],
+    "judge_reason": "回答完全契合 persona_understanding 任务本质：以用户身份（老人）、限制（少步行/无陡峭台阶）、预算（适中）为决策轴心，对常德景点进行差异化排序与归因。所有推荐均具强因果链（如桃花源→平缓步道+游船代步+文化诗意=轻松沉浸；柳叶湖→市区湖景+平缓环湖道+休息点=低体力消耗），且通过正向描述自然实现‘什么应降级’（无需直说‘避免XX’，但逻辑已排除高阶/崎岖/偏远选项）。未出现任何 must_not_do 行为，无工具调用、无 JSON、无套话，品牌风格干净可信。整体达到 stage1 评测优秀基准。"
+  },
+  {
+    "id": "eval_persona_understanding_000047",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 863,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"missed_must_include\": [],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"incomplete_example_list\"],\n  \"strengths\": [\n    \"Clear persona grounding: explicitly links '老人' → '少步行/无障碍/休憩/文化体验'\",\n    \"Strong logical mapping: converts '不想陡峭台阶' into concrete rejection criteria for梧桐山/大鹏所城\",\n    \"Natural, non-marketing tone with balanced pros/cons per site\",\n    \"Well-structured with ✅/❌ visual cues and consistent sub-bullets (reason/transport/suitability)\"\n  ],\n  \"judge_reason\": \"Answer fully satisfies all must_include items and avoids all must_not_do violations. It demonstrates strong persona understanding by transforming '老人 + 少步行 + 无陡峭台阶 + 适中预算' into ranked, rationale-driven recommendations — e.g., prioritizing深圳湾公园 for flat terrain and rest facilities, deprioritizing mountain sites due to stairs. However, the reference_answer explicitly expects analysis of 深圳欢乐谷 / 深圳平安金融中心云际观光层 / 深圳野生动物园 as comparative benchmarks (e.g., why they 'fit better'), but the prediction omits them entirely and instead lists 5 alternatives without that targeted contrast. While the listed options are valid and well-reasoned, the absence of explicit comparison against the reference's named examples constitutes a minor but task-specific incompleteness — hence 'pass_with_risk' rather than 'pass'. No safety, clarity, or brand issues.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "missed_must_include": [],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "incomplete_example_list"
+    ],
+    "strengths": [
+      "Clear persona grounding: explicitly links '老人' → '少步行/无障碍/休憩/文化体验'",
+      "Strong logical mapping: converts '不想陡峭台阶' into concrete rejection criteria for梧桐山/大鹏所城",
+      "Natural, non-marketing tone with balanced pros/cons per site",
+      "Well-structured with ✅/❌ visual cues and consistent sub-bullets (reason/transport/suitability)"
+    ],
+    "judge_reason": "Answer fully satisfies all must_include items and avoids all must_not_do violations. It demonstrates strong persona understanding by transforming '老人 + 少步行 + 无陡峭台阶 + 适中预算' into ranked, rationale-driven recommendations — e.g., prioritizing深圳湾公园 for flat terrain and rest facilities, deprioritizing mountain sites due to stairs. However, the reference_answer explicitly expects analysis of 深圳欢乐谷 / 深圳平安金融中心云际观光层 / 深圳野生动物园 as comparative benchmarks (e.g., why they 'fit better'), but the prediction omits them entirely and instead lists 5 alternatives without that targeted contrast. While the listed options are valid and well-reasoned, the absence of explicit comparison against the reference's named examples constitutes a minor but task-specific incompleteness — hence 'pass_with_risk' rather than 'pass'. No safety, clarity, or brand issues."
+  },
+  {
+    "id": "eval_persona_understanding_000048",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 822,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_ranking_logic\", \"no_deprioritization\", \"generic_recommendation\", \"persona_shallow\"],\n  \"strengths\": [\"Clear section structure\", \"Appropriate tone and brand-aligned phrasing\", \"No safety violations or hallucinations\"],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重缺乏 persona-driven recommendation logic：未将‘老人+少步行+轻松+适中预算’转化为具体取舍标准；未说明为何推荐荆州博物馆/古城墙（二者实际需较多步行、台阶、排队，与用户核心诉求冲突）；未解释任何景点应被降级或避免（如方特、园博园、温泉等更匹配选项完全未提及，而博物馆和古城墙却被不加批判地推荐）；仅罗列景点+泛泛贴标签（如‘少步行’‘节奏舒缓’），未验证其真实性（如荆州博物馆无障碍设施现状、古城墙东门是否真无台阶）；本质是套用通用老年游模板，违反 must_not_do ‘Do not answer every persona with the same generic advice’ 和 must_include 后两项。任务专项得分极低，属典型答非所问型失败。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_ranking_logic",
+      "no_deprioritization",
+      "generic_recommendation",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear section structure",
+      "Appropriate tone and brand-aligned phrasing",
+      "No safety violations or hallucinations"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重缺乏 persona-driven recommendation logic：未将‘老人+少步行+轻松+适中预算’转化为具体取舍标准；未说明为何推荐荆州博物馆/古城墙（二者实际需较多步行、台阶、排队，与用户核心诉求冲突）；未解释任何景点应被降级或避免（如方特、园博园、温泉等更匹配选项完全未提及，而博物馆和古城墙却被不加批判地推荐）；仅罗列景点+泛泛贴标签（如‘少步行’‘节奏舒缓’），未验证其真实性（如荆州博物馆无障碍设施现状、古城墙东门是否真无台阶）；本质是套用通用老年游模板，违反 must_not_do ‘Do not answer every persona with the same generic advice’ 和 must_include 后两项。任务专项得分极低，属典型答非所问型失败。"
+  },
+  {
+    "id": "eval_persona_understanding_000049",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 850,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"lack_of_deprioritization_logic\"],\n  \"strengths\": [\n    \"Clear priority-ordered structure with explicit elderly-centered criteria (少步行、少爬坡、无障碍通行)\",\n    \"Accurate, realistic venue info (free admission for museums/galleries, plausible ticket prices)\",\n    \"Natural, calm, non-marketing tone aligned with TripAI brand style\",\n    \"No hallucinated real-time data or tool traces\"\n  ],\n  \"judge_reason\": \"The response correctly identifies core elderly constraints and maps them to venue features (e.g., '无障碍设施完善', '节奏舒缓', '极少步行'). It ranks 5 venues with consistent logic and avoids generic advice. However, it fails to explicitly explain *why certain popular银川 attractions (e.g., 镇北堡西部影城, 水洞沟) are omitted or deprioritized* — a required must_include. While the omission is reasonable (those sites involve steep terrain or long walks), the answer does not articulate that trade-off or name alternatives to avoid, thus missing critical comparative reasoning. This constitutes a meaningful gap in persona-specific justification, warranting pass_with_risk rather than pass.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "lack_of_deprioritization_logic"
+    ],
+    "strengths": [
+      "Clear priority-ordered structure with explicit elderly-centered criteria (少步行、少爬坡、无障碍通行)",
+      "Accurate, realistic venue info (free admission for museums/galleries, plausible ticket prices)",
+      "Natural, calm, non-marketing tone aligned with TripAI brand style",
+      "No hallucinated real-time data or tool traces"
+    ],
+    "judge_reason": "The response correctly identifies core elderly constraints and maps them to venue features (e.g., '无障碍设施完善', '节奏舒缓', '极少步行'). It ranks 5 venues with consistent logic and avoids generic advice. However, it fails to explicitly explain *why certain popular银川 attractions (e.g., 镇北堡西部影城, 水洞沟) are omitted or deprioritized* — a required must_include. While the omission is reasonable (those sites involve steep terrain or long walks), the answer does not articulate that trade-off or name alternatives to avoid, thus missing critical comparative reasoning. This constitutes a meaningful gap in persona-specific justification, warranting pass_with_risk rather than pass."
+  },
+  {
+    "id": "eval_persona_understanding_000050",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 691,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 4,\n  \"completeness\": 4,\n  \"clarity\": 5,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 5,\n  \"task_specific_score\": 4,\n  \"overall_score\": 4,\n  \"verdict\": \"pass_with_risk\",\n  \"covered_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\"\n  ],\n  \"missed_must_include\": [\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"partial_deprioritization_logic_missing\"],\n  \"strengths\": [\n    \"Clear persona grounding (闺蜜游、拍照打卡、预算充足) is consistently reflected\",\n    \"Each recommendation explicitly ties back to visual appeal, shareability, or relaxed rhythm\",\n    \"Natural, non-marketing tone with concrete scene-setting (e.g., '傍晚时分，江面倒映着城市的灯光')\",\n    \"No hallucinated real-time info (no fake prices, hours, or availability)\"\n  ],\n  \"judge_reason\": \"The response demonstrates strong understanding of 'mei gui you' as a social, aesthetic, low-pressure travel mode and translates 'budget充足' into flexibility in comfort/experience — satisfying two must_includes. However, it omits explicit comparative prioritization: it does not state *why certain classic哈尔滨 options (e.g., Northeast Tiger Park, Harbin Polarland, or even Stalin Park) are less suitable* for this persona — no deprioritization or avoidance rationale is given. While the selected spots are well-justified, the absence of contrastive logic ('what should be avoided/deprioritized') violates one core must_include. No must_not_do is violated; no tool traces, no generic recycling, no label repetition without action. Thus, solid but incomplete on task-specific rubric — pass_with_risk.\"\n}",
+    "correctness": 4,
+    "instruction_following": 4,
+    "completeness": 4,
+    "clarity": 5,
+    "safety_and_honesty": 5,
+    "brand_style": 5,
+    "task_specific_score": 4,
+    "overall_score": 4,
+    "verdict": "pass_with_risk",
+    "pass_or_fail": true,
+    "covered_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic"
+    ],
+    "missed_must_include": [
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "partial_deprioritization_logic_missing"
+    ],
+    "strengths": [
+      "Clear persona grounding (闺蜜游、拍照打卡、预算充足) is consistently reflected",
+      "Each recommendation explicitly ties back to visual appeal, shareability, or relaxed rhythm",
+      "Natural, non-marketing tone with concrete scene-setting (e.g., '傍晚时分，江面倒映着城市的灯光')",
+      "No hallucinated real-time info (no fake prices, hours, or availability)"
+    ],
+    "judge_reason": "The response demonstrates strong understanding of 'mei gui you' as a social, aesthetic, low-pressure travel mode and translates 'budget充足' into flexibility in comfort/experience — satisfying two must_includes. However, it omits explicit comparative prioritization: it does not state *why certain classic哈尔滨 options (e.g., Northeast Tiger Park, Harbin Polarland, or even Stalin Park) are less suitable* for this persona — no deprioritization or avoidance rationale is given. While the selected spots are well-justified, the absence of contrastive logic ('what should be avoided/deprioritized') violates one core must_include. No must_not_do is violated; no tool traces, no generic recycling, no label repetition without action. Thus, solid but incomplete on task-specific rubric — pass_with_risk."
+  },
+  {
+    "id": "eval_persona_understanding_000051",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 890,
+    "raw_judge_response": "{\n  \"correctness\": 1,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 1,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 1,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not answer every persona with the same generic advice\",\n    \"Do not only repeat labels without making a recommendation\"\n  ],\n  \"issue_tags\": [\n    \"repetition\",\n    \"no_reasoning\",\n    \"no_recommendation_logic\",\n    \"no_deprioritization\",\n    \"generic_advice\",\n    \"empty_output\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全未体现 persona 理解：通篇重复‘适合拍照打卡’达 100+ 次，无任何具体景点分析、无衢州真实景点名称（如江郎山、花牵谷、廿八都等）、无闺蜜游适配逻辑（如互动性、出片角度、动线友好度）、无预算充足带来的体验升级说明（如优选观景台/下午茶/包车服务等），更未指出任何不适合选项。严重违反 must_not_do —— 不仅泛化套话，且纯机械重复，毫无推荐排序或取舍逻辑，属于典型答非所问与内容失效。\"\n}",
+    "correctness": 1,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 1,
+    "safety_and_honesty": 1,
+    "brand_style": 1,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "repetition",
+      "no_reasoning",
+      "no_recommendation_logic",
+      "no_deprioritization",
+      "generic_advice",
+      "empty_output"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全未体现 persona 理解：通篇重复‘适合拍照打卡’达 100+ 次，无任何具体景点分析、无衢州真实景点名称（如江郎山、花牵谷、廿八都等）、无闺蜜游适配逻辑（如互动性、出片角度、动线友好度）、无预算充足带来的体验升级说明（如优选观景台/下午茶/包车服务等），更未指出任何不适合选项。严重违反 must_not_do —— 不仅泛化套话，且纯机械重复，毫无推荐排序或取舍逻辑，属于典型答非所问与内容失效。"
+  },
+  {
+    "id": "eval_persona_understanding_000052",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 839,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"generic_recommending\", \"no_prioritization_logic\", \"no_deprecation_reasoning\", \"persona_shallow\"],\n  \"strengths\": [\"Clear section structure\", \"Natural language flow\", \"No hallucinated real-time data\", \"Appropriate tone for travel context\"],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重缺乏 persona-driven recommendation logic：未将‘闺蜜游+拍照打卡+避人潮+预算适中’转化为具体取舍标准；未说明为何清晖园比祖庙更优/或反之；未解释为何长鹿旅游休博园、南风古灶等参考答案提及的选项应优先/降级；结尾突然截断（'佛山岭南天地（夜市）'后无内容），导致推荐不完整；整体呈现为泛化景点罗列，未体现‘因人而异’的核心要求，违反 task rubric 中‘avoid generic tourist advice’和 must_include 第二、三项。虽未编造价格/时间等敏感信息，但推荐逻辑空洞，属典型 persona shallow response。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "generic_recommending",
+      "no_prioritization_logic",
+      "no_deprecation_reasoning",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear section structure",
+      "Natural language flow",
+      "No hallucinated real-time data",
+      "Appropriate tone for travel context"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重缺乏 persona-driven recommendation logic：未将‘闺蜜游+拍照打卡+避人潮+预算适中’转化为具体取舍标准；未说明为何清晖园比祖庙更优/或反之；未解释为何长鹿旅游休博园、南风古灶等参考答案提及的选项应优先/降级；结尾突然截断（'佛山岭南天地（夜市）'后无内容），导致推荐不完整；整体呈现为泛化景点罗列，未体现‘因人而异’的核心要求，违反 task rubric 中‘avoid generic tourist advice’和 must_include 第二、三项。虽未编造价格/时间等敏感信息，但推荐逻辑空洞，属典型 persona shallow response。"
+  },
+  {
+    "id": "eval_persona_understanding_000053",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 826,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_priority_logic\", \"no_deprioritization\", \"incomplete_recommendation\", \"generic_tone\"],\n  \"strengths\": [\"Clear sectioning with emoji and bolding; readable structure; mentions '闺蜜游' context and photo-friendly features; avoids tool calls or JSON\"],\n  \"judge_reason\": \"回答虽结构清晰、语言自然，但严重缺失任务核心要求：未将‘预算适中’‘喜欢拍照打卡和网红景点’转化为具体推荐逻辑（如价格敏感性如何影响选择、为何拈花湾优于灵山胜境）；未说明任何景点应被降级或避免（如未解释为何东林书院仅 suits '安静拍照'却仍 ranked high despite lacking网红属性/photogenic intensity）；结尾截断，未完成推荐（'无锡东林书院'条目不完整，且无后续结论）；所有推荐均泛化为‘适合闺蜜’，未体现因人而异的取舍判断，实质是套用模板的通用清单，违反persona_understanding rubric核心原则。must_not_do中‘only repeat labels without making a recommendation’被明确违反——仅罗列景点+标签式描述，无推理、无比较、无排序依据。\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_priority_logic",
+      "no_deprioritization",
+      "incomplete_recommendation",
+      "generic_tone"
+    ],
+    "strengths": [
+      "Clear sectioning with emoji and bolding; readable structure; mentions '闺蜜游' context and photo-friendly features; avoids tool calls or JSON"
+    ],
+    "judge_reason": "回答虽结构清晰、语言自然，但严重缺失任务核心要求：未将‘预算适中’‘喜欢拍照打卡和网红景点’转化为具体推荐逻辑（如价格敏感性如何影响选择、为何拈花湾优于灵山胜境）；未说明任何景点应被降级或避免（如未解释为何东林书院仅 suits '安静拍照'却仍 ranked high despite lacking网红属性/photogenic intensity）；结尾截断，未完成推荐（'无锡东林书院'条目不完整，且无后续结论）；所有推荐均泛化为‘适合闺蜜’，未体现因人而异的取舍判断，实质是套用模板的通用清单，违反persona_understanding rubric核心原则。must_not_do中‘only repeat labels without making a recommendation’被明确违反——仅罗列景点+标签式描述，无推理、无比较、无排序依据。"
+  },
+  {
+    "id": "eval_persona_understanding_000054",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 807,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_priority_logic\", \"no_deprioritization\", \"incomplete_recommendation\", \"truncated_output\"],\n  \"strengths\": [\"Recognizes 'meimei you' as a female peer group with photo-centric needs; mentions visual appeal of sites; avoids overt marketing language; maintains factual baseline about locations\"],\n  \"judge_reason\": \"The response identifies闺蜜游 as photo-focused and lists four sites with descriptive justifications — satisfying basic persona awareness. However, it completely fails to implement the core task-specific requirement: turning constraints (budget适中,网红+打卡) into ranked or comparative logic (e.g., why东风韵 is *more* suitable than建水燕子洞; why梯田 may be higher-effort/lower-budget-fit than东风韵). No site is deprioritized or excluded — violating 'explain what should be deprioritized'. The answer ends mid-sentence at '东风韵小镇是红河州近年来打造的网红文化小镇...' — indicating truncation and incomplete delivery. It repeats '适合拍照打卡' as a label without converting it into decision logic. This violates must_not_do #3 and misses two must_includes. While safety and honesty are upheld (no fabricated prices/times), the absence of trade-off reasoning makes it fundamentally misaligned with persona_understanding rubric. Not fail-tier due to partial reasoning, but requires hold for revision.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_priority_logic",
+      "no_deprioritization",
+      "incomplete_recommendation",
+      "truncated_output"
+    ],
+    "strengths": [
+      "Recognizes 'meimei you' as a female peer group with photo-centric needs; mentions visual appeal of sites; avoids overt marketing language; maintains factual baseline about locations"
+    ],
+    "judge_reason": "The response identifies闺蜜游 as photo-focused and lists four sites with descriptive justifications — satisfying basic persona awareness. However, it completely fails to implement the core task-specific requirement: turning constraints (budget适中,网红+打卡) into ranked or comparative logic (e.g., why东风韵 is *more* suitable than建水燕子洞; why梯田 may be higher-effort/lower-budget-fit than东风韵). No site is deprioritized or excluded — violating 'explain what should be deprioritized'. The answer ends mid-sentence at '东风韵小镇是红河州近年来打造的网红文化小镇...' — indicating truncation and incomplete delivery. It repeats '适合拍照打卡' as a label without converting it into decision logic. This violates must_not_do #3 and misses two must_includes. While safety and honesty are upheld (no fabricated prices/times), the absence of trade-off reasoning makes it fundamentally misaligned with persona_understanding rubric. Not fail-tier due to partial reasoning, but requires hold for revision."
+  },
+  {
+    "id": "eval_persona_understanding_000055",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 846,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 4,\n  \"brand_style\": 3,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_ranking_logic\", \"no_deprioritization\", \"incomplete_output\", \"generic_repetition\"],\n  \"strengths\": [\"Identifies several free/low-cost sites\", \"Mentions cultural relevance (e.g., Dongba Museum, Naxi culture)\", \"Maintains factual baseline (e.g.,黑龙潭免费)\"],\n  \"judge_reason\": \"Answer fails to convert 'budget-type' constraint into actionable ranking logic — e.g., no explanation why玉龙雪山索道 (100元) is acceptable despite tight budget, nor why it's prioritized over truly free options. No explicit deprioritization or avoidance rationale for expensive/unfit options (e.g., Blue Moon Valley, high-end bars, private tours). Ends mid-sentence at '丽江老君山（免费）', violating completeness. Recommends玉龙雪山索道 as 'low-cost' without acknowledging it’s relatively expensive for a budget traveler — misaligns with persona. Repeats 'free/low-cost' label mechanically without tailoring trade-offs (e.g., time vs. cost, accessibility vs. authenticity). Violates must_not_do by listing items generically without personalized logic — effectively 'same generic advice' for any budget traveler. Fails core task-specific requirement: no 'what fits better / what to avoid' analysis. Output is structurally clear but substantively shallow and incomplete.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 3,
+    "safety_and_honesty": 4,
+    "brand_style": 3,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_ranking_logic",
+      "no_deprioritization",
+      "incomplete_output",
+      "generic_repetition"
+    ],
+    "strengths": [
+      "Identifies several free/low-cost sites",
+      "Mentions cultural relevance (e.g., Dongba Museum, Naxi culture)",
+      "Maintains factual baseline (e.g.,黑龙潭免费)"
+    ],
+    "judge_reason": "Answer fails to convert 'budget-type' constraint into actionable ranking logic — e.g., no explanation why玉龙雪山索道 (100元) is acceptable despite tight budget, nor why it's prioritized over truly free options. No explicit deprioritization or avoidance rationale for expensive/unfit options (e.g., Blue Moon Valley, high-end bars, private tours). Ends mid-sentence at '丽江老君山（免费）', violating completeness. Recommends玉龙雪山索道 as 'low-cost' without acknowledging it’s relatively expensive for a budget traveler — misaligns with persona. Repeats 'free/low-cost' label mechanically without tailoring trade-offs (e.g., time vs. cost, accessibility vs. authenticity). Violates must_not_do by listing items generically without personalized logic — effectively 'same generic advice' for any budget traveler. Fails core task-specific requirement: no 'what fits better / what to avoid' analysis. Output is structurally clear but substantively shallow and incomplete."
+  },
+  {
+    "id": "eval_persona_understanding_000056",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 885,
+    "raw_judge_response": "{\n  \"correctness\": 3,\n  \"instruction_following\": 2,\n  \"completeness\": 2,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 2,\n  \"overall_score\": 2,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [\"Show persona-specific reasoning\"],\n  \"missed_must_include\": [\"Turn preferences or limits into recommendation logic\", \"Explain what fits better and what should be deprioritized\"],\n  \"violated_must_not_do\": [\"Do not only repeat labels without making a recommendation\"],\n  \"issue_tags\": [\"no_recommendation_logic\", \"no_deprioritization\", \"generic_structure\", \"persona_shallow\"],\n  \"strengths\": [\"Clear sectioning and formatting\", \"Accurate factual info about free/low-cost sites in Dalian\", \"Natural, brand-appropriate tone\"],\n  \"judge_reason\": \"The response lists many free/low-cost大连景点 but fails to demonstrate *why* they suit a budget traveler beyond labeling them as 'free' or 'low-price'. It does not convert 'budget型', '看重免费和低价' into ranked logic (e.g., why滨海路 > 星海广场 for cost-efficiency? Why avoid paid attractions like老虎滩?). Crucially, it omits any explanation of what *should be deprioritized or avoided* — a core must_include. The structure mimics generic travel guides, violating 'Do not answer every persona with the same generic advice'. No trade-off reasoning, no persona-driven filtering — just a catalog. This is fundamentally a failure in persona understanding per task rubric.\"\n}",
+    "correctness": 3,
+    "instruction_following": 2,
+    "completeness": 2,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 2,
+    "overall_score": 2,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "Show persona-specific reasoning"
+    ],
+    "missed_must_include": [
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "issue_tags": [
+      "no_recommendation_logic",
+      "no_deprioritization",
+      "generic_structure",
+      "persona_shallow"
+    ],
+    "strengths": [
+      "Clear sectioning and formatting",
+      "Accurate factual info about free/low-cost sites in Dalian",
+      "Natural, brand-appropriate tone"
+    ],
+    "judge_reason": "The response lists many free/low-cost大连景点 but fails to demonstrate *why* they suit a budget traveler beyond labeling them as 'free' or 'low-price'. It does not convert 'budget型', '看重免费和低价' into ranked logic (e.g., why滨海路 > 星海广场 for cost-efficiency? Why avoid paid attractions like老虎滩?). Crucially, it omits any explanation of what *should be deprioritized or avoided* — a core must_include. The structure mimics generic travel guides, violating 'Do not answer every persona with the same generic advice'. No trade-off reasoning, no persona-driven filtering — just a catalog. This is fundamentally a failure in persona understanding per task rubric."
+  },
+  {
+    "id": "eval_persona_understanding_000057",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 886,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\",\n    \"Do not answer every persona with the same generic advice\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"未体现推荐逻辑\",\n    \"编造门票价格\",\n    \"未处理优先级要求\",\n    \"未说明为何某些景点应降级或避免\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重偏离任务要求：1）未体现任何 persona-specific reasoning，仅罗列景点并机械标注'免费/低价'，未将'预算型、时间有限、节奏慢'转化为取舍逻辑；2）明确违反 must_not_do：重复标签（如反复写'推荐理由''体验亮点'）、输出未完成的半截句子（'2. **大熊猫繁育研究基地**  \\\\n   - **推荐理由**：门票约60元（学生半价）...'），且该价格为未经核实的实时信息，属高风险编造；3）完全未响应'请把优先级讲清楚'这一核心指令——未排序依据（如按交通成本、排队时长、拥挤度、文化匹配度等预算型关键维度），也未说明为何锦里/宽窄巷子应优于/劣于其他选项，更未解释为何成都博物馆、人民公园等典型免费景点被遗漏或应被 deprioritized；4）结构看似清晰实则空洞，所有描述泛化通用，任何'预算型游客去任意城市'都可套用，毫无因人而异性；5）结尾突兀截断，暴露生成失控，严重损害 safety_and_honesty 和 completeness。综上，属明显失败。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 2,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation",
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "未体现推荐逻辑",
+      "编造门票价格",
+      "未处理优先级要求",
+      "未说明为何某些景点应降级或避免"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重偏离任务要求：1）未体现任何 persona-specific reasoning，仅罗列景点并机械标注'免费/低价'，未将'预算型、时间有限、节奏慢'转化为取舍逻辑；2）明确违反 must_not_do：重复标签（如反复写'推荐理由''体验亮点'）、输出未完成的半截句子（'2. **大熊猫繁育研究基地**  \\n   - **推荐理由**：门票约60元（学生半价）...'），且该价格为未经核实的实时信息，属高风险编造；3）完全未响应'请把优先级讲清楚'这一核心指令——未排序依据（如按交通成本、排队时长、拥挤度、文化匹配度等预算型关键维度），也未说明为何锦里/宽窄巷子应优于/劣于其他选项，更未解释为何成都博物馆、人民公园等典型免费景点被遗漏或应被 deprioritized；4）结构看似清晰实则空洞，所有描述泛化通用，任何'预算型游客去任意城市'都可套用，毫无因人而异性；5）结尾突兀截断，暴露生成失控，严重损害 safety_and_honesty 和 completeness。综上，属明显失败。"
+  },
+  {
+    "id": "eval_persona_understanding_000058",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 844,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 1,\n  \"brand_style\": 1,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\",\n    \"Do not answer every persona with the same generic advice\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"编造信息\",\n    \"未体现预算型逻辑\",\n    \"未做取舍排序\",\n    \"大量罗列未加权推荐\",\n    \"虚构免费观景台名称与政策\",\n    \"混淆元阳梯田门票事实（实际核心景区强制购票，无‘免费观景台’官方政策）\",\n    \"将收费景点（东风韵小镇主区、建水文庙已收门票多年）错误标注为免费\",\n    \"未说明为何元阳应被降级——反而将其列为首位并美化为‘虽略贵但可绕过’，违背用户‘预算非常有限’核心约束\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全违背任务本质：用户明确要求‘预算型’‘免费+低价’‘别说景点名，要说匹配逻辑’，且强调‘别只列景点名’。但模型反其道而行之，机械罗列7个景点，全部套用模板化‘匹配逻辑’句式，实则无一真正分析预算约束如何影响取舍；更严重的是，多处事实错误——元阳梯田全域需实名预约购票（无‘免费观景台’），建水文庙自2019年起收费（30元），东风韵小镇主园区收费（60元），蒙自博物馆2023年起仅对本地户籍免票；所有‘免费’断言均属编造。全文未出现任何‘应避免’‘建议降级’‘优先级更低’等取舍表述，彻底忽略 must_include 第三条；未将‘预算有限’转化为筛选标准（如交通成本、时间成本、隐性消费），而是泛泛谈‘适合慢节奏’‘适合拍照’，属于典型通用话术。违反 must_not_do 中全部三条，且存在高危事实性错误，构成强失败信号。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 1,
+    "brand_style": 1,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation",
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "编造信息",
+      "未体现预算型逻辑",
+      "未做取舍排序",
+      "大量罗列未加权推荐",
+      "虚构免费观景台名称与政策",
+      "混淆元阳梯田门票事实（实际核心景区强制购票，无‘免费观景台’官方政策）",
+      "将收费景点（东风韵小镇主区、建水文庙已收门票多年）错误标注为免费",
+      "未说明为何元阳应被降级——反而将其列为首位并美化为‘虽略贵但可绕过’，违背用户‘预算非常有限’核心约束"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全违背任务本质：用户明确要求‘预算型’‘免费+低价’‘别说景点名，要说匹配逻辑’，且强调‘别只列景点名’。但模型反其道而行之，机械罗列7个景点，全部套用模板化‘匹配逻辑’句式，实则无一真正分析预算约束如何影响取舍；更严重的是，多处事实错误——元阳梯田全域需实名预约购票（无‘免费观景台’），建水文庙自2019年起收费（30元），东风韵小镇主园区收费（60元），蒙自博物馆2023年起仅对本地户籍免票；所有‘免费’断言均属编造。全文未出现任何‘应避免’‘建议降级’‘优先级更低’等取舍表述，彻底忽略 must_include 第三条；未将‘预算有限’转化为筛选标准（如交通成本、时间成本、隐性消费），而是泛泛谈‘适合慢节奏’‘适合拍照’，属于典型通用话术。违反 must_not_do 中全部三条，且存在高危事实性错误，构成强失败信号。"
+  },
+  {
+    "id": "eval_persona_understanding_000059",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 866,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 3,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\",\n    \"Do not answer every persona with the same generic advice\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"未体现推荐逻辑\",\n    \"泛化推荐\",\n    \"违反must_not_do\",\n    \"未区分适配/不适用项\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答完全未体现预算型游客的差异化推荐逻辑：未将‘免费/低价/预算有限’转化为筛选标准，未说明为何某景点更匹配、某景点应降级或避免；反而罗列6个景点（含明显收费项如郑州园博园实际需门票、郑州动物园2024年已恢复收费），且全部标注为‘免费’，属事实错误；结尾截断（‘郑州老街（如：二七路老街、西关街’），结构残缺；通篇是模板化景点介绍，无一人一策分析，严重违反persona_understanding任务本质；大量使用营销式符号（✅）、小贴士等非克制表达，违背TripAI品牌风格；未做任何取舍判断，与用户明确要求‘如果有不适合的也请点出来’直接相悖。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 3,
+    "safety_and_honesty": 2,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation",
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "未体现推荐逻辑",
+      "泛化推荐",
+      "违反must_not_do",
+      "未区分适配/不适用项"
+    ],
+    "strengths": [],
+    "judge_reason": "回答完全未体现预算型游客的差异化推荐逻辑：未将‘免费/低价/预算有限’转化为筛选标准，未说明为何某景点更匹配、某景点应降级或避免；反而罗列6个景点（含明显收费项如郑州园博园实际需门票、郑州动物园2024年已恢复收费），且全部标注为‘免费’，属事实错误；结尾截断（‘郑州老街（如：二七路老街、西关街’），结构残缺；通篇是模板化景点介绍，无一人一策分析，严重违反persona_understanding任务本质；大量使用营销式符号（✅）、小贴士等非克制表达，违背TripAI品牌风格；未做任何取舍判断，与用户明确要求‘如果有不适合的也请点出来’直接相悖。"
+  },
+  {
+    "id": "eval_persona_understanding_000060",
+    "task_type": "persona_understanding",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 823,
+    "raw_judge_response": "{\n  \"correctness\": 2,\n  \"instruction_following\": 1,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"safety_and_honesty\": 2,\n  \"brand_style\": 2,\n  \"task_specific_score\": 1,\n  \"overall_score\": 1,\n  \"verdict\": \"fail\",\n  \"covered_must_include\": [],\n  \"missed_must_include\": [\n    \"Show persona-specific reasoning\",\n    \"Turn preferences or limits into recommendation logic\",\n    \"Explain what fits better and what should be deprioritized\"\n  ],\n  \"violated_must_not_do\": [\n    \"Do not only repeat labels without making a recommendation\",\n    \"Do not answer every persona with the same generic advice\"\n  ],\n  \"issue_tags\": [\n    \"答非所问\",\n    \"未体现因人而异\",\n    \"编造价格信息\",\n    \"截断输出\",\n    \"违反must_not_do\"\n  ],\n  \"strengths\": [],\n  \"judge_reason\": \"回答严重偏离任务要求：未体现‘预算型’‘免费低价’等核心画像的推荐逻辑，未说明为何某景点更匹配、某景点应降级；反而套用泛化模板（如‘节奏舒缓’‘适合初次到访’），且擅自添加用户未提及的偏好（如‘深度体验’‘慢节奏旅行’）；龙硿洞实际门票约60元，并非免费，属明显事实错误；东肖镇龙岩博物馆实为‘龙岩市博物馆’，位于新罗区，地址错误；梅花山自然保护区门票并非‘约30元’，且未说明其与用户预算约束的适配性；结尾强行截断，暴露生成失控；全文无任何取舍对比或优先级解释，完全未响应‘因人而异的建议’这一核心指令。\"\n}",
+    "correctness": 2,
+    "instruction_following": 1,
+    "completeness": 1,
+    "clarity": 2,
+    "safety_and_honesty": 2,
+    "brand_style": 2,
+    "task_specific_score": 1,
+    "overall_score": 1,
+    "verdict": "fail",
+    "pass_or_fail": false,
+    "covered_must_include": [],
+    "missed_must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "violated_must_not_do": [
+      "Do not only repeat labels without making a recommendation",
+      "Do not answer every persona with the same generic advice"
+    ],
+    "issue_tags": [
+      "答非所问",
+      "未体现因人而异",
+      "编造价格信息",
+      "截断输出",
+      "违反must_not_do"
+    ],
+    "strengths": [],
+    "judge_reason": "回答严重偏离任务要求：未体现‘预算型’‘免费低价’等核心画像的推荐逻辑，未说明为何某景点更匹配、某景点应降级；反而套用泛化模板（如‘节奏舒缓’‘适合初次到访’），且擅自添加用户未提及的偏好（如‘深度体验’‘慢节奏旅行’）；龙硿洞实际门票约60元，并非免费，属明显事实错误；东肖镇龙岩博物馆实为‘龙岩市博物馆’，位于新罗区，地址错误；梅花山自然保护区门票并非‘约30元’，且未说明其与用户预算约束的适配性；结尾强行截断，暴露生成失控；全文无任何取舍对比或优先级解释，完全未响应‘因人而异的建议’这一核心指令。"
+  }
+]

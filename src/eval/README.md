@@ -4,6 +4,17 @@
 
 `src/eval/` 用于承载 TripAI `8B Domain SFT` 阶段的评测规范、评测脚本和评测产物。
 
+当前仓库主线已经开始进入 **tool calling / function calling** 阶段，
+但本目录的定位没有改变：
+
+- 它主要服务于 `stage1` 自然语言能力评测
+- 以及后续 `tool-use` 训练阶段的自然语言回归检查
+
+也就是说：
+
+- 这里不是 `tool-use` 主评测目录
+- 这里主要用于验证模型是否仍然是一个自然、靠谱、不过度乱编的旅游助手
+
 当前评测的目标不是验证 tool calling、function calling 或旧链路 `intentionName` JSON，
 而是验证模型是否已经成为一个可用的旅游领域自然语言助手。
 
@@ -20,10 +31,10 @@
 
 本目录中的评测规范严格服从仓库当前主线：
 
-- 当前主任务是 `8B Domain SFT`
-- 当前目标是训练旅游领域自然语言能力
-- 当前模型不是工具路由器
-- 当前阶段不评测 tool calling / function calling
+- 当前主任务最初是 `8B Domain SFT`
+- 当前目录的任务仍然是旅游领域自然语言能力评测
+- 当前目录不承担工具调用主评测
+- 当前阶段不在本目录中评测 tool calling / function calling
 - 当前阶段不要求输出旧链路 JSON
 - 当前阶段不以替代完整线上业务链路为目标
 
@@ -409,13 +420,17 @@
 当前仓库已经落地了远程推理脚本 [run_eval.py](/d:/soulv_llm/src/eval/scripts/run_eval.py)，
 可直接对冻结 `eval` 批量发起推理并保存原始输出。
 
-当前尚未全部补齐的是：
+当前已经落地的是：
 
-- `score_rules.py`
+- `run_eval.py`：远程批量推理
+- `score_rules.py`：规则层硬错误检查
+- `judge_with_llm.py`：基于 rubric 的 LLM as a Judge
+
+当前尚未补齐的是：
+
 - `build_report.py`
-- 完整 AI Judge 流程
 
-因此现阶段推荐采用“远程批量推理 + 规则校验 + 人工评测 + 回归检查”的组合方式。
+因此现阶段推荐采用“远程批量推理 + 规则校验 + AI Judge + 人工复核 + 回归检查”的组合方式。
 
 ### 11.1 第一层：规则校验
 
@@ -429,7 +444,7 @@
 
 ### 11.2 第二层：人工评分
 
-人工评分应作为当前阶段的主判定方式。
+人工评分/人工复核仍应作为当前阶段的重要兜底判定方式。
 
 建议每条样本至少记录：
 
@@ -482,6 +497,7 @@ src/eval/
 ├─ scripts/
 │  ├─ run_eval.py
 │  ├─ score_rules.py
+│  ├─ judge_with_llm.py
 │  └─ build_report.py
 ├─ rubrics/
 │  ├─ common_rubric.md
@@ -574,6 +590,6 @@ data/eval/
 
 ## 17. 一句话原则
 
-当前阶段的评测，不是在测模型会不会“走工具”，
-而是在测它能不能稳定地做一个自然、靠谱、不过度乱编的 TripAI 旅游助手。
+当前目录的评测，不是在测模型会不会“走工具”，
+而是在测它在进入 tool-use 阶段之后，是否仍然能稳定地做一个自然、靠谱、不过度乱编的 TripAI 旅游助手。
 

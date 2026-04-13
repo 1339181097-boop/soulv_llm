@@ -1,0 +1,63 @@
+[
+  {
+    "id": "eval_hotel_recommendation_000001",
+    "task_type": "hotel_recommendation",
+    "status": "ok",
+    "rule_pass": false,
+    "rule_score": 0,
+    "max_severity": "blocker",
+    "hit_count": 1,
+    "triggered_rule_ids": [
+      "reasoning_trace"
+    ],
+    "rule_hits": [
+      {
+        "rule_id": "reasoning_trace",
+        "severity": "blocker",
+        "message": "Prediction leaked reasoning / think tags",
+        "evidence": "</think>",
+        "matched_must_not_do": [
+          "Do not output tool calls, JSON, or traces"
+        ]
+      }
+    ],
+    "prediction_preview": "嗯，用户想找南宁青秀区靠近地铁站和南湖公园的青年旅舍。首先，我需要确认青秀区的地铁线路和站点。南宁地铁1号线和2号线经过青秀区，比如东葛路站、民族广场站、南湖站等。南湖公园附近可能有地铁站，比如南湖站，所以靠近地铁站的青年旅舍应该在这些站点附近。然后，南湖公园本身是一个热门景点，靠近公园的住宿通常更方便游客游览和休息。接下来，青年旅舍通常价格实惠，适合预算有限的旅客，尤其是年轻人或背包客。用户可能更看重交通便利和周边景点的可达性，同时希望住宿环境舒适、有社交氛围。需要确认这些旅舍是否符合这些条件，比如是否有公共休息区、洗衣房、免费WiFi等。另外，还要考虑安全性和卫生条件，确保旅舍环境良好。可能还需要查看附近的餐饮和购物设施，方便旅客日常需求。最后，综合这些因素，推荐几个符合条件的青年旅舍，并说明推荐理由，比如交通便利、靠近南湖公园、价格合理等。同时，提醒用户提前确认营业时间和预订情况，确",
+    "prediction_length": 654
+  },
+  {
+    "id": "eval_hotel_recommendation_000002",
+    "task_type": "hotel_recommendation",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "宁河区芦台镇位于天津市宁河区，靠近天津市区，周边有多个交通节点，如天津站、天津西站等，交通相对便利。该区域属于天津的郊区，整体发展程度相对较低，住宿选择相对有限，但仍有部分住宿能满足基本需求。因此，该区域的住宿选择相对有限，但仍有部分住宿能满足基本需求。",
+    "prediction_length": 114
+  },
+  {
+    "id": "eval_hotel_recommendation_000003",
+    "task_type": "hotel_recommendation",
+    "status": "ok",
+    "rule_pass": false,
+    "rule_score": 0,
+    "max_severity": "blocker",
+    "hit_count": 1,
+    "triggered_rule_ids": [
+      "question_echo"
+    ],
+    "rule_hits": [
+      {
+        "rule_id": "question_echo",
+        "severity": "blocker",
+        "message": "Prediction mostly repeats the user question instead of answering it",
+        "evidence": "similarity=1.00",
+        "matched_must_not_do": []
+      }
+    ],
+    "prediction_preview": "上海浦东新区地铁2号线川沙站附近，适合中转短住的青年公寓有吗？，请把便利性和取舍说清楚。",
+    "prediction_length": 40
+  }
+]

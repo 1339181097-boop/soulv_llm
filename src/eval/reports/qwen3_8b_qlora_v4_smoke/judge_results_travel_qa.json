@@ -1,0 +1,36 @@
+[
+  {
+    "id": "eval_travel_qa_000001",
+    "task_type": "travel_qa",
+    "judge_status": "ok",
+    "judge_model": "qwen-plus",
+    "prediction_length": 94,
+    "raw_judge_response": "{\n  \"correctness\": 4,\n  \"instruction_following\": 3,\n  \"completeness\": 3,\n  \"clarity\": 4,\n  \"safety_and_honesty\": 5,\n  \"brand_style\": 4,\n  \"task_specific_score\": 3,\n  \"overall_score\": 3,\n  \"verdict\": \"hold\",\n  \"covered_must_include\": [\"体现首次到访和两天节奏\", \"比较2到3个合适区域\"],\n  \"missed_must_include\": [\"给出明确建议\"],\n  \"violated_must_not_do\": [],\n  \"issue_tags\": [\"ambiguous_recommendation\", \"lack_of_decision\"],\n  \"strengths\": [\"语言自然简洁，符合TripAI克制风格；准确指出黄浦、徐汇、静安三个核心区域；提及首次到访与交通便利性，呼应用户情境\"],\n  \"judge_reason\": \"回答比较了黄浦区、徐汇区、静安区（满足'比较2到3个合适区域'），并点明'第一次来'和'出行更方便'（满足'体现首次到访和两天节奏'），但未给出明确优先级或决策性建议（如'首选黄浦区'或'推荐静安区为最优平衡点'），仅用'建议优先考虑...比如...'模糊列举，未完成must_include中强制要求的'给出明确建议'；虽未违反must_not_do，但任务关键动作缺失，属典型hold情形。\"\n}",
+    "correctness": 4,
+    "instruction_following": 3,
+    "completeness": 3,
+    "clarity": 4,
+    "safety_and_honesty": 5,
+    "brand_style": 4,
+    "task_specific_score": 3,
+    "overall_score": 3,
+    "verdict": "hold",
+    "pass_or_fail": false,
+    "covered_must_include": [
+      "体现首次到访和两天节奏",
+      "比较2到3个合适区域"
+    ],
+    "missed_must_include": [
+      "给出明确建议"
+    ],
+    "violated_must_not_do": [],
+    "issue_tags": [
+      "ambiguous_recommendation",
+      "lack_of_decision"
+    ],
+    "strengths": [
+      "语言自然简洁，符合TripAI克制风格；准确指出黄浦、徐汇、静安三个核心区域；提及首次到访与交通便利性，呼应用户情境"
+    ],
+    "judge_reason": "回答比较了黄浦区、徐汇区、静安区（满足'比较2到3个合适区域'），并点明'第一次来'和'出行更方便'（满足'体现首次到访和两天节奏'），但未给出明确优先级或决策性建议（如'首选黄浦区'或'推荐静安区为最优平衡点'），仅用'建议优先考虑...比如...'模糊列举，未完成must_include中强制要求的'给出明确建议'；虽未违反must_not_do，但任务关键动作缺失，属典型hold情形。"
+  }
+]

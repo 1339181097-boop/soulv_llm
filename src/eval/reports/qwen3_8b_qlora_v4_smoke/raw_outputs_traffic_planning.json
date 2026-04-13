@@ -1,0 +1,128 @@
+[
+  {
+    "id": "eval_traffic_planning_000001",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "medium",
+    "tags": [
+      "三亚",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "拖着行李从三亚凤凰机场前往亚龙湾，探讨公交和地铁在实际出行时哪个更为便捷呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '拖着行李从三亚凤凰机场前往亚龙湾，探讨公交和地铁在实际出行时哪个更为便捷呢？，不用给我查实时班次。', then explain why it is better for the route from 凤凰机场 to 亚龙湾. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_159db6e21efe",
+    "prediction": "三亚凤凰机场到亚龙湾没有地铁，公交是主要选择。公交线路有21路、22路、23路、24路、25路、26路、27路、28路、29路、30路、31路、32路、33路、34路、35路、36路、37路、38路、39路、40路、41路、42路、43路、44路、45路、46路、47路、48路、49路、50路、51路、52路、53路、54路、55路、56路、57路、58路、59路、60路、61路、62路、63路、64路、65路、66路、67路、68路、69路、70路、71路、72路、73路、74路、75路、76路、77路、78路、79路、80路、81路、82路、83路、84路、85路、86路、87路、88路、89路、90路、91路、92路、93路、94路、95路、96路、97路、98路、99路、100路、101路、102路、103路、104路、105路、106路、107路、108路、109路、110路、111路、112路、113路、114路、115路、116路、117路、118路、119路、120路、121路、122路、123路、124路、125路、126路、127路、128路、129路、130路、131路、132路、133路、134路、135",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000002",
+    "task_type": "traffic_planning",
+    "scene": "city_hub_connection",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "city_hub_connection",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从徐家汇出发去世纪公园，有没有不用绕太多路的地铁或者公交路线可以推荐呀？，我更想知道推荐思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从徐家汇出发去世纪公园，有没有不用绕太多路的地铁或者公交路线可以推荐呀？，我更想知道推荐思路。', then explain why it is better for the route from 徐家汇 to 世纪公园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_cd243b7a0a05",
+    "prediction": "世纪公园位于浦东新区，徐家汇位于徐汇区，两地相距约10公里，属于市区内不同区域。从徐家汇到世纪公园，通常需要换乘地铁或公交。推荐优先考虑地铁，因为地铁通常更高效、准时，且能避免拥堵。推荐优先考虑地铁10号线，从徐家汇站出发，乘坐地铁10号线（往浦东机场方向）到张江路站，换乘地铁11号线（往迪士尼方向）到迪士尼站，再步行至世纪公园。该路线相对直接，换乘较少，且能避开部分拥堵路段。如果更看重公交的经济性，也可以选择公交线路，但公交通常更易受路况影响，且可能需要多次换乘。推荐优先考虑公交线路，如公交120路、公交131路、公交138路等，但公交线路通常更易受路况影响，且可能需要多次换乘。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_traffic_planning_000003",
+    "task_type": "traffic_planning",
+    "scene": "train_to_city",
+    "difficulty": "medium",
+    "tags": [
+      "上海",
+      "train_to_city",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "从上海虹桥站出发，计划前往豫园游玩，想了解有没有可以直接到达豫园的公共交通工具呀？，重点说清楚为什么更省心。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '从上海虹桥站出发，计划前往豫园游玩，想了解有没有可以直接到达豫园的公共交通工具呀？，重点说清楚为什么更省心。', then explain why it is better for the route from 上海虹桥站 to 豫园. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_a7d401477824",
+    "prediction": "从上海虹桥站出发，前往豫园游玩，推荐优先考虑地铁10号线。虹桥站乘坐地铁10号线（地铁10号线）到陕西南路站，换乘地铁9号线（地铁9号线）到人民广场站，再步行约10分钟即可到达豫园。全程约40分钟，无需换乘或倒车，省心省力。地铁10号线和9号线运营稳定，发车频率高，适合游客出行。此外，地铁站内通常有清晰的指示牌和导览图，方便游客找到正确路线。乘坐地铁还能避开地面交通拥堵，尤其在节假日或旅游旺季，地铁通常比出租车更可靠。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

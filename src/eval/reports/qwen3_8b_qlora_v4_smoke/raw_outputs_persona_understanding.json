@@ -1,0 +1,128 @@
+[
+  {
+    "id": "eval_persona_understanding_000001",
+    "task_type": "persona_understanding",
+    "scene": "persona_understanding",
+    "difficulty": "medium",
+    "tags": [
+      "三代同堂",
+      "三明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行需求分析助手。请根据用户的人群特征、预算、偏好、节奏和限制条件，给出因人而异的旅游建议，体现需求理解与推荐逻辑。避免空泛套话和营销表达。"
+      },
+      {
+        "role": "user",
+        "content": "三明的景点中，哪些最适合三代同堂？我比较在意兼顾老人孩子和轻松节奏，不想太高强度活动，预算适中。，请把优先级讲清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should show real persona understanding for '三明的景点中，哪些最适合三代同堂？我比较在意兼顾老人孩子和轻松节奏，不想太高强度活动，预算适中。，请把优先级讲清楚。' rather than giving generic tourist advice. It should turn the persona cues (三代同堂, 互动体验 / 休息设施 / 文化体验) into ranked recommendations, explain why options like 侠天下景区 / 玉华洞 / 上清溪 fit better, and clarify why 九龙潭 / 桃源洞 should be deprioritized or avoided.",
+    "must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "notes": "Main check: persona understanding and recommendation logic",
+    "seed_source": "sft_persona_understanding_strict.json",
+    "seed_sample_id": "persona_understanding_fddf6cc877e9",
+    "prediction": "三明的景点中，适合三代同堂的景点优先级如下：\n\n1. 三明市博物馆（文化体验）：适合全家一起了解本地历史文化，节奏轻松，适合老人和孩子。\n2. 三明市动物园（亲子互动）：适合孩子观察动物，老人可以安静休息，节奏轻松。\n3. 三明市植物园（自然探索）：适合孩子亲近自然，老人可以散步休憩，节奏轻松。\n4. 三明市沙县小吃文化城（美食体验）：适合全家品尝地道小吃，节奏轻松，适合老人和孩子。\n5. 三明市列西公园（休闲放松）：适合全家散步、野餐，节奏轻松，适合老人和孩子。\n\n优先级说明：优先考虑文化体验和自然探索类景点，兼顾老人和孩子的兴趣，同时保持轻松节奏。博物馆和动物园更符合三代同堂的需求，因为它们有丰富的互动和教育内容，同时节奏轻松。植物园和小吃文化城则更注重休闲和美食体验，适合家庭放松。列西公园则适合日常散步和野餐，节奏最轻松。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_persona_understanding_000002",
+    "task_type": "persona_understanding",
+    "scene": "persona_understanding",
+    "difficulty": "medium",
+    "tags": [
+      "三代同堂",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行需求分析助手。请根据用户的人群特征、预算、偏好、节奏和限制条件，给出因人而异的旅游建议，体现需求理解与推荐逻辑。避免空泛套话和营销表达。"
+      },
+      {
+        "role": "user",
+        "content": "我是三代同堂，想去厦门玩几天，预算适中，希望景点能满足兼顾老人孩子和轻松节奏，有什么好推荐？，别只列景点名，要说匹配逻辑。"
+      }
+    ],
+    "reference_answer": "A strong answer should show real persona understanding for '我是三代同堂，想去厦门玩几天，预算适中，希望景点能满足兼顾老人孩子和轻松节奏，有什么好推荐？，别只列景点名，要说匹配逻辑。' rather than giving generic tourist advice. It should turn the persona cues (三代同堂, 互动体验 / 亲子 / 文化体验) into ranked recommendations, explain why options like 钟鼓索道 / 春草堂 / 日光岩 fit better, and clarify why 鼓浪屿 / 军营村 should be deprioritized or avoided.",
+    "must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "notes": "Main check: persona understanding and recommendation logic",
+    "seed_source": "sft_persona_understanding_strict.json",
+    "seed_sample_id": "persona_understanding_e9454703b607",
+    "prediction": "厦门适合三代同堂出游，节奏轻松，景点分布集中，适合慢节奏游览。推荐优先考虑鼓浪屿、厦门大学、南普陀寺、沙坡尾文创园、环岛路、集美学村、中山路步行街、厦门科技馆、厦门植物园、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_persona_understanding_000003",
+    "task_type": "persona_understanding",
+    "scene": "persona_understanding",
+    "difficulty": "hard",
+    "tags": [
+      "三代同堂",
+      "岳阳",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行需求分析助手。请根据用户的人群特征、预算、偏好、节奏和限制条件，给出因人而异的旅游建议，体现需求理解与推荐逻辑。避免空泛套话和营销表达。"
+      },
+      {
+        "role": "user",
+        "content": "作为三代同堂，去岳阳旅游应该怎么选择景点？我看重兼顾老人孩子和轻松节奏，预算适中。，如果有不适合的也请点出来。"
+      }
+    ],
+    "reference_answer": "A strong answer should show real persona understanding for '作为三代同堂，去岳阳旅游应该怎么选择景点？我看重兼顾老人孩子和轻松节奏，预算适中。，如果有不适合的也请点出来。' rather than giving generic tourist advice. It should turn the persona cues (三代同堂, 互动体验 / 亲子 / 休息设施) into ranked recommendations, explain why options like 猎玩小镇 / 岳阳中华大熊猫苑 / 岳阳楼景区 fit better, and clarify why 平江石牛寨景区 / 屈原墓 should be deprioritized or avoided.",
+    "must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "notes": "Main check: persona understanding and recommendation logic",
+    "seed_source": "sft_persona_understanding_strict.json",
+    "seed_sample_id": "persona_understanding_f63161eccdf3",
+    "prediction": "对于三代同堂的岳阳旅游，建议优先考虑轻松、适合各年龄段的景点，同时兼顾老人和孩子的舒适度。以下是一些建议：\n\n1. **洞庭湖风光带**：适合全家散步、拍照，湖面开阔，空气清新，适合老人和孩子慢行。但需注意天气变化，避免高温时段出行。\n\n2. **君山岛**：岛上风景优美，有丰富的自然景观和文化遗迹，适合全家一起游览。但需注意岛上步道较多，可能对老人和孩子有一定体力要求。\n\n3. **岳阳楼**：作为岳阳的标志性建筑，岳阳楼历史悠久，文化底蕴深厚，适合全家一起参观。但需注意楼内台阶较多，可能对老人和孩子有一定挑战。\n\n4. **平江历史街区**：这里保留了许多传统建筑和文化元素，适合全家一起感受历史氛围。但需注意街区较为狭窄，可能对老人和孩子有一定通行限制。\n\n5. **岳阳市博物馆**：这里展示了岳阳丰富的历史和文化，适合全家一起了解当地的历史。但需注意博物馆内可能有较多展品，需要一定时间参观。\n\n在安排行程时，建议优先选择轻松、节奏慢的景点，避免安排过于紧凑或需要长时间步行的行程。同时，注意天气变化，避免高温时段出行，确保老人和孩子的舒适度。如果有不适合的景点，建议优先选择洞庭湖风光带和君山岛，避免安排岳阳楼和岳阳市博物馆等需要较多体力或时间的景点。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "soulv_stage2_amap_tool_use_sft": {
+    "file_name": "stage2_amap_tool_use_sft.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "tools": "tools"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt",
+      "system_tag": "system",
+      "observation_tag": "observation",
+      "function_tag": "function_call"
+    }
+  }
+}

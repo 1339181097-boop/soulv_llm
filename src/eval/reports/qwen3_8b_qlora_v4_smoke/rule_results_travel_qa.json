@@ -1,0 +1,51 @@
+[
+  {
+    "id": "eval_travel_qa_000001",
+    "task_type": "travel_qa",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "上海的交通非常便利，地铁覆盖了大部分区域，所以住在哪个区都比较方便。不过，如果你是第一次来，建议优先考虑市中心区域，比如黄浦区、徐汇区或静安区，这些地方靠近主要景点和交通枢纽，出行更方便。",
+    "prediction_length": 84
+  },
+  {
+    "id": "eval_travel_qa_000002",
+    "task_type": "travel_qa",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "如果带老人出行，解放碑和观音桥更合适。这两个区域交通便利，周边有多个公交站点和地铁站，适合老年人乘坐公共交通。解放碑周边有多个景点，如洪崖洞、磁器口、鹅岭二厂等，适合老年人游览。观音桥周边有多个景点，如江北嘴、观音桥步行街等，适合老年人游览。南滨路虽然风景优美，但相对较为偏远，周边景点较少，不太适合老年人游览。因此，如果带老人出行，解放碑和观音桥更合适。",
+    "prediction_length": 157
+  },
+  {
+    "id": "eval_travel_qa_000003",
+    "task_type": "travel_qa",
+    "status": "ok",
+    "rule_pass": false,
+    "rule_score": 0,
+    "max_severity": "blocker",
+    "hit_count": 1,
+    "triggered_rule_ids": [
+      "excessive_repetition"
+    ],
+    "rule_hits": [
+      {
+        "rule_id": "excessive_repetition",
+        "severity": "blocker",
+        "message": "Prediction contains excessive repeated content",
+        "evidence": "repeated_chunk=熊猫乐园",
+        "matched_must_not_do": []
+      }
+    ],
+    "prediction_preview": "第一天：宽窄巷子、锦里、武侯祠、杜甫草堂、青羊宫、春熙路、太古里、东门市井、人民公园、文殊院、青城山前山（可选）；第二天：熊猫基地、熊猫繁育研究基地、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、熊猫乐园、",
+    "prediction_length": 656
+  }
+]

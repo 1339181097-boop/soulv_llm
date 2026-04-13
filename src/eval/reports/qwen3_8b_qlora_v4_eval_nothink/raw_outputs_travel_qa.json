@@ -1,0 +1,2537 @@
+[
+  {
+    "id": "eval_travel_qa_000001",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去上海玩两天，住在哪一片更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去上海玩两天，住在哪一片更方便？' first, then justify it briefly. It should explicitly use 比较2到3个合适区域 / 体现首次到访和两天节奏 / 给出明确建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较2到3个合适区域",
+      "体现首次到访和两天节奏",
+      "给出明确建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成完整两天攻略",
+      "只报酒店名不解释"
+    ],
+    "notes": "Main check: Main check: 主测：城市级落脚点判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0001",
+    "prediction": "如果你是第一次去上海玩两天，住在**徐家汇**或**南京西路**区域会比较方便。这两个地方交通便利，靠近地铁站，周边有大型商场、餐饮和景点，适合短途游览。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000002",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_region_compare",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带老人去重庆玩两天，住解放碑、观音桥还是南滨路更合适？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带老人去重庆玩两天，住解放碑、观音桥还是南滨路更合适？' first, then justify it briefly. It should explicitly use 比较三片区 / 考虑老人出行和坡度 / 给出更稳妥选择; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较三片区",
+      "考虑老人出行和坡度",
+      "给出更稳妥选择"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只按年轻人夜生活偏好回答",
+      "忽略老人行动便利"
+    ],
+    "notes": "Main check: Main check: 主测：多约束区域比较",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0002",
+    "prediction": "带老人去重庆玩两天，建议优先考虑**解放碑**或**观音桥**。这两个区域交通便利、生活配套完善，周边有多个适合老人休闲、购物、用餐的场所，且离主要景点较近，更适合轻松出行。南滨路虽然风景优美，但相对更安静，景点相对分散，不太适合需要频繁换乘或赶时间的行程。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000003",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_mainline",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "成都两天一夜，主线应该抓什么，不想来回折腾。"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '成都两天一夜，主线应该抓什么，不想来回折腾。' first, then justify it briefly. It should explicitly use 概括2天主线 / 强调少折返 / 不要写太长; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "概括2天主线",
+      "强调少折返",
+      "不要写太长"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "堆很多零散景点",
+      "写成详细小时级攻略"
+    ],
+    "notes": "Main check: Main check: 主测：城市主线",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0003",
+    "prediction": "成都两天一夜，建议以市区内精华景点为主，减少奔波。第一天可安排宽窄巷子、锦里、武侯祠、杜甫草堂；第二天可安排大熊猫繁育研究基地、青羊宫、春熙路。这样既能感受成都的历史文化与现代生活，又不会太累。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000004",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_experience",
+      "西安",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "冬天去西安值不值得专门留一晚看夜景？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '冬天去西安值不值得专门留一晚看夜景？' first, then justify it briefly. It should explicitly use 回答值不值得 / 说明冬季夜景利弊 / 给出适合人群; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答值不值得",
+      "说明冬季夜景利弊",
+      "给出适合人群"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "回避判断",
+      "写成景点百科"
+    ],
+    "notes": "Main check: Main check: 主测：城市夜景判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0004",
+    "prediction": "冬天去西安看夜景是值得的。西安的夜景在冬季别具韵味，尤其是城墙灯光秀、大雁塔、钟楼等标志性建筑在夜色中显得格外迷人。如果时间允许，专门留一晚欣赏夜景会是一段不错的体验。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000005",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "spot_compare",
+      "青岛",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带6岁孩子去青岛，栈桥和八大关更推荐哪个先去？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带6岁孩子去青岛，栈桥和八大关更推荐哪个先去？' first, then justify it briefly. It should explicitly use 比较两个点的亲子体验 / 给出先后顺序 / 说明体力和散步特点; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两个点的亲子体验",
+      "给出先后顺序",
+      "说明体力和散步特点"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说都值得去",
+      "不做顺序建议"
+    ],
+    "notes": "Main check: Main check: 主测：对比+人群",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0005",
+    "prediction": "如果带6岁孩子去青岛，建议优先安排栈桥。栈桥是青岛的标志性景点，有丰富的历史背景，同时有海鸥、沙滩和海浪，对孩子来说更有趣味性和互动性。八大关虽然风景优美，但更适合喜欢慢节奏、喜欢拍照和欣赏风景的游客，更适合稍大一些的孩子或家庭。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000006",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去苏州，住平江路附近还是金鸡湖附近更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去苏州，住平江路附近还是金鸡湖附近更方便？' first, then justify it briefly. It should explicitly use 比较老城游和现代城市休闲 / 给出首次到访建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较老城游和现代城市休闲",
+      "给出首次到访建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说看个人喜好",
+      "忽略首次到访前提"
+    ],
+    "notes": "Main check: Main check: 主测：区域比较",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0006",
+    "prediction": "第一次去苏州，住平江路附近更方便。平江路是苏州历史文化街区，周边景点密集，如耦园、沧浪亭、山塘街等，步行可达，适合体验苏州古典园林和水乡风貌。而金鸡湖周边更偏向现代都市休闲，适合喜欢购物、观景和夜景的游客，但离传统景点稍远。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000007",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "region_compare",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "西湖边适合慢慢逛半天的区域，选北山街还是杨公堤更合适？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '西湖边适合慢慢逛半天的区域，选北山街还是杨公堤更合适？' first, then justify it briefly. It should explicitly use 比较步行体验和景观氛围 / 指出适合不同游客 / 给出半天慢逛建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较步行体验和景观氛围",
+      "指出适合不同游客",
+      "给出半天慢逛建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "硬写实时人流",
+      "答成整日攻略"
+    ],
+    "notes": "Main check: Main check: 主测：区域风格比较",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0007",
+    "prediction": "西湖边适合慢慢逛半天的区域，北山街和杨公堤各有特色。北山街更安静优雅，适合喜欢文化氛围和历史建筑的人，沿途有白堤、苏堤、孤山等景点；杨公堤则更贴近自然，风景开阔，适合喜欢慢节奏、享受湖光山色的人。若更看重文化与历史，选北山街；若更喜欢自然与闲适，选杨公堤。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000008",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "spot_suitability",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "鼓浪屿适合带老人上岛慢慢走吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '鼓浪屿适合带老人上岛慢慢走吗？' first, then justify it briefly. It should explicitly use 回答适不适合 / 说明步行起伏和节奏 / 给出更稳妥玩法; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答适不适合",
+      "说明步行起伏和节奏",
+      "给出更稳妥玩法"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说值得去",
+      "忽略老人因素"
+    ],
+    "notes": "Main check: Main check: 主测：人群适配",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0008",
+    "prediction": "鼓浪屿适合带老人上岛慢慢走。岛上环境安静、空气清新，街道平缓，适合悠闲漫步。岛上没有机动车，主要依靠步行和自行车，节奏舒缓，非常适合老人慢慢游览。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000009",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_region_compare",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去北京，只有周末两天，住在前门还是三里屯更顺？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去北京，只有周末两天，住在前门还是三里屯更顺？' first, then justify it briefly. It should explicitly use 比较两地对经典景点和夜生活的适配 / 给出周末两天更顺的选择; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两地对经典景点和夜生活的适配",
+      "给出周末两天更顺的选择"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只比酒店档次",
+      "忽略首次到访和周末限制"
+    ],
+    "notes": "Main check: Main check: 主测：多约束住宿选择",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0009",
+    "prediction": "如果只有两天时间，住在前门更顺。前门周边景点密集，步行可达天坛、前门大街、正阳门、大栅栏等，交通便利，适合短途游览。三里屯更适合喜欢夜生活、购物和体验时尚的年轻人，但周边景点相对分散，更适合有更多时间的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000010",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "traffic",
+      "南京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "南京两天，夫子庙、总统府、中山陵这几个点怎么分配更顺？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '南京两天，夫子庙、总统府、中山陵这几个点怎么分配更顺？' first, then justify it briefly. It should explicitly use 给出两天或先后顺序 / 说明避免折返思路 / 给一般交通建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "给出两天或先后顺序",
+      "说明避免折返思路",
+      "给一般交通建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "虚构具体班次",
+      "只列景点不排顺序"
+    ],
+    "notes": "Main check: Main check: 主测：景点间动线",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0010",
+    "prediction": "南京两天行程建议如下：\n\n**第一天：夫子庙、秦淮河风光带、老门东**  \n- **上午**：游览夫子庙，感受古建筑与文化氛围。  \n- **中午**：在夫子庙附近品尝地道南京小吃。  \n- **下午**：沿秦淮河步行，欣赏两岸风光，可乘画舫游览。  \n- **傍晚**：逛老门东历史文化街区，体验老南京的生活气息。  \n\n**第二天：中山陵、明孝陵、总统府**  \n- **上午**：参观中山陵，登顶俯瞰南京全景。  \n- **中午**：在中山陵附近用餐。  \n- **下午**：前往明孝陵（建议预留半天），了解明朝皇家陵寝文化。  \n- **傍晚**：游览总统府，了解近代历史与政治变迁。  \n\n**小贴士**：  \n- 夫子庙和秦淮河步行即可到达，建议安排在同一天。  \n- 中山陵和明孝陵距离较远，建议安排在同一天，但需预留充足时间。  \n- 总统府与明孝陵位置较近，可安排在同一天游览。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000011",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_day_feasibility",
+      "洛阳",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带爸妈看龙门石窟和白马寺，一天会不会太赶？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带爸妈看龙门石窟和白马寺，一天会不会太赶？' first, then justify it briefly. It should explicitly use 判断是否赶 / 结合体力和两处节奏给建议 / 可给取舍方案; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断是否赶",
+      "结合体力和两处节奏给建议",
+      "可给取舍方案"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说可以",
+      "不给节奏建议"
+    ],
+    "notes": "Main check: Main check: 主测：一日可行性",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0011",
+    "prediction": "带爸妈游览龙门石窟和白马寺一天通常不会太赶，但需要合理安排时间。龙门石窟位于洛阳市南郊，白马寺位于市区，两地距离较近，交通便利。建议早上先去白马寺，游览约2-3小时，中午在附近用餐，下午再去龙门石窟，游览约2-3小时。注意龙门石窟较大，建议预留充足时间，避免匆忙。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000012",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "traffic",
+      "大理",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "洱海环线更适合租车自驾还是包车慢慢玩？我们两个都不太会开山路。"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '洱海环线更适合租车自驾还是包车慢慢玩？我们两个都不太会开山路。' first, then justify it briefly. It should explicitly use 比较自驾和包车 / 结合驾驶经验不足给建议 / 说明环海节奏; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较自驾和包车",
+      "结合驾驶经验不足给建议",
+      "说明环海节奏"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "强行推荐自驾",
+      "虚构具体价格"
+    ],
+    "notes": "Main check: Main check: 主测：交通方式选择",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0012",
+    "prediction": "洱海环线更适合租车自驾，但建议选择自动挡车型，方便应对山路。如果你们都不太会开山路，也可以考虑包车，这样更省心，尤其适合慢慢游玩、拍照打卡。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000013",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_mainline",
+      "桂林",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "漓江、遇龙河、象鼻山，如果只留一天主线怎么抓？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '漓江、遇龙河、象鼻山，如果只留一天主线怎么抓？' first, then justify it briefly. It should explicitly use 明确取舍 / 给一天主线逻辑 / 避免全都塞满; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "明确取舍",
+      "给一天主线逻辑",
+      "避免全都塞满"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "三处都深度安排",
+      "不做取舍"
+    ],
+    "notes": "Main check: Main check: 主测：一天主线取舍",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0013",
+    "prediction": "如果只留一天，建议优先安排漓江精华段（杨堤至兴坪）和象鼻山，避开遇龙河。漓江精华段风景优美，乘竹筏或游船即可感受山水画卷；象鼻山是桂林的标志性景点，登顶可俯瞰城市全景。遇龙河虽美，但更适合深度慢游，若时间紧张可略过。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000014",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "哈尔滨",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "冬天第一次去哈尔滨，中央大街和太阳岛怎么安排更舒服？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '冬天第一次去哈尔滨，中央大街和太阳岛怎么安排更舒服？' first, then justify it briefly. It should explicitly use 给出先后和节奏 / 考虑冬季保暖与体力; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "给出先后和节奏",
+      "考虑冬季保暖与体力"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "硬写实时开放",
+      "写成多日攻略"
+    ],
+    "notes": "Main check: Main check: 主测：冬季节奏",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0014",
+    "prediction": "冬天第一次去哈尔滨，建议优先安排中央大街和太阳岛，这两个地方更适合冬季游览。中央大街是哈尔滨的标志性街道，可以感受俄式建筑和冰灯艺术；太阳岛适合散步、赏雪景，相对安静舒适。建议将太阳岛安排在上午或中午，避开中午人流高峰，更轻松惬意。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000015",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "长沙",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "晚上想看夜景又想吃东西，住五一广场还是南门口一带更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '晚上想看夜景又想吃东西，住五一广场还是南门口一带更方便？' first, then justify it briefly. It should explicitly use 比较两片区夜景餐饮便利 / 给更合适落脚建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两片区夜景餐饮便利",
+      "给更合适落脚建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说都热闹",
+      "不做推荐"
+    ],
+    "notes": "Main check: Main check: 主测：夜生活落脚点",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0015",
+    "prediction": "如果晚上想看夜景又想吃东西，住五一广场一带更方便。五一广场周边夜景丰富，灯光璀璨，同时餐饮选择多样，步行即可到达多个美食街区和特色餐厅，适合边走边逛、边吃边看。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000016",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_mainline",
+      "武汉",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "武汉三镇第一次去，黄鹤楼、江滩、东湖要怎么取主线？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '武汉三镇第一次去，黄鹤楼、江滩、东湖要怎么取主线？' first, then justify it briefly. It should explicitly use 抓首次到访主线 / 说明三镇跨度和取舍 / 避免贪多; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "抓首次到访主线",
+      "说明三镇跨度和取舍",
+      "避免贪多"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "全部均匀塞进去",
+      "不给取舍理由"
+    ],
+    "notes": "Main check: Main check: 主测：跨区域主线",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0016",
+    "prediction": "武汉三镇（武昌、汉口、汉阳）第一次去，建议以**黄鹤楼、长江大桥、江滩、东湖**为核心主线，按地理位置和游览节奏安排：  \n1. **黄鹤楼**（武昌区）：作为武汉地标，建议优先安排，感受历史文化与城市天际线。  \n2. **长江大桥**（武昌区）：从黄鹤楼步行或打车至大桥，登桥俯瞰江景，感受武汉的“过江龙”气势。  \n3. **江滩**（武昌区）：紧邻黄鹤楼，适合傍晚散步、观江、拍照，夜景尤为迷人。  \n4. **东湖**（武昌区）：可安排在第二天，乘船游湖、骑行或登磨山，感受自然与人文交融。  \n**小贴士**：三镇之间交通便利，地铁和公交覆盖广，建议优先使用公共交通。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000017",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_region_compare",
+      "三亚",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带老人住亚龙湾、海棠湾还是三亚湾更省心？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带老人住亚龙湾、海棠湾还是三亚湾更省心？' first, then justify it briefly. It should explicitly use 比较三湾 / 考虑老人休闲交通配套 / 给更省心选择; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较三湾",
+      "考虑老人休闲交通配套",
+      "给更省心选择"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只按高端度假回答",
+      "忽略老人"
+    ],
+    "notes": "Main check: Main check: 主测：海滨区域对比",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0017",
+    "prediction": "带老人出行，亚龙湾通常更省心。亚龙湾环境安静、空气清新，适合老年人休养，周边有完善的医疗和生活配套，且远离市中心的喧嚣，更适合慢节奏的度假。海棠湾和三亚湾相对更热闹，适合喜欢热闹氛围的游客，但对老人来说可能稍显嘈杂和拥挤。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000018",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "easy",
+    "tags": [
+      "city_region",
+      "泉州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去泉州玩一天，西街和开元寺一带值得慢慢逛吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去泉州玩一天，西街和开元寺一带值得慢慢逛吗？' first, then justify it briefly. It should explicitly use 回答值不值得 / 概括适合一天慢逛的理由; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答值不值得",
+      "概括适合一天慢逛的理由"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "扩写太长",
+      "无结论"
+    ],
+    "notes": "Main check: Main check: 主测：区域慢逛判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0018",
+    "prediction": "是的，第一天去泉州，可以安排在西街和开元寺一带慢慢逛。西街是泉州的商业与文化中心，充满了闽南风情和历史韵味；开元寺则是泉州重要的佛教文化地标，具有深厚的历史底蕴。这一带节奏舒缓，适合慢慢感受泉州的人文与历史。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000019",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "traffic",
+      "天津",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "从天津西站到五大道、意式风情区、古文化街，怎么排更顺？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '从天津西站到五大道、意式风情区、古文化街，怎么排更顺？' first, then justify it briefly. It should explicitly use 从到站点出发给顺路安排 / 给一般交通衔接建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "从到站点出发给顺路安排",
+      "给一般交通衔接建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "虚构具体车次",
+      "不考虑天津西站作为起点"
+    ],
+    "notes": "Main check: Main check: 主测：车站衔接",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0019",
+    "prediction": "从天津西站出发，建议优先安排距离较近的景点，再依次前往稍远的景点，这样更节省时间和体力。推荐路线如下：\n\n1. **天津西站 → 五大道**：五大道距离天津西站较近，乘坐地铁2号线（东南方向）至东南角站，换乘地铁1号线（东南方向）至小白楼站，步行约10分钟即可到达五大道。五大道是天津著名的旅游景点，适合拍照打卡。\n\n2. **五大道 → 意式风情区**：从五大道步行或打车约15分钟即可到达意式风情区。意式风情区是天津的欧洲建筑风貌区，适合感受异国风情。\n\n3. **意式风情区 → 古文化街**：从意式风情区打车或步行约20分钟即可到达古文化街。古文化街是天津历史文化街区，有丰富的民俗文化和传统小吃。\n\n这样的安排更顺，也更符合交通便利性。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000020",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "昆明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次到昆明，住翠湖附近还是南屏街更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次到昆明，住翠湖附近还是南屏街更方便？' first, then justify it briefly. It should explicitly use 比较文艺慢逛和综合便利 / 给首次到访建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较文艺慢逛和综合便利",
+      "给首次到访建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只按价格回答",
+      "不做选择"
+    ],
+    "notes": "Main check: Main check: 主测：区域比较",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0020",
+    "prediction": "第一次到昆明，住翠湖附近更方便。翠湖周边交通便利，景点集中，适合初次到访者熟悉城市环境。南屏街虽然也有生活便利之处，但更偏向商业区，更适合喜欢热闹和购物的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000021",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "easy",
+    "tags": [
+      "spot_duration",
+      "福州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "三坊七巷适合安排半天还是一天？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '三坊七巷适合安排半天还是一天？' first, then justify it briefly. It should explicitly use 判断建议时长 / 说明适合搭配什么内容; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断建议时长",
+      "说明适合搭配什么内容"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成详细攻略",
+      "无时长判断"
+    ],
+    "notes": "Main check: Main check: 主测：时长判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0021",
+    "prediction": "三坊七巷适合安排半天游览。这里历史文化底蕴深厚，景点密集，步行游览即可，半天时间足够欣赏主要景点和感受其文化氛围。如果时间充裕，也可以安排一天，更从容地体验周边环境和周边街区。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000022",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "宁波",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "东钱湖和老外滩放在同一天会不会太散？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '东钱湖和老外滩放在同一天会不会太散？' first, then justify it briefly. It should explicitly use 判断是否分散 / 说明更顺的组合思路; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断是否分散",
+      "说明更顺的组合思路"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说看心情",
+      "不给替代方案"
+    ],
+    "notes": "Main check: Main check: 主测：动线判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0022",
+    "prediction": "东钱湖和老外滩放在同一天不会太散，两者距离较远，但交通便利，安排上相对合理。东钱湖位于宁波市东部，适合上午游览；老外滩位于宁波市三江口，适合下午或傍晚游览。如果时间充裕，可以安排一天内完成，但建议预留足够交通和休息时间。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000023",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "traffic",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "从高崎机场落地后，先去曾厝垵住下还是直接去鼓浪屿更合理？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '从高崎机场落地后，先去曾厝垵住下还是直接去鼓浪屿更合理？' first, then justify it briefly. It should explicitly use 比较落地当日两种处理 / 说明行李和节奏问题; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较落地当日两种处理",
+      "说明行李和节奏问题"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "虚构船班",
+      "忽略机场落地时点"
+    ],
+    "notes": "Main check: Main check: 主测：机场衔接",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0023",
+    "prediction": "从高崎机场落地后，建议先去曾厝垵住下。曾厝垵交通便利，靠近机场和市区，方便后续前往鼓浪屿或其他景点。鼓浪屿通常需要乘船前往，住在曾厝垵可以更方便安排出行时间和行程。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000024",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "南京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "春天去南京，两天想看花又不想太累，鸡鸣寺、玄武湖和明孝陵怎么选？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '春天去南京，两天想看花又不想太累，鸡鸣寺、玄武湖和明孝陵怎么选？' first, then justify it briefly. It should explicitly use 结合季节赏花体力做取舍 / 给更舒服的两天搭配; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "结合季节赏花体力做取舍",
+      "给更舒服的两天搭配"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "三个都重度安排",
+      "不考虑体力"
+    ],
+    "notes": "Main check: Main check: 主测：季节+体力",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0024",
+    "prediction": "春天去南京，两天看花又不想太累，推荐优先安排鸡鸣寺和玄武湖，这两个地方相对轻松，适合慢节奏游览。鸡鸣寺有樱花和古刹，玄武湖有湖光山色和花景。明孝陵虽然也适合赏花，但路程稍远，且需要步行较多，更适合有体力的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000025",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "region_compare",
+      "西宁",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去青海湖，住黑马河还是二郎剑附近更适合看日出和第二天继续赶路？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去青海湖，住黑马河还是二郎剑附近更适合看日出和第二天继续赶路？' first, then justify it briefly. It should explicitly use 比较两个落脚点 / 结合看日出和次日动线给建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两个落脚点",
+      "结合看日出和次日动线给建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只讲景色不讲赶路便利",
+      "编造具体房价"
+    ],
+    "notes": "Main check: Main check: 主测：区域比较+动线",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0025",
+    "prediction": "第一次去青海湖，住黑马河更合适。黑马河是青海湖畔最著名的观日出地点之一，清晨湖面平静，日出景色壮丽，适合观赏。同时，黑马河周边交通便利，第二天赶路也方便。二郎剑景区虽然风景优美，但更偏向于游览，不太适合以观日出和赶路为主的行程。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000026",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "苏州博物馆、拙政园、平江路如果只留半天，怎么取舍？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '苏州博物馆、拙政园、平江路如果只留半天，怎么取舍？' first, then justify it briefly. It should explicitly use 做明确取舍 / 说明半天更适合哪条线; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "做明确取舍",
+      "说明半天更适合哪条线"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "三个都推荐",
+      "不给理由"
+    ],
+    "notes": "Main check: Main check: 主测：半日取舍",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0026",
+    "prediction": "如果只留半天，建议优先选择苏州博物馆。它建筑精美、展品丰富，能全面感受苏州的文化与历史，而且免费开放，适合深度体验。拙政园和平江路虽然各有特色，但游览时间较长，半天可能难以兼顾。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000027",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "spot_suitability",
+      "贵阳",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "黄果树瀑布适合带小学生当天往返吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '黄果树瀑布适合带小学生当天往返吗？' first, then justify it briefly. It should explicitly use 回答适不适合 / 说明时长和体力感受 / 给更稳妥建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答适不适合",
+      "说明时长和体力感受",
+      "给更稳妥建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说很好玩",
+      "不给节奏建议"
+    ],
+    "notes": "Main check: Main check: 主测：人群适配",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0027",
+    "prediction": "黄果树瀑布适合带小学生当天往返。瀑布景区内有较为平坦的步道和观景台，适合孩子行走和观赏。不过，建议提前了解天气情况，并为孩子准备防晒、防滑和饮用水等物品。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000028",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "traffic",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "从虹桥机场到外滩附近住，地铁还是打车更省心？晚上到。"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '从虹桥机场到外滩附近住，地铁还是打车更省心？晚上到。' first, then justify it briefly. It should explicitly use 比较地铁和打车 / 考虑晚上到达行李和换乘; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较地铁和打车",
+      "考虑晚上到达行李和换乘"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "虚构实时路况或价格",
+      "只说都可以"
+    ],
+    "notes": "Main check: Main check: 主测：机场到市区",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0028",
+    "prediction": "晚上从虹桥机场到外滩附近，建议优先考虑地铁。地铁运营时间通常到凌晨，相对准时，且能避开夜间交通拥堵。乘坐地铁10号线（虹桥火车站方向）至虹桥火车站，换乘2号线（浦东国际机场方向）至南京东路站，再步行至外滩附近即可。整体行程较省心，也更安全。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000029",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_day_feasibility",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "都江堰和青城山一天打卡，会不会太赶？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '都江堰和青城山一天打卡，会不会太赶？' first, then justify it briefly. It should explicitly use 判断是否赶 / 给更稳妥玩法; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断是否赶",
+      "给更稳妥玩法"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "笼统说没问题",
+      "不提节奏"
+    ],
+    "notes": "Main check: Main check: 主测：一日可行性",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0029",
+    "prediction": "都江堰和青城山一天打卡是可行的，但需要合理安排时间。建议早上早点出发，先游览都江堰景区，中午在附近用餐，下午前往青城山，傍晚前返回市区。注意都江堰和青城山之间有一定距离，建议预留足够交通时间，避免赶路太累。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000030",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带孩子第一次去北京，故宫和环球影城应该优先哪个？只有一天。"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带孩子第一次去北京，故宫和环球影城应该优先哪个？只有一天。' first, then justify it briefly. It should explicitly use 明确优先级 / 按年龄兴趣和一天限制给建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "明确优先级",
+      "按年龄兴趣和一天限制给建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "让用户自己决定",
+      "两个都模糊带过"
+    ],
+    "notes": "Main check: Main check: 主测：对比型",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0030",
+    "prediction": "如果只有一天，建议优先去故宫。故宫是北京最具代表性的历史文化景点，适合孩子了解中国传统文化，同时也能让孩子在安静的环境中感受历史氛围。环球影城虽然有趣，但更适合喜欢刺激和娱乐的孩子，且需要更长时间游玩。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000031",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "洪崖洞、解放碑、十八梯这三个地方步行串起来合适吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '洪崖洞、解放碑、十八梯这三个地方步行串起来合适吗？' first, then justify it briefly. It should explicitly use 判断是否适合步行串联 / 说明地形和节奏; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断是否适合步行串联",
+      "说明地形和节奏"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "忽略重庆地形",
+      "写成实时导航"
+    ],
+    "notes": "Main check: Main check: 主测：城市内交通",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0031",
+    "prediction": "洪崖洞、解放碑、十八梯这三个地方步行串起来是合适的。它们都位于重庆市渝中区，彼此距离较近，步行时间在15-30分钟之间，沿途风景优美，适合慢慢游览。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000032",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_region_compare",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带老人去灵隐寺和西湖，住武林广场还是湖滨更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带老人去灵隐寺和西湖，住武林广场还是湖滨更方便？' first, then justify it briefly. It should explicitly use 比较两片区到景点便利 / 考虑老人和换乘; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两片区到景点便利",
+      "考虑老人和换乘"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只比商业氛围",
+      "忽略老人"
+    ],
+    "notes": "Main check: Main check: 主测：老人出行住宿",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0032",
+    "prediction": "如果带老人去灵隐寺和西湖，住在武林广场或湖滨都比较方便。武林广场靠近地铁1号线和4号线，交通便利，周边生活配套齐全，适合老人出行；湖滨靠近西湖景区，步行可达，更适合以西湖为核心游览。可根据行程安排和老人偏好选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000033",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "easy",
+    "tags": [
+      "traffic",
+      "洛阳",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "洛阳博物馆和应天门适合放在同一天吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '洛阳博物馆和应天门适合放在同一天吗？' first, then justify it briefly. It should explicitly use 回答是否适合同天 / 给简单搭配建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答是否适合同天",
+      "给简单搭配建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "展开长文",
+      "不给建议"
+    ],
+    "notes": "Main check: Main check: 主测：搭配判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0033",
+    "prediction": "洛阳博物馆和应天门可以放在同一天游览。建议早上先参观洛阳博物馆，了解洛阳的历史文化，然后中午前往应天门附近用餐，下午游览应天门及周边古街，这样行程比较合理。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000034",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "青岛",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "栈桥、八大关、奥帆中心这几个点，两天怎么排更顺路？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '栈桥、八大关、奥帆中心这几个点，两天怎么排更顺路？' first, then justify it briefly. It should explicitly use 按区域或先后排序 / 给一般交通串联逻辑; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "按区域或先后排序",
+      "给一般交通串联逻辑"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "虚构具体班次",
+      "不排顺序"
+    ],
+    "notes": "Main check: Main check: 主测：景点串联",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0034",
+    "prediction": "建议第一天安排栈桥和奥帆中心，这两个景点距离较近，交通便利，且栈桥有青岛的标志性风景，奥帆中心适合拍照和休闲。第二天安排八大关，这里风景优美，适合慢慢游览，同时周边还有小鱼山、第一海水浴场等景点，可以顺路安排。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000035",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "广州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去广州，住北京路还是珠江新城更方便吃喝和逛城？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去广州，住北京路还是珠江新城更方便吃喝和逛城？' first, then justify it briefly. It should explicitly use 比较老城体验和现代都市体验 / 给首次到访建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较老城体验和现代都市体验",
+      "给首次到访建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说都方便",
+      "不给偏向"
+    ],
+    "notes": "Main check: Main check: 主测：区域比较",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0035",
+    "prediction": "如果是第一次去广州，住北京路更方便吃喝和逛城。北京路是广州的商业中心之一，周边餐饮、购物、文化景点密集，交通便利，适合初次到访的游客。珠江新城虽然环境更现代、安静，但相对更远离市中心的热闹区域，更适合追求生活品质或有车一族。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000036",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "南京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "南京博物院和中山陵放同一天，带老人会不会太累？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '南京博物院和中山陵放同一天，带老人会不会太累？' first, then justify it briefly. It should explicitly use 判断体力压力 / 给取舍或节奏建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断体力压力",
+      "给取舍或节奏建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "笼统鼓励",
+      "忽略老人因素"
+    ],
+    "notes": "Main check: Main check: 主测：老人+体力",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0036",
+    "prediction": "南京博物院和中山陵同属南京热门景点，但两者距离较远，步行或打车都需要一定时间。如果同一天安排，带老人游览可能会比较累，建议根据老人的身体状况合理安排节奏，适当休息，避免长时间行走。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000037",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "大理",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去大理古城和双廊，住哪边更适合不赶路？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去大理古城和双廊，住哪边更适合不赶路？' first, then justify it briefly. It should explicitly use 比较两地作为落脚点的逻辑 / 结合初次到访和不赶路; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两地作为落脚点的逻辑",
+      "结合初次到访和不赶路"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只讲拍照",
+      "不给选择"
+    ],
+    "notes": "Main check: Main check: 主测：落脚点选择",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0037",
+    "prediction": "如果更看重古城氛围和文化体验，大理古城内更合适；如果更看重安静、风景和生活节奏，双廊更合适。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000038",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_experience",
+      "福州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "从福州站到三坊七巷，住一晚值不值得专门去？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '从福州站到三坊七巷，住一晚值不值得专门去？' first, then justify it briefly. It should explicitly use 回答值不值得 / 说明适合一晚短停留的人群和玩法; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答值不值得",
+      "说明适合一晚短停留的人群和玩法"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成完整攻略",
+      "不下结论"
+    ],
+    "notes": "Main check: Main check: 主测：短停留判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0038",
+    "prediction": "从福州站到三坊七巷交通便利，步行或打车即可到达。三坊七巷是福州历史文化街区，保存完好，具有浓厚的明清建筑风格，是了解福州历史文化的绝佳去处。住一晚可以更深入地体验当地文化，值不值得取决于你对历史文化兴趣的浓厚程度。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000039",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "长沙",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "岳麓山和橘子洲安排在同一天，下午去还是上午去更舒服？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '岳麓山和橘子洲安排在同一天，下午去还是上午去更舒服？' first, then justify it briefly. It should explicitly use 给出先后或时段建议 / 说明步行体力和观景体验; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "给出先后或时段建议",
+      "说明步行体力和观景体验"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说都行",
+      "不说明原因"
+    ],
+    "notes": "Main check: Main check: 主测：时段安排",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0039",
+    "prediction": "建议上午去岳麓山，下午去橘子洲。上午气候凉爽，适合登山游览，可以避开人流高峰；下午阳光柔和，橘子洲视野开阔，适合散步和拍照。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000040",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "region_compare",
+      "三亚",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "不下海、只想看看海放空，三亚湾和亚龙湾更适合哪种人？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '不下海、只想看看海放空，三亚湾和亚龙湾更适合哪种人？' first, then justify it briefly. It should explicitly use 比较两湾风格 / 指出分别适合谁; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两湾风格",
+      "指出分别适合谁"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只夸一个",
+      "不给适配人群"
+    ],
+    "notes": "Main check: Main check: 主测：区域风格对比",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0040",
+    "prediction": "三亚湾更适合喜欢热闹、想感受城市氛围和夜生活的人；亚龙湾更适合喜欢安静、想放松身心、享受自然风光的人。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000041",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_experience",
+      "乌鲁木齐",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去新疆，乌鲁木齐适合只留一晚中转还是值得多留半天逛逛？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去新疆，乌鲁木齐适合只留一晚中转还是值得多留半天逛逛？' first, then justify it briefly. It should explicitly use 判断一晚中转还是多留半天更值 / 说明适合什么诉求; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断一晚中转还是多留半天更值",
+      "说明适合什么诉求"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "回避判断",
+      "写成新疆全省攻略"
+    ],
+    "notes": "Main check: Main check: 主测：城市级判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0041",
+    "prediction": "乌鲁木齐是新疆的门户城市，交通便利，适合中转。如果只是中转，留一晚即可。但若时间允许，可以多留半天，逛逛二道桥、国际大巴扎或人民广场，感受当地风情。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000042",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "region_qa",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "厦大周边、沙坡尾、演武大桥观景这一片，半天怎么抓重点？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '厦大周边、沙坡尾、演武大桥观景这一片，半天怎么抓重点？' first, then justify it briefly. It should explicitly use 概括半天重点 / 说明适合慢逛和看海的顺序; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "概括半天重点",
+      "说明适合慢逛和看海的顺序"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成一整天攻略",
+      "泛泛而谈"
+    ],
+    "notes": "Main check: Main check: 主测：区域半天",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0042",
+    "prediction": "厦大周边、沙坡尾、演武大桥观景这一片适合半天轻松游览，建议按以下节奏安排：\n\n1. **厦大白城沙滩**（约30分钟）：感受厦门大学的文艺氛围，欣赏白城沙滩的海景与校园风光。\n2. **沙坡尾文创园**（约1小时）：逛逛艺术展览、手作市集，体验厦门的文艺与潮流。\n3. **演武大桥观景**（约30分钟）：登桥远眺鼓浪屿与厦门市区，感受城市与海的交融。\n\n**小贴士**：注意避开中午人流高峰，优先选择步行或骑行路线，更轻松惬意。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000043",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "北京南站到前门、大栅栏这一片，落地后当天适合直接去逛吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '北京南站到前门、大栅栏这一片，落地后当天适合直接去逛吗？' first, then justify it briefly. It should explicitly use 回答是否适合 / 说明到站后节奏和周边串联; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答是否适合",
+      "说明到站后节奏和周边串联"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "虚构实时车程",
+      "忽略北京南站"
+    ],
+    "notes": "Main check: Main check: 主测：车站衔接",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0043",
+    "prediction": "北京南站到前门、大栅栏这一片，步行或打车都很方便，落地后当天可以直接去逛。这一带是北京的老城区，有丰富的历史文化氛围，适合慢慢游览。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000044",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "西溪湿地和灵隐寺更适合哪个放在雨天？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '西溪湿地和灵隐寺更适合哪个放在雨天？' first, then justify it briefly. It should explicitly use 给出雨天更适合的选择 / 说明理由; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "给出雨天更适合的选择",
+      "说明理由"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "两个都一样",
+      "不解释"
+    ],
+    "notes": "Main check: Main check: 主测：天气条件",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0044",
+    "prediction": "如果遇到雨天，西溪湿地更适合游览。西溪湿地有大片水域和密林，雨天更显清幽宁静，且有小船可乘，能避开地面湿滑。而灵隐寺是寺庙，雨天可能会影响游览体验，尤其是地面湿滑和香火缭绕的氛围。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000045",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带8岁孩子在上海待一天，科技馆和迪士尼小镇怎么选？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '带8岁孩子在上海待一天，科技馆和迪士尼小镇怎么选？' first, then justify it briefly. It should explicitly use 做明确对比 / 按一天限制和孩子体验给建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "做明确对比",
+      "按一天限制和孩子体验给建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "两个都推荐",
+      "不做取舍"
+    ],
+    "notes": "Main check: Main check: 主测：人群+一天限制",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0045",
+    "prediction": "如果带8岁孩子在上海待一天，建议优先选择**上海科技馆**。科技馆有丰富的互动体验项目，适合孩子动手探索，同时也能激发他们对科学的兴趣。迪士尼小镇虽然也有游乐设施和主题商店，但更适合喜欢迪士尼风格的孩子，整体节奏相对轻松，更适合家庭休闲。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000046",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "easy",
+    "tags": [
+      "city_experience",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "苏州适合专门留一个晚上住在平江路附近吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '苏州适合专门留一个晚上住在平江路附近吗？' first, then justify it briefly. It should explicitly use 回答是否值得 / 说明夜晚氛围和第二天衔接; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答是否值得",
+      "说明夜晚氛围和第二天衔接"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "空泛赞美",
+      "不提住一晚价值"
+    ],
+    "notes": "Main check: Main check: 主测：夜晚体验",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0046",
+    "prediction": "苏州平江路是苏州保存最完整的历史街区之一，适合留一晚住宿。夜晚的平江路灯光柔和，古桥流水，更有夜市和茶馆，氛围宁静而有韵味，非常适合体验苏州的慢生活节奏。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000047",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "宽窄巷子、人民公园、武侯祠想轻松玩一天，怎么排更顺？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '宽窄巷子、人民公园、武侯祠想轻松玩一天，怎么排更顺？' first, then justify it briefly. It should explicitly use 给顺路安排 / 保持轻松节奏; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "给顺路安排",
+      "保持轻松节奏"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成长文",
+      "不给顺序"
+    ],
+    "notes": "Main check: Main check: 主测：城市内交通",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0047",
+    "prediction": "建议按以下顺序安排：  \n1. **宽窄巷子**（上午）：感受老成都的市井文化与悠闲生活。  \n2. **人民公园**（中午）：在茶馆里歇歇脚，体验成都人慢节奏的生活方式。  \n3. **武侯祠**（下午）：了解三国文化，感受诸葛亮的智慧与忠诚。  \n这样安排节奏舒缓，兼顾文化与休闲，适合轻松游玩。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000048",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "西安",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "兵马俑和陕西历史博物馆哪个更适合带初中生优先去？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '兵马俑和陕西历史博物馆哪个更适合带初中生优先去？' first, then justify it briefly. It should explicitly use 明确优先级 / 结合兴趣和教育性给理由; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "明确优先级",
+      "结合兴趣和教育性给理由"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "两边都模糊推荐",
+      "不做判断"
+    ],
+    "notes": "Main check: Main check: 主测：对比+教育性",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0048",
+    "prediction": "如果带初中生优先去，陕西历史博物馆更适合。兵马俑虽然很有名，但主要是静态展示，适合对历史感兴趣的孩子；而陕西历史博物馆内容更丰富，有大量文物和互动体验，能激发学生的兴趣和学习热情。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000049",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去重庆住解放碑还是观音桥，更方便白天逛城晚上吃饭？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去重庆住解放碑还是观音桥，更方便白天逛城晚上吃饭？' first, then justify it briefly. It should explicitly use 对比老城核心和本地生活感 / 给首次到访建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "对比老城核心和本地生活感",
+      "给首次到访建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只比商场多少",
+      "不给结论"
+    ],
+    "notes": "Main check: Main check: 主测：区域住宿",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0049",
+    "prediction": "如果更看重白天逛城和晚上吃饭的便利性，**解放碑**更合适。解放碑是重庆的中心区域，周边有洪崖洞、磁器口、南滨路等热门景点，交通便利，餐饮选择丰富，晚上更有烟火气。而观音桥更偏向于生活配套和购物，适合喜欢安静、注重生活节奏的人。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000050",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_experience",
+      "泉州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "泉州适合冬天专门安排两天吗，还是一天就够？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '泉州适合冬天专门安排两天吗，还是一天就够？' first, then justify it briefly. It should explicitly use 判断一日或两日更合适 / 说明适合的旅行偏好; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断一日或两日更合适",
+      "说明适合的旅行偏好"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说看时间",
+      "不给判断"
+    ],
+    "notes": "Main check: Main check: 主测：城市级判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0050",
+    "prediction": "泉州适合冬天安排两天游玩。两天时间可以较为从容地游览泉州的核心景点，如开元寺、东西塔、老君岩、洛阳桥、泉州府文庙、清净寺、泉州海外交通史博物馆等，同时还能体验当地美食和文化氛围。如果时间紧张，一天也可以大致游览主要景点，但会比较赶。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000051",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "青岛",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "崂山带老人去，是选看海公路一线还是上山景区更合适？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '崂山带老人去，是选看海公路一线还是上山景区更合适？' first, then justify it briefly. It should explicitly use 比较两种玩法 / 考虑老人腿脚和看海体验; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两种玩法",
+      "考虑老人腿脚和看海体验"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说都值得",
+      "忽略老人"
+    ],
+    "notes": "Main check: Main check: 主测：路线选择",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0051",
+    "prediction": "带老人去崂山，建议优先选择看海公路一线。这一线路风景优美、节奏舒缓，沿途有多个观景平台和休息点，适合老人慢慢欣赏自然风光，同时避免了上山景区的爬坡和体力消耗。如果老人身体状况较好，也可以适当安排部分上山景点，如太清宫、仰口景区等，但需注意节奏和休息。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000052",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "广州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "广州塔和珠江夜游是不是一定要都安排？只有半天。"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '广州塔和珠江夜游是不是一定要都安排？只有半天。' first, then justify it briefly. It should explicitly use 判断是否都要安排 / 给半天更合理取舍; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "判断是否都要安排",
+      "给半天更合理取舍"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "无取舍",
+      "把两项都写死"
+    ],
+    "notes": "Main check: Main check: 主测：取舍能力",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0052",
+    "prediction": "广州塔和珠江夜游可以安排在半天内，但时间会比较紧张。广州塔本身游览约1-2小时，珠江夜游通常需要1小时左右，建议预留足够时间，避免赶时间。如果时间有限，也可以优先选择其中一个。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000053",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "easy",
+    "tags": [
+      "traffic",
+      "昆明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "滇池海埂和翠湖适合放在同一天吗？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '滇池海埂和翠湖适合放在同一天吗？' first, then justify it briefly. It should explicitly use 回答是否适合同天 / 给简单节奏建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答是否适合同天",
+      "给简单节奏建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "空泛回答",
+      "不提节奏"
+    ],
+    "notes": "Main check: Main check: 主测：搭配判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0053",
+    "prediction": "滇池海埂和翠湖可以放在同一天游览，但需注意行程安排。滇池海埂位于昆明市西郊，距离市区较远，游览时间较长；翠湖则位于昆明市中心，交通便利，适合安排在上午或下午。建议先游览翠湖，再前往滇池海埂，避免往返耗时。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000054",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "hard_mix",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "冬天带老人去北京，颐和园和北海公园哪个更轻松一点？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '冬天带老人去北京，颐和园和北海公园哪个更轻松一点？' first, then justify it briefly. It should explicitly use 比较两个点体力负担和观景方式 / 给更轻松选择; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两个点体力负担和观景方式",
+      "给更轻松选择"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说都不错",
+      "不比较"
+    ],
+    "notes": "Main check: Main check: 主测：老人+季节",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0054",
+    "prediction": "冬天去北京带老人，北海公园通常更轻松一些。北海公园面积相对较小，环境安静，适合慢节奏游览，且冬季游客相对较少，不会太拥挤。颐和园虽然景色优美，但面积较大，步行较多，对老人来说体力消耗相对更大。如果更注重轻松和舒适，北海公园会是更合适的选择。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000055",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "如果住在中山路，去鼓浪屿和沙坡尾哪个更适合安排在第一天？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '如果住在中山路，去鼓浪屿和沙坡尾哪个更适合安排在第一天？' first, then justify it briefly. It should explicitly use 结合住处给第一天安排 / 说明开场节奏; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "结合住处给第一天安排",
+      "说明开场节奏"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "忽略住在中山路",
+      "不给顺序"
+    ],
+    "notes": "Main check: Main check: 主测：区域衔接",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0055",
+    "prediction": "如果住在中山路，第一天安排去沙坡尾更合适。沙坡尾距离中山路较近，交通便利，适合轻松游览；而鼓浪屿需要乘船前往，相对耗时，更适合安排在第二天或更轻松的行程中。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000056",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去成都只想慢慢吃和逛，住春熙路还是宽窄巷子附近？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去成都只想慢慢吃和逛，住春熙路还是宽窄巷子附近？' first, then justify it briefly. It should explicitly use 比较两种落脚体验 / 给慢逛吃喝导向建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较两种落脚体验",
+      "给慢逛吃喝导向建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只讲网红程度",
+      "不给推荐"
+    ],
+    "notes": "Main check: Main check: 主测：区域住宿",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0056",
+    "prediction": "如果第一次去成都，更推荐住在春熙路附近。春熙路是成都的商业中心，周边餐饮、购物、文化景点密集，交通便利，适合慢慢吃和逛。宽窄巷子虽然也有特色，但更偏向文化体验，周边配套相对少一些，更适合短暂停留或深度体验。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000057",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "region_compare",
+      "大理",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "洱海边住海东还是海西，更适合拍照和少折返？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '洱海边住海东还是海西，更适合拍照和少折返？' first, then justify it briefly. It should explicitly use 比较拍照和动线 / 给少折返建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较拍照和动线",
+      "给少折返建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说都美",
+      "不做判断"
+    ],
+    "notes": "Main check: Main check: 主测：区域对比",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0057",
+    "prediction": "洱海边住海东或海西，各有优势。若更看重拍照和少折返，海西通常更合适。海西靠近洱海西岸，视野开阔，适合拍摄洱海全景和周边田园风光，且周边景点相对集中，行程更连贯。而海东靠近洱海东岸，靠近大理古城，更适合喜欢古城文化或更方便前往大理市区的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000058",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "hard",
+    "tags": [
+      "city_mainline",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "外滩、武康路、上海博物馆，两天怎么抓主线比较像第一次来？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '外滩、武康路、上海博物馆，两天怎么抓主线比较像第一次来？' first, then justify it briefly. It should explicitly use 抓首次到访主线 / 按两天合理分配 / 避免太满; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "抓首次到访主线",
+      "按两天合理分配",
+      "避免太满"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "三处硬塞同一天",
+      "不给主线逻辑"
+    ],
+    "notes": "Main check: Main check: 主测：多点主线",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0058",
+    "prediction": "第一天：外滩 + 上海博物馆  \n- 上午：外滩，欣赏万国建筑群和黄浦江两岸风光，感受上海的历史与现代交融。  \n- 下午：上海博物馆，了解中国历史与文化，重点推荐青铜器、陶瓷和书画馆。  \n\n第二天：武康路  \n- 全天：武康路，漫步在梧桐掩映的街道上，参观武康大楼、思南公馆、上海图书馆等文化地标，体验法租界风情。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000059",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region_compare",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去杭州，住西湖东线还是龙翔桥地铁附近更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去杭州，住西湖东线还是龙翔桥地铁附近更方便？' first, then justify it briefly. It should explicitly use 比较景观感和交通枢纽感 / 给首次到访建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较景观感和交通枢纽感",
+      "给首次到访建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "只说看预算",
+      "不给结论"
+    ],
+    "notes": "Main check: Main check: 主测：区域级问题",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0059",
+    "prediction": "如果第一次去杭州，住在西湖东线附近更方便，靠近西湖景区，便于游览西湖周边景点，如苏堤、白堤、灵隐寺等。龙翔桥地铁站虽然交通便利，但离西湖景区稍远，更适合以地铁通勤为主的游客。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_travel_qa_000060",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "traffic",
+      "西安",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "华清宫和兵马俑适合安排同一天吗？带老人。"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '华清宫和兵马俑适合安排同一天吗？带老人。' first, then justify it briefly. It should explicitly use 回答是否适合同天 / 给体力和节奏建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "回答是否适合同天",
+      "给体力和节奏建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "不考虑老人",
+      "只说顺路"
+    ],
+    "notes": "Main check: Main check: 主测：组合判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0060",
+    "prediction": "华清宫和兵马俑适合安排在同一天，但需注意行程安排。华清宫位于临潼城区，兵马俑在临潼区更远，建议早上先游览华清宫，中午在附近用餐，下午再前往兵马俑。带老人出行时，建议预留充足休息时间，避免长时间步行和日晒。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

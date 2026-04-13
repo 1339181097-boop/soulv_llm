@@ -1,0 +1,51 @@
+[
+  {
+    "id": "eval_persona_understanding_000001",
+    "task_type": "persona_understanding",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "三明的景点中，适合三代同堂的景点优先级如下：\n\n1. 三明市博物馆（文化体验）：适合全家一起了解本地历史文化，节奏轻松，适合老人和孩子。\n2. 三明市动物园（亲子互动）：适合孩子观察动物，老人可以安静休息，节奏轻松。\n3. 三明市植物园（自然探索）：适合孩子亲近自然，老人可以散步休憩，节奏轻松。\n4. 三明市沙县小吃文化城（美食体验）：适合全家品尝地道小吃，节奏轻松，适合老人和孩子。\n5. 三明市列西公园（休闲放松）：适合全家散步、野餐，节奏轻松，适合老人和孩子。\n\n优先级说明：优先考虑文化体验和自然探索类景点，兼顾老人和孩子的兴趣，同时保持轻松节奏。博物馆和动物园更符合三代同堂的需求，因为它们有丰富的互动和教育内容，同时节奏轻松。植物园和小吃文化城则更注重休闲和美食体验，适合家庭放松。列西公园则适合日常散步和野餐，节奏最轻松。",
+    "prediction_length": 307
+  },
+  {
+    "id": "eval_persona_understanding_000002",
+    "task_type": "persona_understanding",
+    "status": "ok",
+    "rule_pass": false,
+    "rule_score": 0,
+    "max_severity": "blocker",
+    "hit_count": 1,
+    "triggered_rule_ids": [
+      "excessive_repetition"
+    ],
+    "rule_hits": [
+      {
+        "rule_id": "excessive_repetition",
+        "severity": "blocker",
+        "message": "Prediction contains excessive repeated content",
+        "evidence": "repeated_chunk=厦门科技馆",
+        "matched_must_not_do": []
+      }
+    ],
+    "prediction_preview": "厦门适合三代同堂出游，节奏轻松，景点分布集中，适合慢节奏游览。推荐优先考虑鼓浪屿、厦门大学、南普陀寺、沙坡尾文创园、环岛路、集美学村、中山路步行街、厦门科技馆、厦门植物园、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门科技馆、厦门",
+    "prediction_length": 638
+  },
+  {
+    "id": "eval_persona_understanding_000003",
+    "task_type": "persona_understanding",
+    "status": "ok",
+    "rule_pass": true,
+    "rule_score": 100,
+    "max_severity": "none",
+    "hit_count": 0,
+    "triggered_rule_ids": [],
+    "rule_hits": [],
+    "prediction_preview": "对于三代同堂的岳阳旅游，建议优先考虑轻松、适合各年龄段的景点，同时兼顾老人和孩子的舒适度。以下是一些建议：\n\n1. **洞庭湖风光带**：适合全家散步、拍照，湖面开阔，空气清新，适合老人和孩子慢行。但需注意天气变化，避免高温时段出行。\n\n2. **君山岛**：岛上风景优美，有丰富的自然景观和文化遗迹，适合全家一起游览。但需注意岛上步道较多，可能对老人和孩子有一定体力要求。\n\n3. **岳阳楼**：作为岳阳的标志性建筑，岳阳楼历史悠久，文化底蕴深厚，适合全家一起参观。但需注意楼内台阶较多，可能对老人和孩子有一定挑战。\n\n4. **平江历史街区**：这里保留了许多传统建筑和文化元素，适合全家一起感受历史氛围。但需注意街区较为狭窄，可能对老人和孩子有一定通行限制。\n\n5. **岳阳市博物馆**：这里展示了岳阳丰富的历史和文化，适合全家一起了解当地的历史。但需注意博物馆内可能有较多展品，需要一定时",
+    "prediction_length": 446
+  }
+]

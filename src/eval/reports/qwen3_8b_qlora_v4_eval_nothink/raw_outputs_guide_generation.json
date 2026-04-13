@@ -1,0 +1,2580 @@
+[
+  {
+    "id": "eval_guide_generation_000001",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "3d_family_relaxed",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "下周想带爸妈去杭州待3天，不想赶景点，腿脚一般，你帮我把节奏安排得松一点。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '下周想带爸妈去杭州待3天，不想赶景点，腿脚一般，你帮我把节奏安排得松一点。' instead of giving generic city information. For this case, it must clearly realize 按天安排 / 节奏偏松、少折返 / 照顾老人步行强度, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：老人慢节奏三日. Sample #01.",
+    "must_include": [
+      "按天安排",
+      "节奏偏松、少折返",
+      "照顾老人步行强度"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "堆很多热门点",
+      "写小时级超细计划"
+    ],
+    "notes": "Main check: Main check: 主测：老人慢节奏三日",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0001",
+    "prediction": "**杭州3日慢节奏行程（适合腿脚一般、带父母）**\n\n---\n\n### **Day 1：西湖周边慢走 + 茶歇体验**\n\n**上午：**\n- **西湖景区入口**（建议从北山街入口进入，避开拥挤）\n- **白堤**：沿湖缓步，欣赏断桥残雪（冬季可能无雪，但景致依旧）\n- **苏堤春晓**：步行至花港观鱼，途中可稍作休息\n- **花港观鱼**：参观小景点，拍照留念\n\n**中午：**\n- **西湖边茶馆**：点一杯龙井茶，边喝边看湖景，午餐可自带或在附近小馆解决\n\n**下午：**\n- **孤山**：登孤山，俯瞰西湖全景，参观放鹤亭、西泠桥等\n- **西泠桥**：步行至桥头，感受西湖文化氛围\n\n**晚上：**\n- **西湖边夜景**：沿湖散步，欣赏灯光下的湖面与夜景\n- **晚餐推荐**：西湖边的杭帮菜馆，如楼外楼、知味观（可选）\n\n---\n\n### **Day 2：灵隐寺 + 中国茶叶博物馆**\n\n**上午：**\n- **灵隐寺**：步行至灵隐寺，参观大雄宝殿、飞来峰等\n- **飞来峰**：沿石阶缓行，欣赏石刻佛像与自然景观\n\n**中午：**\n- **灵隐寺附近素斋馆**：品尝清淡素食，适合长辈\n\n**下午：**\n- **中国茶叶博物馆**（龙井馆）：了解龙井茶文化，体验茶艺\n- **茶歇体验**：在博物馆内或附近茶馆，体验一杯手工龙井\n\n**晚上：**\n- **回西湖边住宿**：轻松休息，准备第二天行程\n\n---\n\n### **Day 3：运河文化体验 + 返程准备**\n\n**上午：**\n- **京杭大运河**：步行至运河边，感受水乡文化与历史\n- **小河直街**：逛逛小巷，体验老杭州的生活气息\n\n**中午：**\n- **运河边小馆**：品尝本地特色小吃，如定胜糕、葱包桧\n\n**下午：**\n- **返程准备**：整理行李，前往车站或机场\n-",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000002",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "weekend_food_photo",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我们两个女生周五下班到成都，周日晚上回，只想吃、逛、拍照，帮我组织一下。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我们两个女生周五下班到成都，周日晚上回，只想吃、逛、拍照，帮我组织一下。' instead of giving generic city information. For this case, it must clearly realize 覆盖周五晚到周日晚 / 突出吃逛拍照 / 保持周末节奏, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：周末短途. Sample #02.",
+    "must_include": [
+      "覆盖周五晚到周日晚",
+      "突出吃逛拍照",
+      "保持周末节奏"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成景点百科",
+      "忽略晚到早回"
+    ],
+    "notes": "Main check: Main check: 主测：周末短途",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0002",
+    "prediction": "**行程概览：**  \n**目的地：成都**  \n**天数：2天1夜**  \n**人数：2人（女生）**  \n**偏好：吃、逛、拍照**  \n**限制：无特别限制**  \n\n---\n\n### **Day 1：周五晚 - 周六晚**  \n**住宿建议：**  \n- 选择市中心或春熙路附近，方便出行和拍照。  \n- 推荐区域：春熙路、太古里、宽窄巷子、锦里。  \n\n**行程安排：**  \n**18:00 - 19:00**：抵达成都，入住酒店，稍作休息。  \n**19:00 - 21:00**：晚餐推荐：  \n- **太古里附近**：适合拍照的餐厅，如「大龙凤」、「小吊梨汤」、「大龙凤」（以川味小吃为主）。  \n- **春熙路附近**：可选「陈麻婆豆腐」、「钟水饺」等本地特色小吃。  \n\n**21:00 - 23:00**：夜游成都：  \n- **太古里**：灯光璀璨，适合拍照打卡，逛逛小众品牌店。  \n- **春熙路步行街**：夜景迷人，适合拍照和闲逛。  \n\n**23:00 - 23:30**：返回酒店休息。  \n\n---\n\n### **Day 2：周日**  \n**行程安排：**  \n**9:00 - 11:00**：早餐后出发前往**宽窄巷子**：  \n- 传统川西民居街区，适合拍照、体验老成都文化。  \n- 推荐拍照点：巷子入口、青砖墙、小巷深处。  \n\n**11:00 - 13:00**：午餐推荐：  \n- **宽窄巷子内**：可选本地特色小吃，如钟水饺、龙抄手、三大炮等。  \n\n**13:00 - 15:00**：继续游览宽窄巷子，或前往**锦里**：  \n- 与宽窄巷子风格不同，更偏向古蜀文化氛围，适合拍照和体验。  \n\n**15:00 - 17:00**：前往**武侯祠",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000003",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fill_existing_plan",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经订了外滩附近两晚酒店。第一天晚上才到，第二天下午要去陆家嘴见朋友，其他时间怎么补全比较顺？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经订了外滩附近两晚酒店。第一天晚上才到，第二天下午要去陆家嘴见朋友，其他时间怎么补全比较顺？' instead of giving generic city information. For this case, it must clearly realize 承接已有住宿和固定安排 / 补全其余时间 / 减少折返, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：已有安排补全. Sample #03.",
+    "must_include": [
+      "承接已有住宿和固定安排",
+      "补全其余时间",
+      "减少折返"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "无视已订酒店",
+      "重写成完全新的两天"
+    ],
+    "notes": "Main check: Main check: 主测：已有安排补全",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0003",
+    "prediction": "第一天晚上抵达后，可以先在酒店附近简单休息，第二天下午前往陆家嘴见朋友。其他时间可以安排如下：\n\n**上午：外滩游览**  \n- 外滩是上海的标志性景点，可以步行或骑行环绕，欣赏万国建筑群和黄浦江两岸的景色。  \n- 可以在海关大楼、和平饭店、外白渡桥等标志性建筑前拍照留念。  \n- 外滩公园适合稍作休憩，感受江风与城市天际线。\n\n**中午：外滩附近午餐**  \n- 外滩附近有许多融合中西风味的餐厅，如老正兴、新世界城内的餐厅，适合轻松用餐。  \n- 也可以选择在南京东路附近用餐，方便下午行程。\n\n**下午：陆家嘴见朋友**  \n- 与朋友会面后，可顺路游览陆家嘴的地标建筑，如上海中心大厦、东方明珠、环球金融中心等。  \n- 如果时间充裕，可以登上上海中心118层观光厅，俯瞰城市全景。\n\n**晚上：外滩夜景**  \n- 外滩夜景非常迷人，灯光璀璨，适合散步或拍照。  \n- 可以在南京东路步行街附近稍作休整，结束一天行程。\n\n**第二天：建议安排**  \n- **上午：豫园及城隍庙**  \n  - 豫园是江南古典园林的代表，园内亭台楼阁、假山池水，充满江南韵味。  \n  - 城隍庙附近有众多小吃和手工艺品店，适合体验上海本地文化。  \n- **中午：城隍庙附近午餐**  \n  - 可以尝试上海特色小吃，如小笼包、生煎包、蟹粉汤包等。  \n- **下午：南京西路购物或休闲**  \n  - 南京西路是上海的购物天堂，有许多高端商场和品牌店，适合购物或休闲。  \n- **晚上：返回酒店休息**  \n  - 为第二天的行程预留充足时间。\n\n**注意事项：**  \n- 外滩和豫园一带人流较多，建议避开高峰时段，如节假日或周末上午。  \n- 外滩和豫园一带有较多台阶，建议穿舒适的鞋子。  \n- 外滩夜景灯光较亮，建议携带相机或手机，方便拍照留念。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000004",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "direct_mainline",
+      "西安",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "不是让我看一堆景点介绍，我只想知道第一次去西安两天应该怎么走主线。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '不是让我看一堆景点介绍，我只想知道第一次去西安两天应该怎么走主线。' instead of giving generic city information. For this case, it must clearly realize 直接给两天主线 / 少介绍、多规划 / 符合第一次去, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：直接求攻略. Sample #04.",
+    "must_include": [
+      "直接给两天主线",
+      "少介绍、多规划",
+      "符合第一次去"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "大量景点背景介绍",
+      "回避主线"
+    ],
+    "notes": "Main check: Main check: 主测：直接求攻略",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0004",
+    "prediction": "第一天：市区核心文化体验  \n上午：**陕西历史博物馆**（建议提前预约）  \n- 重点了解陕西乃至中国的历史脉络，尤其适合对文化感兴趣的人。  \n- 重点展品包括兵马俑、唐三彩、汉代陶俑等。  \n\n下午：**大雁塔**（步行或公交可达）  \n- 与玄奘取经相关，登塔可俯瞰城市全景。  \n- 周边有大唐不夜城，适合傍晚散步。  \n\n晚上：**大唐不夜城**（步行街）  \n- 沿街有仿古建筑、灯光秀、表演等，适合拍照和休闲。  \n- 可顺路品尝当地小吃，如肉夹馍、凉皮、甑糕等。  \n\n第二天：城南文化与自然结合  \n上午：**曲江池遗址公园**（免费）  \n- 曲江池是唐代皇家园林，现为城市绿地，适合慢节奏游览。  \n- 可结合周边景点如大慈恩寺、芙蓉园等安排。  \n\n下午：**大慈恩寺**（玄奘译经院）  \n- 与大雁塔同属唐代皇家寺院，可了解玄奘译经历史。  \n- 若时间允许，可顺路参观附近的**芙蓉园**。  \n\n晚上：**回程前的自由活动**  \n- 若有返程航班或火车，可选择在市区附近简单用餐后返回。  \n- 若留宿，可选择市区内交通便利的酒店，方便次日出行。  \n\n**小贴士**：  \n- 西安地铁覆盖主要景点，建议优先使用公共交通。  \n- 避免在景区门口排队买票，建议提前预约或使用官方购票渠道。  \n- 注意天气变化，早晚温差较大，建议携带外套。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000005",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "optimize_rough_plan",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我把一个粗计划给你：D1解放碑-洪崖洞，D2李子坝-磁器口，D3南山。你帮我优化得更顺一点，别太累。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我把一个粗计划给你：D1解放碑-洪崖洞，D2李子坝-磁器口，D3南山。你帮我优化得更顺一点，别太累。' instead of giving generic city information. For this case, it must clearly realize 保留原有大框架 / 优化顺路和体力 / 可适度调整顺序, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：优化粗计划. Sample #05.",
+    "must_include": [
+      "保留原有大框架",
+      "优化顺路和体力",
+      "可适度调整顺序"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "完全推翻原计划",
+      "不解释为什么调整"
+    ],
+    "notes": "Main check: Main check: 主测：优化粗计划",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0005",
+    "prediction": "好的，以下是优化后的行程安排，更注重节奏与体验平衡，避免过度赶路，同时保留核心景点与文化体验：\n\n---\n\n### **Day 1：解放碑 - 洪崖洞 - 朝天门夜景**\n- **上午**：解放碑步行街  \n  - 逛解放碑广场、八一好吃街，感受重庆的市井烟火气。  \n  - 可顺路打卡重庆大厦、三峡博物馆（如时间充裕）。  \n- **中午**：解放碑附近午餐（推荐本地小吃，如小面、火锅）  \n- **下午**：洪崖洞  \n  - 漫步洪崖洞步道，欣赏两江交汇的夜景。  \n  - 可在洪崖洞周边小巷体验本地生活，如老街、茶馆。  \n- **傍晚**：朝天门码头  \n  - 登上朝天门观景台，俯瞰两江交汇与城市夜景。  \n- **晚上**：洪崖洞夜景  \n  - 洪崖洞灯光璀璨，适合拍照打卡，也可在周边小酒馆小酌。  \n\n**Tips**：  \n- 朝天门夜景建议傍晚前往，避开人流高峰。  \n- 洪崖洞周边有多个小巷，适合慢慢走，感受重庆的慢节奏。  \n\n---\n\n### **Day 2：李子坝 - 磁器口 - 东水门大桥**\n- **上午**：李子坝轻轨穿楼  \n  - 乘坐轻轨2号线至李子坝站，体验“轻轨穿楼”奇观。  \n  - 可在站内拍照打卡，感受重庆独特的城市景观。  \n- **中午**：磁器口古镇附近午餐  \n  - 磁器口有众多本地小吃和茶馆，适合休憩。  \n- **下午**：磁器口古镇  \n  - 漫步古镇街道，参观古街、老店、手工艺品店。  \n  - 可顺路打卡白公馆、渣滓洞（如对历史感兴趣）。  \n- **傍晚**：东水门大桥  \n  - 漫步东水门大桥，俯瞰嘉陵江与两江交汇处。  \n  - 可在桥上拍照，感受城市天际线。  \n\n**Tips**：  \n- 李子坝轻轨穿楼是",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000006",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "couple_2d1n",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "想找一个适合情侣的2天1夜小旅行，偏散步、喝咖啡、晚上有氛围，不想一大早赶景点。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '想找一个适合情侣的2天1夜小旅行，偏散步、喝咖啡、晚上有氛围，不想一大早赶景点。' instead of giving generic city information. For this case, it must clearly realize 适合情侣 / 突出散步和氛围 / 安排不早起, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：情侣短途. Sample #06.",
+    "must_include": [
+      "适合情侣",
+      "突出散步和氛围",
+      "安排不早起"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "排满传统景点",
+      "忽略情侣氛围"
+    ],
+    "notes": "Main check: Main check: 主测：情侣短途",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0006",
+    "prediction": "**目的地：杭州西湖周边（如苏堤、白堤、杨公堤）**  \n**天数：2天1夜**  \n**同行人群：情侣**  \n**偏好：散步、喝咖啡、晚上有氛围**  \n**限制条件：不赶早、不赶景点**\n\n---\n\n### **Day 1：轻松漫步与文艺时光**\n\n**上午：西湖苏堤漫步**  \n- 从湖滨步行至苏堤，沿湖边缓步，欣赏湖光山色。  \n- 可在“六桥烟雨”处稍作停留，感受西湖的诗意。  \n- 途中可顺路参观“苏堤春晓”碑刻，了解历史背景。\n\n**中午：湖滨小憩与午餐**  \n- 在湖滨附近找一家有窗景的咖啡馆或小馆，点一份当地特色菜（如西湖醋鱼、龙井虾仁）和一份甜点。  \n- 推荐：湖滨银泰in77内有几家文艺咖啡馆，环境安静，适合情侣小坐。\n\n**下午：白堤与孤山**  \n- 继续沿白堤缓步，步行至孤山，途中可欣赏断桥残雪（若天气合适）。  \n- 孤山有放鹤亭、西泠印社等小景点，适合拍照留念。  \n- 若时间充裕，可顺路参观中国美院美术馆（免费开放）。\n\n**傍晚：杨公堤散步与落日**  \n- 杨公堤是西湖周边少有人知的慢生活路线，适合傍晚散步。  \n- 沿着堤岸走，欣赏湖面落日与远处的山峦，氛围感十足。  \n- 可在杨公堤某处小咖啡馆稍作休息，点一杯热拿铁或手冲咖啡。\n\n**晚上：湖滨夜景与晚餐**  \n- 晚上可再回到湖滨，沿湖边散步，欣赏灯光下的西湖。  \n- 选择一家有湖景座位的餐厅，点一份精致晚餐，结束第一天。\n\n---\n\n### **Day 2：文艺与闲适的延续**\n\n**上午：西溪湿地轻游**  \n- 从西湖乘公交或打车前往西溪国家湿地公园，避开人潮，选择步行或骑行。  \n- 推荐路线：梅墅—秋雪庵—梅墅码头，沿途有芦苇荡",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000007",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "station_weekend",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "周六中午到北京南站，周日晚上走，住前门。麻烦你就按这个限制帮我排一个周末版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '周六中午到北京南站，周日晚上走，住前门。麻烦你就按这个限制帮我排一个周末版本。' instead of giving generic city information. For this case, it must clearly realize 承接北京南站和住前门 / 覆盖周末有限时长 / 动线顺, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：到离限制. Sample #07.",
+    "must_include": [
+      "承接北京南站和住前门",
+      "覆盖周末有限时长",
+      "动线顺"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "忽略住处",
+      "安排太满"
+    ],
+    "notes": "Main check: Main check: 主测：到离限制",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0007",
+    "prediction": "**行程概览：**  \n- **时间：** 周六中午（抵达）— 周日晚上（离京）  \n- **住宿：** 前门附近（方便出行）  \n- **节奏：** 轻松紧凑，适合短途休闲，兼顾文化体验与节奏控制  \n\n---\n\n### **周六：抵达与初步游览**  \n**上午：**  \n- **抵达北京南站**，建议预留1小时左右时间前往前门附近入住。  \n- **入住前门附近酒店**（如前门大街附近），建议优先选择步行可达地铁站或公交站点的区域，方便后续出行。  \n\n**中午：**  \n- **午餐建议：** 前门大街附近有众多老字号小吃，如“都一处”烧麦、“护国寺小吃”等，可尝试本地特色。  \n\n**下午：**  \n- **前门大街步行游览**：前门大街是北京最具代表性的老城区之一，保留了大量明清建筑和传统商铺，适合慢节奏漫步。  \n- **正阳门城楼**：前门大街东侧的正阳门是北京的“中轴线”起点，登楼可俯瞰前门大街全景。  \n- **大栅栏商业街**：紧邻前门大街，是北京传统商业区之一，有众多老北京风味店铺。  \n\n**傍晚：**  \n- **晚餐建议：** 可选择前门大街附近的老字号餐厅，如“庆丰包子铺”或“护国寺小吃”等。  \n\n---\n\n### **周日：文化体验与返程准备**  \n**上午：**  \n- **天坛公园**：距离前门约15公里，建议乘坐地铁或打车前往。天坛是明清皇家祭天的场所，建筑恢弘，适合上午游览，避开人流高峰。  \n- **游览重点**：祈年殿、圜丘坛、斋宫等，感受古代皇家祭祀文化。  \n\n**中午：**  \n- **午餐建议：** 天坛公园附近有简餐点，也可返回市区后在前门附近用餐。  \n\n**下午：**  \n- **返程准备**：根据返程时间安排，预留足够时间前往北京南站。  \n- **可选：** 若时间充裕，可在前门附近再逛一小时，或前往故宫、南锣鼓巷等区域，但需",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000008",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "single_base_4d",
+      "大理",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我们想在大理待4天，但不想每天换地方住，最好前两天松一点，后两天再走远一点。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我们想在大理待4天，但不想每天换地方住，最好前两天松一点，后两天再走远一点。' instead of giving generic city information. For this case, it must clearly realize 考虑尽量少换住宿 / 前松后远 / 按天分层次, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：节奏层次. Sample #08.",
+    "must_include": [
+      "考虑尽量少换住宿",
+      "前松后远",
+      "按天分层次"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "天天换住处",
+      "不体现前松后远"
+    ],
+    "notes": "Main check: Main check: 主测：节奏层次",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0008",
+    "prediction": "好的，以下是为大理4天行程的建议，符合你希望前两天轻松、后两天走远一点的需求，同时尽量避免频繁换住：\n\n---\n\n### **Day 1：轻松适应，熟悉环境**\n- **上午**：抵达大理，入住洱海周边或大理古城附近酒店（推荐洱海门、龙龛码头附近，方便出行和观景）。\n- **中午**：在古城附近找一家本地特色餐厅，尝试白族菜，如乳扇、酸辣鱼、凉拌鸡等。\n- **下午**：步行游览大理古城，逛逛人民路、五华楼、南门城墙，感受古城风貌。\n- **傍晚**：沿洱海门或龙龛码头散步，欣赏洱海日落，感受湖光山色。\n- **晚上**：在古城附近找一家有小院或庭院的餐厅，体验慢节奏的晚餐。\n\n---\n\n### **Day 2：轻松探索，感受大理慢生活**\n- **上午**：前往大理周边的喜洲古镇，参观白族民居、扎染坊，体验扎染工艺。\n- **中午**：在喜洲古镇内用餐，推荐喜洲粑粑、生皮、乳扇等当地小吃。\n- **下午**：返回大理古城，可选择在洱海门附近小憩，或去洱海公园散步。\n- **傍晚**：继续在洱海边漫步，或去大理古城附近的洱海门夜市，体验当地夜生活。\n- **晚上**：在古城内找一家有音乐或小酒馆氛围的餐厅，放松身心。\n\n---\n\n### **Day 3：走远一点，体验大理周边自然风光**\n- **上午**：前往苍山，建议乘坐索道上山（如玉带云游路索道），登顶洗马潭，俯瞰洱海与苍山。\n- **中午**：在苍山脚下或索道站附近用餐，推荐当地农家菜。\n- **下午**：在苍山脚下徒步或游览玉带云游路，感受苍山的壮丽与静谧。\n- **傍晚**：返回大理古城，途中可在洱海门附近稍作停留，欣赏洱海晚霞。\n- **晚上**：回到住处，休息或在古城内找一家安静的咖啡馆小坐。\n\n---\n\n### **Day 4：轻松返程，留下美好回忆**\n- **上午**：根据返程安排",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000009",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "rainy_2d",
+      "青岛",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "帮我做一个雨天也能执行的青岛两日安排，最好别全是室外吹海风。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '帮我做一个雨天也能执行的青岛两日安排，最好别全是室外吹海风。' instead of giving generic city information. For this case, it must clearly realize 给雨天版本 / 减少纯室外暴露 / 两日仍可执行, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：雨天版. Sample #09.",
+    "must_include": [
+      "给雨天版本",
+      "减少纯室外暴露",
+      "两日仍可执行"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "照搬晴天海边路线",
+      "不处理天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：雨天版",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0009",
+    "prediction": "**青岛两日雨天行程安排（室内为主）**\n\n**目的地**：青岛  \n**天数**：2天  \n**同行人群**：无特别说明（默认为普通游客）  \n**偏好**：雨天出行，避免长时间户外活动  \n**限制条件**：无特别限制  \n\n---\n\n### **Day 1：雨天室内文化体验**\n\n**上午：青岛德国风情街（室内部分）**  \n- **推荐理由**：虽然街道多为露天，但部分建筑内部有博物馆、咖啡馆、手作店等，适合雨天短暂停留。  \n- **建议**：避开正午人流高峰，优先参观室内展馆，如“青岛德国建筑博物馆”或“老舍茶馆”。  \n- **交通**：地铁3号线至“五四广场”站，步行约15分钟。  \n\n**中午：午餐推荐**  \n- **推荐地点**：德国风情街内餐厅（如“老约翰咖啡馆”或“青岛啤酒博物馆餐厅”）  \n- **推荐菜品**：德国香肠、青岛啤酒、本地海鲜拼盘（如小黄鱼、扇贝）  \n\n**下午：青岛德国总督府（室内参观）**  \n- **推荐理由**：建筑本身为德国风格，内部有展览和历史资料，适合雨天参观。  \n- **建议**：避开正午阳光，优先参观室内展区。  \n- **交通**：地铁3号线至“五四广场”站，步行约10分钟。  \n\n**傍晚：栈桥夜景（雨天观景）**  \n- **推荐理由**：雨天栈桥灯光柔和，适合拍照打卡，且人流量相对较少。  \n- **建议**：携带雨具，注意防滑。  \n- **交通**：步行至栈桥，约15分钟。  \n\n---\n\n### **Day 2：雨天文化与休闲结合**\n\n**上午：青岛鲁迅公园（室内部分）**  \n- **推荐理由**：公园内有鲁迅纪念馆、小树林、凉亭等，适合雨天散步、休憩。  \n- **建议**：避开正午高温，优先参观室内展馆。  \n- **交通**：地铁3号线至“五四广场”站，步行约15分钟。  \n\n**中午：午餐推荐**  \n- **推荐地点**：鲁迅公园附近老城区餐馆（如“老青岛小馆”）  \n- **推荐菜品**",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000010",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "elder_food_local",
+      "广州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我妈和阿姨想去广州吃吃喝喝逛两天，怕太累，也不喜欢很网红的地方。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我妈和阿姨想去广州吃吃喝喝逛两天，怕太累，也不喜欢很网红的地方。' instead of giving generic city information. For this case, it must clearly realize 突出吃喝和轻松逛 / 少走路 / 不过度网红化, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：老人+非热门. Sample #10.",
+    "must_include": [
+      "突出吃喝和轻松逛",
+      "少走路",
+      "不过度网红化"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "安排高强度暴走",
+      "只推热门打卡点"
+    ],
+    "notes": "Main check: Main check: 主测：老人+非热门",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0010",
+    "prediction": "**目的地：广州**  \n**天数：2天**  \n**同行人群：两位长辈（妈妈和阿姨）**  \n**偏好：轻松、本地生活、非网红、少走动、少排队**  \n**限制条件：不赶时间、不赶景点、不走远、不爬楼、不爬山**\n\n---\n\n### **Day 1：本地生活体验，轻松逛吃**\n\n**上午：广州塔周边慢节奏**  \n- **广州塔**：登塔俯瞰城市全景（可选），但不建议长时间停留，适合拍照留念。  \n- **周边小巷**：如塔下广场、珠江边步道，适合散步、拍照、吹风。  \n- **午餐推荐**：塔下广场附近有本地人常去的茶餐厅，如**陶陶居**（可选）或**大头虾**（更本地化），点一份早茶套餐，轻松又不赶时间。\n\n**下午：北京路步行街**  \n- **北京路步行街**：广州最热闹的商业街之一，但节奏较慢，适合慢慢逛。  \n- **推荐体验**：  \n  - **上下九步行街**：紧邻北京路，更安静，适合慢慢走。  \n  - **北京路书店**：适合喜欢安静阅读的长辈。  \n  - **北京路地铁站周边**：有多个本地老字号茶餐厅，如**银记肠粉**、**陶陶居**，适合点一份肠粉或早茶。  \n- **小贴士**：避开中午和傍晚高峰，避开网红打卡点，节奏更轻松。\n\n**晚上：珠江夜游（可选）**  \n- **珠江夜游**：如果两位长辈体力尚可，可选择珠江夜游，乘船欣赏两岸夜景，节奏舒缓，适合放松。  \n- **推荐码头**：天字码头或海心沙码头，船程约1小时，有讲解员介绍广州历史。  \n- **小贴士**：提前确认船次和登船时间，避免错过。\n\n---\n\n### **Day 2：本地文化与美食体验**\n\n**上午：沙面岛文化漫步**  \n- **沙面岛**：广州最具欧洲风情的街区，建筑风格独特，适合慢慢走、慢慢看。  \n- **推荐体验**：  \n  - **沙面老建筑群**：如汇丰银行旧址、",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000011",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "partial_time_window",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一天下午才到厦门，第三天中午走。你别整成标准三天攻略，就按我实际能玩的时间排。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '第一天下午才到厦门，第三天中午走。你别整成标准三天攻略，就按我实际能玩的时间排。' instead of giving generic city information. For this case, it must clearly realize 按实际可玩时段安排 / 不要伪装成完整三天 / 衔接到离时间, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：非标准时长. Sample #11.",
+    "must_include": [
+      "按实际可玩时段安排",
+      "不要伪装成完整三天",
+      "衔接到离时间"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成满三天模板",
+      "忽略到离时间"
+    ],
+    "notes": "Main check: Main check: 主测：非标准时长",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0011",
+    "prediction": "好的，按你实际能玩的时间来安排，厦门三天行程会更灵活、更贴合你的节奏。以下是按你提供的信息整理的行程建议：\n\n---\n\n### **厦门行程概览（3天）**\n- **抵达时间**：第一天下午\n- **离程时间**：第三天中午\n- **节奏**：轻松、以体验为主，避开密集打卡路线\n- **重点区域**：鼓浪屿、曾厝垵、中山路、南普陀寺、厦门大学\n- **交通建议**：地铁+公交+打车为主，鼓浪屿需轮渡\n\n---\n\n### **第一天：抵达后轻松适应**\n**下午**：抵达厦门，入住市区酒店（推荐中山路或曾厝垵附近），稍作休息  \n**傍晚**：步行至中山路步行街，逛逛老街、小吃街，尝试沙茶面、花生汤、海蛎煎  \n**晚上**：可选在中山路附近找家小馆，吃点地道闽南菜，感受夜市氛围\n\n**Tips**：第一天以适应为主，不安排远距离出行，避免疲劳\n\n---\n\n### **第二天：鼓浪屿深度体验**\n**上午**：前往轮渡码头（可打车或公交），乘轮渡至鼓浪屿（约20分钟）  \n**中午**：抵达鼓浪屿，先去日光岩俯瞰全岛，再在龙头路小吃街吃午餐（推荐姜母鸭、沙茶面）  \n**下午**：游览菽庄花园、钢琴博物馆、皓月园、风琴博物馆，感受鼓浪屿的文艺与历史  \n**傍晚**：乘轮渡返回厦门本岛，回市区休息\n\n**Tips**：鼓浪屿步行为主，建议穿舒适鞋子；注意轮渡发车时间，避免错过\n\n---\n\n### **第三天：市区文化与休闲**\n**上午**：前往厦门大学（需提前预约），漫步芙蓉隧道、林文庆楼、鲁迅纪念馆，感受校园氛围  \n**中午**：在厦门大学附近用餐，推荐沙茶面或闽南小吃  \n**下午**：前往南普陀寺，参观藏经阁、素斋堂，感受佛教文化与园林景观  \n**傍晚**：可选在曾厝垵逛逛，体验文艺小巷与手作小店，或直接返程\n\n**Tips**：厦门大学需提前预约，建议预留充足时间；",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000012",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "family_balance",
+      "南京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "带10岁孩子去南京，想兼顾一点历史和一点轻松散步，2天怎么安排比较平衡？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '带10岁孩子去南京，想兼顾一点历史和一点轻松散步，2天怎么安排比较平衡？' instead of giving generic city information. For this case, it must clearly realize 兼顾历史和轻松 / 适合亲子 / 两天平衡, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：亲子平衡. Sample #12.",
+    "must_include": [
+      "兼顾历史和轻松",
+      "适合亲子",
+      "两天平衡"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "全是硬核历史点",
+      "忽略孩子"
+    ],
+    "notes": "Main check: Main check: 主测：亲子平衡",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0012",
+    "prediction": "**目的地：南京**  \n**天数：2天**  \n**同行人群：10岁孩子 + 1位家长**  \n**偏好：兼顾历史与轻松散步**  \n**限制条件：无特别限制**  \n\n---\n\n### **Day 1：历史与轻松结合**\n\n#### **上午：南京博物院（免费）**  \n- **亮点**：中国三大博物馆之一，馆藏丰富，涵盖历史、艺术、民俗等。  \n- **适合孩子**：有互动展项和儿童区，适合亲子参观。  \n- **建议**：避开周末高峰，上午9点前到达，避开人流高峰。  \n- **小贴士**：提前在官网预约，避免排队。  \n\n#### **中午：附近简餐**  \n- **推荐**：博物院附近有小吃街或简餐店，可选当地特色如鸭血粉丝汤、小笼包。  \n\n#### **下午：夫子庙步行街（轻松散步）**  \n- **亮点**：南京历史文化街区，有古建筑、灯笼、小吃和小巷。  \n- **适合孩子**：节奏轻松，适合边走边看，偶尔休息。  \n- **建议**：避开正午高温，选择傍晚时分更舒适。  \n- **小贴士**：可顺路逛逛乌衣巷、江南贡院等小景点。  \n\n#### **晚上：秦淮河夜游（可选）**  \n- **亮点**：乘船夜游秦淮河，两岸灯光秀与古建筑相映成趣。  \n- **适合孩子**：氛围轻松，适合放松。  \n- **建议**：若孩子体力允许，可安排；若较累，可改为在夫子庙附近散步。  \n\n---\n\n### **Day 2：轻松与文化体验**\n\n#### **上午：中山陵（轻松登高）**  \n- **亮点**：南京著名景点，依山而建，视野开阔，适合登高远眺。  \n- **适合孩子**：步道平缓，节奏轻松，适合亲子一起登顶。  \n- **建议**：避开正午，选择上午9点前到达，避开人流高峰。  \n- **小贴士**：可顺路参观明孝陵，但需注意时间安排。  \n\n#### **中午：紫金山脚简餐**  \n- **推荐**：紫金山脚有简餐店或野餐区，可选当地特色",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000013",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "half_day_arrival",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "只帮我安排到达当天的半日和晚上就行，住春熙路附近。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '只帮我安排到达当天的半日和晚上就行，住春熙路附近。' instead of giving generic city information. For this case, it must clearly realize 只安排局部时段 / 围绕春熙路附近 / 适合到达当天, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：半日局部. Sample #13.",
+    "must_include": [
+      "只安排局部时段",
+      "围绕春熙路附近",
+      "适合到达当天"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "展开成完整多天",
+      "安排太远"
+    ],
+    "notes": "Main check: Main check: 主测：半日局部",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0013",
+    "prediction": "**行程安排：到达当天（半日 + 晚上）**\n\n**住宿建议：**  \n春熙路附近，建议选择交通便利、靠近地铁站的酒店或民宿，方便后续出行。\n\n**上午：抵达与初步适应**  \n- 抵达成都后，建议先前往酒店办理入住，稍作休息。  \n- 若时间允许，可在附近短暂停留，适应环境，稍作休整。\n\n**下午：半日休闲（可选）**  \n- **春熙路步行街**：可步行至春熙路，感受成都的繁华与悠闲氛围。  \n- **太古里**：若对时尚、艺术感兴趣，可顺路参观IFS太古里，体验成都的潮流文化。  \n- **锦里**：若对历史文化感兴趣，也可选择前往锦里，但建议优先安排晚上行程，避免行程过紧。\n\n**晚上：晚餐与夜游**  \n- **晚餐推荐**：春熙路附近有许多地道川菜馆，如“陈麻婆豆腐”“钟水饺”等，也可选择环境舒适的餐厅，如“大蓉和”“蜀九香”等。  \n- **夜游建议**：晚餐后可沿春熙路步行街漫步，感受成都的夜生活氛围，也可选择在IFS太古里或太古里周边的咖啡馆、小酒馆稍作停留，放松身心。\n\n**注意事项：**  \n- 避免安排过多行程，以轻松为主，适应新环境。  \n- 注意交通方式，春熙路周边地铁、公交便利，步行即可到达大部分景点。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000014",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fill_partial_mid",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经确定第一天住西湖边，第二天晚上去看演出，你帮我把中间一天半串得舒服一点。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经确定第一天住西湖边，第二天晚上去看演出，你帮我把中间一天半串得舒服一点。' instead of giving generic city information. For this case, it must clearly realize 承接已知安排 / 规划中间一天半 / 节奏舒服, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：中间段补全. Sample #14.",
+    "must_include": [
+      "承接已知安排",
+      "规划中间一天半",
+      "节奏舒服"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "重写全程",
+      "忽略演出"
+    ],
+    "notes": "Main check: Main check: 主测：中间段补全",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0014",
+    "prediction": "好的，根据你的安排，第一天住西湖边，第二天晚上有演出，中间安排一天半。我们可以将中间两天安排为轻松、文化体验与自然风光结合的节奏，兼顾节奏感与舒适度。\n\n---\n\n### **Day 1：西湖边（住宿）**\n\n- **上午**：抵达后可先在酒店附近休整，或步行至西湖边，感受湖光山色。\n- **中午**：在西湖边的湖滨银泰或附近餐厅用餐，推荐尝试杭帮菜。\n- **下午**：漫步苏堤、白堤，或乘船游湖，感受西湖十景之一的“苏堤春晓”或“曲院风荷”。\n- **傍晚**：在湖滨公园或南山路附近散步，欣赏城市天际线与湖景交融的黄昏。\n- **晚上**：在西湖边的咖啡馆或餐厅小憩，结束第一天。\n\n---\n\n### **Day 2：文化与自然融合的一天**\n\n- **上午**：前往灵隐寺，参观飞来峰、大雄宝殿等景点，感受佛教文化与自然景观的融合。\n- **中午**：在灵隐寺附近用餐，推荐尝试素斋或当地小吃。\n- **下午**：前往龙井村，参观茶园，体验采茶、品茶，或在龙井路步行街闲逛。\n- **傍晚**：返回西湖边，或前往杭州博物馆（步行可达），了解杭州的历史文化。\n- **晚上**：准备第二天的演出，可提前查看演出地点与交通方式。\n\n---\n\n### **Day 3：演出日（晚上）**\n\n- **上午**：可安排轻松的行程，如在西湖边散步、在湖滨银泰购物或休息。\n- **中午**：在西湖边附近用餐。\n- **下午**：自由安排，可选择在西湖边休憩、参观小众艺术空间或文化展览。\n- **晚上**：前往演出地点（如杭州大剧院、浙江音乐学院音乐厅等），观看演出。演出结束后，可返回西湖边或酒店休息。\n\n---\n\n### **小贴士**\n\n- **交通**：西湖周边景点之间步行或骑行即可，也可使用共享单车或公交接驳。\n- **节奏**：中间两天节奏适中，避免过度赶路，留有休息与体验空间。\n- **天气**：建议提前查看杭州天气，携带适合的衣物。\n\n如需更详细的交通",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000015",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "holiday_avoid_crowd",
+      "洛阳",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "清明假期人可能不少，我想去洛阳两天，但不想一直扎进最热门的点里，怎么安排会更舒服？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '清明假期人可能不少，我想去洛阳两天，但不想一直扎进最热门的点里，怎么安排会更舒服？' instead of giving generic city information. For this case, it must clearly realize 考虑避开人潮 / 两天仍保留代表性 / 节奏舒适, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：避拥挤. Sample #15.",
+    "must_include": [
+      "考虑避开人潮",
+      "两天仍保留代表性",
+      "节奏舒适"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "全排最热门点",
+      "假装没人"
+    ],
+    "notes": "Main check: Main check: 主测：避拥挤",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0015",
+    "prediction": "清明假期期间，洛阳作为历史文化名城，确实会迎来不少游客，尤其是龙门石窟、白马寺、老君山等热门景点。如果你希望避开人流高峰，同时又能深度体验洛阳的文化与自然风光，可以优先选择相对冷门但同样有文化底蕴的景点，同时注意错峰出行。\n\n以下是两天两夜的行程建议，适合喜欢文化与自然结合、节奏舒缓的旅行者：\n\n---\n\n### **第一天：文化慢游 + 住宿体验**\n\n**上午：洛阳博物馆（免费）**  \n- **亮点**：洛阳博物馆是了解洛阳历史文化的绝佳窗口，馆藏丰富，涵盖青铜器、陶俑、瓷器等，尤其以“龙门石窟”和“唐三彩”展品为特色。  \n- **建议**：避开上午10点前和下午3点后的人流高峰，优先参观常设展厅。  \n- **小贴士**：博物馆内有免费讲解服务，建议提前预约。\n\n**中午：老城区附近用餐**  \n- **推荐**：可选择老城区内的本地小吃店，如“洛阳水席”或“牛肉汤”，体验地道风味。  \n- **注意**：清明假期可能有排队，建议预留充足时间。\n\n**下午：丽景门文化街区（免费）**  \n- **亮点**：丽景门是洛阳老城的标志性建筑，周边有仿古建筑群、文创市集和传统小吃摊位，适合拍照打卡、休闲漫步。  \n- **建议**：避开中午和傍晚的高峰时段，避开主干道人流密集区域。  \n- **小贴士**：丽景门附近有免费的“洛阳老城”导览图，可参考游览。\n\n**晚上：入住老城区周边酒店**  \n- **推荐区域**：老城区或西工区，交通便利，周边有夜市和小吃街，适合体验夜生活。  \n- **注意**：清明假期可能有部分酒店提前涨价，建议提前确认价格和房型。\n\n---\n\n### **第二天：自然与文化结合 + 交通安排**\n\n**上午：龙门山风景区（龙门石窟）**  \n- **亮点**：龙门石窟是世界文化遗产，以卢舍那大佛为代表，是龙门山风景区的核心景点。  \n- **建议**：尽量避开节假日首日和尾日，优先选择上午9点前到达，避开中午人流高峰。  \n- **小贴士**：",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000016",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "city_vibe",
+      "泉州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我更在意城市气质和散步感，不追求把所有景点打卡完。你帮我组织一个2天版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我更在意城市气质和散步感，不追求把所有景点打卡完。你帮我组织一个2天版本。' instead of giving generic city information. For this case, it must clearly realize 突出城市气质和散步感 / 避免贪多 / 两天结构清楚, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：城市气质. Sample #16.",
+    "must_include": [
+      "突出城市气质和散步感",
+      "避免贪多",
+      "两天结构清楚"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "塞满景点",
+      "全是百科介绍"
+    ],
+    "notes": "Main check: Main check: 主测：城市气质",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0016",
+    "prediction": "**目的地：上海**  \n**天数：2天**  \n**同行人群：无**  \n**偏好：城市气质、散步感、不追求打卡**  \n**限制条件：无**\n\n---\n\n### **Day 1：城市肌理与慢节奏漫游**\n\n**上午：外滩与南京西路**  \n- **外滩**：从海关大楼开始，沿外滩步道缓行，感受黄浦江与陆家嘴的对望。避开游客密集点，专注于建筑与江景的交融。  \n- **南京西路**：步行至南京西路商圈，避开主干道喧嚣，沿街小巷穿行，留意老洋房与梧桐树影，感受城市历史与现代的交织。\n\n**中午：老街午餐**  \n- **推荐地点**：老正兴（南京西路店）或沈大成（南京西路店）  \n- **推荐菜品**：小笼包、生煎、青团等本地传统小吃，节奏舒缓，适合慢食。\n\n**下午：静安雕塑公园与愚园路**  \n- **静安雕塑公园**：在绿意盎然的环境中散步，欣赏雕塑与自然的融合，适合放松身心。  \n- **愚园路**：沿愚园路漫步，避开主干道，深入小巷，感受老上海的文艺与生活气息。注意避开节假日人流高峰。\n\n**傍晚：复兴公园与武康路**  \n- **复兴公园**：傍晚时分，公园内灯光渐亮，适合散步、拍照，感受城市黄昏的静谧。  \n- **武康路**：沿武康路缓行，留意梧桐树下的咖啡馆与老洋房，节奏舒缓，适合放慢脚步。\n\n**晚上：外滩夜景与小酌**  \n- **外滩夜景**：在万国建筑群前驻足，欣赏陆家嘴的璀璨灯光，感受城市夜晚的静谧与活力。  \n- **推荐地点**：外滩18号（可选）或附近小酒馆，节奏轻松，适合结束一天的漫步。\n\n---\n\n### **Day 2：文化沉淀与城市呼吸**\n\n**上午：田子坊与新天地**  \n- **田子坊**：避开游客密集点，深入小巷，感受老弄堂与艺术空间的碰撞，适合拍照与短暂停留。  \n- **新天地**：在",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000017",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "budget_friends_night",
+      "长沙",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "预算不要太高，想和朋友去长沙玩2天1夜，夜里要热闹一点，白天别太累。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '预算不要太高，想和朋友去长沙玩2天1夜，夜里要热闹一点，白天别太累。' instead of giving generic city information. For this case, it must clearly realize 体现预算友好 / 夜晚热闹 / 白天别太累, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：预算+朋友. Sample #17.",
+    "must_include": [
+      "体现预算友好",
+      "夜晚热闹",
+      "白天别太累"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "安排很多高消费项目",
+      "昼夜都很满"
+    ],
+    "notes": "Main check: Main check: 主测：预算+朋友",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0017",
+    "prediction": "**长沙2天1夜行程建议（预算友好，夜生活丰富）**\n\n**目的地**：长沙  \n**天数**：2天1夜  \n**同行人群**：朋友（建议2-3人）  \n**偏好**：夜生活丰富、轻松休闲、预算友好  \n**限制条件**：白天不宜太累、预算不高  \n\n---\n\n### **Day 1：轻松体验长沙夜生活**\n\n**上午：轻松出发，打卡长沙地标**  \n- **建议安排**：上午9点左右到达长沙，先去**橘子洲头**（免费）走走，感受湘江风光和历史人文。  \n- **小贴士**：橘子洲头有免费的观景台和步道，适合拍照打卡，避开中午人流高峰。  \n\n**中午：地道湘菜午餐**  \n- **推荐地点**：**坡子街**附近的小馆，如“**老长沙小吃**”或“**文和友**”内的湘菜馆（注意：文和友内有部分收费项目，需提前确认）。  \n- **推荐菜品**：剁椒鱼头、口味虾、臭豆腐、糖油粑粑等。  \n\n**下午：轻松闲逛，避开高温**  \n- **建议安排**：下午可去**岳麓山**或**爱晚亭**附近散步，避开正午高温。  \n- **小贴士**：岳麓山有免费的登山步道，适合拍照、放松。  \n\n**晚上：夜生活开始，体验长沙夜市与酒吧**  \n- **推荐地点**：**太平老街**或**五一广场**周边夜市。  \n- **推荐体验**：  \n  - 尝试长沙特色小吃（如糖油粑粑、臭豆腐、鸭脖等）。  \n  - 逛逛老街，感受长沙老城文化。  \n  - 若想更热闹，可去**文和友**或**长沙夜生活街区**，体验更丰富的夜生活氛围。  \n\n---\n\n### **Day 2：深度体验长沙文化与夜生活**\n\n**上午：文化体验与休闲**  \n- **建议安排**：上午可去**湖南省博物馆**（免费，需预约），了解湖南历史与文化。  \n- **小贴士**：博物馆内有免费讲解服务，适合拍照打卡。  \n\n**中午：轻松午餐**  \n- **推荐地点**：**五一广场**附近，",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000018",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "last_day",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "帮我把“上海最后一天怎么安排更顺”这个问题答好一点：我下午四点要去虹桥站，上午还能逛半天，住在人民广场。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '帮我把“上海最后一天怎么安排更顺”这个问题答好一点：我下午四点要去虹桥站，上午还能逛半天，住在人民广场。' instead of giving generic city information. For this case, it must clearly realize 只安排最后一天 / 照顾16点去虹桥站 / 基于住在人民广场, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：最后一天. Sample #18.",
+    "must_include": [
+      "只安排最后一天",
+      "照顾16点去虹桥站",
+      "基于住在人民广场"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成完整上海攻略",
+      "安排跨城折返"
+    ],
+    "notes": "Main check: Main check: 主测：最后一天",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0018",
+    "prediction": "上海最后一天上午安排建议如下：\n\n**上午：人民广场周边文化体验**  \n- **上海博物馆**（免费）：建议优先参观，避开人流高峰。馆内常设展涵盖青铜器、陶瓷、书画等，适合文化爱好者。  \n- **上海图书馆**（免费）：若对文献或阅读感兴趣，可短暂停留，感受静谧氛围。  \n- **南京西路步行街**：若时间允许，可顺路逛逛，体验上海经典商业街的节奏。\n\n**注意事项**：  \n- 上午行程以文化体验为主，节奏较慢，适合放松。  \n- 人民广场周边交通便利，地铁1号线、2号线、8号线均可直达。  \n- 若需赶时间前往虹桥站，建议预留充足换乘时间，避免延误。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000019",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "soft_landing",
+      "乌鲁木齐",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我们到新疆第一站放在乌鲁木齐，只停留一天半，想先把节奏稳住，不要一上来太猛。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我们到新疆第一站放在乌鲁木齐，只停留一天半，想先把节奏稳住，不要一上来太猛。' instead of giving generic city information. For this case, it must clearly realize 一天半轻节奏 / 适合作为进疆第一站 / 不要太猛, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：缓冲站. Sample #19.",
+    "must_include": [
+      "一天半轻节奏",
+      "适合作为进疆第一站",
+      "不要太猛"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "安排高强度远途",
+      "忽视一天半"
+    ],
+    "notes": "Main check: Main check: 主测：缓冲站",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0019",
+    "prediction": "好的，乌鲁木齐作为新疆的门户城市，节奏相对平缓，适合作为第一站稳住节奏。以下是一份适合停留一天半的行程建议，兼顾文化体验与轻松休整：\n\n---\n\n### **Day 1：乌鲁木齐市区文化体验**\n**上午：**\n- **乌鲁木齐博物馆**（免费）  \n  了解新疆的历史与文化，重点可关注丝绸之路、民族融合等内容。\n- **人民广场**（可短暂停留）  \n  周边有喷泉、雕塑和绿地，适合拍照或稍作休整。\n\n**中午：**\n- **老洋房餐厅**（如“老洋房”或“新疆味道”）  \n  尝试本地特色菜，如大盘鸡、烤包子、手抓饭等。\n\n**下午：**\n- **红山公园**（免费）  \n  乌鲁木齐的标志性公园，园内有红山、白桦林、湖泊和雕塑，适合散步、拍照。\n- **新疆国际大巴扎**（可选）  \n  若时间充裕，可顺路前往，但建议留到第二天更从容地逛。\n\n**晚上：**\n- **回民街或夜市**  \n  尝试烤全羊、烤肉串、奶茶等夜宵，感受乌鲁木齐的夜生活。\n\n---\n\n### **Day 2：乌鲁木齐周边轻松休整**\n**上午：**\n- **南山牧场**（约1.5小时车程）  \n  乌鲁木齐周边的高山牧场，可远眺雪山，适合短暂停留、拍照、放松。\n\n**中午：**\n- **南山牧场餐厅**  \n  尝试奶制品、烤肉、酸奶等当地特色。\n\n**下午：**\n- **返回市区**，可安排自由活动或休息。\n- **可选：乌鲁木齐大剧院**（如时间允许）  \n  观看一场本地演出，感受文化氛围。\n\n**晚上：**\n- **市区晚餐**，推荐本地特色餐厅，如“新疆人家”或“西域人家”。\n\n---\n\n### **注意事项：**\n- 乌鲁木齐昼夜温差较大，建议携带薄外套。\n- 若计划前往南山牧场，需预留充足时间，山路较缓但需注意交通安排。\n- 乌鲁木齐市区交通便利，地铁和公交覆盖主要景点，打车也较方便。\n\n---\n\n这份行程节奏舒缓，适合初次到新疆的游客，既能感受城市文化，又不会过于疲惫。后续行程可根据兴趣和体力安排更深入",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000020",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "mixed_age_relaxed",
+      "昆明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "老人和小孩一起出行，昆明3天请按“轻松、好走、吃饭方便”这个原则来。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '老人和小孩一起出行，昆明3天请按“轻松、好走、吃饭方便”这个原则来。' instead of giving generic city information. For this case, it must clearly realize 同时照顾老人和孩子 / 轻松好走 / 吃饭方便, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：混合人群. Sample #20.",
+    "must_include": [
+      "同时照顾老人和孩子",
+      "轻松好走",
+      "吃饭方便"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "安排体力要求高行程",
+      "忽略用餐便利"
+    ],
+    "notes": "Main check: Main check: 主测：混合人群",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0020",
+    "prediction": "**昆明3日轻松行程（适合老人与小孩）**\n\n**行程原则**：轻松、好走、吃饭方便  \n**适合人群**：老人、小孩  \n**节奏建议**：每天安排1-2个核心景点，避免长时间步行，多休息、多用餐\n\n---\n\n### **Day 1：市区慢游，感受春城慢生活**\n\n**上午：翠湖公园**  \n- **亮点**：湖光山色、红嘴鸥、悠闲步道  \n- **适合人群**：老人、小孩都可轻松漫步  \n- **建议**：带些小食和水，避开中午高温时段\n\n**中午：翠湖周边简餐**  \n- 推荐：本地小吃店，如云腿饼、过桥米线、小锅米线（口味清淡）\n\n**下午：云南大学**  \n- **亮点**：校园风光、小桥流水、适合拍照  \n- **建议**：避开上课时间，步行即可轻松游览\n\n**晚上：南屏街夜市**  \n- **亮点**：小吃丰富、热闹但不喧闹  \n- **适合**：老人和小孩都能找到喜欢的小吃，如烤乳扇、炸洋芋、鲜花饼\n\n---\n\n### **Day 2：石林一日游（轻松版）**\n\n**上午：乘车前往石林**  \n- **交通建议**：建议包车或乘坐正规旅游专线，避免老人小孩长时间换乘  \n- **车程**：约1.5小时，路况较好\n\n**中午：石林景区内简餐**  \n- 推荐：景区内有简单食堂，提供清淡、易消化的餐食\n\n**下午：石林风景区（轻松游览）**  \n- **亮点**：小石林、大石林、龙门石林（避开陡峭区域）  \n- **建议**：选择有讲解、节奏舒缓的路线，避免走太远或爬山\n\n**晚上：返回昆明市区，自由活动**  \n- 可选择在市区附近散步、休息，或提前预订第二天行程\n\n---\n\n### **Day 3：滇池与西山一日游（轻松版）**\n\n**上午：滇池大坝**  \n- **亮点**：湖面开阔、红嘴鸥、适合拍照  \n- **适合人群**：老人、小孩都可轻松游览  \n- **建议**：带些小食和水，避开中午高温时段\n\n**中午",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000021",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "local_feel_short",
+      "福州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "如果只给我一天半，你会怎么在福州安排一个偏本地感的版本？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '如果只给我一天半，你会怎么在福州安排一个偏本地感的版本？' instead of giving generic city information. For this case, it must clearly realize 一天半 / 偏本地感 / 可执行, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：本地感短途. Sample #21.",
+    "must_include": [
+      "一天半",
+      "偏本地感",
+      "可执行"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "套用游客模板",
+      "排很多远点"
+    ],
+    "notes": "Main check: Main check: 主测：本地感短途",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0021",
+    "prediction": "在福州一天半的时间内，若想体验偏本地感的行程，可以围绕福州本地文化、老城区生活节奏和自然风光展开。以下是一个结构清晰、节奏适中、兼顾体验与节奏的行程建议：\n\n---\n\n### **Day 1：本地文化与生活体验**\n\n**上午：三坊七巷（本地文化核心）**  \n- **三坊七巷**：福州最著名的历史文化街区，保留了大量明清建筑，是福州本地文化的缩影。  \n- **重点体验**：可以漫步在青石板路上，参观林则徐纪念馆、冰心故居、严复故居等，感受福州文人墨客的历史印记。  \n- **小贴士**：避开节假日高峰，避开中午人流密集时段，更易感受本地生活气息。\n\n**中午：本地小吃体验**  \n- **推荐地点**：三坊七巷附近的小巷中，有许多本地人常去的面馆、茶馆和小吃店。  \n- **推荐美食**：鱼丸、肉燕、芋泥、花生汤、八珍炒肉、芋泥饼等。  \n- **建议**：选择本地人常去的小店，更地道、更便宜。\n\n**下午：上下杭历史文化街区**  \n- **上下杭**：福州老城区的商业与文化交汇地，保留了大量民国时期的建筑和街巷风貌。  \n- **重点体验**：可以参观上下杭历史文化陈列馆，了解福州近代商业发展史。  \n- **小贴士**：这里相对安静，适合慢慢走、慢慢看，感受福州本地人的生活节奏。\n\n**傍晚：西湖公园（自然与人文结合）**  \n- **西湖公园**：福州的“小西湖”，湖光山色与人文景观并存，是本地人休闲的好去处。  \n- **重点体验**：可以沿湖散步，欣赏湖景，或在湖边茶馆稍作休憩。  \n- **小贴士**：傍晚时分，西湖边的灯光和微风，非常适合放松。\n\n---\n\n### **Day 2：自然与城市融合**\n\n**上午：鼓山（自然与宗教结合）**  \n- **鼓山**：福州的“天然氧吧”，以鼓山寺和鼓山自然风光闻名。  \n- **重点体验**：可以登鼓山，俯瞰福州城，参观鼓山寺，感受佛教文化与自然景观的融合。  \n-",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000022",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "slow_3d",
+      "西安",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我不需要你从早到晚排满，给我一个“留白比较多”的西安3天版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我不需要你从早到晚排满，给我一个“留白比较多”的西安3天版本。' instead of giving generic city information. For this case, it must clearly realize 三天有留白 / 不是满负荷 / 仍有主线, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：留白型. Sample #22.",
+    "must_include": [
+      "三天有留白",
+      "不是满负荷",
+      "仍有主线"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "从早到晚排满",
+      "没有主线"
+    ],
+    "notes": "Main check: Main check: 主测：留白型",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0022",
+    "prediction": "好的，这是一个节奏舒缓、留白较多的西安3天行程，适合喜欢慢节奏、深度体验、不赶时间的旅行者。行程中保留了西安最具代表性的文化符号，同时留出自由活动和休息的时间，让旅行更从容。\n\n---\n\n### 📌 第一天：慢节奏初探\n\n**上午：**\n- **自由活动**：建议在钟楼附近慢慢走，感受老城区的烟火气。可以去附近的小巷、咖啡馆、手作店，体验西安的市井生活。\n- **可选体验**：如果对历史感兴趣，可以去**碑林博物馆**（建议避开高峰时段），但不强制安排。\n\n**中午：**\n- **午餐建议**：在钟楼附近找一家本地人常去的面馆，比如**老孙家泡馍**或**老米家泡馍**，吃一碗地道的西安泡馍。\n\n**下午：**\n- **自由活动**：继续在钟楼周边漫步，可以去**回民街**，但不建议走太远，保持轻松节奏。\n- **可选体验**：如果时间允许，可以去**大雁塔北广场**，看音乐喷泉（晚上更美），但不安排在行程中。\n\n**晚上：**\n- **晚餐建议**：回民街有很多地道小吃，如肉夹馍、凉皮、甑糕等，可以选一家安静的小店慢慢品尝。\n- **自由活动**：晚上可以留在回民街附近，慢慢逛，感受夜市氛围。\n\n---\n\n### 📌 第二天：文化与自然的平衡\n\n**上午：**\n- **自由活动**：建议去**曲江池遗址公园**，这里环境清幽，适合散步、拍照，远离喧嚣。\n- **可选体验**：如果对历史感兴趣，可以去**大唐芙蓉园**，但不安排在行程中。\n\n**中午：**\n- **午餐建议**：在曲江池附近找一家安静的餐厅，吃一顿轻松的午餐。\n\n**下午：**\n- **自由活动**：继续在曲江池遗址公园或周边区域漫步，也可以去**大慈恩寺遗址公园**，感受唐代皇家寺院的氛围。\n- **可选体验**：如果对自然感兴趣，可以去**秦岭国家植物园**（需提前确认开放情况），但不安排在行程中。\n\n**晚上：**\n- **晚餐建议",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000023",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "seaside_do_nothing",
+      "三亚",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我们不想下海玩项目，只想找个海边城市待三天放空，麻烦按这种状态来排。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我们不想下海玩项目，只想找个海边城市待三天放空，麻烦按这种状态来排。' instead of giving generic city information. For this case, it must clearly realize 三天放空型 / 不依赖海上项目 / 节奏松, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：放空型. Sample #23.",
+    "must_include": [
+      "三天放空型",
+      "不依赖海上项目",
+      "节奏松"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "安排很多项目",
+      "写成亲子乐园攻略"
+    ],
+    "notes": "Main check: Main check: 主测：放空型",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0023",
+    "prediction": "好的，根据您的需求，我们推荐一个安静、适合放空的海边城市——**青岛**。青岛三面环海，气候温和，城市节奏舒缓，非常适合三天放空、慢节奏休憩。以下是为您量身定制的行程安排：\n\n---\n\n### 📍 **青岛 | 三天放空行程建议**\n\n#### **Day 1：抵达与放松**\n- **上午**：抵达青岛，入住市区内安静的海边酒店（如五四广场附近），建议选择带阳台或海景房，方便欣赏海景、放松心情。\n- **下午**：步行至五四广场，感受城市氛围，稍作休憩。附近有咖啡馆、书店，适合慢慢走、慢慢看。\n- **傍晚**：前往**八大关**，沿着海边散步，感受海风拂面，避开人群，享受独处时光。\n- **晚上**：在八大关附近找一家安静的餐厅，点一份青岛特色海鲜或本地家常菜，慢慢吃、慢慢聊。\n\n---\n\n#### **Day 2：海边慢生活**\n- **上午**：前往**石老人海水浴场**，这里相对安静，适合散步、晒太阳、听海浪声。可以租个躺椅，躺在沙滩上发呆。\n- **中午**：在海水浴场附近找一家本地小馆，吃一份地道的青岛海鲜面或烤鱿鱼。\n- **下午**：继续在石老人海滩附近闲逛，或前往附近的**小鱼山公园**，登高远眺，俯瞰海景与城市风光。\n- **晚上**：返回市区，找一家有海景视野的餐厅，点一份青岛啤酒配海鲜，结束轻松的一天。\n\n---\n\n#### **Day 3：返程前的最后放松**\n- **上午**：前往**崂山风景区**入口，乘缆车或步行上山，登顶太清宫，俯瞰云海与山海相接的壮丽景色。这里人少景美，适合拍照、发呆。\n- **中午**：在崂山脚下的农家乐简单用餐，品尝山野菜和崂山豆腐。\n- **下午**：返程前再在市区内找一个安静的角落，比如**小鱼山公园**或**信号山公园**，再走走、看看，为旅程画上圆满句号。\n- **傍晚**：返程，带着轻松的心情离开青岛。\n\n---\n\n### ✅ **",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000024",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "after_classics",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经在北京玩了两天故宫、天坛这些经典线，最后再留一天，你帮我做个不重复的版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经在北京玩了两天故宫、天坛这些经典线，最后再留一天，你帮我做个不重复的版本。' instead of giving generic city information. For this case, it must clearly realize 承接已经玩过经典线 / 最后一天不重复 / 仍有北京味道, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：已有安排排除. Sample #24.",
+    "must_include": [
+      "承接已经玩过经典线",
+      "最后一天不重复",
+      "仍有北京味道"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "再排故宫天坛",
+      "忽略前情"
+    ],
+    "notes": "Main check: Main check: 主测：已有安排排除",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0024",
+    "prediction": "好的，根据你在北京已游览故宫、天坛等经典景点的基础上，再留一天，我为你设计一个不重复、节奏舒缓、兼顾文化与自然体验的行程，适合喜欢深度体验、节奏不快的旅行者。\n\n---\n\n### 📌 第三天（不重复文化体验日）：颐和园 + 景山 + 前门大街\n\n#### 🕒 时间安排\n\n- **上午：颐和园（8:30 - 11:30）**\n  - **重点推荐**：昆明湖、十七孔桥、德和园大戏楼、长廊彩绘\n  - **建议避开**：东宫门、北宫门（人流密集）\n  - **小贴士**：建议穿舒适的鞋子，园内有较多台阶和缓坡。\n\n- **中午：前门大街附近简餐（12:00 - 13:00）**\n  - **推荐**：老北京炸酱面、卤煮火烧、豆汁焦圈\n  - **位置建议**：前门大街附近有多个老字号小吃店，如“都一处”、“护国寺小吃”等。\n\n- **下午：景山公园（14:00 - 16:00）**\n  - **重点推荐**：景山万春亭（俯瞰故宫全景）、故宫角楼、故宫东华门\n  - **小贴士**：景山公园入口在故宫东华门附近，步行即可到达。\n\n- **傍晚：前门大街漫步（17:00 - 18:30）**\n  - **推荐体验**：前门大街夜景、老北京风情、传统手工艺品店\n  - **小贴士**：傍晚光线柔和，适合拍照留念。\n\n---\n\n### 📌 行程亮点\n\n- **颐和园**：作为中国现存规模最大的皇家园林，颐和园融合了皇家气派与江南园林的精致，是了解中国传统园林艺术的绝佳去处。\n- **景山公园**：从景山万春亭俯瞰故宫全景，是北京最具代表性的观景视角之一，适合拍照打卡。\n- **前门大街**：保留了大量老北京风貌的街道，是体验老北京生活节奏和文化氛围的好地方。\n\n---\n\n### 📌 小贴士\n\n- **交通建议**：颐和",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000025",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "rainy_one_day_local",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "请只帮我做一个“下雨天住在平江路附近的一天”。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '请只帮我做一个“下雨天住在平江路附近的一天”。' instead of giving generic city information. For this case, it must clearly realize 只做一天 / 基于住平江路附近 / 适合雨天, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：单日雨天. Sample #25.",
+    "must_include": [
+      "只做一天",
+      "基于住平江路附近",
+      "适合雨天"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成两三天",
+      "大量室外暴走"
+    ],
+    "notes": "Main check: Main check: 主测：单日雨天",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0025",
+    "prediction": "**行程主题：下雨天住在平江路附近的一天**  \n**目的地：苏州 | 平江路周边**  \n**天数：1天**  \n**同行人群：独自一人**  \n**偏好：安静、文化、慢节奏、雨天氛围**  \n**限制条件：无户外活动安排，避免潮湿、拥挤、嘈杂环境**\n\n---\n\n### 🌧️ 上午：雨中漫步与文化沉浸\n\n**9:00 - 10:30 | 平江路街区慢行**  \n- **路线建议**：从住处出发，沿平江路步行，避开主干道，选择小巷与临河小道。  \n- **推荐体验**：雨中的平江路更显静谧，青石板路、白墙黛瓦、小桥流水，适合放慢脚步，感受江南水乡的湿润与诗意。  \n- **小贴士**：雨天建议携带轻便雨具，避免淋湿衣物；注意脚下湿滑，避开积水区域。\n\n**10:30 - 11:30 | 乌家巷茶馆休憩**  \n- **推荐理由**：乌家巷是平江路附近较有历史感的茶馆聚集地，雨天适合在此小坐，品一杯龙井或碧螺春，听评弹或吴侬软语。  \n- **体验重点**：避开喧嚣，享受茶香与雨声交织的宁静时光。\n\n---\n\n### 🍵 中午：本地风味与雨天小食\n\n**11:30 - 12:30 | 附近巷弄午餐**  \n- **推荐选择**：选择平江路周边的小巷弄中的一家本地小馆，如“老苏州面馆”或“巷子深处私房菜”，点一份苏式面、小笼包或蟹粉豆腐。  \n- **推荐理由**：雨天适合吃热食，本地风味更显亲切，且避开人潮拥挤的主街。\n\n---\n\n### 📖 下午：文化小憩与雨中阅读\n\n**12:30 - 14:00 | 附近文化空间休憩**  \n- **推荐地点**：可前往附近的苏州博物馆（平江分馆）或平江路文化长廊，但雨天建议优先选择室内空间。  \n- **体验重点**：雨",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000026",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "one_day_city_feel",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "朋友来重庆就一天，我想带他看山城感和夜景，但别爬太多坡，怎么安排？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '朋友来重庆就一天，我想带他看山城感和夜景，但别爬太多坡，怎么安排？' instead of giving generic city information. For this case, it must clearly realize 一天内体现山城感和夜景 / 减少爬坡负担, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：单日城市感. Sample #26.",
+    "must_include": [
+      "一天内体现山城感和夜景",
+      "减少爬坡负担"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "安排大量高强度步行",
+      "只顾打卡"
+    ],
+    "notes": "Main check: Main check: 主测：单日城市感",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0026",
+    "prediction": "**重庆一日山城夜景体验行程（适合朋友同行）**\n\n**目的地：重庆**  \n**天数：1天**  \n**同行人群：朋友**  \n**偏好：轻松、夜景、山城感**  \n**限制条件：不爬坡、不走远**\n\n---\n\n### 🌆 行程概览\n\n- **上午：轻轨穿楼、洪崖洞初印象**  \n- **中午：解放碑附近午餐**  \n- **下午：鹅岭二厂、长江索道**  \n- **傍晚：洪崖洞夜景、南滨路江景**  \n- **晚上：洪崖洞夜景、轻轨夜游**\n\n---\n\n### 🚇 上午：轻轨穿楼、洪崖洞初印象\n\n**时间：9:00 - 11:00**  \n**地点：洪崖洞、轻轨穿楼段**\n\n- **轻轨穿楼体验**：乘坐重庆轨道交通2号线，从较场口站上车，经过较场口站、洪崖洞站，感受轻轨穿楼而过的独特视角。\n- **洪崖洞初印象**：在洪崖洞站下车，步行至洪崖洞广场，远眺洪崖洞夜景（虽然还没到晚上，但建筑轮廓已具山城特色）。\n\n**Tips**：轻轨穿楼段是重庆标志性体验，建议提前查好站点和换乘路线。\n\n---\n\n### 🍛 中午：解放碑附近午餐\n\n**时间：11:30 - 13:00**  \n**地点：解放碑、八一好吃街**\n\n- **推荐地点**：解放碑步行街、八一好吃街，这里汇聚了重庆本地小吃，如小面、酸辣粉、烤脑花、烤鱼等。\n- **推荐美食**：重庆小面、酸辣粉、烤脑花、烤鱼、凉糕。\n\n**Tips**：解放碑是重庆的商业中心，周边餐饮选择丰富，适合朋友轻松用餐。\n\n---\n\n### 🏯 下午：鹅岭二厂、长江索道\n\n**时间：13:30 - 16:00**  \n**地点：鹅岭二厂、长江索道**\n\n- **鹅岭二厂**：重庆工业遗产改造的文化创意园区，适合拍照打卡，建筑风格独特，有老厂房、涂鸦墙、咖啡馆等",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000027",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "weekend_stroll_food",
+      "大连",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "想在大连过一个海边周末，重点是散步和吃海鲜，不是赶景点。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '想在大连过一个海边周末，重点是散步和吃海鲜，不是赶景点。' instead of giving generic city information. For this case, it must clearly realize 周末型 / 散步和吃海鲜 / 不赶景点, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：周末放松. Sample #27.",
+    "must_include": [
+      "周末型",
+      "散步和吃海鲜",
+      "不赶景点"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "全排景点",
+      "忽略周末感"
+    ],
+    "notes": "Main check: Main check: 主测：周末放松",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0027",
+    "prediction": "**大连海边周末行程（2天1晚）**  \n**目的地：大连**  \n**天数：2天1晚**  \n**同行人群：无特定限制**  \n**偏好：散步、吃海鲜**  \n**限制条件：无赶景点安排**  \n\n---\n\n### **Day 1：抵达与海滨漫步**  \n**上午：抵达大连**  \n- 抵达大连后，建议选择靠近海边的住宿，如星海广场附近或滨海路沿线，方便步行和观景。  \n- 休息片刻后，可前往附近的小吃街或海鲜市场，简单用点心。  \n\n**中午：海鲜午餐**  \n- 推荐在星海广场附近的海鲜市场或周边餐厅用餐，如“大连海鲜大排档”或“星海广场海鲜广场”，选择新鲜的海鲜，如扇贝、海胆、虾、螃蟹等。  \n- 可尝试大连特色菜，如“海鲜焖饭”“辣炒蚬子”“烤鱿鱼”等。  \n\n**下午：海滨散步与休闲**  \n- **星海广场**：大连地标，广场开阔，适合散步、拍照，周围有喷泉、雕塑和观景台，傍晚时分尤为美丽。  \n- **滨海路**：从星海广场沿滨海路步行，沿途有海风、绿树和海景，适合慢走、放松。  \n- **东港商务区**：可顺路走到东港，欣赏城市天际线与海景交融的景色。  \n\n**晚上：海边晚餐与夜景**  \n- 在星海广场附近找一家有露天座位的餐厅，边吃边看夜景，推荐尝试“海鲜烧烤”或“海鲜火锅”。  \n- 晚上可继续在海边散步，感受大连的夜晚氛围。  \n\n---\n\n### **Day 2：轻松返程前的最后漫步**  \n**上午：再走一次滨海路或东港**  \n- 如果前一天未走完滨海路，可再走一段，感受不同角度的海景与城市风光。  \n- 也可以去东港公园，那里有湖、亭台楼阁，适合拍照和安静休憩。  \n\n**中午：简单午餐与返程准备**  \n- 在附近找一家本地小馆，吃点清淡的海鲜或家常菜，如“海鲜粥”“炒青菜”等。  \n- 准备返程，建议",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000028",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "constraint_first",
+      "武汉",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我先说条件：两天、住汉口、带爸妈、不坐太复杂的交通。你来组织一个版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我先说条件：两天、住汉口、带爸妈、不坐太复杂的交通。你来组织一个版本。' instead of giving generic city information. For this case, it must clearly realize 承接明确约束 / 两天住汉口带爸妈交通简单 / 动线清楚, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说约束. Sample #28.",
+    "must_include": [
+      "承接明确约束",
+      "两天住汉口带爸妈交通简单",
+      "动线清楚"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "忽略住汉口",
+      "安排复杂换乘"
+    ],
+    "notes": "Main check: Main check: 主测：先说约束",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0028",
+    "prediction": "**行程概览：两天、住汉口、带爸妈、不坐太复杂的交通**\n\n**目的地：武汉汉口区**  \n**天数：2天**  \n**同行人群：带爸妈**  \n**偏好：轻松、少步行、少换乘、少爬楼**  \n**限制条件：不坐太复杂的交通**\n\n---\n\n### **Day 1：轻松休闲，感受汉口烟火气**\n\n**上午：汉口江滩公园**  \n- **推荐理由**：江滩公园是武汉市民休闲的好去处，空气清新、视野开阔，适合散步、拍照、晒太阳。  \n- **交通建议**：步行或打车至江滩公园（汉口江滩入口），距离市区较近，步行可达。  \n- **小贴士**：带好遮阳伞或帽子，江边风大，注意防晒。\n\n**中午：江滩附近午餐**  \n- **推荐地点**：江滩附近有众多小吃摊和本地餐馆，推荐尝试热干面、豆皮、鸭脖等武汉特色小吃。  \n- **建议**：选择靠近江边的餐馆，方便饭后散步。\n\n**下午：武汉博物馆（或汉口江滩文化馆）**  \n- **推荐理由**：武汉博物馆是了解武汉历史文化的窗口，馆内有丰富的文物和展览，适合带爸妈慢慢参观。  \n- **交通建议**：从江滩公园步行或打车至武汉博物馆（约15分钟车程）。  \n- **小贴士**：博物馆内有电梯，适合老人和行动不便者。\n\n**晚上：江滩夜景+江汉路步行街**  \n- **推荐理由**：江滩夜景灯光璀璨，适合散步、拍照；江汉路步行街是武汉的商业中心之一，适合晚上逛逛。  \n- **交通建议**：从江滩公园步行至江汉路步行街，步行约15分钟。  \n- **小贴士**：江汉路步行街有多个商场和小吃街，适合晚上休闲。\n\n---\n\n### **Day 2：文化体验+轻松返程**\n\n**上午：黄鹤楼（或武汉长江大桥）**  \n- **推荐理由**：黄鹤楼是武汉的标志性建筑，登楼可俯瞰长江和城市风光；长江大桥是武汉的交通动脉，也是拍照打卡的好地方。  \n- **交通建议**：从汉口江滩",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000029",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fixed_event",
+      "青岛",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "已经定了第二天下午去看海边演出，剩下时间请你帮我拼成两天一夜。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '已经定了第二天下午去看海边演出，剩下时间请你帮我拼成两天一夜。' instead of giving generic city information. For this case, it must clearly realize 承接固定演出 / 补全其余时段 / 两天一夜完整, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：固定事件补全. Sample #29.",
+    "must_include": [
+      "承接固定演出",
+      "补全其余时段",
+      "两天一夜完整"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "忽略固定演出",
+      "推翻已定安排"
+    ],
+    "notes": "Main check: Main check: 主测：固定事件补全",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0029",
+    "prediction": "好的，以下是基于你已定的“第二天下午去看海边演出”安排，拼接成的两天一夜行程建议。行程以自然节奏为主，兼顾放松与体验，适合短途休闲出行。\n\n---\n\n### **第一天：抵达与适应**\n\n**上午：抵达目的地，入住酒店**  \n- 建议选择靠近市中心或景点的区域，方便后续安排。  \n- 休息片刻，适应环境，简单整理行李。\n\n**中午：午餐与自由活动**  \n- 可在附近寻找一家本地特色餐厅，尝试当地美食。  \n- 若有时间，可短暂停留附近街区，感受城市氛围。\n\n**下午：轻松漫步或休闲活动**  \n- 可选择在附近公园、小巷或文化空间短暂停留，放松身心。  \n- 避免安排高强度行程，为第二天预留充足精力。\n\n---\n\n### **第二天：海边演出与返程准备**\n\n**上午：自由活动或轻度探索**  \n- 可继续探索周边区域，或选择在酒店附近休息，为下午的演出做准备。  \n- 若有体力，可安排一次轻松的短途出行，如参观附近小景点。\n\n**中午：午餐与休整**  \n- 享用一顿轻松的午餐，为下午的演出活动补充能量。\n\n**下午：海边演出**  \n- 按照你已安排的时间前往海边观看演出。  \n- 建议提前确认演出地点、交通方式和入场要求，预留充足时间抵达。\n\n**晚上：返程准备与返程**  \n- 若需返程，可在演出结束后安排返程交通。  \n- 若无返程安排，可选择在附近餐厅或酒吧稍作停留，结束行程。\n\n---\n\n### **注意事项：**\n- 两天一夜行程节奏较轻，适合以放松和体验为主。  \n- 若有特别兴趣点或景点，可提前告知，我会根据情况调整建议。  \n- 请根据实际交通情况预留足够时间，避免赶路。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000030",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "final_night_decision",
+      "桂林",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我只想知道“桂林最后一个晚上住市区还是阳朔更方便”，并顺便给个第二天离开的安排思路。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我只想知道“桂林最后一个晚上住市区还是阳朔更方便”，并顺便给个第二天离开的安排思路。' instead of giving generic city information. For this case, it must clearly realize 先判断最后一晚落脚逻辑 / 再给次日离开思路, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：局部决策. Sample #30.",
+    "must_include": [
+      "先判断最后一晚落脚逻辑",
+      "再给次日离开思路"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成完整桂林攻略",
+      "回避判断"
+    ],
+    "notes": "Main check: Main check: 主测：局部决策",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0030",
+    "prediction": "**桂林最后一个晚上住市区还是阳朔更方便？**\n\n**推荐：住市区更方便。**\n\n**理由：**\n- **交通便利**：市区靠近桂林两江国际机场、高铁站和主要公交枢纽，夜间出行更方便，尤其适合第二天需要早起赶车的人。\n- **生活配套成熟**：市区有更多餐饮、购物、娱乐选择，适合放松和整理行李。\n- **景点集中**：市区周边有象鼻山、东西巷、伏波山等核心景点，方便第二天早上继续游览或直接前往阳朔前短暂停留。\n\n**阳朔的优劣势：**\n- **优势**：阳朔更靠近漓江精华段，适合喜欢自然风光、骑行、田园体验的人；晚上更有夜景和特色民宿氛围。\n- **劣势**：阳朔到市区往返需要1-2小时车程，且夜间公共交通较少，若第二天需早起离开桂林，阳朔可能不太方便。\n\n---\n\n**第二天离开桂林的安排思路（以住市区为例）**\n\n**上午：**\n- **早餐**：在市区内选择一家本地特色早餐店，如桂林米粉、油茶、糯米饭等。\n- **整理行李**：利用上午时间整理行李，确保所有物品已打包完毕，避免临时慌乱。\n- **前往机场/高铁站**：预留充足时间前往机场或高铁站，建议至少提前1.5小时到达，避开高峰期。\n\n**中午前：**\n- **最后一顿市区餐**：可选择市区内一家有口碑的餐厅，如桂林老街附近的老字号餐馆，品尝地道桂林菜。\n\n**中午后：**\n- **前往机场/高铁站**：根据交通情况，提前出发，确保准时登机或乘车。\n\n**小贴士：**\n- 若计划从桂林乘高铁前往其他城市，建议优先选择桂林北站或桂林站，交通更便捷。\n- 若需从桂林机场出发，建议预留更长的交通时间，避免延误。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000031",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "preference_first",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我比较在意城市气质和散步感，不想把所有热门点都打卡完。上海2天请你按这个思路来组织。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我比较在意城市气质和散步感，不想把所有热门点都打卡完。上海2天请你按这个思路来组织。' instead of giving generic city information. For this case, it must clearly realize 围绕用户偏好组织 / 不要贪多 / 结构清楚, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说偏好型开法，测试preference_first. Sample #31.",
+    "must_include": [
+      "围绕用户偏好组织",
+      "不要贪多",
+      "结构清楚"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：先说偏好型开法，测试preference_first",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0031",
+    "prediction": "**上海2日行程：城市气质与散步感优先**\n\n---\n\n### **Day 1：静谧与人文交织的上海**\n\n**上午：外滩与万国建筑群（慢节奏）**  \n- **外滩**：避开人潮，从海关大楼附近开始，沿外滩步道缓行，感受万国建筑群的建筑风格与历史氛围。  \n- **南京东路**：不走商业街，只在街角短暂停留，观察老洋房与新商业的碰撞。  \n- **推荐停留点**：外白渡桥、和平饭店（外观）。\n\n**中午：老城厢附近简餐**  \n- 选择本地小馆，如城隍庙附近的老字号，避开网红店，体验地道上海味道。\n\n**下午：田子坊与新天地（文化与生活感）**  \n- **田子坊**：避开游客密集区，深入小巷，感受老弄堂与艺术空间的融合。  \n- **新天地**：以石库门建筑为背景，选择一家有特色的咖啡馆或茶室，慢慢品味。\n\n**傍晚：徐家汇公园散步**  \n- 在徐家汇公园内散步，避开主干道，感受城市绿意与慢节奏。\n\n**晚上：武康路一带小酌**  \n- 武康路沿线有许多文艺小店与咖啡馆，适合散步、小酌，感受上海的文艺气质。\n\n---\n\n### **Day 2：自然与城市边缘的慢行体验**\n\n**上午：辰山植物园（自然与静谧）**  \n- 选择辰山植物园，避开主景区，深入植物园的自然步道，感受植物与自然的融合。  \n- 推荐路线：入口→植物园步道→温室区→观景台。\n\n**中午：松江小昆山附近简餐**  \n- 选择松江本地小馆，体验更贴近自然的生活节奏。\n\n**下午：朱家角古镇（慢节奏江南）**  \n- 朱家角古镇保留了江南水乡的风貌，适合慢行、拍照、体验传统生活方式。  \n- 避免走热门路线，选择小巷与小桥，感受古镇的宁静与生活气息。\n\n**傍晚：返回市区前的短暂停留**  \n- 可选择在徐家汇或静安寺附近短暂停留，观察城市夜景与生活节奏。\n\n---\n\n###",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000032",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fill_existing",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。' instead of giving generic city information. For this case, it must clearly realize 承接已有固定安排 / 补全其余时间 / 不要推翻已知前提, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说已有安排型开法，测试fill_existing. Sample #32.",
+    "must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：先说已有安排型开法，测试fill_existing",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0032",
+    "prediction": "好的，以下是基于你已确定的信息（第二天晚上看演出，第一天住市中心）补全的 **2天1夜** 行程建议，结构清晰、节奏适中，适合轻松游览：\n\n---\n\n### **Day 1：抵达与适应**\n- **上午**：抵达目的地，入住已预订的市中心酒店，稍作休息。\n- **中午**：在酒店附近或市中心区域享用午餐，推荐本地特色餐厅。\n- **下午**：步行探索市中心街区，可逛逛小巷、咖啡馆或文化地标，感受城市氛围。\n- **晚上**：在酒店附近轻松用餐后，准备休息，为第二天的演出预留充足时间。\n\n---\n\n### **Day 2：演出与返程**\n- **上午**：根据演出时间安排，提前抵达演出场馆，预留充足入场时间。\n- **中午**：演出结束后，可在附近区域用餐或稍作休整。\n- **下午**：根据返程安排，前往机场/车站，结束行程。\n\n---\n\n### **小贴士**\n- 建议提前确认演出场馆位置、交通方式及入场要求。\n- 若演出地点较远，可预留更早出发时间。\n- 若有额外兴趣点，可将Day 1下午安排得更紧凑，加入博物馆、艺术空间等。\n\n---\n\n如需进一步细化某一天的行程（如演出类型、周边景点等），欢迎补充信息。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000033",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "partial_only",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "不用排全程，只帮我做一个最后一天上午，地点在成都。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '不用排全程，只帮我做一个最后一天上午，地点在成都。' instead of giving generic city information. For this case, it must clearly realize 只回答局部时段 / 不要扩成全程 / 围绕局部窗口可执行, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：只求局部时段型开法，测试partial_only. Sample #33.",
+    "must_include": [
+      "只回答局部时段",
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：只求局部时段型开法，测试partial_only",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0033",
+    "prediction": "**最后一天上午行程：成都**\n\n**时间安排：上午9:00 - 12:00**\n\n**1. 九眼桥（约30分钟）**  \n- **位置**：锦江区，成都夜生活地标之一。  \n- **建议**：若时间允许，可短暂停留，感受成都的市井烟火气与文艺氛围。  \n- **注意**：九眼桥周边有较多小吃摊贩，若不赶时间，可略过。\n\n**2. 宽窄巷子（约1.5小时）**  \n- **位置**：青羊区，成都传统民居与现代文化融合的代表区域。  \n- **建议**：重点游览窄巷子内的老茶馆、手工艺品店和特色小吃店（如钟水饺、龙抄手）。  \n- **注意**：宽窄巷子游客较多，建议避开中午高峰，避免拥挤。\n\n**3. 人民公园（约1小时）**  \n- **位置**：市中心，成都最大的城市公园之一。  \n- **建议**：可在公园内散步、休憩，体验成都人悠闲的生活方式。  \n- **注意**：公园内有茶馆、竹林、假山等景观，适合拍照和放松。\n\n**4. 东门市井（可选）**  \n- **位置**：紧邻人民公园，是成都本地人常去的市井生活区。  \n- **建议**：若对成都本地生活感兴趣，可短暂停留，体验地道的小吃和市井文化。  \n- **注意**：东门市井较窄，建议穿舒适鞋子。\n\n**注意事项：**  \n- 本行程为上午安排，建议预留充足时间前往各景点，避免赶路。  \n- 成都天气多变，建议随身携带薄外套或雨具。  \n- 若对某些区域不熟悉，建议使用地图导航或询问当地人。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000034",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "optimize_rough",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。' instead of giving generic city information. For this case, it must clearly realize 保留大框架 / 优化顺路和体力 / 不要完全推翻, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：优化粗计划型开法，测试optimize_rough. Sample #34.",
+    "must_include": [
+      "保留大框架",
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：优化粗计划型开法，测试optimize_rough",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0034",
+    "prediction": "好的，以下是优化后的2天行程建议，更顺、更贴合节奏，兼顾老城与生活气息，同时保留了慢节奏与体验感：\n\n---\n\n### **第一天：老城慢逛（文化与历史）**\n**上午：**\n- **上午9:00**：抵达目的地，先去老城区核心区域（如步行街、历史街区入口）适应环境。\n- **上午10:00**：开始慢走，重点游览老城区标志性建筑或文化地标（如钟楼、博物馆、老巷子）。\n- **上午11:30**：在附近咖啡馆或茶馆稍作休息，体验本地慢生活节奏。\n\n**中午：**\n- **中午12:30**：在老城区内找一家本地特色餐厅，尝试地道小吃或传统菜肴。\n\n**下午：**\n- **下午14:00**：继续深入老城区，参观文化展览、手工艺店或老宅，了解当地历史与人文。\n- **下午16:00**：在老城区内找一个安静的公园或广场休憩，感受城市氛围。\n\n**晚上：**\n- **晚上18:30**：在老城区内找一家有氛围的餐厅或小馆，享用晚餐，体验夜生活。\n- **晚上19:30**：结束第一天，返回住处或准备第二天行程。\n\n---\n\n### **第二天：更生活化的体验（市井与日常）**\n**上午：**\n- **上午9:00**：前往更贴近市井生活的区域（如老城区周边的市场、小巷、社区中心）。\n- **上午10:00**：逛早市或菜市场，体验本地人的日常起居与生活节奏。\n- **上午11:30**：在附近的小店或手作工坊体验本地手工艺或文化活动。\n\n**中午：**\n- **中午12:30**：在市场附近找一家本地家庭餐馆，尝试家常菜或街头小吃。\n\n**下午：**\n- **下午14:00**：继续探索市井生活区域，参观社区活动中心、小书店、旧书店或文化空间。\n- **下午16:00**：在附近找一个有绿植或小花园的地方休憩，放松身心。\n\n**晚上：**\n- **晚上18:30**：在生活气息更",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000035",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "weather_variant",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "如果遇到大风或阴天，厦门这段行程你会怎么改得更稳？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '如果遇到大风或阴天，厦门这段行程你会怎么改得更稳？' instead of giving generic city information. For this case, it must clearly realize 体现天气条件 / 仍然保持可执行 / 不要照搬晴天版, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：天气改法型开法，测试weather_variant. Sample #35.",
+    "must_include": [
+      "体现天气条件",
+      "仍然保持可执行",
+      "不要照搬晴天版"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：天气改法型开法，测试weather_variant",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0035",
+    "prediction": "如果遇到大风或阴天，厦门行程可以适当调整，以减少户外活动的不确定性，同时保持体验的丰富性。以下是更稳的行程建议：\n\n---\n\n### **厦门行程（阴天/大风天气版）**\n\n#### **Day 1：鼓浪屿深度慢游 + 厦门市区短休**\n- **上午**：乘船前往鼓浪屿，避开大风天气（如风力较大，可选择上午9点后出发）。\n- **中午**：在鼓浪屿岛上用餐，推荐本地特色小吃，如沙茶面、海蛎煎。\n- **下午**：游览日光岩、菽庄花园、钢琴博物馆，避开海边或高处易受风影响的区域。\n- **傍晚**：返回厦门市区，可步行至中山路步行街，感受老厦门风情。\n- **晚上**：入住厦门市区酒店，方便次日出行。\n\n#### **Day 2：厦门植物园 + 鼓浪屿夜游**\n- **上午**：参观厦门植物园，避开大风天气（如风力较大，可选择上午9点前进入）。\n- **中午**：在植物园附近用餐。\n- **下午**：返回鼓浪屿，乘船登岛，游览风琴博物馆、美以美教堂等室内景点。\n- **晚上**：鼓浪屿夜景依然迷人，可选择在岛上散步，感受安静的夜晚氛围。\n\n#### **Day 3：厦门科技馆 + 厦门博物馆 + 厦门园博苑**\n- **上午**：参观厦门科技馆，体验互动展览，适合亲子或对科技感兴趣的人群。\n- **中午**：在科技馆附近用餐。\n- **下午**：前往厦门博物馆，了解厦门的历史文化；随后前往厦门园博苑，欣赏园林景观。\n- **晚上**：返回市区，结束行程。\n\n---\n\n### **注意事项**\n- **天气预警**：出行前关注厦门气象台发布的天气预报，如遇大风或持续阴雨，优先选择室内或半室内景点。\n- **交通安排**：鼓浪屿与厦门市区之间有轮渡或快艇，建议预留充足时间，避免因天气延误。\n- **穿着建议**：阴天或大风天气建议携带轻便雨具、防风外套，保持衣物干燥。\n- **节奏调整**：减少长时间户外步行，优先选择有遮蔽或室内",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000036",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "last_day_partial",
+      "广州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我在广州的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我在广州的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。' instead of giving generic city information. For this case, it must clearly realize 只安排最后一天或半天 / 承接住处或离开点 / 减少折返, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：最后一天型开法，测试last_day_partial. Sample #36.",
+    "must_include": [
+      "只安排最后一天或半天",
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：最后一天型开法，测试last_day_partial",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0036",
+    "prediction": "好的，以下是基于你的时间安排和行程需求的建议：\n\n---\n\n### **广州最后一天上午行程（仅上午）**\n\n**时间安排：**  \n- **上午：** 保持轻松，不安排密集行程，避免赶时间。\n\n**建议安排：**  \n- **上午9:00前：** 保持休息或轻松活动，如在房间内整理行李、简单洗漱。  \n- **上午9:30-10:30：** 可选择在附近步行街或小巷短暂停留，如北京路步行街、上下九，感受广州的市井气息。  \n- **上午11:00前：** 确认退房时间，避免因退房流程耽误后续安排。\n\n**注意事项：**  \n- 由于下午需赶往机场，建议预留充足时间，避免因交通或排队延误。  \n- 若有行李需寄存，可提前联系酒店确认是否支持寄存服务。\n\n---\n\n### **下午行程（机场）**\n\n- **中午前退房**：确保在中午前完成退房手续，避免影响后续行程。  \n- **下午1:00-2:00：** 前往机场，预留充足时间前往机场，避免因交通拥堵或安检排队耽误登机。  \n- **登机前确认：** 登机前再次确认航班信息、行李重量和随身物品，确保符合航空要求。\n\n---\n\n### **小贴士：**  \n- 若时间紧张，建议优先选择地铁或打车前往机场，避免公交换乘。  \n- 若有行李需寄存，可提前联系酒店确认是否支持寄存服务，节省时间。\n\n---\n\n如需进一步优化时间安排或调整节奏，欢迎随时告知。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000037",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "preference_first",
+      "南京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我比较在意城市气质和散步感，不想把所有热门点都打卡完。南京2天请你按这个思路来组织。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我比较在意城市气质和散步感，不想把所有热门点都打卡完。南京2天请你按这个思路来组织。' instead of giving generic city information. For this case, it must clearly realize 围绕用户偏好组织 / 不要贪多 / 结构清楚, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说偏好型开法，测试preference_first. Sample #37.",
+    "must_include": [
+      "围绕用户偏好组织",
+      "不要贪多",
+      "结构清楚"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：先说偏好型开法，测试preference_first",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0037",
+    "prediction": "南京是一座兼具历史厚重与现代活力的城市，适合慢节奏的漫步与深度体验。两天时间，我们避开热门打卡路线，聚焦城市气质与散步感，精选几个有文化氛围、适合慢行的区域，让行程更从容、更沉浸。\n\n---\n\n### **Day 1：老城南与夫子庙周边**\n\n**上午：老城南街区漫步**  \n- **推荐路线**：从中华门出发，沿老城南街区步行，途经老门东、乌衣巷、秦淮河畔。  \n- **亮点**：这里保留着大量明清建筑，街道狭窄，适合慢行。可以留意一些老茶馆、手作小店，感受市井烟火气。  \n- **小贴士**：避开节假日人流高峰，建议上午9点前到达，避开游客集中区域。\n\n**中午：夫子庙附近午餐**  \n- **推荐**：在夫子庙周边的巷弄中找一家本地人常去的小馆，尝试南京特色菜，如盐水鸭、小笼包、桂花糖芋苗。  \n- **避开**：避开夫子庙广场正中央的商业区，那里人流量大、节奏快。\n\n**下午：秦淮河畔散步与夜游**  \n- **推荐**：沿秦淮河步行，从东水关到西水关，途中经过文德桥、朱雀桥等古桥。  \n- **亮点**：傍晚时分，河面泛着微光，适合拍照与发呆。若时间允许，可选乘画舫夜游，感受秦淮河的夜色与灯光。  \n- **小贴士**：夜游秦淮河需提前预订，避开节假日高峰期。\n\n**晚上：夫子庙周边小憩**  \n- **推荐**：在夫子庙附近的巷子中找一家有露天座位的茶馆或咖啡馆，慢慢喝一杯，看夜景。  \n- **避开**：避免在夫子庙广场正中央停留太久，那里灯光太亮、节奏太快。\n\n---\n\n### **Day 2：鼓楼与清凉山一带**\n\n**上午：鼓楼与台城漫步**  \n- **推荐路线**：从鼓楼广场出发，沿台城步行至清凉山。  \n- **亮点**：鼓楼是南京的标志性建筑之一，周围环境安静，适合拍照与发呆。台城是六朝时期的重要建筑",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000038",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fill_existing",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。' instead of giving generic city information. For this case, it must clearly realize 承接已有固定安排 / 补全其余时间 / 不要推翻已知前提, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说已有安排型开法，测试fill_existing. Sample #38.",
+    "must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：先说已有安排型开法，测试fill_existing",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0038",
+    "prediction": "好的，以下是基于你已确定的信息（第二天晚上看演出，第一天住市中心）补全的 **2天1夜** 行程建议，结构清晰、节奏适中，适合轻松游览：\n\n---\n\n### **Day 1：抵达与适应**\n- **上午**：抵达目的地，入住已预订的市中心酒店，稍作休息。\n- **中午**：在酒店附近或市中心区域享用午餐，推荐本地特色餐厅。\n- **下午**：步行探索市中心街区，可逛逛小巷、咖啡馆或文化地标，感受城市氛围。\n- **晚上**：在酒店附近轻松用餐后，准备休息，为第二天的演出预留充足时间。\n\n---\n\n### **Day 2：演出与返程**\n- **上午**：根据演出时间安排，提前抵达演出场馆，预留充足入场时间。\n- **中午**：演出结束后，可在附近区域用餐或稍作休整。\n- **下午**：根据返程安排，前往机场/车站，结束行程。\n\n---\n\n### **小贴士**\n- 建议提前确认演出场馆位置、交通方式及入场要求。\n- 若演出地点较远，可预留更早出发时间。\n- 若有额外兴趣点，可将Day 1下午安排得更紧凑，加入短途游览或文化体验。\n\n---\n\n如需进一步细化某一天的行程（如演出类型、周边景点等），欢迎补充信息，我可以继续优化。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000039",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "partial_only",
+      "昆明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "不用排全程，只帮我做一个最后一天上午，地点在昆明。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '不用排全程，只帮我做一个最后一天上午，地点在昆明。' instead of giving generic city information. For this case, it must clearly realize 只回答局部时段 / 不要扩成全程 / 围绕局部窗口可执行, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：只求局部时段型开法，测试partial_only. Sample #39.",
+    "must_include": [
+      "只回答局部时段",
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：只求局部时段型开法，测试partial_only",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0039",
+    "prediction": "**昆明行程建议（最后一天上午）**\n\n**时间安排：上午**  \n**地点：昆明市区**\n\n**建议行程：**\n\n1. **翠湖公园（约1.5小时）**  \n   - 位于昆明市中心，是城市绿肺，湖光山色与人文景观交融。  \n   - 可沿湖漫步，欣赏红嘴鸥、垂柳与古建筑，感受悠闲氛围。  \n   - 若时间允许，可顺路参观附近的云南陆军讲武堂旧址（免费）。\n\n2. **云南大学东陆校区（约30分钟）**  \n   - 位于翠湖公园北侧，是昆明最具代表性的大学校园之一。  \n   - 校园内建筑风格多样，有民国时期风格的图书馆和钟楼，适合拍照打卡。  \n   - 若对历史感兴趣，可短暂停留，感受校园文化。\n\n**注意事项：**  \n- 上午人流相对较少，适合慢节奏游览。  \n- 建议穿舒适的鞋子，翠湖公园内有较多步行路径。  \n- 若对红嘴鸥感兴趣，可携带小食投喂，但注意保持安全距离。\n\n**交通建议：**  \n- 翠湖公园和云南大学均位于市中心，步行可达，无需额外交通安排。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000040",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "optimize_rough",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。' instead of giving generic city information. For this case, it must clearly realize 保留大框架 / 优化顺路和体力 / 不要完全推翻, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：优化粗计划型开法，测试optimize_rough. Sample #40.",
+    "must_include": [
+      "保留大框架",
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：优化粗计划型开法，测试optimize_rough",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0040",
+    "prediction": "好的，以下是优化后的2天行程建议，更顺、更贴合节奏，兼顾老城与生活气息，同时保留了慢节奏与体验感：\n\n---\n\n### **第一天：老城慢逛（文化与历史）**\n**上午：**\n- **上午9:00**：抵达目的地，先去老城区核心区域（如步行街、历史街区入口）适应环境。\n- **上午10:00**：开始慢走，重点游览老城区标志性建筑或文化地标（如钟楼、博物馆、老巷子）。\n- **上午11:30**：在附近咖啡馆或茶馆稍作休息，体验本地慢生活节奏。\n\n**中午：**\n- **中午12:30**：在老城区内找一家本地特色餐厅，尝试地道小吃或传统菜肴。\n\n**下午：**\n- **下午14:00**：继续深入老城区，参观文化展览、手工艺店或老宅，了解当地历史与人文。\n- **下午16:00**：在老城区内找一个安静的公园或广场休憩，感受城市氛围。\n\n**晚上：**\n- **晚上18:30**：在老城区内找一家有氛围的餐厅或小馆，享用晚餐，体验夜生活。\n- **晚上19:30**：结束第一天，返回住处或准备第二天行程。\n\n---\n\n### **第二天：更生活化的体验（市井与日常）**\n**上午：**\n- **上午9:00**：前往更贴近市井生活的区域（如老城区周边的市场、小巷、社区中心）。\n- **上午10:00**：逛早市或菜市场，体验本地人的日常起居与生活节奏。\n- **上午11:30**：在附近的小店或手作工坊体验本地手工艺或文化活动。\n\n**中午：**\n- **中午12:30**：在市场附近找一家本地家庭餐馆，尝试家常菜或街头小吃。\n\n**下午：**\n- **下午14:00**：继续探索市井生活区域，参观社区活动中心、小书店、旧书店或文化空间。\n- **下午16:00**：在附近的小巷或公园休憩，观察市井百态，感受生活气息。\n\n**晚上：**\n- **晚上18:30**：在生活",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000041",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "weather_variant",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "如果遇到大风或阴天，上海这段行程你会怎么改得更稳？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '如果遇到大风或阴天，上海这段行程你会怎么改得更稳？' instead of giving generic city information. For this case, it must clearly realize 体现天气条件 / 仍然保持可执行 / 不要照搬晴天版, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：天气改法型开法，测试weather_variant. Sample #41.",
+    "must_include": [
+      "体现天气条件",
+      "仍然保持可执行",
+      "不要照搬晴天版"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：天气改法型开法，测试weather_variant",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0041",
+    "prediction": "如果遇到大风或阴天，上海行程可以适当调整，以减少户外活动的不确定性，同时保持体验的丰富性。以下是更稳的行程建议：\n\n---\n\n### 🌤️ 天气应对策略\n\n- **大风天气**：避免户外长时间停留，尤其是涉及登高、远眺或需要稳定地面的活动（如外滩观景、豫园登高）。\n- **阴天天气**：减少对自然光依赖的活动，但不影响室内文化体验或博物馆参观。\n\n---\n\n### 📅 调整后的行程（仍为3天2晚）\n\n#### **Day 1：市区文化体验（更稳）**\n- **上午**：上海博物馆（免费）  \n  - 重点推荐：青铜器、瓷器、书画馆  \n  - 适合阴天或室内体验，避开户外人流高峰。\n- **中午**：附近午餐（如南京东路附近）  \n  - 推荐：老字号面馆或本地特色小吃。\n- **下午**：南京西路商圈漫步  \n  - 逛静安嘉里中心、恒隆广场，避开户外风大区域。\n- **傍晚**：外滩夜景（如天气允许）  \n  - 若风大，可改为陆家嘴观景台或室内观景平台。\n\n#### **Day 2：文化与休闲结合（更稳）**\n- **上午**：豫园及城隍庙（免费）  \n  - 重点推荐：九曲桥、玉玲珑、城隍庙小吃  \n  - 避免登高，减少户外停留。\n- **中午**：城隍庙附近午餐（如南翔馒头店）  \n  - 推荐：小笼包、蟹粉汤包。\n- **下午**：上海自然博物馆（免费）  \n  - 适合阴天或室内体验，避开户外风大区域。\n- **傍晚**：徐家汇商圈（如港汇恒隆）  \n  - 逛商场、咖啡馆，避开户外风大区域。\n\n#### **Day 3：轻松返程（更稳）**\n- **上午**：上海中心大厦（可选）  \n  - 若天气允许，可登顶观景台；若风大，可改为室内参观或避开登高。\n- **中午**：附近午餐（如陆家嘴附近）  \n  - 推荐：本地特色餐厅或轻食简餐",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000042",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "last_day_partial",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我在杭州的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我在杭州的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。' instead of giving generic city information. For this case, it must clearly realize 只安排最后一天或半天 / 承接住处或离开点 / 减少折返, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：最后一天型开法，测试last_day_partial. Sample #42.",
+    "must_include": [
+      "只安排最后一天或半天",
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：最后一天型开法，测试last_day_partial",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0042",
+    "prediction": "好的，根据你的行程安排，以下是杭州最后一天上午的行程建议，尽量高效利用时间，同时兼顾体验感：\n\n---\n\n### 📅 杭州最后一天上午行程（仅上午）\n\n**时间安排：**  \n08:00 - 12:00（中午前退房）\n\n**建议安排：**\n\n1. **早餐（8:00 - 9:00）**  \n   - 建议在酒店附近或附近商圈解决早餐，方便快捷。  \n   - 若时间紧张，也可选择在酒店内用早餐。\n\n2. **西湖边短暂停留（9:00 - 10:00）**  \n   - 如果你住在西湖边附近，可以步行至湖边，拍几张照片留念，感受西湖的清晨氛围。  \n   - 若时间紧张，可跳过，直接前往机场。\n\n3. **前往机场（10:00 - 12:00）**  \n   - 从杭州出发前往机场，建议预留充足时间，避免赶时间。  \n   - 杭州萧山国际机场距离市区约25公里，建议乘坐地铁或打车前往。  \n   - 若打车，建议提前叫车，避开高峰时段。  \n   - 若乘坐地铁，可乘坐地铁1号线至湘湖站，换乘机场线至萧山机场站。  \n   - 注意：机场安检和登机前需预留时间，建议至少提前2小时到达机场。\n\n---\n\n### ✅ 小贴士：\n- 如果你住在西湖边，建议优先安排西湖边的短暂停留，拍照留念。  \n- 若赶时间，可直接前往机场，不安排西湖行程。  \n- 退房前确认酒店是否提供行李寄存服务，方便后续安排。  \n- 出发前检查行李是否已打包完毕，避免遗漏。\n\n---\n\n如需更详细的交通路线或更灵活的时间安排，可以告诉我你的具体位置和航班信息，我可以进一步优化。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000043",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "preference_first",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我比较在意城市气质和散步感，不想把所有热门点都打卡完。成都2天请你按这个思路来组织。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我比较在意城市气质和散步感，不想把所有热门点都打卡完。成都2天请你按这个思路来组织。' instead of giving generic city information. For this case, it must clearly realize 围绕用户偏好组织 / 不要贪多 / 结构清楚, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说偏好型开法，测试preference_first. Sample #43.",
+    "must_include": [
+      "围绕用户偏好组织",
+      "不要贪多",
+      "结构清楚"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：先说偏好型开法，测试preference_first",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0043",
+    "prediction": "**成都 2天行程建议**  \n**核心思路**：慢节奏、沉浸式体验城市气质，避开人潮密集打卡点，以散步、小巷、街角为线索，感受成都的松弛与烟火气。\n\n---\n\n### **Day 1：老城慢行与巷子里的生活气息**\n\n**上午：宽窄巷子（轻走）**  \n- **节奏**：不赶时间，重点在巷子间的细节与氛围。  \n- **建议**：避开主干道，沿小巷穿行，留意墙上的涂鸦、老茶馆、手作店、老门神等。  \n- **小贴士**：可顺路在宽窄巷子口的茶馆点一杯盖碗茶，体验成都人日常节奏。\n\n**中午：巷子深处的本地小馆**  \n- **推荐**：在巷子深处找一家本地人常去的小馆，点一份担担面或钟水饺，边吃边看街景。  \n- **避开**：连锁餐厅和网红打卡点。\n\n**下午：青羊宫与周边小巷**  \n- **青羊宫**：道教圣地，建筑古朴，适合慢走、拍照。  \n- **周边小巷**：从青羊宫出来后，沿小巷往西走，会遇到一些安静的庭院、老宅和小院，适合散步。  \n- **节奏**：轻松，适合放空思绪。\n\n**傍晚：人民公园（夜景）**  \n- **亮点**：人民公园的夜景很美，尤其是湖边的灯光和老茶馆的剪影。  \n- **建议**：傍晚时分去，避开白天人多，更适合拍照和感受氛围。\n\n---\n\n### **Day 2：城郊小径与自然与人文的交汇**\n\n**上午：青城前山（轻徒步）**  \n- **节奏**：轻松徒步，不走远，重点在山脚下的小径与寺庙。  \n- **推荐**：从青城前山入口处出发，沿山脚小路走一段，参观天师洞、上清宫等，感受道教文化与自然融合。  \n- **避开**：深入山林或高强度徒步路线。\n\n**中午：山脚下的农家乐**  \n- **推荐**：在山脚下的农家乐简单用餐，点一份青城山豆腐干、山野菜，体验山间",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000044",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fill_existing",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。' instead of giving generic city information. For this case, it must clearly realize 承接已有固定安排 / 补全其余时间 / 不要推翻已知前提, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说已有安排型开法，测试fill_existing. Sample #44.",
+    "must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：先说已有安排型开法，测试fill_existing",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0044",
+    "prediction": "好的，以下是基于你已确定的信息（第二天晚上看演出，第一天住市中心）补全的 **2天1夜** 行程建议，结构清晰、节奏适中，适合轻松游览：\n\n---\n\n### **Day 1：抵达与适应**\n- **上午**：抵达目的地，入住已预订的市中心酒店，稍作休息。\n- **中午**：在酒店附近或市中心区域享用午餐，推荐本地特色餐厅。\n- **下午**：步行探索市中心街区，可逛逛小巷、咖啡馆或文化地标，感受城市氛围。\n- **晚上**：在酒店附近轻松用餐后，准备休息，为第二天的演出预留充足时间。\n\n---\n\n### **Day 2：演出与返程**\n- **上午**：根据演出时间安排，提前抵达演出场馆，预留充足入场时间。\n- **中午**：演出结束后，可在附近区域用餐或稍作休整。\n- **下午**：根据返程安排，前往机场/车站，结束行程。\n\n---\n\n### **小贴士**\n- 建议提前确认演出场馆位置、交通方式及入场要求。\n- 若演出地点较远，可预留更早出发时间。\n- 若有额外兴趣点，可将Day 1下午安排得更紧凑，加入短途游览或文化体验。\n\n---\n\n如需进一步细化某一天的行程（如演出类型、周边景点等），欢迎补充信息，我可以继续优化。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000045",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "partial_only",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "不用排全程，只帮我做一个最后一天上午，地点在厦门。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '不用排全程，只帮我做一个最后一天上午，地点在厦门。' instead of giving generic city information. For this case, it must clearly realize 只回答局部时段 / 不要扩成全程 / 围绕局部窗口可执行, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：只求局部时段型开法，测试partial_only. Sample #45.",
+    "must_include": [
+      "只回答局部时段",
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：只求局部时段型开法，测试partial_only",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0045",
+    "prediction": "**厦门行程建议：最后一天上午（仅限厦门）**\n\n**时间安排：**  \n**上午：** 8:30 - 11:30\n\n---\n\n### **上午行程：鼓浪屿一日游（精华版）**\n\n**建议安排：**  \n- **8:30 - 9:00**：从厦门市区出发前往鼓浪屿（建议乘坐轮渡或公交，预留充足换乘时间）  \n- **9:00 - 10:30**：游览**日光岩**（俯瞰鼓浪屿全景）和**菽庄花园**（中国四大名园之一，融合中西园林艺术）  \n- **10:30 - 11:30**：漫步**鼓浪屿小巷**，如**三丘田**、**笔山小路**，感受文艺氛围，或在**龙头路**附近品尝当地小吃（如沙茶面、海蛎煎）\n\n---\n\n### **注意事项：**  \n- 鼓浪屿步行为主，建议穿舒适鞋子。  \n- 鼓浪屿轮渡班次较密集，建议提前查好发船时间，避免错过。  \n- 若时间紧张，可优先选择日光岩和菽庄花园，减少小巷漫步时间。  \n- 鼓浪屿无地铁直达，建议预留足够交通时间。\n\n---\n\n如需更紧凑或更轻松的节奏，可进一步调整游览点。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000046",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "optimize_rough",
+      "广州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。' instead of giving generic city information. For this case, it must clearly realize 保留大框架 / 优化顺路和体力 / 不要完全推翻, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：优化粗计划型开法，测试optimize_rough. Sample #46.",
+    "must_include": [
+      "保留大框架",
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：优化粗计划型开法，测试optimize_rough",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0046",
+    "prediction": "好的，以下是优化后的2天行程建议，更顺、更贴合节奏，兼顾老城与生活气息，同时保留了慢节奏与体验感：\n\n---\n\n### **第一天：老城慢逛（文化与历史）**\n**上午：**\n- **上午9:00**：抵达目的地，先去老城区核心区域（如步行街、历史街区入口）适应环境。\n- **上午10:00**：开始慢走，重点游览老城区标志性建筑或文化地标（如钟楼、博物馆、老巷子）。\n- **上午11:30**：在附近咖啡馆或茶馆稍作休息，体验本地慢生活节奏。\n\n**中午：**\n- **中午12:30**：在老城区内找一家本地特色餐厅，尝试地道小吃或传统菜肴。\n\n**下午：**\n- **下午14:00**：继续深入老城区，参观文化展览、手工艺店或老宅，了解当地历史与人文。\n- **下午16:00**：在老城区内找一个安静的公园或广场休憩，感受城市氛围。\n\n**晚上：**\n- **晚上18:30**：在老城区内找一家有氛围的餐厅或小馆，享用晚餐，体验夜生活。\n- **晚上19:30**：结束第一天，返回住处或准备第二天行程。\n\n---\n\n### **第二天：更生活化的体验（市井与日常）**\n**上午：**\n- **上午9:00**：前往更贴近市井生活的区域（如老城区周边的市场、小巷、社区中心）。\n- **上午10:00**：逛早市或菜市场，体验本地人的日常起居与生活节奏。\n- **上午11:30**：在附近的小店或手作工坊体验本地手工艺或文化活动。\n\n**中午：**\n- **中午12:30**：在市场附近找一家本地人常去的小馆，尝试家常菜或街头小吃。\n\n**下午：**\n- **下午14:00**：继续探索市井生活区域，可以参观社区活动中心、老式理发店、旧书店等。\n- **下午16:00**：在附近找一个有绿植或小花园的地方休憩，放松身心。\n\n**晚上：**\n- **晚上18:30**：",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000047",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "weather_variant",
+      "南京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "如果遇到大风或阴天，南京这段行程你会怎么改得更稳？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '如果遇到大风或阴天，南京这段行程你会怎么改得更稳？' instead of giving generic city information. For this case, it must clearly realize 体现天气条件 / 仍然保持可执行 / 不要照搬晴天版, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：天气改法型开法，测试weather_variant. Sample #47.",
+    "must_include": [
+      "体现天气条件",
+      "仍然保持可执行",
+      "不要照搬晴天版"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：天气改法型开法，测试weather_variant",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0047",
+    "prediction": "如果遇到大风或阴天，南京行程可以适当调整，以减少户外活动的不确定性，同时保持文化体验和节奏。以下是更稳的行程建议：\n\n---\n\n### **南京行程（大风/阴天版）**\n\n#### **Day 1：南京博物院 + 玄武湖公园**\n- **上午**：南京博物院（室内参观，避开户外风大区域）\n- **中午**：附近简餐\n- **下午**：玄武湖公园（湖边步道、亭台楼阁，避开大风天的湖面活动）\n- **晚上**：玄武湖周边散步，或回酒店休息\n\n#### **Day 2：夫子庙 + 秦淮河风光带**\n- **上午**：夫子庙（室内参观，避开户外风大区域）\n- **中午**：夫子庙附近品尝南京小吃\n- **下午**：秦淮河风光带（乘船或沿河步行，避开大风天的湖面活动）\n- **晚上**：夫子庙夜景，或回酒店休息\n\n#### **Day 3：中山陵 + 美龄宫**\n- **上午**：中山陵（避开大风天的登高路线，选择步道缓行）\n- **中午**：中山陵附近简餐\n- **下午**：美龄宫（室内参观，避开户外风大区域）\n- **晚上**：回市区休息\n\n#### **Day 4：老门东 + 金鹰世界**\n- **上午**：老门东（室内参观，避开户外风大区域）\n- **中午**：老门东附近简餐\n- **下午**：金鹰世界（室内购物、休闲）\n- **晚上**：回市区休息\n\n---\n\n### **注意事项**\n- **天气预警**：出行前关注气象预报，避开强风或暴雨时段。\n- **室内优先**：尽量将户外活动安排在室内，如博物馆、文化街区等。\n- **交通安排**：选择地铁或打车，减少步行和换乘。\n- **节奏放缓**：避免连续高强度活动，留出休息和适应时间。\n\n---\n\n### **备选方案**\n- **雨天/大风天**：可将部分行程改为室内文化体验，如南京图书馆、江苏省美术馆等。\n- **临时调整**：如遇极端天气，可将部分行程延后或改为次日。\n\n---\n\n这样的",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000048",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "last_day_partial",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我在重庆的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我在重庆的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。' instead of giving generic city information. For this case, it must clearly realize 只安排最后一天或半天 / 承接住处或离开点 / 减少折返, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：最后一天型开法，测试last_day_partial. Sample #48.",
+    "must_include": [
+      "只安排最后一天或半天",
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：最后一天型开法，测试last_day_partial",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0048",
+    "prediction": "好的，根据你的行程安排，以下是重庆最后一天上午的行程建议，尽量紧凑且高效，确保中午前退房、下午顺利前往机场：\n\n---\n\n### 🕐 重庆最后一天上午行程（仅上午）\n\n**时间安排：**  \n- **08:00 - 08:30**：早餐（建议在酒店内或附近简餐）  \n- **08:30 - 09:30**：前往洪崖洞（步行或打车）  \n- **09:30 - 11:00**：游览洪崖洞（重点：夜景、建筑、拍照）  \n- **11:00 - 11:30**：前往酒店退房  \n- **11:30 - 12:00**：前往机场（建议预留充足时间，避免赶时间）  \n\n**注意事项：**  \n- 洪崖洞建议避开中午人流高峰，上午光线较好，适合拍照。  \n- 退房前确认行李已打包，避免临时慌乱。  \n- 机场建议提前1.5小时到达，预留安检和登机时间。  \n\n---\n\n如需更详细的交通方式或景点介绍，可随时告诉我。祝你顺利返程！",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000049",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "preference_first",
+      "昆明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我比较在意城市气质和散步感，不想把所有热门点都打卡完。昆明2天请你按这个思路来组织。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我比较在意城市气质和散步感，不想把所有热门点都打卡完。昆明2天请你按这个思路来组织。' instead of giving generic city information. For this case, it must clearly realize 围绕用户偏好组织 / 不要贪多 / 结构清楚, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说偏好型开法，测试preference_first. Sample #49.",
+    "must_include": [
+      "围绕用户偏好组织",
+      "不要贪多",
+      "结构清楚"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：先说偏好型开法，测试preference_first",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0049",
+    "prediction": "昆明2天行程建议（城市气质+散步感）：\n\n**Day 1：慢节奏城市漫游**  \n- **上午：翠湖公园**  \n  从翠湖公园开始，避开拥挤的游客区，沿着湖边小道散步，感受湖光山色与人文气息。这里常有老人打太极、写生，氛围宁静。  \n- **中午：附近小馆简餐**  \n  在翠湖周边的小巷里找一家本地小馆，点一份过桥米线或小锅米线，简单又地道。  \n- **下午：云南大学**  \n  漫步云南大学校园，感受百年学府的静谧与历史感。校园内有大量老建筑和绿树成荫的小径，适合慢走。  \n- **傍晚：金碧路与南屏街交汇处**  \n  沿着金碧路走到南屏街，这里保留了老昆明的市井气息，适合慢慢逛，留意一些老店和小巷。  \n- **晚上：回翠湖附近住宿**  \n  住翠湖附近，方便第二天继续散步。\n\n**Day 2：自然与人文的轻触**  \n- **上午：黑龙潭公园**  \n  黑龙潭公园是昆明少有的自然与人文结合的景点，湖水清澈，周围有古建筑和松柏环绕，适合拍照和静坐。  \n- **中午：黑龙潭附近简餐**  \n  在黑龙潭附近找一家本地小馆，点一份云腿饭或汽锅鸡，简单又美味。  \n- **下午：西山森林公园**  \n  从黑龙潭出发，步行或打车到西山森林公园，登高远眺昆明城，感受山林与城市的交融。公园内有多个观景台，适合慢慢走、慢慢看。  \n- **傍晚：回市区**  \n  返回市区，结束行程。\n\n**小贴士：**  \n- 避免在节假日或周末前往热门景点，避开人流高峰。  \n- 多穿舒适的鞋子，昆明多石板路，适合步行。  \n- 本地小馆通常不收小费，但可以多点一份小菜表达友好。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000050",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fill_existing",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。' instead of giving generic city information. For this case, it must clearly realize 承接已有固定安排 / 补全其余时间 / 不要推翻已知前提, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说已有安排型开法，测试fill_existing. Sample #50.",
+    "must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：先说已有安排型开法，测试fill_existing",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0050",
+    "prediction": "好的，以下是基于你已确定的信息（第二天晚上看演出，第一天住市中心）补全的 **2天1夜** 行程建议，结构清晰、节奏适中，适合轻松游览：\n\n---\n\n### **Day 1：抵达与适应**\n- **上午**：抵达目的地，入住已预订的市中心酒店，稍作休息。\n- **中午**：在酒店附近或市中心区域享用午餐，推荐本地特色餐厅。\n- **下午**：步行探索市中心街区，可逛逛小巷、咖啡馆或文化地标，感受城市氛围。\n- **晚上**：在酒店附近轻松用餐后，准备休息，为第二天的演出预留充足时间。\n\n---\n\n### **Day 2：演出与返程**\n- **上午**：根据演出时间安排，提前抵达演出场馆，预留充足入场时间。\n- **中午**：演出结束后，可在附近区域用餐或稍作休整。\n- **下午**：根据返程安排，前往机场/车站，结束行程。\n\n---\n\n### **小贴士**\n- 建议提前确认演出场馆位置、交通方式及入场要求。\n- 若演出地点较远，可预留更早出发时间。\n- 市中心区域通常交通便利，适合短途步行或短途公交接驳。\n\n---\n\n如需进一步细化某一天的行程（如演出类型、周边景点推荐等），欢迎补充说明。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000051",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "partial_only",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "不用排全程，只帮我做一个最后一天上午，地点在上海。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '不用排全程，只帮我做一个最后一天上午，地点在上海。' instead of giving generic city information. For this case, it must clearly realize 只回答局部时段 / 不要扩成全程 / 围绕局部窗口可执行, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：只求局部时段型开法，测试partial_only. Sample #51.",
+    "must_include": [
+      "只回答局部时段",
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：只求局部时段型开法，测试partial_only",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0051",
+    "prediction": "**上海行程建议（最后一天上午）**\n\n**时间安排：上午**  \n**地点：上海**\n\n**建议行程：**\n\n1. **上海博物馆（上午）**  \n   - **推荐理由**：上海博物馆是了解中国历史与艺术的重要窗口，馆藏丰富，涵盖青铜器、陶瓷、书画等多个门类。  \n   - **建议时间**：9:00 - 11:30  \n   - **注意事项**：需提前预约，建议避开节假日高峰时段。\n\n**备选方案（如时间紧张）：**  \n- **外滩**：步行至外滩，欣赏万国建筑群与黄浦江两岸风光，适合拍照和短暂停留。  \n- **豫园**：若对江南园林感兴趣，可顺路游览豫园，感受古典园林之美。\n\n**交通建议：**  \n- 上海地铁系统发达，建议使用地铁或公交前往各景点。  \n- 若在市区内，也可选择步行或共享单车。\n\n**温馨提示：**  \n- 上午气温较凉，建议携带薄外套。  \n- 避免在景区门口长时间排队，尽量提前规划路线。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000052",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "optimize_rough",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。' instead of giving generic city information. For this case, it must clearly realize 保留大框架 / 优化顺路和体力 / 不要完全推翻, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：优化粗计划型开法，测试optimize_rough. Sample #52.",
+    "must_include": [
+      "保留大框架",
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：优化粗计划型开法，测试optimize_rough",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0052",
+    "prediction": "好的，以下是优化后的2天行程建议，更顺、更贴合节奏，兼顾老城与生活气息，同时保留了慢节奏与体验感：\n\n---\n\n### **第一天：老城慢逛（文化与历史）**\n**上午：**\n- **上午9:00**：抵达目的地，先去老城区核心区域（如步行街、历史街区入口）适应环境。\n- **上午10:00**：开始慢走，重点游览老城区标志性建筑或文化地标（如钟楼、博物馆、老巷子）。\n- **上午11:30**：在附近咖啡馆或茶馆稍作休息，体验本地慢生活节奏。\n\n**中午：**\n- **中午12:30**：在老城区内找一家本地特色餐厅，尝试地道小吃或传统菜肴。\n\n**下午：**\n- **下午14:00**：继续深入老城区，参观文化展览、手工艺店或老宅，了解当地历史与人文。\n- **下午16:00**：在老城区内找一个安静的公园或广场休憩，感受城市氛围。\n\n**晚上：**\n- **晚上18:30**：在老城区内找一家有氛围的餐厅或小馆，享用晚餐，体验夜生活。\n- **晚上19:30**：结束第一天，返回住处或继续在附近散步。\n\n---\n\n### **第二天：更生活化的体验（市井与日常）**\n**上午：**\n- **上午9:00**：前往更贴近市井生活的区域（如老城区周边的市场、小巷、社区中心）。\n- **上午10:00**：逛早市或菜市场，体验本地人的日常起居与生活节奏。\n- **上午11:30**：在附近的小店或手作工坊体验本地手工艺或文化活动。\n\n**中午：**\n- **中午12:30**：在市场附近找一家本地家庭餐馆，尝试家常菜或街头小吃。\n\n**下午：**\n- **下午14:00**：继续探索市井生活区域，参观社区活动中心、小书店、旧书店或文化空间。\n- **下午16:00**：在附近找一个有绿植或小花园的地方休憩，放松身心。\n\n**晚上：**\n- **晚上18:30**：在生活气息",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000053",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "weather_variant",
+      "成都",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "如果遇到大风或阴天，成都这段行程你会怎么改得更稳？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '如果遇到大风或阴天，成都这段行程你会怎么改得更稳？' instead of giving generic city information. For this case, it must clearly realize 体现天气条件 / 仍然保持可执行 / 不要照搬晴天版, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：天气改法型开法，测试weather_variant. Sample #53.",
+    "must_include": [
+      "体现天气条件",
+      "仍然保持可执行",
+      "不要照搬晴天版"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：天气改法型开法，测试weather_variant",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0053",
+    "prediction": "如果遇到大风或阴天，成都的行程可以适当调整，以减少户外活动的不确定性，同时保持体验的丰富性和节奏感。以下是更稳的行程建议：\n\n---\n\n### 🌤️ 天气应对策略\n\n- **减少户外步行**：优先选择室内或半室内景点，如博物馆、文化街区、茶馆等。\n- **避开高海拔或开阔区域**：如青城山、都江堰景区等，若天气不佳，可改为参观都江堰水利博物馆或周边文化景点。\n- **增加文化体验**：利用天气不佳的时间，安排更轻松的文化活动，如茶馆品茶、手作体验、川剧变脸等。\n\n---\n\n### 📅 调整后的行程（以3天为例）\n\n#### **Day 1：市区文化体验**\n- **上午**：宽窄巷子文化街区（室内为主，避开雨天）\n- **中午**：宽窄巷子内用餐\n- **下午**：杜甫草堂（室内参观为主）\n- **晚上**：锦里古街（室内为主，避开雨天）\n\n#### **Day 2：博物馆与文化空间**\n- **上午**：四川博物院（室内参观）\n- **中午**：附近用餐\n- **下午**：成都博物馆（室内参观）\n- **晚上**：人民公园（室内茶馆体验）\n\n#### **Day 3：轻松休闲与文化沉浸**\n- **上午**：春熙路商圈（室内购物、咖啡体验）\n- **中午**：春熙路附近用餐\n- **下午**：东郊记忆（创意园区，室内为主）\n- **晚上**：茶馆体验（如鹤鸣茶社）\n\n---\n\n### 📌 小贴士\n\n- **交通安排**：尽量使用地铁或打车，减少步行和换乘。\n- **衣物准备**：随身携带雨具或轻便外套，应对天气变化。\n- **节奏控制**：避免安排过于紧凑的行程，留出休息和适应时间。\n\n---\n\n### ✅ 总结\n\n在大风或阴天时，成都的行程更应注重文化体验和室内活动，既能保持节奏，又能减少天气带来的不确定性。通过灵活调整景点和活动类型，依然可以享受这座城市独特的魅力。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000054",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "last_day_partial",
+      "北京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我在北京的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我在北京的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。' instead of giving generic city information. For this case, it must clearly realize 只安排最后一天或半天 / 承接住处或离开点 / 减少折返, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：最后一天型开法，测试last_day_partial. Sample #54.",
+    "must_include": [
+      "只安排最后一天或半天",
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：最后一天型开法，测试last_day_partial",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0054",
+    "prediction": "好的，以下是基于你的时间安排和行程需求整理的最后一天上午行程建议：\n\n---\n\n### **最后一天上午行程安排（北京）**\n\n**时间安排：**  \n- **上午：** 从酒店出发前往机场（预留充足交通时间）  \n- **中午前：** 办理退房手续  \n- **下午：** 前往机场登机  \n\n**建议：**  \n1. **出发前确认：** 确认退房时间是否为中午前，避免因退房流程延误影响后续行程。  \n2. **交通安排：** 选择地铁、打车或机场快线等可靠方式前往机场，预留至少1.5小时通勤时间。  \n3. **行李准备：** 提前整理好随身行李，确保登机前完成安检。  \n4. **机场服务：** 若有需要，可提前在机场办理值机、行李托运等手续，节省时间。  \n\n**注意事项：**  \n- 避免在机场周边停留过久，以免错过登机时间。  \n- 若有行李寄存需求，建议提前确认机场寄存点位置和开放时间。  \n\n---\n\n如需进一步优化交通路线或确认机场信息，可告知具体出发点和航班信息，我可以帮你更精准安排。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000055",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "preference_first",
+      "厦门",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我比较在意城市气质和散步感，不想把所有热门点都打卡完。厦门2天请你按这个思路来组织。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我比较在意城市气质和散步感，不想把所有热门点都打卡完。厦门2天请你按这个思路来组织。' instead of giving generic city information. For this case, it must clearly realize 围绕用户偏好组织 / 不要贪多 / 结构清楚, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说偏好型开法，测试preference_first. Sample #55.",
+    "must_include": [
+      "围绕用户偏好组织",
+      "不要贪多",
+      "结构清楚"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：先说偏好型开法，测试preference_first",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0055",
+    "prediction": "厦门2天行程建议（城市气质+散步感）：\n\n**Day 1：文艺与慢节奏的厦门岛**\n\n- **上午：沙坡尾文创园**  \n  从沙坡尾地铁站出发，步行至沙坡尾文创园。这里保留了老厂房的工业风，聚集了独立书店、手作店、咖啡馆和艺术展览空间，适合慢慢逛、拍照、感受文艺氛围。  \n  *Tips：避开周末人多时段，避开中午饭点。*\n\n- **中午：沙坡尾附近简餐**  \n  在沙坡尾附近找一家本地人常去的小店，推荐尝试沙茶面或海蛎煎，口味地道，价格亲民。\n\n- **下午：曾厝垵**  \n  从沙坡尾步行至曾厝垵，约20分钟。这里保留了闽南传统渔村风貌，巷子小而深，有大量特色小吃、手工艺品店和民宿。适合慢慢走、慢慢看，感受厦门的烟火气。  \n  *Tips：避开主街人潮，选择小巷子深入体验。*\n\n- **傍晚：白城沙滩**  \n  曾厝垵附近有白城沙滩，傍晚时分适合散步、看日落，感受海风与城市交融的松弛感。\n\n**Day 2：自然与人文的融合**\n\n- **上午：厦门植物园**  \n  从市区出发前往厦门植物园，约40分钟车程。这里是中国最早建立的植物园之一，园内有丰富的植物种类，环境清幽，适合散步、放松。  \n  *Tips：避开中午高温时段，选择清晨或傍晚入园。*\n\n- **中午：植物园附近简餐**  \n  园内或附近有简餐点，推荐尝试本地特色小吃，如花生汤、芋泥等。\n\n- **下午：集美学村**  \n  从植物园出发前往集美学村，约30分钟车程。这里是陈嘉庚先生创办的教育文化区，有集美大学、龙舟池、陈嘉庚故居等景点，建筑风格独特，充满历史感。  \n  *Tips：建议安排半天时间，慢慢走、慢慢看，感受文化与自然的交融。*\n\n**整体建议：**\n- 以步行和短途公交为主，减少换乘和拥挤。\n- 避免集中在热门景点打卡，更注重体验和",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000056",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "fill_existing",
+      "广州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我已经确定第二天晚上去看演出，第一天酒店已经订在市中心，剩下的时间你帮我补成一个2天1夜版本。' instead of giving generic city information. For this case, it must clearly realize 承接已有固定安排 / 补全其余时间 / 不要推翻已知前提, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：先说已有安排型开法，测试fill_existing. Sample #56.",
+    "must_include": [
+      "承接已有固定安排",
+      "补全其余时间",
+      "不要推翻已知前提"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：先说已有安排型开法，测试fill_existing",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0056",
+    "prediction": "好的，以下是基于你已确定的信息（第二天晚上看演出，第一天住市中心）补全的 **2天1夜** 行程建议，结构清晰、节奏适中，适合轻松游览：\n\n---\n\n### **Day 1：抵达与适应**\n- **上午**：抵达目的地，入住已预订的市中心酒店，稍作休息。\n- **中午**：在酒店附近或市中心区域享用午餐，推荐本地特色餐厅。\n- **下午**：步行探索市中心街区，可逛逛小巷、咖啡馆或文化地标，感受城市氛围。\n- **晚上**：在酒店附近轻松用餐后，准备休息，为第二天的演出预留充足时间。\n\n---\n\n### **Day 2：演出与返程**\n- **上午**：根据演出时间安排，提前抵达演出场馆，预留充足入场时间。\n- **中午**：演出结束后，可在附近区域用餐或稍作休整。\n- **下午**：根据返程安排，前往机场/车站，结束行程。\n\n---\n\n### **小贴士**\n- 建议提前确认演出场馆位置、交通方式及入场要求。\n- 若演出地点较远，可预留更早出发时间。\n- 若有额外兴趣点，可将Day 1下午安排得更紧凑，加入博物馆、艺术空间等。\n\n---\n\n如需进一步细化某一天的行程（如演出类型、周边景点等），欢迎补充信息。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000057",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "partial_only",
+      "南京",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "不用排全程，只帮我做一个最后一天上午，地点在南京。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '不用排全程，只帮我做一个最后一天上午，地点在南京。' instead of giving generic city information. For this case, it must clearly realize 只回答局部时段 / 不要扩成全程 / 围绕局部窗口可执行, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：只求局部时段型开法，测试partial_only. Sample #57.",
+    "must_include": [
+      "只回答局部时段",
+      "不要扩成全程",
+      "围绕局部窗口可执行"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：只求局部时段型开法，测试partial_only",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0057",
+    "prediction": "**南京行程建议（最后一天上午）**\n\n**时间安排：上午**  \n**地点：南京市区**\n\n**建议行程：**\n\n1. **南京博物院（上午）**  \n   - **位置**：南京市玄武区中山东路321号  \n   - **建议时间**：9:00 - 11:30  \n   - **亮点**：免费开放，需提前预约（可通过官网或公众号预约），馆藏丰富，涵盖历史、艺术、民俗等多个领域，适合文化爱好者。  \n   - **提示**：建议优先参观书画馆、瓷器馆、金石馆等常设展区，避开人流高峰时段。\n\n**注意事项：**  \n- 南京博物院内有多个展馆，建议根据兴趣选择重点参观区域，避免时间浪费。  \n- 由于是上午行程，建议穿舒适鞋子，携带水和小零食。  \n- 若时间允许，可顺路前往附近的**江苏路地铁站**，方便后续交通安排。\n\n**其他建议：**  \n- 若对南京历史感兴趣，可将博物院与夫子庙、明孝陵等景点结合，但需注意时间安排。  \n- 若对自然风光更感兴趣，可考虑前往紫金山或玄武湖，但需预留更多时间。\n\n如需更详细的交通指引或周边推荐，可随时告知。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000058",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "optimize_rough",
+      "重庆",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我先有个粗想法：第一天老城慢逛，第二天一条更生活化的线。你帮我优化成更顺一点的2天。' instead of giving generic city information. For this case, it must clearly realize 保留大框架 / 优化顺路和体力 / 不要完全推翻, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：优化粗计划型开法，测试optimize_rough. Sample #58.",
+    "must_include": [
+      "保留大框架",
+      "优化顺路和体力",
+      "不要完全推翻"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：优化粗计划型开法，测试optimize_rough",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0058",
+    "prediction": "好的，以下是优化后的2天行程建议，更顺、更贴合节奏，兼顾老城与生活气息，同时保留了慢节奏与体验感：\n\n---\n\n### **第一天：老城慢逛（文化与历史）**\n**上午：**\n- **上午9:00**：抵达目的地，先去老城区核心区域（如步行街、历史街区入口）适应环境。\n- **上午10:00**：开始慢走，重点游览老城区标志性建筑或文化地标（如钟楼、博物馆、老巷子）。\n- **上午11:30**：在附近咖啡馆或茶馆稍作休息，体验本地慢生活节奏。\n\n**中午：**\n- **中午12:30**：在老城区内找一家本地特色餐厅，尝试地道小吃或传统菜肴。\n\n**下午：**\n- **下午14:00**：继续深入老城区，参观文化展览、手工艺店或老宅，了解当地历史与人文。\n- **下午16:00**：在老城区内找一个安静的公园或广场休憩，感受城市氛围。\n\n**晚上：**\n- **晚上18:30**：在老城区内找一家有氛围的餐厅或小馆，享用晚餐，体验夜生活。\n- **晚上19:30**：结束第一天，返回住处或继续在附近散步。\n\n---\n\n### **第二天：更生活化的体验（市井与日常）**\n**上午：**\n- **上午9:00**：前往更贴近市井生活的区域（如老城区周边的市场、小巷、社区中心）。\n- **上午10:00**：逛早市或菜市场，体验本地人的日常起居与生活节奏。\n- **上午11:30**：在附近的小店或手作工坊体验本地手工艺或文化活动。\n\n**中午：**\n- **中午12:30**：在市场附近找一家本地家庭餐馆，尝试家常菜或街头小吃。\n\n**下午：**\n- **下午14:00**：继续探索市井生活区域，参观社区活动中心、小书店、旧书店或文化空间。\n- **下午16:00**：在附近找一个有绿植或小花园的地方休憩，放松身心。\n\n**晚上：**\n- **晚上18:30**：在生活气息",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000059",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "hard",
+    "tags": [
+      "weather_variant",
+      "昆明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "如果遇到大风或阴天，昆明这段行程你会怎么改得更稳？"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '如果遇到大风或阴天，昆明这段行程你会怎么改得更稳？' instead of giving generic city information. For this case, it must clearly realize 体现天气条件 / 仍然保持可执行 / 不要照搬晴天版, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：天气改法型开法，测试weather_variant. Sample #59.",
+    "must_include": [
+      "体现天气条件",
+      "仍然保持可执行",
+      "不要照搬晴天版"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "不体现偏好或天气限制"
+    ],
+    "notes": "Main check: Main check: 主测：天气改法型开法，测试weather_variant",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0059",
+    "prediction": "如果遇到大风或阴天，昆明的行程可以适当调整，以减少户外活动的不确定性，同时保持整体节奏和体验的连贯性。以下是一些更稳的替代方案和建议：\n\n---\n\n### 🌤️ 天气应对策略\n\n1. **减少户外徒步和登山**  \n   - 原计划中涉及的滇池大坝、西山龙门、石林等户外景点，若天气不佳，可优先改为室内或半室内体验，如博物馆、文化馆、茶馆等。\n\n2. **优先安排文化类和室内景点**  \n   - 例如：云南民族村、云南大学东陆校区、昆明市博物馆、翠湖公园（晴天时更适合）等。\n\n3. **灵活调整行程顺序**  \n   - 若某天天气不佳，可将原本安排在该天的景点延后至天气好转的第二天，或改为更轻松的活动。\n\n---\n\n### 📌 替代行程建议（以3天为例）\n\n#### **Day 1：昆明市区文化体验**\n- 上午：云南民族村（室内，文化体验丰富）\n- 下午：昆明市博物馆（了解云南历史与文化）\n- 晚上：翠湖公园散步（若天气晴朗）或周边茶馆品茶\n\n#### **Day 2：滇池与周边文化**\n- 上午：滇池大坝（若天气不佳可改为室内茶馆）\n- 下午：云南陆军讲武堂旧址（文化历史类）\n- 晚上：南屏街夜市（轻松休闲）\n\n#### **Day 3：石林与周边文化**\n- 上午：石林风景区（若天气不佳可改为室内博物馆或文化体验）\n- 下午：九乡风景区（自然与文化结合）\n- 晚上：返回市区，自由活动或休息\n\n---\n\n### 🧭 其他建议\n\n- **关注天气预报**：出行前查看昆明未来几天的天气情况，提前做好准备。\n- **携带雨具与保暖衣物**：即使天气预报显示晴天，也建议随身携带雨伞或轻便外套。\n- **预留弹性时间**：在行程中预留1-2小时的缓冲时间，以应对突发天气变化。\n\n---\n\n### ✅ 总结\n\n遇到大风或阴天时，昆明行程的核心在于**灵活调整户外与室内活动比例**，优先安排文化类、室内类",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  },
+  {
+    "id": "eval_guide_generation_000060",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "last_day_partial",
+      "苏州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "我在苏州的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '我在苏州的最后一天只剩最后一天上午，住在最后一天中午前要退房，下午去机场，你帮我顺一下。' instead of giving generic city information. For this case, it must clearly realize 只安排最后一天或半天 / 承接住处或离开点 / 减少折返, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：最后一天型开法，测试last_day_partial. Sample #60.",
+    "must_include": [
+      "只安排最后一天或半天",
+      "承接住处或离开点",
+      "减少折返"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成模板化景点清单",
+      "忽略用户给定的时间窗或前置条件"
+    ],
+    "notes": "Main check: Main check: 主测：最后一天型开法，测试last_day_partial",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0060",
+    "prediction": "好的，根据你的行程安排，苏州最后一天上午在住，中午前退房，下午前往机场，以下是顺一下的行程建议：\n\n---\n\n### 📅 苏州最后一天行程（上午 - 下午）\n\n#### 🕒 上午：自由活动 / 休闲放松\n- **建议安排**：利用上午的时间，可以去附近的小巷、公园或咖啡馆稍作休息，享受最后的苏州慢生活。\n- **推荐地点**：平江路附近的小茶馆、观前街附近的书店或手作店，也可以选择在酒店附近散步，感受苏州的清晨氛围。\n\n#### 🕒 中午前：退房 & 出发\n- **退房时间**：通常为中午12点前，建议提前确认酒店退房政策。\n- **前往机场**：苏州有多个机场，如苏南硕放国际机场（Suzhou Shuofang International Airport），建议确认出发机场及交通方式（如地铁、打车、机场大巴）。\n\n#### 🕒 下午：前往机场\n- **交通建议**：根据机场位置选择合适的交通方式，预留充足时间，避免延误。\n- **注意事项**：提前确认航班信息，预留至少2小时办理登机手续。\n\n---\n\n如需更详细的交通路线或机场信息，可以告诉我你的出发机场和酒店位置，我可以进一步帮你确认。",
+    "status": "ok",
+    "error": "",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_8b_qlora_v4",
+    "request_model": "qwen3-8b-qlora-v4",
+    "request_url": "http://8.155.147.209:8000/v1/chat/completions"
+  }
+]

@@ -1,0 +1,149 @@
+{
+  "run_dir": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink",
+  "run_name": "qwen3_8b_qlora_v4_eval_nothink",
+  "model_name": "qwen3_8b_qlora_v4",
+  "request_model": "qwen3-8b-qlora-v4",
+  "generated_at_utc": "2026-04-08T03:34:24.795367+00:00",
+  "strict_mode": true,
+  "pass_definition": "Samples fail if any blocker or major rule is triggered",
+  "total_sample_count": 360,
+  "total_pass_count": 332,
+  "total_fail_count": 28,
+  "overall_pass_rate": 0.9222,
+  "task_summaries": {
+    "guide_generation": {
+      "sample_count": 60,
+      "pass_count": 59,
+      "fail_count": 1,
+      "pass_rate": 0.9833,
+      "avg_rule_score": 98.33,
+      "max_severity_counts": {
+        "blocker": 1
+      },
+      "triggered_rule_counts": {
+        "time_sensitive_fact": 1
+      },
+      "fail_sample_ids": [
+        "eval_guide_generation_000045"
+      ],
+      "raw_output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_guide_generation.json"
+    },
+    "travel_qa": {
+      "sample_count": 60,
+      "pass_count": 60,
+      "fail_count": 0,
+      "pass_rate": 1.0,
+      "avg_rule_score": 100.0,
+      "max_severity_counts": {},
+      "triggered_rule_counts": {},
+      "fail_sample_ids": [],
+      "raw_output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_travel_qa.json"
+    },
+    "hotel_recommendation": {
+      "sample_count": 60,
+      "pass_count": 58,
+      "fail_count": 2,
+      "pass_rate": 0.9667,
+      "avg_rule_score": 96.67,
+      "max_severity_counts": {
+        "blocker": 2
+      },
+      "triggered_rule_counts": {
+        "exact_price": 2
+      },
+      "fail_sample_ids": [
+        "eval_hotel_recommendation_000001",
+        "eval_hotel_recommendation_000055"
+      ],
+      "raw_output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_hotel_recommendation.json"
+    },
+    "traffic_planning": {
+      "sample_count": 60,
+      "pass_count": 50,
+      "fail_count": 10,
+      "pass_rate": 0.8333,
+      "avg_rule_score": 83.33,
+      "max_severity_counts": {
+        "blocker": 10
+      },
+      "triggered_rule_counts": {
+        "time_sensitive_fact": 8,
+        "exact_price": 7,
+        "enumeration_overflow": 1
+      },
+      "fail_sample_ids": [
+        "eval_traffic_planning_000010",
+        "eval_traffic_planning_000027",
+        "eval_traffic_planning_000031",
+        "eval_traffic_planning_000041",
+        "eval_traffic_planning_000045",
+        "eval_traffic_planning_000049",
+        "eval_traffic_planning_000054",
+        "eval_traffic_planning_000056",
+        "eval_traffic_planning_000058",
+        "eval_traffic_planning_000059"
+      ],
+      "raw_output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_traffic_planning.json"
+    },
+    "persona_understanding": {
+      "sample_count": 60,
+      "pass_count": 58,
+      "fail_count": 2,
+      "pass_rate": 0.9667,
+      "avg_rule_score": 96.67,
+      "max_severity_counts": {
+        "blocker": 2
+      },
+      "triggered_rule_counts": {
+        "excessive_repetition": 2
+      },
+      "fail_sample_ids": [
+        "eval_persona_understanding_000022",
+        "eval_persona_understanding_000051"
+      ],
+      "raw_output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_persona_understanding.json"
+    },
+    "multi_turn_dialogue": {
+      "sample_count": 60,
+      "pass_count": 47,
+      "fail_count": 13,
+      "pass_rate": 0.7833,
+      "avg_rule_score": 83.75,
+      "max_severity_counts": {
+        "blocker": 8,
+        "major": 5
+      },
+      "triggered_rule_counts": {
+        "exact_price": 4,
+        "too_short": 1,
+        "multi_turn_ignored_update": 4,
+        "multi_turn_full_rewrite_risk": 4
+      },
+      "fail_sample_ids": [
+        "eval_multi_turn_dialogue_000001",
+        "eval_multi_turn_dialogue_000010",
+        "eval_multi_turn_dialogue_000014",
+        "eval_multi_turn_dialogue_000020",
+        "eval_multi_turn_dialogue_000024",
+        "eval_multi_turn_dialogue_000026",
+        "eval_multi_turn_dialogue_000036",
+        "eval_multi_turn_dialogue_000038",
+        "eval_multi_turn_dialogue_000042",
+        "eval_multi_turn_dialogue_000043",
+        "eval_multi_turn_dialogue_000049",
+        "eval_multi_turn_dialogue_000058",
+        "eval_multi_turn_dialogue_000060"
+      ],
+      "raw_output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_8b_qlora_v4_eval_nothink\\raw_outputs_multi_turn_dialogue.json"
+    }
+  },
+  "overall_triggered_rule_counts": {
+    "time_sensitive_fact": 9,
+    "exact_price": 13,
+    "enumeration_overflow": 1,
+    "excessive_repetition": 2,
+    "too_short": 1,
+    "multi_turn_ignored_update": 4,
+    "multi_turn_full_rewrite_risk": 4
+  }
+}
