@@ -11,3 +11,20 @@ For stage2 deployment, the serving environment needs:
 - `AMAP_API_KEY` for real tool execution
 
 The existing `scripts/03_run_vllm_api.sh` remains the place to put the concrete vLLM startup command.
+
+Concrete deploy helpers now live in:
+
+- `scripts/03_run_vllm_api.sh`: vLLM startup script with explicit tokenizer, served model name, generation config, Qwen3 reasoning parser, and auto tool-choice knobs
+- `configs/llamafactory_stage2_merge_for_deploy.yaml`: merge config for stage2 deploy artifacts
+- `scripts/06_merge_stage2_for_deploy.sh`: merge the stage2 LoRA into a deployable model directory
+- `src/deploy/frontend_server.py`: same-origin gateway that serves the frontend, proxies `/v1/*`, and exposes `/api/tool-orchestrate`
+- `src/deploy/web/index.html`: browser UI for chat, first-round tool-call checks, and end-to-end tool execution tests
+- `scripts/07_run_frontend_gateway.sh`: run the public frontend gateway
+
+Recommended public topology:
+
+1. Run vLLM on `127.0.0.1:8000`
+2. Run the gateway on `0.0.0.0:7860`
+3. Let other users visit `http://<server-ip>:7860`
+
+See `docs/vllm_frontend_deployment.md` for the full step-by-step deploy guide.

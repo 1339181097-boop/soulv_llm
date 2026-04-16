@@ -1,0 +1,16 @@
+{
+  "total_cases": 6,
+  "tool_call_cases": 4,
+  "no_tool_cases": 2,
+  "argument_json_total": 4,
+  "argument_json_valid": 4,
+  "tool_name_counts": {
+    "amap_plan_route": 3,
+    "amap_geocode": 1
+  },
+  "alignment_notes": [
+    "若 tool_call_cases > 0，说明原生模型已经具备可利用的 OpenAI-compatible tool-calling 基础。",
+    "若 argument_json_valid == argument_json_total，说明 arguments 可以直接沿用 JSON string 规范。",
+    "若 no_tool_cases 里能自然直答，TripAI stage2 应该优先做协议对齐，而不是从零发明工具习惯。"
+  ]
+}

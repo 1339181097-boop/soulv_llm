@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripAI vLLM Console</title>
+  <style>
+    :root{--bg:#f3f6f8;--card:#fff;--soft:#f8fafc;--line:#dbe3ea;--text:#102132;--muted:#64748b;--pri:#0f766e;--danger:#b42318}
+    *{box-sizing:border-box}html,body{margin:0;padding:0;min-height:100%}body{font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(180deg,#f8fafc 0%,#eef2f6 100%);color:var(--text)}
+    .app{max-width:1440px;margin:0 auto;padding:20px;display:grid;grid-template-columns:340px 1fr;gap:20px}
+    .panel,.main{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 32px rgba(15,23,42,.07)}
+    .panel{padding:18px;position:sticky;top:20px;height:fit-content}.main{overflow:hidden}
+    h1,h2,h3{margin:0}h1{font-size:28px;letter-spacing:-.03em;margin:10px 0 8px}.sub{color:var(--muted);font-size:13px;line-height:1.7}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#dff6f3;color:var(--pri);font-size:12px;font-weight:800}
+    .sec{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.sec:first-of-type{margin-top:0;padding-top:0;border-top:none}.sec-title{margin:0 0 10px;font-size:14px;font-weight:800}
+    .field{margin-bottom:12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;margin-bottom:6px;font-size:12px;color:var(--muted);font-weight:700}
+    input[type=text],input[type=password],input[type=number],textarea,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;background:#fff;color:var(--text)}
+    textarea{min-height:96px;resize:vertical;line-height:1.7}
+    .toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--soft);margin-bottom:10px;font-size:13px;font-weight:700}
+    .toggle small,.small{display:block;color:var(--muted);font-size:11px;line-height:1.7;font-weight:500}
+    .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    button{border:none;border-radius:12px;padding:11px 12px;font:inherit;font-weight:800;cursor:pointer}.pri{background:linear-gradient(135deg,var(--pri),#0ea5a0);color:#fff}.secbtn{background:#fff;border:1px solid var(--line);color:var(--text)}.warn{background:#fff7ed;border:1px solid #fed7aa;color:#b54708}.danger{background:#fff5f4;border:1px solid #f5d0cb;color:var(--danger)}
+    .hint{margin-top:10px;padding:12px;border:1px solid #d8e9ff;border-radius:12px;background:#f5faff;color:#35506b;font-size:12px;line-height:1.7}
+    .head{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .meta{margin-top:4px;font-size:12px;color:var(--muted)}.status{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px;color:var(--muted);white-space:nowrap}
+    .chat{padding:20px;max-height:42vh;overflow-y:auto;background:linear-gradient(180deg,#fff 0%,#f8fafc 100%)}.welcome{text-align:center;color:var(--muted);max-width:720px;margin:56px auto}.welcome h2{font-size:30px;letter-spacing:-.04em;margin-bottom:10px}
+    .bubble{max-width:920px;margin-bottom:16px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);line-height:1.8;white-space:pre-wrap;word-break:break-word;background:#fff}.user{margin-left:auto;background:#ebfffb}.role{font-size:12px;font-weight:800;color:var(--muted);margin-bottom:8px}
+    .composer{padding:16px 20px;border-top:1px solid var(--line);background:#fff}.composer-wrap{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end}.sendcol{display:grid;gap:10px}
+    .lab{padding:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:1.1fr 1fr;gap:16px;background:linear-gradient(180deg,#fff 0%,#f8fafc 100%)}.card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px}.card p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.7}
+    .pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#dff6f3;color:var(--pri);font-size:11px;font-weight:800;margin:0 8px 8px 0}
+    .result{margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}.result pre{margin:0;max-height:260px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.7}
+    .hidden{display:none!important}
+    @media (max-width:1120px){.app{grid-template-columns:1fr}.panel{position:static}.lab{grid-template-columns:1fr}}
+    @media (max-width:760px){.app{padding:16px}.grid2,.btns,.composer-wrap{grid-template-columns:1fr}.head,.composer,.lab{padding-left:16px;padding-right:16px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="panel">
+      <div class="badge">TripAI Deploy</div>
+      <h1>vLLM Web 控制台</h1>
+      <div class="sub">同页支持普通聊天、模型首轮 `tool_calls` 检查、以及端到端 AMap 工具执行测试。默认走同源 `/v1`。</div>
+
+      <div class="sec">
+        <div class="sec-title">连接设置</div>
+        <div class="field"><label for="baseUrl">API Base URL</label><input id="baseUrl" type="text" /></div>
+        <div class="field"><label for="modelName">模型名</label><input id="modelName" type="text" /></div>
+        <div class="field"><label for="apiKey">API Key（直连模式可选）</label><input id="apiKey" type="password" placeholder="如果不是通过同源网关访问，可手动填写" /></div>
+        <div class="btns">
+          <button class="secbtn" id="refreshModelsBtn">探测模型</button>
+          <button class="secbtn" id="saveConfigBtn">保存配置</button>
+        </div>
+        <div class="hint">推荐通过 <b>http://服务器IP:7860</b> 打开本页。这样别人只用一个链接就能访问，而你不必把 vLLM 的 `8000` 暴露给公网。</div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">系统提示词</div>
+        <div class="field"><label for="systemPrompt">可选 system prompt</label><textarea id="systemPrompt" placeholder="例如：你是 TripAI 旅行助手。"></textarea></div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">推理参数</div>
+        <div class="grid2">
+          <div class="field"><label for="temperature">temperature</label><input id="temperature" type="number" min="0" max="2" step="0.1" value="0.2" /></div>
+          <div class="field"><label for="topP">top_p</label><input id="topP" type="number" min="0" max="1" step="0.05" value="0.9" /></div>
+          <div class="field"><label for="maxTokens">max_tokens</label><input id="maxTokens" type="number" min="1" max="4096" step="1" value="1024" /></div>
+          <div class="field"><label for="topK">top_k</label><input id="topK" type="number" min="-1" step="1" value="40" /></div>
+          <div class="field"><label for="repetitionPenalty">repetition_penalty</label><input id="repetitionPenalty" type="number" min="0.8" max="2" step="0.05" value="1.05" /></div>
+          <div class="field"><label for="presencePenalty">presence_penalty</label><input id="presencePenalty" type="number" min="-2" max="2" step="0.1" value="0" /></div>
+        </div>
+        <div class="toggle"><div>流式输出<small>聊天窗口按 SSE 流式展示</small></div><input id="streamMode" type="checkbox" checked /></div>
+        <div class="toggle"><div>关闭 Qwen Thinking<small>发送 `chat_template_kwargs.enable_thinking=false`</small></div><input id="disableThinking" type="checkbox" checked /></div>
+        <div class="toggle"><div>限制并行 tool calls<small>更贴近本仓库编排逻辑</small></div><input id="singleToolCall" type="checkbox" checked /></div>
+        <div class="toggle"><div>记住本地配置<small>保存到浏览器 localStorage</small></div><input id="rememberConfig" type="checkbox" checked /></div>
+        <div class="btns">
+          <button class="danger" id="clearConfigBtn">清空配置</button>
+          <button class="secbtn" id="newChatBtn">新建会话</button>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">测试建议</div>
+        <div class="pill">先用 required 验 schema</div>
+        <div class="pill">再用 auto 验自然决策</div>
+        <div class="small">这里已经把 `top_k` 和 `repetition_penalty` 改成 vLLM 原始 HTTP 接受的顶层字段，不再放进 `extra_body`。</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="head">
+        <div><h3>在线控制台</h3><div class="meta" id="endpointMeta">正在初始化连接信息...</div></div>
+        <div class="status" id="statusText">空闲中</div>
+      </div>
+
+      <div class="chat" id="messages">
+        <div class="welcome" id="welcome">
+          <h2>网页、接口、工具测试都接起来了</h2>
+          <div>上面聊天区适合验证访问链路和普通对话；下面工具实验区适合手动检查 `tools / tool_calls / arguments`，也能跑端到端工具执行。</div>
+        </div>
+      </div>
+
+      <div class="composer">
+        <div class="composer-wrap">
+          <div>
+            <textarea id="userInput" placeholder="请输入问题，Enter 发送，Shift + Enter 换行"></textarea>
+            <div class="small">聊天模式默认不附带 `tools`，适合确认前端能否正常访问模型。</div>
+          </div>
+          <div class="sendcol">
+            <button class="pri" id="sendBtn">发送</button>
+            <button class="secbtn" id="retryBtn">重试上一问</button>
+            <button class="warn" id="stopBtn">停止生成</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="lab">
+        <div class="card">
+          <h3>模型首轮工具调用检查</h3>
+          <p>直接请求 `/v1/chat/completions`，检查模型是否产出 `tool_calls`，不会执行真实工具。</p>
+          <div class="field"><label for="toolPrompt">测试问题</label><textarea id="toolPrompt" placeholder="例如：我从北京南站出发，想去颐和园，优先公共交通，帮我看看怎么走。"></textarea></div>
+          <div class="grid2">
+            <div class="field"><label for="toolChoice">tool_choice</label><select id="toolChoice"><option value="required">required</option><option value="auto">auto</option><option value="none">none</option><option value="named">指定函数</option></select></div>
+            <div class="field hidden" id="namedToolField"><label for="namedToolName">函数名</label><input id="namedToolName" type="text" value="amap_plan_route" /></div>
+          </div>
+          <div class="field"><label for="toolsJson">tools JSON</label><textarea id="toolsJson" style="min-height:220px;"></textarea></div>
+          <div class="btns">
+            <button class="secbtn" id="loadDefaultToolsBtn">载入默认工具</button>
+            <button class="pri" id="runToolCheckBtn">发送首轮请求</button>
+          </div>
+          <div class="result"><strong>assistant 文本</strong><pre id="toolAssistantText">尚未发送请求</pre></div>
+          <div class="result"><strong>tool_calls</strong><pre id="toolCallsOutput">尚未发送请求</pre></div>
+        </div>
+
+        <div class="card">
+          <h3>端到端 AMap 工具执行测试</h3>
+          <p>请求同源网关的 `/api/tool-orchestrate`，直接复用仓库里的 `ToolCallingOrchestrator` 和 `AmapClient`。</p>
+          <div class="field"><label for="orchestratePrompt">端到端测试问题</label><textarea id="orchestratePrompt" placeholder="例如：帮我找一下杭州西湖附近评分不错的酒店。"></textarea></div>
+          <div class="btns">
+            <button class="pri" id="runOrchestrateBtn">执行端到端测试</button>
+            <button class="secbtn" id="clearToolOutputsBtn">清空结果</button>
+          </div>
+          <div class="result"><strong>最终回答</strong><pre id="orchestrateAnswer">尚未执行</pre></div>
+          <div class="result"><strong>工具链 / Raw Response</strong><pre id="rawResponseOutput">尚未执行</pre></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY='tripai_vllm_gateway_config_v1';
+    const TOOLS=[{"type":"function","function":{"name":"amap_geocode","description":"将地点名解析为位置。","parameters":{"type":"object","properties":{"address":{"type":"string"},"city":{"type":"string"}},"required":["address"]}}},{"type":"function","function":{"name":"amap_search_poi","description":"搜索酒店、景点、地铁站等 POI。","parameters":{"type":"object","properties":{"keyword":{"type":"string"},"city":{"type":"string"},"around_location":{"type":"string"},"radius_m":{"type":"integer"}},"required":["keyword"]}}},{"type":"function","function":{"name":"amap_plan_route","description":"规划路线。","parameters":{"type":"object","properties":{"origin":{"type":"string"},"destination":{"type":"string"},"mode":{"type":"string","enum":["transit","driving","walking","bicycling"]},"city":{"type":"string"}},"required":["origin","destination"]}}}];
+    const el=id=>document.getElementById(id),messagesEl=el('messages'),statusText=el('statusText'),endpointMeta=el('endpointMeta');
+    let chatHistory=[],controller=null,lastUserMessage='',serverConfig={};
+
+    const autoGrow=t=>{t.style.height='auto';t.style.height=Math.min(t.scrollHeight,280)+'px'};
+    const escapeHtml=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+    const baseDefault=()=>window.location.protocol==='file:'?'http://127.0.0.1:7860/v1':`${window.location.origin}/v1`;
+    const setStatus=t=>{statusText.textContent=t;endpointMeta.textContent=`当前接口：${el('baseUrl').value.trim()||'(未设置)'} | 模型：${el('modelName').value.trim()||'(未设置)'}`};
+    const headers=cfg=>{const h={'Content-Type':'application/json'};if(cfg.apiKey)h.Authorization=`Bearer ${cfg.apiKey}`;return h};
+    const cfg=()=>({baseUrl:el('baseUrl').value.trim(),modelName:el('modelName').value.trim(),apiKey:el('apiKey').value,systemPrompt:el('systemPrompt').value,temperature:Number(el('temperature').value),top_p:Number(el('topP').value),max_tokens:Number(el('maxTokens').value),top_k:Number(el('topK').value),repetition_penalty:Number(el('repetitionPenalty').value),presence_penalty:Number(el('presencePenalty').value),stream:el('streamMode').checked,disableThinking:el('disableThinking').checked,singleToolCall:el('singleToolCall').checked,remember:el('rememberConfig').checked});
+    function basePayload(){const c=cfg(),p={model:c.modelName,temperature:c.temperature,top_p:c.top_p,max_tokens:c.max_tokens,top_k:c.top_k,repetition_penalty:c.repetition_penalty,presence_penalty:c.presence_penalty};if(c.disableThinking)p.chat_template_kwargs={enable_thinking:false};if(c.singleToolCall)p.parallel_tool_calls=false;return p}
+    function buildMessages(text,history=chatHistory){const c=cfg(),m=[];if(c.systemPrompt.trim())m.push({role:'system',content:c.systemPrompt.trim()});m.push(...history);m.push({role:'user',content:text});return m}
+    function renderBubble(role,content){const w=el('welcome');if(w)w.style.display='none';const b=document.createElement('div');b.className=`bubble ${role}`;b.innerHTML=`<div class="role">${role==='user'?'用户':'助手'}</div><div class="content">${escapeHtml(content)}</div>`;messagesEl.appendChild(b);messagesEl.scrollTop=messagesEl.scrollHeight;return b.querySelector('.content')}
+    function setDefaultTools(){el('toolsJson').value=JSON.stringify(Array.isArray(serverConfig.tool_schemas)?serverConfig.tool_schemas:TOOLS,null,2);autoGrow(el('toolsJson'))}
+    function toggleNamed(){el('namedToolField').classList.toggle('hidden',el('toolChoice').value!=='named')}
+    async function loadServerConfig(){try{const r=await fetch('/api/config');if(r.ok)serverConfig=await r.json()}catch(e){console.warn(e)}}
+    function saveConfig(){if(!cfg().remember){setStatus('已跳过保存');return}localStorage.setItem(STORAGE_KEY,JSON.stringify({...cfg(),toolPrompt:el('toolPrompt').value,orchestratePrompt:el('orchestratePrompt').value,toolsJson:el('toolsJson').value,toolChoice:el('toolChoice').value,namedToolName:el('namedToolName').value}));setStatus('配置已保存')}
+    function loadConfig(){el('baseUrl').value=baseDefault();el('modelName').value=serverConfig.default_model||'qwen3_8b_stage2_amap_tool_use';setDefaultTools();const raw=localStorage.getItem(STORAGE_KEY);if(!raw){setStatus('空闲中');return}try{const x=JSON.parse(raw);if(x.baseUrl)el('baseUrl').value=x.baseUrl;if(x.modelName)el('modelName').value=x.modelName;if(typeof x.apiKey==='string')el('apiKey').value=x.apiKey;if(typeof x.systemPrompt==='string')el('systemPrompt').value=x.systemPrompt;if(typeof x.temperature==='number')el('temperature').value=x.temperature;if(typeof x.top_p==='number')el('topP').value=x.top_p;if(typeof x.max_tokens==='number')el('maxTokens').value=x.max_tokens;if(typeof x.top_k==='number')el('topK').value=x.top_k;if(typeof x.repetition_penalty==='number')el('repetitionPenalty').value=x.repetition_penalty;if(typeof x.presence_penalty==='number')el('presencePenalty').value=x.presence_penalty;if(typeof x.stream==='boolean')el('streamMode').checked=x.stream;if(typeof x.disableThinking==='boolean')el('disableThinking').checked=x.disableThinking;if(typeof x.singleToolCall==='boolean')el('singleToolCall').checked=x.singleToolCall;if(typeof x.remember==='boolean')el('rememberConfig').checked=x.remember;if(typeof x.toolPrompt==='string')el('toolPrompt').value=x.toolPrompt;if(typeof x.orchestratePrompt==='string')el('orchestratePrompt').value=x.orchestratePrompt;if(typeof x.toolsJson==='string')el('toolsJson').value=x.toolsJson;if(typeof x.toolChoice==='string')el('toolChoice').value=x.toolChoice;if(typeof x.namedToolName==='string')el('namedToolName').value=x.namedToolName}catch(e){console.warn(e)}toggleNamed();setStatus('已加载本地配置')}
+    function clearConfig(){localStorage.removeItem(STORAGE_KEY);el('apiKey').value='';el('systemPrompt').value='';el('temperature').value=0.2;el('topP').value=0.9;el('maxTokens').value=1024;el('topK').value=40;el('repetitionPenalty').value=1.05;el('presencePenalty').value=0;el('streamMode').checked=true;el('disableThinking').checked=true;el('singleToolCall').checked=true;el('rememberConfig').checked=true;el('toolChoice').value='required';el('namedToolName').value='amap_plan_route';el('toolPrompt').value='';el('orchestratePrompt').value='';el('baseUrl').value=baseDefault();el('modelName').value=serverConfig.default_model||'qwen3_8b_stage2_amap_tool_use';setDefaultTools();toggleNamed();setStatus('配置已清空')}
+    async function fetchModels(){const c=cfg();try{const r=await fetch(`${c.baseUrl.replace(/\/$/,'')}/models`,{headers:headers(c)});if(!r.ok)throw new Error(`HTTP ${r.status}`);const j=await r.json(),first=j.data&&j.data[0]&&j.data[0].id;if(first){el('modelName').value=first;setStatus(`已探测模型：${first}`)}else setStatus('未读到模型列表')}catch(e){setStatus(`探测模型失败：${e.message}`)}}
+    async function sendMessage(retry=false){const c=cfg(),input=el('userInput'),text=retry?lastUserMessage:input.value.trim();if(!c.baseUrl||!c.modelName||!text)return;if(!retry){lastUserMessage=text;renderBubble('user',text);input.value='';autoGrow(input)}const node=renderBubble('assistant','');const payload={...basePayload(),stream:c.stream,messages:buildMessages(text)};controller=new AbortController();setStatus('生成中...');try{if(c.remember)saveConfig();const r=await fetch(`${c.baseUrl.replace(/\/$/,'')}/chat/completions`,{method:'POST',headers:headers(c),body:JSON.stringify(payload),signal:controller.signal});if(!r.ok){node.textContent=`请求失败：HTTP ${r.status}\n${await r.text()}`;setStatus('请求失败');return}let full='';if(c.stream){const reader=r.body.getReader(),decoder=new TextDecoder('utf-8');let buffer='';for(;;){const {value,done}=await reader.read();if(done)break;buffer+=decoder.decode(value,{stream:true});const parts=buffer.split('\n\n');buffer=parts.pop()||'';for(const part of parts){for(const line of part.split('\n').filter(x=>x.startsWith('data: '))){const data=line.slice(6).trim();if(data==='[DONE]')continue;try{const j=JSON.parse(data),delta=j.choices?.[0]?.delta?.content||'';if(delta){full+=delta;node.textContent=full;messagesEl.scrollTop=messagesEl.scrollHeight}}catch(e){console.warn(e)}}}}}else{const j=await r.json();full=j.choices?.[0]?.message?.content||'';node.textContent=full||'(空回复)'}chatHistory.push({role:'user',content:text});chatHistory.push({role:'assistant',content:full||'(空回复)'});setStatus('已完成')}catch(e){if(e.name==='AbortError'){node.textContent=node.textContent||'已停止生成';setStatus('已停止')}else{node.textContent=`发生错误：${e.message}`;setStatus('发生错误')}}finally{controller=null}}
+    async function runToolCheck(){const c=cfg(),prompt=el('toolPrompt').value.trim();if(!c.baseUrl||!c.modelName||!prompt)return;let tools=[];try{tools=JSON.parse(el('toolsJson').value||'[]')}catch(e){alert(`tools JSON 不合法：${e.message}`);return}const payload={...basePayload(),stream:false,messages:buildMessages(prompt,[]),tools};const choice=el('toolChoice').value;if(choice==='named'){const name=el('namedToolName').value.trim();if(!name)return;payload.tool_choice={type:'function',function:{name}}}else payload.tool_choice=choice;setStatus('工具首轮请求中...');try{const r=await fetch(`${c.baseUrl.replace(/\/$/,'')}/chat/completions`,{method:'POST',headers:headers(c),body:JSON.stringify(payload)}),text=await r.text();if(!r.ok)throw new Error(`HTTP ${r.status}\n${text}`);const j=JSON.parse(text),m=j.choices?.[0]?.message||{};el('toolAssistantText').textContent=m.content||'(无 assistant 文本)';el('toolCallsOutput').textContent=JSON.stringify(m.tool_calls||[],null,2);el('rawResponseOutput').textContent=JSON.stringify(j,null,2);setStatus('工具首轮请求完成')}catch(e){el('toolAssistantText').textContent=`请求失败：${e.message}`;el('toolCallsOutput').textContent='(无结果)';el('rawResponseOutput').textContent='(无结果)';setStatus('工具首轮请求失败')}}
+    async function runOrchestrate(){const c=cfg(),prompt=el('orchestratePrompt').value.trim();if(!c.modelName||!prompt)return;setStatus('端到端工具执行中...');try{const r=await fetch('/api/tool-orchestrate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:c.modelName,messages:buildMessages(prompt,[]),max_tokens:c.max_tokens,temperature:c.temperature,top_p:c.top_p,disable_thinking:c.disableThinking})}),text=await r.text();if(!r.ok)throw new Error(`HTTP ${r.status}\n${text}`);const j=JSON.parse(text);el('orchestrateAnswer').textContent=j.result?.final_answer||'(无最终回答)';el('rawResponseOutput').textContent=JSON.stringify(j,null,2);setStatus('端到端工具执行完成')}catch(e){el('orchestrateAnswer').textContent=`请求失败：${e.message}`;el('rawResponseOutput').textContent='(无结果)';setStatus('端到端工具执行失败')}}
+    function clearToolOutputs(){el('toolAssistantText').textContent='尚未发送请求';el('toolCallsOutput').textContent='尚未发送请求';el('orchestrateAnswer').textContent='尚未执行';el('rawResponseOutput').textContent='尚未执行';setStatus('已清空工具测试结果')}
+    function newChat(){chatHistory=[];messagesEl.innerHTML=`<div class="welcome" id="welcome"><h2>新的会话已开始</h2><div>当前参数和系统提示词会保留，会话历史已清空。</div></div>`;setStatus('新会话')}
+    function stopGeneration(){if(controller)controller.abort()}
+    async function init(){await loadServerConfig();loadConfig();['userInput','toolPrompt','orchestratePrompt','toolsJson'].forEach(id=>autoGrow(el(id)))}
+
+    el('sendBtn').addEventListener('click',()=>sendMessage(false));
+    el('retryBtn').addEventListener('click',()=>lastUserMessage&&sendMessage(true));
+    el('stopBtn').addEventListener('click',stopGeneration);
+    el('newChatBtn').addEventListener('click',newChat);
+    el('saveConfigBtn').addEventListener('click',saveConfig);
+    el('clearConfigBtn').addEventListener('click',clearConfig);
+    el('refreshModelsBtn').addEventListener('click',fetchModels);
+    el('loadDefaultToolsBtn').addEventListener('click',setDefaultTools);
+    el('runToolCheckBtn').addEventListener('click',runToolCheck);
+    el('runOrchestrateBtn').addEventListener('click',runOrchestrate);
+    el('clearToolOutputsBtn').addEventListener('click',clearToolOutputs);
+    el('toolChoice').addEventListener('change',toggleNamed);
+    ['baseUrl','modelName'].forEach(id=>el(id).addEventListener('input',()=>setStatus('空闲中')));
+    ['userInput','toolPrompt','orchestratePrompt','toolsJson'].forEach(id=>el(id).addEventListener('input',e=>autoGrow(e.target)));
+    el('userInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage(false)}});
+    init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+[
+  {
+    "id": "native_single_route_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "我从北京南站出发，想去颐和园，优先公共交通，帮我看看怎么走。"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "chatcmpl-tool-837c3825eff88751",
+        "type": "function",
+        "function": {
+          "name": "amap_plan_route",
+          "arguments": "{\"origin\": \"北京南站\", \"destination\": \"颐和园\", \"mode\": \"transit\", \"city\": \"北京\"}"
+        }
+      }
+    ],
+    "content": "",
+    "raw_response": {
+      "id": "chatcmpl-aa84e6d13d056cb9",
+      "object": "chat.completion",
+      "created": 1776245344,
+      "model": "qwen3_8b_stage2_amap_tool_use",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": null,
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [
+              {
+                "id": "chatcmpl-tool-837c3825eff88751",
+                "type": "function",
+                "function": {
+                  "name": "amap_plan_route",
+                  "arguments": "{\"origin\": \"北京南站\", \"destination\": \"颐和园\", \"mode\": \"transit\", \"city\": \"北京\"}"
+                }
+              }
+            ],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "tool_calls",
+          "stop_reason": null,
+          "token_ids": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 635,
+        "total_tokens": 680,
+        "completion_tokens": 45,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "kv_transfer_params": null
+    }
+  },
+  {
+    "id": "native_geocode_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "雷峰塔具体在哪？"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "chatcmpl-tool-a827ff3706816017",
+        "type": "function",
+        "function": {
+          "name": "amap_geocode",
+          "arguments": "{\"address\": \"雷峰塔\", \"city\": \"杭州\"}"
+        }
+      }
+    ],
+    "content": "",
+    "raw_response": {
+      "id": "chatcmpl-9837bab597f05296",
+      "object": "chat.completion",
+      "created": 1776245346,
+      "model": "qwen3_8b_stage2_amap_tool_use",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": null,
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [
+              {
+                "id": "chatcmpl-tool-a827ff3706816017",
+                "type": "function",
+                "function": {
+                  "name": "amap_geocode",
+                  "arguments": "{\"address\": \"雷峰塔\", \"city\": \"杭州\"}"
+                }
+              }
+            ],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "tool_calls",
+          "stop_reason": null,
+          "token_ids": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 621,
+        "total_tokens": 650,
+        "completion_tokens": 29,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "kv_transfer_params": null
+    }
+  },
+  {
+    "id": "native_clarify_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。参数不够时先澄清，再调用工具。"
+      },
+      {
+        "role": "user",
+        "content": "帮我规划一下去机场的路线。"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "chatcmpl-tool-bbcd3763468a8319",
+        "type": "function",
+        "function": {
+          "name": "amap_plan_route",
+          "arguments": "{\"origin\": \"当前位置\", \"destination\": \"机场\", \"mode\": \"driving\", \"city\": \"所在城市\"}"
+        }
+      }
+    ],
+    "content": "",
+    "raw_response": {
+      "id": "chatcmpl-84c4d476e3fec950",
+      "object": "chat.completion",
+      "created": 1776245347,
+      "model": "qwen3_8b_stage2_amap_tool_use",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": null,
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [
+              {
+                "id": "chatcmpl-tool-bbcd3763468a8319",
+                "type": "function",
+                "function": {
+                  "name": "amap_plan_route",
+                  "arguments": "{\"origin\": \"当前位置\", \"destination\": \"机场\", \"mode\": \"driving\", \"city\": \"所在城市\"}"
+                }
+              }
+            ],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "tool_calls",
+          "stop_reason": null,
+          "token_ids": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 620,
+        "total_tokens": 662,
+        "completion_tokens": 42,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "kv_transfer_params": null
+    }
+  },
+  {
+    "id": "native_no_tool_001",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。参数不够时先澄清，再调用工具。"
+      },
+      {
+        "role": "user",
+        "content": "西湖适合带老人慢慢逛吗？"
+      }
+    ],
+    "tool_calls": [],
+    "content": "西湖非常适合带老人慢慢逛。西湖景区内有丰富的自然景观和人文历史，如苏堤、白堤、断桥、雷峰塔等。这些景点之间有便捷的公共交通工具连接，如公交、地铁等，非常适合带老人慢慢逛。",
+    "raw_response": {
+      "id": "chatcmpl-8f551e213bedcb3d",
+      "object": "chat.completion",
+      "created": 1776245348,
+      "model": "qwen3_8b_stage2_amap_tool_use",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "西湖非常适合带老人慢慢逛。西湖景区内有丰富的自然景观和人文历史，如苏堤、白堤、断桥、雷峰塔等。这些景点之间有便捷的公共交通工具连接，如公交、地铁等，非常适合带老人慢慢逛。",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 620,
+        "total_tokens": 676,
+        "completion_tokens": 56,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "kv_transfer_params": null
+    }
+  },
+  {
+    "id": "native_poi_001",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下西湖附近适合中转住一晚的酒店。"
+      }
+    ],
+    "tool_calls": [],
+    "content": "<tool_call>\n{\"name\": \"amap_search_poi\", \"arguments\": {\"keyword\": \"酒店\", \"city\": \"杭州\", \"around_location\": \"西湖\", \"radius_m\": 3000}}}\n</tool_call>",
+    "raw_response": {
+      "id": "chatcmpl-945c23f28e128462",
+      "object": "chat.completion",
+      "created": 1776245350,
+      "model": "qwen3_8b_stage2_amap_tool_use",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "<tool_call>\n{\"name\": \"amap_search_poi\", \"arguments\": {\"keyword\": \"酒店\", \"city\": \"杭州\", \"around_location\": \"西湖\", \"radius_m\": 3000}}}\n</tool_call>",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 629,
+        "total_tokens": 676,
+        "completion_tokens": 47,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "kv_transfer_params": null
+    }
+  },
+  {
+    "id": "native_fallback_001",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。工具失败时要明确说明不确定性并给出稳妥建议。"
+      },
+      {
+        "role": "user",
+        "content": "帮我查一下从虹桥机场到外滩的最快路线。"
+      }
+    ],
+    "tool_calls": [
+      {
+        "id": "chatcmpl-tool-b4d01276b27f8656",
+        "type": "function",
+        "function": {
+          "name": "amap_plan_route",
+          "arguments": "{\"origin\": \"虹桥机场\", \"destination\": \"外滩\", \"mode\": \"driving\", \"city\": \"上海\"}"
+        }
+      }
+    ],
+    "content": "",
+    "raw_response": {
+      "id": "chatcmpl-a0db90c6e6b36402",
+      "object": "chat.completion",
+      "created": 1776245351,
+      "model": "qwen3_8b_stage2_amap_tool_use",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": null,
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "tool_calls": [
+              {
+                "id": "chatcmpl-tool-b4d01276b27f8656",
+                "type": "function",
+                "function": {
+                  "name": "amap_plan_route",
+                  "arguments": "{\"origin\": \"虹桥机场\", \"destination\": \"外滩\", \"mode\": \"driving\", \"city\": \"上海\"}"
+                }
+              }
+            ],
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "tool_calls",
+          "stop_reason": null,
+          "token_ids": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": null,
+      "usage": {
+        "prompt_tokens": 626,
+        "total_tokens": 668,
+        "completion_tokens": 42,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "kv_transfer_params": null
+    }
+  }
+]
