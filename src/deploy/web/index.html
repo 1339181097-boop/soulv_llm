@@ -158,6 +158,40 @@
     const baseDefault=()=>window.location.protocol==='file:'?'http://127.0.0.1:7860/v1':`${window.location.origin}/v1`;
     const setStatus=t=>{statusText.textContent=t;endpointMeta.textContent=`当前接口：${el('baseUrl').value.trim()||'(未设置)'} | 模型：${el('modelName').value.trim()||'(未设置)'}`};
     const headers=cfg=>{const h={'Content-Type':'application/json'};if(cfg.apiKey)h.Authorization=`Bearer ${cfg.apiKey}`;return h};
+    function parseTextToolCalls(content){
+      if(typeof content!=='string'||!content.includes('<tool_call>')) return [];
+      const match=content.match(/<tool_call>\s*([\s\S]*?)\s*<\/tool_call>/i);
+      if(!match) return [];
+      const raw=match[1].trim();
+      const tryParse=value=>{try{return JSON.parse(value)}catch{return null}};
+      let parsed=tryParse(raw);
+      if(!parsed){
+        const firstBrace=raw.indexOf('{');
+        if(firstBrace>=0){
+          let depth=0,inString=false,escapeNext=false,end=-1;
+          for(let i=firstBrace;i<raw.length;i++){
+            const ch=raw[i];
+            if(inString){
+              if(escapeNext) escapeNext=false;
+              else if(ch==='\\') escapeNext=true;
+              else if(ch==='"') inString=false;
+              continue;
+            }
+            if(ch==='"'){inString=true;continue}
+            if(ch==='{'){depth++;continue}
+            if(ch==='}'){
+              depth--;
+              if(depth===0){end=i;break}
+            }
+          }
+          if(end>=0) parsed=tryParse(raw.slice(firstBrace,end+1));
+        }
+      }
+      if(!parsed||typeof parsed!=='object'||Array.isArray(parsed)||typeof parsed.name!=='string') return [];
+      const args=typeof parsed.arguments==='string'?tryParse(parsed.arguments):parsed.arguments;
+      if(!args||typeof args!=='object'||Array.isArray(args)) return [];
+      return [{id:'call_1',type:'function',function:{name:parsed.name,arguments:JSON.stringify(args)}}];
+    }
     const cfg=()=>({baseUrl:el('baseUrl').value.trim(),modelName:el('modelName').value.trim(),apiKey:el('apiKey').value,systemPrompt:el('systemPrompt').value,temperature:Number(el('temperature').value),top_p:Number(el('topP').value),max_tokens:Number(el('maxTokens').value),top_k:Number(el('topK').value),repetition_penalty:Number(el('repetitionPenalty').value),presence_penalty:Number(el('presencePenalty').value),stream:el('streamMode').checked,disableThinking:el('disableThinking').checked,singleToolCall:el('singleToolCall').checked,remember:el('rememberConfig').checked});
     function basePayload(){const c=cfg(),p={model:c.modelName,temperature:c.temperature,top_p:c.top_p,max_tokens:c.max_tokens,top_k:c.top_k,repetition_penalty:c.repetition_penalty,presence_penalty:c.presence_penalty};if(c.disableThinking)p.chat_template_kwargs={enable_thinking:false};if(c.singleToolCall)p.parallel_tool_calls=false;return p}
     function buildMessages(text,history=chatHistory){const c=cfg(),m=[];if(c.systemPrompt.trim())m.push({role:'system',content:c.systemPrompt.trim()});m.push(...history);m.push({role:'user',content:text});return m}
@@ -170,7 +204,7 @@
     function clearConfig(){localStorage.removeItem(STORAGE_KEY);el('apiKey').value='';el('systemPrompt').value='';el('temperature').value=0.2;el('topP').value=0.9;el('maxTokens').value=1024;el('topK').value=40;el('repetitionPenalty').value=1.05;el('presencePenalty').value=0;el('streamMode').checked=true;el('disableThinking').checked=true;el('singleToolCall').checked=true;el('rememberConfig').checked=true;el('toolChoice').value='required';el('namedToolName').value='amap_plan_route';el('toolPrompt').value='';el('orchestratePrompt').value='';el('baseUrl').value=baseDefault();el('modelName').value=serverConfig.default_model||'qwen3_8b_stage2_amap_tool_use';setDefaultTools();toggleNamed();setStatus('配置已清空')}
     async function fetchModels(){const c=cfg();try{const r=await fetch(`${c.baseUrl.replace(/\/$/,'')}/models`,{headers:headers(c)});if(!r.ok)throw new Error(`HTTP ${r.status}`);const j=await r.json(),first=j.data&&j.data[0]&&j.data[0].id;if(first){el('modelName').value=first;setStatus(`已探测模型：${first}`)}else setStatus('未读到模型列表')}catch(e){setStatus(`探测模型失败：${e.message}`)}}
     async function sendMessage(retry=false){const c=cfg(),input=el('userInput'),text=retry?lastUserMessage:input.value.trim();if(!c.baseUrl||!c.modelName||!text)return;if(!retry){lastUserMessage=text;renderBubble('user',text);input.value='';autoGrow(input)}const node=renderBubble('assistant','');const payload={...basePayload(),stream:c.stream,messages:buildMessages(text)};controller=new AbortController();setStatus('生成中...');try{if(c.remember)saveConfig();const r=await fetch(`${c.baseUrl.replace(/\/$/,'')}/chat/completions`,{method:'POST',headers:headers(c),body:JSON.stringify(payload),signal:controller.signal});if(!r.ok){node.textContent=`请求失败：HTTP ${r.status}\n${await r.text()}`;setStatus('请求失败');return}let full='';if(c.stream){const reader=r.body.getReader(),decoder=new TextDecoder('utf-8');let buffer='';for(;;){const {value,done}=await reader.read();if(done)break;buffer+=decoder.decode(value,{stream:true});const parts=buffer.split('\n\n');buffer=parts.pop()||'';for(const part of parts){for(const line of part.split('\n').filter(x=>x.startsWith('data: '))){const data=line.slice(6).trim();if(data==='[DONE]')continue;try{const j=JSON.parse(data),delta=j.choices?.[0]?.delta?.content||'';if(delta){full+=delta;node.textContent=full;messagesEl.scrollTop=messagesEl.scrollHeight}}catch(e){console.warn(e)}}}}}else{const j=await r.json();full=j.choices?.[0]?.message?.content||'';node.textContent=full||'(空回复)'}chatHistory.push({role:'user',content:text});chatHistory.push({role:'assistant',content:full||'(空回复)'});setStatus('已完成')}catch(e){if(e.name==='AbortError'){node.textContent=node.textContent||'已停止生成';setStatus('已停止')}else{node.textContent=`发生错误：${e.message}`;setStatus('发生错误')}}finally{controller=null}}
-    async function runToolCheck(){const c=cfg(),prompt=el('toolPrompt').value.trim();if(!c.baseUrl||!c.modelName||!prompt)return;let tools=[];try{tools=JSON.parse(el('toolsJson').value||'[]')}catch(e){alert(`tools JSON 不合法：${e.message}`);return}const payload={...basePayload(),stream:false,messages:buildMessages(prompt,[]),tools};const choice=el('toolChoice').value;if(choice==='named'){const name=el('namedToolName').value.trim();if(!name)return;payload.tool_choice={type:'function',function:{name}}}else payload.tool_choice=choice;setStatus('工具首轮请求中...');try{const r=await fetch(`${c.baseUrl.replace(/\/$/,'')}/chat/completions`,{method:'POST',headers:headers(c),body:JSON.stringify(payload)}),text=await r.text();if(!r.ok)throw new Error(`HTTP ${r.status}\n${text}`);const j=JSON.parse(text),m=j.choices?.[0]?.message||{};el('toolAssistantText').textContent=m.content||'(无 assistant 文本)';el('toolCallsOutput').textContent=JSON.stringify(m.tool_calls||[],null,2);el('rawResponseOutput').textContent=JSON.stringify(j,null,2);setStatus('工具首轮请求完成')}catch(e){el('toolAssistantText').textContent=`请求失败：${e.message}`;el('toolCallsOutput').textContent='(无结果)';el('rawResponseOutput').textContent='(无结果)';setStatus('工具首轮请求失败')}}
+    async function runToolCheck(){const c=cfg(),prompt=el('toolPrompt').value.trim();if(!c.baseUrl||!c.modelName||!prompt)return;let tools=[];try{tools=JSON.parse(el('toolsJson').value||'[]')}catch(e){alert(`tools JSON 不合法：${e.message}`);return}const payload={...basePayload(),stream:false,messages:buildMessages(prompt,[]),tools};const choice=el('toolChoice').value;if(choice==='named'){const name=el('namedToolName').value.trim();if(!name)return;payload.tool_choice={type:'function',function:{name}}}else payload.tool_choice=choice;setStatus('工具首轮请求中...');try{const r=await fetch(`${c.baseUrl.replace(/\/$/,'')}/chat/completions`,{method:'POST',headers:headers(c),body:JSON.stringify(payload)}),text=await r.text();if(!r.ok)throw new Error(`HTTP ${r.status}\n${text}`);const j=JSON.parse(text),m=j.choices?.[0]?.message||{};const structuredCalls=Array.isArray(m.tool_calls)&&m.tool_calls.length?m.tool_calls:parseTextToolCalls(m.content||'');el('toolAssistantText').textContent=m.content||'(无 assistant 文本)';el('toolCallsOutput').textContent=JSON.stringify(structuredCalls,null,2);el('rawResponseOutput').textContent=JSON.stringify(j,null,2);setStatus(structuredCalls.length?'工具首轮请求完成':'工具首轮请求完成（未检测到结构化 tool_calls）')}catch(e){el('toolAssistantText').textContent=`请求失败：${e.message}`;el('toolCallsOutput').textContent='(无结果)';el('rawResponseOutput').textContent='(无结果)';setStatus('工具首轮请求失败')}}
     async function runOrchestrate(){const c=cfg(),prompt=el('orchestratePrompt').value.trim();if(!c.modelName||!prompt)return;setStatus('端到端工具执行中...');try{const r=await fetch('/api/tool-orchestrate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:c.modelName,messages:buildMessages(prompt,[]),max_tokens:c.max_tokens,temperature:c.temperature,top_p:c.top_p,disable_thinking:c.disableThinking})}),text=await r.text();if(!r.ok)throw new Error(`HTTP ${r.status}\n${text}`);const j=JSON.parse(text);el('orchestrateAnswer').textContent=j.result?.final_answer||'(无最终回答)';el('rawResponseOutput').textContent=JSON.stringify(j,null,2);setStatus('端到端工具执行完成')}catch(e){el('orchestrateAnswer').textContent=`请求失败：${e.message}`;el('rawResponseOutput').textContent='(无结果)';setStatus('端到端工具执行失败')}}
     function clearToolOutputs(){el('toolAssistantText').textContent='尚未发送请求';el('toolCallsOutput').textContent='尚未发送请求';el('orchestrateAnswer').textContent='尚未执行';el('rawResponseOutput').textContent='尚未执行';setStatus('已清空工具测试结果')}
     function newChat(){chatHistory=[];messagesEl.innerHTML=`<div class="welcome" id="welcome"><h2>新的会话已开始</h2><div>当前参数和系统提示词会保留，会话历史已清空。</div></div>`;setStatus('新会话')}

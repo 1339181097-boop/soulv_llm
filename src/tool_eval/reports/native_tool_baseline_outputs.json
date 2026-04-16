@@ -18,7 +18,7 @@
     ],
     "tool_calls": [
       {
-        "id": "chatcmpl-tool-837c3825eff88751",
+        "id": "chatcmpl-tool-97d95f250abcdfa6",
         "type": "function",
         "function": {
           "name": "amap_plan_route",
@@ -28,9 +28,9 @@
     ],
     "content": "",
     "raw_response": {
-      "id": "chatcmpl-aa84e6d13d056cb9",
+      "id": "chatcmpl-a26f70b578aea979",
       "object": "chat.completion",
-      "created": 1776245344,
+      "created": 1776307887,
       "model": "qwen3_8b_stage2_amap_tool_use",
       "choices": [
         {
@@ -44,7 +44,7 @@
             "function_call": null,
             "tool_calls": [
               {
-                "id": "chatcmpl-tool-837c3825eff88751",
+                "id": "chatcmpl-tool-97d95f250abcdfa6",
                 "type": "function",
                 "function": {
                   "name": "amap_plan_route",
@@ -92,7 +92,7 @@
     ],
     "tool_calls": [
       {
-        "id": "chatcmpl-tool-a827ff3706816017",
+        "id": "chatcmpl-tool-bd6e878133b6ee6e",
         "type": "function",
         "function": {
           "name": "amap_geocode",
@@ -102,9 +102,9 @@
     ],
     "content": "",
     "raw_response": {
-      "id": "chatcmpl-9837bab597f05296",
+      "id": "chatcmpl-9acc6da815b2f1e7",
       "object": "chat.completion",
-      "created": 1776245346,
+      "created": 1776307889,
       "model": "qwen3_8b_stage2_amap_tool_use",
       "choices": [
         {
@@ -118,7 +118,7 @@
             "function_call": null,
             "tool_calls": [
               {
-                "id": "chatcmpl-tool-a827ff3706816017",
+                "id": "chatcmpl-tool-bd6e878133b6ee6e",
                 "type": "function",
                 "function": {
                   "name": "amap_geocode",
@@ -166,7 +166,7 @@
     ],
     "tool_calls": [
       {
-        "id": "chatcmpl-tool-bbcd3763468a8319",
+        "id": "chatcmpl-tool-8b52269a97dfd71f",
         "type": "function",
         "function": {
           "name": "amap_plan_route",
@@ -176,9 +176,9 @@
     ],
     "content": "",
     "raw_response": {
-      "id": "chatcmpl-84c4d476e3fec950",
+      "id": "chatcmpl-ac7da979b7e43d0d",
       "object": "chat.completion",
-      "created": 1776245347,
+      "created": 1776307890,
       "model": "qwen3_8b_stage2_amap_tool_use",
       "choices": [
         {
@@ -192,7 +192,7 @@
             "function_call": null,
             "tool_calls": [
               {
-                "id": "chatcmpl-tool-bbcd3763468a8319",
+                "id": "chatcmpl-tool-8b52269a97dfd71f",
                 "type": "function",
                 "function": {
                   "name": "amap_plan_route",
@@ -239,9 +239,9 @@
     "tool_calls": [],
     "content": "西湖非常适合带老人慢慢逛。西湖景区内有丰富的自然景观和人文历史，如苏堤、白堤、断桥、雷峰塔等。这些景点之间有便捷的公共交通工具连接，如公交、地铁等，非常适合带老人慢慢逛。",
     "raw_response": {
-      "id": "chatcmpl-8f551e213bedcb3d",
+      "id": "chatcmpl-866486320e9e610b",
       "object": "chat.completion",
-      "created": 1776245348,
+      "created": 1776307891,
       "model": "qwen3_8b_stage2_amap_tool_use",
       "choices": [
         {
@@ -295,9 +295,9 @@
     "tool_calls": [],
     "content": "<tool_call>\n{\"name\": \"amap_search_poi\", \"arguments\": {\"keyword\": \"酒店\", \"city\": \"杭州\", \"around_location\": \"西湖\", \"radius_m\": 3000}}}\n</tool_call>",
     "raw_response": {
-      "id": "chatcmpl-945c23f28e128462",
+      "id": "chatcmpl-a34a59c40b4b2766",
       "object": "chat.completion",
-      "created": 1776245350,
+      "created": 1776307893,
       "model": "qwen3_8b_stage2_amap_tool_use",
       "choices": [
         {
@@ -350,7 +350,7 @@
     ],
     "tool_calls": [
       {
-        "id": "chatcmpl-tool-b4d01276b27f8656",
+        "id": "chatcmpl-tool-9829a67d8ed975fd",
         "type": "function",
         "function": {
           "name": "amap_plan_route",
@@ -360,9 +360,9 @@
     ],
     "content": "",
     "raw_response": {
-      "id": "chatcmpl-a0db90c6e6b36402",
+      "id": "chatcmpl-b7cdf19dfb3afa6f",
       "object": "chat.completion",
-      "created": 1776245351,
+      "created": 1776307894,
       "model": "qwen3_8b_stage2_amap_tool_use",
       "choices": [
         {
@@ -376,7 +376,7 @@
             "function_call": null,
             "tool_calls": [
               {
-                "id": "chatcmpl-tool-b4d01276b27f8656",
+                "id": "chatcmpl-tool-9829a67d8ed975fd",
                 "type": "function",
                 "function": {
                   "name": "amap_plan_route",

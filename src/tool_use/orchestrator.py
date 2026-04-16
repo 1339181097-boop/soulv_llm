@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 from dataclasses import dataclass
 from typing import Any, Protocol
@@ -10,6 +11,10 @@ from .amap_client import AmapClient
 from .protocol import ALLOWED_TWO_STEP_CHAINS, build_amap_tool_schemas, build_tool_error
 
 RETRYABLE_STATUS_CODES = {408, 409, 429, 500, 502, 503, 504}
+CONTEXT_LIMIT_INPUT_OUTPUT_PATTERN = re.compile(r"You passed (\d+) input tokens and requested (\d+) output tokens")
+CONTEXT_LIMIT_TOTAL_PATTERN = re.compile(r"context length is only (\d+) tokens")
+CONTEXT_LIMIT_MAX_INPUT_PATTERN = re.compile(r"maximum input length of (\d+) tokens")
+TEXT_TOOL_CALL_PATTERN = re.compile(r"<tool_call>\s*(.*?)\s*</tool_call>", re.DOTALL | re.IGNORECASE)
 
 
 def _resolve_chat_completions_url(base_url: str) -> str:
@@ -65,6 +70,94 @@ def _normalize_tool_calls(tool_calls: Any) -> list[dict[str, Any]]:
     return normalized
 
 
+def _extract_first_balanced_json_object(value: str) -> str | None:
+    start_index = value.find("{")
+    if start_index < 0:
+        return None
+
+    depth = 0
+    in_string = False
+    escape_next = False
+    for index in range(start_index, len(value)):
+        char = value[index]
+        if in_string:
+            if escape_next:
+                escape_next = False
+            elif char == "\\":
+                escape_next = True
+            elif char == '"':
+                in_string = False
+            continue
+
+        if char == '"':
+            in_string = True
+            continue
+        if char == "{":
+            depth += 1
+            continue
+        if char == "}":
+            depth -= 1
+            if depth == 0:
+                return value[start_index : index + 1]
+    return None
+
+
+def _normalize_text_tool_call_payload(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    tool_name = payload.get("name")
+    if not isinstance(tool_name, str) or not tool_name.strip():
+        return []
+
+    arguments = payload.get("arguments", {})
+    if isinstance(arguments, str):
+        try:
+            parsed_arguments = json.loads(arguments)
+        except json.JSONDecodeError:
+            return []
+        if not isinstance(parsed_arguments, dict):
+            return []
+        arguments = parsed_arguments
+
+    if not isinstance(arguments, dict):
+        return []
+
+    return [
+        {
+            "id": "call_1",
+            "type": "function",
+            "function": {
+                "name": tool_name.strip(),
+                "arguments": json.dumps(arguments, ensure_ascii=False),
+            },
+        }
+    ]
+
+
+def _parse_text_tool_calls(content: str) -> list[dict[str, Any]]:
+    if not isinstance(content, str) or "<tool_call" not in content.lower():
+        return []
+
+    match = TEXT_TOOL_CALL_PATTERN.search(content)
+    if match is None:
+        return []
+
+    candidate = match.group(1).strip()
+    payload: dict[str, Any] | None = None
+    for raw_candidate in (candidate, _extract_first_balanced_json_object(candidate) or ""):
+        if not raw_candidate:
+            continue
+        try:
+            decoded = json.loads(raw_candidate)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(decoded, dict):
+            payload = decoded
+            break
+
+    if payload is None:
+        return []
+    return _normalize_text_tool_call_payload(payload)
+
+
 def _extract_assistant_message(response_payload: dict[str, Any]) -> dict[str, Any]:
     choices = response_payload.get("choices")
     if not isinstance(choices, list) or not choices:
@@ -83,9 +176,62 @@ def _extract_assistant_message(response_payload: dict[str, Any]) -> dict[str, An
         "content": _coerce_response_text(message.get("content")),
     }
     tool_calls = _normalize_tool_calls(message.get("tool_calls"))
+    if not tool_calls:
+        tool_calls = _parse_text_tool_calls(normalized_message["content"])
     if tool_calls:
         normalized_message["tool_calls"] = tool_calls
+        if TEXT_TOOL_CALL_PATTERN.fullmatch(normalized_message["content"].strip()):
+            normalized_message["content"] = ""
     return normalized_message
+
+
+def _extract_error_message(error_body: str) -> str:
+    try:
+        payload = json.loads(error_body)
+    except json.JSONDecodeError:
+        return error_body
+
+    if not isinstance(payload, dict):
+        return error_body
+
+    details = payload.get("error")
+    if isinstance(details, dict):
+        message = details.get("message")
+        if isinstance(message, str) and message.strip():
+            return message
+
+    message = payload.get("message")
+    if isinstance(message, str) and message.strip():
+        return message
+    return error_body
+
+
+def _shrink_max_tokens_for_context_error(error_body: str, current_max_tokens: int) -> int | None:
+    message = _extract_error_message(error_body)
+    input_output_match = CONTEXT_LIMIT_INPUT_OUTPUT_PATTERN.search(message)
+    if input_output_match is None:
+        return None
+
+    input_tokens = int(input_output_match.group(1))
+    total_match = CONTEXT_LIMIT_TOTAL_PATTERN.search(message)
+    max_input_match = CONTEXT_LIMIT_MAX_INPUT_PATTERN.search(message)
+
+    allowed_output_tokens: int | None = None
+    if total_match is not None:
+        total_context_tokens = int(total_match.group(1))
+        allowed_output_tokens = total_context_tokens - input_tokens
+    elif max_input_match is not None:
+        maximum_input_tokens = int(max_input_match.group(1))
+        overflow_tokens = max(0, input_tokens - maximum_input_tokens)
+        allowed_output_tokens = current_max_tokens - overflow_tokens
+
+    if allowed_output_tokens is None:
+        return None
+
+    adjusted_max_tokens = max(1, allowed_output_tokens)
+    if adjusted_max_tokens >= current_max_tokens:
+        return None
+    return adjusted_max_tokens
 
 
 class ChatCompletionClient(Protocol):
@@ -128,44 +274,55 @@ class OpenAICompatibleChatClient:
         temperature: float = 0.0,
         top_p: float = 1.0,
     ) -> dict[str, Any]:
-        payload: dict[str, Any] = {
-            "model": model,
-            "messages": messages,
-            "max_tokens": max_tokens,
-            "temperature": temperature,
-            "top_p": top_p,
-            "stream": False,
-        }
-        if tools:
-            payload["tools"] = tools
-            payload["tool_choice"] = "auto"
-        if self.disable_thinking:
-            payload["chat_template_kwargs"] = {"enable_thinking": False}
-
-        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         headers = {"Content-Type": "application/json"}
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
 
         last_error: Exception | None = None
-        for attempt in range(self.retry_count + 1):
+        retry_attempt = 0
+        context_retry_budget = 3
+        current_max_tokens = max_tokens
+
+        while True:
+            payload: dict[str, Any] = {
+                "model": model,
+                "messages": messages,
+                "max_tokens": current_max_tokens,
+                "temperature": temperature,
+                "top_p": top_p,
+                "stream": False,
+            }
+            if tools:
+                payload["tools"] = tools
+                payload["tool_choice"] = "auto"
+            if self.disable_thinking:
+                payload["chat_template_kwargs"] = {"enable_thinking": False}
+
+            body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
             req = request.Request(self.request_url, data=body, headers=headers, method="POST")
             try:
                 with request.urlopen(req, timeout=self.timeout_seconds) as response:
                     return json.loads(response.read().decode("utf-8", errors="replace"))
             except error.HTTPError as exc:
                 error_body = exc.read().decode("utf-8", errors="replace")
+                if exc.code == 400 and context_retry_budget > 0:
+                    adjusted_max_tokens = _shrink_max_tokens_for_context_error(error_body, current_max_tokens)
+                    if adjusted_max_tokens is not None:
+                        current_max_tokens = adjusted_max_tokens
+                        context_retry_budget -= 1
+                        continue
                 last_error = RuntimeError(f"HTTP {exc.code}: {error_body[:800]}")
-                if exc.code not in RETRYABLE_STATUS_CODES or attempt >= self.retry_count:
+                if exc.code not in RETRYABLE_STATUS_CODES or retry_attempt >= self.retry_count:
                     raise last_error
             except error.URLError as exc:
                 last_error = RuntimeError(f"Request failed: {exc}")
-                if attempt >= self.retry_count:
+                if retry_attempt >= self.retry_count:
                     raise last_error
             except json.JSONDecodeError as exc:
                 raise RuntimeError(f"Endpoint returned invalid JSON: {exc}") from exc
 
-            time.sleep(min(2**attempt, 8))
+            time.sleep(min(2**retry_attempt, 8))
+            retry_attempt += 1
 
         if last_error is None:
             raise RuntimeError("Chat completion failed without captured exception.")

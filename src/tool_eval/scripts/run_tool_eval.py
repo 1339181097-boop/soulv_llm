@@ -8,7 +8,7 @@ from typing import Any
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 
-from src.data_pipeline.data_utils import configure_console_output, log_info, log_success, read_json, write_json
+from src.data_pipeline.data_utils import configure_console_output, log_error, log_info, log_success, read_json, write_json
 from src.tool_use import AmapClient, OpenAICompatibleChatClient, ToolCallingOrchestrator
 
 DEFAULT_DATASET_PATH = "src/tool_eval/datasets/stage2_amap_golden.json"
@@ -38,15 +38,24 @@ def main() -> int:
     orchestrator = ToolCallingOrchestrator(chat_client=chat_client, model=args.model, amap_client=amap_client)
 
     outputs: list[dict[str, Any]] = []
+    output_path = write_json(args.output, outputs)
+    log_info(f"Writing incremental tool eval outputs to: {output_path}")
+
     for index, case in enumerate(dataset, start=1):
         log_info(f"Running tool eval case {index}/{len(dataset)}: {case['id']}")
-        result = orchestrator.run(
-            case["messages"],
-            max_tokens=args.max_new_tokens,
-            temperature=args.temperature,
-            top_p=args.top_p,
-            tool_test_mode=case.get("tool_test_mode"),
-        )
+        try:
+            result = orchestrator.run(
+                case["messages"],
+                max_tokens=args.max_new_tokens,
+                temperature=args.temperature,
+                top_p=args.top_p,
+                tool_test_mode=case.get("tool_test_mode"),
+            )
+        except Exception as exc:
+            write_json(args.output, outputs)
+            log_error(f"Tool eval interrupted at case {case['id']}: {exc}")
+            raise
+
         outputs.append(
             {
                 "id": case["id"],
@@ -59,6 +68,7 @@ def main() -> int:
                 "result": result,
             }
         )
+        write_json(args.output, outputs)
 
     output_path = write_json(args.output, outputs)
     log_success(f"Stage2 tool eval outputs written to: {output_path}")
