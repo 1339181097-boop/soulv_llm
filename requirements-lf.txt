@@ -1,0 +1,28 @@
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+# Official LLaMA-Factory stack, pinned for the Qwen3-32B dual-L20 training track.
+torch==2.6.0
+torchvision==0.21.0
+torchaudio==2.6.0
+transformers==4.51.3
+datasets==3.2.0
+accelerate==1.2.1
+peft==0.15.1
+trl==0.9.6
+deepspeed==0.16.4
+bitsandbytes==0.43.1
+
+# Build/runtime helpers commonly needed by DeepSpeed and editable installs.
+ninja>=1.11,<2
+packaging>=24,<26
+sentencepiece>=0.2,<0.3
+protobuf>=5,<6
+scipy>=1.10,<1.16
+
+# Repo-local data pipeline and test helpers used in this workspace.
+pandas
+pyarrow
+tqdm
+datasketch
+jieba
+pytest

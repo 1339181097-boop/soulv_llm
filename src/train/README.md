@@ -2,6 +2,9 @@
 
 Stage1 and stage2 training entrypoints both live in the repo root `scripts/` and `configs/`.
 
+For the Aliyun dual-environment bootstrap (`lf` for training, `qwen` for vLLM serving), see
+`docs/aliyun_qwen3_32b_env_setup.md`.
+
 ## Stage1 8B
 
 - Train config: `configs/llamafactory_stage1_sft.yaml`

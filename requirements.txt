@@ -1,4 +1,9 @@
 
+#
+# Repo-local development requirements only.
+# For the Aliyun training env, use `requirements-lf.txt`.
+# For the isolated vLLM serving env, use `requirements-qwen.txt`.
+#
 --extra-index-url https://download.pytorch.org/whl/cu124
 
 # 1. 深度学习与大模型基石

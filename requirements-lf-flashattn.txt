@@ -1,0 +1,3 @@
+# Optional. Enable this only after the core lf environment is stable.
+# FlashAttention wheels/builds can be sensitive to the host CUDA toolchain.
+flash-attn==2.7.2
