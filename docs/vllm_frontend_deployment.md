@@ -54,18 +54,19 @@
 仓库现在新增了：
 
 - `configs/llamafactory_stage2_merge_for_deploy.yaml`
+- `configs/llamafactory_stage2_32b_merge_for_deploy.yaml`
 - `scripts/06_merge_stage2_for_deploy.sh`
 
-默认假设：
+默认主线现在按 `32B` 写：
 
-- stage1 merged base: `/root/soulv_assets/runs/merged/stage1_merged_base`
-- stage2 LoRA: `/root/soulv_assets/runs/checkpoints/qwen3_8b_stage2_amap_tool_use`
-- 最终 merged 输出: `/root/soulv_assets/runs/merged/qwen3_8b_stage2_amap_tool_use_merged`
+- stage1 merged base: `/root/soulv_assets/runs/merged/qwen3_32b_stage1_merged_base`
+- stage2 LoRA: `/root/soulv_assets/runs/checkpoints/qwen3_32b_stage2_amap_tool_use`
+- 最终 merged 输出: `/root/soulv_assets/runs/merged/qwen3_32b_stage2_amap_tool_use_merged`
 
 如果你还没有做最终 stage2 merge，直接执行：
 
 ```bash
-bash scripts/06_merge_stage2_for_deploy.sh
+bash scripts/06_merge_stage2_for_deploy.sh stage2_amap_32b
 ```
 
 如果你已经 merge 完成，只要把下面 vLLM 启动脚本里的 `MODEL_PATH` 指向你的最终 merged 模型目录即可。
@@ -83,12 +84,23 @@ bash scripts/06_merge_stage2_for_deploy.sh
 推荐启动方式：
 
 ```bash
+MODEL_VARIANT=32b \
 HOST=127.0.0.1 \
 PORT=8000 \
-MODEL_PATH=/root/soulv_assets/runs/merged/qwen3_8b_stage2_amap_tool_use_merged \
-TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-8B \
-SERVED_MODEL_NAME=qwen3_8b_stage2_amap_tool_use \
 bash scripts/03_run_vllm_api.sh
+```
+
+脚本现在默认就是 `32B`：
+
+- `MODEL_PATH=/root/soulv_assets/runs/merged/qwen3_32b_stage2_amap_tool_use_merged`
+- `TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B`
+- `SERVED_MODEL_NAME=qwen3_32b_stage2_amap_tool_use`
+- `TENSOR_PARALLEL_SIZE=2`
+
+如果你还要回到旧的 8B 轨道：
+
+```bash
+MODEL_VARIANT=8b bash scripts/03_run_vllm_api.sh
 ```
 
 如果你需要给外部客户端直接开放 vLLM，也可以把 `HOST=0.0.0.0`，但对“网页给别人访问”这个目标来说，不推荐先暴露 `8000`。
@@ -109,7 +121,7 @@ bash scripts/03_run_vllm_api.sh
 - `--enable-auto-tool-choice --tool-call-parser hermes`
   - vLLM 官方明确说明：`tool_choice="auto"` 必须同时打开 auto-tool-choice 和 parser
   - 官方公开点名的 Qwen 支持是 `Qwen2.5 / QwQ-32B -> hermes parser`
-  - 你的模型是 `Qwen3-8B`，官方没有直接写到这一型号，所以这里是“结合仓库实证后的推荐默认值”，不是 100% 官方点名结论
+  - 你的主线模型现在是 `Qwen3-32B`，仓库里仍保留 `8B` 的历史兼容入口
   - 之所以先给 `hermes`，是因为你仓库里已经保存了成功返回 `tool_calls` 的基线输出，这说明你这条 Qwen 系列链路已经跑通过 parser-style tool calling
 
 ### 4.2 如果 `auto` 模式不稳定怎么办
@@ -149,7 +161,7 @@ vLLM 官方文档明确区分了四种模式：
 HOST=0.0.0.0 \
 PORT=7860 \
 UPSTREAM_VLLM_BASE_URL=http://127.0.0.1:8000 \
-DEFAULT_MODEL_NAME=qwen3_8b_stage2_amap_tool_use \
+DEFAULT_MODEL_NAME=qwen3_32b_stage2_amap_tool_use \
 bash scripts/07_run_frontend_gateway.sh
 ```
 
@@ -244,7 +256,7 @@ http://<server-ip>:7860/v1
 curl http://<server-ip>:7860/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "qwen3_8b_stage2_amap_tool_use",
+    "model": "qwen3_32b_stage2_amap_tool_use",
     "messages": [
       {"role": "system", "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"},
       {"role": "user", "content": "我从北京南站出发，想去颐和园，优先公共交通，帮我看看怎么走。"}
@@ -289,7 +301,7 @@ curl http://<server-ip>:7860/v1/chat/completions \
 curl http://<server-ip>:7860/api/tool-orchestrate \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "qwen3_8b_stage2_amap_tool_use",
+    "model": "qwen3_32b_stage2_amap_tool_use",
     "messages": [
       {"role": "system", "content": "你是 TripAI 旅行助手。用户需要实时路线、位置和周边信息时优先使用工具。"},
       {"role": "user", "content": "帮我找一下杭州西湖附近评分不错的酒店。"}
@@ -314,7 +326,7 @@ curl http://<server-ip>:7860/api/tool-orchestrate \
 python src/tool_eval/scripts/run_native_tool_baseline.py \
   --base-url http://<server-ip>:7860/v1 \
   --api-key EMPTY \
-  --model qwen3_8b_stage2_amap_tool_use
+  --model qwen3_32b_stage2_amap_tool_use
 ```
 
 ### 9.2 stage2 tool eval
@@ -325,7 +337,7 @@ export AMAP_API_KEY=<your-key>
 python src/tool_eval/scripts/run_tool_eval.py \
   --base-url http://<server-ip>:7860/v1 \
   --api-key EMPTY \
-  --model qwen3_8b_stage2_amap_tool_use
+  --model qwen3_32b_stage2_amap_tool_use
 
 python src/tool_eval/scripts/score_tool_eval.py
 ```
@@ -336,8 +348,8 @@ python src/tool_eval/scripts/score_tool_eval.py
 python src/eval/scripts/run_eval.py \
   --base-url http://<server-ip>:7860/v1 \
   --api-key EMPTY \
-  --model qwen3_8b_stage2_amap_tool_use \
-  --model-name qwen3_8b_stage2_amap_tool_use \
+  --model qwen3_32b_stage2_amap_tool_use \
+  --model-name qwen3_32b_stage2_amap_tool_use \
   --disable-thinking
 ```
 

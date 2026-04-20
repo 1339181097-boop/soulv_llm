@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /root/soulv_llm/models/base_models/Qwen3-8B-Instruct
+model_name_or_path: /root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B
 trust_remote_code: true
 
 ### method
@@ -11,24 +11,25 @@ lora_rank: 64
 lora_alpha: 128
 lora_dropout: 0.05
 quantization_bit: 4
+deepspeed: /root/soulv_llm/configs/deepspeed_zero2.json
 
 ### dataset
 dataset_dir: /root/llama-factory/data
 dataset: soulv_stage1_general_sft
 template: qwen
 cutoff_len: 2048
-max_samples: 960
+max_samples: 800
 overwrite_cache: true
 preprocessing_num_workers: 16
 val_size: 0.02
 
 ### output
-output_dir: /root/soulv_assets/runs/checkpoints/qwen3_8b_stage1_general_sft
+output_dir: /root/soulv_assets/runs/checkpoints/qwen3_32b_stage1_general_sft_smoke
 logging_steps: 10
 save_strategy: steps
-save_steps: 100
+save_steps: 50
 eval_strategy: steps
-eval_steps: 100
+eval_steps: 50
 load_best_model_at_end: true
 metric_for_best_model: eval_loss
 greater_is_better: false
@@ -39,9 +40,10 @@ save_total_limit: 2
 ### train
 per_device_train_batch_size: 1
 per_device_eval_batch_size: 1
-gradient_accumulation_steps: 16
+gradient_accumulation_steps: 8
 learning_rate: 5.0e-5
-num_train_epochs: 3.0
+num_train_epochs: 1.0
+max_steps: 150
 lr_scheduler_type: cosine
 warmup_ratio: 0.03
 bf16: true

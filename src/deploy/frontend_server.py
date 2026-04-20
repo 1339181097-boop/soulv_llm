@@ -316,7 +316,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--default-model",
-        default="qwen3_8b_stage2_amap_tool_use",
+        default="qwen3_32b_stage2_amap_tool_use",
         help="Default model name shown in the frontend.",
     )
     parser.add_argument(

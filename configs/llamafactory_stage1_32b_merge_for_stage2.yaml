@@ -1,0 +1,11 @@
+### model
+model_name_or_path: /root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B
+adapter_name_or_path: /root/soulv_assets/runs/checkpoints/qwen3_32b_stage1_general_sft
+template: qwen
+finetuning_type: lora
+trust_remote_code: true
+
+### export
+export_dir: /root/soulv_assets/runs/merged/qwen3_32b_stage1_merged_base
+export_size: 10
+export_device: cpu
