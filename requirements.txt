@@ -2,7 +2,7 @@
 --extra-index-url https://download.pytorch.org/whl/cu124
 
 # 1. 深度学习与大模型基石
-torch
+#torch
 transformers
 accelerate
 datasets
