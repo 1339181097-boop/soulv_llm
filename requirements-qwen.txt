@@ -1,4 +1,10 @@
 # Keep the vLLM serving environment isolated from the LLaMA-Factory training env.
-# Qwen3 tool-calling needs Hermes function calling support (>=0.8.5) and the
-# Qwen3 reasoning parser path used by this repo needs >=0.9.0.
-vllm>=0.9.0,<0.10.0
+# Verified on the Aliyun L20 serving path discussed in this repo.
+# vLLM 0.10.2 can end up with Transformers v5 if left unconstrained, which
+# breaks tokenizer compatibility for the current Qwen3 serving flow.
+vllm==0.10.2
+transformers==4.56.2
+tokenizers>=0.22,<0.24
+sentencepiece>=0.2,<0.3
+numpy==2.2.6
+modelscope>=1.34,<2

@@ -5,6 +5,7 @@ import hashlib
 import os
 import re
 import sys
+from collections import Counter
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
@@ -30,6 +31,7 @@ from src.data_pipeline.system_prompt_loader import load_system_prompt
 
 DEFAULT_INPUT_PATH = "data/raw/multi_turn_dialogue_raw_3_25.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_multi_turn_dialogue.json"
+DEFAULT_STRICT_OUTPUT_PATH = "data/processed/sft_multi_turn_dialogue_strict.json"
 
 _DEFAULT_SYSTEM_PROMPT_FALLBACK = (
     "你是专业的中文旅行规划助手。请基于完整对话上下文回答用户问题，"
@@ -62,6 +64,78 @@ HARD_PLACEHOLDER_MARKERS = (
     "起完全保留",
     "完全保留）",
 )
+STRICT_FAKE_MULTITURN_MARKERS = (
+    "其余内容不变",
+    "其他内容不变",
+    "其余安排不变",
+    "其余安排保持不变",
+    "同上续写",
+    "后续同上",
+    "继续同上",
+    "续同上",
+    "其余同上",
+    "完全保留",
+)
+STRICT_TOOL_OR_ROUTE_MARKERS = (
+    "tool_calls",
+    "function_call",
+    "function_calls",
+    "observation",
+    "geocode",
+    "plan_route",
+    "search_poi",
+    "amap",
+    "工具调用",
+    "路由",
+)
+STRICT_REALTIME_MARKERS = (
+    "实时",
+    "当前班次",
+    "今日票价",
+    "实时票价",
+    "实时房价",
+    "库存",
+    "房态",
+    "余票",
+    "剩余票",
+    "剩余房",
+    "营业状态",
+)
+STRICT_PROMO_OR_TRANSACTION_MARKERS = (
+    "扫码",
+    "二维码",
+    "小程序",
+    "立即预订",
+    "立即预约",
+    "下单",
+    "支付",
+    "联系客服",
+    "咨询客服",
+    "商城",
+    "返现",
+    "下载APP",
+    "打开APP",
+    "下载app",
+    "打开app",
+)
+STRICT_PRICE_HEADS = (
+    "门票",
+    "票价",
+    "索道",
+    "缆车",
+    "观光车",
+    "小火车",
+    "演出",
+    "酒店",
+    "住宿",
+    "民宿",
+    "房费",
+    "预算",
+)
+STRICT_PRICE_UNITS = ("元", "块", "¥", "￥")
+STRICT_SCHEDULE_HEADS = ("首班", "末班", "发车", "班次")
+AMOUNT_PATTERN = re.compile(r"\d{2,5}")
+SCHEDULE_TIME_PATTERN = re.compile(r"\d{1,2}[:：]\d{2}")
 TRAILING_PUNCTUATION_PATTERN = re.compile(r"^[，,；;：:\s]+|[，,；;：:\s]+$")
 
 
@@ -141,6 +215,92 @@ def _has_excessive_rewrite(messages: list[dict[str, str]]) -> bool:
     return appended_rewrite_count >= 2
 
 
+def _assistant_contents(sample: dict[str, Any]) -> list[str]:
+    messages = sample.get("messages")
+    if not isinstance(messages, list):
+        return []
+    return [
+        normalize_text(message.get("content"))
+        for message in messages
+        if isinstance(message, dict) and message.get("role") == "assistant"
+    ]
+
+
+def _contains_marker(text: str, markers: tuple[str, ...]) -> bool:
+    normalized = normalize_text(text)
+    return any(marker in normalized for marker in markers)
+
+
+def _has_exact_price_like_content(text: str) -> bool:
+    normalized = normalize_text(text)
+    for head in STRICT_PRICE_HEADS:
+        index = normalized.find(head)
+        while index != -1:
+            window = normalized[index : index + 45]
+            if any(unit in window for unit in STRICT_PRICE_UNITS) and AMOUNT_PATTERN.search(window):
+                return True
+            index = normalized.find(head, index + 1)
+    return False
+
+
+def _has_schedule_time_like_content(text: str) -> bool:
+    normalized = normalize_text(text)
+    for head in STRICT_SCHEDULE_HEADS:
+        index = normalized.find(head)
+        while index != -1:
+            window = normalized[index : index + 55]
+            if SCHEDULE_TIME_PATTERN.search(window):
+                return True
+            index = normalized.find(head, index + 1)
+    return False
+
+
+def _has_strict_adjacent_rewrite(assistant_contents: list[str]) -> bool:
+    for previous, current in zip(assistant_contents, assistant_contents[1:]):
+        min_length = min(len(previous), len(current))
+        max_length = max(len(previous), len(current))
+        if min_length == 0 or min_length < max_length * 0.70:
+            continue
+        if SequenceMatcher(None, previous, current).ratio() >= 0.86:
+            return True
+    return False
+
+
+def _classify_strict_filter_reason(sample: dict[str, Any]) -> str | None:
+    assistants = _assistant_contents(sample)
+    assistant_blob = "\n".join(assistants)
+
+    if _has_exact_price_like_content(assistant_blob):
+        return "exact_price_like_content"
+    if _has_schedule_time_like_content(assistant_blob):
+        return "schedule_time_like_content"
+    if _contains_marker(assistant_blob, STRICT_REALTIME_MARKERS):
+        return "realtime_marker"
+    if _contains_marker(assistant_blob, STRICT_PROMO_OR_TRANSACTION_MARKERS):
+        return "promo_or_transaction_marker"
+    if _contains_marker(assistant_blob, STRICT_TOOL_OR_ROUTE_MARKERS):
+        return "tool_or_route_marker"
+    if _contains_marker(assistant_blob, STRICT_FAKE_MULTITURN_MARKERS):
+        return "fake_multiturn_marker"
+    if _has_strict_adjacent_rewrite(assistants):
+        return "adjacent_assistant_high_similarity"
+    return None
+
+
+def filter_multiturn_strict_samples(samples: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], Counter[str]]:
+    filtered: list[dict[str, Any]] = []
+    skip_reasons: Counter[str] = Counter()
+
+    for sample in samples:
+        reason = _classify_strict_filter_reason(sample)
+        if reason is not None:
+            skip_reasons[reason] += 1
+            continue
+        filtered.append(sample)
+
+    return filtered, skip_reasons
+
+
 def _sample_fingerprint(messages: list[dict[str, str]]) -> str:
     payload = "\n###\n".join(f"{message['role']}::{message['content']}" for message in messages)
     return hashlib.md5(payload.encode("utf-8")).hexdigest()
@@ -184,6 +344,11 @@ def _build_multiturn_sample(record: dict[str, Any]) -> tuple[dict[str, Any] | No
         "task_type": "multi_turn_dialogue",
         "scene": "travel_consultation",
         "source": clean_text(record.get("source"), max_length=120, mask_sensitive=False),
+        "source_id": clean_text(
+            record.get("source_id") or record.get("conversation_id") or record.get("record_id"),
+            max_length=120,
+            mask_sensitive=False,
+        ),
         "conversation_id": clean_text(record.get("conversation_id"), max_length=120, mask_sensitive=False),
         "city": clean_text(record.get("city"), max_length=120, mask_sensitive=False),
         "topic": clean_text(record.get("topic"), max_length=200, mask_sensitive=False),
@@ -211,6 +376,8 @@ def build_multiturn_sample(record: dict[str, Any]) -> dict[str, Any] | None:
 def process_multiturn_data(
     input_file_path: str = DEFAULT_INPUT_PATH,
     output_json_path: str = DEFAULT_OUTPUT_PATH,
+    *,
+    strict_output_json_path: str | None = None,
 ) -> list[dict[str, Any]]:
     configure_console_output()
     log_info(f"开始清洗 multi_turn_dialogue 原始数据: {resolve_path(input_file_path)}")
@@ -276,6 +443,18 @@ def process_multiturn_data(
         f"内容去重 {skipped_by_reason['duplicate_content']} 条。"
     )
     log_info(f"输出文件: {output_path}")
+
+    if strict_output_json_path:
+        strict_data, strict_skip_reasons = filter_multiturn_strict_samples(processed_data)
+        strict_output_path = write_json(strict_output_json_path, strict_data)
+        log_success(
+            "multi_turn_dialogue 严格二次清洗完成。"
+            f"输入 {len(processed_data)} 条，输出 {len(strict_data)} 条。"
+        )
+        if strict_skip_reasons:
+            log_info(f"严格清洗跳过原因统计: {dict(strict_skip_reasons)}")
+        log_info(f"严格输出文件: {strict_output_path}")
+
     return processed_data
 
 
@@ -283,12 +462,17 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="清洗真实 multi_turn_dialogue 原始 JSONL 并转换为 ChatML。")
     parser.add_argument("--input", default=DEFAULT_INPUT_PATH, help="原始 multi_turn_dialogue JSONL 路径。")
     parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="输出 ChatML JSON 路径。")
+    parser.add_argument(
+        "--strict-output",
+        default=None,
+        help="可选：输出按 32B stage1 严格口径二次过滤后的 ChatML JSON 路径。",
+    )
     return parser
 
 
 def main() -> None:
     args = build_arg_parser().parse_args()
-    process_multiturn_data(args.input, args.output)
+    process_multiturn_data(args.input, args.output, strict_output_json_path=args.strict_output)
 
 
 if __name__ == "__main__":

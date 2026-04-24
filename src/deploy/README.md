@@ -22,16 +22,30 @@ Concrete deploy helpers now live in:
 - `src/deploy/web/index.html`: browser UI for chat, first-round tool-call checks, and end-to-end tool execution tests
 - `scripts/07_run_frontend_gateway.sh`: run the public frontend gateway
 
-The serving default is now the `32B` rollout:
+The intended serving track is now `32B`, but `scripts/03_run_vllm_api.sh` no longer assumes the 32B files already exist.
 
 1. `MODEL_VARIANT=32b`
-2. `SERVED_MODEL_NAME=qwen3_32b_stage2_amap_tool_use`
-3. `TENSOR_PARALLEL_SIZE=2`
+2. pass an explicit `MODEL_PATH`
+3. `SERVED_MODEL_NAME=qwen3_32b_official`
+4. `TENSOR_PARALLEL_SIZE=2`
+
+Example:
+
+```bash
+MODEL_VARIANT=32b \
+MODEL_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
+TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
+SERVED_MODEL_NAME=qwen3_32b_official \
+bash scripts/03_run_vllm_api.sh
+```
 
 If you want to keep using the old 8B merged model, override it with:
 
 ```bash
-MODEL_VARIANT=8b bash scripts/03_run_vllm_api.sh
+MODEL_VARIANT=8b \
+MODEL_PATH=/root/soulv_assets/runs/merged/qwen3_8b_stage2_amap_tool_use_merged \
+TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-8B \
+bash scripts/03_run_vllm_api.sh
 ```
 
 Recommended public topology:

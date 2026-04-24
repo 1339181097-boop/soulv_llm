@@ -20,15 +20,22 @@ from src.data_pipeline.data_utils import (
     log_warn,
     resolve_path,
     write_json,
+    write_jsonl,
 )
 from src.data_pipeline.global_cleaner import clean_text, normalize_text
 from src.data_pipeline.system_prompt_loader import load_system_prompt
 
-DEFAULT_INPUT_PATH = "data/raw/travel_qa_raw_3_23.jsonl"
+STAGE1_TRAVEL_QA_FINAL_TARGET = 3250
+STAGE1_TRAVEL_QA_CANDIDATE_MIN = 8000
+STAGE1_TRAVEL_QA_CANDIDATE_MAX = 12000
+
+DEFAULT_INPUT_PATH = "data/raw/travel_qa_raw_2026_04_22.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_travel_qa.json"
-DEFAULT_TOTAL_SAMPLES = 1250
+DEFAULT_JSONL_OUTPUT_PATH = "data/processed/sft_travel_qa_2026_04_22_strict.jsonl"
+DEFAULT_REPORT_PATH = "data/reports/travel_qa_2026_04_22_strict_report.json"
+DEFAULT_TOTAL_SAMPLES = STAGE1_TRAVEL_QA_FINAL_TARGET
 DEFAULT_CITY_CAP = 80
-DEFAULT_ANSWER_CAP = 5
+DEFAULT_ANSWER_CAP = 1
 SPOT_RATIO = 0.55
 CITY_RATIO = 0.25
 TRAFFIC_RATIO = 0.20
@@ -117,6 +124,37 @@ DETAIL_CLAUSE_PATTERN = re.compile(
 TRAILING_PUNCTUATION_PATTERN = re.compile(r"^[\uff0c,;；:\uff1a\s]+|[\uff0c,;；:\uff1a\s]+$")
 PII_TOKEN_PATTERN = re.compile(r"\[(?:PHONE|EMAIL|ID_CARD|TRUNCATED)\]")
 BOOKING_NOISE_PATTERN = re.compile(r"(?:\u5e93\u5b58|\u4f59\u7968|\u6709\u623f|\u9884\u8ba2|\u9884\u7ea6|\u7acb\u5373\u8d2d\u4e70|\u9650\u65f6\u62a2|\u4f18\u60e0\u4ef7)")
+STRICT_TICKET_QUESTION_TYPES = {"\u7968\u52a1\u4fe1\u606f"}
+STRICT_MARKDOWN_PATTERN = re.compile(r"(?:\*\*|```|^#{1,6}\s*)", re.M)
+STRICT_PRICE_OR_TICKET_PATTERN = re.compile(
+    r"(?:\d+(?:[.,]\d+)?\s*(?:\u5143|\u97e9\u5143|\u65e5\u5143|\u9a6c\u5e01|\u5362\u6bd4|"
+    r"\u7f8e\u5143|USD|RM|THB|SGD|\$|€)|"
+    r"(?:USD|RM|THB|SGD|\$|€)\s*\d+(?:[.,]\d+)?|"
+    r"\u7968\u4ef7|\u6210\u4eba\u7968|\u513f\u7ae5\u7968|\u8d2d\u7968|\u4e70\u7968|\u552e\u7968|"
+    r"\u5305\u65e5\u4ef7|\u8d77\u6b65\u4ef7|\u542b\u5168\u9669\u7ea6|"
+    r"\u4eba\u5747\u7ea6?\s*\d+)"
+)
+STRICT_HOURS_OR_SCHEDULE_PATTERN = re.compile(
+    r"(?:\u8425\u4e1a\u65f6\u95f4|\u5f00\u653e\u65f6\u95f4|\u95ed\u9986|"
+    r"\u73ed\u6b21|\u8f66\u6b21|\u822a\u73ed|\u9996\u73ed|\u672b\u73ed|\u53d1\u8f66|"
+    r"\u6bcf\s*\d+\s*\u5206\u949f\s*\u4e00\u73ed|\d+\s*\u5206\u949f\s*\u4e00\u73ed|"
+    r"\u5b9e\u65f6\u67e5\u8be2|\u73b0\u573a\u8bae\u4ef7|KakaoMap|Naver Map|T-Money)"
+)
+STRICT_TRANSACTION_PATTERN = re.compile(
+    r"(?:\u5e93\u5b58|\u4f59\u7968|\u6709\u623f|\u623f\u6001|\u9884\u8ba2|\u4e0b\u5355|"
+    r"\u652f\u4ed8|\u8ba2\u5355|\u7acb\u5373\u8d2d\u4e70|\u626b\u7801|\u5145\u503c)"
+)
+STRICT_TOOL_OR_JSON_PATTERN = re.compile(
+    r"(?:tool_calls?|function_call|```json|\"\s*tool\s*\"|\{\s*\"(?:intent|intentionName)\")",
+    re.IGNORECASE,
+)
+STRICT_PROMO_PATTERN = re.compile(
+    r"(?:\u5b98\u65b9\u9884\u8ba2|\u7acb\u5373\u62a2\u8d2d|\u4e13\u4eab\u4f18\u60e0|"
+    r"\u8054\u7cfb\u5ba2\u670d|\u4e0b\u8f7dAPP|\u6253\u5f00APP|\u5bfc\u6d41)"
+)
+STRICT_MOJIBAKE_PATTERN = re.compile(r"\ufffd|(?:ç|è|é|å|æ|ä|ï|¼|½|œ|‰|¤|»){4,}")
+MAX_STRICT_USER_CHARS = 260
+MAX_STRICT_ASSISTANT_CHARS = 420
 
 
 def _name_aliases(name: str) -> set[str]:
@@ -307,6 +345,75 @@ def _clean_answer(record: dict[str, Any], answer: str) -> str:
     return normalized_answer
 
 
+def _clean_list(raw_value: Any, *, max_items: int = 8, item_length: int = 40) -> list[str]:
+    if not isinstance(raw_value, list):
+        return []
+    cleaned: list[str] = []
+    seen: set[str] = set()
+    for item in raw_value:
+        text = clean_text(item, max_length=item_length, mask_sensitive=False)
+        if not text or text in seen:
+            continue
+        seen.add(text)
+        cleaned.append(text)
+        if len(cleaned) >= max_items:
+            break
+    return cleaned
+
+
+def _normalize_assistant_style(answer: str) -> str:
+    cleaned = STRICT_MARKDOWN_PATTERN.sub("", answer)
+    cleaned = normalize_text(cleaned)
+    if cleaned and not cleaned.endswith(("\u3002", "\uff1f", "\uff01", ".", "?", "!")):
+        cleaned += "\u3002"
+    return cleaned
+
+
+def _message_content(sample: dict[str, Any], role: str) -> str:
+    for message in sample.get("messages", []):
+        if isinstance(message, dict) and message.get("role") == role:
+            content = message.get("content")
+            return content if isinstance(content, str) else ""
+    return ""
+
+
+def classify_strict_filter_reason(sample: dict[str, Any]) -> str | None:
+    source_task_type = normalize_text(sample.get("source_task_type"))
+    if source_task_type not in {"spot_qa", "city_qa", "traffic_qa"}:
+        return "wrong_source_task_type"
+
+    question_type = normalize_text(sample.get("question_type"))
+    if question_type in STRICT_TICKET_QUESTION_TYPES:
+        return "ticket_question_type"
+
+    user_text = _message_content(sample, "user")
+    assistant_text = _message_content(sample, "assistant")
+    combined = f"{user_text}\n{assistant_text}"
+    if not user_text or not assistant_text:
+        return "empty_chatml_content"
+    if len(user_text) > MAX_STRICT_USER_CHARS:
+        return "overlong_user_query"
+    if len(assistant_text) > MAX_STRICT_ASSISTANT_CHARS:
+        return "overlong_assistant_answer"
+    if assistant_text == TIME_SENSITIVE_ADVISORY:
+        return "generic_time_sensitive_only"
+    if "[TRUNCATED]" in combined:
+        return "truncated_content"
+    if STRICT_MOJIBAKE_PATTERN.search(combined):
+        return "mojibake_content"
+    if STRICT_TOOL_OR_JSON_PATTERN.search(combined):
+        return "tool_or_json_content"
+    if STRICT_PROMO_PATTERN.search(combined):
+        return "promotional_content"
+    if STRICT_TRANSACTION_PATTERN.search(combined):
+        return "booking_or_transaction_content"
+    if STRICT_PRICE_OR_TICKET_PATTERN.search(combined):
+        return "price_or_ticket_content"
+    if STRICT_HOURS_OR_SCHEDULE_PATTERN.search(combined):
+        return "schedule_or_hours_content"
+    return None
+
+
 def build_travel_qa_sample(record: dict[str, Any]) -> dict[str, Any] | None:
     city = clean_text(record.get("city"), max_length=100)
     entity_name = clean_text(record.get("entity_name"), max_length=200)
@@ -319,7 +426,7 @@ def build_travel_qa_sample(record: dict[str, Any]) -> dict[str, Any] | None:
         return None
 
     user_query = _self_contained_user_query(question, city, entity_name)
-    assistant_answer = clean_text(_clean_answer(record, raw_answer), max_length=2500)
+    assistant_answer = clean_text(_normalize_assistant_style(_clean_answer(record, raw_answer)), max_length=2500)
     if not user_query or not assistant_answer:
         return None
 
@@ -333,14 +440,19 @@ def build_travel_qa_sample(record: dict[str, Any]) -> dict[str, Any] | None:
     ).hexdigest()[:12]
     return {
         "id": sample_id,
+        "record_id": clean_text(record.get("record_id"), max_length=100, mask_sensitive=False),
         "task_type": "travel_qa",
         "scene": "travel_qa",
-        "source": "tripai_travel_qa_raw_3_23",
+        "source": clean_text(record.get("source") or "tripai_db", max_length=100, mask_sensitive=False),
+        "source_dataset": "travel_qa_raw_2026_04_22",
+        "source_id": clean_text(record.get("source_id"), max_length=100, mask_sensitive=False),
+        "updated_at": clean_text(record.get("updated_at"), max_length=40, mask_sensitive=False),
         "source_task_type": clean_text(record.get("task_type"), max_length=100, mask_sensitive=False),
         "city": city,
         "entity_name": entity_name,
         "entity_type": clean_text(record.get("entity_type"), max_length=50, mask_sensitive=False),
         "question_type": clean_text(record.get("question_type"), max_length=50, mask_sensitive=False),
+        "tags": _clean_list(record.get("tags"), max_items=8, item_length=40),
         "is_time_sensitive": bool(record.get("is_time_sensitive")),
         "messages": [
             {"role": "system", "content": system_prompt},
@@ -460,10 +572,104 @@ def _limit_repeated_answers(samples: list[dict[str, Any]], *, answer_cap: int) -
     return limited
 
 
+def _percentile(lengths: list[int], fraction: float) -> int:
+    if not lengths:
+        return 0
+    ordered = sorted(lengths)
+    index = max(0, min(len(ordered) - 1, round(len(ordered) * fraction) - 1))
+    return ordered[index]
+
+
+def _length_summary(lengths: list[int]) -> dict[str, Any]:
+    if not lengths:
+        return {"min": 0, "avg": 0.0, "p50": 0, "p90": 0, "p95": 0, "max": 0}
+    return {
+        "min": min(lengths),
+        "avg": round(sum(lengths) / len(lengths), 2),
+        "p50": _percentile(lengths, 0.50),
+        "p90": _percentile(lengths, 0.90),
+        "p95": _percentile(lengths, 0.95),
+        "max": max(lengths),
+    }
+
+
+def _summarize_raw_records(records: list[dict[str, Any]]) -> dict[str, Any]:
+    required_fields = (
+        "record_id",
+        "task_type",
+        "source",
+        "source_id",
+        "city",
+        "entity_name",
+        "entity_type",
+        "user_query",
+        "assistant_content",
+        "is_time_sensitive",
+        "updated_at",
+    )
+    missing_counts: Counter[str] = Counter()
+    empty_counts: Counter[str] = Counter()
+    for record in records:
+        for field in required_fields:
+            if field not in record:
+                missing_counts[field] += 1
+            elif record[field] in (None, "", []):
+                empty_counts[field] += 1
+
+    return {
+        "count": len(records),
+        "candidate_count_range": [STAGE1_TRAVEL_QA_CANDIDATE_MIN, STAGE1_TRAVEL_QA_CANDIDATE_MAX],
+        "meets_candidate_count_range": STAGE1_TRAVEL_QA_CANDIDATE_MIN <= len(records) <= STAGE1_TRAVEL_QA_CANDIDATE_MAX,
+        "task_type_counts": dict(Counter(record.get("task_type") for record in records)),
+        "source_counts": dict(Counter(record.get("source") for record in records)),
+        "field_names": sorted({field for record in records for field in record}),
+        "missing_required_counts": dict(missing_counts),
+        "empty_required_counts": dict(empty_counts),
+        "city_count": len({record.get("city") for record in records if record.get("city")}),
+        "top_cities": dict(Counter(record.get("city") for record in records).most_common(20)),
+        "question_type_counts": dict(Counter(record.get("question_type") for record in records).most_common(20)),
+    }
+
+
+def _summarize_samples(samples: list[dict[str, Any]]) -> dict[str, Any]:
+    user_lengths: list[int] = []
+    assistant_lengths: list[int] = []
+    city_counts: Counter[str] = Counter()
+    answer_counts: Counter[str] = Counter()
+    pair_counts: Counter[tuple[str, str]] = Counter()
+    for sample in samples:
+        user = _message_content(sample, "user")
+        assistant = _message_content(sample, "assistant")
+        user_lengths.append(len(user))
+        assistant_lengths.append(len(assistant))
+        answer_counts[normalize_text(assistant)] += 1
+        pair_counts[(normalize_text(user), normalize_text(assistant))] += 1
+        city_counts[sample.get("city") or "__unknown__"] += 1
+
+    return {
+        "count": len(samples),
+        "final_target_count": STAGE1_TRAVEL_QA_FINAL_TARGET,
+        "meets_final_target": len(samples) >= STAGE1_TRAVEL_QA_FINAL_TARGET,
+        "task_type_counts": dict(Counter(sample.get("task_type") for sample in samples)),
+        "source_task_type_counts": dict(Counter(sample.get("source_task_type") for sample in samples)),
+        "entity_type_counts": dict(Counter(sample.get("entity_type") for sample in samples)),
+        "question_type_counts": dict(Counter(sample.get("question_type") for sample in samples).most_common(20)),
+        "time_sensitive_counts": dict(Counter(bool(sample.get("is_time_sensitive")) for sample in samples)),
+        "city_count": len([city for city in city_counts if city != "__unknown__"]),
+        "top_cities": dict(city_counts.most_common(20)),
+        "user_length": _length_summary(user_lengths),
+        "assistant_length": _length_summary(assistant_lengths),
+        "duplicate_answer_extra": sum(count - 1 for count in answer_counts.values() if count > 1),
+        "duplicate_pair_extra": sum(count - 1 for count in pair_counts.values() if count > 1),
+    }
+
+
 def process_travel_qa_data(
     input_file_path: str = DEFAULT_INPUT_PATH,
     output_json_path: str = DEFAULT_OUTPUT_PATH,
     *,
+    jsonl_output_path: str | None = None,
+    report_path: str | None = None,
     total_samples: int = DEFAULT_TOTAL_SAMPLES,
     city_cap: int = DEFAULT_CITY_CAP,
     answer_cap: int = DEFAULT_ANSWER_CAP,
@@ -484,28 +690,79 @@ def process_travel_qa_data(
     seen_fingerprints: set[str] = set()
     skipped = 0
     deduped = 0
+    filter_reasons: Counter[str] = Counter()
+    removed_examples: list[dict[str, Any]] = []
     for record in raw_records:
         sample = build_travel_qa_sample(record)
         if sample is None:
             skipped += 1
+            filter_reasons["build_failed"] += 1
+            continue
+        filter_reason = classify_strict_filter_reason(sample)
+        if filter_reason is not None:
+            skipped += 1
+            filter_reasons[filter_reason] += 1
+            if len(removed_examples) < 60:
+                removed_examples.append(
+                    {
+                        "record_id": record.get("record_id"),
+                        "reason": filter_reason,
+                        "source_task_type": record.get("task_type"),
+                        "question_type": record.get("question_type"),
+                        "user": _message_content(sample, "user"),
+                        "assistant": _message_content(sample, "assistant"),
+                    }
+                )
             continue
         fingerprint = _fingerprint(sample)
         if fingerprint in seen_fingerprints:
             deduped += 1
+            filter_reasons["duplicate_pair"] += 1
             continue
         seen_fingerprints.add(fingerprint)
         processed.append(sample)
 
     capped = _limit_repeated_answers(processed, answer_cap=answer_cap)
+    answer_cap_trimmed = len(processed) - len(capped)
     balanced = _balance_categories(capped, total_samples=total_samples, city_cap=city_cap)
     output_path = write_json(output_json_path, balanced)
+    jsonl_output_file = write_jsonl(jsonl_output_path, balanced) if jsonl_output_path else None
+
+    report_file = None
+    if report_path:
+        city_counts = Counter(sample.get("city") or "__unknown__" for sample in balanced)
+        report = {
+            "input_path": str(resolve_path(input_file_path)),
+            "output_path": str(output_path),
+            "jsonl_output_path": str(jsonl_output_file) if jsonl_output_file else None,
+            "raw_summary": _summarize_raw_records(raw_records),
+            "processed_candidate_summary": _summarize_samples(processed),
+            "answer_capped_summary": _summarize_samples(capped),
+            "output_summary": _summarize_samples(balanced),
+            "target_category_counts": _calculate_category_targets(total_samples) if total_samples > 0 else None,
+            "final_target_count": STAGE1_TRAVEL_QA_FINAL_TARGET,
+            "requested_total_samples": total_samples,
+            "city_cap": city_cap,
+            "answer_cap": answer_cap,
+            "skipped_count": skipped,
+            "deduped_count": deduped,
+            "answer_cap_trimmed_count": answer_cap_trimmed,
+            "selected_count": len(balanced),
+            "filter_reasons": dict(filter_reasons),
+            "city_cap_violations": {
+                city: count for city, count in city_counts.items() if city_cap > 0 and count > city_cap
+            },
+            "removed_examples": removed_examples,
+        }
+        report_file = write_json(report_path, report)
+
     log_success(
         "\u5904\u7406 travel_qa \u6570\u636e\u5b8c\u6210\u3002"
         f"\u8f93\u51fa {len(balanced)} \u6761\uff0c"
         f"\u8df3\u8fc7 {skipped} \u6761\uff0c"
         f"\u53bb\u91cd {deduped} \u6761\uff0c"
         f"\u539f\u59cb\u5165\u9009 {len(processed)} \u6761\uff0c"
-        f"\u6a21\u677f\u7b54\u6848\u9650\u9891\u540e {len(capped)} \u6761\u3002"
+        f"\u76f8\u540c\u7b54\u6848\u9650\u9891\u540e {len(capped)} \u6761\u3002"
     )
     log_info(
         "\u76ee\u6807\u5206\u5e03: "
@@ -513,7 +770,12 @@ def process_travel_qa_data(
         f"\u5355\u57ce\u5e02\u4e0a\u9650: {city_cap if city_cap > 0 else 'unlimited'}; "
         f"\u76f8\u540c\u7b54\u6848\u4e0a\u9650: {answer_cap if answer_cap > 0 else 'unlimited'}"
     )
+    log_info(f"\u8fc7\u6ee4\u539f\u56e0: {dict(filter_reasons)}")
     log_info(f"\u8f93\u51fa\u6587\u4ef6: {output_path}")
+    if jsonl_output_file:
+        log_info(f"JSONL \u8f93\u51fa\u6587\u4ef6: {jsonl_output_file}")
+    if report_file:
+        log_info(f"\u6e05\u6d17\u62a5\u544a: {report_file}")
     return balanced
 
 
@@ -521,7 +783,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="\u5c06 travel_qa \u539f\u59cb\u6570\u636e\u6e05\u6d17\u4e3a ChatML\u3002")
     parser.add_argument("--input", default=DEFAULT_INPUT_PATH, help="travel_qa \u539f\u59cb\u6570\u636e\u8def\u5f84\uff0c\u652f\u6301 JSON/JSONL\u3002")
     parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH, help="travel_qa ChatML JSON \u8f93\u51fa\u8def\u5f84\u3002")
-    parser.add_argument("--total-samples", type=int, default=DEFAULT_TOTAL_SAMPLES, help="\u76ee\u6807\u6837\u672c\u6570\uff0c\u9ed8\u8ba4 1250\uff1b\u8bbe\u4e3a 0 \u4fdd\u7559\u5168\u91cf\u3002")
+    parser.add_argument("--jsonl-output", default=DEFAULT_JSONL_OUTPUT_PATH, help="travel_qa ChatML JSONL \u8f93\u51fa\u8def\u5f84\u3002")
+    parser.add_argument("--report", default=DEFAULT_REPORT_PATH, help="travel_qa \u6e05\u6d17\u62a5\u544a\u8f93\u51fa\u8def\u5f84\u3002")
+    parser.add_argument("--total-samples", type=int, default=DEFAULT_TOTAL_SAMPLES, help=f"\u76ee\u6807\u6837\u672c\u6570\uff0c\u9ed8\u8ba4 {DEFAULT_TOTAL_SAMPLES}\uff1b\u8bbe\u4e3a 0 \u4fdd\u7559\u5168\u91cf\u3002")
     parser.add_argument("--city-cap", type=int, default=DEFAULT_CITY_CAP, help="\u5355\u57ce\u5e02\u6700\u591a\u4fdd\u7559\u6761\u6570\uff0c\u8bbe\u4e3a 0 \u4e0d\u9650\u5236\u3002")
     parser.add_argument("--answer-cap", type=int, default=DEFAULT_ANSWER_CAP, help="\u76f8\u540c assistant \u7b54\u6848\u6700\u591a\u4fdd\u7559\u6761\u6570\uff0c\u8bbe\u4e3a 0 \u4e0d\u9650\u5236\u3002")
     return parser
@@ -532,6 +796,8 @@ def main() -> None:
     process_travel_qa_data(
         args.input,
         args.output,
+        jsonl_output_path=args.jsonl_output,
+        report_path=args.report,
         total_samples=args.total_samples,
         city_cap=args.city_cap,
         answer_cap=args.answer_cap,

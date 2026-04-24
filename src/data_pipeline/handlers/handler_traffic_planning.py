@@ -24,7 +24,7 @@ from src.data_pipeline.data_utils import (
 from src.data_pipeline.global_cleaner import clean_text, normalize_text
 from src.data_pipeline.system_prompt_loader import load_system_prompt
 
-DEFAULT_INPUT_PATH = "data/raw/traffic_planning_raw_2026_03_25.jsonl"
+DEFAULT_INPUT_PATH = "data/raw/traffic_planning_raw_2026_04_22.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_traffic_planning.json"
 STRICT_OUTPUT_PATH = "data/processed/sft_traffic_planning_strict.json"
 
@@ -109,6 +109,83 @@ SOFT_DURATION_PATTERN = re.compile(r"(?:耗时|时长)[^，。；;]*")
 
 STRICT_MIN_ANSWER_LENGTH = 90
 STRICT_SHORT_TEMPLATE_LENGTH = 120
+STRICT_PLACEHOLDER_ROUTE_KEYWORDS = (
+    "假设",
+    "某路公交",
+    "某条公交",
+    "某个站点",
+    "某中间站点",
+    "某换乘",
+    "某某路口",
+    "A站",
+    "B站",
+    "X路",
+    "Y路",
+    "XX路",
+    "XX公交站",
+)
+STRICT_VAGUE_ROUTE_KEYWORDS = (
+    "需查询具体公交",
+    "查询具体公交",
+    "查询具体导航",
+    "具体需根据实际",
+    "根据实际站点情况",
+    "以实际公交运营情况为准",
+    "以实际站点为准",
+    "具体路线要以实际",
+    "具体可根据实际公交路线",
+    "查看经过的公交线路",
+    "找到能直达或转乘后到达",
+    "乘坐对应公交",
+    "公交换乘参考路线",
+    "具体可询问站点工作人员确认线路",
+    "示例",
+)
+STRICT_VAGUE_ROUTE_PATTERNS = (
+    re.compile(r"某个[^。；]*站点"),
+    re.compile(r"前往市区方向的公交"),
+    re.compile(r"到达市区后，再(?:转乘|查找)"),
+    re.compile(r"附近找到公交站"),
+    re.compile(r"找到公交站"),
+    re.compile(r"先到[^。；]*(?:公交站|公交站点)"),
+    re.compile(r"找到能(?:到达|前往)[^。；]*公交"),
+    re.compile(r"先到能(?:到达|前往)[^。；]*公交"),
+    re.compile(r"查找[^。；]*(?:公交|地铁)"),
+    re.compile(r"查找前往[^。；]*方向的公交"),
+    re.compile(r"查找附近能通往"),
+)
+SPECIFIC_ROUTE_PATTERNS = (
+    re.compile(r"(?:地铁|轨道交通|轻轨)\d+号线"),
+    re.compile(r"(?:公交|巴士|摆渡车|大巴)?[A-Z]?\d+[A-Z]?(?:路|线)"),
+    re.compile(r"[A-Z]口"),
+)
+SPECIFIC_STATION_PATTERN = re.compile(r"[\u4e00-\u9fffA-Za-z0-9·]{2,20}站")
+GENERIC_STATION_NAMES = {
+    "地铁站",
+    "公交站",
+    "站点",
+    "附近站",
+    "附近站点",
+    "中转站",
+    "换乘站",
+}
+GENERIC_STATION_PREFIXES = (
+    "前往",
+    "附近",
+    "就近",
+    "合适",
+    "景区附近",
+    "目的地附近",
+    "能换乘的",
+    "换乘的",
+    "能到达的",
+)
+STRICT_PUBLIC_ROUTE_OPENINGS = (
+    "更建议优先走地铁或城际轨道",
+    "如果不赶时间，可以优先考虑公交接驳",
+    "这类机场到市区的出行，通常优先选轨道交通或机场大巴更稳",
+    "这类火车站到市区的出行，通常优先接入地铁更省心",
+)
 TIME_DURATION_QUERY_KEYWORDS = (
     "多久",
     "多长时间",
@@ -503,12 +580,47 @@ def _boilerplate_hits(answer: str) -> int:
     return sum(sentence in answer for sentence in STRICT_BOILERPLATE_SENTENCES)
 
 
+def _specific_route_hits(answer: str) -> int:
+    hits = sum(bool(pattern.search(answer)) for pattern in SPECIFIC_ROUTE_PATTERNS)
+    station_hits = {
+        match.group(0)
+        for match in SPECIFIC_STATION_PATTERN.finditer(answer)
+        if match.group(0) not in GENERIC_STATION_NAMES
+        and not any(match.group(0).startswith(prefix) for prefix in GENERIC_STATION_PREFIXES)
+    }
+    return hits + min(len(station_hits), 2)
+
+
+def _has_placeholder_route(answer: str) -> bool:
+    return any(keyword in answer for keyword in STRICT_PLACEHOLDER_ROUTE_KEYWORDS)
+
+
+def _has_vague_route(answer: str) -> bool:
+    has_vague_keyword = any(keyword in answer for keyword in STRICT_VAGUE_ROUTE_KEYWORDS)
+    has_vague_pattern = any(pattern.search(answer) for pattern in STRICT_VAGUE_ROUTE_PATTERNS)
+    if not has_vague_keyword and not has_vague_pattern:
+        return False
+    return _specific_route_hits(answer) < 2
+
+
+def _has_generic_public_route(answer: str) -> bool:
+    if not any(answer.startswith(prefix) for prefix in STRICT_PUBLIC_ROUTE_OPENINGS):
+        return False
+    return _specific_route_hits(answer) == 0
+
+
 def _classify_strict_filter_reason(sample: dict[str, Any]) -> str | None:
     query = _user_content(sample)
     answer = _assistant_content(sample)
 
     if not _answers_time_core(query, answer):
         return "time_core_not_answered"
+    if _has_placeholder_route(answer):
+        return "placeholder_route"
+    if _has_vague_route(answer):
+        return "vague_route"
+    if _has_generic_public_route(answer):
+        return "generic_public_route"
     if not _has_executable_route(answer):
         return "non_executable"
     if len(answer) < STRICT_MIN_ANSWER_LENGTH:
@@ -537,7 +649,21 @@ def _fingerprint(user_query: str, assistant_answer: str) -> str:
     return hashlib.md5(payload.encode("utf-8")).hexdigest()
 
 
-def _build_sample(record: dict[str, Any]) -> tuple[dict[str, Any] | None, str | None]:
+def _resolve_processed_source_label(input_file_path: str) -> str:
+    stem = Path(input_file_path).stem
+    cleaned = re.sub(r"[^0-9A-Za-z_]+", "_", stem).strip("_")
+    if not cleaned:
+        return "tripai_traffic_planning_raw"
+    if cleaned.startswith("tripai_"):
+        return cleaned
+    return f"tripai_{cleaned}"
+
+
+def _build_sample(
+    record: dict[str, Any],
+    *,
+    source_label: str | None = None,
+) -> tuple[dict[str, Any] | None, str | None]:
     if clean_text(record.get("task_type"), max_length=80, mask_sensitive=False) != "traffic_planning":
         return None, "wrong_task_type"
 
@@ -572,7 +698,8 @@ def _build_sample(record: dict[str, Any]) -> tuple[dict[str, Any] | None, str | 
         "record_id": clean_text(record.get("record_id"), max_length=80, mask_sensitive=False),
         "task_type": "traffic_planning",
         "scene": clean_text(record.get("scenario"), max_length=80, mask_sensitive=False) or "traffic_planning",
-        "source": "tripai_traffic_planning_raw_2026_03_25",
+        "source": source_label or _resolve_processed_source_label(DEFAULT_INPUT_PATH),
+        "raw_source": clean_text(record.get("source"), max_length=120, mask_sensitive=False),
         "source_id": clean_text(record.get("source_id"), max_length=80, mask_sensitive=False),
         "city": city,
         "origin": origin,
@@ -602,6 +729,7 @@ def process_traffic_planning_data(
 ) -> list[dict[str, Any]]:
     configure_console_output()
     log_info(f"开始清洗 traffic_planning 原始数据: {resolve_path(input_file_path)}")
+    source_label = _resolve_processed_source_label(input_file_path)
 
     try:
         raw_records = load_records(input_file_path)
@@ -618,7 +746,7 @@ def process_traffic_planning_data(
     skip_reasons: Counter[str] = Counter()
 
     for record in raw_records:
-        sample, skip_reason = _build_sample(record)
+        sample, skip_reason = _build_sample(record, source_label=source_label)
         if sample is None:
             skip_reasons[skip_reason or "unknown"] += 1
             continue

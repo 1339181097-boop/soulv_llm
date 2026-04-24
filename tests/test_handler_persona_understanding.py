@@ -116,10 +116,10 @@ def test_process_persona_understanding_data_writes_chatml_json() -> None:
         "budget_level": "medium",
         "people_count": 1,
         "candidate_spots": [
-            {"name": "景点A", "price": "免费开放", "tags": ["拍照打卡、观景、夜景"], "brief": ""},
-            {"name": "景点B", "price": "门票¥50起", "tags": ["古建、拍照打卡、文化体验"], "brief": ""},
-            {"name": "景点C", "price": "门票¥30起", "tags": ["观景、自然风景"], "brief": ""},
-            {"name": "景点D", "price": "门票¥120起", "tags": ["高空刺激、探险"], "brief": ""},
+            {"name": "景点A", "price": "免费开放", "tags": ["拍照打卡、观景、夜景"], "brief": "适合看城市夜景和拍照。"},
+            {"name": "景点B", "price": "门票¥50起", "tags": ["古建、拍照打卡、文化体验"], "brief": "古建氛围明显，适合慢慢拍照。"},
+            {"name": "景点C", "price": "门票¥30起", "tags": ["观景、自然风景"], "brief": "视野开阔，整体节奏轻松。"},
+            {"name": "景点D", "price": "门票¥120起", "tags": ["高空刺激、探险"], "brief": "活动强度偏高。"},
         ],
     }
 

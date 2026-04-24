@@ -134,6 +134,65 @@ def test_filter_traffic_planning_samples_removes_short_and_non_executable_answer
     assert sum(reasons.values()) == 1
 
 
+def test_filter_traffic_planning_samples_removes_placeholder_routes() -> None:
+    placeholder_sample = build_traffic_planning_sample(
+        {
+            "record_id": "placeholder_1",
+            "task_type": "traffic_planning",
+            "city": "长沙",
+            "origin": "靖港古镇",
+            "destination": "太平街",
+            "user_query": "从靖港古镇出发前往太平街，需要换乘吗？要是需要换乘的话，怎样换乘能更便捷呢？",
+            "assistant_content": (
+                "方案二：公交换乘。先从靖港古镇附近找到公交站，乘坐前往市区方向的公交，"
+                "到达市区后，再转乘前往太平街附近的公交，具体需查询公交线路。"
+            ),
+            "transport_modes": ["公交车", "地铁"],
+            "transfer_tips": "地铁需要注意首末班车时间，避开高峰期",
+            "avoid_text": "避免高峰期出行，可能会遇到交通拥堵",
+            "scenario": "city_hub_connection",
+            "updated_at": "2026-04-22",
+        }
+    )
+
+    assert placeholder_sample is not None
+
+    filtered, reasons = filter_traffic_planning_samples([placeholder_sample])
+
+    assert filtered == []
+    assert reasons["vague_route"] == 1
+
+
+def test_filter_traffic_planning_samples_removes_generic_public_routes_without_details() -> None:
+    generic_sample = {
+        "id": "traffic_planning_generic_public_route",
+        "record_id": "generic_public_1",
+        "task_type": "traffic_planning",
+        "source": "tripai_traffic_planning_raw_2026_04_22",
+        "source_id": "generic_public_source",
+        "city": "昆明",
+        "origin": "西山附近小区",
+        "destination": "东川红土地景区",
+        "messages": [
+            {"role": "system", "content": "你是专业的中文旅行交通规划助手。"},
+            {"role": "user", "content": "从西山附近小区出发去东川红土地景区，公交和地铁哪种方式更便捷？"},
+            {
+                "role": "assistant",
+                "content": (
+                    "如果不赶时间，可以优先考虑公交接驳，整体更省预算。 "
+                    "公交地铁方式规划；第一步：前往地铁站；第二步：搭乘地铁前往能换乘的站点。 "
+                    "出发前建议再确认线路、站点、首末班或发车安排，并预留换乘时间。"
+                ),
+            },
+        ],
+    }
+
+    filtered, reasons = filter_traffic_planning_samples([generic_sample])
+
+    assert filtered == []
+    assert sum(reasons.values()) == 1
+
+
 def test_process_traffic_planning_data_can_write_strict_output() -> None:
     temp_dir = Path(".tmp_traffic_planning_test")
     input_path = temp_dir / "traffic_planning_raw.jsonl"
@@ -186,5 +245,40 @@ def test_process_traffic_planning_data_can_write_strict_output() -> None:
         assert len(saved) == 2
         assert len(strict_saved) == 1
         assert strict_saved[0]["record_id"] == "traffic_keep"
+    finally:
+        shutil.rmtree(temp_dir, ignore_errors=True)
+
+
+def test_process_traffic_planning_data_tracks_input_source_label() -> None:
+    temp_dir = Path(".tmp_traffic_planning_source_test")
+    input_path = temp_dir / "traffic_planning_batch_apr22.jsonl"
+    output_path = temp_dir / "sft_traffic_planning.json"
+    record = {
+        "record_id": "traffic_source",
+        "task_type": "traffic_planning",
+        "source": "tripai_db",
+        "source_id": "src_1",
+        "city": "北京",
+        "origin": "北京南站",
+        "destination": "国贸",
+        "user_query": "从北京南站出发，打算前往国贸，想知道哪种方式更方便？",
+        "assistant_content": "从北京南站乘坐地铁4号线到西单站，再换乘1号线到国贸站下车即可。如果更看重少换乘，也可以直接打车。",
+        "transport_modes": ["地铁", "网约车"],
+        "transfer_tips": "地铁需要注意首末班车时间，避开高峰期",
+        "avoid_text": "避免高峰期出行，可能会遇到交通拥堵",
+        "scenario": "train_to_city",
+        "updated_at": "2026-04-22",
+    }
+
+    temp_dir.mkdir(exist_ok=True)
+    try:
+        with input_path.open("w", encoding="utf-8") as file:
+            file.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+        dataset = process_traffic_planning_data(str(input_path), str(output_path))
+
+        assert len(dataset) == 1
+        assert dataset[0]["source"] == "tripai_traffic_planning_batch_apr22"
+        assert dataset[0]["raw_source"] == "tripai_db"
     finally:
         shutil.rmtree(temp_dir, ignore_errors=True)

@@ -4,7 +4,11 @@ import json
 from pathlib import Path
 import shutil
 
-from src.data_pipeline.handlers.handler_multiturn import build_multiturn_sample, process_multiturn_data
+from src.data_pipeline.handlers.handler_multiturn import (
+    build_multiturn_sample,
+    filter_multiturn_strict_samples,
+    process_multiturn_data,
+)
 
 
 def test_build_multiturn_sample_keeps_valid_raw_dialogue_and_adds_system() -> None:
@@ -34,6 +38,7 @@ def test_build_multiturn_sample_keeps_valid_raw_dialogue_and_adds_system() -> No
     assert sample is not None
     assert sample["task_type"] == "multi_turn_dialogue"
     assert sample["id"] == "multi_900001"
+    assert sample["source_id"] == "conv_900001"
     assert sample["messages"][0]["role"] == "system"
     assert sample["messages"][1]["content"] == "我想去杭州玩，主要看看西湖。"
     assert len(sample["messages"]) == 7
@@ -216,5 +221,60 @@ def test_process_multiturn_data_writes_expected_dataset() -> None:
         assert saved[0]["messages"][0]["role"] == "system"
     finally:
         shutil.rmtree(temp_dir, ignore_errors=True)
+
+
+def test_filter_multiturn_strict_samples_removes_dynamic_price_and_keeps_clean_context() -> None:
+    clean_sample = build_multiturn_sample(
+        {
+            "record_id": "multi_900008",
+            "task_type": "multi_turn_dialogue",
+            "source": "tripai_db",
+            "conversation_id": "conv_900008",
+            "city": "苏州",
+            "constraint_changes": [
+                "初始需求：苏州古城慢游",
+                "补充约束：加入老人",
+                "补充约束：增加雨天备选",
+            ],
+            "messages": [
+                {"role": "user", "content": "我想去苏州古城慢慢逛。"},
+                {"role": "assistant", "content": "可以把平江路、拙政园周边和苏州博物馆串成一条轻松路线，上午看园林和博物馆，下午留给街巷散步，整体节奏比较从容，也能让第一次到苏州的人先抓住古城水巷和园林气质。"},
+                {"role": "user", "content": "同行有一位老人，步行不要太多。"},
+                {"role": "assistant", "content": "那就减少连续步行，把平江路只保留精华段，园林参观安排在上午体力较好的时候，中午增加茶馆休息，让老人有更稳定的恢复时间，也减少来回折返。"},
+                {"role": "user", "content": "如果下雨怎么办？"},
+                {"role": "assistant", "content": "雨天可以把户外街巷压缩，改为苏州博物馆、评弹茶馆和近距离园林廊下观景，既能保留江南氛围，也避免长时间淋雨和赶路，老人同行时也更稳妥。"},
+            ],
+        }
+    )
+    price_sample = build_multiturn_sample(
+        {
+            "record_id": "multi_900009",
+            "task_type": "multi_turn_dialogue",
+            "source": "tripai_db",
+            "conversation_id": "conv_900009",
+            "city": "昆明",
+            "constraint_changes": [
+                "初始需求：昆明三日游",
+                "补充约束：控制预算",
+                "补充约束：增加民族村",
+            ],
+            "messages": [
+                {"role": "user", "content": "我想去昆明玩三天。"},
+                {"role": "assistant", "content": "建议第一天逛翠湖和云南大学，第二天去滇池和西山，第三天安排石林或民族村，整体节奏轻松，适合第一次到昆明的人先建立城市方位感，也方便根据体力调整远近景点。"},
+                {"role": "user", "content": "预算想控制一下。"},
+                {"role": "assistant", "content": "住宿选择高性价比民宿，三晚约600元；石林景区门票130元，往返交通约120元；每日餐饮按中等标准安排，整体能覆盖主要景点但不建议再叠加太多付费项目。"},
+                {"role": "user", "content": "再加一个民族村。"},
+                {"role": "assistant", "content": "可以把民族村放在第二天下午，上午继续在滇池周边慢逛，中午休整后再入园，避免和石林放在同一天导致节奏太赶，也能给民俗展示和手作体验留出完整时间。"},
+            ],
+        }
+    )
+
+    assert clean_sample is not None
+    assert price_sample is not None
+
+    filtered, reasons = filter_multiturn_strict_samples([clean_sample, price_sample])
+
+    assert filtered == [clean_sample]
+    assert reasons["exact_price_like_content"] == 1
 
 

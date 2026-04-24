@@ -1,24 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MODEL_VARIANT="${MODEL_VARIANT:-32b}"
+MODEL_VARIANT="${MODEL_VARIANT:-custom}"
 
 case "${MODEL_VARIANT,,}" in
   8b)
-    DEFAULT_MODEL_PATH="/root/soulv_assets/runs/merged/qwen3_8b_stage2_amap_tool_use_merged"
-    DEFAULT_TOKENIZER_PATH="/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-8B"
+    DEFAULT_MODEL_PATH=""
+    DEFAULT_TOKENIZER_PATH=""
     DEFAULT_SERVED_MODEL_NAME="qwen3_8b_stage2_amap_tool_use"
     DEFAULT_TENSOR_PARALLEL_SIZE="1"
     ;;
   32b)
-    DEFAULT_MODEL_PATH="/root/soulv_assets/runs/merged/qwen3_32b_stage2_amap_tool_use_merged"
-    DEFAULT_TOKENIZER_PATH="/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B"
+    DEFAULT_MODEL_PATH=""
+    DEFAULT_TOKENIZER_PATH=""
     DEFAULT_SERVED_MODEL_NAME="qwen3_32b_stage2_amap_tool_use"
     DEFAULT_TENSOR_PARALLEL_SIZE="2"
     ;;
+  custom)
+    DEFAULT_MODEL_PATH=""
+    DEFAULT_TOKENIZER_PATH=""
+    DEFAULT_SERVED_MODEL_NAME="qwen_custom_model"
+    DEFAULT_TENSOR_PARALLEL_SIZE="1"
+    ;;
   *)
     echo "Unsupported MODEL_VARIANT: $MODEL_VARIANT"
-    echo "Expected one of: 8b, 32b"
+    echo "Expected one of: custom, 8b, 32b"
     exit 1
     ;;
 esac
@@ -42,6 +48,30 @@ CHAT_TEMPLATE="${CHAT_TEMPLATE:-}"
 ENABLE_CORS="${ENABLE_CORS:-0}"
 VLLM_API_KEY="${VLLM_API_KEY:-}"
 EXTRA_ARGS="${EXTRA_ARGS:-}"
+
+if [[ -z "$MODEL_PATH" ]]; then
+  echo "MODEL_PATH is required."
+  echo "Example:"
+  echo "  MODEL_VARIANT=32b MODEL_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \\"
+  echo "  TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \\"
+  echo "  SERVED_MODEL_NAME=qwen3_32b_base PORT=8000 bash scripts/03_run_vllm_api.sh"
+  exit 1
+fi
+
+if [[ ! -e "$MODEL_PATH" ]]; then
+  echo "MODEL_PATH does not exist: $MODEL_PATH"
+  echo "Download the model first or create the expected symlink before serving."
+  exit 1
+fi
+
+if [[ -n "$TOKENIZER_PATH" && ! -e "$TOKENIZER_PATH" ]]; then
+  echo "TOKENIZER_PATH does not exist: $TOKENIZER_PATH"
+  exit 1
+fi
+
+if [[ -z "$TOKENIZER_PATH" ]]; then
+  TOKENIZER_PATH="$MODEL_PATH"
+fi
 
 cmd=(
   vllm serve "$MODEL_PATH"

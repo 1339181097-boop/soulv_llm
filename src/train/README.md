@@ -4,6 +4,7 @@ Stage1 and stage2 training entrypoints both live in the repo root `scripts/` and
 
 For the Aliyun dual-environment bootstrap (`lf` for training, `qwen` for vLLM serving), see
 `docs/aliyun_qwen3_32b_env_setup.md`.
+That bootstrap now assumes only environment preparation, not that 32B weights or datasets already exist.
 
 ## Stage1 8B
 

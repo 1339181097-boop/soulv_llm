@@ -20,14 +20,21 @@ from src.data_pipeline.data_utils import (
     log_warn,
     resolve_path,
     write_json,
+    write_jsonl,
 )
 from src.data_pipeline.global_cleaner import clean_text, normalize_text
 from src.data_pipeline.system_prompt_loader import load_system_prompt
 
-DEFAULT_INPUT_PATH = "data/raw/hotel_recommendation_0330.jsonl"
+STAGE1_HOTEL_FINAL_TARGET = 1900
+STAGE1_HOTEL_CANDIDATE_MIN = 4500
+STAGE1_HOTEL_CANDIDATE_MAX = 6500
+
+DEFAULT_INPUT_PATH = "data/raw/hotel_recommendation_raw_0423.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_hotel_recommendation.json"
-DEFAULT_TOTAL_SAMPLES = 750
-DEFAULT_CITY_CAP = 60
+DEFAULT_JSONL_OUTPUT_PATH = "data/processed/sft_hotel_recommendation_0423_strict.jsonl"
+DEFAULT_REPORT_PATH = "data/reports/hotel_recommendation_0423_strict_report.json"
+DEFAULT_TOTAL_SAMPLES = STAGE1_HOTEL_FINAL_TARGET
+DEFAULT_CITY_CAP = 100
 DEFAULT_QUERY_CAP = 1
 
 _DEFAULT_SYSTEM_PROMPT_FALLBACK = (
@@ -316,16 +323,22 @@ def build_hotel_recommendation_sample(record: dict[str, Any]) -> dict[str, Any] 
     hotel_tags = _clean_list(record.get("hotel_tags"), max_items=6, item_length=30)
     suitable_for = _clean_list(record.get("suitable_for"), max_items=6, item_length=40)
     not_suitable_for = _clean_list(record.get("not_suitable_for"), max_items=6, item_length=40)
+    source = clean_text(record.get("source") or "tripai_hotel", max_length=80, mask_sensitive=False)
+    source_id = clean_text(record.get("source_id"), max_length=80, mask_sensitive=False)
+    record_id = clean_text(record.get("record_id"), max_length=80, mask_sensitive=False)
+    updated_at = clean_text(record.get("updated_at"), max_length=40, mask_sensitive=False)
 
     sample_id = "hotel_recommendation_" + hashlib.md5(
         f"{city}|{district}|{user_query}|{answer}".encode("utf-8")
     ).hexdigest()[:12]
     return {
         "id": sample_id,
+        "record_id": record_id,
         "task_type": "hotel_recommendation",
         "scene": "hotel_recommendation",
-        "source": "tripai_hotel_recommendation_0330",
-        "source_id": clean_text(record.get("source_id"), max_length=80, mask_sensitive=False),
+        "source": source,
+        "source_id": source_id,
+        "updated_at": updated_at,
         "city": city,
         "district": district,
         "hotel_name": hotel_name,
@@ -372,17 +385,23 @@ def _select_balanced_subset(
     *,
     target_count: int,
     city_cap: int,
+    city_counts: Counter[str] | None = None,
+    selected_ids: set[str] | None = None,
 ) -> list[dict[str, Any]]:
-    if target_count <= 0 or len(samples) <= target_count:
-        return list(samples)
+    if target_count <= 0:
+        return []
+
+    effective_city_counts = city_counts if city_counts is not None else Counter()
+    effective_selected_ids = selected_ids if selected_ids is not None else set()
 
     city_buckets: dict[str, deque[dict[str, Any]]] = defaultdict(deque)
     for sample in sorted(samples, key=_quality_score, reverse=True):
+        if sample["id"] in effective_selected_ids:
+            continue
         city_key = sample.get("city") or "__unknown__"
         city_buckets[city_key].append(sample)
 
     city_order = sorted(city_buckets, key=lambda city: (-len(city_buckets[city]), city))
-    city_counts: Counter[str] = Counter()
     selected: list[dict[str, Any]] = []
     active_cities = list(city_order)
     while active_cities and len(selected) < target_count:
@@ -390,14 +409,16 @@ def _select_balanced_subset(
         for city in active_cities:
             if len(selected) >= target_count:
                 break
-            if city_cap > 0 and city_counts[city] >= city_cap:
+            if city_cap > 0 and effective_city_counts[city] >= city_cap:
                 continue
             bucket = city_buckets[city]
             if not bucket:
                 continue
-            selected.append(bucket.popleft())
-            city_counts[city] += 1
-            if bucket and (city_cap <= 0 or city_counts[city] < city_cap):
+            sample = bucket.popleft()
+            selected.append(sample)
+            effective_selected_ids.add(sample["id"])
+            effective_city_counts[city] += 1
+            if bucket and (city_cap <= 0 or effective_city_counts[city] < city_cap):
                 next_active.append(city)
         active_cities = next_active
     return selected
@@ -419,21 +440,24 @@ def _balance_styles(
 
     balanced: list[dict[str, Any]] = []
     selected_ids: set[str] = set()
+    city_counts: Counter[str] = Counter()
     for style in STYLE_PRIORITY:
         bucket = grouped.get(style, [])
-        picked = _select_balanced_subset(bucket, target_count=targets.get(style, 0), city_cap=city_cap)
+        picked = _select_balanced_subset(
+            bucket,
+            target_count=targets.get(style, 0),
+            city_cap=city_cap,
+            city_counts=city_counts,
+            selected_ids=selected_ids,
+        )
         for sample in picked:
-            if sample["id"] in selected_ids:
-                continue
             balanced.append(sample)
-            selected_ids.add(sample["id"])
 
     leftovers = [
         sample
         for sample in sorted(processed, key=_quality_score, reverse=True)
         if sample["id"] not in selected_ids
     ]
-    city_counts = Counter(sample.get("city") or "__unknown__" for sample in balanced)
     for sample in leftovers:
         if len(balanced) >= total_samples:
             break
@@ -455,10 +479,93 @@ def _balance_styles(
     return balanced
 
 
+def _length_summary(lengths: list[int]) -> dict[str, Any]:
+    if not lengths:
+        return {"min": 0, "avg": 0.0, "p50": 0, "p90": 0, "max": 0}
+    ordered = sorted(lengths)
+    p50_index = max(0, min(len(ordered) - 1, round(len(ordered) * 0.50) - 1))
+    p90_index = max(0, min(len(ordered) - 1, round(len(ordered) * 0.90) - 1))
+    return {
+        "min": min(lengths),
+        "avg": round(sum(lengths) / len(lengths), 2),
+        "p50": ordered[p50_index],
+        "p90": ordered[p90_index],
+        "max": max(lengths),
+    }
+
+
+def _summarize_raw_records(records: list[dict[str, Any]]) -> dict[str, Any]:
+    required_fields = (
+        "record_id",
+        "task_type",
+        "source",
+        "source_id",
+        "city",
+        "district",
+        "user_query",
+        "assistant_content",
+    )
+    missing_counts: Counter[str] = Counter()
+    empty_counts: Counter[str] = Counter()
+    for record in records:
+        for field in required_fields:
+            if field not in record:
+                missing_counts[field] += 1
+            elif record[field] in (None, "", []):
+                empty_counts[field] += 1
+
+    return {
+        "count": len(records),
+        "candidate_count_range": [STAGE1_HOTEL_CANDIDATE_MIN, STAGE1_HOTEL_CANDIDATE_MAX],
+        "meets_candidate_count_range": STAGE1_HOTEL_CANDIDATE_MIN <= len(records) <= STAGE1_HOTEL_CANDIDATE_MAX,
+        "task_type_counts": dict(Counter(record.get("task_type") for record in records)),
+        "source_counts": dict(Counter(record.get("source") for record in records)),
+        "field_names": sorted({field for record in records for field in record}),
+        "missing_required_counts": dict(missing_counts),
+        "empty_required_counts": dict(empty_counts),
+        "city_count": len({record.get("city") for record in records if record.get("city")}),
+        "top_cities": dict(Counter(record.get("city") for record in records).most_common(20)),
+    }
+
+
+def _summarize_samples(samples: list[dict[str, Any]]) -> dict[str, Any]:
+    assistant_lengths: list[int] = []
+    user_lengths: list[int] = []
+    for sample in samples:
+        for message in sample.get("messages", []):
+            if not isinstance(message, dict):
+                continue
+            content = message.get("content")
+            if not isinstance(content, str):
+                continue
+            if message.get("role") == "assistant":
+                assistant_lengths.append(len(content))
+            elif message.get("role") == "user":
+                user_lengths.append(len(content))
+
+    return {
+        "count": len(samples),
+        "final_target_count": STAGE1_HOTEL_FINAL_TARGET,
+        "meets_final_target": len(samples) >= STAGE1_HOTEL_FINAL_TARGET,
+        "task_type_counts": dict(Counter(sample.get("task_type") for sample in samples)),
+        "source_counts": dict(Counter(sample.get("source") for sample in samples)),
+        "city_count": len({sample.get("city") for sample in samples if sample.get("city")}),
+        "top_cities": dict(Counter(sample.get("city") for sample in samples).most_common(20)),
+        "travel_style_counts": dict(Counter(sample.get("travel_style") for sample in samples)),
+        "budget_level_counts": dict(Counter(sample.get("budget_level") for sample in samples)),
+        "query_intent_counts": dict(Counter(sample.get("query_intent") for sample in samples)),
+        "question_mode_counts": dict(Counter(sample.get("question_mode") for sample in samples)),
+        "user_length": _length_summary(user_lengths),
+        "assistant_length": _length_summary(assistant_lengths),
+    }
+
+
 def process_hotel_recommendation_data(
     input_file_path: str = DEFAULT_INPUT_PATH,
     output_json_path: str = DEFAULT_OUTPUT_PATH,
     *,
+    jsonl_output_path: str | None = None,
+    report_path: str | None = None,
     total_samples: int = DEFAULT_TOTAL_SAMPLES,
     city_cap: int = DEFAULT_CITY_CAP,
     query_cap: int = DEFAULT_QUERY_CAP,
@@ -505,9 +612,34 @@ def process_hotel_recommendation_data(
 
     balanced = _balance_styles(query_filtered, total_samples=total_samples, city_cap=city_cap)
     output_path = write_json(output_json_path, balanced)
+    jsonl_output_file = write_jsonl(jsonl_output_path, balanced) if jsonl_output_path else None
 
     style_counts = Counter(sample.get("travel_style") or "__unknown__" for sample in balanced)
     city_counts = Counter(sample.get("city") or "__unknown__" for sample in balanced)
+    report_file = None
+    if report_path:
+        report = {
+            "input_path": str(resolve_path(input_file_path)),
+            "output_path": str(output_path),
+            "jsonl_output_path": str(jsonl_output_file) if jsonl_output_file else None,
+            "raw_summary": _summarize_raw_records(raw_records),
+            "processed_candidate_summary": _summarize_samples(processed),
+            "query_filtered_summary": _summarize_samples(query_filtered),
+            "output_summary": _summarize_samples(balanced),
+            "final_target_count": STAGE1_HOTEL_FINAL_TARGET,
+            "requested_total_samples": total_samples,
+            "city_cap": city_cap,
+            "query_cap": query_cap,
+            "skipped_count": skipped,
+            "deduped_count": deduped,
+            "query_trimmed_count": query_trimmed,
+            "selected_count": len(balanced),
+            "city_cap_violations": {
+                city: count for city, count in city_counts.items() if city_cap > 0 and count > city_cap
+            },
+        }
+        report_file = write_json(report_path, report)
+
     log_success(
         "处理 hotel_recommendation 数据完成。"
         f"输出 {len(balanced)} 条，"
@@ -524,6 +656,10 @@ def process_hotel_recommendation_data(
     log_info(f"travel_style 分布: {dict(style_counts)}")
     log_info(f"城市 Top 10: {city_counts.most_common(10)}")
     log_info(f"输出文件: {output_path}")
+    if jsonl_output_file:
+        log_info(f"JSONL 输出文件: {jsonl_output_file}")
+    if report_file:
+        log_info(f"清洗报告: {report_file}")
     return balanced
 
 
@@ -542,10 +678,20 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="hotel_recommendation ChatML JSON 输出路径。",
     )
     parser.add_argument(
+        "--jsonl-output",
+        default=DEFAULT_JSONL_OUTPUT_PATH,
+        help="hotel_recommendation ChatML JSONL 输出路径，便于抽查。",
+    )
+    parser.add_argument(
+        "--report",
+        default=DEFAULT_REPORT_PATH,
+        help="hotel_recommendation 清洗报告输出路径。",
+    )
+    parser.add_argument(
         "--total-samples",
         type=int,
         default=DEFAULT_TOTAL_SAMPLES,
-        help="目标样本数，默认 750；设为 0 保留全量。",
+        help=f"目标样本数，默认 {DEFAULT_TOTAL_SAMPLES}；设为 0 保留全量。",
     )
     parser.add_argument(
         "--city-cap",
@@ -567,6 +713,8 @@ def main() -> None:
     process_hotel_recommendation_data(
         args.input,
         args.output,
+        jsonl_output_path=args.jsonl_output,
+        report_path=args.report,
         total_samples=args.total_samples,
         city_cap=args.city_cap,
         query_cap=args.query_cap,

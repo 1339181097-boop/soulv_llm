@@ -20,16 +20,18 @@ from src.data_pipeline.data_utils import (
     log_warn,
     resolve_path,
     write_json,
+    write_jsonl,
 )
 from src.data_pipeline.global_cleaner import clean_text, normalize_text
 from src.data_pipeline.system_prompt_loader import load_system_prompt
 
-DEFAULT_INPUT_PATH = "data/raw/persona_understanding_raw_2026_03_31.jsonl"
+DEFAULT_INPUT_PATH = "data/raw/persona_understanding_raw_2026_04_23.jsonl"
 DEFAULT_OUTPUT_PATH = "data/processed/sft_persona_understanding_strict.json"
-DEFAULT_REPORT_PATH = "data/reports/persona_understanding_strict_report.json"
-DEFAULT_TOTAL_SAMPLES = 500
+DEFAULT_REPORT_PATH = "data/reports/persona_understanding_2026_04_23_strict_report.json"
+DEFAULT_TOTAL_SAMPLES = 1300
 DEFAULT_CITY_CAP = 8
 DEFAULT_CITY_PERSONA_CAP = 1
+DEFAULT_CITY_SELECTED_SET_CAP = 1
 
 _DEFAULT_SYSTEM_PROMPT_FALLBACK = (
     "你是专业的中文旅行需求分析助手。请根据用户的人群特征、预算、偏好和限制条件，"
@@ -61,6 +63,23 @@ META_NOISE_TOKENS = (
     "严格遵循数据源",
     "重新审题",
     "仅能推荐已给的",
+)
+CANDIDATE_SPOT_HARD_NOISE_TOKENS = (
+    "[TRUNCATED]",
+    "TRUNCATED",
+    "点击门票预约",
+    "点击提交订单",
+    "提交订单",
+    "完成预约",
+    "谨慎下单",
+    "下单",
+    "无现金支付",
+    "支付",
+    "实时班次",
+    "班次",
+    "实时余票",
+    "余票",
+    "库存",
 )
 
 CANONICAL_TAG_KEYWORDS: dict[str, tuple[str, ...]] = {
@@ -158,6 +177,7 @@ PERSONA_DEFAULT_TAGS: dict[str, tuple[str, ...]] = {
     "商务出差": ("交通便利", "轻松", "文化体验"),
     "老人": ("少步行", "轻松", "休息设施", "经典景点"),
 }
+SUPPORTED_PERSONA_TYPES = frozenset(PERSONA_DEFAULT_TAGS)
 
 POSITIVE_TAG_LABELS: dict[str, str] = {
     "亲子": "亲子友好",
@@ -192,6 +212,8 @@ NEGATIVE_TAG_LABELS: dict[str, str] = {
     "台阶多": "步行或爬升压力更大",
     "高强度活动": "活动强度偏高",
     "嘈杂": "环境可能更嘈杂",
+    "儿童友好": "更偏儿童活动",
+    "亲子": "亲子属性更强",
 }
 
 
@@ -347,15 +369,44 @@ def _spot_name(spot: dict[str, Any]) -> str:
     return clean_text(spot.get("name"), max_length=80, mask_sensitive=False)
 
 
+def _clean_candidate_spot(spot: Any) -> dict[str, Any] | None:
+    if not isinstance(spot, dict):
+        return None
+
+    name = clean_text(spot.get("name"), max_length=80, mask_sensitive=False)
+    tags = _clean_list(spot.get("tags"), max_items=12, item_length=80)
+    brief = clean_text(spot.get("brief"), max_length=1200, mask_sensitive=False)
+    price = clean_text(spot.get("price"), max_length=120, mask_sensitive=False)
+    if not name or not tags or not brief or not price:
+        return None
+
+    combined = "\n".join([name, " ".join(tags), brief, price])
+    if any(token in combined for token in CANDIDATE_SPOT_HARD_NOISE_TOKENS):
+        return None
+
+    return {
+        "name": name,
+        "tags": tags,
+        "brief": brief,
+        "price": price,
+    }
+
+
 def _choose_template(sample_id: str) -> int:
     digest = hashlib.md5(sample_id.encode("utf-8")).hexdigest()
     return int(digest[:2], 16) % 3
 
 
-def _join_labels(tags: list[str], label_map: dict[str, str], *, limit: int = 3) -> str:
+def _join_labels(
+    tags: list[str],
+    label_map: dict[str, str],
+    *,
+    limit: int = 3,
+    fallback: str = "整体匹配度更高",
+) -> str:
     labels = [label_map[tag] for tag in tags if tag in label_map][:limit]
     if not labels:
-        return "整体匹配度更高"
+        return fallback
     if len(labels) == 1:
         return labels[0]
     if len(labels) == 2:
@@ -369,8 +420,13 @@ def _build_selected_reason(spot_name: str, matched: list[str]) -> str:
 
 
 def _build_rejected_reason(spot_name: str, conflicts: list[str]) -> str:
-    reason = _join_labels(conflicts, NEGATIVE_TAG_LABELS, limit=2)
-    return f"{spot_name}相对更容易出现{reason}"
+    reason = _join_labels(
+        conflicts,
+        NEGATIVE_TAG_LABELS,
+        limit=2,
+        fallback="与限制条件不够贴合",
+    )
+    return f"{spot_name}相对{reason}"
 
 
 def _render_assistant_content(
@@ -502,6 +558,8 @@ def build_persona_understanding_sample(record: dict[str, Any]) -> tuple[dict[str
     raw_preference_tags = _clean_list(record.get("preference_tags"), max_items=8, item_length=30)
     raw_avoid_tags = _clean_list(record.get("avoid_tags"), max_items=8, item_length=30)
     candidate_spots = record.get("candidate_spots")
+    source = clean_text(record.get("source"), max_length=80, mask_sensitive=False)
+    updated_at = clean_text(record.get("updated_at"), max_length=80, mask_sensitive=False)
 
     if (
         not city
@@ -514,8 +572,24 @@ def build_persona_understanding_sample(record: dict[str, Any]) -> tuple[dict[str
 
     if len(candidate_spots) < 3:
         return None, "candidate_spots_lt3"
+    if persona_type not in SUPPORTED_PERSONA_TYPES:
+        return None, "unsupported_persona_type"
     if _raw_text_has_noise(record):
         return None, "raw_text_noise"
+
+    cleaned_candidate_spots: list[dict[str, Any]] = []
+    seen_candidate_names: set[str] = set()
+    for spot in candidate_spots:
+        cleaned_spot = _clean_candidate_spot(spot)
+        if cleaned_spot is None:
+            continue
+        name = cleaned_spot["name"]
+        if name in seen_candidate_names:
+            continue
+        cleaned_candidate_spots.append(cleaned_spot)
+        seen_candidate_names.add(name)
+    if len(cleaned_candidate_spots) < 3:
+        return None, "candidate_spots_lt3_after_clean_or_dedup"
 
     canonical_preferences = _preference_to_canonical(raw_preference_tags, persona_type)
     canonical_avoid = _avoid_to_canonical(raw_avoid_tags)
@@ -523,10 +597,8 @@ def build_persona_understanding_sample(record: dict[str, Any]) -> tuple[dict[str
         return None, "no_canonical_preferences"
 
     scored_spots: list[dict[str, Any]] = []
-    for spot in candidate_spots[:5]:
+    for spot in cleaned_candidate_spots[:5]:
         name = _spot_name(spot)
-        if not name:
-            continue
         spot_tags = _spot_canonical_tags(spot)
         score, matched, conflicts = _spot_score(
             spot_tags,
@@ -542,6 +614,7 @@ def build_persona_understanding_sample(record: dict[str, Any]) -> tuple[dict[str
                 "conflicts": conflicts,
                 "canonical_tags": sorted(spot_tags),
                 "price": clean_text(spot.get("price"), max_length=80, mask_sensitive=False),
+                "candidate_spot": spot,
             }
         )
 
@@ -557,13 +630,29 @@ def build_persona_understanding_sample(record: dict[str, Any]) -> tuple[dict[str
         ),
         reverse=True,
     )
-    selected_spots = scored_spots[:3]
+    selected_spots = [spot for spot in scored_spots if spot["matched"]][:3]
+    if len(selected_spots) < 3:
+        return None, "selected_spots_lt3_with_matches"
     if sum(len(spot["matched"]) for spot in selected_spots) < 2:
         return None, "insufficient_preference_alignment"
 
     rejected_spots = [
         spot
-        for spot in scored_spots[3:]
+        for spot in scored_spots
+        if spot not in selected_spots
+        and (spot["conflicts"] or spot["score"] < selected_spots[-1]["score"])
+    ]
+
+    if not rejected_spots:
+        rejected_spots = [
+            spot
+            for spot in scored_spots
+            if spot not in selected_spots
+        ][:2]
+
+    rejected_spots = [
+        spot
+        for spot in rejected_spots
         if spot["conflicts"] or spot["score"] < selected_spots[-1]["score"]
     ]
 
@@ -594,17 +683,21 @@ def build_persona_understanding_sample(record: dict[str, Any]) -> tuple[dict[str
         "id": sample_id,
         "task_type": "persona_understanding",
         "scene": "persona_understanding",
-        "source": "tripai_persona_understanding_20260331",
+        "source": source or "tripai_persona_understanding",
         "source_id": record_id,
+        "updated_at": updated_at,
         "city": city,
         "persona_type": persona_type,
         "audience": audience,
         "budget_level": budget_level,
         "people_count": people_count,
+        "preference_tags": raw_preference_tags,
+        "avoid_tags": raw_avoid_tags,
         "raw_preference_tags": raw_preference_tags,
         "raw_avoid_tags": raw_avoid_tags,
         "canonical_preference_tags": canonical_preferences,
         "canonical_avoid_tags": canonical_avoid,
+        "candidate_spots": cleaned_candidate_spots[:5],
         "matched_tags": sorted(
             {tag for spot in selected_spots for tag in spot["matched"]}
         ),
@@ -651,17 +744,23 @@ def _select_balanced_subset(
     total_samples: int,
     city_cap: int,
     city_persona_cap: int,
+    city_selected_set_cap: int,
 ) -> list[dict[str, Any]]:
     if total_samples <= 0 or len(samples) <= total_samples:
         return list(samples)
 
     targets = _calculate_persona_targets(samples, total_samples)
+    available = Counter(sample["persona_type"] for sample in samples)
     persona_counts: Counter[str] = Counter()
     city_counts: Counter[str] = Counter()
     city_persona_counts: Counter[tuple[str, str]] = Counter()
+    city_selected_set_counts: Counter[tuple[str, tuple[str, ...]]] = Counter()
     selected: list[dict[str, Any]] = []
 
-    ranked = sorted(samples, key=_quality_score, reverse=True)
+    ranked: list[dict[str, Any]] = []
+    for persona in sorted(available, key=lambda value: (available[value], value)):
+        persona_samples = [sample for sample in samples if sample["persona_type"] == persona]
+        ranked.extend(sorted(persona_samples, key=_quality_score, reverse=True))
     for sample in ranked:
         if len(selected) >= total_samples:
             break
@@ -674,10 +773,17 @@ def _select_balanced_subset(
         city_persona_key = (city, persona)
         if city_persona_cap > 0 and city_persona_counts[city_persona_key] >= city_persona_cap:
             continue
+        city_selected_set_key = (city, tuple(sorted(sample.get("selected_spots", []))))
+        if (
+            city_selected_set_cap > 0
+            and city_selected_set_counts[city_selected_set_key] >= city_selected_set_cap
+        ):
+            continue
         selected.append(sample)
         persona_counts[persona] += 1
         city_counts[city] += 1
         city_persona_counts[city_persona_key] += 1
+        city_selected_set_counts[city_selected_set_key] += 1
 
     if len(selected) >= total_samples:
         return selected
@@ -691,9 +797,20 @@ def _select_balanced_subset(
         city = sample["city"]
         if city_cap > 0 and city_counts[city] >= city_cap:
             continue
+        city_persona_key = (city, sample["persona_type"])
+        if city_persona_cap > 0 and city_persona_counts[city_persona_key] >= city_persona_cap:
+            continue
+        city_selected_set_key = (city, tuple(sorted(sample.get("selected_spots", []))))
+        if (
+            city_selected_set_cap > 0
+            and city_selected_set_counts[city_selected_set_key] >= city_selected_set_cap
+        ):
+            continue
         selected.append(sample)
         selected_ids.add(sample["id"])
         city_counts[city] += 1
+        city_persona_counts[city_persona_key] += 1
+        city_selected_set_counts[city_selected_set_key] += 1
     return selected
 
 
@@ -705,6 +822,7 @@ def process_persona_understanding_data(
     total_samples: int = DEFAULT_TOTAL_SAMPLES,
     city_cap: int = DEFAULT_CITY_CAP,
     city_persona_cap: int = DEFAULT_CITY_PERSONA_CAP,
+    city_selected_set_cap: int = DEFAULT_CITY_SELECTED_SET_CAP,
 ) -> list[dict[str, Any]]:
     configure_console_output()
     log_info(f"开始处理 persona_understanding 数据: {resolve_path(input_file_path)}")
@@ -741,14 +859,22 @@ def process_persona_understanding_data(
         total_samples=total_samples,
         city_cap=city_cap,
         city_persona_cap=city_persona_cap,
+        city_selected_set_cap=city_selected_set_cap,
     )
 
-    output_path = write_json(output_json_path, selected)
+    output_suffix = resolve_path(output_json_path).suffix.lower()
+    if output_suffix == ".jsonl":
+        output_path = write_jsonl(output_json_path, selected)
+        output_format = "jsonl"
+    else:
+        output_path = write_json(output_json_path, selected)
+        output_format = "json"
     persona_counts = Counter(sample["persona_type"] for sample in selected)
     city_counts = Counter(sample["city"] for sample in selected)
     report = {
         "input_path": str(resolve_path(input_file_path)),
         "output_path": str(output_path),
+        "output_format": output_format,
         "raw_count": len(raw_records),
         "strict_kept_count": len(processed),
         "final_count": len(selected),
@@ -759,6 +885,7 @@ def process_persona_understanding_data(
         "total_samples_target": total_samples,
         "city_cap": city_cap,
         "city_persona_cap": city_persona_cap,
+        "city_selected_set_cap": city_selected_set_cap,
     }
     report_output_path = write_json(report_path, report)
 
@@ -789,7 +916,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output",
         default=DEFAULT_OUTPUT_PATH,
-        help="strict ChatML JSON 输出路径。",
+        help="strict ChatML 输出路径；扩展名为 .jsonl 时按一行一条记录写出。",
     )
     parser.add_argument(
         "--report",
@@ -800,7 +927,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
         "--total-samples",
         type=int,
         default=DEFAULT_TOTAL_SAMPLES,
-        help="目标样本数，默认 500；设为 0 保留严格清洗后的全量。",
+        help="目标样本数，默认 1300；设为 0 保留严格清洗后的全量。",
     )
     parser.add_argument(
         "--city-cap",
@@ -814,6 +941,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=DEFAULT_CITY_PERSONA_CAP,
         help="同一城市+画像组合最多保留条数，设为 0 不限制。",
     )
+    parser.add_argument(
+        "--city-selected-set-cap",
+        type=int,
+        default=DEFAULT_CITY_SELECTED_SET_CAP,
+        help="同一城市下同一组选中景点最多覆盖的画像数，设为 0 不限制。",
+    )
     return parser
 
 
@@ -826,6 +959,7 @@ def main() -> None:
         total_samples=args.total_samples,
         city_cap=args.city_cap,
         city_persona_cap=args.city_persona_cap,
+        city_selected_set_cap=args.city_selected_set_cap,
     )
 
 

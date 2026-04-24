@@ -1,5 +1,9 @@
 # vLLM + 前端部署落地方案
 
+> 状态说明（2026-04-20）：
+> 文中涉及的 32B 模型路径和 merged 目录是目标部署路径，不代表当前服务器已经具备这些文件。
+> 现在如果还没下载 32B 权重，请先完成环境安装和路径约定，再启动 vLLM。
+
 这份方案是按当前仓库的真实结构整理出来的，不是空泛模板。
 
 ## 1. 先明确仓库里已经有什么
@@ -85,6 +89,9 @@ bash scripts/06_merge_stage2_for_deploy.sh stage2_amap_32b
 
 ```bash
 MODEL_VARIANT=32b \
+MODEL_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
+TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
+SERVED_MODEL_NAME=qwen3_32b_base \
 HOST=127.0.0.1 \
 PORT=8000 \
 bash scripts/03_run_vllm_api.sh
@@ -92,15 +99,18 @@ bash scripts/03_run_vllm_api.sh
 
 脚本现在默认就是 `32B`：
 
-- `MODEL_PATH=/root/soulv_assets/runs/merged/qwen3_32b_stage2_amap_tool_use_merged`
+- `MODEL_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B`
 - `TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B`
-- `SERVED_MODEL_NAME=qwen3_32b_stage2_amap_tool_use`
+- `SERVED_MODEL_NAME=qwen3_32b_base`
 - `TENSOR_PARALLEL_SIZE=2`
 
 如果你还要回到旧的 8B 轨道：
 
 ```bash
-MODEL_VARIANT=8b bash scripts/03_run_vllm_api.sh
+MODEL_VARIANT=8b \
+MODEL_PATH=/root/soulv_assets/runs/merged/qwen3_8b_stage2_amap_tool_use_merged \
+TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-8B \
+bash scripts/03_run_vllm_api.sh
 ```
 
 如果你需要给外部客户端直接开放 vLLM，也可以把 `HOST=0.0.0.0`，但对“网页给别人访问”这个目标来说，不推荐先暴露 `8000`。
@@ -161,7 +171,7 @@ vLLM 官方文档明确区分了四种模式：
 HOST=0.0.0.0 \
 PORT=7860 \
 UPSTREAM_VLLM_BASE_URL=http://127.0.0.1:8000 \
-DEFAULT_MODEL_NAME=qwen3_32b_stage2_amap_tool_use \
+DEFAULT_MODEL_NAME=qwen3_32b_official \
 bash scripts/07_run_frontend_gateway.sh
 ```
 

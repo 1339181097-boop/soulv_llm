@@ -1,5 +1,9 @@
 # Qwen3-32B 两张 L20 推进指南
 
+> 状态说明（2026-04-20）：
+> 当前仓库已经补齐 32B 训练与部署配置，但 32B 基座权重、训练数据、merged 产物和远端 dataset 注册并不默认存在。
+> 下文中的 32B 路径都应理解为“目标约定路径”，不是“服务器现状”。
+
 这份指南对应当前仓库里已经跑通的 `8B stage1/stage2` 工程链路，目标是把正式主线迁移到 `Qwen/Qwen3-32B`，并固定为“两张 L20 48G + 4bit QLoRA + 双卡分布式”的执行口径。
 
 ## 1. 目标边界
@@ -37,11 +41,9 @@
 1. 两张 `L20 48G` 都能被 `nvidia-smi` 看到
 2. `LLaMA-Factory` 已安装，且支持 `FORCE_TORCHRUN=1`
 3. `vLLM` 已安装
-4. `Qwen/Qwen3-32B` 基座已下载到 `/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B`
-5. 训练数据已同步到 `/root/llama-factory/data`
-6. 远端 `dataset_info.json` 已注册：
-   - `configs/llamafactory_dataset_info_stage1_general_sft.json`
-   - `configs/llamafactory_dataset_info_stage2_amap_tool.json`
+4. 准备训练前，需要先把 `Qwen/Qwen3-32B` 基座下载到 `/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B` 或等价软链接路径
+5. 准备训练前，需要先把训练数据放到 `/root/llama-factory/data` 或等价软链接路径
+6. 准备训练前，如果你使用 LLaMA-Factory 的 dataset 名称训练方式，再自行完成远端 `dataset_info.json` 注册
 
 ## 4. Stage1 执行顺序
 
@@ -179,7 +181,7 @@ bash scripts/06_merge_stage2_for_deploy.sh stage2_amap_32b
 
 ## 9. 部署
 
-`scripts/03_run_vllm_api.sh` 现在默认就是 32B 轨道：
+`scripts/03_run_vllm_api.sh` 现在支持 32B 轨道，但不再建议依赖“默认 32B 文件已经在服务器上”。
 
 - `MODEL_VARIANT=32b`
 - `TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B`
@@ -189,6 +191,10 @@ bash scripts/06_merge_stage2_for_deploy.sh stage2_amap_32b
 直接启动：
 
 ```bash
+MODEL_VARIANT=32b \
+MODEL_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
+TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
+SERVED_MODEL_NAME=qwen3_32b_base \
 HOST=127.0.0.1 \
 PORT=8000 \
 bash scripts/03_run_vllm_api.sh
@@ -197,7 +203,10 @@ bash scripts/03_run_vllm_api.sh
 如果要回到旧 8B 轨道：
 
 ```bash
-MODEL_VARIANT=8b bash scripts/03_run_vllm_api.sh
+MODEL_VARIANT=8b \
+MODEL_PATH=/root/soulv_assets/runs/merged/qwen3_8b_stage2_amap_tool_use_merged \
+TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-8B \
+bash scripts/03_run_vllm_api.sh
 ```
 
 ## 10. 验收清单

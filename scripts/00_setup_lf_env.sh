@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+DEFAULT_PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/.." && pwd)"
+
 CONDA_EXE="${CONDA_EXE:-$HOME/miniconda3/bin/conda}"
 ENV_NAME="${ENV_NAME:-lf}"
 PYTHON_VERSION="${PYTHON_VERSION:-3.11}"
-PROJECT_ROOT="${PROJECT_ROOT:-/root/soulv_llm}"
+PROJECT_ROOT="${PROJECT_ROOT:-$DEFAULT_PROJECT_ROOT}"
 LLAMAFACTORY_HOME="${LLAMAFACTORY_HOME:-/root/llama-factory}"
 LLAMAFACTORY_REPO="${LLAMAFACTORY_REPO:-https://github.com/hiyouga/LLaMA-Factory.git}"
 LLAMAFACTORY_REF="${LLAMAFACTORY_REF:-v0.9.4}"

@@ -1,6 +1,15 @@
 # 阿里云 Qwen3-32B 双环境安装指南
 
-这份文档对应当前仓库的正式主线：
+这份文档对应当前仓库准备中的 32B 轨道。
+
+状态说明：
+
+- 现在的目标是先把 `lf` 和 `qwen` 两个环境装稳
+- 当前还没有开始正式训练 `Qwen3-32B`
+- 32B 基座权重、训练数据、merge 产物、远端 dataset 注册都不默认存在
+- 文中出现的 32B 路径，默认都按“未来约定路径”理解，不代表云端现在已经有内容
+
+这份文档当前聚焦：
 
 - 训练环境：`lf`
 - 推理环境：`qwen`
@@ -37,15 +46,20 @@
   - `peft 0.15.1`
   - `trl 0.9.6`
   - `deepspeed 0.16.4`
-  - `bitsandbytes 0.43.1`
+  - `bitsandbytes 0.48.2`
 - `qwen`
   - `Python 3.11`
-  - `vllm>=0.9.0,<0.10.0`
+  - `vllm 0.10.2`
+  - `transformers 4.56.2`
+  - `tokenizers >=0.22,<0.24`
+  - `numpy 2.2.6`
+  - `modelscope 1.34.x`
 
 说明：
 
 - `flash-attn` 被拆成可选安装，默认不强装。原因不是它没用，而是它在云端经常因为 CUDA toolchain 编译问题拖慢首轮落地。
 - 如果后续你确认机器驱动、CUDA、编译链都稳定，再执行 `INSTALL_FLASH_ATTN=1 bash scripts/00_setup_lf_env.sh` 即可。
+- 当前仓库里 `lf` 环境的 `bitsandbytes` 已按阿里云双 L20 实测结果固定为 `0.48.2`。这是为了解决旧版 `0.43.1` 在新 Triton 环境下可能触发的 `No module named triton.ops` 报错。
 
 ## 2. 为什么这样拆
 
@@ -60,61 +74,96 @@
 
 所以这里不把 `vllm` 装进 `lf`，而是单独放在 `qwen` 环境里。
 
-## 3. 一次性执行顺序
+## 3. 为什么之前写 `cd /root/soulv_llm`
 
-先在云端进入项目目录：
-
-```bash
-cd /root/soulv_llm
-```
-
-然后按顺序执行：
+之前那样写，只是为了让你直接用相对路径执行：
 
 ```bash
 bash scripts/00_setup_lf_env.sh
-bash scripts/00_setup_qwen_env.sh
-bash scripts/00_prepare_aliyun_layout.sh
-bash scripts/00_doctor_envs.sh
 ```
 
-这四步分别负责：
+不是因为创建 conda 环境本身必须先进入仓库目录。
+
+现在这几个脚本已经改过了，会自动根据脚本自身位置推断 `PROJECT_ROOT`，所以你可以在任意目录执行：
+
+```bash
+bash /root/soulv_llm/scripts/00_setup_lf_env.sh
+bash /root/soulv_llm/scripts/00_setup_qwen_env.sh
+bash /root/soulv_llm/scripts/00_prepare_aliyun_layout.sh
+bash /root/soulv_llm/scripts/00_doctor_envs.sh
+```
+
+如果你人在仓库目录里，继续用相对路径也没问题。
+
+## 4. 一次性执行顺序
+
+按顺序执行：
+
+```bash
+bash /root/soulv_llm/scripts/00_setup_lf_env.sh
+bash /root/soulv_llm/scripts/00_setup_qwen_env.sh
+bash /root/soulv_llm/scripts/00_prepare_aliyun_layout.sh
+bash /root/soulv_llm/scripts/00_doctor_envs.sh
+```
+
+这四步现在分别负责：
 
 1. 创建并安装 `lf`
 2. 创建并安装 `qwen`
-3. 准备 `/root/llama-factory/data` 和 `/root/soulv_assets/...`
+3. 只准备目录结构和可选软链接
 4. 打印 GPU、Torch、LLaMA-Factory、vLLM 的自检信息
 
-## 4. 目录准备会做什么
+## 5. 目录准备现在会做什么
 
 `bash scripts/00_prepare_aliyun_layout.sh` 会自动处理这些事：
 
 - 创建目录：
-  - `/root/llama-factory/data`
   - `/root/soulv_assets/models`
   - `/root/soulv_assets/runs/checkpoints`
   - `/root/soulv_assets/runs/merged`
-- 合并数据注册：
-  - `configs/llamafactory_dataset_info_stage1_general_sft.json`
-  - `configs/llamafactory_dataset_info_stage2_amap_tool.json`
-- 复制训练数据到远端 LLaMA-Factory 数据目录：
-  - `data/final/stage1_general_sft.json`
-  - `data/final/stage2_amap_tool_use_sft.json`
+- `/root/llama-factory`
 
-所以这一步做完后，当前仓库里 32B 训练配置引用的 `dataset_dir: /root/llama-factory/data` 就能直接对上。
+它不再做这些事：
 
-## 5. 模型路径
+- 不自动注册 dataset
+- 不自动复制训练数据
+- 不假设 `Qwen3-32B` 权重已经下载
+- 不假设 stage1 / stage2 的 32B 产物已经存在
 
-当前仓库默认约定的基座路径是：
+如果你将来想把“真实模型目录”挂到仓库约定路径，可以这样做：
+
+```bash
+MODEL_SOURCE_PATH=/root/model_store/Qwen3-32B \
+bash /root/soulv_llm/scripts/00_prepare_aliyun_layout.sh
+```
+
+如果你将来想把训练数据目录挂到 LLaMA-Factory 默认数据目录，也可以这样做：
+
+```bash
+DATA_SOURCE_PATH=/root/data/llamafactory \
+bash /root/soulv_llm/scripts/00_prepare_aliyun_layout.sh
+```
+
+数据注册这一步这次已经从脚本里去掉了，后面你有新数据时自己注册即可。
+
+## 6. 模型路径
+
+当前仓库里的 32B 相关配置，约定基座路径是：
 
 ```text
 /root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B
 ```
 
-在开始训练或推理前，需要确认这个目录已经准备好。
+这只是“约定路径”，不是当前服务器已存在的事实。
+
+开始训练或推理前，你只需要保证二选一：
+
+1. 真实权重就放在这个路径
+2. 你把这个路径做成软链接，指向真实权重目录
 
 如果你的实际模型目录不同，有两种做法：
 
-1. 把模型整理到上面这个固定路径
+1. 保持仓库配置不变，用软链接对齐到这个路径
 2. 直接改仓库现有配置里的 `model_name_or_path` 和 `TOKENIZER_PATH`
 
 当前会受影响的地方主要有：
@@ -124,7 +173,14 @@ bash scripts/00_doctor_envs.sh
 - `configs/llamafactory_stage1_32b_merge_for_stage2.yaml`
 - `scripts/03_run_vllm_api.sh`
 
-## 6. 训练怎么跑
+## 7. 当前阶段建议只做环境验证
+
+你现在还没有下载 32B 权重，也没有准备训练数据，所以当前更合理的目标不是直接开训，而是只确认：
+
+- `lf` 环境能创建成功
+- `qwen` 环境能创建成功
+- `nvidia-smi`、`torch.cuda`、`vllm` 基础自检正常
+- 路径约定和软链接方案已经定下来
 
 先进入训练环境：
 
@@ -132,23 +188,15 @@ bash scripts/00_doctor_envs.sh
 source /root/miniconda3/bin/activate lf
 ```
 
-然后按仓库既有主线执行：
+先只做基础检查，不直接跑 32B 训练：
 
 ```bash
-bash scripts/02_run_sft.sh stage1_32b smoke
-bash scripts/02_run_sft.sh stage1_32b formal
-bash scripts/04_merge_stage1_for_stage2.sh stage1_32b
-bash scripts/02_run_sft.sh stage2_amap_32b smoke
-bash scripts/02_run_sft.sh stage2_amap_32b formal
-bash scripts/06_merge_stage2_for_deploy.sh stage2_amap_32b
+bash /root/soulv_llm/scripts/00_doctor_envs.sh
 ```
 
-默认双卡参数已经写在仓库里，不需要额外改：
+等将来 32B 权重和训练数据都到位后，再进入正式训练。
 
-- `FORCE_TORCHRUN=1`
-- `NPROC_PER_NODE=2`
-
-## 7. 推理怎么跑
+## 8. 推理怎么跑
 
 先进入推理环境：
 
@@ -156,46 +204,57 @@ bash scripts/06_merge_stage2_for_deploy.sh stage2_amap_32b
 source /root/miniconda3/bin/activate qwen
 ```
 
-再启动 vLLM：
+`scripts/03_run_vllm_api.sh` 现在也改了：
+
+- 不再默认假设 32B 模型已经存在
+- 启服务时如果 `MODEL_PATH` 不存在，会直接报错退出
+- 如果你没传 `TOKENIZER_PATH`，默认回退到 `MODEL_PATH`
+
+所以真正启动 vLLM 时，需要显式给模型路径，或者先把软链接建好。
+
+比如未来基座下载完后可以这样起：
 
 ```bash
+MODEL_VARIANT=32b \
+MODEL_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
+TOKENIZER_PATH=/root/soulv_assets/models/modelscope/models/Qwen/Qwen3-32B \
 HOST=127.0.0.1 \
 PORT=8000 \
-MODEL_VARIANT=32b \
 bash scripts/03_run_vllm_api.sh
 ```
 
-如果要开前端网关：
+如果以后是拿 merge 后模型起服务，就把 `MODEL_PATH` 换成 merge 输出目录。
+
+## 9. 前端网关
 
 ```bash
 HOST=0.0.0.0 \
 PORT=7860 \
 UPSTREAM_VLLM_BASE_URL=http://127.0.0.1:8000 \
-DEFAULT_MODEL_NAME=qwen3_32b_stage2_amap_tool_use \
+DEFAULT_MODEL_NAME=qwen3_32b_official \
 bash scripts/07_run_frontend_gateway.sh
 ```
 
-## 8. 首轮建议
+## 10. 首轮建议
 
-第一次不要直接冲 full train，建议按下面顺序：
+第一次建议按下面顺序：
 
 1. `bash scripts/00_doctor_envs.sh`
-2. `conda activate lf`
-3. `bash scripts/02_run_sft.sh stage1_32b smoke`
-4. `conda activate qwen`
-5. 用 `bash scripts/03_run_vllm_api.sh` 拉起 32B 服务
-6. 跑通 `src/eval/` 和 `src/tool_eval/` 的最小验证
+2. 确认两张 `L20 48G` 都正常
+3. 装稳 `lf`
+4. 装稳 `qwen`
+5. 再决定权重下载路径和未来软链接路径
+6. 等数据和模型到位后，再开始 32B smoke train / vLLM serve
 
-这样能最快确定问题到底出在：
+这样能最快确定问题到底出在环境层，而不是训练配置层：
 
 - GPU / driver
 - torch / deepspeed
 - LLaMA-Factory
 - vLLM
-- 模型路径
-- 数据注册
+- 路径约定
 
-## 9. 常见调整
+## 11. 常见调整
 
 如果你要改版本，优先改这里：
 
@@ -210,7 +269,7 @@ bash scripts/07_run_frontend_gateway.sh
 - `configs/llamafactory_stage1_32b_*.yaml`
 - `configs/llamafactory_stage2_32b_*.yaml`
 
-## 10. 官方依据
+## 12. 官方依据
 
 截至 `2026-04-20`，这套方案主要对齐以下官方文档：
 
