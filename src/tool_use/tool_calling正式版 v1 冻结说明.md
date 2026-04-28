@@ -159,14 +159,14 @@ source 数据集固定保留 4 类 role：
 
 ## 8. 正式造数默认配比
 
-`build_stage2_amap_tool_use.py` 当前默认总样本数是 `1600`，默认配比已经在代码中固化为：
+`build_stage2_amap_tool_use.py` 当前 32B 默认总样本数是 `3200`，默认配比已经在代码中固化为：
 
-- `single_tool_call`: `35%`，即 `560`
-- `slot_filling_tool_call`: `20%`，即 `320`
-- `clarify_then_call`: `15%`，即 `240`
-- `tool_result_grounded_answer`: `10%`，即 `160`
-- `no_tool_needed`: `10%`，即 `160`
-- `tool_failure_fallback`: `10%`，即 `160`
+- `single_tool_call`: `20%`，即 `640`
+- `slot_filling_tool_call`: `18%`，即 `576`
+- `clarify_then_call`: `18%`，即 `576`
+- `tool_result_grounded_answer`: `22%`，即 `704`
+- `no_tool_needed`: `12%`，即 `384`
+- `tool_failure_fallback`: `10%`，即 `320`
 
 说明：
 
@@ -181,7 +181,7 @@ source 数据集固定保留 4 类 role：
 - `ALLOWED_TWO_STEP_CHAINS` 同时被数据校验和执行器复用
 - tool result envelope 由 `protocol.py` helper 和 `amap_client.py` 共同实现
 - `pytest tests/test_tool_use_dataset.py tests/test_tool_use_orchestrator.py tests/test_stage2_amap_builder.py -q` 通过，结果为 `7 passed`
-- `python src/data_pipeline/build_stage2_amap_tool_use.py --total-samples 1600 ...` 已成功生成完整临时数据
+- `python src/data_pipeline/build_stage2_amap_tool_use.py --total-samples 3200 ...` 已成功生成完整训练数据
 - source 与 sharegpt 两种格式的校验均已通过
 
 因此，当前协议已经不是“草案状态”，而是“可训练、可导出、可执行、可评测”的收敛状态。

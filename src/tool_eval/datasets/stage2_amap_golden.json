@@ -1,62 +1,689 @@
 [
   {
-    "id": "golden_route_001",
+    "id": "golden_route_transit_001",
     "task_type": "single_tool_call",
     "expected_behavior": "should_call_tool",
-    "expected_tool_chain": ["amap_plan_route"],
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "我从北京南站出发去颐和园，优先公共交通，帮我规划路线。"
+      }
+    ],
     "expected_arguments_subset": {
       "origin": "北京南站",
       "destination": "颐和园",
       "mode": "transit"
     },
-    "must_include": ["路线", "换乘"],
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_transit_002",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。需要实时路线、位置和周边信息时优先使用工具。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
-        "content": "我从北京南站出发，想去颐和园，优先公共交通，帮我看看怎么走。"
+        "content": "上海虹桥站到豫园怎么坐地铁公交更省心？"
       }
+    ],
+    "expected_arguments_subset": {
+      "origin": "上海虹桥站",
+      "destination": "豫园",
+      "mode": "transit"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_transit_003",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "我在杭州东站，想坐公共交通去灵隐寺，帮我看下路线。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "杭州东站",
+      "destination": "灵隐寺",
+      "mode": "transit"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_driving_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "从成都东站开车去宽窄巷子，帮我规划一下驾驶路线。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "成都东站",
+      "destination": "宽窄巷子",
+      "mode": "driving"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_driving_002",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "深圳宝安机场到观澜湖如果自驾，路线怎么走？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "深圳宝安机场",
+      "destination": "观澜湖",
+      "mode": "driving"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_walking_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "从西湖音乐喷泉步行到断桥残雪，帮我看下路线。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "西湖音乐喷泉",
+      "destination": "断桥残雪",
+      "mode": "walking"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_walking_002",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "夫子庙到老门东想走过去，大概怎么走？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "南京夫子庙",
+      "destination": "老门东",
+      "mode": "walking"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_bicycling_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "我想从苏州博物馆骑车去平江路，帮我规划路线。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "苏州博物馆",
+      "destination": "平江路",
+      "mode": "bicycling"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_bicycling_002",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "厦门大学到曾厝垵骑行怎么走比较顺？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "厦门大学",
+      "destination": "曾厝垵",
+      "mode": "bicycling"
+    },
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_route_transit_004",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "天津站出发去水上公园，优先地铁公交，帮我规划。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "origin": "天津站",
+      "destination": "水上公园",
+      "mode": "transit"
+    },
+    "must_include": [
+      "路线"
     ]
   },
   {
     "id": "golden_geocode_001",
     "task_type": "single_tool_call",
     "expected_behavior": "should_call_tool",
-    "expected_tool_chain": ["amap_geocode"],
-    "expected_arguments_subset": {
-      "address": "雷峰塔"
-    },
-    "must_include": ["位置"],
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。需要实时路线、位置和周边信息时优先使用工具。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
-        "content": "雷峰塔具体在哪？"
+        "content": "雷峰塔具体位置在哪里？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "address": "雷峰塔",
+      "city": "杭州"
+    },
+    "must_include": [
+      "位置"
+    ]
+  },
+  {
+    "id": "golden_geocode_002",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "广州塔在哪个位置？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "address": "广州塔",
+      "city": "广州"
+    },
+    "must_include": [
+      "位置"
+    ]
+  },
+  {
+    "id": "golden_geocode_003",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "帮我确认一下洪崖洞的位置。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "address": "洪崖洞",
+      "city": "重庆"
+    },
+    "must_include": [
+      "位置"
+    ]
+  },
+  {
+    "id": "golden_geocode_004",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "鼓浪屿码头具体在哪？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "address": "鼓浪屿码头",
+      "city": "厦门"
+    },
+    "must_include": [
+      "位置"
+    ]
+  },
+  {
+    "id": "golden_geocode_005",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "大雁塔在西安哪里？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "address": "大雁塔",
+      "city": "西安"
+    },
+    "must_include": [
+      "位置"
+    ]
+  },
+  {
+    "id": "golden_geocode_006",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "星海广场的具体位置帮我查一下。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "address": "星海广场",
+      "city": "大连"
+    },
+    "must_include": [
+      "位置"
+    ]
+  },
+  {
+    "id": "golden_poi_hotel_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下西湖附近适合中转住一晚的酒店。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "keyword": "酒店",
+      "city": "杭州"
+    },
+    "must_include": [
+      "酒店"
+    ]
+  },
+  {
+    "id": "golden_poi_restaurant_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "夫子庙附近有什么餐厅可以顺路吃饭？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "keyword": "餐厅",
+      "city": "南京"
+    },
+    "must_include": [
+      "餐厅"
+    ]
+  },
+  {
+    "id": "golden_poi_subway_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "豫园附近最近的地铁站帮我查一下。"
+      }
+    ],
+    "expected_arguments_subset": {
+      "keyword": "地铁站",
+      "city": "上海"
+    },
+    "must_include": [
+      "地铁站"
+    ]
+  },
+  {
+    "id": "golden_poi_parking_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "宽窄巷子周边哪里方便停车？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "keyword": "停车场",
+      "city": "成都"
+    },
+    "must_include": [
+      "停车场"
+    ]
+  },
+  {
+    "id": "golden_poi_mall_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "世界之窗附近有适合顺路逛逛的商场吗？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "keyword": "商场",
+      "city": "深圳"
+    },
+    "must_include": [
+      "商场"
+    ]
+  },
+  {
+    "id": "golden_poi_spot_001",
+    "task_type": "single_tool_call",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "平江路附近还有什么景点可以一起逛？"
+      }
+    ],
+    "expected_arguments_subset": {
+      "keyword": "景点",
+      "city": "苏州"
+    },
+    "must_include": [
+      "景点"
+    ]
+  },
+  {
+    "id": "golden_clarify_route_origin_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "帮我规划一下去机场的公共交通路线。"
       }
     ]
   },
   {
-    "id": "golden_clarify_001",
+    "id": "golden_clarify_route_destination_001",
     "task_type": "clarify_then_call",
     "expected_behavior": "should_clarify",
-    "expected_tool_chain": ["amap_plan_route"],
-    "expected_arguments_subset": {
-      "mode": "transit"
-    },
+    "expected_tool_chain": [],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。参数缺失时先澄清，再调用工具。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
-        "content": "帮我规划一下去机场的路线。"
+        "content": "我从北京南站出发，帮我看一下怎么坐车。"
+      }
+    ]
+  },
+  {
+    "id": "golden_clarify_route_city_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "从火车站去人民公园，优先地铁公交，帮我规划路线。"
+      }
+    ]
+  },
+  {
+    "id": "golden_clarify_route_mode_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "从西湖到灵隐寺怎么走？"
+      }
+    ]
+  },
+  {
+    "id": "golden_clarify_poi_city_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下万达广场附近的酒店。"
+      }
+    ]
+  },
+  {
+    "id": "golden_clarify_poi_anchor_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "我想找附近可以吃饭的地方。"
+      }
+    ]
+  },
+  {
+    "id": "golden_clarify_poi_keyword_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "西湖附近有什么方便一点的地方？"
+      }
+    ]
+  },
+  {
+    "id": "golden_clarify_geocode_city_001",
+    "task_type": "clarify_then_call",
+    "expected_behavior": "should_clarify",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "人民公园具体在哪里？"
       }
     ]
   },
@@ -65,11 +692,10 @@
     "task_type": "no_tool_needed",
     "expected_behavior": "should_answer_directly",
     "expected_tool_chain": [],
-    "must_include": ["适合"],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。不需要实时工具时直接自然回答。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
@@ -78,77 +704,373 @@
     ]
   },
   {
-    "id": "golden_search_001",
-    "task_type": "tool_result_grounded_answer",
-    "expected_behavior": "should_call_tool",
-    "expected_tool_chain": ["amap_search_poi"],
-    "expected_arguments_subset": {
-      "keyword": "酒店"
-    },
-    "must_include": ["酒店"],
+    "id": "golden_no_tool_002",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。需要实时路线、位置和周边信息时优先使用工具。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
-        "content": "帮我找一下西湖附近适合中转住一晚的酒店。"
+        "content": "第一次去南京，两天一晚节奏怎么安排比较轻松？"
       }
     ]
   },
   {
-    "id": "golden_chain_001",
-    "task_type": "tool_result_grounded_answer",
-    "expected_behavior": "should_call_tool",
-    "expected_tool_chain": ["amap_geocode", "amap_search_poi"],
-    "must_include": ["附近"],
+    "id": "golden_no_tool_003",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。最多允许两步工具链，优先 geocode -> search_poi。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
-        "content": "帮我找一下鼓浪屿码头附近能步行到的酒店。"
+        "content": "亲子去上海迪士尼，出发前需要注意什么？"
       }
     ]
   },
   {
-    "id": "golden_fallback_001",
+    "id": "golden_no_tool_004",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "杭州有什么适合雨天的室内体验？"
+      }
+    ]
+  },
+  {
+    "id": "golden_no_tool_005",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "去成都旅行，住春熙路附近有什么优缺点？"
+      }
+    ]
+  },
+  {
+    "id": "golden_no_tool_006",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "老人去苏州园林游玩，路线节奏上有什么建议？"
+      }
+    ]
+  },
+  {
+    "id": "golden_no_tool_007",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "冬天去哈尔滨需要准备哪些衣物？"
+      }
+    ]
+  },
+  {
+    "id": "golden_no_tool_008",
+    "task_type": "no_tool_needed",
+    "expected_behavior": "should_answer_directly",
+    "expected_tool_chain": [],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去厦门，鼓浪屿和环岛路怎么取舍？"
+      }
+    ]
+  },
+  {
+    "id": "golden_fallback_route_001",
     "task_type": "tool_failure_fallback",
     "expected_behavior": "should_fallback",
-    "expected_tool_chain": ["amap_plan_route"],
-    "tool_test_mode": {
-      "force_error_on": "amap_plan_route"
-    },
-    "must_include": ["暂时", "再查"],
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。工具失败时不要编造，明确说明不确定性并给 fallback。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
-        "content": "帮我查一下从虹桥机场到外滩的最快路线。"
+        "content": "帮我规划从虹桥机场到外滩的最快路线。"
       }
+    ],
+    "tool_test_mode": {
+      "force_error_on": "amap_plan_route"
+    }
+  },
+  {
+    "id": "golden_fallback_route_002",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": [
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "从杭州东站到灵隐寺怎么走最快？"
+      }
+    ],
+    "tool_test_mode": {
+      "force_error_on": "amap_plan_route"
+    }
+  },
+  {
+    "id": "golden_fallback_geocode_001",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "帮我确认一下一个叫蓝鲸小院的具体位置。"
+      }
+    ],
+    "tool_test_mode": {
+      "force_error_on": "amap_geocode"
+    }
+  },
+  {
+    "id": "golden_fallback_geocode_002",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": [
+      "amap_geocode"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "查一下星河湾码头在哪。"
+      }
+    ],
+    "tool_test_mode": {
+      "force_error_on": "amap_geocode"
+    }
+  },
+  {
+    "id": "golden_fallback_poi_001",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下西湖附近适合停车的地方。"
+      }
+    ],
+    "tool_test_mode": {
+      "force_error_on": "amap_search_poi"
+    }
+  },
+  {
+    "id": "golden_fallback_poi_002",
+    "task_type": "tool_failure_fallback",
+    "expected_behavior": "should_fallback",
+    "expected_tool_chain": [
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "南京夫子庙附近有什么适合老人吃饭的餐厅？"
+      }
+    ],
+    "tool_test_mode": {
+      "force_error_on": "amap_search_poi"
+    }
+  },
+  {
+    "id": "golden_chain_poi_001",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode",
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "帮我找一下鼓浪屿码头附近步行方便的酒店。"
+      }
+    ],
+    "must_include": [
+      "酒店"
     ]
   },
   {
-    "id": "golden_direct_geocode_then_route_001",
+    "id": "golden_chain_poi_002",
     "task_type": "tool_result_grounded_answer",
     "expected_behavior": "should_call_tool",
-    "expected_tool_chain": ["amap_geocode", "amap_plan_route"],
-    "must_include": ["路线", "出发"],
+    "expected_tool_chain": [
+      "amap_geocode",
+      "amap_search_poi"
+    ],
     "messages": [
       {
         "role": "system",
-        "content": "你是 TripAI 旅行助手。最多允许两步工具链，优先 geocode -> plan_route。"
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
       },
       {
         "role": "user",
-        "content": "我在西湖音乐喷泉附近，想去灵隐寺，帮我规划一下路线。"
+        "content": "大雁塔北广场附近有什么餐厅适合顺路吃饭？"
       }
+    ],
+    "must_include": [
+      "餐厅"
+    ]
+  },
+  {
+    "id": "golden_chain_poi_003",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode",
+      "amap_search_poi"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "平江路历史街区附近最近的地铁站在哪里？"
+      }
+    ],
+    "must_include": [
+      "地铁站"
+    ]
+  },
+  {
+    "id": "golden_chain_route_001",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode",
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "我在西湖音乐喷泉附近，想去灵隐寺，帮我规划公共交通路线。"
+      }
+    ],
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_chain_route_002",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode",
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "我在春熙路太古里，想去宽窄巷子，帮我看一下路线。"
+      }
+    ],
+    "must_include": [
+      "路线"
+    ]
+  },
+  {
+    "id": "golden_chain_route_003",
+    "task_type": "tool_result_grounded_answer",
+    "expected_behavior": "should_call_tool",
+    "expected_tool_chain": [
+      "amap_geocode",
+      "amap_plan_route"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 TripAI 旅行助手。当用户问题需要实时路线、位置、周边 POI 等信息时，优先使用工具。如果参数缺失，先澄清再调用。如果不需要工具，直接自然回答。如果工具失败或结果为空，明确说明不确定性并给出稳妥建议，不要编造。"
+      },
+      {
+        "role": "user",
+        "content": "从夫子庙景区去南京博物院，公共交通怎么走？"
+      }
+    ],
+    "must_include": [
+      "路线"
     ]
   }
 ]

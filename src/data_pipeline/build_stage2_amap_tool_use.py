@@ -14,10 +14,10 @@ if __package__ in {None, ""}:
 
 from src.data_pipeline.data_utils import (
     configure_console_output,
+    load_records,
     log_error,
     log_info,
     log_success,
-    read_json,
     resolve_path,
     write_json,
 )
@@ -37,15 +37,18 @@ from src.tool_use.protocol import (
 DEFAULT_SOURCE_OUTPUT = "data/tool_use/stage2_amap_tool_use_source.json"
 DEFAULT_EXPORT_OUTPUT = "data/final/stage2_amap_tool_use_sft.json"
 DEFAULT_REPORT_OUTPUT = "data/final/stage2_amap_tool_use_report.json"
-DEFAULT_TOTAL_SAMPLES = 1600
+DEFAULT_TRAFFIC_INPUT = "data/processed/sft_traffic_planning_strict_round2_final.jsonl"
+DEFAULT_HOTEL_INPUT = "data/processed/sft_hotel_recommendation_0423_strict.jsonl"
+DEFAULT_TRAVEL_INPUT = "data/processed/sft_travel_qa_2026_04_22_strict.jsonl"
+DEFAULT_TOTAL_SAMPLES = 3200
 DEFAULT_SEED = 42
 
 TARGET_RATIOS = {
-    "single_tool_call": 0.35,
-    "slot_filling_tool_call": 0.20,
-    "clarify_then_call": 0.15,
-    "tool_result_grounded_answer": 0.10,
-    "no_tool_needed": 0.10,
+    "single_tool_call": 0.20,
+    "slot_filling_tool_call": 0.18,
+    "clarify_then_call": 0.18,
+    "tool_result_grounded_answer": 0.22,
+    "no_tool_needed": 0.12,
     "tool_failure_fallback": 0.10,
 }
 
@@ -1288,11 +1291,21 @@ def _build_candidate_subpools(
     return subpools, meta
 
 
-def build_dataset(total_samples: int, seed: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def build_dataset(
+    total_samples: int,
+    seed: int,
+    *,
+    traffic_input: str | Path = DEFAULT_TRAFFIC_INPUT,
+    hotel_input: str | Path = DEFAULT_HOTEL_INPUT,
+    travel_input: str | Path = DEFAULT_TRAVEL_INPUT,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     rng = random.Random(seed)
-    traffic_records = read_json(resolve_path("data/processed/sft_traffic_planning.json"))
-    hotel_records = read_json(resolve_path("data/processed/sft_hotel_recommendation.json"))
-    travel_records = read_json(resolve_path("data/processed/sft_travel_qa.json"))
+    traffic_path = resolve_path(traffic_input)
+    hotel_path = resolve_path(hotel_input)
+    travel_path = resolve_path(travel_input)
+    traffic_records = load_records(traffic_path)
+    hotel_records = load_records(hotel_path)
+    travel_records = load_records(travel_path)
 
     candidate_subpools, source_meta = _build_candidate_subpools(traffic_records, hotel_records, travel_records)
 
@@ -1301,6 +1314,11 @@ def build_dataset(total_samples: int, seed: int) -> tuple[list[dict[str, Any]], 
     report: dict[str, Any] = {
         "total_samples": total_samples,
         "seed": seed,
+        "input_paths": {
+            "traffic": str(traffic_path),
+            "hotel": str(hotel_path),
+            "travel": str(travel_path),
+        },
         "targets": target_counts,
         "source_meta": source_meta,
         "buckets": {},
@@ -1334,6 +1352,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Build stage2 AMap tool-use dataset and export it to LLaMA-Factory.")
     parser.add_argument("--total-samples", type=int, default=DEFAULT_TOTAL_SAMPLES, help="Total stage2 samples.")
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="Random seed.")
+    parser.add_argument("--traffic-input", default=DEFAULT_TRAFFIC_INPUT, help="Strict traffic-planning records.")
+    parser.add_argument("--hotel-input", default=DEFAULT_HOTEL_INPUT, help="Strict hotel-recommendation records.")
+    parser.add_argument("--travel-input", default=DEFAULT_TRAVEL_INPUT, help="Strict travel-QA records.")
     parser.add_argument("--source-output", default=DEFAULT_SOURCE_OUTPUT, help="Source dataset output path.")
     parser.add_argument("--export-output", default=DEFAULT_EXPORT_OUTPUT, help="Exported sharegpt output path.")
     parser.add_argument("--report-output", default=DEFAULT_REPORT_OUTPUT, help="Builder report output path.")
@@ -1344,7 +1365,13 @@ def main() -> int:
     configure_console_output()
     args = build_arg_parser().parse_args()
 
-    dataset, report = build_dataset(args.total_samples, args.seed)
+    dataset, report = build_dataset(
+        args.total_samples,
+        args.seed,
+        traffic_input=args.traffic_input,
+        hotel_input=args.hotel_input,
+        travel_input=args.travel_input,
+    )
 
     source_errors = validate_tool_use_source_dataset(dataset)
     if source_errors:

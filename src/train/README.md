@@ -31,6 +31,7 @@ That bootstrap now assumes only environment preparation, not that 32B weights or
 
 ## Stage2 32B AMap Tool-Use
 
+- Build 3200-sample data: `bash scripts/05_build_stage2_amap_data.sh`
 - Smoke config: `configs/llamafactory_stage2_32b_amap_tool_use_smoke_sft.yaml`
 - Formal config: `configs/llamafactory_stage2_32b_amap_tool_use_formal_sft.yaml`
 - Merge config: `configs/llamafactory_stage2_32b_merge_for_deploy.yaml`

@@ -13,15 +13,27 @@ from src.data_pipeline.build_stage2_amap_tool_use import (
 )
 
 
-def test_compute_target_counts_matches_expected_stage2_mix() -> None:
+def test_compute_target_counts_matches_expected_stage2_32b_mix() -> None:
+    counts = _compute_target_counts(3200)
+
+    assert sum(counts.values()) == 3200
+    assert counts["single_tool_call"] == 640
+    assert counts["slot_filling_tool_call"] == 576
+    assert counts["clarify_then_call"] == 576
+    assert counts["tool_result_grounded_answer"] == 704
+    assert counts["no_tool_needed"] == 384
+    assert counts["tool_failure_fallback"] == 320
+
+
+def test_compute_target_counts_keeps_1600_smoke_mix_available() -> None:
     counts = _compute_target_counts(1600)
 
     assert sum(counts.values()) == 1600
-    assert counts["single_tool_call"] == 560
-    assert counts["slot_filling_tool_call"] == 320
-    assert counts["clarify_then_call"] == 240
-    assert counts["tool_result_grounded_answer"] == 160
-    assert counts["no_tool_needed"] == 160
+    assert counts["single_tool_call"] == 320
+    assert counts["slot_filling_tool_call"] == 288
+    assert counts["clarify_then_call"] == 288
+    assert counts["tool_result_grounded_answer"] == 352
+    assert counts["no_tool_needed"] == 192
     assert counts["tool_failure_fallback"] == 160
 
 
@@ -77,7 +89,7 @@ def test_safe_no_tool_filter_rejects_route_boundary_question() -> None:
 
 
 def test_full_build_has_diverse_modes_keywords_and_passes_semantic_checks() -> None:
-    dataset, report = build_dataset(1600, 42)
+    dataset, report = build_dataset(3200, 42)
     summary = report["semantic_summary"]
 
     assert _semantic_validation_errors(dataset) == []

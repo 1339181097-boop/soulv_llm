@@ -1,4 +1,6 @@
-﻿from __future__ import annotations
+from __future__ import annotations
+
+from pathlib import Path
 
 from src.data_pipeline.dataset_audit import audit_dataset_file, summarize_dataset
 
@@ -36,8 +38,10 @@ def test_summarize_dataset_counts_lengths_and_sources() -> None:
     assert summary["assistant_length"]["count"] == 2
 
 
-def test_audit_dataset_file_reports_missing_path(tmp_path) -> None:
-    report = audit_dataset_file(tmp_path / "missing.json")
+def test_audit_dataset_file_reports_missing_path() -> None:
+    tmp_dir = Path("data/test_tmp_dataset_audit")
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+    report = audit_dataset_file(tmp_dir / "missing.json")
 
     assert report["exists"] is False
     assert report["valid_chatml"] is False

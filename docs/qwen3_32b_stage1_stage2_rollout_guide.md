@@ -10,7 +10,7 @@
 
 - 正式基座：`Qwen/Qwen3-32B`
 - `stage1`：只做六类自然语言 SFT，不混入 tool-use 轨迹
-- `stage2`：继续复用当前冻结的高德工具协议和 `1600` 条 tool-use 数据
+- `stage2`：继续复用当前冻结的高德工具协议，并使用 `3200` 条 32B tool-use 数据；`1600` 条口径只保留为 smoke/ablation 子集
 - 第一轮目标：先把 `32B` 的训练、merge、部署、评测闭环打通，再决定是否扩容 stage2 数据和 golden eval
 
 ## 2. 关键配置
@@ -129,7 +129,7 @@ bash scripts/04_merge_stage1_for_stage2.sh stage1_32b
 
 ### 7.1 数据
 
-第一轮直接复用当前冻结的 stage2 数据：
+第一轮使用当前冻结协议重新构建的 32B stage2 数据：
 
 - `data/final/stage2_amap_tool_use_sft.json`
 - `data/final/stage2_amap_tool_use_report.json`
@@ -169,15 +169,17 @@ bash scripts/06_merge_stage2_for_deploy.sh stage2_amap_32b
 
 继续沿用当前 tool eval 指标：
 
-- `tool selection >= 0.85`
-- `argument accuracy >= 0.80`
+- `tool selection >= 0.90`
+- `argument accuracy >= 0.85`
+- `no-tool accuracy >= 0.90`
+- `fallback accuracy >= 0.85`
 - `execution success >= 0.90`
 
 同时要求：
 
 - stage1 回归总体通过率相对 stage1-only 模型下降不超过 `5pp`
 
-当前 `src/tool_eval/datasets/stage2_amap_golden.json` 只有 `8` 条 MVP case。建议在 32B 第一轮迁移稳定后，把 golden 扩到 `30-50` 条，再作为正式放行门槛。
+当前 `src/tool_eval/datasets/stage2_amap_golden.json` 已扩到 `50` 条，覆盖直调、澄清、no-tool、fallback、两步链路、路线模式和 POI 搜索；`stage2_amap_thinking_canary.json` 只用于 thinking-mode 兼容性观察。
 
 ## 9. 部署
 

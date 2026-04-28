@@ -55,6 +55,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-new-tokens", type=int, default=512, help="Max generation tokens.")
     parser.add_argument("--temperature", type=float, default=0.0, help="Generation temperature.")
     parser.add_argument("--top-p", type=float, default=1.0, help="Generation top_p.")
+    parser.add_argument(
+        "--enable-thinking",
+        action="store_true",
+        help="Run Qwen3 with thinking enabled. The default direct vLLM baseline disables thinking.",
+    )
     return parser
 
 
@@ -63,7 +68,11 @@ def main() -> int:
     args = build_arg_parser().parse_args()
 
     dataset = read_json(args.dataset)
-    client = OpenAICompatibleChatClient(base_url=args.base_url, api_key=args.api_key)
+    client = OpenAICompatibleChatClient(
+        base_url=args.base_url,
+        api_key=args.api_key,
+        disable_thinking=not args.enable_thinking,
+    )
     tools = build_amap_tool_schemas()
 
     outputs: list[dict[str, Any]] = []

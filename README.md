@@ -214,6 +214,15 @@ Stage1 现在的用途不是继续作为主战场，而是：
 - `tool_result_grounded_answer`: `10%`
 - `tool_failure_fallback`: `10%`
 
+32B stage2 当前默认采用更偏“边界对齐”的 `3200` 条配比：
+
+- `single_tool_call`: `640`
+- `slot_filling_tool_call`: `576`
+- `clarify_then_call`: `576`
+- `tool_result_grounded_answer`: `704`
+- `no_tool_needed`: `384`
+- `tool_failure_fallback`: `320`
+
 ---
 
 ## 八、当前阶段最关键的设计：统一工具协议
@@ -335,7 +344,7 @@ Stage1 现在的用途不是继续作为主战场，而是：
 
 当前阶段建议的工具训练起点是：
 
-- 推理基线验证：原生 `Qwen3-8B-Instruct`
+- 推理基线验证：原生 `Qwen/Qwen3-32B`
 - 正式 tool-use SFT：从当前最好的旅游领域 SFT checkpoint 继续训练
 
 也就是说：
@@ -439,7 +448,7 @@ Stage1 现在的用途不是继续作为主战场，而是：
 
 1. 冻结当前 stage1 自然语言基线
 2. 冻结 TripAI 工具 schema
-3. 用原生 `Qwen3-8B-Instruct` 做 0-shot tool baseline
+3. 用原生 `Qwen/Qwen3-32B` 做 0-shot tool baseline
 4. 构造 `stage2_tool_use_sft` 数据集
 5. 从当前旅游 SFT checkpoint 继续做 tool-use LoRA
 6. 建立 tool-use eval
@@ -461,7 +470,7 @@ Stage1 现在的用途不是继续作为主战场，而是：
 
 当前仓库已经补齐了一条独立的 `stage2_amap` 轨道，执行时按下面顺序推进：
 
-1. **先跑原生 Qwen3-8B 基线摸底**
+1. **先跑原生 Qwen/Qwen3-32B 基线摸底**
    - 数据集：`src/tool_eval/datasets/native_tool_baseline.json`
    - 脚本：`src/tool_eval/scripts/run_native_tool_baseline.py`
    - 分析：`src/tool_eval/scripts/analyze_native_tool_baseline.py`

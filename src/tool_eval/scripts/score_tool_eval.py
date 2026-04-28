@@ -13,6 +13,11 @@ from src.data_pipeline.data_utils import configure_console_output, log_success, 
 
 DEFAULT_INPUT_PATH = "src/tool_eval/reports/stage2_amap_tool_eval_outputs.json"
 DEFAULT_OUTPUT_PATH = "src/tool_eval/reports/stage2_amap_tool_eval_summary.json"
+TOOL_SELECTION_GATE = 0.90
+ARGUMENT_GATE = 0.85
+NO_TOOL_GATE = 0.90
+FALLBACK_GATE = 0.85
+EXECUTION_GATE = 0.90
 
 FALLBACK_HINTS = ("暂时", "重试", "再查", "核对", "高德", "稍后")
 
@@ -64,7 +69,7 @@ def _summarize_record(record: dict[str, Any]) -> dict[str, Any]:
     arguments_correct = _argument_subset_match(record.get("expected_arguments_subset", {}), predicted_calls)
     clarify_correct = True
     if record["expected_behavior"] == "should_clarify":
-        clarify_correct = bool(first_assistant) and not first_assistant.get("tool_calls") and bool(predicted_chain)
+        clarify_correct = bool(first_assistant) and not first_assistant.get("tool_calls")
 
     no_tool_correct = True
     if record["expected_behavior"] == "should_answer_directly":
@@ -107,6 +112,15 @@ def _summarize_record(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _rate(per_case: list[dict[str, Any]], key: str, *, expected_behavior: str | None = None) -> float:
+    if expected_behavior is None:
+        selected = per_case
+    else:
+        selected = [item for item in per_case if item["expected_behavior"] == expected_behavior]
+    total = len(selected) or 1
+    return round(sum(item[key] for item in selected) / total, 4)
+
+
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Score stage2 AMap tool-use eval outputs.")
     parser.add_argument("--input", default=DEFAULT_INPUT_PATH, help="Tool eval output JSON path.")
@@ -120,24 +134,30 @@ def main() -> int:
 
     records: list[dict[str, Any]] = read_json(args.input)
     per_case = [_summarize_record(record) for record in records]
-    total = len(per_case) or 1
+    tool_selection_accuracy = _rate(per_case, "tool_selection_correct")
+    argument_accuracy = _rate(per_case, "arguments_correct")
+    clarify_accuracy = _rate(per_case, "clarify_correct", expected_behavior="should_clarify")
+    no_tool_accuracy = _rate(per_case, "no_tool_correct", expected_behavior="should_answer_directly")
+    fallback_accuracy = _rate(per_case, "fallback_correct", expected_behavior="should_fallback")
+    execution_success_rate = _rate(per_case, "execution_success")
+    final_answer_grounded_rate = _rate(per_case, "final_answer_grounded")
+    overall_pass_rate = _rate(per_case, "overall_pass")
     summary = {
         "total_cases": len(per_case),
-        "tool_selection_accuracy": round(sum(item["tool_selection_correct"] for item in per_case) / total, 4),
-        "argument_accuracy": round(sum(item["arguments_correct"] for item in per_case) / total, 4),
-        "clarify_accuracy": round(sum(item["clarify_correct"] for item in per_case) / total, 4),
-        "no_tool_accuracy": round(sum(item["no_tool_correct"] for item in per_case) / total, 4),
-        "fallback_accuracy": round(sum(item["fallback_correct"] for item in per_case) / total, 4),
-        "execution_success_rate": round(sum(item["execution_success"] for item in per_case) / total, 4),
-        "final_answer_grounded_rate": round(sum(item["final_answer_grounded"] for item in per_case) / total, 4),
-        "overall_pass_rate": round(sum(item["overall_pass"] for item in per_case) / total, 4),
+        "tool_selection_accuracy": tool_selection_accuracy,
+        "argument_accuracy": argument_accuracy,
+        "clarify_accuracy": clarify_accuracy,
+        "no_tool_accuracy": no_tool_accuracy,
+        "fallback_accuracy": fallback_accuracy,
+        "execution_success_rate": execution_success_rate,
+        "final_answer_grounded_rate": final_answer_grounded_rate,
+        "overall_pass_rate": overall_pass_rate,
         "release_gate": {
-            "tool_selection_accuracy_gte_0_85": round(sum(item["tool_selection_correct"] for item in per_case) / total, 4)
-            >= 0.85,
-            "argument_accuracy_gte_0_80": round(sum(item["arguments_correct"] for item in per_case) / total, 4)
-            >= 0.80,
-            "execution_success_rate_gte_0_90": round(sum(item["execution_success"] for item in per_case) / total, 4)
-            >= 0.90,
+            "tool_selection_accuracy_gte_0_90": tool_selection_accuracy >= TOOL_SELECTION_GATE,
+            "argument_accuracy_gte_0_85": argument_accuracy >= ARGUMENT_GATE,
+            "no_tool_accuracy_gte_0_90": no_tool_accuracy >= NO_TOOL_GATE,
+            "fallback_accuracy_gte_0_85": fallback_accuracy >= FALLBACK_GATE,
+            "execution_success_rate_gte_0_90": execution_success_rate >= EXECUTION_GATE,
         },
         "per_case": per_case,
     }
