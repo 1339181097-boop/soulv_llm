@@ -44,18 +44,18 @@ DEFAULT_TOTAL_SAMPLES = 3200
 DEFAULT_SEED = 42
 
 TARGET_RATIOS = {
-    "single_tool_call": 0.20,
-    "slot_filling_tool_call": 0.18,
-    "clarify_then_call": 0.18,
-    "tool_result_grounded_answer": 0.22,
-    "no_tool_needed": 0.12,
-    "tool_failure_fallback": 0.10,
+    "single_tool_call": 0.15,
+    "slot_filling_tool_call": 0.20,
+    "clarify_then_call": 0.25,
+    "tool_result_grounded_answer": 0.15,
+    "no_tool_needed": 0.10,
+    "tool_failure_fallback": 0.15,
 }
 
 BUCKET_SUBPOOL_RATIOS = {
     "single_tool_call": {"route": 0.38, "geocode": 0.22, "poi": 0.40},
     "slot_filling_tool_call": {"route": 0.50, "poi": 0.50},
-    "clarify_then_call": {"route": 0.55, "poi": 0.45},
+    "clarify_then_call": {"route": 0.45, "poi": 0.40, "geocode": 0.15},
     "tool_result_grounded_answer": {"route_chain": 0.45, "poi_chain": 0.55},
     "no_tool_needed": {"safe_travel_qa": 1.0},
     "tool_failure_fallback": {"route_failure": 0.45, "poi_failure": 0.40, "geocode_failure": 0.15},
@@ -976,6 +976,75 @@ def _travel_geocode_sample(record: dict[str, Any]) -> dict[str, Any]:
     )
 
 
+def _travel_geocode_clarify_sample(record: dict[str, Any]) -> dict[str, Any]:
+    address = str(record.get("entity_name") or _record_anchor(record))
+    city = _record_city(record)
+    call_id = _stable_id("call", record["id"], "geocode_clarify")
+    geocode_result = _build_geocode_snapshot(address, city)
+    scenario = _stable_choice(("missing_city", "ambiguous_place"), record.get("id"), address, city, "geocode_clarify_scenario")
+    if scenario == "missing_city":
+        initial_user = _stable_choice(
+            (
+                f"{address}具体在哪里？",
+                f"帮我确认一下{address}的位置。",
+                f"{address}在什么地方？",
+            ),
+            record.get("id"),
+            address,
+            city,
+            scenario,
+        )
+        clarify_text = (
+            f"可以帮你查，不过“{address}”可能在多个城市都有同名地点。"
+            "你先告诉我所在城市，我再帮你定位，避免查错。"
+        )
+    else:
+        initial_user = _stable_choice(
+            (
+                f"人民公园这类地点好像很多，帮我查一下{address}在哪。",
+                f"我想去{address}，先帮我确认具体位置。",
+                f"{address}具体位置在哪？我怕搜到同名地点。",
+            ),
+            record.get("id"),
+            address,
+            city,
+            scenario,
+        )
+        clarify_text = (
+            f"“{address}”可能有同名或相近地点。"
+            "为了避免定位到别的城市，请先补充城市名或附近地标。"
+        )
+    followup = _stable_choice(
+        (
+            f"在{city}，地点叫{address}。",
+            f"{address}是在{city}。",
+            f"城市是{city}，帮我查{address}。",
+        ),
+        record.get("id"),
+        address,
+        city,
+        "geocode_clarify_followup",
+    )
+    messages = [{"role": "system", "content": TRIPAI_TOOL_USE_SYSTEM_PROMPT}, {"role": "user", "content": initial_user}]
+    return _make_sample(
+        sample_id=_stable_id("tool", record["id"], "clarify_then_call", "geocode"),
+        task_type="clarify_then_call",
+        scene="amap_geocode",
+        difficulty="hard",
+        source_record_id=record["id"],
+        expected_behavior="should_clarify",
+        messages=messages,
+        messages_with_answer=[
+            *messages,
+            {"role": "assistant", "content": clarify_text},
+            {"role": "user", "content": followup},
+            {"role": "assistant", "tool_calls": [_build_tool_call(call_id, "amap_geocode", {"address": address, "city": city})]},
+            _build_tool_message(call_id, geocode_result),
+            {"role": "assistant", "content": _geocode_answer_from_snapshot(geocode_result)},
+        ],
+    )
+
+
 def _poi_single_sample(record: dict[str, Any]) -> dict[str, Any]:
     city = _record_city(record)
     anchor_label = _record_anchor(record)
@@ -1253,6 +1322,11 @@ def _build_candidate_subpools(
     travel_records: list[dict[str, Any]],
 ) -> tuple[dict[str, dict[str, list[dict[str, Any]]]], dict[str, Any]]:
     safe_travel_records = [record for record in travel_records if _is_safe_no_tool_record(record)]
+    geocode_clarify_records = [
+        record
+        for record in travel_records
+        if _record_city(record) and str(record.get("entity_name") or _record_anchor(record)).strip()
+    ]
     subpools = {
         "single_tool_call": {
             "route": [_route_single_sample(record) for record in traffic_records],
@@ -1266,6 +1340,7 @@ def _build_candidate_subpools(
         "clarify_then_call": {
             "route": [_route_clarify_sample(record) for record in traffic_records],
             "poi": [_poi_clarify_sample(record) for record in [*hotel_records, *travel_records]],
+            "geocode": [_travel_geocode_clarify_sample(record) for record in geocode_clarify_records],
         },
         "tool_result_grounded_answer": {
             "route_chain": [_route_grounded_sample(record) for record in travel_records],
@@ -1286,6 +1361,7 @@ def _build_candidate_subpools(
             "hotel_records": len(hotel_records),
             "travel_records": len(travel_records),
             "safe_no_tool_records": len(safe_travel_records),
+            "geocode_clarify_records": len(geocode_clarify_records),
         }
     }
     return subpools, meta
@@ -1312,6 +1388,17 @@ def build_dataset(
     target_counts = _compute_target_counts(total_samples)
     dataset: list[dict[str, Any]] = []
     report: dict[str, Any] = {
+        "mix_profile": "qwen3_32b_stage2_amap_result_driven_v2",
+        "mix_rationale": {
+            "baseline": "Stage1 merged 32B showed strong no-tool and grounded-answer behavior, but weak clarify/fallback and slightly weak argument accuracy.",
+            "focus": [
+                "increase clarify_then_call for missing origin/destination/city/anchor cases",
+                "add geocode clarification for ambiguous place names and missing city",
+                "increase tool_failure_fallback for error/empty-result recovery",
+                "increase slot_filling_tool_call for city and around_location disambiguation",
+                "reduce single_tool_call because native Qwen3-32B already handles direct calls well",
+            ],
+        },
         "total_samples": total_samples,
         "seed": seed,
         "input_paths": {

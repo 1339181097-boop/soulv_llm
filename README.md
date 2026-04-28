@@ -214,14 +214,14 @@ Stage1 现在的用途不是继续作为主战场，而是：
 - `tool_result_grounded_answer`: `10%`
 - `tool_failure_fallback`: `10%`
 
-32B stage2 当前默认采用更偏“边界对齐”的 `3200` 条配比：
+32B stage2 当前默认采用测试结果驱动的 `3200` 条 v2 配比：
 
-- `single_tool_call`: `640`
-- `slot_filling_tool_call`: `576`
-- `clarify_then_call`: `576`
-- `tool_result_grounded_answer`: `704`
-- `no_tool_needed`: `384`
-- `tool_failure_fallback`: `320`
+- `single_tool_call`: `480`
+- `slot_filling_tool_call`: `640`
+- `clarify_then_call`: `800`
+- `tool_result_grounded_answer`: `480`
+- `no_tool_needed`: `320`
+- `tool_failure_fallback`: `480`
 
 ---
 

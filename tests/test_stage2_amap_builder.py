@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections import Counter
+
 from src.data_pipeline.build_stage2_amap_tool_use import (
     _build_poi_snapshot,
     _build_route_snapshot,
@@ -17,24 +19,24 @@ def test_compute_target_counts_matches_expected_stage2_32b_mix() -> None:
     counts = _compute_target_counts(3200)
 
     assert sum(counts.values()) == 3200
-    assert counts["single_tool_call"] == 640
-    assert counts["slot_filling_tool_call"] == 576
-    assert counts["clarify_then_call"] == 576
-    assert counts["tool_result_grounded_answer"] == 704
-    assert counts["no_tool_needed"] == 384
-    assert counts["tool_failure_fallback"] == 320
+    assert counts["single_tool_call"] == 480
+    assert counts["slot_filling_tool_call"] == 640
+    assert counts["clarify_then_call"] == 800
+    assert counts["tool_result_grounded_answer"] == 480
+    assert counts["no_tool_needed"] == 320
+    assert counts["tool_failure_fallback"] == 480
 
 
 def test_compute_target_counts_keeps_1600_smoke_mix_available() -> None:
     counts = _compute_target_counts(1600)
 
     assert sum(counts.values()) == 1600
-    assert counts["single_tool_call"] == 320
-    assert counts["slot_filling_tool_call"] == 288
-    assert counts["clarify_then_call"] == 288
-    assert counts["tool_result_grounded_answer"] == 352
-    assert counts["no_tool_needed"] == 192
-    assert counts["tool_failure_fallback"] == 160
+    assert counts["single_tool_call"] == 240
+    assert counts["slot_filling_tool_call"] == 320
+    assert counts["clarify_then_call"] == 400
+    assert counts["tool_result_grounded_answer"] == 240
+    assert counts["no_tool_needed"] == 160
+    assert counts["tool_failure_fallback"] == 240
 
 
 def test_travel_no_tool_builder_preserves_direct_answer() -> None:
@@ -93,6 +95,20 @@ def test_full_build_has_diverse_modes_keywords_and_passes_semantic_checks() -> N
     summary = report["semantic_summary"]
 
     assert _semantic_validation_errors(dataset) == []
+    clarify_chains = Counter()
+    for item in dataset:
+        if item["task_type"] != "clarify_then_call":
+            continue
+        chain = []
+        for message in item["messages_with_answer"]:
+            if message.get("role") == "assistant":
+                for tool_call in message.get("tool_calls", []) or []:
+                    chain.append(tool_call["function"]["name"])
+        clarify_chains[" -> ".join(chain)] += 1
+
+    assert clarify_chains["amap_plan_route"] == 360
+    assert clarify_chains["amap_search_poi"] == 320
+    assert clarify_chains["amap_geocode"] == 120
     assert set(summary["route_mode_distribution"]) == {"transit", "driving", "walking", "bicycling"}
     assert len(summary["search_keyword_distribution"]) >= 4
     assert summary["envelope_status_distribution"]["empty"] > 0

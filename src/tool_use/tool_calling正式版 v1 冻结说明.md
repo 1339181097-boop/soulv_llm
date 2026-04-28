@@ -159,14 +159,16 @@ source 数据集固定保留 4 类 role：
 
 ## 8. 正式造数默认配比
 
-`build_stage2_amap_tool_use.py` 当前 32B 默认总样本数是 `3200`，默认配比已经在代码中固化为：
+`build_stage2_amap_tool_use.py` 当前 32B 默认总样本数是 `3200`，默认采用测试结果驱动的 v2 配比：
 
-- `single_tool_call`: `20%`，即 `640`
-- `slot_filling_tool_call`: `18%`，即 `576`
-- `clarify_then_call`: `18%`，即 `576`
-- `tool_result_grounded_answer`: `22%`，即 `704`
-- `no_tool_needed`: `12%`，即 `384`
-- `tool_failure_fallback`: `10%`，即 `320`
+- `single_tool_call`: `15%`，即 `480`
+- `slot_filling_tool_call`: `20%`，即 `640`
+- `clarify_then_call`: `25%`，即 `800`
+- `tool_result_grounded_answer`: `15%`，即 `480`
+- `no_tool_needed`: `10%`，即 `320`
+- `tool_failure_fallback`: `15%`，即 `480`
+
+该配比来自 stage1 merged 32B 的 50 条 golden eval：no-tool 和 grounded-answer 较稳，clarify、fallback 与参数消歧是主要短板。
 
 说明：
 
