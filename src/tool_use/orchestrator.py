@@ -244,6 +244,8 @@ class ChatCompletionClient(Protocol):
         max_tokens: int = 512,
         temperature: float = 0.0,
         top_p: float = 1.0,
+        top_k: int | None = None,
+        min_p: float | None = None,
     ) -> dict[str, Any]:
         ...
 
@@ -273,6 +275,8 @@ class OpenAICompatibleChatClient:
         max_tokens: int = 512,
         temperature: float = 0.0,
         top_p: float = 1.0,
+        top_k: int | None = None,
+        min_p: float | None = None,
     ) -> dict[str, Any]:
         headers = {"Content-Type": "application/json"}
         if self.api_key:
@@ -292,6 +296,10 @@ class OpenAICompatibleChatClient:
                 "top_p": top_p,
                 "stream": False,
             }
+            if top_k is not None:
+                payload["top_k"] = top_k
+            if min_p is not None:
+                payload["min_p"] = min_p
             if tools:
                 payload["tools"] = tools
                 payload["tool_choice"] = "auto"
@@ -359,6 +367,8 @@ class ToolCallingOrchestrator:
         max_tokens: int = 512,
         temperature: float = 0.0,
         top_p: float = 1.0,
+        top_k: int | None = None,
+        min_p: float | None = None,
         tool_test_mode: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         transcript = [dict(message) for message in messages]
@@ -374,6 +384,8 @@ class ToolCallingOrchestrator:
                 max_tokens=max_tokens,
                 temperature=temperature,
                 top_p=top_p,
+                top_k=top_k,
+                min_p=min_p,
             )
             raw_responses.append(response_payload)
             assistant_message = _extract_assistant_message(response_payload)

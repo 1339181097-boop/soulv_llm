@@ -13,7 +13,18 @@ class FakeChatClient:
     def __init__(self, responses: list[dict]) -> None:
         self.responses = responses
 
-    def complete(self, messages, *, model, tools=None, max_tokens=512, temperature=0.0, top_p=1.0):  # noqa: ANN001
+    def complete(  # noqa: ANN001
+        self,
+        messages,
+        *,
+        model,
+        tools=None,
+        max_tokens=512,
+        temperature=0.0,
+        top_p=1.0,
+        top_k=None,
+        min_p=None,
+    ):
         assert model == "fake-model"
         return self.responses.pop(0)
 
