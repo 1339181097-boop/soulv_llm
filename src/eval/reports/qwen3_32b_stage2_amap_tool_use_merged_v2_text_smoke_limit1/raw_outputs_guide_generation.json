@@ -1,0 +1,45 @@
+[
+  {
+    "id": "eval_guide_generation_000001",
+    "task_type": "guide_generation",
+    "scene": "city_travel",
+    "difficulty": "medium",
+    "tags": [
+      "3d_family_relaxed",
+      "杭州",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手，请根据用户给出的目的地、天数、同行人群、偏好和限制条件，提供结构清晰、可执行、信息克制的行程建议。避免营销口吻，不做价格或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "下周想带爸妈去杭州待3天，不想赶景点，腿脚一般，你帮我把节奏安排得松一点。"
+      }
+    ],
+    "reference_answer": "A strong answer should directly organize the plan around the conditions in '下周想带爸妈去杭州待3天，不想赶景点，腿脚一般，你帮我把节奏安排得松一点。' instead of giving generic city information. For this case, it must clearly realize 按天安排 / 节奏偏松、少折返 / 照顾老人步行强度, preserve any fixed constraints already stated by the user, and keep the route practical and not overloaded. Evaluation emphasis for this sample: 主测：老人慢节奏三日. Sample #01.",
+    "must_include": [
+      "按天安排",
+      "节奏偏松、少折返",
+      "照顾老人步行强度"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "堆很多热门点",
+      "写小时级超细计划"
+    ],
+    "notes": "Main check: Main check: 主测：老人慢节奏三日",
+    "seed_source": "sft_guide_generation.json",
+    "seed_sample_id": "guide_generation_seed_0001",
+    "prediction": "",
+    "status": "error",
+    "error": "Request to http://8.130.72.186:7860/v1/chat/completions failed: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_32b_stage2_amap_tool_use_merged_v2",
+    "request_model": "qwen3_32b_stage2_amap_tool_use",
+    "request_url": "http://8.130.72.186:7860/v1/chat/completions"
+  }
+]

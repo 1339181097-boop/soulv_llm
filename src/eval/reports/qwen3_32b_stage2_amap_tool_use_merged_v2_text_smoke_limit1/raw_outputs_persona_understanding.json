@@ -1,0 +1,44 @@
+[
+  {
+    "id": "eval_persona_understanding_000001",
+    "task_type": "persona_understanding",
+    "scene": "persona_understanding",
+    "difficulty": "medium",
+    "tags": [
+      "三代同堂",
+      "三明",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行需求分析助手。请根据用户的人群特征、预算、偏好、节奏和限制条件，给出因人而异的旅游建议，体现需求理解与推荐逻辑。避免空泛套话和营销表达。"
+      },
+      {
+        "role": "user",
+        "content": "三明的景点中，哪些最适合三代同堂？我比较在意兼顾老人孩子和轻松节奏，不想太高强度活动，预算适中。，请把优先级讲清楚。"
+      }
+    ],
+    "reference_answer": "A strong answer should show real persona understanding for '三明的景点中，哪些最适合三代同堂？我比较在意兼顾老人孩子和轻松节奏，不想太高强度活动，预算适中。，请把优先级讲清楚。' rather than giving generic tourist advice. It should turn the persona cues (三代同堂, 互动体验 / 休息设施 / 文化体验) into ranked recommendations, explain why options like 侠天下景区 / 玉华洞 / 上清溪 fit better, and clarify why 九龙潭 / 桃源洞 should be deprioritized or avoided.",
+    "must_include": [
+      "Show persona-specific reasoning",
+      "Turn preferences or limits into recommendation logic",
+      "Explain what fits better and what should be deprioritized"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not answer every persona with the same generic advice",
+      "Do not only repeat labels without making a recommendation"
+    ],
+    "notes": "Main check: persona understanding and recommendation logic",
+    "seed_source": "sft_persona_understanding_strict.json",
+    "seed_sample_id": "persona_understanding_fddf6cc877e9",
+    "prediction": "",
+    "status": "error",
+    "error": "Request to http://8.130.72.186:7860/v1/chat/completions failed: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_32b_stage2_amap_tool_use_merged_v2",
+    "request_model": "qwen3_32b_stage2_amap_tool_use",
+    "request_url": "http://8.130.72.186:7860/v1/chat/completions"
+  }
+]

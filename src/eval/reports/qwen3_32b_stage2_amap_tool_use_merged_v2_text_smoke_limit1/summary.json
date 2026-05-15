@@ -1,0 +1,57 @@
+{
+  "provider": "openai_compatible",
+  "model_name": "qwen3_32b_stage2_amap_tool_use_merged_v2",
+  "request_model": "qwen3_32b_stage2_amap_tool_use",
+  "base_url": "http://8.130.72.186:7860/v1",
+  "request_url": "http://8.130.72.186:7860/v1/chat/completions",
+  "run_name": "qwen3_32b_stage2_amap_tool_use_merged_v2_text_smoke_limit1",
+  "timestamp_utc": "2026-05-15T03:46:06.991730+00:00",
+  "inference_config": {
+    "max_new_tokens": 512,
+    "temperature": 0.0,
+    "top_p": 0.95,
+    "timeout_seconds": 300,
+    "retry_count": 1,
+    "disable_thinking": true
+  },
+  "tasks": {
+    "guide_generation": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_guide_generation.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_32b_stage2_amap_tool_use_merged_v2_text_smoke_limit1\\raw_outputs_guide_generation.json",
+      "sample_count": 1,
+      "error_count": 1
+    },
+    "travel_qa": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_travel_qa.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_32b_stage2_amap_tool_use_merged_v2_text_smoke_limit1\\raw_outputs_travel_qa.json",
+      "sample_count": 1,
+      "error_count": 1
+    },
+    "hotel_recommendation": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_hotel_recommendation.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_32b_stage2_amap_tool_use_merged_v2_text_smoke_limit1\\raw_outputs_hotel_recommendation.json",
+      "sample_count": 1,
+      "error_count": 1
+    },
+    "traffic_planning": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_traffic_planning.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_32b_stage2_amap_tool_use_merged_v2_text_smoke_limit1\\raw_outputs_traffic_planning.json",
+      "sample_count": 1,
+      "error_count": 1
+    },
+    "persona_understanding": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_persona_understanding.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_32b_stage2_amap_tool_use_merged_v2_text_smoke_limit1\\raw_outputs_persona_understanding.json",
+      "sample_count": 1,
+      "error_count": 1
+    },
+    "multi_turn_dialogue": {
+      "eval_file": "D:\\soulv_llm\\src\\eval\\eval_multi_turn_dialogue.json",
+      "output_file": "D:\\soulv_llm\\src\\eval\\reports\\qwen3_32b_stage2_amap_tool_use_merged_v2_text_smoke_limit1\\raw_outputs_multi_turn_dialogue.json",
+      "sample_count": 1,
+      "error_count": 1
+    }
+  },
+  "total_sample_count": 6,
+  "total_error_count": 6
+}

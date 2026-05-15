@@ -1,0 +1,45 @@
+[
+  {
+    "id": "eval_travel_qa_000001",
+    "task_type": "travel_qa",
+    "scene": "travel_qa",
+    "difficulty": "medium",
+    "tags": [
+      "city_region",
+      "上海",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅游问答助手。请针对用户提出的景点、城市、目的地或交通相关问题，给出准确、自然、简洁、直接的回答。避免营销口吻，不做价格、库存或产品承诺。"
+      },
+      {
+        "role": "user",
+        "content": "第一次去上海玩两天，住在哪一片更方便？"
+      }
+    ],
+    "reference_answer": "A strong answer should make a clear judgment for '第一次去上海玩两天，住在哪一片更方便？' first, then justify it briefly. It should explicitly use 比较2到3个合适区域 / 体现首次到访和两天节奏 / 给出明确建议; if this is a comparison question, it should choose one side or give a ranked recommendation rather than saying both are fine.",
+    "must_include": [
+      "比较2到3个合适区域",
+      "体现首次到访和两天节奏",
+      "给出明确建议"
+    ],
+    "must_not_do": [
+      "输出工具调用、JSON 或轨迹",
+      "把实时票价、库存、开放时间写成确定事实",
+      "写成完整两天攻略",
+      "只报酒店名不解释"
+    ],
+    "notes": "Main check: Main check: 主测：城市级落脚点判断",
+    "seed_source": "sft_travel_qa.json",
+    "seed_sample_id": "travel_qa_seed_0001",
+    "prediction": "",
+    "status": "error",
+    "error": "Request to http://8.130.72.186:7860/v1/chat/completions failed: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_32b_stage2_amap_tool_use_merged_v2",
+    "request_model": "qwen3_32b_stage2_amap_tool_use",
+    "request_url": "http://8.130.72.186:7860/v1/chat/completions"
+  }
+]

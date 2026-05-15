@@ -1,0 +1,53 @@
+[
+  {
+    "id": "eval_multi_turn_dialogue_000001",
+    "task_type": "multi_turn_dialogue",
+    "scene": "travel_consultation",
+    "difficulty": "medium",
+    "tags": [
+      "add_constraint",
+      "万宁",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行规划助手。请基于完整对话上下文回答用户问题，准确承接前文需求，并根据用户新增的条件、改口或约束更新调整回答。避免忽略上下文重复作答，不做营销性表达。"
+      },
+      {
+        "role": "user",
+        "content": "我们想去万宁玩4天，主要是冲浪和海边放松，听说日月湾不错，能帮忙规划吗？"
+      },
+      {
+        "role": "assistant",
+        "content": "您好！万宁日月湾是中国冲浪胜地，为您规划「4天3晚冲浪休闲版」：Day1 抵达后入住日月湾附近民宿，傍晚在【海边教堂】打卡，晚上逛【日落吧】；Day2 上午体验【冲浪体验课】（2小时，1对2，约500元/人），下午自由练习或租板自行冲浪；Day3 前往【石梅湾】沙滩漫步，或【兴隆热带植物园】品尝咖啡和巧克力；Day4 上午【仙女潭瀑布】或【神州半岛】灯塔拍照，返程。日月湾有很多冲浪俱乐部，推荐「沙卡冲浪」或「戒浪·不」，教练专业。需要帮您预订冲浪课程吗？"
+      },
+      {
+        "role": "user",
+        "content": "在前面的基础上再加一个约束：整体节奏再放松一点，别把原来能保留的内容全推翻。"
+      }
+    ],
+    "reference_answer": "A strong answer should continue the existing conversation context for 万宁 and 万宁冲浪与海岛潜水 instead of restarting from scratch. It should preserve the still-valid parts of the earlier plan, use the prior updates (初始需求：万宁4天3晚，日月湾冲浪、海边休闲 / 补充约束：两人均为潜水爱好者，希望增加潜水考证（OW或AOW），且需专业潜店和高性价比套餐), and then respond specifically to the final user update '在前面的基础上再加一个约束：整体节奏再放松一点，别把原来能保留的内容全推翻。' with a targeted revision rather than rewriting everything.",
+    "must_include": [
+      "Carry forward prior context",
+      "State what stays and what changes",
+      "Only update the affected part"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live prices, inventory, or opening-time facts",
+      "Do not ignore the latest user update",
+      "Do not rewrite the entire plan from scratch"
+    ],
+    "notes": "Main check: context inheritance and targeted revision",
+    "seed_source": "sft_multi_turn_dialogue.json",
+    "seed_sample_id": "multi_000027",
+    "prediction": "",
+    "status": "error",
+    "error": "Request to http://8.130.72.186:7860/v1/chat/completions failed: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_32b_stage2_amap_tool_use_merged_v2",
+    "request_model": "qwen3_32b_stage2_amap_tool_use",
+    "request_url": "http://8.130.72.186:7860/v1/chat/completions"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "eval_traffic_planning_000001",
+    "task_type": "traffic_planning",
+    "scene": "special_audience",
+    "difficulty": "medium",
+    "tags": [
+      "三亚",
+      "special_audience",
+      "stage1_main_eval"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是专业的中文旅行交通规划助手。请根据用户的出发地、目的地和出行约束，提供清晰、可执行的交通建议，并简要说明推荐理由。避免营销口吻，不编造实时票价、班次或余票信息。"
+      },
+      {
+        "role": "user",
+        "content": "拖着行李从三亚凤凰机场前往亚龙湾，探讨公交和地铁在实际出行时哪个更为便捷呢？，不用给我查实时班次。"
+      }
+    ],
+    "reference_answer": "A strong answer should recommend a workable travel approach for '拖着行李从三亚凤凰机场前往亚龙湾，探讨公交和地铁在实际出行时哪个更为便捷呢？，不用给我查实时班次。', then explain why it is better for the route from 凤凰机场 to 亚龙湾. It should compare factors like transfer burden, stability, walking load, and connection simplicity across 地铁 / 公交车 / 网约车, without inventing live schedules or ticket facts.",
+    "must_include": [
+      "Give a clear travel recommendation",
+      "Explain transfers, stability, or walking burden",
+      "Keep the advice actionable"
+    ],
+    "must_not_do": [
+      "Do not output tool calls, JSON, or traces",
+      "Do not invent live schedules, fares, or seat availability",
+      "Do not only name transport modes without reasoning"
+    ],
+    "notes": "Main check: traffic-planning judgment",
+    "seed_source": "sft_traffic_planning.json",
+    "seed_sample_id": "traffic_planning_159db6e21efe",
+    "prediction": "",
+    "status": "error",
+    "error": "Request to http://8.130.72.186:7860/v1/chat/completions failed: <urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>",
+    "provider": "openai_compatible",
+    "model_name": "qwen3_32b_stage2_amap_tool_use_merged_v2",
+    "request_model": "qwen3_32b_stage2_amap_tool_use",
+    "request_url": "http://8.130.72.186:7860/v1/chat/completions"
+  }
+]
