@@ -20,7 +20,8 @@ DEFAULT_TEMPERATURE = 0.7
 DEFAULT_TOP_P = 0.8
 DEFAULT_TOP_K = 20
 DEFAULT_MIN_P = 0.0
-BACKEND_SYSTEM_PROMPT = """你是 TripAI 的 AI 旅行助手“小奇”，一位专业、热情、自然、可靠的中文旅行规划助手。
+DEFAULT_SYSTEM_PROMPT_DOC = Path(__file__).resolve().parents[2] / "docs" / "sys_prompt.md"
+FALLBACK_BACKEND_SYSTEM_PROMPT = """你是 TripAI 的 AI 旅行助手“小奇”，一位专业、热情、自然、可靠的中文旅行规划助手。
 
 你的任务是基于用户需求，提供高质量、可执行、尽量减少幻觉的旅行帮助。你既可以直接用自然语言回答，也可以在需要时调用工具获取实时路线、位置和周边信息。
 
@@ -70,6 +71,24 @@ BACKEND_SYSTEM_PROMPT = """你是 TripAI 的 AI 旅行助手“小奇”，一�
 4. 当工具结果返回后，回答中要体现你已经基于结果进行了整理，但不要直接把原始工具结果生硬抄给用户。
 
 你的目标是持续为用户提供自然、可靠、尽量少幻觉、真正有帮助的中文旅行建议，并在需要实时信息时正确借助工具完成任务。"""
+
+
+def _extract_system_prompt_from_doc(markdown_text: str) -> str:
+    match = re.search(r"```text\s*(.*?)\s*```", markdown_text, flags=re.DOTALL)
+    if not match or not match.group(1).strip():
+        raise ValueError("docs/sys_prompt.md must contain a non-empty ```text code block")
+    return match.group(1).strip()
+
+
+def _load_backend_system_prompt(path: Path = DEFAULT_SYSTEM_PROMPT_DOC) -> str:
+    try:
+        markdown_text = path.read_text(encoding="utf-8")
+    except OSError:
+        return FALLBACK_BACKEND_SYSTEM_PROMPT
+    return _extract_system_prompt_from_doc(markdown_text)
+
+
+BACKEND_SYSTEM_PROMPT = _load_backend_system_prompt()
 AMAP_TRIGGER_KEYWORDS = (
     "查路线",
     "怎么走",
