@@ -15,6 +15,15 @@ CONTEXT_LIMIT_INPUT_OUTPUT_PATTERN = re.compile(r"You passed (\d+) input tokens 
 CONTEXT_LIMIT_TOTAL_PATTERN = re.compile(r"context length is only (\d+) tokens")
 CONTEXT_LIMIT_MAX_INPUT_PATTERN = re.compile(r"maximum input length of (\d+) tokens")
 TEXT_TOOL_CALL_PATTERN = re.compile(r"<tool_call>\s*(.*?)\s*</tool_call>", re.DOTALL | re.IGNORECASE)
+TOOL_RESULT_SYNTHESIS_INSTRUCTION = """请基于刚才的工具结果，给用户一个自然、完整、可执行的中文回答。
+
+回答要求：
+1. 先用一句话直接回应用户需求。
+2. 如果是酒店、餐厅、景点或周边推荐，优先列出 3-5 个最有参考价值的结果；每个结果尽量包含名称、距离或方位、地址或区域、适合理由。工具结果没有的信息不要编造。
+3. 如果是路线规划，按“推荐路线 / 关键换乘或步行点 / 注意事项”的结构整理；预计用时、距离、票价等只使用工具结果中明确给出的信息。
+4. 如果用户要攻略或行程，把工具结果融入行程建议中，可适度使用 emoji 分栏，但不要堆砌。
+5. 对营业、价格、房态、实时路况、排队情况等不确定内容，提醒以官方、导航或商家最新信息为准。
+6. 不要暴露工具调用过程、函数名、JSON、内部字段或原始工具返回。"""
 
 
 def _resolve_chat_completions_url(base_url: str) -> str:
@@ -234,6 +243,19 @@ def _shrink_max_tokens_for_context_error(error_body: str, current_max_tokens: in
     return adjusted_max_tokens
 
 
+def _should_request_final_synthesis(
+    *,
+    tool_sequence: list[str],
+    latest_call: ExecutedToolCall,
+    max_tool_rounds: int,
+) -> bool:
+    if latest_call.tool_name != "amap_geocode":
+        return True
+    if latest_call.result.get("status") != "success":
+        return True
+    return len(tool_sequence) >= max_tool_rounds
+
+
 class ChatCompletionClient(Protocol):
     def complete(
         self,
@@ -375,12 +397,13 @@ class ToolCallingOrchestrator:
         raw_responses: list[dict[str, Any]] = []
         executed_calls: list[ExecutedToolCall] = []
         tool_sequence: list[str] = []
+        force_final_answer = False
 
         for _ in range(self.max_tool_rounds + 1):
             response_payload = self.chat_client.complete(
                 transcript,
                 model=self.model,
-                tools=self.tool_schemas,
+                tools=None if force_final_answer else self.tool_schemas,
                 max_tokens=max_tokens,
                 temperature=temperature,
                 top_p=top_p,
@@ -402,6 +425,7 @@ class ToolCallingOrchestrator:
                 }
 
             transcript.append(assistant_message)
+            force_final_answer = False
             for tool_call in assistant_message["tool_calls"]:
                 function = tool_call["function"]
                 tool_name = function["name"]
@@ -425,6 +449,14 @@ class ToolCallingOrchestrator:
                         "content": json.dumps(tool_result, ensure_ascii=False),
                     }
                 )
+
+            if executed_calls and _should_request_final_synthesis(
+                tool_sequence=tool_sequence,
+                latest_call=executed_calls[-1],
+                max_tool_rounds=self.max_tool_rounds,
+            ):
+                transcript.append({"role": "user", "content": TOOL_RESULT_SYNTHESIS_INSTRUCTION})
+                force_final_answer = True
 
         fallback_message = {
             "role": "assistant",
