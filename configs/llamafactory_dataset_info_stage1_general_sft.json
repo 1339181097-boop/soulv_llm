@@ -12,5 +12,33 @@
       "assistant_tag": "assistant",
       "system_tag": "system"
     }
+  },
+  "soulv_stage1_general_sft_badcase_repair_15pct": {
+    "file_name": "stage1_general_sft_with_badcase_repair_15pct.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
+  "soulv_stage1_general_sft_badcase_repair_15pct_lf": {
+    "file_name": "stage1_general_sft_with_badcase_repair_15pct_lf.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
   }
 }

@@ -126,6 +126,7 @@ class ServerConfig:
     upstream_api_key: str
     default_model: str
     request_timeout_seconds: int
+    enable_tool_orchestration: bool
 
 
 def _normalize_upstream_base_url(base_url: str) -> str:
@@ -283,6 +284,9 @@ class FrontendRequestHandler(SimpleHTTPRequestHandler):
             self._handle_chat()
             return
         if parsed.path == "/api/tool-orchestrate":
+            if not self.app_config.enable_tool_orchestration:
+                self._write_json(HTTPStatus.NOT_FOUND, {"error": "Tool orchestration is disabled."})
+                return
             self._handle_tool_orchestrate()
             return
         if parsed.path == "/v1" or parsed.path.startswith("/v1/"):
@@ -308,7 +312,7 @@ class FrontendRequestHandler(SimpleHTTPRequestHandler):
         )
 
         try:
-            if _should_use_amap(sanitized_messages):
+            if self.app_config.enable_tool_orchestration and _should_use_amap(sanitized_messages):
                 orchestrator = ToolCallingOrchestrator(
                     chat_client=chat_client,
                     model=model,
@@ -556,6 +560,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=300,
         help="HTTP timeout in seconds for upstream requests.",
     )
+    parser.add_argument(
+        "--disable-tool-orchestration",
+        action="store_true",
+        help="Disable automatic AMap/tool orchestration and serve pure stage1 chat only.",
+    )
     return parser
 
 
@@ -572,6 +581,7 @@ def main() -> None:
         upstream_api_key=args.upstream_api_key.strip(),
         default_model=args.default_model.strip(),
         request_timeout_seconds=args.request_timeout_seconds,
+        enable_tool_orchestration=not args.disable_tool_orchestration,
     )
 
     handler_class = partial(FrontendRequestHandler, directory=str(frontend_dir))
@@ -579,7 +589,9 @@ def main() -> None:
     log_info(f"Frontend dir: {frontend_dir}")
     log_info(f"Proxying /v1 to: {app_config.upstream_base_url}/v1")
     log_info(f"Chat endpoint: http://{args.host}:{args.port}/api/chat")
-    log_info(f"Tool orchestration endpoint: http://{args.host}:{args.port}/api/tool-orchestrate")
+    log_info(f"Tool orchestration enabled: {app_config.enable_tool_orchestration}")
+    if app_config.enable_tool_orchestration:
+        log_info(f"Tool orchestration endpoint: http://{args.host}:{args.port}/api/tool-orchestrate")
     log_info(f"Open the UI at: http://{args.host}:{args.port}/")
     try:
         server.serve_forever()

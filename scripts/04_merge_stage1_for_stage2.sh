@@ -11,11 +11,14 @@ case "$TARGET" in
   stage1_32b)
     CONFIG="configs/llamafactory_stage1_32b_merge_for_stage2.yaml"
     ;;
+  stage1_32b_repair)
+    CONFIG="configs/llamafactory_stage1_32b_badcase_repair_merge_for_stage2.yaml"
+    ;;
   *)
     if [[ -f "$TARGET" ]]; then
       CONFIG="$TARGET"
     else
-      echo "Usage: bash scripts/04_merge_stage1_for_stage2.sh [stage1|stage1_32b|config_path]"
+      echo "Usage: bash scripts/04_merge_stage1_for_stage2.sh [stage1|stage1_32b|stage1_32b_repair|config_path]"
       exit 1
     fi
     ;;

@@ -23,8 +23,11 @@ case "$STAGE" in
       formal)
         CONFIG="configs/llamafactory_stage1_32b_formal_sft.yaml"
         ;;
+      repair)
+        CONFIG="configs/llamafactory_stage1_32b_badcase_repair_sft.yaml"
+        ;;
       *)
-        echo "Usage: bash scripts/02_run_sft.sh stage1_32b [smoke|formal]"
+        echo "Usage: bash scripts/02_run_sft.sh stage1_32b [smoke|formal|repair]"
         exit 1
         ;;
     esac

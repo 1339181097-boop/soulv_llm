@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 from collections import Counter
@@ -16,8 +17,8 @@ if __package__ in {None, ""}:
 
 from src.data_pipeline.data_utils import configure_console_output, log_error, log_info, log_success, log_warn, resolve_path, write_json
 
-DASHSCOPE_API_KEY = {
-    "api_key": "sk-b3c3bf1a6e594ce9869ef3e9a21efee4",
+DEFAULT_DASHSCOPE_CONFIG = {
+    "api_key_env": "DASHSCOPE_API_KEY",
     "model": "qwen-plus",
     "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
 }
@@ -465,6 +466,9 @@ def run_judge(args: argparse.Namespace) -> Path:
     rubrics_dir = resolve_path(args.rubrics_dir)
     common_rubric = _load_rubric_text(rubrics_dir, COMMON_RUBRIC_FILE)
 
+    if not args.api_key:
+        raise ValueError(f"Missing DashScope API key. Set {DEFAULT_DASHSCOPE_CONFIG['api_key_env']} or pass --api-key.")
+
     request_url = _resolve_chat_completions_url(args.base_url)
     config = JudgeConfig(
         request_url=request_url,
@@ -586,9 +590,13 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--task", action="append", default=[], help="Optional task filter. May be passed multiple times.")
     parser.add_argument("--limit", type=int, default=None, help="Optional max number of samples per task.")
     parser.add_argument("--rubrics-dir", default=DEFAULT_RUBRICS_DIR, help="Directory containing common_rubric.md and <task>.md rubric files.")
-    parser.add_argument("--base-url", default=DASHSCOPE_API_KEY["base_url"], help="DashScope compatible-mode base URL.")
-    parser.add_argument("--api-key", default=DASHSCOPE_API_KEY["api_key"], help="DashScope API key.")
-    parser.add_argument("--judge-model", default=DASHSCOPE_API_KEY["model"], help="Judge model name, such as qwen-plus.")
+    parser.add_argument("--base-url", default=DEFAULT_DASHSCOPE_CONFIG["base_url"], help="DashScope compatible-mode base URL.")
+    parser.add_argument(
+        "--api-key",
+        default=os.getenv(DEFAULT_DASHSCOPE_CONFIG["api_key_env"], ""),
+        help="DashScope API key. Prefer setting DASHSCOPE_API_KEY.",
+    )
+    parser.add_argument("--judge-model", default=DEFAULT_DASHSCOPE_CONFIG["model"], help="Judge model name, such as qwen-plus.")
     parser.add_argument("--temperature", type=float, default=0.0, help="Judge sampling temperature.")
     parser.add_argument("--max-tokens", type=int, default=1200, help="Maximum tokens for judge output.")
     parser.add_argument("--timeout-seconds", type=int, default=300, help="HTTP timeout in seconds for each judge request.")

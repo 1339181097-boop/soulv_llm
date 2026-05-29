@@ -10,6 +10,7 @@ UPSTREAM_VLLM_BASE_URL="${UPSTREAM_VLLM_BASE_URL:-http://127.0.0.1:8000}"
 DEFAULT_MODEL_NAME="${DEFAULT_MODEL_NAME:-qwen3_32b_official}"
 REQUEST_TIMEOUT_SECONDS="${REQUEST_TIMEOUT_SECONDS:-300}"
 UPSTREAM_VLLM_API_KEY="${UPSTREAM_VLLM_API_KEY:-}"
+ENABLE_TOOL_ORCHESTRATION="${ENABLE_TOOL_ORCHESTRATION:-1}"
 PROJECT_ROOT="${PROJECT_ROOT:-$DEFAULT_PROJECT_ROOT}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 
@@ -26,10 +27,15 @@ if [[ -n "$UPSTREAM_VLLM_API_KEY" ]]; then
   cmd+=(--upstream-api-key "$UPSTREAM_VLLM_API_KEY")
 fi
 
+if [[ "$ENABLE_TOOL_ORCHESTRATION" == "0" ]]; then
+  cmd+=(--disable-tool-orchestration)
+fi
+
 echo "Launching frontend gateway with:"
 echo "  host=$HOST port=$PORT"
 echo "  upstream_vllm_base_url=$UPSTREAM_VLLM_BASE_URL"
 echo "  default_model_name=$DEFAULT_MODEL_NAME"
+echo "  enable_tool_orchestration=$ENABLE_TOOL_ORCHESTRATION"
 echo "  project_root=$PROJECT_ROOT"
 printf '  command='
 printf '%q ' "${cmd[@]}"
